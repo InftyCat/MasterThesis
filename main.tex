@@ -1,0 +1,625 @@
+\documentclass{article}
+\newcommand{\Cov}{\emph{Cov} }
+\newcommand{\affineA}{(affine ?)}
+\newcommand{\Cover}{\emph{Cov}er }
+\newcommand{\truncation}{$\bT$runcation}
+%\newcommand{\Atl}{\emph{Atlas}}
+\usepackage{graphicx} % Required for inserting images
+\newcommand{\red}[1]{{\color{red} #1}}
+
+\include{preamble}
+\title{Thesis}
+\author{Tim Lichtnau }
+\date{May 2024}
+
+\begin{document}
+
+\maketitle
+\section{Saturated Topologies}
+Consider a topology $\bT$ finer than the Zariski topology.
+\begin{definition}
+    A smooth atlas of $X$ is  some $\hat X \in \bT , \hat X \to X \text{ $\bT$-cover }$
+    \end{definition}
+\begin{definition}
+     $\bT$ is saturated if Beeing in the topology descents along $\bT$-covers between affines, i.e. every affine schemes that has a smooth atlas lies itself in $\bT$. \\
+    The saturated closure of a topology $\bT$ is the topology $\bT'$ defined by (todo finite sums of?)
+    \[
+    X \in \bT' \text{ iff $X$ is affine} \land \exists \text{ smooth atlas of } X 
+    \]
+    %i.e. the affine smooth $0$-stacks.
+\end{definition}
+\begin{lemma}
+    Using ZLC, this is the smallest saturated topology containing $\bT$.
+\end{lemma}
+\begin{proof}
+Obviously $1 \in \bT'$. Types which have a smooth atlas are stable by dependent sums by the proof of \ref{thM:stabSums}. For the saturatedness consider some $\bT'$-cover $\bT' \ni X' \to X$. By replacing $X'$ with some smooth atlas, we may assume that $X' \in \bT$. As every fiber $X'_x \in \bT'$, we merely find a smooth atlas $\tilde X'_x \to X'_x$. Then by Zariski local choice there exists a Zariski atlas $\hat X \to X$ and a commutative diagram 
+% https://q.uiver.app/#q=WzAsNCxbMCwwLCJcXHN1bV97eCA6IFxcaGF0IFh9XFx0aWxkZSBYJ194Il0sWzAsMSwiXFxoYXQgWCJdLFsxLDEsIlgiXSxbMSwwLCJcXHN1bV97eCA6IFh9WCdfeCJdLFszLDJdLFsxLDIsIlphciIsMl0sWzAsMV0sWzAsM11d
+\[\begin{tikzcd}
+	Y \equiv {\sum_{x : \hat X}\tilde X'_x} & {\sum_{x : X}X'_x} = X' \\
+	{\hat X} & X
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-1, to=2-1]
+	\arrow[from=1-2, to=2-2]
+	\arrow["Zar"', from=2-1, to=2-2]
+\end{tikzcd}\]
+As $X' \in \bT$ and $Y \to X'$ is fibered in $\bT$ (\ref{lemma:AtlasSum}) we have $Y \in \bT$. But $Y \to \hat X$ is a $\bT$-cover and $\hat X \to X$ is a $\bT$-cover, $Y \to X$ is a $\bT$-cover. Hence $X \in \bT'$.
+%smooth $n$-stacks are stable under dependent sums \ref{thM:stabSums}
+     %Obviously $1 \in \bT'$. We say a type $X$ has smooth local choice if for all $\bT$-surjections $S \to S'$ and a map $X \to S'$ there exists a smooth atlas of $X$ lifting to $S$. 
+    % %First observe that every $X \in \bT$ has smooth local choice:
+    % Now any $X \in \bT'$ satisfies local choice wrt smooth atlasses because it has a smooth atlas and smooth atlasses are stable under composition and Zariski covers are in $\bT$. 
+    % Hence ...
+\end{proof}
+\begin{lemma}
+    A type $T$ is a sheaf wrt to $\bT'$ iff it is a sheaf wrt to $\bT$
+\end{lemma}
+\begin{proof}
+    As $\bT \subset \bT'$ the $\rightarrow$ direction is clear. Now, let $X \in \bT'$. We have to show that $T \to T^{\|X\|}$ is an equivalence. Choose $\bT \ni Y \to X$. Then we have a commutative diagram
+    % https://q.uiver.app/#q=WzAsMyxbMCwwLCJUIl0sWzEsMCwiVF57XFx8WFxcfH0iXSxbMSwxLCJUXntcXHxZXFx8fSJdLFswLDFdLFsxLDJdLFswLDIsIlxcc2ltZXEiLDJdXQ==
+\[\begin{tikzcd}
+	T & {T^{\|X\|}} \\
+	& {T^{\|Y\|}}
+	\arrow[from=1-1, to=1-2]
+	\arrow["\simeq"', from=1-1, to=2-2]
+	\arrow[from=1-2, to=2-2]
+\end{tikzcd}\]
+So $T \to T^{\|X\|}$ has a left-inverse. Thus it suffices to show that any $f : T^{\|X\|}$ has a preimage. Choose $t : T$, s.th. $\mathrm{cnst}^Y_t$ is the composite $\|Y\| \to \|X\| \overset{f}{\to} T$. We have $\|Y\| \to (\mathrm{cnst}^X_t = f)$. But as $Y \in \bT$ and $\Delta_t = f$ is a sheaf (as an identitytype in the sheaf $T^{\|X\|}$) we are done.
+\end{proof}
+\begin{rmk}
+    We never used that we only talk about $\bT$-covers.
+\end{rmk}
+\begin{lemma}
+Every saturated affine (i.e. $\Spec A \in \bT'$) it $\bT$-merely inhabited.     
+\end{lemma}
+\begin{proof}
+    We have $\|X\| \to \|\Spec A\|$ for some smooth atlas $\bT \ni X \to \Spec A$.
+\end{proof}
+
+\begin{question}
+    Does the converse hold, i.e. is every $\bT$-merely inhabited affine saturated?    
+\end{question}
+% \begin{lemma}
+%     A type $T$ is a saturated $\bT$-sheaf if for all $X \in \bT$ the diagonal
+%     \[
+%     T \to T^{L_\bT \|X \|}
+%     \]
+%     is an equivalence.
+% \end{lemma}
+% \begin{proof}
+%     If $X \in \bT'$, we can choose a smooth atlas $\hat X \to X$. As it is in particular $\bT$-surjective we have $\|X\| \overset{\sim}{\to} L_T \|\hat X\| $ which gives us that the composite
+%     \[
+%     T \overset{\simeq}{\to} T^{L_\bT \|X'\|}  \overset{\simeq}{\to}  T^{\|X\|}
+%     \]
+%     is an equivalence. 
+% \end{proof}
+
+
+\section{Lex Modalities}
+\begin{lemma}[Stability resuls]{\label{lemma:LexStability}}
+Lex Modalities are stable under 
+\begin{enumerate}
+    \item Conjunction
+    \item Composition
+\end{enumerate}
+    
+\end{lemma}
+\begin{lemma}{\label{lemma:LexSumStable}}
+    Let $\ci$ be a lex-modality. Let $X$ be $\ci$-modal and $B : X \to \cU_{\ci}$ be a family of modal types. Then $\sum_{x : X} B_x$ is $\ci$-modal
+\end{lemma}
+\begin{lemma}{\label{lemma:mod_comm_sum}}
+    Let $B  : \bullet X \to \cU$. Then $\bullet (\sum_{x : X} B (\eta x)) = \sum_{x : \bullet X} \bullet B x$
+\end{lemma}
+\begin{proof}
+    Observe that 
+    \[
+    \sum_{x : X} B \eta x \to \sum_{x : \bullet X} B x
+    \]
+    is a $\bullet$-equivalence, because for all modal types $T$, the type $B x \to T$ is modal for any $x : \bullet X$. \\
+    Then it follows by \todocite.
+\end{proof}
+\section{Atlas}
+\begin{definition}
+    % Let $T \subset \cU$ be any subtype of the universe. 
+    % A $\bT$-cover 
+    A $\bT$-atlas of $X$ is a $\bT$-cover $\Spec A \to X$ out of an affine scheme.
+    % of a type $\bT$ is an affine Scheme $\Spec A$ with a formally \etale \etale-surjective map
+    % \[
+    % \Spec A \to T.
+    % \]    
+\end{definition}
+% \begin{lemma}
+%     $\bT$-atlasses are stable under composition.
+% \end{lemma}
+\begin{rmk}{\label{rmk:defatlas}}
+    Any good enough TODO scheme has a Zariski atlas. If $\bT$ is finer than the Zariski-topology then in the definition we may replace affine scheme by good enough scheme, if its just about the question whether a type admits an atlas.
+\end{rmk}
+
+\begin{example}
+    Let $X$ be a (1-)type. $X$ has a Zariski-atlas, iff there exists some $f : \Spec A \to X$ fibered in types of the form $\Spec (R_{f_1} \times \hdots \times R_{f_n})$ for $(f_1,\hdots,f_n) \in Um(R)$. 
+\end{example}
+\begin{rmk}{\label{ZLCGivesZariski}}
+    If one applies ZLC to an affine scheme $\Spec A$ the resulting principal open cover $D(f_i), f_i \in A$ will induce indeed a zariski atlas $\bigsqcup D(f_i) \to \Spec A$, because the fiber over $x : \Spec A$ is $\bigsqcup D(f_i(x))$.
+\end{rmk}
+Question: Does every zariski atlas of $\Spec A$ have this form? \nameref{ex:weirdZarAtlasses}
+%Let $\cZ$ be the class of types which have a Zariski cover.
+
+\begin{example}{\label{ex:PnIsStack}}
+    $\bP^n$ has a zariski atlas given by the standart homogeneous principal opens $\sum_{i=0}^n D_+(x_i)$. The fiber over a point $[y_0 : \hdots . y_n]$ is $D(y_0) + \hdots D(y_n)$ where $(y_1,\hdots,y_n) \in Um(R)$. % Indeed the standart principal opens $D_+(x_0) , \hdots , D_+(x_n)$ form a presentable open cover.    
+\end{example}
+ 
+
+% Warning: Let $X$ be a . Then $X$ is already affine if it has a Zariski cover, i.e.  there exists some $f : \Spec A \to X$ fibered in types of the form $\Spec (R_{f_1} \times \hdots \times R_{f_n})$ for $(f_1,\hdots,f_n) \in Um(R)$. More generally: We can facto
+
+\section{Local Choice}
+In this section let $\bT$ denote a topology finer than the zariski topology.
+\begin{definition}
+    Let \Cov be a class of morphisms (which we think of $n$-atlasses of some $n$), containing $\bT$-atlas, (stable under pullback NECESSARY TODO?)
+    A type $S$ has \emph{local choice} wrt \Cov if for any $\bT$ -surjective map $X \to Y$ and any map $f : S \to Y$ there exists a map  $p' : S' \to S$ in \Cov and a commutative diagram
+    % https://q.uiver.app/#q=WzAsNCxbMCwwLCJUJyJdLFswLDEsIlQiXSxbMSwwLCJYIl0sWzEsMSwiWSJdLFsxLDNdLFsyLDNdLFswLDIsIiIsMix7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFswLDFdXQ==
+% https://q.uiver.app/#q=WzAsNCxbMCwwLCJUJyJdLFswLDEsIlQiXSxbMSwwLCJYIl0sWzEsMSwiWSJdLFsxLDNdLFsyLDMsInAiLDJdLFswLDIsIiIsMix7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFswLDFdXQ==
+\[\begin{tikzcd}
+	{S'} & X \\
+	S & Y
+	\arrow[dashed, from=1-1, to=1-2]
+	\arrow[from=1-1, to=2-1]
+	\arrow["p"', from=1-2, to=2-2]
+	\arrow["f",from=2-1, to=2-2]
+\end{tikzcd}\]
+%We say $S$ has affine local choice, if one can arrange $S'$ to be affine.
+\end{definition}
+\begin{prop}{\label{prop:LocalChoice}}
+%Let $\bT$ be a finer topology than the zariski topology.
+    Assume that \Cov is stable under composition and that Zariski-covers are in \Cov.
+    $S$ has  $\bT$-local choice wrt \Cov if it has a projective \Cover, i.e. there exists a projective (or, assuming ZLC, affine scheme resp.)  $\hat{S}$ with a map $g : \hat{S} \to S$ in \Cov. %, satisfying local choice wrt \Cov
+\end{prop}
+\begin{proof}
+    %We may assume that $f = \id_S$.
+    By stability under composition of \Cov, We may assume that $g : \hat{S} \to S$ is the identity.
+    As $p$ is $\bT$-surjective, for any $x : S$ there merely is a $\Spec B_x \in T$  and a map $\Spec B_x \to \| \fib_p (x) \| $. 
+    Claim: No matter on the assumptions (on $S = \hat{S}$), there exists a Zariski cover $S' \overset{p'}{\to} S$ with $S'$ projective (affine resp.) and a term in
+    \[\prod_{x : S'} \sum_{\Spec B_x \in T} \Spec B_x \to \| \fib_p (fp' x)\| \]
+    Proof: In the case of projectivity, just use $p' = \id_S$ and in the case of having ZLC and $S$ beeing affine, use ZLC (\ref{ZLCGivesZariski}). \qed(Claim)\\    
+    By setting 
+    \[(S'' := \sum_{x : S'} \Spec B_x) \overset{\pi}{\longrightarrow} S' \]
+    
+    the projection, we are now in the situation that for any $t : S''$ we merely have a point in $\fib_p((p''(t)))$ and $S'' \to S'$ is a $\bT$-cover, thus it is in \Cov. Moreover, $S''$ is a projective type (affine), as it is a dependent sum of projectives (affines). Hence again we now can find a lift $S'' \to X$. %By replacing $S''$ again with a Zariski cover we find a lift $S'' \to X$     
+    making
+    % https://q.uiver.app/#q=WzAsNSxbMCwwLCJUJyciXSxbMCwxLCJUJyJdLFswLDIsIlQiXSxbMSwyLCJYIl0sWzEsMCwiWSJdLFswLDFdLFsyLDMsImYiXSxbNCwzLCJwIiwyXSxbMCw0XSxbMSwyLCJwJyJdXQ==
+\[\begin{tikzcd}
+	{S''} & X \\
+	{S'} \\
+	S & S
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-1, to=2-1]
+	\arrow["p"', from=1-2, to=3-2]
+	\arrow["{p'}", from=2-1, to=3-1]
+	\arrow["\id", from=3-1, to=3-2]
+\end{tikzcd}\]
+commute. Now $S'' \to S' \to S$ as the composition of Zariski-covers and \Cover is a \Cover \details as desired.
+    %For the general case, the previous proof is enough. \todo
+\end{proof}
+The next lemma shows, that the class of types which have a $\bT$-cover is stable under dependent sums.
+\begin{lemma}{\label{lemma:AtlasSum}}
+    Let $\cU' \subset \cU$ be stable under dependent sums (e.g. $\bT$-inhabited types)
+    Let $X$ be a type with a  map $p : U \to X$ fibered in $\cU'$.  For any $x : X$, let $Y_x$ be a type and moreover for any $u : U$, we are given a map $q_u : V_u \to Y_{p(u)}$ fibered in $\cU'$. Then the induced map
+    \[
+    p : \sum_{u : U} V_u \to \sum_{x : X} Y_{x}
+    \]
+    is fibered in $\cU'$
+\end{lemma}
+\begin{proof}
+    The fiber of $p$ over some $(x,y) \in \sum_{x :X} Y_x$ is given by
+    \[
+    \sum_{u : \fib_p x} \fib_{q_u} (y') 
+    \]
+    where $y' : Y_{p(u)}$ (depending on $u$) is the transport of $y : Y_x$ along $x = p(u)$. As $\cU'$ is stable under dependent sum %(\ref{lemma:LexSumStable}, \ref{lemma:LexStability}), 
+    those fibers are again in $\cU'$. This shows the result.
+\end{proof}
+
+\section{Geometric $n$-stacks}
+% \begin{rmk}
+% A geometric (-1)-stack should not be defined as an affine scheme: Because otherwise schemes $\subset$ algebraic spaces would not be geometric 0-stacks, because in general their identity types are not affine.
+% \end{rmk}
+
+\begin{definition}
+Let $\bT$ be a subcanonical topology finer than the Zariski topology.
+    \begin{itemize}
+        
+    
+        \item A geometric $(-1)$-stack is an \affineA scheme. A smooth $(-1)$-stack is an affine scheme that belongs to $\bT$\\
+        
+        \item $X$ is A geometric $(n+1)$-stack if 
+        \begin{itemize}
+            \item $X$ is a $\bT$-sheaf
+            \item For any $x , y : X$ $x =_X y$ is \red{the $n$-$\bT$runcation of} a geometric $n$-stack
+            \item There exists an $n$-atlas, i.e. a $\bT$-surjective map $\Spec A \to X$ fibered in smooth $n$-stacks
+        \end{itemize}
+        \item $X$ is a smooth $n+1$-stack if
+        \begin{itemize}
+            \item $X$ is a geometric $(n+1)$-stack
+            \item There exists a $n$-atlas $\Spec A \to X$ with $\Spec A \in \bT$
+        \end{itemize}
+    \end{itemize}
+    
+\end{definition}
+
+\begin{rmk}
+    \red{The red truncation plays only a role in case $n=-1 \mapsto 0 = n+1$.
+    }
+    It was invented because we want that a geometric 1-stack that is a set is a geometric 0-stack. For this to hold, one needs, that propositions that are geometric 0-stacks are geometric -1-stacks. In \ref{lemma:prop0stacks} we will see that this is indeed the correct form.
+\end{rmk}
+%In the definition of an atlas, we need a notion of surjectivity (stable under basechange) which plays well with the topology: We need if $\bT \ni \Spec A \to Y$ is such a strong surjection with $Y$ affine, then $Y \in \bT$. (*) %, then $Y \in \bT$. (*) (TODO, maybe sheaf prop?) If  allows us to 
+\begin{lemma}{\label{lemma:succStab}}
+    A geometric (smooth) $n$-stack is a geometric (smooth) $n+1$-stack.
+\end{lemma}
+
+\begin{proof}
+    The only interesting thing is the induction start. Here we need, that $\bT$ is subcanonical to conclude that affines are $\bT$-sheaves.
+\end{proof}
+\begin{rmk}
+    If one changes the definition of atlas to be a map out of a scheme, then smooth -1 atlas will be scheme in $\bT$. Otherwise propositional -1-stack are not 0-stacks.
+\end{rmk}
+\begin{example}
+    A geometric 0-stack is a $\bT$-sheaf whose identity types are \red{(-1)-\truncation s of} (\affineA) schemes and there exists a $\bT$-atlas $\Spec A \to X$. \\
+    Why are schemes geometric 0-stacks? This holds in special case, for example if the scheme is quasi projective. 
+\end{example}
+\section{Stability results}
+\begin{theorem}{\label{thM:stabSums}}
+    Smooth / Geometric $n$-stacks are stable by dependent sums.
+\end{theorem}
+% \begin{notation}
+%     A \emph{ cover $U \to X$ of Something} is a map $U \to X$ such that the fibers are Something.
+% \end{notation}
+\begin{proof}
+    This holds for $n = -1$. \\
+    For $n \to n+1$. Let $B : X \to \cU$ be a family of geometric $n+1$-stacks indexed over a geometric $n+1$-stack $X$, then surely the total space $\sum_{x : X} B x$ is a $\bT$-sheaf as $\bT$-sheaves are stable under depentend sum. 
+    The identity types in a $\sum$ type are $\sum$ of identity types \red{and we use that $\|\cdot\|_\bT$  commute with dependent sums in the sense of \ref{lemma:mod_comm_sum}.}
+    \\ % and $B x$ is a fibers are geometric $n$-stacks by induction. \\
+    It remains to construct some $\Spec A \to \sum_{x : X} B_x$ fibered in smooth $n$-stacks.
+    For any $x : X$ we merely have a map $V_x \to B_x$ fibered in smooth $n$-stacks with $V_x$ affine. \\
+    Claim: $X$ has local choice for $X$ wrt geometric $n$-atlasses.\\
+    Proof:
+        $n$-atlasses contain zariski-atlasses, because $\bT$ is finer than the Zariski topology.
+        geometric $n$-stacks are stable under dependent sum by induction, thus $n$-atlasses are stable under composition.         
+    \qed(Claim)\\
+    By (\ref{prop:LocalChoice}) for $X$, we merely find $U$ affine, a map $p : U \to X$ fibered in smooth $n$-stacks with
+    \[
+    \prod_{u : U} \sum_{V_{p(u)} \in T} (q : V_{p(u)} \to B_{p(u)}) \times (q \ \text{fibered in smooth } n \text{ stacks } )
+    \]
+    Now the desired map is $\sum_{u : U} V_{p u} \to \sum_{x : X} B_x$, because it is fibered in smooth $(n)$-stacks by \ref{lemma:AtlasSum} \\
+    If additionally, all the $B_x$ and $X$ are smooth $n$-stacks, just observe that we can choose the affine $V_{p u}$ to lie in $\bT$, Accordingly $\sum_{u : U} V_{p u} \in T$ as $\bT$ is stable under $\Sigma$.
+    
+\end{proof}
+\begin{corollary}{\label{cor:atlascomp}}
+    $n$-atlasses are stable under composition.
+\end{corollary}
+\begin{lemma}
+Geometric $n+1$-stacks are closed under taking closed (open) subtypes.
+%The Class of Types which have a Zariski atlas is closed  %and closed under dependent sums.
+\end{lemma}
+\begin{proof}
+First we show:if $X$ has an $n$-atlas and $Y$ is a closed (open) subtype of $X$, then $Y$ has an $n$-atlas. %In the presheaf model, moreover if $B : X \to \mathsf{Sch}$ is a dependent scheme such that each $B x$ has a zariski atlas, then $\sum_{x : X} Y x$ has a zariski atlas.
+    Choose an $n$-atlas $\Spec A \to X$. The pullback to $Y$ has have the same fibers.
+    
+    If $Y$ is closed,  and the total space is a closed subtype of $\Spec A$, hence it will be affine. \\
+    if $Y$ is an open subtype of $X$, then the pullback is an open subtype of $\Spec A$, hence by zariski local choice merely of the form $\bigcup_{i=1}^n D(a_i) \subset A$. 
+    As $n$-atlasses are stable under composition \ref{cor:atlascomp}, it suffices to show, that the map $f : \bigsqcup_i D(a_i) \to \bigcup_{i=1}^n D(a_i)$ is a Zariski-atlas, because then it will be an $n$-atlas as well. Let $x : \bigcup_{i=1}^n D(a_i)$, i.e. there merely exists an $i$, such that $a_i(x)$ is invertible. The fiber is exactly $D(a_1(x)) + \hdots + D(a_n(x))$. thus we are done. \\
+    % For the $\sum$-stability: %choose 
+    % First notice, that types which have a Zariski-Cover have Zariski-Local-Choice in the sense of \ref{prop:LocalChoice}: Zariski-atlasses are stable under composition. 
+    % Hence using Zariski-local choice for $X$, there exists a a zariski atlas $f : \Spec A \to X$, such that
+    % \[
+    % \prod_{x : \Spec A} \sum_{B_x} \sum_{f_x : \Spec B_x \to Y (f x)} \mathrm{isZariskiCover}(f_x)
+    % \]
+    % Now $\sum_{x : \Spec A} \Spec B_x \to \sum_{x : X} Y x$ is a Zariski cover \ref{lemma:AtlasSum}, because the zariski topology is stable under dependent sums.    
+    \end{proof}
+\begin{corollary}
+    Let $X$ be a quasi-projective scheme that is a sheaf. Then $X$ is a geometric 0-stack. 
+\end{corollary}   
+\begin{proof}
+    It suffices to see that $X$ has a zariski atlas. Use \label{ex:PnIsStack}.
+\end{proof}
+\section{Local properties}
+
+\begin{definition}
+Let \Cov be the property of morphisms of geometric $n$-stacks defined by asking that the morphism is $\bT$-surjective and fibered in smooth $n$-stacks. Its stable under basechange. A property of geometric $n$-stacks is local if $P(1)$ holds, $P$ is stable by dependent sums and given a \Cover  $X \to Y$ we have $P X$ iff $P Y$.
+\end{definition}
+\begin{example}    
+    beeing smooth $n$-stack is a local property of geometric stacks.
+\end{example}
+\begin{proof}
+    We have to show: If $f : X \to Y$ is a $\bT$-surjective map fibered in smooth $n$-stacks between geometric $n$-stacks, then $X$ is a smooth $n$-stack iff $Y$ is a smooth $n$-stack.
+    The only if is clear by stability under dependent sums.
+    If $X$ is a smooth $n$-stack, we find a $\bT$-surjection $T \ni V \twoheadrightarrow X$ fibered in smooth $n$-stacks. Then $V \to X \to Y$ is $\bT$-surjective and is fibered in smooth $n$-stacks by $\Sigma$-stability of smooth $n$-stacks.
+\end{proof}
+
+\begin{definition}
+    A property of morphisms between geometric $n$-stacks is local, if it is satisfied by identities, stable under composition and basechange/descent along \Cov-maps, precomposition/right cancellability with \Cov-maps.
+\end{definition}
+\begin{lemma}
+    Given a local property of types $P$. Then beeing fibered in $P$ is a local property of morphisms.
+\end{lemma}
+\begin{lemma}
+    Given a local property $P$ of morphisms of $n$-stacks, a morphism $f : X \to Y$ has $P$ if there exists an $n$-atlas of $f$ having $P$.
+\end{lemma}
+The previous lemma tells us that we have the correct notion of smooth morphisms between geometric $n$-stacks for $n = 0,1$.
+\section{Descent}
+ \begin{theorem}{\label{thm:descent}}
+     Let $T$ be an $n$-stack, i.e. a $n$-type that is a sheaf. The Proposition, that $P$ is a geometric (smooth) $n$-stack, is modal.
+ \end{theorem}
+\section{Fundamental Theorem of algebraic spaces}
+
+\begin{lemma}\label{quotient-by-equivalence-relation}
+Denote $\bT Set$ for the sets that are $\bT$-sheaves. Assume given a $\bT$set  $X$ then the following maps are mutually inverse
+\begin{align*}
+\sum_{R:X\to X\to \bT\Prop} R\ \mathrm{equivalence\ relation} &\simeq \sum_{Y:\bT \mathrm{\Set}} \sum_{p:X\to Y} p\ \bT\mathrm{surjective} \\
+R &\mapsto (X/R,[\_]) \\
+ \lambda x,y.  (p(x)=p(y)) &\mapsfrom (Y,p) 
+ \end{align*}
+where $X / R$ is defined by applying $L_T \| \_ \|_0 $ at the higher inductive type $X // R$.
+\end{lemma}
+
+\begin{proof}
+\begin{itemize}
+    \item Well-definedness: The map $[\_] : X \to \|X // R\|_0 \to L_T \|X // R\|_0$ is the composition of a surjective with a $\bT$-surjective map \todocite, hence its $\bT$-surjective. \\
+    Conversely given $(Y,p)$ as $Y$ is a sheaf, we have for all $x,y : X$ that $p(x) =_Y p(y)$ is a sheaf.
+    \item If $x,y : X$ then we have a chain of equivalences 
+    \[
+    R(x,y) \simeq (\bar x =_{\|X//R\|_0} \bar y) \to ([x] =_{L_T\|X//R\|_0} [y])
+    \]
+    where the first map is plain HoTT and the second map is $\mathsf{ap}$, i.e. the unit of the modality \todocite, but as the $\bar x =_{\|X//R\|_0} \bar y$ is already a sheaf, it is an isomorphism as well. \\
+    \item Let $(Y,p)$ be in the RHS. Let $R(x,y) = (p(x)=p(y)) : \bT \Prop$. By plain HoTT, There is a map $\eta : \| X // R \|_0 \to Y$ ( defined by the universal property of the set truncation and by induction on the higher inductive type $ X // R$ on canonical terms through the map $p : X \to Y$). I claim $\eta$ exhibits $Y$ as the sheafification of $\|X // R\|_0$. Let $T$ be another $\bT$sheaf equipped with a map $\|X // R \|_0 \to T$. By precomposition we obtain a map $X \to T$. 
+    Claim: it factors uniquely through $p : X \to Y$. 
+    % https://q.uiver.app/#q=WzAsNCxbMCwwLCJYIl0sWzEsMCwiXFx8WCAvIFJcXHwiXSxbMiwwLCJUIl0sWzEsMSwiWSJdLFswLDFdLFsxLDJdLFswLDNdLFszLDIsIlxcZXhpc3RzISIsMix7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dXQ==
+\[\begin{tikzcd}
+	X & {\|X // R\|_0} & T \\
+	& Y
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-1, to=2-2]
+	\arrow[from=1-2, to=1-3]
+	\arrow["{\exists!}"', dashed, from=2-2, to=1-3]
+\end{tikzcd}\]
+Proof: \\
+    Existence: We want to define a map $Y \to T$. Let $y : Y$. As $p$ is $\bT$-surjective and $T$ is a sheaf, we may assume we merely have some element in the fiber of $p$ over $y$. Now push this element through     
+    \[\|\fib_p y\| \to \|X // R\|_0 \to T\]
+    where the first map is by Plain HoTT and the second one was given by assumption. One can easily check this makes the diagram commute.
+    Uniqueness follows as $X \to Y$ is $\bT$-surjective and $\bT$ is a sheaf. \qed(Claim) \\
+    By surjectivity of $X \to \|X // R \|_0$ there exists a unique factorization 
+    % https://q.uiver.app/#q=WzAsNCxbMCwwLCJYIl0sWzEsMCwiXFx8WCAvIFJcXHwiXSxbMiwwLCJUIl0sWzEsMSwiWSJdLFswLDEsIiIsMCx7InN0eWxlIjp7ImhlYWQiOnsibmFtZSI6ImVwaSJ9fX1dLFsxLDJdLFswLDNdLFszLDIsIlxcZXhpc3RzISIsMix7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFsxLDNdXQ==
+\[\begin{tikzcd}
+	X & {\|X // R\|_0} & T \\
+	& Y
+	\arrow[two heads, from=1-1, to=1-2]
+	\arrow[from=1-1, to=2-2]
+	\arrow[from=1-2, to=1-3]
+	\arrow[from=1-2, to=2-2]
+	\arrow["{\exists!}"', dashed, from=2-2, to=1-3]
+\end{tikzcd}\]
+making the right triangle commute. This is what we wanted to show.
+\end{itemize}
+\end{proof}
+
+\begin{definition}
+An equivalence relation $R$ on a type $X$ is called:
+\begin{itemize}
+\item $n$-geometric if for all $x,y:X$ the proposition $R(x,y)$ is \red{the $n$-\truncation \ of} a geometric $n$-stack.
+\item $n$-smooth if its $n$-geometric and for any $x:X$ its fibers:
+\[R_y :\equiv \sum_{x:X} R(x,y)\]
+are smooth $n$-stacks.
+\end{itemize}
+\end{definition}
+\begin{rmk}
+    The next lemma motivates why one should put affine schemes for geometric -1-stacks and not schemes (which do not satisfy descent).
+\end{rmk}
+\begin{lemma}\label{fundamental-propriety-algebraic-spaces}
+Assume that $\bT$ satisfies descent for propositions \ref{thm:descent}, i.e. that a modal proposition being a \red{$(-1)$-\truncation} of a geometric (-1)-stack is a sheaf. 
+Assume given a $\bT$set $X$, then the following types are equivalent:
+\begin{itemize}
+\item The type of $-1$-smooth equivalence relations over $X$.
+\item The type of $\bT$sets $Y$ with identity types beeing \red{$(-1)$-\truncation s of} geometric (-1)-stacks and a $\bT$-surjective map from $X$ to $Y$ fibered in smooth $-1$-stacks.
+\end{itemize}
+\end{lemma}
+
+\begin{proof}
+By the equivalence in \ref{quotient-by-equivalence-relation}, it is enough to check that:
+\begin{itemize}
+\item The identity types in $X/R$ are \red{(-1)-\truncation s} of geometric (-1)-stacks if and only if the relation $R$ is (-1)-geometric. For any $x,y:X$ we know that:
+\[R(x,y) \simeq [x] =_{X/R}[y]\]
+so the direct direction is immediate. For the converse we use the assumption that a modal proposition being the \red{$(-1)$-\truncation} of geometric (-1)-stack is a sheaf and that the map $[\_]:X\to X/R$ is $\bT$-surjective.
+\item The fibers of: 
+\[[\_]:X\to X/R\] 
+are smooth $-1$-stacks if and only if the relation $R$ is $-1$-smooth. For any $y:X$ we have that:
+\[\sum_{x:X} R(x,y) \simeq \mathrm{fib}_{[\_]}([y])\]
+so the direct direction is immediate. Here as well the converse follows from $\bT$-surjectivity of $[\_]$. and the only modal proposition that is the \red{$(-1)$-\truncation} of a smooth (-1)-stack is the unit type. 
+\end{itemize}
+\end{proof}
+\begin{corollary}
+    Assume $\bT$ satisfies descent for propositions.
+    A type is a geometric 0-stack iff its merely the $\bT$-quotient of an affine scheme by a geometric equivalence relation.
+\end{corollary}
+\begin{theorem}{\label{thm:QuotientOfAlgebraicSpace}}
+    Assume $\bT$ satisfies descent for propositions. 
+    The quotient of a geometric $0$-stack $X \in \bT \Set$ by an $0$-smooth equivalence relation $R$ is a geometric $0$-stack.
+\end{theorem}
+
+\begin{proof}
+The identity types in $X / R$ are propositional geometric 0-stacks, hence $(-1)$-\truncation s of geometric -1-stacks by \ref{lemma:prop0stacks} as desired. \\
+How to find an atlas: todo. How to proceed, if we could choose all atlasses we want at the same time?
+% Motivation why the choice of atlasse should work: Let $T = X / R$. 
+%  If we could choose -1-atlasses $\tilde X_t$ for the smooth 0-stacks $\fib_{[]}(t)$ for all $t : T$ at the same time, then $\sum_{t : T} \tilde X_t \to \sum_{t : T} \fib_{[]}(t) \to T$ has as domain a geometricis fibered in smooth $-1$-stacks, as the fiber over $t$ would be $\tilde X_t$ which is an affine scheme in the topology. Moreover, This is enough as \\ %, hence by definition a smooth -1 stack. \\
+
+%     Given $p_1 , p_2 : R \rightrightarrows X$ fibered in smooth $0$-stacks, hence the fibers merely have $-1$-atlasses.
+%     %Claim: There exists a $-1$-atlas $R' \to R$
+%     As $X$ has Local choice with respect to $-1$-atlasses, we find a $-1$ atlas $f : X' \to X$ with 
+%     \[
+%     \prod_{x' : X'} \text{-1-atlas}(\sum_{x : X} R(x,f(x'))
+%     \]
+    
+\end{proof}
+\begin{rmk}
+    This is equivalent to saying that geometric $1$-stacks that are $0$-types are geomeric $0$-stacks: One direction we prove later. If $R$ is a 0-smooth equivalence relation on a geometric 0-stack $X$, then $ X/ R$ is a geometric 1-stack by observing that any -1-atlas $X' \to X$ gives a 0-atlas $X' \to X \to X/ R$. Moreover, $ X/ R$ is a 0-type, hence by assumption a geometric 0-stack.
+\end{rmk}
+
+\begin{example}
+    There are open affine subschemes $U$ of affine schemes $\Spec A$, which are not (disjoints unions of) principal open
+\end{example}
+\begin{proof}
+    Consider $A = R[x,y,u,v]/(xy + ux^2 + vy^2), X= \Spec A$ and consider the open $U = D(x,y)$. \\
+    We cant expect $U$ to be a disjoint union of principal opens (todo). However, $D(x,y)$ is affine: We have maps $U \to R$ given by
+    $f = -v/x = (y+ux)/y^2 , g= -u/y = (x+vy)/x^2$. 
+    Then $D(f) \cup D(g) = \Spec R^X$ , as $yf + xg = 1$ in $R^U$.
+    Taking preimages under the affinization map, $U_f \cup U_g = X$ and one checks this defines an open affine cover (for example : $U_f \simeq \Spec R[x,u,f^{\pm 1}, g] / (xy + ux^2 + uy^2)$ with $y := (1-gx)/f$.)
+    But on both of this open subsets the affinization map is an isomorphism
+    hence the affinization of $X$ is an isomorphism.
+    %\[R^X \simeq R^{D(f) \cup D(g)} \simeq R^{D(f)} \times_{R^{D(fg}} D(g) \]
+    compare (Hartshorne II.2.17)
+\end{proof}
+% \begin{example}
+%     The Zariski topology does not descent along $\bT$-covers between affines
+% \end{example}
+% \begin{proof}
+% Assume it would hold.
+% By the previous example pick such an open affine subset $U \subset \Spec A$ and pick a Zariski atlas $V \to U$ such that $V$ is mereley of the form $D(a_1) + \hdots + D(a_n)$ for some $a_i \in A$. Let $x : \Spec A$. Then pulling pack the Zariski atlas along $U(x) \to U$ gives us a Zariski atlas of the open proposition $V' \to U(x)$. Now $V' + 1 \to U(x) + 1$ is a Zariski atlas with total space in the Zariski topology. By assumption, $U(x) + 1$ is in the topology, hence $U(x)$ would be a sum of principal opens. As it is a propososition, it would be a principal open subset of $1$. 
+% This is not a contradiction, because an open subset can be non principal although all the fibers are principal open props...
+% This is a contradiction by the assumption on $U \subset \Spec A$ beeing not principal open.
+    
+% \end{proof}
+\begin{lemma}
+    Let $f : X \to Y$ be surjective. There exists a Zariski Cover $X' \to X$ such that $X' \to Y$ is a Zariski cover iff there exists a Zariski Cover $X' \to X$, some $n : \bN$ and an open affine embedding $X' \hookrightarrow Y^n$ over $Y$.
+\end{lemma}
+
+% \begin{lemma}
+%     A morphism $f : X \to Y$ of geometric $n$-stacks is fibered in smooth $n$-stacks if there exists a smooth $n$-atlas of $f$.
+% \end{lemma}
+
+\section{Saturated Topologies revisited}
+
+\begin{lemma}[1.1]{\label{lemma:smoothatlas}}
+We want that every $n-1$-atlas of a smooth $n$-atlas has the additional requirement in the definition of smooth $n$-atlas. It turns out, that for this topology needs to be saturated:
+The following are equivalent
+\begin{enumerate}
+   
+    \item Beeing in the topology descents along $\bT$-covers between affines, i.e. $\bT$ is saturated.
+    \item A smooth $n$ -stack $X$ that is an affine scheme lies in the Topology $\bT$.  
+    \item Let $n \ge 0$. If $T$ is a smooth $n$-stack, then any $n-1$-atlas $U \to T$ satisfies $U \in \bT$.
+     \item If $U \overset{f}{\to} V \overset{g}{\to} W$ are maps between affines and $f$ and $gf$ are $\bT$ covers, then $g$ is a $\bT$ Cover
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+1 $\Rightarrow$ 2 \\
+  Induction.
+    This holds for $n=-1$. Assume it holds for $n-1$. Choose a $n-1$-atlas with $T$ source, i.e. $T \ni \Spec A \to X$ fibered in smooth $n-1$-stacks.  As it is affine, all the fibers of the atlas are affine smooth $n-1$-stacks, hence by induction they lie in $\bT$, thus the atlas is a $\bT$-cover between affines, hence $X \in \bT$. \\
+    2 $\Rightarrow$ 3 \\
+    As $U \to T$ is fibered in smooth $n-1$ stacks, all the fibers are in particular smooth $n$-stacks by \ref{lemma:succStab}. By stability under dependent sum $U = \sum_{t : T} U_t$ is a smooth $n$-stack that is affine, hence by assumption (2) it lies in the topology.\\
+3 $\Rightarrow$ 1 \\
+Let $X \to Y$ be a $\bT$-cover with $X$ affine in $\bT$ and $Y$ affine. Then $Y$ is a smooth $0$-stack, But $Y \to Y$ is a $-1$-atlas, hence by assumption $Y \in T$. 
+\\
+4 $\Rightarrow$ 1 \\
+Obvious
+\\
+1 $\Rightarrow$ 4 \\
+Check fiberwise
+\end{proof}
+
+ If $n \ge $, replacing $\bT$ by its saturation $\bT'$ does change the notion of geometric (smooth) $n$-stack, but we have the following statement, that tells us, that if we start with geometric 0-$\bT$-stacks then the notion of smoothness does not see the difference between $\bT$ and its saturation. 
+\begin{prop}
+    Let $X$ be a geometric 0-stack that is a weak smooth 0-stack, i.e. there exists a $\bT'$-atlas $\bT' \ni X' \to X$ (i.e. fibered in $\bT'$). Then $X$ is a smooth $0$-stack. 
+\end{prop}
+\begin{proof}
+    Wlog $X' \in \bT$. Choose a $-1$-atlas $\Spec A \to X$ (i.e. fibered in $\bT$). As the fibers of $X' \to X$ merely have smooth atlasses $\tilde X_x' \to X'_x$, we can use Local choice to obtain a commutative diagram $Y = \sum_{x' : X'} \tilde X_x'$
+    % https://q.uiver.app/#q=WzAsNCxbMCwwLCJcXHRpbGRlIFgiXSxbMCwxLCJYJyJdLFsxLDEsIlgiXSxbMSwwLCJcXFNwZWMgQSJdLFszLDJdLFsxLDIsIlxcYlQnIiwyXSxbMCwxXSxbMCwzLCJcXGJUIl1d
+% https://q.uiver.app/#q=WzAsNCxbMCwwLCJcXHRpbGRlIFgiXSxbMCwxLCJYJyJdLFsxLDEsIlgiXSxbMSwwLCJcXFNwZWMgQSJdLFszLDJdLFsxLDIsIlxcYlQnIiwyXSxbMCwxLCJcXGJUIiwyXSxbMCwzLCJcXGJUIl1d
+\[\begin{tikzcd}
+	{\tilde X} & {\Spec A} \\
+	{X'} & X
+	\arrow["\bT", from=1-1, to=1-2]
+	\arrow["\bT"', from=1-1, to=2-1]
+	\arrow[from=1-2, to=2-2]
+	\arrow["{\bT'}"', from=2-1, to=2-2]
+\end{tikzcd}\]
+As $Y \to X'$ is a$\bT$-cover and $X' \in \bT$ we conclude $Y \in \bT$. Hence we found a smooth $\bT$-atlas of $X$. 
+\end{proof}
+% \begin{prop}
+%     Let $n \ge 0$. Replacing $\bT$ by its saturation $\bT'$ does change the notion of geometric (smooth) $n$-stack
+% \end{prop}
+% \begin{proof}
+%     Induction. For $n = 0$ it is not clear, that if $X$ has an atlas fibered in $\bT'$, why it has an atlas fibered in $\bT$. TODO \\ REST IS CLEAR.
+% \end{proof}
+\subsection{Zariski Topology is not saturated}
+\begin{example}[Weird Zariski Atlasses]{\label{ex:weirdZarAtlasses}}
+    Assume those equivalent conditions on the Zariski topology.
+    There exist Zariski atlasses of affines $\Spec A = X$ which are not of the form $D(a_1) + \hdots + D(a_n) \to \Spec A$ for $(a_1,\hdots,a_n) \in Um(A)$
+\end{example}
+\begin{proof}
+     Indeed, using the first example, choose $U \subset \Spec A$ affine not principal open, then choosing a Zariski atlas $V \to U$ gives $V + X \to U + X \to X$ where $V + X \to X$ is a Zariski cover and $V + X \to U + X $ is a Zariski cover.
+    From (4), we deduce that $U +X \to X$ is a Zariski cover, but $U$ is not a disjoint union of principal opens in $\Spec A$. 
+\end{proof}
+\begin{example}
+     Assume those equivalent conditions on the Zariski topology. Every affine open proposition $U$ is principal open !
+\end{example}
+\begin{proof}
+    Let $V \to U$ be a Zariski atlas. Then $V +1  \to U + 1$ is a Zariski atlas with $V+1 \in \bT$ and $U + 1$ affine, hence by (1) $U+ 1 \in \bT$, hence $U$ is a disjoint union of principal opens hence, as it is a proposition, its principal open.
+ \end{proof}
+
+
+% \begin{proof}
+%     For the induction start, 
+%     if this is true, choose an $n$-atlas $X \to T$ such that $X \in \bT$. Take $R = U \times_T X$ which is in $\bT$ (check!). Then $R \to U$ is a $\bT$-cover with $R \in \bT$, hence $U \in \bT$ by ($\star$). \\
+%     Assume it holds for $(n-1)$. Choose an $n-1$-atlas $\bT \ni X \to T$. Then $R = U \times_T X$ is an $n-1$-stack, so we can choose a $n-2$-atlas $W \to R$. 
+%     Claim: $W \to X$ and $W \to U$ are fibered in smooth $n-1$-stacks.
+%     From there we conclude $W \in \bT$, hence $W \to U$ witnesses that $U$ is a smooth $n$-stack. Hence it lies in the topology by \ref{lemma:affinestack}.
+%     %For any $x : X$ the basechange $W_x \to R_x$ is an $n-2$ atlas of a smooth $n-1$-stack, hence by induction $W_x \in \bT$. So $W = \sum_{x : X} W_x \in \bT$. By ($\star$)   
+    
+% \end{proof}
+\section{geometric as a property of stacks}
+
+\begin{definition}
+Let $\bT$ be a subcanonical topology finer than the Zariski topology.
+    An $n$-stack is a $n$-type that is a sheaf. A stack is a sheaf that is an $n$-type for some $n$.
+\end{definition}
+\begin{lemma}
+    Let $n \ge 0$. A geometric $n$-stack is an $n$-stack.
+\end{lemma}
+\begin{proof}
+     The $n$-\truncation is an $n$-type. Now conclude by induction.
+\end{proof}
+We want to show that the notion of geometric stack makes sense, i.e. beeing geometric should not depend on the truncation level. 
+
+\begin{lemma}{\label{lemma:prop0stacks}}
+     Assume $\bT$ is saturated and satisfies descent for propositions. Let $P$ be a modal proposition. Then TFAE 
+     \begin{enumerate}
+         \item For some $m \ge 0$, $P$ is a geometric $m$ stack 
+         \item There exists some fp algebra $A$ such that $\Spec A \to P$ and $P$ is logically equivalent to $(\Spec A \in \bT)$.
+         %\item 
+         \item $P$ is logically equivalent to $\|\Spec A\|_\bT$
+         \item $P$ is a geometric -1-stack.
+     \end{enumerate}
+     
+     
+\end{lemma}
+\begin{proof}
+\
+    \begin{itemize}
+        \item[$1.\Rightarrow 2.$]
+    
+     Let $\Spec A \to P$ be a $m-1$ atlas. Assume $\Spec A \in \bT$. Then $\|\Spec A\| \to P$ so as $P$ is a sheaf, we have $P$. Conversely, if $x : P$, then the fiber over $x$ is $\Spec A$ and a smooth $m-1$ stack, hence belongs to the topology by \ref{lemma:smoothatlas}. 
+     \item[$2. \Rightarrow 3.$]
+        %\red{We have to show: There exists some fp algebra such that $P$ is logically equivalent to $\|\Spec A\|_\bT$. }    
+        %[small todo for V2]
+        By assumption we have $\Spec A \to P$, so we deduce $\|\Spec A\|_\bT \to P$ as $P$ is a modal proposition. Conversely $P \to (\Spec A \in \bT) \to \|\Spec A\|_\bT$ , where the first arrow is by assumption.
+        \item [3. to 4] todo
+        \item [$4. \Rightarrow 1.$] \ref{lemma:succStab}
+     \end{itemize}
+\end{proof}
+\begin{theorem}
+    Let $\bT$ be saturated and assume $\bT$ satisfies descent for propositions. Let $m , n \ge -1$. Given an $n$-type $X$ that is a geometric (smooth) $m$-stack then $T$ is a geometric (smooth) $m$-stack.
+\end{theorem}
+\begin{proof}
+    By \ref{lemma:succStab} we may assume $m \ge n \ge -1$. \\
+    Case $n=-1$: A smooth $m$-stack, that is a proposition is contractible, hence in particular a smooth $-1$-stack. A propositional geometric $m$-stack by the previous lemma, is a geometric -1-stack. \\
+    Case $n =0$: Induction over $m$. If $m=0$ its clear. Assume $m \ge 1$. Let $X \to T$ an $n$-atlas. Take the pullback $R = X \times_T X$. As $T$ is a set, we may view $R$ as an equivalence relation $X \to X \to \bT \Prop$ on $X$. It is smooth: As a pullback of the $n$-atlas $X \to T$, $R \to X$ is fibered in smooth $m-1$ stacks. Moreover, those fibers are 0-types. By induction they are 0-types. By \ref{thm:QuotientOfAlgebraicSpace} $T$ is an algebraic space. \\
+    If, additionally $T$ is assumed to be a smooth $m$-stack, then by the above is is in particular a geometric 0-stack, so we may choose a -1-atlas $f : \Spec A \to X$. As $f$ is an $m-1$-atlas and $X$ is a smooth $m$-stack, $\Spec A$ lies in the topology by \ref{lemma:smoothatlas}, using that $\bT$ is saturated . Hence $X$ is a smooth 0-stack. This completes the case $n=0$ \\
+    %Then the $m$-atlas $X \to T$ can be choosen such that $X \in \bT$. As both $X$ and $T$ are Sets, the fibers are not only smooth $m-1$-stacks but also sets, hence by induction they are smooth $0$-stacks as well \\
+    Assume $n \ge 1$ and the statement is proven for all $(n',m') < (n,m)$ in lexicographical ordering. As the identity types of $T$ are $n-1$-types and geometric $m-1$ stacks by induction they are geometric $n-1$ stacks. Let $X \to T$ be an $m-1$-atlas, i.e. fibered in smooth $m-1$-stacks with $X$ affine. The fibers are in particular $n-1$-types, so by induction they are smooth $n-1$-stacks. Hence $X \to T$ is an $n-1$-atlas. If, additionally $T$ is assumed to be a smooth $m$-stack, we can choose $X \in \bT$, hence $X \to T$ witnesses that $T$ is a smooth $n$-stack.
+    
+\end{proof}
+\end{document}
+
