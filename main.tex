@@ -216,6 +216,7 @@ The next lemma shows, that the class of types which have a $\bT$-cover is stable
 \end{proof}
 
 \section{Geometric $n$-stacks}
+
 % \begin{rmk}
 % A geometric (-1)-stack should not be defined as an affine scheme: Because otherwise schemes $\subset$ algebraic spaces would not be geometric 0-stacks, because in general their identity types are not affine.
 % \end{rmk}
@@ -301,7 +302,7 @@ One could only alternatively talk about geometric (smooth) $n$-stacks for $n \ge
 \end{rmk}
 
 \section{Stability results}
-\begin{theorem}{\label{thM:stabSums}}
+\begin{theorem}{\label{thm:stabSums}}
     Let $n \ge -2$. Smooth / Geometric $n$-stacks are stable by dependent sums.
 \end{theorem}
 % \begin{notation}
@@ -358,22 +359,7 @@ First we show:if $X$ has an $n$-atlas and $Y$ is a closed (open) subtype of $X$,
 \begin{proof}
     It suffices to see that $X$ has a zariski atlas. Use \label{ex:PnIsStack}.
 \end{proof}
-\begin{theorem}{\label{thm:quotients}}
-    Let $f : X \to Y$ be a $\bT$-surjective smooth morphism between $n$-stacks. If $X$ is geometric (smooth), then $Y$ is geometric (smooth).
-\end{theorem}
-\begin{proof}
-    Induction.
-    For $n = -2$ its clear.
-    Let $X$ be a geometric $n$-stack. Lets first construct the $n-1$-atlas of $Y$.
-    We find a $V \twoheadrightarrow X$ which is an $n$-atlas.  Then $V \to X \to Y$ is an $n$-atlas because it is $\bT$-surjective and is fibered in the correct $\sum$-stable class of types, i.e. $\bT$ if $n \le 0$ and  smooth $n$-stacks for $n > 0$. \\
-    If additionally $X$ is assumed to be smooth, then $V$ can be assumed to lie in $\bT$ which directly gives us that $Y$ is smooth. \\
-    Now we want to show that the identity types of $Y$ are geometric $n-1$-stacks. Let us call the $n-1$-atlas $p : V \to Y$ from above. Let $y,y' : Y$.  Then we have the map
-    \begin{align*}
-    (\fib_p y) \times_Y (\fib_p y') &\to y = y' \\
-    (v , q : y = p v) , (v', q' : y' = p v') , (h : p v = p v') &\mapsto v \cdot h \cdot v'^{-1}
-    \end{align*}
-    One checks, that every fiber is equivalent to $\fib_p y \times \fib_p y'$. Thus the map is an $n-1$-atlas, because for $n \le 0$ $\bT$ and for $n > 0$ smooth $n-1$-stacks are stable under finite products.
-\end{proof}
+
 
 \begin{definition}
     A property of morphisms between geometric $n$-stacks is local, if it is satisfied by identities, stable under composition and basechange/descent along \Cov-maps, precomposition/right cancellability with \Cov-maps.
@@ -679,13 +665,30 @@ We want to show that the notion of geometric stack makes sense, i.e. beeing geom
     Assume $m > 2$ and the statement is proven for all $(n',m') < (n,m)$ in lexicographical ordering. As the identity types of $T$ are $n-1$-types and geometric $m-1$ stacks by induction they are geometric $n-1$ stacks. Let $X \to T$ be an $m-1$-atlas, i.e. fibered in smooth $m-1$-stacks with $X$ affine. The fibers are in particular $n-1$-types, so by induction they are smooth $n-1$-stacks. Hence $X \to T$ is an $n-1$-atlas. If, additionally $T$ is assumed to be a smooth $m$-stack, we can choose $X \in \bT$, hence $X \to T$ witnesses that $T$ is a smooth $n$-stack.
     
 \end{proof}
+\section{Stability under Quotients}
 \begin{definition}
-    A morphism between $n$-stacks is smooth if it is fibered in 
-    \begin{itemize}
-        \item $\bT$ if $n \le 0$
-        \item smooth $n$-stacks if $n > 0$.
-    \end{itemize}
+	A morphism between $n$-stacks is smooth if it is fibered in 
+	\begin{itemize}
+		\item $\bT$ if $n \le 0$
+		\item smooth $n$-stacks if $n > 0$.
+	\end{itemize}
 \end{definition}
+\begin{theorem}{\label{thm:quotients}}
+	Let $f : X \to Y$ be a $\bT$-surjective smooth morphism between $n$-stacks. If $X$ is geometric (smooth), then $Y$ is geometric (smooth).
+\end{theorem}
+\begin{proof}
+	Induction.
+	For $n = -2$ its clear.
+	Let $X$ be a geometric $n$-stack. Lets first construct the $n-1$-atlas of $Y$.
+	We find a $V \twoheadrightarrow X$ which is an $n-1$-atlas.  Then $V \to X \to Y$ is an $n$-atlas because it is $\bT$-surjective and is fibered in the correct $\sum$-stable class of types, i.e. $\bT$ if $n \le 1$ and  smooth $n-1$-stacks for $n > 1$. \\
+	If additionally $X$ is assumed to be smooth, then $V$ can be assumed to lie in $\bT$ which directly gives us that $Y$ is smooth. \\
+	Now we want to show that the identity types of $Y$ are geometric $n-1$-stacks. Let us call the $n-1$-atlas $p : V \to Y$ from above. Let $y,y' : Y$.  Then we have the map
+	\begin{align*}
+		(\fib_p y) \times_Y (\fib_p y') &\to y = y' \\
+		(v , q : y = p v) , (v', q' : y' = p v') , (h : p v = p v') &\mapsto v \cdot h \cdot v'^{-1}
+	\end{align*}
+	One checks, that every fiber is equivalent to $\fib_p y \times \fib_p y'$. Thus the map is an $n-1$-atlas, because for $n \le 0$ $\bT$ and for $n > 0$ smooth $n-1$-stacks are stable under finite products.
+\end{proof}
 \section{Local properties}
 
 \begin{definition}
@@ -723,5 +726,7 @@ Let \Cov be the property of morphisms of geometric $n$-stacks defined by asking 
 such that $\tilde f$ is a $\bT$-cover.
 \end{example}r
 The previous lemma tells us that we have the correct notion of smooth morphisms between geometric $n$-stacks for $n = 0,1$.
+
+
 \end{document}
 
