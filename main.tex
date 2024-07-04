@@ -215,9 +215,9 @@ The next lemma shows, that the class of types which have a $\bT$-cover is stable
     those fibers are again in $\cU'$. This shows the result.
 \end{proof}
 
-\section{Geometric $n$-stacks}
+\section{ $n$-stacks}
 % \begin{rmk}
-% A geometric (-1)-stack should not be defined as an affine scheme: Because otherwise schemes $\subset$ algebraic spaces would not be geometric 0-stacks, because in general their identity types are not affine.
+% A  (-1)-stack should not be defined as an affine scheme: Because otherwise schemes $\subset$ algebraic spaces would not be  0-stacks, because in general their identity types are not affine.
 % \end{rmk}
 
 \begin{definition}
@@ -225,17 +225,17 @@ Let $\bT$ be a subcanonical topology finer than the Zariski topology.
     \begin{itemize}
         
     
-        \item A geometric $(-1)$-stack is an \affineA scheme. A smooth $(-1)$-stack is an affine scheme that belongs to $\bT$\\
+        \item A  $(-1)$-stack is an \affineA scheme. A smooth $(-1)$-stack is an affine scheme that belongs to $\bT$\\
         
-        \item $X$ is A geometric $(n+1)$-stack if 
+        \item $X$ is A  $(n+1)$-stack if 
         \begin{itemize}
             \item $X$ is a $\bT$-sheaf
-            \item For any $x , y : X$ $x =_X y$ is \red{the $n$-$\bT$runcation of} a geometric $n$-stack
+            \item For any $x , y : X$ $x =_X y$ is \red{the $n$-$\bT$runcation of} a  $n$-stack
             \item There exists an $n$-atlas, i.e. a $\bT$-surjective map $\Spec A \to X$ fibered in smooth $n$-stacks
         \end{itemize}
         \item $X$ is a smooth $n+1$-stack if
         \begin{itemize}
-            \item $X$ is a geometric $(n+1)$-stack
+            \item $X$ is a  $(n+1)$-stack
             \item There exists a $n$-atlas $\Spec A \to X$ with $\Spec A \in \bT$
         \end{itemize}
     \end{itemize}
@@ -245,11 +245,11 @@ Let $\bT$ be a subcanonical topology finer than the Zariski topology.
 \begin{rmk}
     \red{The red truncation plays only a role in case $n=-1 \mapsto 0 = n+1$.
     }
-    It was invented because we want that a geometric 1-stack that is a set is a geometric 0-stack. For this to hold, one needs, that propositions that are geometric 0-stacks are geometric -1-stacks. In \ref{lemma:prop0stacks} we will see that this is indeed the correct form.
+    It was invented because we want that a  1-stack that is a set is a  0-stack. For this to hold, one needs, that propositions that are  0-stacks are  -1-stacks. In \ref{lemma:prop0stacks} we will see that this is indeed the correct form.
 \end{rmk}
 %In the definition of an atlas, we need a notion of surjectivity (stable under basechange) which plays well with the topology: We need if $\bT \ni \Spec A \to Y$ is such a strong surjection with $Y$ affine, then $Y \in \bT$. (*) %, then $Y \in \bT$. (*) (TODO, maybe sheaf prop?) If  allows us to 
 \begin{lemma}{\label{lemma:succStab}}
-    A geometric (smooth) $n$-stack is a geometric (smooth) $n+1$-stack.
+    A  (smooth) $n$-stack is a  (smooth) $n+1$-stack.
 \end{lemma}
 
 \begin{proof}
@@ -259,27 +259,27 @@ Let $\bT$ be a subcanonical topology finer than the Zariski topology.
     If one changes the definition of atlas to be a map out of a scheme, then smooth -1 atlas will be scheme in $\bT$. Otherwise propositional -1-stack are not 0-stacks.
 \end{rmk}
 \begin{example}
-    A geometric 0-stack is a $\bT$-sheaf whose identity types are \red{(-1)-\truncation s of} (\affineA) schemes and there exists a $\bT$-atlas $\Spec A \to X$. \\
-    Why are schemes geometric 0-stacks? This holds in special case, for example if the scheme is quasi projective. 
+    A  0-stack is a $\bT$-sheaf whose identity types are \red{(-1)-\truncation s of} (\affineA) schemes and there exists a $\bT$-atlas $\Spec A \to X$. \\
+    Why are schemes  0-stacks? This holds in special case, for example if the scheme is quasi projective. 
 \end{example}
 \section{Stability results}
 \begin{theorem}{\label{thM:stabSums}}
-    Smooth / Geometric $n$-stacks are stable by dependent sums.
+    Smooth /  $n$-stacks are stable by dependent sums.
 \end{theorem}
 % \begin{notation}
 %     A \emph{ cover $U \to X$ of Something} is a map $U \to X$ such that the fibers are Something.
 % \end{notation}
 \begin{proof}
     This holds for $n = -1$. \\
-    For $n \to n+1$. Let $B : X \to \cU$ be a family of geometric $n+1$-stacks indexed over a geometric $n+1$-stack $X$, then surely the total space $\sum_{x : X} B x$ is a $\bT$-sheaf as $\bT$-sheaves are stable under depentend sum. 
+    For $n \to n+1$. Let $B : X \to \cU$ be a family of  $n+1$-stacks indexed over a  $n+1$-stack $X$, then surely the total space $\sum_{x : X} B x$ is a $\bT$-sheaf as $\bT$-sheaves are stable under depentend sum. 
     The identity types in a $\sum$ type are $\sum$ of identity types \red{and we use that $\|\cdot\|_\bT$  commute with dependent sums in the sense of \ref{lemma:mod_comm_sum}.}
-    \\ % and $B x$ is a fibers are geometric $n$-stacks by induction. \\
+    \\ % and $B x$ is a fibers are  $n$-stacks by induction. \\
     It remains to construct some $\Spec A \to \sum_{x : X} B_x$ fibered in smooth $n$-stacks.
     For any $x : X$ we merely have a map $V_x \to B_x$ fibered in smooth $n$-stacks with $V_x$ affine. \\
-    Claim: $X$ has local choice for $X$ wrt geometric $n$-atlasses.\\
+    Claim: $X$ has local choice for $X$ wrt  $n$-atlasses.\\
     Proof:
         $n$-atlasses contain zariski-atlasses, because $\bT$ is finer than the Zariski topology.
-        geometric $n$-stacks are stable under dependent sum by induction, thus $n$-atlasses are stable under composition.         
+         $n$-stacks are stable under dependent sum by induction, thus $n$-atlasses are stable under composition.         
     \qed(Claim)\\
     By (\ref{prop:LocalChoice}) for $X$, we merely find $U$ affine, a map $p : U \to X$ fibered in smooth $n$-stacks with
     \[
@@ -293,7 +293,7 @@ Let $\bT$ be a subcanonical topology finer than the Zariski topology.
     $n$-atlasses are stable under composition.
 \end{corollary}
 \begin{lemma}
-Geometric $n+1$-stacks are closed under taking closed (open) subtypes.
+ $n+1$-stacks are closed under taking closed (open) subtypes.
 %The Class of Types which have a Zariski atlas is closed  %and closed under dependent sums.
 \end{lemma}
 \begin{proof}
@@ -312,7 +312,7 @@ First we show:if $X$ has an $n$-atlas and $Y$ is a closed (open) subtype of $X$,
     % Now $\sum_{x : \Spec A} \Spec B_x \to \sum_{x : X} Y x$ is a Zariski cover \ref{lemma:AtlasSum}, because the zariski topology is stable under dependent sums.    
     \end{proof}
 \begin{corollary}
-    Let $X$ be a quasi-projective scheme that is a sheaf. Then $X$ is a geometric 0-stack. 
+    Let $X$ be a quasi-projective scheme that is a sheaf. Then $X$ is a  0-stack. 
 \end{corollary}   
 \begin{proof}
     It suffices to see that $X$ has a zariski atlas. Use \label{ex:PnIsStack}.
@@ -320,19 +320,19 @@ First we show:if $X$ has an $n$-atlas and $Y$ is a closed (open) subtype of $X$,
 \section{Local properties}
 
 \begin{definition}
-Let \Cov be the property of morphisms of geometric $n$-stacks defined by asking that the morphism is $\bT$-surjective and fibered in smooth $n$-stacks. Its stable under basechange. A property of geometric $n$-stacks is local if $P(1)$ holds, $P$ is stable by dependent sums and given a \Cover  $X \to Y$ we have $P X$ iff $P Y$.
+Let \Cov be the property of morphisms of  $n$-stacks defined by asking that the morphism is $\bT$-surjective and fibered in smooth $n$-stacks. Its stable under basechange. A property of  $n$-stacks is local if $P(1)$ holds, $P$ is stable by dependent sums and given a \Cover  $X \to Y$ we have $P X$ iff $P Y$.
 \end{definition}
 \begin{example}    
-    beeing smooth $n$-stack is a local property of geometric stacks.
+    beeing smooth $n$-stack is a local property of  stacks.
 \end{example}
 \begin{proof}
-    We have to show: If $f : X \to Y$ is a $\bT$-surjective map fibered in smooth $n$-stacks between geometric $n$-stacks, then $X$ is a smooth $n$-stack iff $Y$ is a smooth $n$-stack.
+    We have to show: If $f : X \to Y$ is a $\bT$-surjective map fibered in smooth $n$-stacks between  $n$-stacks, then $X$ is a smooth $n$-stack iff $Y$ is a smooth $n$-stack.
     The only if is clear by stability under dependent sums.
     If $X$ is a smooth $n$-stack, we find a $\bT$-surjection $T \ni V \twoheadrightarrow X$ fibered in smooth $n$-stacks. Then $V \to X \to Y$ is $\bT$-surjective and is fibered in smooth $n$-stacks by $\Sigma$-stability of smooth $n$-stacks.
 \end{proof}
 
 \begin{definition}
-    A property of morphisms between geometric $n$-stacks is local, if it is satisfied by identities, stable under composition and basechange/descent along \Cov-maps, precomposition/right cancellability with \Cov-maps.
+    A property of morphisms between  $n$-stacks is local, if it is satisfied by identities, stable under composition and basechange/descent along \Cov-maps, precomposition/right cancellability with \Cov-maps.
 \end{definition}
 \begin{lemma}
     Given a local property of types $P$. Then beeing fibered in $P$ is a local property of morphisms.
@@ -340,10 +340,10 @@ Let \Cov be the property of morphisms of geometric $n$-stacks defined by asking 
 \begin{lemma}
     Given a local property $P$ of morphisms of modal $n$-types, a morphism $f : X \to Y$ has $P$ if there exists an $n$-atlas of $f$ having $P$.
 \end{lemma}
-The previous lemma tells us that we have the correct notion of smooth morphisms between geometric $n$-stacks for $n = 0,1$.
+The previous lemma tells us that we have the correct notion of smooth morphisms between  $n$-stacks for $n = 0,1$.
 \section{Descent}
  \begin{theorem}{\label{thm:descent}}
-     Let $T$ be a modal $n$-type. The Proposition, that $P$ is a geometric (smooth) $n$-stack, is modal.
+     Let $T$ be a modal $n$-type. The Proposition, that $P$ is a  (smooth) $n$-stack, is modal.
  \end{theorem}
 \section{Fundamental Theorem of algebraic spaces}
 
@@ -400,30 +400,30 @@ making the right triangle commute. This is what we wanted to show.
 \begin{definition}
 An equivalence relation $R$ on a type $X$ is called:
 \begin{itemize}
-\item $n$-geometric if for all $x,y:X$ the proposition $R(x,y)$ is \red{the $n$-\truncation \ of} a geometric $n$-stack.
-\item $n$-smooth if its $n$-geometric and for any $x:X$ its fibers:
+\item $n$- if for all $x,y:X$ the proposition $R(x,y)$ is \red{the $n$-\truncation \ of} a  $n$-stack.
+\item $n$-smooth if its $n$- and for any $x:X$ its fibers:
 \[R_y :\equiv \sum_{x:X} R(x,y)\]
 are smooth $n$-stacks.
 \end{itemize}
 \end{definition}
 \begin{rmk}
-    The next lemma motivates why one should put affine schemes for geometric -1-stacks and not schemes (which do not satisfy descent).
+    The next lemma motivates why one should put affine schemes for  -1-stacks and not schemes (which do not satisfy descent).
 \end{rmk}
 \begin{lemma}\label{fundamental-propriety-algebraic-spaces}
-Assume that $\bT$ satisfies descent for propositions \ref{thm:descent}, i.e. that a modal proposition being a \red{$(-1)$-\truncation} of a geometric (-1)-stack is a sheaf. 
+Assume that $\bT$ satisfies descent for propositions \ref{thm:descent}, i.e. that a modal proposition being a \red{$(-1)$-\truncation} of a  (-1)-stack is a sheaf. 
 Assume given a $\bT$set $X$, then the following types are equivalent:
 \begin{itemize}
 \item The type of $-1$-smooth equivalence relations over $X$.
-\item The type of $\bT$sets $Y$ with identity types beeing \red{$(-1)$-\truncation s of} geometric (-1)-stacks and a $\bT$-surjective map from $X$ to $Y$ fibered in smooth $-1$-stacks.
+\item The type of $\bT$sets $Y$ with identity types beeing \red{$(-1)$-\truncation s of}  (-1)-stacks and a $\bT$-surjective map from $X$ to $Y$ fibered in smooth $-1$-stacks.
 \end{itemize}
 \end{lemma}
 
 \begin{proof}
 By the equivalence in \ref{quotient-by-equivalence-relation}, it is enough to check that:
 \begin{itemize}
-\item The identity types in $X/R$ are \red{(-1)-\truncation s} of geometric (-1)-stacks if and only if the relation $R$ is (-1)-geometric. For any $x,y:X$ we know that:
+\item The identity types in $X/R$ are \red{(-1)-\truncation s} of  (-1)-stacks if and only if the relation $R$ is (-1)-. For any $x,y:X$ we know that:
 \[R(x,y) \simeq [x] =_{X/R}[y]\]
-so the direct direction is immediate. For the converse we use the assumption that a modal proposition being the \red{$(-1)$-\truncation} of geometric (-1)-stack is a sheaf and that the map $[\_]:X\to X/R$ is $\bT$-surjective.
+so the direct direction is immediate. For the converse we use the assumption that a modal proposition being the \red{$(-1)$-\truncation} of  (-1)-stack is a sheaf and that the map $[\_]:X\to X/R$ is $\bT$-surjective.
 \item The fibers of: 
 \[[\_]:X\to X/R\] 
 are smooth $-1$-stacks if and only if the relation $R$ is $-1$-smooth. For any $y:X$ we have that:
@@ -433,18 +433,18 @@ so the direct direction is immediate. Here as well the converse follows from $\b
 \end{proof}
 \begin{corollary}
     Assume $\bT$ satisfies descent for propositions.
-    A type is a geometric 0-stack iff its merely the $\bT$-quotient of an affine scheme by a geometric equivalence relation.
+    A type is a  0-stack iff its merely the $\bT$-quotient of an affine scheme by a  equivalence relation.
 \end{corollary}
 \begin{theorem}{\label{thm:QuotientOfAlgebraicSpace}}
     Assume $\bT$ satisfies descent for propositions. 
-    The quotient of a geometric $0$-stack $X \in \bT \Set$ by an $0$-smooth equivalence relation $R$ is a geometric $0$-stack.
+    The quotient of a  $0$-stack $X \in \bT \Set$ by an $0$-smooth equivalence relation $R$ is a  $0$-stack.
 \end{theorem}
 
 \begin{proof}
-The identity types in $X / R$ are propositional geometric 0-stacks, hence $(-1)$-\truncation s of geometric -1-stacks by \ref{lemma:prop0stacks} as desired. \\
+The identity types in $X / R$ are propositional  0-stacks, hence $(-1)$-\truncation s of  -1-stacks by \ref{lemma:prop0stacks} as desired. \\
 How to find an atlas: todo. How to proceed, if we could choose all atlasses we want at the same time?
 % Motivation why the choice of atlasse should work: Let $T = X / R$. 
-%  If we could choose -1-atlasses $\tilde X_t$ for the smooth 0-stacks $\fib_{[]}(t)$ for all $t : T$ at the same time, then $\sum_{t : T} \tilde X_t \to \sum_{t : T} \fib_{[]}(t) \to T$ has as domain a geometricis fibered in smooth $-1$-stacks, as the fiber over $t$ would be $\tilde X_t$ which is an affine scheme in the topology. Moreover, This is enough as \\ %, hence by definition a smooth -1 stack. \\
+%  If we could choose -1-atlasses $\tilde X_t$ for the smooth 0-stacks $\fib_{[]}(t)$ for all $t : T$ at the same time, then $\sum_{t : T} \tilde X_t \to \sum_{t : T} \fib_{[]}(t) \to T$ has as domain a is fibered in smooth $-1$-stacks, as the fiber over $t$ would be $\tilde X_t$ which is an affine scheme in the topology. Moreover, This is enough as \\ %, hence by definition a smooth -1 stack. \\
 
 %     Given $p_1 , p_2 : R \rightrightarrows X$ fibered in smooth $0$-stacks, hence the fibers merely have $-1$-atlasses.
 %     %Claim: There exists a $-1$-atlas $R' \to R$
@@ -455,7 +455,7 @@ How to find an atlas: todo. How to proceed, if we could choose all atlasses we w
     
 \end{proof}
 \begin{rmk}
-    This is equivalent to saying that geometric $1$-stacks that are $0$-types are geomeric $0$-stacks: One direction we prove later. If $R$ is a 0-smooth equivalence relation on a geometric 0-stack $X$, then $ X/ R$ is a geometric 1-stack by observing that any -1-atlas $X' \to X$ gives a 0-atlas $X' \to X \to X/ R$. Moreover, $ X/ R$ is a 0-type, hence by assumption a geometric 0-stack.
+    This is equivalent to saying that  $1$-stacks that are $0$-types are geomeric $0$-stacks: One direction we prove later. If $R$ is a 0-smooth equivalence relation on a  0-stack $X$, then $ X/ R$ is a  1-stack by observing that any -1-atlas $X' \to X$ gives a 0-atlas $X' \to X \to X/ R$. Moreover, $ X/ R$ is a 0-type, hence by assumption a  0-stack.
 \end{rmk}
 
 \begin{example}
@@ -487,7 +487,7 @@ How to find an atlas: todo. How to proceed, if we could choose all atlasses we w
 \end{lemma}
 
 % \begin{lemma}
-%     A morphism $f : X \to Y$ of geometric $n$-stacks is fibered in smooth $n$-stacks if there exists a smooth $n$-atlas of $f$.
+%     A morphism $f : X \to Y$ of  $n$-stacks is fibered in smooth $n$-stacks if there exists a smooth $n$-atlas of $f$.
 % \end{lemma}
 
 \section{Saturated Topologies revisited}
@@ -519,9 +519,9 @@ Obvious
 Check fiberwise
 \end{proof}
 
- If $n \ge $, replacing $\bT$ by its saturation $\bT'$ does change the notion of geometric (smooth) $n$-stack, but we have the following statement, that tells us, that if we start with geometric 0-$\bT$-stacks then the notion of smoothness does not see the difference between $\bT$ and its saturation. 
+ If $n \ge $, replacing $\bT$ by its saturation $\bT'$ does change the notion of  (smooth) $n$-stack, but we have the following statement, that tells us, that if we start with  0-$\bT$-stacks then the notion of smoothness does not see the difference between $\bT$ and its saturation. 
 \begin{prop}
-    Let $X$ be a geometric 0-stack that is a weak smooth 0-stack, i.e. there exists a $\bT'$-atlas $\bT' \ni X' \to X$ (i.e. fibered in $\bT'$). Then $X$ is a smooth $0$-stack. 
+    Let $X$ be a  0-stack that is a weak smooth 0-stack, i.e. there exists a $\bT'$-atlas $\bT' \ni X' \to X$ (i.e. fibered in $\bT'$). Then $X$ is a smooth $0$-stack. 
 \end{prop}
 \begin{proof}
     Wlog $X' \in \bT$. Choose a $-1$-atlas $\Spec A \to X$ (i.e. fibered in $\bT$). As the fibers of $X' \to X$ merely have smooth atlasses $\tilde X_x' \to X'_x$, we can use Local choice to obtain a commutative diagram $Y = \sum_{x' : X'} \tilde X_x'$
@@ -538,7 +538,7 @@ Check fiberwise
 As $Y \to X'$ is a$\bT$-cover and $X' \in \bT$ we conclude $Y \in \bT$. Hence we found a smooth $\bT$-atlas of $X$. 
 \end{proof}
 % \begin{prop}
-%     Let $n \ge 0$. Replacing $\bT$ by its saturation $\bT'$ does change the notion of geometric (smooth) $n$-stack
+%     Let $n \ge 0$. Replacing $\bT$ by its saturation $\bT'$ does change the notion of  (smooth) $n$-stack
 % \end{prop}
 % \begin{proof}
 %     Induction. For $n = 0$ it is not clear, that if $X$ has an atlas fibered in $\bT'$, why it has an atlas fibered in $\bT$. TODO \\ REST IS CLEAR.
@@ -569,25 +569,25 @@ As $Y \to X'$ is a$\bT$-cover and $X' \in \bT$ we conclude $Y \in \bT$. Hence we
 %     %For any $x : X$ the basechange $W_x \to R_x$ is an $n-2$ atlas of a smooth $n-1$-stack, hence by induction $W_x \in \bT$. So $W = \sum_{x : X} W_x \in \bT$. By ($\star$)   
     
 % \end{proof}
-\section{geometric as a property of stacks}
+\section{ as a property of stacks}
 
 
 \begin{lemma}
-    Let $n \ge 0$. A geometric $n$-stack is an modal $n$-type.
+    Let $n \ge 0$. A  $n$-stack is an modal $n$-type.
 \end{lemma}
 \begin{proof}
      The $n$-\truncation is an $n$-type. Now conclude by induction.
 \end{proof}
-We want to show that the notion of geometric stack makes sense, i.e. beeing geometric should not depend on the truncation level. 
+We want to show that the notion of  stack makes sense, i.e. beeing  should not depend on the truncation level. 
 
 \begin{lemma}{\label{lemma:prop0stacks}}
      Assume $\bT$ is saturated and satisfies descent for propositions. Let $P$ be a modal proposition. Then TFAE 
      \begin{enumerate}
-         \item For some $m \ge 0$, $P$ is a geometric $m$ stack 
+         \item For some $m \ge 0$, $P$ is a  $m$ stack 
          \item There exists some fp algebra $A$ such that $\Spec A \to P$ and $P$ is logically equivalent to $(\Spec A \in \bT)$.
          %\item 
          \item $P$ is logically equivalent to $\|\Spec A\|_\bT$
-         \item $P$ is a geometric -1-stack.
+         \item $P$ is a  -1-stack.
      \end{enumerate}
      
      
@@ -607,15 +607,15 @@ We want to show that the notion of geometric stack makes sense, i.e. beeing geom
      \end{itemize}
 \end{proof}
 \begin{theorem}
-    Let $\bT$ be saturated and assume $\bT$ satisfies descent for propositions. Let $m , n \ge -1$. Given an $n$-type $X$ that is a geometric (smooth) $m$-stack then $T$ is a geometric (smooth) $m$-stack.
+    Let $\bT$ be saturated and assume $\bT$ satisfies descent for propositions. Let $m , n \ge -1$. Given an $n$-type $X$ that is a  (smooth) $m$-stack then $T$ is a  (smooth) $m$-stack.
 \end{theorem}
 \begin{proof}
     By \ref{lemma:succStab} we may assume $m \ge n \ge -1$. \\
-    Case $n=-1$: A smooth $m$-stack, that is a proposition is contractible, hence in particular a smooth $-1$-stack. A propositional geometric $m$-stack by the previous lemma, is a geometric -1-stack. \\
+    Case $n=-1$: A smooth $m$-stack, that is a proposition is contractible, hence in particular a smooth $-1$-stack. A propositional  $m$-stack by the previous lemma, is a  -1-stack. \\
     Case $n =0$: Induction over $m$. If $m=0$ its clear. Assume $m \ge 1$. Let $X \to T$ an $n$-atlas. Take the pullback $R = X \times_T X$. As $T$ is a set, we may view $R$ as an equivalence relation $X \to X \to \bT \Prop$ on $X$. It is smooth: As a pullback of the $n$-atlas $X \to T$, $R \to X$ is fibered in smooth $m-1$ stacks. Moreover, those fibers are 0-types. By induction they are 0-types. By \ref{thm:QuotientOfAlgebraicSpace} $T$ is an algebraic space. \\
-    If, additionally $T$ is assumed to be a smooth $m$-stack, then by the above is is in particular a geometric 0-stack, so we may choose a -1-atlas $f : \Spec A \to X$. As $f$ is an $m-1$-atlas and $X$ is a smooth $m$-stack, $\Spec A$ lies in the topology by \ref{lemma:smoothatlas}, using that $\bT$ is saturated . Hence $X$ is a smooth 0-stack. This completes the case $n=0$ \\
+    If, additionally $T$ is assumed to be a smooth $m$-stack, then by the above is is in particular a  0-stack, so we may choose a -1-atlas $f : \Spec A \to X$. As $f$ is an $m-1$-atlas and $X$ is a smooth $m$-stack, $\Spec A$ lies in the topology by \ref{lemma:smoothatlas}, using that $\bT$ is saturated . Hence $X$ is a smooth 0-stack. This completes the case $n=0$ \\
     %Then the $m$-atlas $X \to T$ can be choosen such that $X \in \bT$. As both $X$ and $T$ are Sets, the fibers are not only smooth $m-1$-stacks but also sets, hence by induction they are smooth $0$-stacks as well \\
-    Assume $n \ge 1$ and the statement is proven for all $(n',m') < (n,m)$ in lexicographical ordering. As the identity types of $T$ are $n-1$-types and geometric $m-1$ stacks by induction they are geometric $n-1$ stacks. Let $X \to T$ be an $m-1$-atlas, i.e. fibered in smooth $m-1$-stacks with $X$ affine. The fibers are in particular $n-1$-types, so by induction they are smooth $n-1$-stacks. Hence $X \to T$ is an $n-1$-atlas. If, additionally $T$ is assumed to be a smooth $m$-stack, we can choose $X \in \bT$, hence $X \to T$ witnesses that $T$ is a smooth $n$-stack.
+    Assume $n \ge 1$ and the statement is proven for all $(n',m') < (n,m)$ in lexicographical ordering. As the identity types of $T$ are $n-1$-types and  $m-1$ stacks by induction they are  $n-1$ stacks. Let $X \to T$ be an $m-1$-atlas, i.e. fibered in smooth $m-1$-stacks with $X$ affine. The fibers are in particular $n-1$-types, so by induction they are smooth $n-1$-stacks. Hence $X \to T$ is an $n-1$-atlas. If, additionally $T$ is assumed to be a smooth $m$-stack, we can choose $X \in \bT$, hence $X \to T$ witnesses that $T$ is a smooth $n$-stack.
     
 \end{proof}
 \end{document}
