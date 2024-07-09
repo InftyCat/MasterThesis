@@ -77,6 +77,7 @@ Every saturated affine (i.e. $\Spec A \in \bT'$) it $\bT$-merely inhabited.
 \begin{question}
     Does the converse hold, i.e. is every $\bT$-merely inhabited affine saturated?    
 \end{question}
+
 % \begin{lemma}
 %     A type $T$ is a saturated $\bT$-sheaf if for all $X \in \bT$ the diagonal
 %     \[
@@ -117,7 +118,7 @@ Lex Modalities are stable under
     Then it follows by \todocite.
 \end{proof}
 \section{Atlas}
-\begin{definition}
+\begin{definition}{\label{def:TAtlas}}
     % Let $T \subset \cU$ be any subtype of the universe. 
     % A $\bT$-cover 
     A $\bT$-atlas of $X$ is a $\bT$-cover $\Spec A \to X$ out of an affine scheme.
@@ -216,7 +217,8 @@ The next lemma shows, that the class of types which have a $\bT$-cover is stable
 \end{proof}
 
 \section{ $n$-stacks}
-We first need to define a notion of algebraic space and smooth algebraic space, that satisfies the following:
+
+We first need to define a notion of algebraic space and smooth algebraic space, which should be the smallest class of types that satisfies the following:
 \begin{itemize}
 	\item Stability under finite limits \ref{thm:stabSums} 
 	\item has Descent
@@ -235,15 +237,57 @@ We first need to define a notion of algebraic space and smooth algebraic space, 
 \begin{proof}
 	We have $U \to \|U\|_\bT$ where $U$ is affine, hence an algebraic space and the fibers are in $\bT$ by flatness of $U$, hence they are smooth algebraic spaces. By stability under quotients, our algebraic proposition is an algebraic space.
 \end{proof}
+
+\begin{definition}
+	An smooth equivalence relation on a set $U$ is some equivalence relation $R : U^2 \to \Prop$, whose fibers are in $\bT$
+\end{definition}
 \begin{lemma}
-	Algebraic spaces that are propositions are algebraic propositions.
-\end{lemma}
-\begin{lemma}
-	let $U$ be affine and $R : U^2 \to \mathsf{AlgProp}$ be an algebraic equivalence relation, whose fibers are in $\bT$. Then $U / R$ is an algebraic space
+	let $U$ be an algebraic space (e.g. affine scheme) and $R : U^2 \to \Prop$ be a smooth equivalence relation %, whose fibers are in $\bT$. 
+	Then $U / R$ is an algebraic space
 \end{lemma}
 \begin{proof}
-	The map $U \to U / R$ ghj
+	The map $U \to U / R$ is fibered in $\bT$, in particular fibered in smooth algebraic spaces.% As $U$ is affine, its an algebraic space. 
+	By stability under smooth quotients, $U / R$ is an algebraic space.
 \end{proof}
+Recall the definition of $\bT$-atlas \ref{def:Tatlas}
+\begin{lemma}{\label{lemma:havingAtlasClosedUnderId}}
+		The class of types admitting a $\bT$-atlas is closed under taking identity types. 
+\end{lemma}
+\begin{proof}
+This is an example of \ref{lemma:havingAbstractAtlasClosedUnderId}.
+%	As in the proof of \ref{thm:quotients} the identity types $y = y'$ in $U / R$ admit a $\bT$-atlas $V \equiv \fib_p y \times_U \fib_p y' \to y = y'$, where $p : U \to U / R$ is a $\bT$-cover. 
+\end{proof}
+\begin{question}
+	Is it stable under dependent sums?
+\end{question}
+
+\begin{prop}
+	every proposition $P$ having a $\bT$-atlas is an algebraic proposition.
+
+\end{prop}
+\begin{proof}
+	Let $V \to P$ be a $\bT$-atlas.
+	have to show TFAE $\|V\|_\bT \to P \to (V \in \bT) \to \|V\|_\bT$. 
+	Proof: $\|V\|_\bT \to P$ as $P$ is modal prop. Secondly, because $V \to P$ is a $\bT$-cover. Thirdly, because things in $\bT$ are automatically $\bT$-merely inhabited. \\
+	Hence $P$ is an algebraic proposition.	
+\end{proof}
+\begin{corollary}
+	The identity types of $U / R$ are algebraic propositions. %		In our setting, 	From the previous lemma we find a $\bT$-atlas $V \to P$ , t
+\end{corollary}
+\begin{definition}
+	A modal set $X$ is a classical algebraic space iff it is merely of the form $U / R$ for some afine $U$ and  $R : U^2 \to \Prop$ an algebraic equivalence relation. Equivalently there exists some $\bT$-atlas $U \to X$ (i.e. out of an affine). We call $X$ smooth if $U$ can be choosen to be in $\bT$.
+\end{definition}
+\begin{corollary}
+	Classical Algebraic spaces that are propositions are algebraic propositions.
+\end{corollary}
+
+\begin{lemma}
+	smooth classical Algebraic spaces which are affine are in $\bT$.
+\end{lemma}
+\begin{proof}
+	Saturatedness of the topology.
+\end{proof}
+
 % \begin{rmk}
 % A  (-1)-stack should not be defined as an affine scheme: Because otherwise schemes $\subset$ algebraic spaces would not be  0-stacks, because in general their identity types are not affine.
 % \end{rmk}
@@ -630,7 +674,7 @@ As $Y \to X'$ is a$\bT$-cover and $X' \in \bT$ we conclude $Y \in \bT$. Hence we
 %     %For any $x : X$ the basechange $W_x \to R_x$ is an $n-2$ atlas of a smooth $n-1$-stack, hence by induction $W_x \in \bT$. So $W = \sum_{x : X} W_x \in \bT$. By ($\star$)   
     
 % \end{proof}
-\section{ as a property of stacks}
+\section{ beeing a stack is indepent of the truncation level}
 
 
 \begin{lemma}
@@ -645,9 +689,10 @@ We want to show that the notion of  stack makes sense, i.e. beeing  should not d
      Assume $\bT$ is saturated and satisfies descent for propositions. Let $P$ be a modal proposition. Then TFAE 
      \begin{enumerate}
          \item For some $m \ge 0$, $P$ is a  $m$ stack 
+
          \item There exists some fp algebra $A$ such that $\Spec A \to P$ and $P$ is logically equivalent to $(\Spec A \in \bT)$.
-         %\item 
-         \item $P$ is a  -1-stack.
+%		\item There exists some flat algebra $A$ such that $P \simeq \|\Spec A\|_T$
+         \item $P$ is equivalent to $\| \Spec A \|_\bT$ for some fp $A$, i.e. $P$ is a  -1-stack.
      \end{enumerate}
      
      
@@ -662,6 +707,7 @@ We want to show that the notion of  stack makes sense, i.e. beeing  should not d
         \red{We have to show: There exists some fp algebra such that $P$ is logically equivalent to $\|\Spec A\|_\bT$. }        
         By assumption we have $\Spec A \to P$, so we deduce $\|\Spec A\|_\bT \to P$ as $P$ is a modal proposition. Conversely $P \to (\Spec A \in \bT) \to \|\Spec A\|_\bT$ , where the first arrow is by assumption.
         \item [$3. \Rightarrow 1.$] \ref{lemma:succStab}
+%        \item [$2. \Rightarrow 3.$] 
      \end{itemize}
 \end{proof}
 \begin{lemma}
@@ -700,27 +746,35 @@ We want to show that the notion of  stack makes sense, i.e. beeing  should not d
 		\item smooth $n$-stacks if $n > 0$.
 	\end{itemize}
 \end{definition}
+\begin{lemma}{\label{lemma:havingAbstractAtlasClosedUnderId}}
+	Let $C$ be a class of affine schemes. The class of types $Y$ which admit a map $\Spec A \to Y$ fibered in $C$ is closed under taking identity types.
+\end{lemma}
+\begin{proof}
+	By assumption we can choose a map $p : V \to Y$ out of an affine fibered in $C$. Let $y,y' : Y$.  Then we have the map
+	\begin{align*}
+		(\fib_p y) \times_V (\fib_p y') &\to y = y' \\
+		(v , q : y = p v) , (v', q' : y' = p v') , (h : v = v') &\mapsto q \cdot h \cdot q'^{-1}
+	\end{align*}
+	The domain is a fiber product of affines, hence affine.
+	The fiber over $j : y = y'$ looks like  %because $y$ and $y'$ are free we may only show the statement for the fiber over the path  $\mathsf{refl}_y : y = y$. 
+	\[
+	\sum_{v}  ( \underbrace{\sum_{v'} (h : v = v')}_{\mathsf{isContr}}) \times (q : y = p v) \times (q'  : y' = p v') \times (q \cdot h \cdot q'^{-1} = j) \simeq \sum_v (v = py) \simeq \fib_p y
+	\]
+\end{proof}
+\begin{lemma}[TODO]{\label{lemma:missing}}
+	If a modal proposition $P$ admits  a $-2$-atlas $\Spec A \to P$ then $P$ is a $-1$-stack.
+\end{lemma}
 \begin{theorem}{\label{thm:quotients}}
-	Let $f : X \to Y$ be a $\bT$-surjective smooth morphism between modal $n$-types. If $X$ is  (smooth), then $Y$ is  (smooth).
+	Let $f : X \to Y$ be a $\bT$-surjective smooth morphism between modal $n$-types. If $X$ is a (smooth) stack , then $Y$ a  (smooth) stack.
 \end{theorem}
 \begin{proof}
 	Induction.
 	For $n = -2$ its clear.
 	Let $X$ be a  $n$-stack. Lets first construct the $n-1$-atlas of $Y$.
-	We find a $V \twoheadrightarrow X$ which is an $n-1$-atlas.  Then $V \to X \to Y$ is an $n$-atlas because it is $\bT$-surjective and is fibered in the correct $\sum$-stable class of types, i.e. $\bT$ if $n \le 1$ and  smooth $n-1$-stacks for $n > 1$. Hence $Y$ is an $n+1$-stack. As $Y$ is an $n$-type, $Y$ is an $n$-stack \ref{thm:stack}. \\
-	If additionally $X$ is assumed to be smooth, then $V$ can be assumed to lie in $\bT$ which directly gives us that $Y$ is smooth. \\
-	Now we want to show that the identity types of $Y$ are  $n-1$-stacks. By the above, we can choose an $n-1$-atlas $p : V \to Y$. Let $y,y' : Y$.  Then we have the map
-	\begin{align*}
-		(\fib_p y) \times_V (\fib_p y') &\to y = y' \\
-		(v , q : y = p v) , (v', q' : y' = p v') , (h : v = v') &\mapsto q \cdot h \cdot q'^{-1}
-	\end{align*}
-	Then the fiber over $j : y = y'$ looks like  %because $y$ and $y'$ are free we may only show the statement for the fiber over the path  $\mathsf{refl}_y : y = y$. 
-	\[
-	\sum_{v}  ( \underbrace{\sum_{v'} (h : v = v')}_{\mathsf{isContr}}) \times (q : y = p v) \times (q'  : y' = p v') \times (q \cdot h \cdot q'^{-1} = j) \simeq \sum_v (pv = y) \simeq \fib_p y
-	\]
-
-		
-	 Thus the map smooth, because for $n \le 0$ $\bT$ and for $n > 0$ smooth $n-1$-stacks are stable under finite products. As $(\fib_p y) \times_Y (\fib_p y')$ is an $n-1$-stack,  By induction $y = y'$ is an $n-1$-stack. %This is enough because choosing an $n$-atlas of the stack $(\fib_p y) \times_Y (\fib_p y')$ gives us by composition an $n$-atlas of $y = y'$. By induction ? $y = y'$ is an $n+1$-stack. By \ref{thm:stack} its an $n-1$-stack as desired.
+	We merely find a $V \twoheadrightarrow X$ which is an $n-1$-atlas.  Then $V \to X \to Y$ is an $n$-atlas because it is $\bT$-surjective and is fibered in the correct $\sum$-stable class of types, i.e. $\bT$ if $n \le 1$ and  smooth $n-1$-stacks for $n > 1$. Hence $Y$ is an $n+1$-stack. As $Y$ is an $n$-type, $Y$ is an $n$-stack \ref{thm:stack}. \\
+	If additionally $X$ is assumed to be smooth, then $V$ can be assumed to lie in $\bT$ which directly gives us that $Y$ has a smooth atlas. \\
+	It remains to show that the identity types of $Y$ are  $n-1$-stacks. By \ref{lemma:havingAbstractAtlasClosedUnderId} we  find some $n-1$-atlas $p : W \to y=y'$. The map is smooth, because the fibers of $p$ are smooth. % because for $n \le 0$ $\bT$ and for $n > 0$ smooth $n-1$-stacks are stable under finite products. 
+	If $n=0$, $y = y'$ is a $-1$-stack by \ref{lemma:missing}. If $n > 0$, $W$ is an $n-1$-stack and $p$ is smooth, so by induction $y = y'$ is an $n-1$-stack. %This is enough because choosing an $n$-atlas of the stack $(\fib_p y) \times_Y (\fib_p y')$ gives us by composition an $n$-atlas of $y = y'$. By induction ? $y = y'$ is an $n+1$-stack. By \ref{thm:stack} its an $n-1$-stack as desired.
 \end{proof}
 \section{Local properties}
 
