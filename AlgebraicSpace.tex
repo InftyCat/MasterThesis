@@ -1,0 +1,70 @@
+\section{AlgebraicSpace}
+We first need to define a notion of algebraic space and smooth algebraic space, which should be the smallest class of types that satisfies the following:
+\begin{itemize}
+	\item Stability under finite limits \ref{thm:stabSums} 
+	\item has Descent
+	\item (nice) Schemes are contained in it
+	\item affines in $\bT$ are smooth algebraic spaces.  (there are probably more). %If $\bT \ni \Spec A \to X$ is a $\bT$-cover and $X$ is a $\bT \Set$, then $X$ is a smooth algebraic space
+	\item stable under smooth quotients: If $X$ is an algebraic space, $Y$ modal 0-type and $X \to Y$ is $\bT$-surjective and fibered in smooth algebraic spaces, then $Y$ is an algebraic space. Additionally, if $X$ is smooth, then $Y$ is smooth.
+\end{itemize}
+\begin{definition}
+	An affine Scheme $U$ is called flat, if 
+	\[\|U\|_\bT \to (U \in \bT)\]	
+	We call a proposition algebraic, if its merely of the form $\|U\|_\bT$ for some flat affine $U$.
+\end{definition}
+\begin{lemma}
+	Algebraic propositions are algebraic spaces.
+\end{lemma}
+\begin{proof}
+	We have $U \to \|U\|_\bT$ where $U$ is affine, hence an algebraic space and the fibers are in $\bT$ by flatness of $U$, hence they are smooth algebraic spaces. By stability under quotients, our algebraic proposition is an algebraic space.
+\end{proof}
+
+\begin{definition}
+	An smooth equivalence relation on a set $U$ is some equivalence relation $R : U^2 \to \Prop$, whose fibers are in $\bT$
+\end{definition}
+\begin{lemma}
+	let $U$ be an algebraic space (e.g. affine scheme) and $R : U^2 \to \Prop$ be a smooth equivalence relation %, whose fibers are in $\bT$. 
+	Then $U / R$ is an algebraic space
+\end{lemma}
+\begin{proof}
+	The map $U \to U / R$ is fibered in $\bT$, in particular fibered in smooth algebraic spaces.% As $U$ is affine, its an algebraic space. 
+	By stability under smooth quotients, $U / R$ is an algebraic space.
+\end{proof}
+Recall the definition of $\bT$-atlas \ref{def:Tatlas}
+\begin{lemma}{\label{lemma:havingAtlasClosedUnderId}}
+	The class of types admitting a $\bT$-atlas is closed under taking identity types. 
+\end{lemma}
+\begin{proof}
+	This is an example of \ref{lemma:havingAbstractAtlasClosedUnderId}.
+	%	As in the proof of \ref{thm:quotients} the identity types $y = y'$ in $U / R$ admit a $\bT$-atlas $V \equiv \fib_p y \times_U \fib_p y' \to y = y'$, where $p : U \to U / R$ is a $\bT$-cover. 
+\end{proof}
+\begin{question}
+	Is it stable under dependent sums?
+\end{question}
+
+\begin{prop}
+	every proposition $P$ having a $\bT$-atlas is an algebraic proposition.
+	
+\end{prop}
+\begin{proof}
+	Let $V \to P$ be a $\bT$-atlas.
+	have to show TFAE $\|V\|_\bT \to P \to (V \in \bT) \to \|V\|_\bT$. 
+	Proof: $\|V\|_\bT \to P$ as $P$ is modal prop. Secondly, because $V \to P$ is a $\bT$-cover. Thirdly, because things in $\bT$ are automatically $\bT$-merely inhabited. \\
+	Hence $P$ is an algebraic proposition.	
+\end{proof}
+\begin{corollary}
+	The identity types of $U / R$ are algebraic propositions. %		In our setting, 	From the previous lemma we find a $\bT$-atlas $V \to P$ , t
+\end{corollary}
+\begin{definition}
+	A modal set $X$ is a classical algebraic space iff it is merely of the form $U / R$ for some afine $U$ and  $R : U^2 \to \Prop$ an algebraic equivalence relation. Equivalently there exists some $\bT$-atlas $U \to X$ (i.e. out of an affine). We call $X$ smooth if $U$ can be choosen to be in $\bT$.
+\end{definition}
+\begin{corollary}
+	Classical Algebraic spaces that are propositions are algebraic propositions.
+\end{corollary}
+
+\begin{lemma}
+	smooth classical Algebraic spaces which are affine are in $\bT$.
+\end{lemma}
+\begin{proof}
+	Saturatedness of the topology.
+\end{proof}

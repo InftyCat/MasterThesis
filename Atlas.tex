@@ -1,0 +1,32 @@
+\section{Atlas}
+\begin{definition}{\label{def:TAtlas}}
+	% Let $T \subset \cU$ be any subtype of the universe. 
+	% A $\bT$-cover 
+	A $\bT$-atlas of $X$ is a $\bT$-cover $\Spec A \to X$ out of an affine scheme.
+	% of a type $\bT$ is an affine Scheme $\Spec A$ with a formally \etale \etale-surjective map
+	% \[
+	% \Spec A \to T.
+	% \]    
+\end{definition}
+% \begin{lemma}
+%     $\bT$-atlasses are stable under composition.
+% \end{lemma}
+\begin{rmk}{\label{rmk:defatlas}}
+	Any good enough TODO scheme has a Zariski atlas. If $\bT$ is finer than the Zariski-topology then in the definition we may replace affine scheme by good enough scheme, if its just about the question whether a type admits an atlas.
+\end{rmk}
+
+\begin{example}
+	Let $X$ be a (1-)type. $X$ has a Zariski-atlas, iff there exists some $f : \Spec A \to X$ fibered in types of the form $\Spec (R_{f_1} \times \hdots \times R_{f_n})$ for $(f_1,\hdots,f_n) \in Um(R)$. 
+\end{example}
+\begin{rmk}{\label{ZLCGivesZariski}}
+	If one applies ZLC to an affine scheme $\Spec A$ the resulting principal open cover $D(f_i), f_i \in A$ will induce indeed a zariski atlas $\bigsqcup D(f_i) \to \Spec A$, because the fiber over $x : \Spec A$ is $\bigsqcup D(f_i(x))$.
+\end{rmk}
+Question: Does every zariski atlas of $\Spec A$ have this form? \nameref{ex:weirdZarAtlasses}
+%Let $\cZ$ be the class of types which have a Zariski cover.
+
+\begin{example}{\label{ex:PnIsStack}}
+	$\bP^n$ has a zariski atlas given by the standart homogeneous principal opens $\sum_{i=0}^n D_+(x_i)$. The fiber over a point $[y_0 : \hdots . y_n]$ is $D(y_0) + \hdots D(y_n)$ where $(y_1,\hdots,y_n) \in Um(R)$. % Indeed the standart principal opens $D_+(x_0) , \hdots , D_+(x_n)$ form a presentable open cover.    
+\end{example}
+
+
+% Warning: Let $X$ be a . Then $X$ is already affine if it has a Zariski cover, i.e.  there exists some $f : \Spec A \to X$ fibered in types of the form $\Spec (R_{f_1} \times \hdots \times R_{f_n})$ for $(f_1,\hdots,f_n) \in Um(R)$. More generally: We can facto

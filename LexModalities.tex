@@ -1,0 +1,24 @@
+
+\section{Lex Modalities}
+\begin{lemma}[Stability resuls]{\label{lemma:LexStability}}
+	Lex Modalities are stable under 
+	\begin{enumerate}
+		\item Conjunction
+		\item Composition
+	\end{enumerate}
+	
+\end{lemma}
+\begin{lemma}{\label{lemma:LexSumStable}}
+	Let $\ci$ be a lex-modality. Let $X$ be $\ci$-modal and $B : X \to \cU_{\ci}$ be a family of modal types. Then $\sum_{x : X} B_x$ is $\ci$-modal
+\end{lemma}
+\begin{lemma}{\label{lemma:mod_comm_sum}}
+	Let $B  : \bullet X \to \cU$. Then $\bullet (\sum_{x : X} B (\eta x)) = \sum_{x : \bullet X} \bullet B x$
+\end{lemma}
+\begin{proof}
+	Observe that 
+	\[
+	\sum_{x : X} B \eta x \to \sum_{x : \bullet X} B x
+	\]
+	is a $\bullet$-equivalence, because for all modal types $T$, the type $B x \to T$ is modal for any $x : \bullet X$. \\
+	Then it follows by \todocite.
+\end{proof}

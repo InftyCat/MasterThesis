@@ -1,0 +1,240 @@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% load packages 
+
+\usepackage[a4paper,nohead,left=3.5cm,right=3.5cm,top=4cm,bottom=3cm]{geometry}
+%\usepackage{german}    % only for German articles
+%\usepackage{a4wide}   % longer lines
+\usepackage[intlimits,tbtags]{amsmath}   % for more basic mathematical symbols
+\usepackage{amssymb}   % for more mathematical symbols
+\usepackage{amsfonts}
+\usepackage[utf8]{inputenc}
+\usepackage{textcomp}
+\usepackage{mathtools}
+% \usepackage{stmaryrd}  % for more mathematical symbols
+\usepackage{latexsym}  % for more mathematical symbols,
+% already contained in amsmath-package
+% \usepackage{accents}  % for more dots etc on symbols
+\usepackage{amsxtra}   % for accents as superscripts
+\usepackage{amstext}   % for text in formulas, accents, etc.
+\usepackage{bm}        % boldface for non-latin letters
+\usepackage{amsthm}    % for theorem-environments
+\usepackage{amscd}     % for commutative diagrams
+%\usepackage{MnSymbol}
+%\usepackage[ansinew]{inputenc}
+\usepackage{enumitem}  % Better enumerations.
+
+\usepackage{graphicx}
+\usepackage[dvipsnames]{xcolor}
+\usepackage[arrow, matrix, curve]{xy}
+\usepackage[colorlinks=true, citecolor=Blue, linkcolor=Blue, urlcolor=Blue]{hyperref}
+\usepackage{xfrac}
+\usepackage[utf8]{inputenc}
+\usepackage{scalerel}
+\newcommand{\tA}{{\hspace{1pt}\sim}_{A}\hspace{1pt}}
+\newcommand{\tR}{\hspace{1pt}{\sim}_{R}\hspace{1pt}}
+\newcommand{\bA}{\mathbb{A}}
+\newcommand{\bB}{\mathbb{B}}
+\newcommand{\bC}{\mathbb{C}}
+\newcommand{\bD}{\mathbb{D}}
+\newcommand{\bE}{\mathbb{E}}
+\newcommand{\bF}{\mathbb{F}}
+\newcommand{\bG}{\mathbb{G}}
+\newcommand{\bH}{\mathbb{H}}
+\newcommand{\bI}{\mathbb{I}}
+\newcommand{\bJ}{\mathbb{J}}
+\newcommand{\bK}{\mathbb{K}}
+\newcommand{\bL}{\mathbb{L}}
+\newcommand{\bM}{\mathbb{M}}
+\newcommand{\bN}{\mathbb{N}}
+\newcommand{\bO}{\mathbb{O}}
+\newcommand{\bP}{\mathbb{P}}
+\newcommand{\bQ}{\mathbb{Q}}
+\newcommand{\bR}{\mathbb{R}}
+\newcommand{\bS}{\mathbb{S}}
+\newcommand{\bT}{\mathbb{T}}
+\newcommand{\bU}{\mathbb{U}}
+\newcommand{\bV}{\mathbb{V}}
+\newcommand{\bW}{\mathbb{W}}
+\newcommand{\bX}{\mathbb{X}}
+\newcommand{\bY}{\mathbb{Y}}
+\newcommand{\bZ}{\mathbb{Z}}
+\DeclareMathOperator{\Sh}{Sh}
+
+%%%%%%%%% calligraphic %%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\mc}[1]{\mathcal{#1}}
+\newcommand{\R}{\Rightarrow}
+\newcommand{\cA}{\mathcal{A}}
+\newcommand{\cB}{\mathcal{B}}
+\newcommand{\cC}{\mathcal{C}}
+\newcommand{\cD}{\mathcal{D}}
+\newcommand{\cE}{\mathcal{E}}
+\newcommand{\cF}{\mathcal{F}}
+\newcommand{\cG}{\mathcal{G}}
+\newcommand{\cH}{\mathcal{H}}
+\newcommand{\cI}{\mathcal{I}}
+\newcommand{\cJ}{\mathcal{J}}
+\newcommand{\cK}{\mathcal{K}}
+\newcommand{\cL}{\mathcal{L}}
+\newcommand{\cM}{\mathcal{M}}
+\newcommand{\cN}{\mathcal{N}}
+\newcommand{\cO}{\mathcal{O}}
+\newcommand{\cP}{\mathcal{P}}
+\newcommand{\cQ}{\mathcal{Q}}
+\newcommand{\cR}{\mathcal{R}}
+\newcommand{\cS}{\mathcal{S}}
+\newcommand{\cT}{\mathcal{T}}
+\newcommand{\cU}{\mathcal{U}}
+\newcommand{\cV}{\mathcal{V}}
+\newcommand{\cW}{\mathcal{W}}
+\newcommand{\cX}{\mathcal{X}}
+\newcommand{\cY}{\mathcal{Y}}
+\newcommand{\cZ}{\mathcal{Z}}
+\DeclareMathOperator{\chains}{Chains}
+
+%%%%%%%%%%%%% mathematical fraktur  %%%%%%%%%%%%%%%%%%%%%
+\newcommand{\mf}[1]{\mathfrak{#1}}
+\newcommand{\senk}{\ \big \vert \ }
+\newcommand{\fA}{\mathfrak{A}}
+\newcommand{\fB}{\mathfrak{B}}
+\newcommand{\fC}{\mathfrak{C}}
+\newcommand{\fD}{\mathfrak{D}}
+\newcommand{\fE}{\mathfrak{E}}
+\newcommand{\fF}{\mathfrak{F}}
+\newcommand{\fG}{\mathfrak{G}}
+\newcommand{\fH}{\mathfrak{H}}
+\newcommand{\fI}{\mathfrak{I}}
+\newcommand{\fJ}{\mathfrak{J}}
+\newcommand{\fK}{\mathfrak{K}}
+\newcommand{\fL}{\mathfrak{L}}
+\newcommand{\fM}{\mathfrak{M}}
+\newcommand{\fN}{\mathfrak{N}}
+\newcommand{\fO}{\mathfrak{O}}
+\newcommand{\fP}{\mathfrak{P}}
+\newcommand{\fQ}{\mathfrak{Q}}
+\newcommand{\fR}{\mathfrak{R}}
+\newcommand{\fS}{\mathfrak{S}}
+\newcommand{\fT}{\mathfrak{T}}
+\newcommand{\fU}{\mathfrak{U}}
+\newcommand{\fV}{\mathfrak{V}}
+\newcommand{\fW}{\mathfrak{W}}
+\newcommand{\fX}{\mathfrak{X}}
+\newcommand{\fY}{\mathfrak{Y}}
+\newcommand{\fZ}{\mathfrak{Z}}
+\newcommand{\lp}{_\flat} %{\boldsymbol{\cdot}}
+\newcommand{\hp}{^\sharp}
+\newcommand{\cp}{\boldsymbol{\cdot}}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{satz}[theorem]{Satz}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{korollar}[theorem]{Korollar}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{prop}[theorem]{Proposition}
+\DeclareMathOperator{\Spec}{Spec}
+\newtheorem*{corollary}{Corollary}
+\theoremstyle{definition}
+
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{ziel}[theorem]{Ziel}
+\newtheorem{frage}[theorem]{Frage}
+\newtheorem*{notation}{Notation}
+\newtheorem*{slogan}{Slogan}
+\newtheorem*{construction}{Construction}
+\newtheorem*{bemerkung}{Bemerkung}
+\newtheorem*{exercise}{Exercise}
+
+\newtheorem*{note*}{Note}
+
+\newtheorem{rmk}{Remark}
+\newtheorem{bsp}[theorem]{Beispiel}
+\newtheorem{aufgabe}[theorem]{Aufgabe}
+\newtheorem*{beweis}{\it Beweis}
+\newcommand{\gray}[1]{{\color{gray} #1}}
+%%%%%%%%%%    Math operators    %%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\DeclareMathOperator{\id}{id}             % identity morphism
+% \DeclareMathOperator{\ker}{ker}           % kernel
+\DeclareMathOperator{\im}{im}             % image
+\DeclareMathOperator{\Hom}{Hom}           % homomorphisms
+\DeclareMathOperator{\End}{End}           % endomorphisms
+\DeclareMathOperator{\Span}{Span}         % linear span
+
+\usepackage{tikz-cd}
+\DeclareMathOperator{\pr}{pr}
+\usepackage{quiver}
+\renewcommand{\:}{\colon}
+\DeclareMathOperator{\isContr}{isContr}
+
+\newcommand{\type}{\ \mathrm{Type}}
+\usepackage{stmaryrd}
+
+
+
+\newcommand{\op}{^{op}}
+%\renewcommand{\subset}{\subseteq}
+%\newcommand{\colim}[1]{\mathrm{colim} \limits_{#1}}
+\newcommand{\colim}[1]{\underset{#1}{\mathrm{colim} \ }}
+\DeclareMathOperator{\sSet}{\mathsf {sSet}}
+\DeclareMathOperator{\Pos}{\mathsf {Pos}}
+\DeclareMathOperator{\Set}{\mathsf {Set}}
+\DeclareMathOperator{\Fun}{Fun}
+\DeclareMathOperator{\Cat}{\mathsf {Cat}}
+\DeclareMathOperator{\const}{const}
+\DeclareMathOperator{\Vect}{\mathsf{Vect}}
+\DeclareMathOperator{\Top}{\mathsf{Top}}
+\DeclareMathOperator{\Ring}{\mathsf{Ring}}
+\DeclareMathOperator{\Field}{\mathsf{Field}}
+
+\DeclareMathOperator{\Ab}{\mathsf{Ab}}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\Ch}{\mathsf{Ch}}
+\DeclareMathOperator{\Grp}{\mathsf{Grp}}
+
+\DeclareMathOperator{\HomC}{\Hom_{\cC}}
+\DeclareMathOperator{\HomD}{\Hom_{\cD}}
+\usepackage{ascii}
+\DeclareMathOperator{\Ob}{Ob}
+\DeclareMathOperator{\FinVect}{FinVect}
+\setlength\parindent{0pt} % Keine Einrueckung von Absaetzen
+\newcommand{\etale}{\' etale }
+\newcommand{\Etale}{\' Etale }
+\DeclareMathOperator{\fib}{fib}
+\newcommand{\todo}{{\color{Red} Todo}}
+\newcommand{\todocite}{[ref?]}
+\newcommand{\el}{\in}
+\usepackage{wasysym}
+\newcommand{\ci}{\fullmoon}
+\DeclareMathOperator{\isProp}{isProp}
+\DeclareMathOperator{\Prop}{Prop}
+%\renewcommand{\in}{\colon}
+
+\newcommand{\details}{[...]}
+\DeclareMathOperator{\tp}{tp}
+\DeclareMathOperator{\Nat}{Nat}
+\renewcommand{\contentsname}{Inhalt}
+\font\maljapanese=dmjhira at 2.5ex
+\newcommand{\yo}{\textrm{\!\maljapanese\char"48}}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Mod}{\mathsf{Mod}}
+\DeclareMathOperator{\Mat}{Mat}
+
+\DeclareMathOperator{\isInv}{isInv}
+\DeclareMathOperator{\Alg}{Alg}
+\newtheorem{axiom}{Axiom}
+\newtheorem{question}{Question}
+\renewcommand{\mid}{\ | \ }
+
+\newcommand{\fun}[4]{
+	\begin{align*} 
+		#1 &\to #2 \\ 
+		#3 &\mapsto #4 
+\end{align*}}
+\newcommand{\funn}[5]{
+	\begin{align*} 
+		#1 \colon #2 &\to #3 \\ 
+		#4 &\mapsto #5
+\end{align*}}
+
+\newcommand{\RHom}{R \cH om}
+\newcommand{\Ltimes}{\overset{\mathrm{L}}{\otimes}}
