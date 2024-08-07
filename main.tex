@@ -118,23 +118,24 @@ One could only alternatively talk about  (smooth) $n$-stacks for $n \ge 1$, defi
     Induction.
     For $n = -2$ its okay.    
     Let $B : X \to \cU$ be a family of  $n+1$-stacks indexed over a  $n+1$-stack $X$, then surely the total space $\sum_{x : X} B x$ is a $\bT$-sheaf as $\bT$-sheaves are stable under depentend sum. 
-    The identity types in a $\sum$ type are $\sum$ of identity types 
+    The identity types in a $\sum$ type are $\sum$ of identity types.\\ 
+	Admitting an $n$-atlas is stable under dependent sum: We apply \ref{thm:atlasStableSum} to the class of (smooth) $n$-atlasses, which is stable under depent sum by induction.
     \\ % and $B x$ is a fibers are  $n$-stacks by induction. \\
-    It remains to construct some $n$-atlas $\Spec A \to \sum_{x : X} B_x$ %fibered in smooth $n$-stacks.
-    For any $x : X$ we merely have an $n$-atlas $V_x \to B_x$, i.e. with $V_x$ affine. %fibered in smooth $n$-stacks . \\
-    Claim: $X$ has local choice for $X$ wrt  $n$-atlasses.\\
-    Proof:
-        $n$-atlasses contain zariski-atlasses, because $\bT$ is finer than the Zariski topology.
-         $n$-stacks are stable under dependent sum by induction, thus $n$-atlasses are stable under composition.         
-    \qed(Claim)\\
-    By (\ref{prop:LocalChoice}) for $X$, we merely find $U$ affine, an $n$-atlas $p : U \to X$ % fibered in smooth $n$-stacks 
-    with
-    \[
-    \prod_{u : U} \sum_{V_{p(u)} \in T} (q : V_{p(u)} \to B_{p(u)}) \times (q \ \text{fibered in smooth } n \text{ stacks } )
-    \]
-    Now the desired map is $\sum_{u : U} V_{p u} \to \sum_{x : X} B_x$, because it is  an $n$-atlas %fibered in smooth $(n)$-stacks 
-    by \ref{lemma:AtlasSum} \\
-    If additionally, all the $B_x$ and $X$ are smooth $n$-stacks, just observe that we can choose the affine $V_{p u}$ to lie in $\bT$, Accordingly $\sum_{u : U} V_{p u} \in T$ as $\bT$ is stable under $\Sigma$.
+%    It remains to construct some $n$-atlas $\Spec A \to \sum_{x : X} B_x$ %fibered in smooth $n$-stacks.
+%    For any $x : X$ we merely have an $n$-atlas $V_x \to B_x$, i.e. with $V_x$ affine. %fibered in smooth $n$-stacks . \\
+%    Claim: $X$ has local choice for $X$ wrt  $n$-atlasses.\\
+%    Proof:
+%        $n$-atlasses contain zariski-atlasses, because $\bT$ is finer than the Zariski topology.
+%         $n$-stacks are stable under dependent sum by induction, thus $n$-atlasses are stable under composition.         
+%    \qed(Claim)\\
+%    By (\ref{prop:LocalChoice}) for $X$, we merely find $U$ affine, an $n$-atlas $p : U \to X$ % fibered in smooth $n$-stacks 
+%    with
+%    \[
+%    \prod_{u : U} \sum_{V_{p(u)} \in T} (q : V_{p(u)} \to B_{p(u)}) \times (q \ \text{fibered in smooth } n \text{ stacks } )
+%    \]
+%    Now the desired map is $\sum_{u : U} V_{p u} \to \sum_{x : X} B_x$, because it is  an $n$-atlas %fibered in smooth $(n)$-stacks 
+%    by \ref{lemma:AtlasSum} \\
+    
     
 \end{proof}
 \begin{corollary}{\label{cor:atlascomp}}
@@ -339,7 +340,7 @@ We want to show that the notion of  stack makes sense, i.e. beeing a stack shoul
 	Let $C$ be a class of types stable under finite limits, i.e. containing 1, stable under dependent sums and identity types. The class $\mathsf{HasAtlas}_C$ of types $Y$ which admit a map $\Spec A \to Y$ fibered in $C$ is stable under finite limits %.  If it contains $C$ and is closed under dependent sums, then it is closed under taking identity types.
 \end{lemma}
 \begin{proof}
-	Obviously 1 has an atlas, and the class of types admitting an atlas is stable by $\sum$ by some earlier result (using local choice arguments, in the presheaf model).
+	Obviously 1 has an atlas, and the class of types admitting an atlas is stable by $\sum$ by \ref{thm:atlasStableSum}.
 	It remains to show, that identity types in $Y$ have an atlas provided that $Y$ has an atlas.
 
 	%This is a special case of stability under dependent sums. But lets prove it anyway.
