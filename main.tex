@@ -99,7 +99,8 @@ One could only alternatively talk about  (smooth) $n$-stacks for $n \ge 1$, defi
 \end{lemma}
 
 \begin{proof}
-    Induction. 
+
+    Induction. 	Be aware of the induction start, where maybe no atlas is assumed!
     We need, that $\bT$ is subcanonical to conclude that affines are $\bT$-sheaves.
 \end{proof}
 \begin{rmk}
@@ -180,154 +181,7 @@ The previous lemma tells us that we have the correct notion of smooth morphisms 
  \begin{theorem}{\label{thm:descent}}
      Let $T$ be a modal $n$-type. The Proposition, that $P$ is a  (smooth) $n$-stack, is modal.
  \end{theorem}
-\section{Fundamental Theorem of algebraic spaces}
-\subsection{For groupoids}
-\begin{lemma}
-    If $R \twoheadrightarrow X \to X$ is a $\bT$-htpy-coequalizer diagram of two $\bT$-covers between affines, then $X$ is a  1-stack.
-\end{lemma}
-
-\subsection{For sets}
-\begin{lemma}\label{quotient-by-equivalence-relation}
-Denote $\bT Set$ for the sets that are $\bT$-sheaves. Assume given a $\bT$set  $X$ then the following maps are mutually inverse
-\begin{align*}
-\sum_{R:X\to X\to \bT\Prop} R\ \mathrm{equivalence\ relation} &\simeq \sum_{Y:\bT \mathrm{\Set}} \sum_{p:X\to Y} p\ \bT\mathrm{surjective} \\
-R &\mapsto (X/R,[\_]) \\
- \lambda x,y.  (p(x)=p(y)) &\mapsfrom (Y,p) 
- \end{align*}
-where $X / R$ is defined by applying $L_T \| \_ \|_0 $ at the higher inductive type $X // R$.
-\end{lemma}
-
-\begin{proof}
-\begin{itemize}
-    \item Well-definedness: The map $[\_] : X \to \|X // R\|_0 \to L_T \|X // R\|_0$ is the composition of a surjective with a $\bT$-surjective map \todocite, hence its $\bT$-surjective. \\
-    Conversely given $(Y,p)$ as $Y$ is a sheaf, we have for all $x,y : X$ that $p(x) =_Y p(y)$ is a sheaf.
-    \item If $x,y : X$ then we have a chain of equivalences 
-    \[
-    R(x,y) \simeq (\bar x =_{\|X//R\|_0} \bar y) \to ([x] =_{L_T\|X//R\|_0} [y])
-    \]
-    where the first map is plain HoTT and the second map is $\mathsf{ap}$, i.e. the unit of the modality \todocite, but as the $\bar x =_{\|X//R\|_0} \bar y$ is already a sheaf, it is an isomorphism as well. \\
-    \item Let $(Y,p)$ be in the RHS. Let $R(x,y) = (p(x)=p(y)) : \bT \Prop$. By plain HoTT, There is a map $\eta : \| X // R \|_0 \to Y$ ( defined by the universal property of the set truncation and by induction on the higher inductive type $ X // R$ on canonical terms through the map $p : X \to Y$). I claim $\eta$ exhibits $Y$ as the sheafification of $\|X // R\|_0$. Let $T$ be another $\bT$sheaf equipped with a map $\|X // R \|_0 \to T$. By precomposition we obtain a map $X \to T$. 
-    Claim: it factors uniquely through $p : X \to Y$. 
-    % https://q.uiver.app/#q=WzAsNCxbMCwwLCJYIl0sWzEsMCwiXFx8WCAvIFJcXHwiXSxbMiwwLCJUIl0sWzEsMSwiWSJdLFswLDFdLFsxLDJdLFswLDNdLFszLDIsIlxcZXhpc3RzISIsMix7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dXQ==
-\[\begin{tikzcd}
-	X & {\|X // R\|_0} & T \\
-	& Y
-	\arrow[from=1-1, to=1-2]
-	\arrow[from=1-1, to=2-2]
-	\arrow[from=1-2, to=1-3]
-	\arrow["{\exists!}"', dashed, from=2-2, to=1-3]
-\end{tikzcd}\]
-Proof: \\
-    Existence: We want to define a map $Y \to T$. Let $y : Y$. As $p$ is $\bT$-surjective and $T$ is a sheaf, we may assume we merely have some element in the fiber of $p$ over $y$. Now push this element through     
-    \[\|\fib_p y\| \to \|X // R\|_0 \to T\]
-    where the first map is by Plain HoTT and the second one was given by assumption. One can easily check this makes the diagram commute.
-    Uniqueness follows as $X \to Y$ is $\bT$-surjective and $\bT$ is a sheaf. \qed(Claim) \\
-    By surjectivity of $X \to \|X // R \|_0$ there exists a unique factorization 
-    % https://q.uiver.app/#q=WzAsNCxbMCwwLCJYIl0sWzEsMCwiXFx8WCAvIFJcXHwiXSxbMiwwLCJUIl0sWzEsMSwiWSJdLFswLDEsIiIsMCx7InN0eWxlIjp7ImhlYWQiOnsibmFtZSI6ImVwaSJ9fX1dLFsxLDJdLFswLDNdLFszLDIsIlxcZXhpc3RzISIsMix7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFsxLDNdXQ==
-\[\begin{tikzcd}
-	X & {\|X // R\|_0} & T \\
-	& Y
-	\arrow[two heads, from=1-1, to=1-2]
-	\arrow[from=1-1, to=2-2]
-	\arrow[from=1-2, to=1-3]
-	\arrow[from=1-2, to=2-2]
-	\arrow["{\exists!}"', dashed, from=2-2, to=1-3]
-\end{tikzcd}\]
-making the right triangle commute. This is what we wanted to show.
-\end{itemize}
-\end{proof}
-
-\begin{definition}
-An equivalence relation $R$ on a type $X$ is called:
-\begin{itemize}
-\item  if for all $x,y:X$ the proposition $R(x,y)$ is a  $-1$-stack.
-\item smooth if its  and for any $y:X$ its fibers:
-\[R_y :\equiv \sum_{x:X} R(x,y)\]
-are affine in $\bT$.
-\end{itemize}
-\end{definition}
-
-\begin{lemma}\label{fundamental-propriety-algebraic-spaces}
-Assume that $\bT$ satisfies descent for propositions and for sets \ref{thm:descent}, i.e. that a modal proposition being a  (-1)-stack is a sheaf. Assume that a modal set beeing affine in $\bT$ is a sheaf.
-Assume given a $\bT$set $X$, then the following types are equivalent:
-\begin{itemize}
-\item The type of smooth equivalence relations over $X$.
-\item The type of $\bT$sets $Y$ with identity types beeing  stacks and an $-1$-atlas $X$ to $Y$ (in V2 a $\bT$-cover).
-\end{itemize}
-\end{lemma}
-
-\begin{proof}
-By the equivalence in \ref{quotient-by-equivalence-relation}, it is enough to check that:
-\begin{itemize}
-\item The identity types in $X/R$ are 
- (-1)-stacks if and only if the relation $R$ is . For any $x,y:X$ we know that:
-\[R(x,y) \simeq [x] =_{X/R}[y]\]
-so the direct direction is immediate. For the converse we use the assumption that a modal proposition being a  (-1)-stack is a sheaf and that the map $[\_]:X\to X/R$ is $\bT$-surjective.
-\item The fibers of: 
-\[[\_]:X\to X/R\] 
-are affine in $\bT$ if and only if the relation $R$ is smooth. For any $y:X$ we have that:
-\[\sum_{x:X} R(x,y) \simeq \mathrm{fib}_{[\_]}([y])\]
-so the direct direction is immediate. Here as well the converse follows from $\bT$-surjectivity of $[\_]$ and that the topology has descent.
-\end{itemize}
-\end{proof}
-\begin{corollary}
-    Assume $\bT$ satisfies descent for propositions and for sets.
-    A type is a  0-stack iff its merely the $\bT$-quotient of an affine scheme by a smooth equivalence relation.
-\end{corollary}
-\begin{theorem}{\label{thm:QuotientOfAlgebraicSpace}}
-    Assume $\bT$ satisfies descent for propositions. 
-    The quotient of a  $0$-stack $X \in \bT \Set$ by an $0$-smooth equivalence relation $R$ is a  $0$-stack. TODO
-\end{theorem}
-
-\begin{proof}
-The identity types in $X / R$ are propositional  0-stacks, hence $(-1)$-\truncation s of  -1-stacks by \ref{lemma:prop0stacks} as desired. \\
-How to find an atlas: todo. How to proceed, if we could choose all atlasses we want at the same time?
-% Motivation why the choice of atlasse should work: Let $T = X / R$. 
-%  If we could choose -1-atlasses $\tilde X_t$ for the smooth 0-stacks $\fib_{[]}(t)$ for all $t : T$ at the same time, then $\sum_{t : T} \tilde X_t \to \sum_{t : T} \fib_{[]}(t) \to T$ has as domain a is fibered in smooth $-1$-stacks, as the fiber over $t$ would be $\tilde X_t$ which is an affine scheme in the topology. Moreover, This is enough as \\ %, hence by definition a smooth -1 stack. \\
-
-%     Given $p_1 , p_2 : R \rightrightarrows X$ fibered in smooth $0$-stacks, hence the fibers merely have $-1$-atlasses.
-%     %Claim: There exists a $-1$-atlas $R' \to R$
-%     As $X$ has Local choice with respect to $-1$-atlasses, we find a $-1$ atlas $f : X' \to X$ with 
-%     \[
-%     \prod_{x' : X'} \text{-1-atlas}(\sum_{x : X} R(x,f(x'))
-%     \]
-    
-\end{proof}
-\begin{rmk}
-    This is equivalent to saying that  $1$-stacks that are $0$-types are geomeric $0$-stacks: One direction we prove later. If $R$ is a 0-smooth equivalence relation on a  0-stack $X$, then $ X/ R$ is a  1-stack by observing that any -1-atlas $X' \to X$ gives a 0-atlas $X' \to X \to X/ R$. Moreover, $ X/ R$ is a 0-type, hence by assumption a  0-stack.
-\end{rmk}
-
-\begin{example}
-    There are open affine subschemes $U$ of affine schemes $\Spec A$, which are not (disjoints unions of) principal open
-\end{example}
-\begin{proof}
-    Consider $A = R[x,y,u,v]/(xy + ux^2 + vy^2), X= \Spec A$ and consider the open $U = D(x,y)$. \\
-    We cant expect $U$ to be a disjoint union of principal opens (todo). However, $D(x,y)$ is affine: We have maps $U \to R$ given by
-    $f = -v/x = (y+ux)/y^2 , g= -u/y = (x+vy)/x^2$. 
-    Then $D(f) \cup D(g) = \Spec R^X$ , as $yf + xg = 1$ in $R^U$.
-    Taking preimages under the affinization map, $U_f \cup U_g = X$ and one checks this defines an open affine cover (for example : $U_f \simeq \Spec R[x,u,f^{\pm 1}, g] / (xy + ux^2 + uy^2)$ with $y := (1-gx)/f$.)
-    But on both of this open subsets the affinization map is an isomorphism
-    hence the affinization of $X$ is an isomorphism.
-    %\[R^X \simeq R^{D(f) \cup D(g)} \simeq R^{D(f)} \times_{R^{D(fg}} D(g) \]
-    compare (Hartshorne II.2.17)
-\end{proof}
-% \begin{example}
-%     The Zariski topology does not descent along $\bT$-covers between affines
-% \end{example}
-% \begin{proof}
-% Assume it would hold.
-% By the previous example pick such an open affine subset $U \subset \Spec A$ and pick a Zariski atlas $V \to U$ such that $V$ is mereley of the form $D(a_1) + \hdots + D(a_n)$ for some $a_i \in A$. Let $x : \Spec A$. Then pulling pack the Zariski atlas along $U(x) \to U$ gives us a Zariski atlas of the open proposition $V' \to U(x)$. Now $V' + 1 \to U(x) + 1$ is a Zariski atlas with total space in the Zariski topology. By assumption, $U(x) + 1$ is in the topology, hence $U(x)$ would be a sum of principal opens. As it is a propososition, it would be a principal open subset of $1$. 
-% This is not a contradiction, because an open subset can be non principal although all the fibers are principal open props...
-% This is a contradiction by the assumption on $U \subset \Spec A$ beeing not principal open.
-    
-% \end{proof}
-\begin{lemma}
-    Let $f : X \to Y$ be surjective. There exists a Zariski Cover $X' \to X$ such that $X' \to Y$ is a Zariski cover iff there exists a Zariski Cover $X' \to X$, some $n : \bN$ and an open affine embedding $X' \hookrightarrow Y^n$ over $Y$.
-\end{lemma}
-
-% \begin{lemma}
-%     A morphism $f : X \to Y$ of  $n$-stacks is fibered in smooth $n$-stacks if there exists a smooth $n$-atlas of $f$.
-% \end{lemma}
+\include{FundamentalThmAlgSpc}
 
 \section{Saturated Topologies revisited}
 
@@ -417,7 +271,7 @@ As $Y \to X'$ is a$\bT$-cover and $X' \in \bT$ we conclude $Y \in \bT$. Hence we
 \begin{proof}
      The $n$-\truncation is an $n$-type. Now conclude by induction.
 \end{proof}
-We want to show that the notion of  stack makes sense, i.e. beeing  should not depend on the truncation level. 
+We want to show that the notion of  stack makes sense, i.e. beeing a stack should not depend on the truncation level. 
 
 \begin{lemma}{\label{lemma:prop0stacks}}
      Assume $\bT$ is saturated and satisfies descent for propositions. Let $P$ be a modal proposition. Then TFAE 
@@ -438,8 +292,9 @@ We want to show that the notion of  stack makes sense, i.e. beeing  should not d
     
      Let $\Spec A \to P$ be a $m-1$ atlas. Assume $\Spec A \in \bT$. Then $\|\Spec A\| \to P$ so as $P$ is a sheaf, we have $P$. Conversely, if $x : P$, then the fiber over $x$ is $\Spec A$ and a smooth $m-1$ stack, hence belongs to the topology by \ref{lemma:smoothatlas}. 
      \item[$2. \Rightarrow 3.$]
-        \red{We have to show: There exists some fp algebra such that $P$ is logically equivalent to $\|\Spec A\|_\bT$. }        
-        By assumption we have $\Spec A \to P$, so we deduce $\|\Spec A\|_\bT \to P$ as $P$ is a modal proposition. Conversely $P \to (\Spec A \in \bT) \to \|\Spec A\|_\bT$ , where the first arrow is by assumption.
+        \red{We have to show: There exists some flat algebra such that $P$ is logically equivalent to $\|\Spec A\|_\bT$. }        
+        By assumption we have $\Spec A \to P \to (\Spec A \in \bT)$, so we deduce 
+        $\| \Spec A\|_\bT \to P \to (\Spec A \in \bT)$, as $P$ is a modal proposition. In particular $A$ is flat. Conversely $P \to (\Spec A \in \bT) \to \|\Spec A\|_\bT$ , where the first arrow is by assumption.
         \item [$3. \Rightarrow 1.$] \ref{lemma:succStab}
 %        \item [$2. \Rightarrow 3.$] 
      \end{itemize}
@@ -481,35 +336,55 @@ We want to show that the notion of  stack makes sense, i.e. beeing  should not d
 	\end{itemize}
 \end{definition}
 \begin{lemma}{\label{lemma:havingAbstractAtlasClosedUnderId}}
-	Let $C$ be a class of affine schemes. The class of types $Y$ which admit a map $\Spec A \to Y$ fibered in $C$ is closed under taking identity types.
+	Let $C$ be a class of types stable under finite limits, i.e. containing 1, stable under dependent sums and identity types. The class $\mathsf{HasAtlas}_C$ of types $Y$ which admit a map $\Spec A \to Y$ fibered in $C$ is stable under finite limits %.  If it contains $C$ and is closed under dependent sums, then it is closed under taking identity types.
 \end{lemma}
 \begin{proof}
+	Obviously 1 has an atlas, and the class of types admitting an atlas is stable by $\sum$ by some earlier result (using local choice arguments, in the presheaf model).
+	It remains to show, that identity types in $Y$ have an atlas provided that $Y$ has an atlas.
+
+	%This is a special case of stability under dependent sums. But lets prove it anyway.
 	By assumption we can choose a map $p : V \to Y$ out of an affine fibered in $C$. Let $y,y' : Y$.  Then we have the map
 	\begin{align*}
 		(\fib_p y) \times_V (\fib_p y') &\to y = y' \\
 		(v , q : y = p v) , (v', q' : y' = p v') , (h : v = v') &\mapsto q \cdot h \cdot q'^{-1}
 	\end{align*}
-	The domain is a fiber product of affines, hence affine.
+
 	The fiber over $j : y = y'$ looks like  %because $y$ and $y'$ are free we may only show the statement for the fiber over the path  $\mathsf{refl}_y : y = y$. 
 	\[
 	\sum_{v}  ( \underbrace{\sum_{v'} (h : v = v')}_{\mathsf{isContr}}) \times (q : y = p v) \times (q'  : y' = p v') \times (q \cdot h \cdot q'^{-1} = j) \simeq \sum_v (v = py) \simeq \fib_p y
 	\]
+	Hence the map is fibered in $C$. It suffices to show, that	$(\fib_p y) \times_V (\fib_p y')$ has an atlas, because then we can compose such an atlas with the above map to obtain an atlas of $y = y'$.
+	By assumption the fibers of $p$ have an atlas, so we can choose $q : W \to \fib_p y, q' : W' \to \fib_p y'$ atlasses. Then $W \times_V W' \to (\fib_p y) \times_V (\fib_p y')$ is an atlas: The domain is a fiber product of affines, hence affine. The fiber over $(x,x')$ is equivalent to the product of fibers $(\fib_q x) \times (\fib_{q'} x')$ which is in $C$ by stability under dependent sums (so in particular under finite products).
+	
 \end{proof}
-\begin{lemma}[TODO]{\label{lemma:missing}}
-	If a modal proposition $P$ admits  a $-2$-atlas $\Spec A \to P$ then $P$ is a $-1$-stack.
-\end{lemma}
+
 \begin{theorem}{\label{thm:quotients}}
 	Let $f : X \to Y$ be a $\bT$-surjective smooth morphism between modal $n$-types. If $X$ is a (smooth) stack , then $Y$ a  (smooth) stack.
 \end{theorem}
+(*) This can only hold if we define -1-stacks to be  modal propositions with a $-2$-atlas $\Spec A \to P$, i.e. algebraic propositions \ref{def:algprop} %\begin{lemma}[have to force this]{\label{lemma:missing}}
+%	To check wether a modal proposition $P$ is a $-1$-stack its enough to find a $-2$-atlas $\Spec A \to P$.
+%\end{lemma}
 \begin{proof}
 	Induction.
 	For $n = -2$ its clear.
 	Let $X$ be a  $n$-stack. Lets first construct the $n-1$-atlas of $Y$.
 	We merely find a $V \twoheadrightarrow X$ which is an $n-1$-atlas.  Then $V \to X \to Y$ is an $n$-atlas because it is $\bT$-surjective and is fibered in the correct $\sum$-stable class of types, i.e. $\bT$ if $n \le 1$ and  smooth $n-1$-stacks for $n > 1$. Hence $Y$ is an $n+1$-stack. As $Y$ is an $n$-type, $Y$ is an $n$-stack \ref{thm:stack}. \\
 	If additionally $X$ is assumed to be smooth, then $V$ can be assumed to lie in $\bT$ which directly gives us that $Y$ has a smooth atlas. \\
-	It remains to show that the identity types of $Y$ are  $n-1$-stacks. By \ref{lemma:havingAbstractAtlasClosedUnderId} we  find some $n-1$-atlas $p : W \to y=y'$. The map is smooth, because the fibers of $p$ are smooth. % because for $n \le 0$ $\bT$ and for $n > 0$ smooth $n-1$-stacks are stable under finite products. 
-	If $n=0$, $y = y'$ is a $-1$-stack by \ref{lemma:missing}. If $n > 0$, $W$ is an $n-1$-stack and $p$ is smooth, so by induction $y = y'$ is an $n-1$-stack. %This is enough because choosing an $n$-atlas of the stack $(\fib_p y) \times_Y (\fib_p y')$ gives us by composition an $n$-atlas of $y = y'$. By induction ? $y = y'$ is an $n+1$-stack. By \ref{thm:stack} its an $n-1$-stack as desired.
+	It remains to show that the identity types of $Y$ are  $n-1$-stacks. As $Y$ has an $n-1$-atlas, by \ref{lemma:havingAbstractAtlasClosedUnderId} we  find some $n-1$-atlas $p : W \to y=y'$. The map is smooth. %, because the fiRbers of $p$ are smooth. % because for $n \le 0$ $\bT$ and for $n > 0$ smooth $n-1$-stacks are stable under finite products. 
+	If $n=0$, $y = y'$ is a $-1$-stack by (*). If $n > 0$, $W$ is an $n-1$-stack and $p$ is smooth, so by induction $y = y'$ is an $n-1$-stack. \\
+
+	
+	
+	%This is enough because choosing an $n$-atlas of the stack $(\fib_p y) \times_Y (\fib_p y')$ gives us by composition an $n$-atlas of $y = y'$. By induction ? $y = y'$ is an $n+1$-stack. By \ref{thm:stack} its an $n-1$-stack as desired.
 \end{proof}
+\begin{rmk}[Using descent but not induction]
+		Hugo suggested an alternative argument proving that the identity types of $Y$ are $n-1$-stacks, which presumable avoids \ref{thm:stack} but uses descent for $n$-stacks: 
+	For $x : X, y: Y$ we have that 
+	\[
+	(f(x) = y) \simeq (1 \times_X \fib_f y)
+	\]
+	is an $n$-stack by stability under $\sum$. Because it is an $n-1$-type, it is a $n-1$-stack by \ref{thm:stack}. Now conclude that every identity type of $Y$ is an $n-1$-stack by using descent for $n-1$-stacks and $\bT$-surjectivity of $f$.
+\end{rmk}
 \section{Local properties}
 
 \begin{definition}
@@ -545,7 +420,7 @@ Let \Cov be the property of morphisms of  $n$-stacks defined by asking that the 
 	\arrow["f", from=2-1, to=2-2]
 \end{tikzcd}\]
 such that $\tilde f$ is a $\bT$-cover.
-\end{example}r
+\end{example}
 The previous lemma tells us that we have the correct notion of smooth morphisms between  $n$-stacks for $n = 0,1$.
 
 

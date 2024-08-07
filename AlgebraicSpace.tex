@@ -1,4 +1,4 @@
-\section{AlgebraicSpace}
+\section{Algebraic Space}
 We first need to define a notion of algebraic space and smooth algebraic space, which should be the smallest class of types that satisfies the following:
 \begin{itemize}
 	\item Stability under finite limits \ref{thm:stabSums} 
@@ -10,8 +10,39 @@ We first need to define a notion of algebraic space and smooth algebraic space, 
 \begin{definition}
 	An affine Scheme $U$ is called flat, if 
 	\[\|U\|_\bT \to (U \in \bT)\]	
-	We call a proposition algebraic, if its merely of the form $\|U\|_\bT$ for some flat affine $U$.
 \end{definition}
+\begin{lemma}{\label{lemma:flatEquiv}}
+	The converse holds always
+\end{lemma}
+\begin{proof}
+	 because things in $\bT$ are automatically $\bT$-merely inhabited
+\end{proof}
+Recall the definition of $\bT$-atlas \ref{def:TAtlas}
+\begin{definition}{\label{def:algprop}}
+	We call a modal proposition algebraic, if one of the equivalent conditions is satisfied:
+	\begin{enumerate}
+		\item  its merely of the form $\|U\|_\bT$ for some flat affine $U$.
+		\item There is a $\bT$-surjective map out of a flat affine $U$.
+		\item It has a $\bT$-atlas.
+	\end{enumerate}
+
+\end{definition}
+\begin{proof} \
+	\begin{enumerate}
+		\item [1 $\Leftrightarrow$ 2]
+		Clear.
+		\item [1 $\Rightarrow$ 3]
+			we show that $U \to \|U\|_\bT$ is a $\bT$-atlas. Every fiber is in $\bT$, because $U$ is flat.
+		\item [3 $\Rightarrow$ 1]
+		
+				Let $V \to P$ be a $\bT$-atlas.
+		have to show TFAE $\|V\|_\bT \to P \to (V \in \bT) \overset{\ref{lemma:flatEquiv}}{\to} \|V\|_\bT$. 
+		Proof: $\|V\|_\bT \to P$ as $P$ is modal prop. Secondly, because $V \to P$ is a $\bT$-cover. \\
+		Hence $P$ is an algebraic proposition.	
+	\end{enumerate}
+
+\end{proof}
+
 \begin{lemma}
 	Algebraic propositions are algebraic spaces.
 \end{lemma}
@@ -30,41 +61,33 @@ We first need to define a notion of algebraic space and smooth algebraic space, 
 	The map $U \to U / R$ is fibered in $\bT$, in particular fibered in smooth algebraic spaces.% As $U$ is affine, its an algebraic space. 
 	By stability under smooth quotients, $U / R$ is an algebraic space.
 \end{proof}
-Recall the definition of $\bT$-atlas \ref{def:Tatlas}
-\begin{lemma}{\label{lemma:havingAtlasClosedUnderId}}
-	The class of types admitting a $\bT$-atlas is closed under taking identity types. 
-\end{lemma}
-\begin{proof}
-	This is an example of \ref{lemma:havingAbstractAtlasClosedUnderId}.
-	%	As in the proof of \ref{thm:quotients} the identity types $y = y'$ in $U / R$ admit a $\bT$-atlas $V \equiv \fib_p y \times_U \fib_p y' \to y = y'$, where $p : U \to U / R$ is a $\bT$-cover. 
-\end{proof}
-\begin{question}
-	Is it stable under dependent sums?
-\end{question}
 
-\begin{prop}
-	every proposition $P$ having a $\bT$-atlas is an algebraic proposition.
-	
-\end{prop}
-\begin{proof}
-	Let $V \to P$ be a $\bT$-atlas.
-	have to show TFAE $\|V\|_\bT \to P \to (V \in \bT) \to \|V\|_\bT$. 
-	Proof: $\|V\|_\bT \to P$ as $P$ is modal prop. Secondly, because $V \to P$ is a $\bT$-cover. Thirdly, because things in $\bT$ are automatically $\bT$-merely inhabited. \\
-	Hence $P$ is an algebraic proposition.	
-\end{proof}
+
+
 \begin{corollary}
-	The identity types of $U / R$ are algebraic propositions. %		In our setting, 	From the previous lemma we find a $\bT$-atlas $V \to P$ , t
+	Let $U$ be affine and $R$ a smooth equivalence relation. The identity types of $U / R$, i.e. the propositions $R(x,y)$, are algebraic propositions. %		In our setting, 	From the previous lemma we find a $\bT$-atlas $V \to P$ , t
 \end{corollary}
+\begin{proof}
+	By \ref{lemma:havingAbstractAtlasClosedUnderId}, the class of types admitting a $\bT$-atlas is closed under taking identity types. 	$U / R$ is a type admitting a $\bT$-atlas, hence its identity types admit them as well.
+\end{proof}
+
 \begin{definition}
-	A modal set $X$ is a classical algebraic space iff it is merely of the form $U / R$ for some afine $U$ and  $R : U^2 \to \Prop$ an algebraic equivalence relation. Equivalently there exists some $\bT$-atlas $U \to X$ (i.e. out of an affine). We call $X$ smooth if $U$ can be choosen to be in $\bT$.
+	A modal set $X$ is a classical algebraic space iff it is merely of the form $U / R$ for some affine $U$ and  $R : U^2 \to \Prop$ a smooth equivalence relation. Equivalently there exists some $\bT$-atlas $U \to X$ (i.e. out of an affine). We call $X$ smooth if $U$ can be choosen to be in $\bT$.
 \end{definition}
-\begin{corollary}
+\begin{corollary}[of \ref{def:algprop}]
 	Classical Algebraic spaces that are propositions are algebraic propositions.
 \end{corollary}
 
-\begin{lemma}
-	smooth classical Algebraic spaces which are affine are in $\bT$.
-\end{lemma}
-\begin{proof}
-	Saturatedness of the topology.
-\end{proof}
+\begin{rmk}
+	Assume Saturatedness of the topology. smooth classical Algebraic spaces which are affine are in $\bT$.
+\end{rmk}
+\begin{question}
+Is the class of classical algebraic spaces stable under smooth quotients? If its not, how should we enlarge it?
+\end{question}
+Try:
+Assume $R$ is fibered in smooth algebraic spaces. Choose $U \to T$ a $\bT$-atlas. For any $x : U$ the fiber $R_x$ merely has an atlas $\tilde R_x \to R_x$. As $U$ has choice (its affine), we find some $\bT$-cover $ \tilde U = \sum_x \tilde R_x \to \sum_x R_x$. 
+Goal: Find for all $t : U / R$ a $\bT$-atlas $V_t \to \fib_{[]}(t)$. Then $\sum_t V_t$ will be affine, because its the total space of a $\bT$-cover of an affine. Moreover, $\sum_t V_t \to \sum_t \fib_{[]}(t) \to U/R$ will be a $\bT$-cover, as $V_t \in \bT$. This is what we wanted to show.
+%Define the respective equivalence relation $\tilde R$, such that we get $\tilde U / \tilde R \to U \to U / R$ with $\tilde U / tilde R. As $U$ is affine
+
+% with affine target, hence the domain is affine as well. 
+
