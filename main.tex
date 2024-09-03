@@ -6,6 +6,7 @@
 %\newcommand{\Atl}{\emph{Atlas}}
 \usepackage{graphicx} % Required for inserting images
 \newcommand{\red}[1]{{\color{red} #1}}
+\newcommand{\St}{\mathsf{St}}
 
 \include{preamble}
 \title{Thesis}
@@ -13,13 +14,165 @@
 \date{May 2024}
 
 \begin{document}
-
+\newtheorem*{warning}{Warning}{definition}
 \maketitle
+\section{Does not fit yet}
+Algebraic space $=$ Classical algebraic space.
+Let $\bT$ be a saturated topology.
+Let $U$ be an affine in $\bT$, $R : U^2 \to \Prop$ be a covering equivalence relation, meaning that the fibers $R_x$ are covering algebraic spaces for $x : U$. I have shown previously that the identity types then are algebraic spaces. Let $U / R$ denote the sheafifaction of the set truncation of the homotopy quotient. We want to show, that  As $U$ is projective we can choose $\tilde R : U^2 \to \bT$ such that $\| \tilde R x y \|_\bT= R x y$. Consider the sheafification of the homotopy quotient $U // \tilde R$, this will be a 1-stack whose identity types are in $\bT$. Hence it suffices to show that the map $f : U // \tilde R \to U / R$ is fibered in covering 0-stacks. Consider a term in $U / R$. By descent we may assume its of the form $[x]$ for some $x : U$. I claim that the map \[\tilde R_x \to \fib_f [x] = \sum_{t: U // \tilde R} f t =_{U/R} [x]\]
+is an equivalence, this is en
+\section{A minimal approach}
+Fix $\bT$ a merely inhabited class of types.
+\begin{definition}
+	Let $C \supset \bT$ be a superclass stable under $\sum$. The class of covering $C$-stacks is the smallest intermediate class $\bT \subset \tilde \bT \subset C$ that is closed under covers between types in $C$: If $X , Y : C$ and $X \to Y$ is fibered in $\tilde T$, then $X \in \tilde \bT$ iff $Y \in \tilde \bT$.
+\end{definition}
+The closedness under covers assumption is the conjunction of closed under $\sum$ (as $C$ $\sum$-stable) and closed under quotients. \\
+\begin{lemma}
+	covering $C$-stacks contain $1$ and are closed under $\sum$.
+\end{lemma}
+
+
+\begin{example}
+	covering Aff-stacks $=$ saturation of $\bT$. Indeed: By definition, the saturation of $\bT$ is is obtained by quotients of $\bT$ by $\bT$-covers. We have shown, that its closed under covers between affines.
+\end{example}
+
+\begin{definition}
+	We call $X$ a $C'$-stack, iff there merely exists some affine $\Spec A \to X$ fibered in covering $C$-stacks. \\
+	We call $X$ a $C$-stack, iff its a $C'$-stack and $X \in C$.
+\end{definition}
+\begin{definition}
+	The (covering )$\infty$-stacks are the (covering) $\cU$-stacks.
+\end{definition}
+\begin{lemma}
+	$X$ is a $n'$ stack iff its an $n+1$-stack
+\end{lemma}
+\begin{proof}
+	If its 
+\end{proof}
+\begin{lemma}{\label{closedUnderId}}
+	$C$-stacks are closed under $\id$-types.
+\end{lemma}
+\begin{proof}
+	
+	This is similar to \ref{lemma:havingAbstractAtlasClosedUnderId}.
+\end{proof}
+\begin{warning}
+The previous lemma does not hold for covering stacks: Identity types of things in $\bT$ could be empty.
+\end{warning}
+
+THIS IS UNUSUAL, but surprisingly useful.
+Let $n \ge 0$.
+%\begin{lemma}[TODO]
+%	If $D \subset C$, then the cover-closure of (covering $C$-stacks $\cap D$) inside $D$ are  covering $D$-stacks. 
+%\end{lemma}
+\begin{example}
+	Affine covering $0$-stacks are the saturation of $\bT$.
+\end{example}
+%\begin{corollary}[Indepedence of the truncation level]
+%	(covering) $n+1$-type-stacks that are $n$-types $=$ (covering) $n$-type stacks.
+%\end{corollary}
+%\begin{proof}
+%	Only need to show $\subset$. First the covering part. For this just show the LHS is closed under covers between $n$-types by the previos lemma. \\
+%	For the non covering part, let $\Spec A \to X$ be fibered in covering $n+1$-type-stacks where $X$ is a $n$-type. Then the fibers are $n$-types, hence by the covering case, they are covering $n$-type stacks.
+%\end{proof}
+\begin{definition}
+	$X$ is a (covering) 0-stack, if its a (covering) 0-type-stack.
+\end{definition}
+\begin{theorem}[TODO]
+	Let $X$ be a type. TFAE for all $n$ :
+	\begin{enumerate}
+		\item $X$ is a covering $n$-type-stack.
+
+		\item Inductively, There merely exists some $U \in \bT$ with a map $U \to X$ fibered in covering $n-1$-stacks.
+		\item[2'] Inductively, as the previous one but additionally the $\id$-types of $X$ are $n-1$-stacks.
+		\item Inductively, There merely exists some covering $n-1$-stack $U$ with a map $U \to X$ fibered in covering $n-1$-stacks.		
+		\item[3'] Inductively, as the previous one but additionally the $\id$-types of $X$ are $n-1$-stacks.
+	\end{enumerate}
+If one of the conditions is satisfied we call $X$ a covering $n$-stack.
+\end{theorem}
+\begin{proof}
+Induction $n-1 \mapsto n$ , $n \ge 1$.
+\begin{enumerate}
+	\item[1. $\Rightarrow$ 2] We have to show, that the class in 2. is closed under $\sum$ and closed under quotients between $n$-types. This was already done.
+	\item [2. $\Rightarrow$ 3] Clear
+	\item [3. $\Rightarrow$ 3'] By  \ref{closedUnderId} and independence of the truncation level (TODO).
+	\item [3'. $\Rightarrow$ 3 , 2' $\Rightarrow$ 2] Clear
+
+	\item [3'. $\Rightarrow$ 1.]  by induction, covering $n-1$-stacks $=$ covering $n-1$-type-stacks $\subset$ covering $n$-type-stacks. Now use stability under covers between $n$-types.
+	\item [3' $\Rightarrow$ 2'] Use 3 $\Rightarrow 1 \Rightarrow 2$.
+%	\item [2. $\Rightarrow$ 3] By some argument of Hugo, an $X$ as in $2.$ is an $n$-type.
+\end{enumerate}
+\end{proof}
+%We want: = covering $n$-stacks. The $\subset$-direction is clear, as covering $n$-stacks should be stable under covers between $n$-types. for $\supset$, make sure that covering $n$-stacks for $n$ small can be constructed as a quotient by a $\bT$-cover
+\subsection{Descent}
+For this subsection lets assume $\St$ a class of sheaves, such that $\bT$ is contained in it and for any map $X \to Y$ fibered in $\bT$, $X \in \St$ iff $Y \in \St$. We call types in this class stacky.
+
+\begin{lemma}
+Let $\bT$ satisfy descent, i.e. beeing affine in the topology has descent.
+Let $X \in \St$ and $Y$ a type.	Let $f : X \twoheadrightarrow Y$ be fibered in $\bT$ and surjective. Then $\bullet Y$ is stacky.
+\end{lemma}
+\begin{proof}
+Claim: $Y$ is seperated. Proof: By surjectivity of $f$ we may only show that for any $x : X, y : Y$, the type $f x =_Y y$ is a sheaf. If we define $U$ to be the fiber over $y$, it is in $\bT$ by assumption. But then $f x =_Y y$ is the outer pullback
+% https://q.uiver.app/#q=WzAsNixbMCwwLCJmIHggPSB5Il0sWzEsMCwiVSBcXGluXFxiVCJdLFswLDEsIjEiXSxbMSwxLCJYIl0sWzIsMCwiMSJdLFsyLDEsIlkiXSxbMyw1LCJmIl0sWzQsNSwieSIsMl0sWzIsMywieCJdLFsxLDNdLFsxLDRdLFsxLDUsIiIsMSx7InN0eWxlIjp7Im5hbWUiOiJjb3JuZXItaW52ZXJzZSJ9fV0sWzAsMl0sWzAsMV1d
+\[\begin{tikzcd}
+	{f x = y} & {U \in\bT} & 1 \\
+	\arrow["\ulcorner"{anchor=center, pos=0.125}, draw=none, from=1-1, to=2-2]
+	1 & X & Y
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-1, to=2-1]
+	\arrow[from=1-2, to=1-3]
+	\arrow[from=1-2, to=2-2]
+	\arrow["\ulcorner"{anchor=center, pos=0.125}, draw=none, from=1-2, to=2-3]
+	\arrow["y"', from=1-3, to=2-3]
+	\arrow["x", from=2-1, to=2-2]
+	\arrow["f", from=2-2, to=2-3]
+\end{tikzcd}\]
+of stacky types, in particular sheaves. \qed(Claim) \\
+
+	Consider $X \overset{f}{\to} Y \overset{\eta}{\to} \bullet Y$. As $X$ is stacky, it suffices to show, that the fibers are in $\bT$. As beeing affine in $\bT$ is  a sheaf, we may just show that for all $y : Y$ , the fibers over $\eta y : \bullet Y$ are in $\bT$. As $\eta$ is a monomorphism by \ref{lemma:sep} , $\eta$ restricts to an equivalence
+	\[
+	\fib_f y \to \fib_{ \eta f}(\eta y)
+	\]
+
+	But the left hand side is in $\bT$ by assumption. 
+\end{proof}
+\begin{theorem}
+	Assume $\bT$ have descent. Then $\St$ is a sheaf.
+\end{theorem}
+\begin{proof}
+	$\St$ is seperated: This follows from the embedding $\St$ into the seperated (TODO) type of sheaves. \\
+	Let $U \in \bT$ and $P : \|U\| \to \St$. We want to construct a filler 
+	% https://q.uiver.app/#q=WzAsMyxbMCwwLCJcXHwgVVxcfCJdLFswLDEsIjEiXSxbMSwwLCJcXFNtU3QiXSxbMCwyLCJQIl0sWzAsMV0sWzEsMiwiIiwyLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV1d
+	\[\begin{tikzcd}
+		{\| U\|} & \St \\
+		1
+		\arrow["P", from=1-1, to=1-2]
+		\arrow[from=1-1, to=2-1]
+		\arrow[dashed, from=2-1, to=1-2]
+	\end{tikzcd}\]
+	Claim: $\bullet (\sum_{x: \|U\|} P x)$ is stacky.
+	\begin{proof} of the claim. We want to apply the previous lemma to the map 
+		\[\sum_{x : U} P | x | \to \sum_{x : \| U\|} P x \]
+		The domain is in $\St$ by stability under $\sum$. The fibers are equivalent to $U \in \bT \subset \St$.				
+	\end{proof}
+    The claim provides the map $1 \to \St$. The diagram commutes: Assuming $x : \|\Spec A\|$ we wish to show $P x = \sum_{x: \|U\|} P x$. Using univalence, we may show that the maps 
+	\[P x \to \sum_{x: \|U\|} P x \overset{\eta}{\to} \bullet \sum_{x: \|U\|} P x\]
+	are both equivalences.
+	The first one is an equivalence as $\|U\|$ is contractible. Hence the middle term is a sheaf, thus the unit map is an equivalence as well. \\
+	
+	
+	
+\end{proof}
+\begin{corollary}
+	For all $n : \bN \cup \{\infty \}$, the class of (covering) ($n$-)stacks satisfy descent.
+\end{corollary}
 \include{SaturatedTopology}
 \include{LexModalities}
 \include{Atlas}
 \include{LocalChoice}
 \include{AlgebraicSpace}
+
+
 \section{ $n$-stacks}
 
 % \begin{rmk}
@@ -38,15 +191,15 @@
 %         \end{itemize}        
         
 %         \item a  $n$-stack for $-2 \le n \le 0$ iff is an $n$-type and a  1-stack
-%         \item a smooth $n$-stack for $-2 \le n \le 0$ iff its  and there is a $\bT$-cover $\bT \ni \Spec A \to X$
+%         \item a covering $n$-stack for $-2 \le n \le 0$ iff its  and there is a $\bT$-cover $\bT \ni \Spec A \to X$
         
 %         \item is A  $(n+1)$-stack for $n \ge 1$, if 
 %         \begin{itemize}
 %             \item $X$ is a $\bT$-sheaf
 %             \item For any $x , y : X$ $x =_X y$ is a  $n$-stack
-%             \item There exists an $n$-atlas, i.e. a $\bT$-surjective map $\Spec A \to X$ fibered in smooth $n$-stacks
+%             \item There exists an $n$-atlas, i.e. a $\bT$-surjective map $\Spec A \to X$ fibered in covering $n$-stacks
 %         \end{itemize}
-%         \item $X$ is a smooth $n+1$-stack if
+%         \item $X$ is a covering $n+1$-stack if
 %         \begin{itemize}
 %             \item $X$ is a  $(n+1)$-stack
 %             \item There exists a $n$-atlas $\Spec A \to X$ with $\Spec A \in \bT$
@@ -58,7 +211,7 @@
 \begin{definition}
 Let $\bT$ be a subcanonical topology finer than the Zariski topology. Let $n \ge -2$. A type $X$ 
     \begin{itemize}    
-        \item is a  (smooth) -2-stack if it is contractible 
+        \item is a  (covering) -2-stack if it is contractible 
         \item is A  $(n+1)$-stack, if 
         \begin{itemize}
             \item $X$ is a $\bT$-sheaf
@@ -66,10 +219,10 @@ Let $\bT$ be a subcanonical topology finer than the Zariski topology. Let $n \ge
             \item There exists an $n$-atlas, i.e. a $\bT$-surjective map $\Spec A \to X$ fibered in 
                 \begin{itemize}
                     \item $\bT$, if $n \le 0$
-                    \item smooth $n$-stacks, if $ n > 0$. 
+                    \item covering $n$-stacks, if $ n > 0$. 
                 \end{itemize}
         \end{itemize}
-        \item $X$ is a smooth $n+1$-stack if
+        \item $X$ is a covering $n+1$-stack if
         \begin{itemize}
             \item $X$ is a  $(n+1)$-stack
             \item There exists a $n$-atlas $\Spec A \to X$ with $\Spec A \in \bT$
@@ -78,10 +231,10 @@ Let $\bT$ be a subcanonical topology finer than the Zariski topology. Let $n \ge
     
 \end{definition}
 \begin{lemma}
-One could only alternatively talk about  (smooth) $n$-stacks for $n \ge 1$, define them by induction as above. Then later define:
+One could only alternatively talk about  (covering) $n$-stacks for $n \ge 1$, define them by induction as above. Then later define:
 \begin{itemize}
-     \item A  (smooth) -1-stack is a  (smooth) 1- stack is a proposition. \\
-     \item A  (smooth) 0-stack is a  (smooth) 1-  that is a 0-type. \\    
+     \item A  (covering) -1-stack is a  (covering) 1- stack is a proposition. \\
+     \item A  (covering) 0-stack is a  (covering) 1-  that is a 0-type. \\    
 \end{itemize}    
 \end{lemma}
 \begin{proof}
@@ -95,7 +248,7 @@ One could only alternatively talk about  (smooth) $n$-stacks for $n \ge 1$, defi
 % \end{rmk}
 %In the definition of an atlas, we need a notion of surjectivity (stable under basechange) which plays well with the topology: We need if $\bT \ni \Spec A \to Y$ is such a strong surjection with $Y$ affine, then $Y \in \bT$. (*) %, then $Y \in \bT$. (*) (TODO, maybe sheaf prop?) If  allows us to 
 \begin{lemma}{\label{lemma:succStab}}
-    A  (smooth) $n$-stack is a  (smooth) $n+1$-stack.
+    A  (covering) $n$-stack is a  (covering) $n+1$-stack.
 \end{lemma}
 
 \begin{proof}
@@ -104,12 +257,12 @@ One could only alternatively talk about  (smooth) $n$-stacks for $n \ge 1$, defi
     We need, that $\bT$ is subcanonical to conclude that affines are $\bT$-sheaves.
 \end{proof}
 \begin{rmk}
-    If one changes the definition of atlas to be a map out of a scheme, then smooth -1 atlas will be scheme in $\bT$. Otherwise propositional -1-stack are not 0-stacks.
+    If one changes the definition of atlas to be a map out of a scheme, then covering -1 atlas will be scheme in $\bT$. Otherwise propositional -1-stack are not 0-stacks.
 \end{rmk}
 
 \section{Stability results}
 \begin{theorem}{\label{thm:stabSums}}
-    Let $n \ge -2$. Smooth /  $n$-stacks are stable by dependent sums.
+    Let $n \ge -2$. covering /  $n$-stacks are stable by dependent sums.
 \end{theorem}
 % \begin{notation}
 %     A \emph{ cover $U \to X$ of Something} is a map $U \to X$ such that the fibers are Something.
@@ -119,21 +272,21 @@ One could only alternatively talk about  (smooth) $n$-stacks for $n \ge 1$, defi
     For $n = -2$ its okay.    
     Let $B : X \to \cU$ be a family of  $n+1$-stacks indexed over a  $n+1$-stack $X$, then surely the total space $\sum_{x : X} B x$ is a $\bT$-sheaf as $\bT$-sheaves are stable under depentend sum. 
     The identity types in a $\sum$ type are $\sum$ of identity types.\\ 
-	Admitting an $n$-atlas is stable under dependent sum: We apply \ref{thm:atlasStableSum} to the class of (smooth) $n$-atlasses, which is stable under depent sum by induction.
+	Admitting an $n$-atlas is stable under dependent sum: We apply \ref{thm:atlasStableSum} to the class of (covering) $n$-atlasses, which is stable under depent sum by induction.
     \\ % and $B x$ is a fibers are  $n$-stacks by induction. \\
-%    It remains to construct some $n$-atlas $\Spec A \to \sum_{x : X} B_x$ %fibered in smooth $n$-stacks.
-%    For any $x : X$ we merely have an $n$-atlas $V_x \to B_x$, i.e. with $V_x$ affine. %fibered in smooth $n$-stacks . \\
+%    It remains to construct some $n$-atlas $\Spec A \to \sum_{x : X} B_x$ %fibered in covering $n$-stacks.
+%    For any $x : X$ we merely have an $n$-atlas $V_x \to B_x$, i.e. with $V_x$ affine. %fibered in covering $n$-stacks . \\
 %    Claim: $X$ has local choice for $X$ wrt  $n$-atlasses.\\
 %    Proof:
 %        $n$-atlasses contain zariski-atlasses, because $\bT$ is finer than the Zariski topology.
 %         $n$-stacks are stable under dependent sum by induction, thus $n$-atlasses are stable under composition.         
 %    \qed(Claim)\\
-%    By (\ref{prop:LocalChoice}) for $X$, we merely find $U$ affine, an $n$-atlas $p : U \to X$ % fibered in smooth $n$-stacks 
+%    By (\ref{prop:LocalChoice}) for $X$, we merely find $U$ affine, an $n$-atlas $p : U \to X$ % fibered in covering $n$-stacks 
 %    with
 %    \[
-%    \prod_{u : U} \sum_{V_{p(u)} \in T} (q : V_{p(u)} \to B_{p(u)}) \times (q \ \text{fibered in smooth } n \text{ stacks } )
+%    \prod_{u : U} \sum_{V_{p(u)} \in T} (q : V_{p(u)} \to B_{p(u)}) \times (q \ \text{fibered in covering } n \text{ stacks } )
 %    \]
-%    Now the desired map is $\sum_{u : U} V_{p u} \to \sum_{x : X} B_x$, because it is  an $n$-atlas %fibered in smooth $(n)$-stacks 
+%    Now the desired map is $\sum_{u : U} V_{p u} \to \sum_{x : X} B_x$, because it is  an $n$-atlas %fibered in covering $(n)$-stacks 
 %    by \ref{lemma:AtlasSum} \\
     
     
@@ -177,34 +330,34 @@ First we show:if $X$ has an $n$-atlas and $Y$ is a closed (open) subtype of $X$,
 \begin{lemma}
     Given a local property $P$ of morphisms of modal $n$-types, a morphism $f : X \to Y$ has $P$ if there exists an $n$-atlas of $f$ having $P$.
 \end{lemma}
-The previous lemma tells us that we have the correct notion of smooth morphisms between  $n$-stacks for $n = 0,1$.
+The previous lemma tells us that we have the correct notion of covering morphisms between  $n$-stacks for $n = 0,1$.
 \section{Descent}
  \begin{theorem}{\label{thm:descent}}
-     Let $T$ be a modal $n$-type. The Proposition, that $P$ is a  (smooth) $n$-stack, is modal.
+     Let $T$ be a modal $n$-type. The Proposition, that $P$ is a  (covering) $n$-stack, is modal.
  \end{theorem}
 \include{FundamentalThmAlgSpc}
 
 \section{Saturated Topologies revisited}
 
-\begin{lemma}[1.1]{\label{lemma:smoothatlas}}
-We want that every $n-1$-atlas of a smooth $n$-atlas has the additional requirement in the definition of smooth $n$-atlas. It turns out, that for this topology needs to be saturated:
+\begin{lemma}[1.1]{\label{lemma:coveringatlas}}
+We want that every $n-1$-atlas of a covering $n$-atlas has the additional requirement in the definition of covering $n$-atlas. It turns out, that for this topology needs to be saturated:
 The following are equivalent
 \begin{enumerate}
    
     \item Beeing in the topology descents along $\bT$-covers between affines, i.e. $\bT$ is saturated.
-    \item A smooth $n$ -stack $X$ that is an affine scheme lies in the Topology $\bT$.  
-    \item Let $n \ge 0$. If $T$ is a smooth $n$-stack, then any $n-1$-atlas $U \to T$ satisfies $U \in \bT$.
+    \item A covering $n$ -stack $X$ that is an affine scheme lies in the Topology $\bT$.  
+    \item Let $n \ge 0$. If $T$ is a covering $n$-stack, then any $n-1$-atlas $U \to T$ satisfies $U \in \bT$.
      \item If $U \overset{f}{\to} V \overset{g}{\to} W$ are maps between affines and $f$ and $gf$ are $\bT$ covers, then $g$ is a $\bT$ Cover
 \end{enumerate}
 \end{lemma}
 \begin{proof}
 1 $\Rightarrow$ 2 \\
   Induction.
-    This holds for $n=-1$. Assume it holds for $n-1$. Choose a $n-1$-atlas with $T$ source, i.e. $T \ni \Spec A \to X$ fibered in smooth $n-1$-stacks.  As it is affine, all the fibers of the atlas are affine smooth $n-1$-stacks, hence by induction they lie in $\bT$, thus the atlas is a $\bT$-cover between affines, hence $X \in \bT$. \\
+    This holds for $n=-1$. Assume it holds for $n-1$. Choose a $n-1$-atlas with $T$ source, i.e. $T \ni \Spec A \to X$ fibered in covering $n-1$-stacks.  As it is affine, all the fibers of the atlas are affine covering $n-1$-stacks, hence by induction they lie in $\bT$, thus the atlas is a $\bT$-cover between affines, hence $X \in \bT$. \\
     2 $\Rightarrow$ 3 \\
-    As $U \to T$ is fibered in smooth $n-1$ stacks, all the fibers are in particular smooth $n$-stacks by \ref{lemma:succStab}. By stability under dependent sum $U = \sum_{t : T} U_t$ is a smooth $n$-stack that is affine, hence by assumption (2) it lies in the topology.\\
+    As $U \to T$ is fibered in covering $n-1$ stacks, all the fibers are in particular covering $n$-stacks by \ref{lemma:succStab}. By stability under dependent sum $U = \sum_{t : T} U_t$ is a covering $n$-stack that is affine, hence by assumption (2) it lies in the topology.\\
 3 $\Rightarrow$ 1 \\
-Let $X \to Y$ be a $\bT$-cover with $X$ affine in $\bT$ and $Y$ affine. Then $Y$ is a smooth $0$-stack, But $Y \to Y$ is a $-1$-atlas, hence by assumption $Y \in T$. 
+Let $X \to Y$ be a $\bT$-cover with $X$ affine in $\bT$ and $Y$ affine. Then $Y$ is a covering $0$-stack, But $Y \to Y$ is a $-1$-atlas, hence by assumption $Y \in T$. 
 \\
 4 $\Rightarrow$ 1 \\
 Obvious
@@ -213,12 +366,12 @@ Obvious
 Check fiberwise
 \end{proof}
 
- If $n \ge $, replacing $\bT$ by its saturation $\bT'$ does change the notion of  (smooth) $n$-stack, but we have the following statement, that tells us, that if we start with  0-$\bT$-stacks then the notion of smoothness does not see the difference between $\bT$ and its saturation. 
+ If $n \ge $, replacing $\bT$ by its saturation $\bT'$ does change the notion of  (covering) $n$-stack, but we have the following statement, that tells us, that if we start with  0-$\bT$-stacks then the notion of coveringness does not see the difference between $\bT$ and its saturation. 
 \begin{prop}
-    Let $X$ be a  0-stack that is a weak smooth 0-stack, i.e. there exists a $\bT'$-atlas $\bT' \ni X' \to X$ (i.e. fibered in $\bT'$). Then $X$ is a smooth $0$-stack. 
+    Let $X$ be a  0-stack that is a weak covering 0-stack, i.e. there exists a $\bT'$-atlas $\bT' \ni X' \to X$ (i.e. fibered in $\bT'$). Then $X$ is a covering $0$-stack. 
 \end{prop}
 \begin{proof}
-    Wlog $X' \in \bT$. Choose a $-1$-atlas $\Spec A \to X$ (i.e. fibered in $\bT$). As the fibers of $X' \to X$ merely have smooth atlasses $\tilde X_x' \to X'_x$, we can use Local choice to obtain a commutative diagram $Y = \sum_{x' : X'} \tilde X_x'$
+    Wlog $X' \in \bT$. Choose a $-1$-atlas $\Spec A \to X$ (i.e. fibered in $\bT$). As the fibers of $X' \to X$ merely have covering atlasses $\tilde X_x' \to X'_x$, we can use Local choice to obtain a commutative diagram $Y = \sum_{x' : X'} \tilde X_x'$
     % https://q.uiver.app/#q=WzAsNCxbMCwwLCJcXHRpbGRlIFgiXSxbMCwxLCJYJyJdLFsxLDEsIlgiXSxbMSwwLCJcXFNwZWMgQSJdLFszLDJdLFsxLDIsIlxcYlQnIiwyXSxbMCwxXSxbMCwzLCJcXGJUIl1d
 % https://q.uiver.app/#q=WzAsNCxbMCwwLCJcXHRpbGRlIFgiXSxbMCwxLCJYJyJdLFsxLDEsIlgiXSxbMSwwLCJcXFNwZWMgQSJdLFszLDJdLFsxLDIsIlxcYlQnIiwyXSxbMCwxLCJcXGJUIiwyXSxbMCwzLCJcXGJUIl1d
 \[\begin{tikzcd}
@@ -229,10 +382,10 @@ Check fiberwise
 	\arrow[from=1-2, to=2-2]
 	\arrow["{\bT'}"', from=2-1, to=2-2]
 \end{tikzcd}\]
-As $Y \to X'$ is a$\bT$-cover and $X' \in \bT$ we conclude $Y \in \bT$. Hence we found a smooth $\bT$-atlas of $X$. 
+As $Y \to X'$ is a$\bT$-cover and $X' \in \bT$ we conclude $Y \in \bT$. Hence we found a covering $\bT$-atlas of $X$. 
 \end{proof}
 % \begin{prop}
-%     Let $n \ge 0$. Replacing $\bT$ by its saturation $\bT'$ does change the notion of  (smooth) $n$-stack
+%     Let $n \ge 0$. Replacing $\bT$ by its saturation $\bT'$ does change the notion of  (covering) $n$-stack
 % \end{prop}
 % \begin{proof}
 %     Induction. For $n = 0$ it is not clear, that if $X$ has an atlas fibered in $\bT'$, why it has an atlas fibered in $\bT$. TODO \\ REST IS CLEAR.
@@ -258,9 +411,9 @@ As $Y \to X'$ is a$\bT$-cover and $X' \in \bT$ we conclude $Y \in \bT$. Hence we
 %     For the induction start, 
 %     if this is true, choose an $n$-atlas $X \to T$ such that $X \in \bT$. Take $R = U \times_T X$ which is in $\bT$ (check!). Then $R \to U$ is a $\bT$-cover with $R \in \bT$, hence $U \in \bT$ by ($\star$). \\
 %     Assume it holds for $(n-1)$. Choose an $n-1$-atlas $\bT \ni X \to T$. Then $R = U \times_T X$ is an $n-1$-stack, so we can choose a $n-2$-atlas $W \to R$. 
-%     Claim: $W \to X$ and $W \to U$ are fibered in smooth $n-1$-stacks.
-%     From there we conclude $W \in \bT$, hence $W \to U$ witnesses that $U$ is a smooth $n$-stack. Hence it lies in the topology by \ref{lemma:affinestack}.
-%     %For any $x : X$ the basechange $W_x \to R_x$ is an $n-2$ atlas of a smooth $n-1$-stack, hence by induction $W_x \in \bT$. So $W = \sum_{x : X} W_x \in \bT$. By ($\star$)   
+%     Claim: $W \to X$ and $W \to U$ are fibered in covering $n-1$-stacks.
+%     From there we conclude $W \in \bT$, hence $W \to U$ witnesses that $U$ is a covering $n$-stack. Hence it lies in the topology by \ref{lemma:affinestack}.
+%     %For any $x : X$ the basechange $W_x \to R_x$ is an $n-2$ atlas of a covering $n-1$-stack, hence by induction $W_x \in \bT$. So $W = \sum_{x : X} W_x \in \bT$. By ($\star$)   
     
 % \end{proof}
 \section{ beeing a stack is indepent of the truncation level}
@@ -291,7 +444,7 @@ We want to show that the notion of  stack makes sense, i.e. beeing a stack shoul
     \begin{itemize}
         \item[$1.\Rightarrow 2.$]
     
-     Let $\Spec A \to P$ be a $m-1$ atlas. Assume $\Spec A \in \bT$. Then $\|\Spec A\| \to P$ so as $P$ is a sheaf, we have $P$. Conversely, if $x : P$, then the fiber over $x$ is $\Spec A$ and a smooth $m-1$ stack, hence belongs to the topology by \ref{lemma:smoothatlas}. 
+     Let $\Spec A \to P$ be a $m-1$ atlas. Assume $\Spec A \in \bT$. Then $\|\Spec A\| \to P$ so as $P$ is a sheaf, we have $P$. Conversely, if $x : P$, then the fiber over $x$ is $\Spec A$ and a covering $m-1$ stack, hence belongs to the topology by \ref{lemma:coveringatlas}. 
      \item[$2. \Rightarrow 3.$]
         \red{We have to show: There exists some flat algebra such that $P$ is logically equivalent to $\|\Spec A\|_\bT$. }        
         By assumption we have $\Spec A \to P \to (\Spec A \in \bT)$, so we deduce 
@@ -301,7 +454,7 @@ We want to show that the notion of  stack makes sense, i.e. beeing a stack shoul
      \end{itemize}
 \end{proof}
 \begin{lemma}
-    A smooth $-1$-stack $P$ is contractible.
+    A covering $-1$-stack $P$ is contractible.
 \end{lemma}
 \begin{proof}
     Choose a $\bT$-cover $\bT \ni \Spec A \to P$. As $P$ is a proposition we have $\| \Spec A\| \to P$. As $P$ is a sheaf we have $P$.
@@ -311,7 +464,7 @@ We want to show that the notion of  stack makes sense, i.e. beeing a stack shoul
     Why are schemes  0-stacks? This holds in special case, for example if the scheme is quasi projective. 
 \end{example}
 \begin{theorem}{\label{thm:stack}}
-    Let $\bT$ be saturated. Assume the topology satisfies descent Let $m , n \ge -2$. Given an $n$-type $T$ that is a  (smooth) $m$-stack then $T$ is a  (smooth) $n$-stack.
+    Let $\bT$ be saturated. Assume the topology satisfies descent Let $m , n \ge -2$. Given an $n$-type $T$ that is a  (covering) $m$-stack then $T$ is a  (covering) $n$-stack.
 \end{theorem}
 
 
@@ -321,23 +474,24 @@ We want to show that the notion of  stack makes sense, i.e. beeing a stack shoul
     If $m \le 1$ this is clear. Now assume $m \ge 2$. 
     Induction. 
     Inductionstart $m = 2$. Let us prove the case of $m = 2,n=1$, the cases $-2 \le n<1$ are immediate from this. \\
-    Choose a 1-atlas $X' \to T$, i.e. its fibered in smooth $1$-stacks. As $T$ is a groupoid and $X'$ is a set, the fibers are actually sets, i.e. smooth 0-stacks. 
+    Choose a 1-atlas $X' \to T$, i.e. its fibered in covering $1$-stacks. As $T$ is a groupoid and $X'$ is a set, the fibers are actually sets, i.e. covering 0-stacks. 
     
-    Now consider $R := X' \times_T X'$. As $X'$ is in particular a  0-stack and  0-stacks are stable under dependent sums, $R$ will be a  0-stack. Choose a  a $\bT$-cover $R' \to R$ with $R'$ affine. Now $R' \to R \to X'$ is a map between affine schemes i.e it is fibered in smooth 0-stacks that are affine. As $\bT$ is saturated, the fibers of $R' \to X'$ are in $\bT$. As $X' // R'$ is a  1-stack by \ref{lemma:coeq}, it suffices to show that $X' // R' \to X' // R$ is a $\bT$-cover. Pick a term in $X' // R$. As the fiber beeing in $\bT$ is sheaf 
-    If additionally $T$ is assumed to be a smooth $2$-stack, then we can assume $X'$ to be in the topology. This will force $R$ to be a smooth $0$-stack, so we may choose $R'$
-    Assume $m > 2$ and the statement is proven for all $(n',m') < (n,m)$ in lexicographical ordering. As the identity types of $T$ are $n-1$-types and  $m-1$ stacks by induction they are  $n-1$ stacks. Let $X \to T$ be an $m-1$-atlas, i.e. fibered in smooth $m-1$-stacks with $X$ affine. The fibers are in particular $n-1$-types, so by induction they are smooth $n-1$-stacks. Hence $X \to T$ is an $n-1$-atlas. If, additionally $T$ is assumed to be a smooth $m$-stack, we can choose $X \in \bT$, hence $X \to T$ witnesses that $T$ is a smooth $n$-stack.
+    Now consider $R := X' \times_T X'$. As $X'$ is in particular a  0-stack and  0-stacks are stable under dependent sums, $R$ will be a  0-stack. Choose a  a $\bT$-cover $R' \to R$ with $R'$ affine. Now $R' \to R \to X'$ is a map between affine schemes i.e it is fibered in covering 0-stacks that are affine. As $\bT$ is saturated, the fibers of $R' \to X'$ are in $\bT$. As $X' // R'$ is a  1-stack by \ref{lemma:coeq}, it suffices to show that $X' // R' \to X' // R$ is a $\bT$-cover. Pick a term in $X' // R$. As the fiber beeing in $\bT$ is sheaf 
+    If additionally $T$ is assumed to be a covering $2$-stack, then we can assume $X'$ to be in the topology. This will force $R$ to be a covering $0$-stack, so we may choose $R'$
+    Assume $m > 2$ and the statement is proven for all $(n',m') < (n,m)$ in lexicographical ordering. As the identity types of $T$ are $n-1$-types and  $m-1$ stacks by induction they are  $n-1$ stacks. Let $X \to T$ be an $m-1$-atlas, i.e. fibered in covering $m-1$-stacks with $X$ affine. The fibers are in particular $n-1$-types, so by induction they are covering $n-1$-stacks. Hence $X \to T$ is an $n-1$-atlas. If, additionally $T$ is assumed to be a covering $m$-stack, we can choose $X \in \bT$, hence $X \to T$ witnesses that $T$ is a covering $n$-stack.
     
 \end{proof}
 \section{Stability under Quotients}
 \begin{definition}
-	A morphism between $n$-stacks is smooth if it is fibered in 
+	A morphism between $n$-stacks is covering if it is fibered in 
 	\begin{itemize}
 		\item $\bT$ if $n \le 0$
-		\item smooth $n$-stacks if $n > 0$.
+		\item covering $n$-stacks if $n > 0$.
 	\end{itemize}
 \end{definition}
 \begin{lemma}{\label{lemma:havingAbstractAtlasClosedUnderId}}
-	Let $C$ be a class of types stable under finite limits, i.e. containing 1, stable under dependent sums and identity types. The class $\mathsf{HasAtlas}_C$ of types $Y$ which admit a map $\Spec A \to Y$ fibered in $C$ is stable under finite limits %.  If it contains $C$ and is closed under dependent sums, then it is closed under taking identity types.
+	Let $C$ be a class of types stable under $\sum$. %HOPE WE DONT NEED (because we want to apply it to C = covering stacks) finite limits, i.e. containing 1, stable under dependent sums and finite limits
+	The class $\mathsf{HasAtlas}_C$ of types $Y$ which admit a map $\Spec A \to Y$ fibered in $C$ is stable under finite limits, i %.  If it contains $C$ and is closed under dependent sums, then it is closed under taking identity types.
 \end{lemma}
 \begin{proof}
 	Obviously 1 has an atlas, and the class of types admitting an atlas is stable by $\sum$ by \ref{thm:atlasStableSum}.
@@ -360,7 +514,7 @@ We want to show that the notion of  stack makes sense, i.e. beeing a stack shoul
 \end{proof}
 
 \begin{theorem}{\label{thm:quotients}}
-	Let $f : X \to Y$ be a $\bT$-surjective smooth morphism between modal $n$-types. If $X$ is a (smooth) stack , then $Y$ a  (smooth) stack.
+	Let $f : X \to Y$ be a $\bT$-surjective covering morphism between modal $n$-types. If $X$ is a (covering) stack , then $Y$ a  (covering) stack.
 \end{theorem}
 (*) This can only hold if we define -1-stacks to be  modal propositions with a $-2$-atlas $\Spec A \to P$, i.e. algebraic propositions \ref{def:algprop} %\begin{lemma}[have to force this]{\label{lemma:missing}}
 %	To check wether a modal proposition $P$ is a $-1$-stack its enough to find a $-2$-atlas $\Spec A \to P$.
@@ -369,10 +523,10 @@ We want to show that the notion of  stack makes sense, i.e. beeing a stack shoul
 	Induction.
 	For $n = -2$ its clear.
 	Let $X$ be a  $n$-stack. Lets first construct the $n-1$-atlas of $Y$.
-	We merely find a $V \twoheadrightarrow X$ which is an $n-1$-atlas.  Then $V \to X \to Y$ is an $n$-atlas because it is $\bT$-surjective and is fibered in the correct $\sum$-stable class of types, i.e. $\bT$ if $n \le 1$ and  smooth $n-1$-stacks for $n > 1$. Hence $Y$ is an $n+1$-stack. As $Y$ is an $n$-type, $Y$ is an $n$-stack \ref{thm:stack}. \\
-	If additionally $X$ is assumed to be smooth, then $V$ can be assumed to lie in $\bT$ which directly gives us that $Y$ has a smooth atlas. \\
-	It remains to show that the identity types of $Y$ are  $n-1$-stacks. As $Y$ has an $n-1$-atlas, by \ref{lemma:havingAbstractAtlasClosedUnderId} we  find some $n-1$-atlas $p : W \to y=y'$. The map is smooth. %, because the fiRbers of $p$ are smooth. % because for $n \le 0$ $\bT$ and for $n > 0$ smooth $n-1$-stacks are stable under finite products. 
-	If $n=0$, $y = y'$ is a $-1$-stack by (*). If $n > 0$, $W$ is an $n-1$-stack and $p$ is smooth, so by induction $y = y'$ is an $n-1$-stack. \\
+	We merely find a $V \twoheadrightarrow X$ which is an $n-1$-atlas.  Then $V \to X \to Y$ is an $n$-atlas because it is $\bT$-surjective and is fibered in the correct $\sum$-stable class of types, i.e. $\bT$ if $n \le 1$ and  covering $n-1$-stacks for $n > 1$. Hence $Y$ is an $n+1$-stack. As $Y$ is an $n$-type, $Y$ is an $n$-stack \ref{thm:stack}. \\
+	If additionally $X$ is assumed to be covering, then $V$ can be assumed to lie in $\bT$ which directly gives us that $Y$ has a covering atlas. \\
+	It remains to show that the identity types of $Y$ are  $n-1$-stacks. As $Y$ has an $n-1$-atlas, by \ref{lemma:havingAbstractAtlasClosedUnderId} we  find some $n-1$-atlas $p : W \to y=y'$. The map is covering. %, because the fiRbers of $p$ are covering. % because for $n \le 0$ $\bT$ and for $n > 0$ covering $n-1$-stacks are stable under finite products. 
+	If $n=0$, $y = y'$ is a $-1$-stack by (*). If $n > 0$, $W$ is an $n-1$-stack and $p$ is covering, so by induction $y = y'$ is an $n-1$-stack. \\
 
 	
 	
@@ -389,13 +543,13 @@ We want to show that the notion of  stack makes sense, i.e. beeing a stack shoul
 \section{Local properties}
 
 \begin{definition}
-Let \Cov be the property of morphisms of  $n$-stacks defined by asking that the morphism is $\bT$-surjective and fibered in smooth $n$-stacks. Its stable under basechange. A property of  $n$-stacks is local if $P(1)$ holds, $P$ is stable by dependent sums and given a \Cover  $X \to Y$ we have $P X$ iff $P Y$.
+Let \Cov be the property of morphisms of  $n$-stacks defined by asking that the morphism is $\bT$-surjective and fibered in covering $n$-stacks. Its stable under basechange. A property of  $n$-stacks is local if $P(1)$ holds, $P$ is stable by dependent sums and given a \Cover  $X \to Y$ we have $P X$ iff $P Y$.
 \end{definition}
 \begin{example}    
-    beeing smooth $n$-stack is a local property of stacks.
+    beeing covering $n$-stack is a local property of stacks.
 \end{example}
 \begin{proof}
-    We have to show: If $f : X \to Y$ is a $\bT$-surjective map fibered in smooth $n$-stacks between  $n$-stacks, then $X$ is a smooth $n$-stack iff $Y$ is a smooth $n$-stack.
+    We have to show: If $f : X \to Y$ is a $\bT$-surjective map fibered in covering $n$-stacks between  $n$-stacks, then $X$ is a covering $n$-stack iff $Y$ is a covering $n$-stack.
     The only if is clear by stability under dependent sums. The other direction is \ref{thm:quotients}.
     
 \end{proof}
@@ -410,7 +564,7 @@ Let \Cov be the property of morphisms of  $n$-stacks defined by asking that the 
     Given a local property $P$ of morphisms of $n$-stacks, a morphism $f : X \to Y$ has $P$ if there exists an $n$-atlas of $f$ having $P$.
 \end{lemma}
 \begin{example}
-    A morphism of $n$-stacks is smooth iff there exists an $n$-atlas of $f$ 
+    A morphism of $n$-stacks is covering iff there exists an $n$-atlas of $f$ 
     % https://q.uiver.app/#q=WzAsNCxbMCwwLCJcXFNwZWMgQSJdLFsxLDAsIlxcU3BlYyBCIl0sWzAsMSwiWCJdLFsxLDEsIlkiXSxbMiwzLCJmIl0sWzAsMl0sWzEsM10sWzAsMSwiXFx0aWxkZSBmIiwyXV0=
 \[\begin{tikzcd}
 	{\Spec A} & {\Spec B} \\
@@ -422,7 +576,7 @@ Let \Cov be the property of morphisms of  $n$-stacks defined by asking that the 
 \end{tikzcd}\]
 such that $\tilde f$ is a $\bT$-cover.
 \end{example}
-The previous lemma tells us that we have the correct notion of smooth morphisms between  $n$-stacks for $n = 0,1$.
+The previous lemma tells us that we have the correct notion of covering morphisms between  $n$-stacks for $n = 0,1$.
 
 
 \end{document}

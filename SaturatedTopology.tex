@@ -3,21 +3,21 @@
 \section{Saturated Topologies}
 Consider a topology $\bT$ finer than the Zariski topology.
 \begin{definition}
-	A smooth atlas of $X$ is  some $\hat X \in \bT , \hat X \to X \text{ $\bT$-cover }$
+	A covering atlas of $X$ is  some $\hat X \in \bT , \hat X \to X \text{ $\bT$-cover }$
 \end{definition}
 \begin{definition}
-	$\bT$ is saturated if Beeing in the topology descents along $\bT$-covers between affines, i.e. every affine schemes that has a smooth atlas lies itself in $\bT$. \\
+	$\bT$ is saturated if Beeing in the topology descents along $\bT$-covers between affines, i.e. every affine schemes that has a covering atlas lies itself in $\bT$. \\
 	The saturated closure of a topology $\bT$ is the topology $\bT'$ defined by (todo finite sums of?)
 	\[
-	X \in \bT' \text{ iff $X$ is affine} \land \exists \text{ smooth atlas of } X 
+	X \in \bT' \text{ iff $X$ is affine} \land \exists \text{ covering atlas of } X 
 	\]
-	%i.e. the affine smooth $0$-stacks.
+	%i.e. the affine covering $0$-stacks.
 \end{definition}
 \begin{lemma}
 	Using ZLC, this is the smallest saturated topology containing $\bT$.
 \end{lemma}
 \begin{proof}
-	Obviously $1 \in \bT'$. Types which have a smooth atlas are stable by dependent sums by the proof of \ref{thM:stabSums}. For the saturatedness consider some $\bT'$-cover $\bT' \ni X' \to X$. By replacing $X'$ with some smooth atlas, we may assume that $X' \in \bT$. As every fiber $X'_x \in \bT'$, we merely find a smooth atlas $\tilde X'_x \to X'_x$. Then by Zariski local choice there exists a Zariski atlas $\hat X \to X$ and a commutative diagram 
+	Obviously $1 \in \bT'$. Types which have a covering atlas are stable by dependent sums by the proof of \ref{thM:stabSums}. For the saturatedness consider some $\bT'$-cover $\bT' \ni X' \to X$. By replacing $X'$ with some covering atlas, we may assume that $X' \in \bT$. As every fiber $X'_x \in \bT'$, we merely find a covering atlas $\tilde X'_x \to X'_x$. Then by Zariski local choice there exists a Zariski atlas $\hat X \to X$ and a commutative diagram 
 	% https://q.uiver.app/#q=WzAsNCxbMCwwLCJcXHN1bV97eCA6IFxcaGF0IFh9XFx0aWxkZSBYJ194Il0sWzAsMSwiXFxoYXQgWCJdLFsxLDEsIlgiXSxbMSwwLCJcXHN1bV97eCA6IFh9WCdfeCJdLFszLDJdLFsxLDIsIlphciIsMl0sWzAsMV0sWzAsM11d
 	\[\begin{tikzcd}
 		Y \equiv {\sum_{x : \hat X}\tilde X'_x} & {\sum_{x : X}X'_x} = X' \\
@@ -28,10 +28,10 @@ Consider a topology $\bT$ finer than the Zariski topology.
 		\arrow["Zar"', from=2-1, to=2-2]
 	\end{tikzcd}\]
 	As $X' \in \bT$ and $Y \to X'$ is fibered in $\bT$ (\ref{lemma:AtlasSum}) we have $Y \in \bT$. But $Y \to \hat X$ is a $\bT$-cover and $\hat X \to X$ is a $\bT$-cover, $Y \to X$ is a $\bT$-cover. Hence $X \in \bT'$.
-	%smooth $n$-stacks are stable under dependent sums \ref{thM:stabSums}
-	%Obviously $1 \in \bT'$. We say a type $X$ has smooth local choice if for all $\bT$-surjections $S \to S'$ and a map $X \to S'$ there exists a smooth atlas of $X$ lifting to $S$. 
-	% %First observe that every $X \in \bT$ has smooth local choice:
-	% Now any $X \in \bT'$ satisfies local choice wrt smooth atlasses because it has a smooth atlas and smooth atlasses are stable under composition and Zariski covers are in $\bT$. 
+	%covering $n$-stacks are stable under dependent sums \ref{thM:stabSums}
+	%Obviously $1 \in \bT'$. We say a type $X$ has covering local choice if for all $\bT$-surjections $S \to S'$ and a map $X \to S'$ there exists a covering atlas of $X$ lifting to $S$. 
+	% %First observe that every $X \in \bT$ has covering local choice:
+	% Now any $X \in \bT'$ satisfies local choice wrt covering atlasses because it has a covering atlas and covering atlasses are stable under composition and Zariski covers are in $\bT$. 
 	% Hence ...
 \end{proof}
 \begin{lemma}
@@ -56,7 +56,7 @@ Consider a topology $\bT$ finer than the Zariski topology.
 	Every saturated affine (i.e. $\Spec A \in \bT'$) it $\bT$-merely inhabited.     
 \end{lemma}
 \begin{proof}
-	We have $\|X\| \to \|\Spec A\|$ for some smooth atlas $\bT \ni X \to \Spec A$.
+	We have $\|X\| \to \|\Spec A\|$ for some covering atlas $\bT \ni X \to \Spec A$.
 \end{proof}
 
 \begin{question}
@@ -71,7 +71,7 @@ Consider a topology $\bT$ finer than the Zariski topology.
 %     is an equivalence.
 % \end{lemma}
 % \begin{proof}
-%     If $X \in \bT'$, we can choose a smooth atlas $\hat X \to X$. As it is in particular $\bT$-surjective we have $\|X\| \overset{\sim}{\to} L_T \|\hat X\| $ which gives us that the composite
+%     If $X \in \bT'$, we can choose a covering atlas $\hat X \to X$. As it is in particular $\bT$-surjective we have $\|X\| \overset{\sim}{\to} L_T \|\hat X\| $ which gives us that the composite
 %     \[
 %     T \overset{\simeq}{\to} T^{L_\bT \|X'\|}  \overset{\simeq}{\to}  T^{\|X\|}
 %     \]
