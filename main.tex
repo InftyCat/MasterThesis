@@ -7,7 +7,7 @@
 \usepackage{graphicx} % Required for inserting images
 \newcommand{\red}[1]{{\color{red} #1}}
 \newcommand{\St}{\mathsf{St}}
-
+\newcommand{\CS}{\mathsf{CS}}
 \include{preamble}
 \title{Thesis}
 \author{Tim Lichtnau }
@@ -21,89 +21,121 @@ Algebraic space $=$ Classical algebraic space.
 Let $\bT$ be a saturated topology.
 Let $U$ be an affine in $\bT$, $R : U^2 \to \Prop$ be a covering equivalence relation, meaning that the fibers $R_x$ are covering algebraic spaces for $x : U$. I have shown previously that the identity types then are algebraic spaces. Let $U / R$ denote the sheafifaction of the set truncation of the homotopy quotient. We want to show, that  As $U$ is projective we can choose $\tilde R : U^2 \to \bT$ such that $\| \tilde R x y \|_\bT= R x y$. Consider the sheafification of the homotopy quotient $U // \tilde R$, this will be a 1-stack whose identity types are in $\bT$. Hence it suffices to show that the map $f : U // \tilde R \to U / R$ is fibered in covering 0-stacks. Consider a term in $U / R$. By descent we may assume its of the form $[x]$ for some $x : U$. I claim that the map \[\tilde R_x \to \fib_f [x] = \sum_{t: U // \tilde R} f t =_{U/R} [x]\]
 is an equivalence, this is en
+\section{The inductive approach}
+
+
 \section{A minimal approach}
-Fix $\bT$ a merely inhabited class of types.
-\begin{definition}
-	Let $C \supset \bT$ be a superclass stable under $\sum$. The class of covering $C$-stacks is the smallest intermediate class $\bT \subset \tilde \bT \subset C$ that is closed under covers between types in $C$: If $X , Y : C$ and $X \to Y$ is fibered in $\tilde T$, then $X \in \tilde \bT$ iff $Y \in \tilde \bT$.
-\end{definition}
-The closedness under covers assumption is the conjunction of closed under $\sum$ (as $C$ $\sum$-stable) and closed under quotients. \\
-\begin{lemma}
-	covering $C$-stacks contain $1$ and are closed under $\sum$.
-\end{lemma}
-
-
-\begin{example}
-	covering Aff-stacks $=$ saturation of $\bT$. Indeed: By definition, the saturation of $\bT$ is is obtained by quotients of $\bT$ by $\bT$-covers. We have shown, that its closed under covers between affines.
-\end{example}
+Fix $\bT$ a topology, which we call the covering-affines.
 
 \begin{definition}
-	We call $X$ a $C'$-stack, iff there merely exists some affine $\Spec A \to X$ fibered in covering $C$-stacks. \\
-	We call $X$ a $C$-stack, iff its a $C'$-stack and $X \in C$.
+	Let $\cV \supset \bT$ be a superclass stable under $\sum$. covering stacks are the smallest intermediate class $\bT \subset \tilde \bT \subset \cV$ that is closed under covers between types in $\cV$: If $X , Y : \cV$ and $X \to Y$ is fibered in $\CS_\cV$, then $X \in \tilde \bT$ iff $Y \in \tilde \bT$.	
+
 \end{definition}
-\begin{definition}
-	The (covering )$\infty$-stacks are the (covering) $\cU$-stacks.
-\end{definition}
-\begin{lemma}
-	$X$ is a $n'$ stack iff its an $n+1$-stack
+We call such map $X \to Y$ whose fibers are covering $\cV$-stacks a $\cV$-cover. If $X$ is affine we call it an $\cV$-atlas. If $X$ is in $\bT$ we call it a $\cV$-catlas. In Case of $\cV = \cU_\bT$ the sheaves we call it a geometric cover / geometric atlas / geometric catlas.
+\begin{prop}[Recursion principle]
+ Let $P : \cV \to \Prop$ be a property of types in $\cV$. Assume
+ \begin{itemize}
+ 	\item Every covering affine has $P$
+ 	\item If $X \to Y$ is fibered in $P$ then $X$ has $P$ iff $Y$ has $P$
+ \end{itemize}
+Then every covering $\cV$-stack has $P$.
+\end{prop}
+\begin{proof}
+		Replace $P$ by $P \land \mathsf{is-covering-stack}$. Then usual induction
+
+\end{proof}
+\begin{lemma}{\label{lemma:coversstableundercomp}}
+	$\cV$-covers are stable under composition.
 \end{lemma}
 \begin{proof}
-	If its 
+	covering $\cV$-stacks are stable under $\sum$.
 \end{proof}
-\begin{lemma}{\label{closedUnderId}}
-	$C$-stacks are closed under $\id$-types.
+\begin{prop}{\label{prop:csHasAtlas}}
+	Every covering $\cV$-stack $X$ merely admits a $\cV$-catlas, i.e. a $\cV$-cover $Y \to X$ with $Y \in \bT$. 
+\end{prop}
+
+\begin{proof}
+We apply the recursion principle of covering stacks 
+	\begin{itemize}
+		\item If 	$X$ is covering affine, then $X \to X$ is a $\cV$-catlas with covering domain. \\
+\item If $X$ is obtained as a quotient, i.e. if its equipped with a cover $Y \to X$ with $Y$ a covering stack, then by induction $Y$ admits a $\cV$-catlas $S \to Y$. Then $S \to Y \to X$ is a $\cV$-catlas by  \ref{lemma:coversstableundercomp}. \\
+\item If $X$ is obtained as a sum, i.e. we have a $\cV$-cover $f : X \to Y$, then by induction $Y$ admits an $\cV$-catlas $g : S \to Y$ and the fibers merely have $\cV$-catlasses $S_y \to \fib_f y$ s. By choice of $S$, we can choose such catlasses $S_{g s} \to \fib_f (g s)$ for all $s : S$. By \ref{lemma:AtlasSum} the map 
+\[
+\sum_{s : S} S_{gs} \to (\sum_{y: Y} \fib_f y ) \simeq X
+\]
+is a $\cV$-cover. Its domain is a covering affine as $\bT$ is $\sum$-stable. Hence $X$ admits a $\cV$-catlas .
+
+	\end{itemize}
+\end{proof}
+Now we want to show that the clash of terminology regarding 'covering' is reasonable:
+For this we need a stronger recursion principle
+\begin{lemma}
+	Let $P : \cV \to \Prop$ be a property of $\cV$ types. Assume
+	\begin{itemize}
+		\item  stable under $\sum$
+		\item Every covering affine belongs to $P$
+		\item If $S \to X$ is fibered in $P$ with $S \in \bT$, then $P X$. %is a $\cV$-catlas and $P$ holds on fibers, then $P X$.
+		\item If $P X$, then $X$ admits a map $\bT \ni S \to X$ with fibers satisfying $P$. %$\cV$-catlas 
+	\end{itemize}
+	Then $P$ is satisfied by all covering $\cV$-stacks.
 \end{lemma}
 \begin{proof}
-	
-	This is similar to \ref{lemma:havingAbstractAtlasClosedUnderId}.
+	By the recursion principle, we only have to show quotients as covering affines have $P$ and $P$ is stable under $\sum$ by assumption. \\
+	Let $Y \to X$ be fibered in $P$ and assume $P Y$. by the third point $Y$ admits a map $\bT \ni S \to Y$ with fibers satisfying $P$. Then the composition $S \to Y \to X$ is fibered in $P$ as well, because $P$ is $\sum$-stable. Hence by the second point, $X$ has $P$.
 \end{proof}
-\begin{warning}
-The previous lemma does not hold for covering stacks: Identity types of things in $\bT$ could be empty.
-\end{warning}
 
-THIS IS UNUSUAL, but surprisingly useful.
-Let $n \ge 0$.
-%\begin{lemma}[TODO]
-%	If $D \subset C$, then the cover-closure of (covering $C$-stacks $\cap D$) inside $D$ are  covering $D$-stacks. 
-%\end{lemma}
-\begin{example}
-	Affine covering $0$-stacks are the saturation of $\bT$.
-\end{example}
-%\begin{corollary}[Indepedence of the truncation level]
-%	(covering) $n+1$-type-stacks that are $n$-types $=$ (covering) $n$-type stacks.
-%\end{corollary}
-%\begin{proof}
-%	Only need to show $\subset$. First the covering part. For this just show the LHS is closed under covers between $n$-types by the previos lemma. \\
-%	For the non covering part, let $\Spec A \to X$ be fibered in covering $n+1$-type-stacks where $X$ is a $n$-type. Then the fibers are $n$-types, hence by the covering case, they are covering $n$-type stacks.
-%\end{proof}
-\begin{definition}
-	$X$ is a (covering) 0-stack, if its a (covering) 0-type-stack.
-\end{definition}
-\begin{theorem}[TODO]
-	Let $X$ be a type. TFAE for all $n$ :
-	\begin{enumerate}
-		\item $X$ is a covering $n$-type-stack.
-
-		\item Inductively, There merely exists some $U \in \bT$ with a map $U \to X$ fibered in covering $n-1$-stacks.
-		\item[2'] Inductively, as the previous one but additionally the $\id$-types of $X$ are $n-1$-stacks.
-		\item Inductively, There merely exists some covering $n-1$-stack $U$ with a map $U \to X$ fibered in covering $n-1$-stacks.		
-		\item[3'] Inductively, as the previous one but additionally the $\id$-types of $X$ are $n-1$-stacks.
-	\end{enumerate}
-If one of the conditions is satisfied we call $X$ a covering $n$-stack.
+\begin{prop}{\label{prop:affineCoveringStack}}
+	Let $\bT$ be saturated.
+	A covering stack $X$ is affine iff its a covering affine.
+\end{prop}
+\begin{proof}
+	The converse is clear. The direct direction follows by the stronger recursion principle. choosing a $\cV$-catlas  $S \to X$. As both $S$ and $X$ are affine the fibers are affine. By induction the fibers are covering affines. By saturatedness of the topology $X$ is covering affine.
+\end{proof}
+\begin{lemma}{\label{lemma:atlasIsCatlas}}
+	Let $X$ be a covering $\cV$-stack. Let $f : \Spec A \to X$ be a $\cV$-atlas. Then $\Spec A \in \bT$
+\end{lemma}
+\begin{proof}
+	As $\Spec A \simeq \sum_{x : X} \fib_f x$ is a dependent sum of covering $\cV$-stacks, it is a covering $\cV$-stack again. We conclude by \ref{prop:affineCoveringStack}.
+\end{proof}	
+\subsection{Truncatedness}
+In this subsection we want to prove
+\begin{theorem}
+	Every covering geometric stack is $n$-truncated for some $n : \bN$.
 \end{theorem}
-\begin{proof}
-Induction $n-1 \mapsto n$ , $n \ge 1$.
-\begin{enumerate}
-	\item[1. $\Rightarrow$ 2] We have to show, that the class in 2. is closed under $\sum$ and closed under quotients between $n$-types. This was already done.
-	\item [2. $\Rightarrow$ 3] Clear
-	\item [3. $\Rightarrow$ 3'] By  \ref{closedUnderId} and independence of the truncation level (TODO).
-	\item [3'. $\Rightarrow$ 3 , 2' $\Rightarrow$ 2] Clear
 
-	\item [3'. $\Rightarrow$ 1.]  by induction, covering $n-1$-stacks $=$ covering $n-1$-type-stacks $\subset$ covering $n$-type-stacks. Now use stability under covers between $n$-types.
-	\item [3' $\Rightarrow$ 2'] Use 3 $\Rightarrow 1 \Rightarrow 2$.
-%	\item [2. $\Rightarrow$ 3] By some argument of Hugo, an $X$ as in $2.$ is an $n$-type.
-\end{enumerate}
+\begin{lemma}{\label{lemma:cstinh}}
+	Every covering $\cV$-stack $X$ is $\bT$-merely inhabited.
+
+\end{lemma}
+\begin{proof} 
+	\begin{itemize}
+		\item If $X$ is in $\bT$ then its clear.
+		\item  If $X$ is obtained by a quotient, we have a map $\Spec A \to X$ with domain in $\bT$. Now use that we get a map on $\bT$-propositional-truncations and that Spec A is T-merely inhabited.
+		\item if $X$ is obtained by  $X = \sum_{y: Y} B y$ for $Y$ a covering $\cV$-stack and $B y$ covering $\cV$-stacks, by induction all the $B y$ are $\bT$-merely inhabited. Hence, for all $y : Y$, we can conclude $\| X\|_\bT$. As $Y$ is $\bT$-merely inhabited by induction and the goal is a sheaf, we can conclude. 
+		\end{itemize}
 \end{proof}
-%We want: = covering $n$-stacks. The $\subset$-direction is clear, as covering $n$-stacks should be stable under covers between $n$-types. for $\supset$, make sure that covering $n$-stacks for $n$ small can be constructed as a quotient by a $\bT$-cover
+\begin{lemma}{\label{lemma:truncTrg}}
+	Let $X$ be an $n+1$-type and $Y$ a sheaf. If $X \to Y$ is a $n$-truncated $\bT$-surjective map, then $Y$ is an $n+1$-type.
+\end{lemma}
+\begin{proof}
+	Use that $\mathsf{is-n-truncated} (y=y')$ is a sheaf for $y , y' : Y.$
+\end{proof}
+
+\begin{proof} of the theorem.
+	We apply the stronger recursion principle from above
+\begin{itemize}
+	\item If $Y$ is in the topology its clear with $n = 0$.
+	\item Assume $Y$ is equipped with a $\cV$-catlas $f : S \to Y$, such that every fiber in $n$-truncated for some $n$. f is $\bT$-surjetive by \ref{lemma:cstinh}.
+	We apply \ref{lemma:truncTrg}.
+	So it remains to find an $n$ such that all fibers are $n$-truncated.
+	For any $x : S$, By induction $\fib_f (f x)$ is $n$-truncated for some $n$. By projectivity of $S$, we find some $n$ such that $\fib_f (f x)$ is $n$-truncated for all $x : S$. For general $y : Y$, using that is-$n$-truncated $\fib_f y$ is a sheaf , we can conclude by $\bT$-surjectivity of $f$.
+	\item Let $X$ be an $n$-truncated covering geometric stack. By \ref{prop:csHasAtlas} we find a geometric catlas $S \to X$. All the fibers are (at most) $n$-truncated. 
+\end{itemize}
+
+%
+
+\end{proof}
+
 \subsection{Descent}
 For this subsection lets assume $\St$ a class of sheaves, such that $\bT$ is contained in it and for any map $X \to Y$ fibered in $\bT$, $X \in \St$ iff $Y \in \St$. We call types in this class stacky.
 
@@ -170,6 +202,7 @@ of stacky types, in particular sheaves. \qed(Claim) \\
 \include{LexModalities}
 \include{Atlas}
 \include{LocalChoice}
+\include{FundamentalThmAlgSpc}
 \include{AlgebraicSpace}
 
 
@@ -331,11 +364,11 @@ First we show:if $X$ has an $n$-atlas and $Y$ is a closed (open) subtype of $X$,
     Given a local property $P$ of morphisms of modal $n$-types, a morphism $f : X \to Y$ has $P$ if there exists an $n$-atlas of $f$ having $P$.
 \end{lemma}
 The previous lemma tells us that we have the correct notion of covering morphisms between  $n$-stacks for $n = 0,1$.
-\section{Descent}
- \begin{theorem}{\label{thm:descent}}
-     Let $T$ be a modal $n$-type. The Proposition, that $P$ is a  (covering) $n$-stack, is modal.
- \end{theorem}
-\include{FundamentalThmAlgSpc}
+%\section{Descent}
+% \begin{theorem}{\label{thm:descent}}
+%     Let $T$ be a modal $n$-type. The Proposition, that $P$ is a  (covering) $n$-stack, is modal.
+% \end{theorem}
+
 
 \section{Saturated Topologies revisited}
 
@@ -490,7 +523,7 @@ We want to show that the notion of  stack makes sense, i.e. beeing a stack shoul
 	\end{itemize}
 \end{definition}
 \begin{lemma}{\label{lemma:havingAbstractAtlasClosedUnderId}}
-	Let $C$ be a class of types stable under $\sum$. %HOPE WE DONT NEED (because we want to apply it to C = covering stacks) finite limits, i.e. containing 1, stable under dependent sums and finite limits
+	Let $C$ be a class of types stable under $\sum$. %HOPE WE DONT NEED (because we want to apply it to \cV = covering stacks) finite limits, i.e. containing 1, stable under dependent sums and finite limits
 	The class $\mathsf{HasAtlas}_C$ of types $Y$ which admit a map $\Spec A \to Y$ fibered in $C$ is stable under finite limits, i %.  If it contains $C$ and is closed under dependent sums, then it is closed under taking identity types.
 \end{lemma}
 \begin{proof}

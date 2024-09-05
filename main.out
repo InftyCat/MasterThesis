@@ -1,19 +1,23 @@
 \BOOKMARK [1][-]{section.1}{Does not fit yet}{}% 1
-\BOOKMARK [1][-]{section.2}{A minimal approach}{}% 2
-\BOOKMARK [2][-]{subsection.2.1}{Descent}{section.2}% 3
-\BOOKMARK [1][-]{section.3}{Saturated Topologies}{}% 4
-\BOOKMARK [1][-]{section.4}{Lex Modalities}{}% 5
-\BOOKMARK [1][-]{section.5}{Atlas}{}% 6
-\BOOKMARK [1][-]{section.6}{Local Choice}{}% 7
-\BOOKMARK [1][-]{section.7}{Algebraic Space}{}% 8
-\BOOKMARK [1][-]{section.8}{ n-stacks}{}% 9
-\BOOKMARK [1][-]{section.9}{Stability results}{}% 10
-\BOOKMARK [1][-]{section.10}{Descent}{}% 11
-\BOOKMARK [1][-]{section.11}{Fundamental Theorem of algebraic spaces}{}% 12
-\BOOKMARK [2][-]{subsection.11.1}{For groupoids}{section.11}% 13
-\BOOKMARK [2][-]{subsection.11.2}{For sets}{section.11}% 14
-\BOOKMARK [1][-]{section.12}{Saturated Topologies revisited}{}% 15
-\BOOKMARK [2][-]{subsection.12.1}{Zariski Topology is not saturated}{section.12}% 16
-\BOOKMARK [1][-]{section.13}{ beeing a stack is indepent of the truncation level}{}% 17
-\BOOKMARK [1][-]{section.14}{Stability under Quotients}{}% 18
-\BOOKMARK [1][-]{section.15}{Local properties}{}% 19
+\BOOKMARK [1][-]{section.2}{The inductive approach}{}% 2
+\BOOKMARK [1][-]{section.3}{A minimal approach}{}% 3
+\BOOKMARK [2][-]{subsection.3.1}{Truncatedness}{section.3}% 4
+\BOOKMARK [2][-]{subsection.3.2}{Descent}{section.3}% 5
+\BOOKMARK [1][-]{section.4}{Saturated Topologies}{}% 6
+\BOOKMARK [1][-]{section.5}{Lex Modalities}{}% 7
+\BOOKMARK [1][-]{section.6}{Atlas}{}% 8
+\BOOKMARK [1][-]{section.7}{Local Choice}{}% 9
+\BOOKMARK [1][-]{section.8}{Fundamental Theorem of algebraic spaces}{}% 10
+\BOOKMARK [2][-]{subsection.8.1}{For groupoids}{section.8}% 11
+\BOOKMARK [2][-]{subsection.8.2}{For sets}{section.8}% 12
+\BOOKMARK [1][-]{section.9}{Algebraic Space}{}% 13
+\BOOKMARK [2][-]{subsection.9.1}{Geometric propositions}{section.9}% 14
+\BOOKMARK [2][-]{subsection.9.2}{Algebraic spaces}{section.9}% 15
+\BOOKMARK [2][-]{subsection.9.3}{Stability under covers TODO}{section.9}% 16
+\BOOKMARK [1][-]{section.10}{ n-stacks}{}% 17
+\BOOKMARK [1][-]{section.11}{Stability results}{}% 18
+\BOOKMARK [1][-]{section.12}{Saturated Topologies revisited}{}% 19
+\BOOKMARK [2][-]{subsection.12.1}{Zariski Topology is not saturated}{section.12}% 20
+\BOOKMARK [1][-]{section.13}{ beeing a stack is indepent of the truncation level}{}% 21
+\BOOKMARK [1][-]{section.14}{Stability under Quotients}{}% 22
+\BOOKMARK [1][-]{section.15}{Local properties}{}% 23

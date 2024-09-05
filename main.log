@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2023.10.9)  1 SEP 2024 16:21
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2023.10.9)  5 SEP 2024 15:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -859,11 +859,11 @@ LaTeX Font Info:    Redeclaring math symbol \ocircle on input line 243.
 \c@question=\count320
 ) (./main.aux
 (./SaturatedTopology.aux) (./LexModalities.aux) (./Atlas.aux)
-(./LocalChoice.aux) (./AlgebraicSpace.aux)
+(./LocalChoice.aux) (./FundamentalThmAlgSpc.aux) (./AlgebraicSpace.aux)
 
 LaTeX Warning: Label `ex:PnIsStack' multiply defined.
 
-(./FundamentalThmAlgSpc.aux))
+)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 16.
@@ -882,8 +882,7 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 16.
 LaTeX Font Info:    ... okay on input line 16.
 LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 16.
 LaTeX Font Info:    ... okay on input line 16.
-
-(/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+ (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count321
 \scratchdimen=\dimen332
@@ -1002,29 +1001,34 @@ LaTeX Font Info:    Font shape `U/lasy/b/n' in size <8> not available
 (Font)              Font shape `U/lasy/m/n' tried instead on input line 19.
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <6> not available
 (Font)              Font shape `U/lasy/m/n' tried instead on input line 19.
-
-Underfull \hbox (badness 10000) in paragraph at lines 29--30
+ [2]
+Underfull \hbox (badness 10000) in paragraph at lines 60--61
 
  []
 
-[2]
-Underfull \hbox (badness 10000) in paragraph at lines 129--131
+
+Underfull \hbox (badness 10000) in paragraph at lines 61--62
 
  []
 
 [3]
-Underfull \hbox (badness 10000) in paragraph at lines 159--162
+Underfull \hbox (badness 10000) in paragraph at lines 161--163
 
  []
 
 [4]
+Underfull \hbox (badness 10000) in paragraph at lines 191--194
+
+ []
+
+[5]
 \openout2 = `SaturatedTopology.aux'.
 
  (./SaturatedTopology.tex
 
-LaTeX Warning: Reference `thM:stabSums' on page 5 undefined on input line 20.
+LaTeX Warning: Reference `thM:stabSums' on page 6 undefined on input line 20.
 
-) [5
+) [6
 
 ]
 \openout2 = `LexModalities.aux'.
@@ -1034,84 +1038,92 @@ LaTeX Warning: Reference `thM:stabSums' on page 5 undefined on input line 20.
 LaTeX Font Warning: Font shape `U/wasy/m/it' in size <10> not available
 (Font)              Font shape `U/wasy/m/sl' tried instead on input line 12.
 
-) [6
+) [7
 
 
 
 ]
 \openout2 = `Atlas.aux'.
 
- (./Atlas.tex) [7
+ (./Atlas.tex) [8
 
 
 
 ]
 \openout2 = `LocalChoice.aux'.
 
- (./LocalChoice.tex [8
+ (./LocalChoice.tex [9
 
 
 
-]) [9]
-\openout2 = `AlgebraicSpace.aux'.
-
- (./AlgebraicSpace.tex
-[10
-
-
-
-]) [11]
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 176.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 176.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 236--237
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 237--238
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 271--291
-
- []
-
-[12
-
-
-] [13]
+]) [10]
 \openout2 = `FundamentalThmAlgSpc.aux'.
 
- (./FundamentalThmAlgSpc.tex
+
+(./FundamentalThmAlgSpc.tex
 Underfull \hbox (badness 10000) in paragraph at lines 25--27
 
  []
 
-[14
-
-] [15]) [16] [17
+[11
 
 
-] [18]
 
-LaTeX Warning: Reference `lemma:coeq' on page 19 undefined on input line 479.
+]
 
-[19]
-Underfull \hbox (badness 10000) in paragraph at lines 523--530
+LaTeX Warning: Reference `thm:descent' on page 12 undefined on input line 71.
+
+[12]) [13]
+\openout2 = `AlgebraicSpace.aux'.
+
+ (./AlgebraicSpace.tex [14
+
+
+
+] [15]
+Underfull \hbox (badness 10000) in paragraph at lines 124--126
 
  []
 
-[20] [21] (./main.aux (./SaturatedTopology.aux) (./LexModalities.aux)
-(./Atlas.aux) (./LocalChoice.aux) (./AlgebraicSpace.aux)
-(./FundamentalThmAlgSpc.aux))
+[16]) [17]
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 209.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 209.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 269--270
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 270--271
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 304--324
+
+ []
+
+[18
+
+
+] [19] [20]
+
+LaTeX Warning: Reference `lemma:coeq' on page 21 undefined on input line 512.
+
+[21]
+Underfull \hbox (badness 10000) in paragraph at lines 556--563
+
+ []
+
+[22] [23] (./main.aux (./SaturatedTopology.aux) (./LexModalities.aux)
+(./Atlas.aux) (./LocalChoice.aux) (./FundamentalThmAlgSpc.aux)
+(./AlgebraicSpace.aux))
 
 LaTeX Warning: There were undefined references.
 
@@ -1119,16 +1131,16 @@ LaTeX Warning: There were undefined references.
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 48F861B33D51FECEA07CAE8B81204A5B;1098.
+(rerunfilecheck)             Checksum: 03DC10BD98FDAC9848498F8A44B92A14;1387.
  ) 
 Here is how much of TeX's memory you used:
- 24187 strings out of 479304
- 452443 string characters out of 5869779
- 797847 words of memory out of 5000000
- 40679 multiletter control sequences out of 15000+600000
+ 24216 strings out of 479304
+ 452895 string characters out of 5869779
+ 797826 words of memory out of 5000000
+ 40692 multiletter control sequences out of 15000+600000
  425897 words of font info for 120 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 108i,17n,107p,1499b,1119s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 108i,17n,107p,1499b,1121s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texli
 ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/tex
 mf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dis
@@ -1153,10 +1165,10 @@ mbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/sym
 bols/msbm7.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr
 /share/texlive/texmf-dist/fonts/type1/public/stmaryrd/stmary10.pfb></usr/share/
 texlive/texmf-dist/fonts/type1/public/wasy-type1/wasysl10.pfb>
-Output written on main.pdf (21 pages, 314047 bytes).
+Output written on main.pdf (23 pages, 326946 bytes).
 PDF statistics:
- 429 PDF objects out of 1000 (max. 8388607)
- 377 compressed objects within 4 object streams
- 134 named destinations out of 1000 (max. 500000)
- 165 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 480 PDF objects out of 1000 (max. 8388607)
+ 425 compressed objects within 5 object streams
+ 150 named destinations out of 1000 (max. 500000)
+ 197 words of extra memory for PDF output out of 10000 (max. 10000000)
 
