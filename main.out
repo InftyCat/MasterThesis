@@ -1,24 +1,19 @@
-\BOOKMARK [1][-]{section.1}{Does not fit yet}{}% 1
-\BOOKMARK [1][-]{section.2}{The inductive approach}{}% 2
-\BOOKMARK [1][-]{section.3}{Covering stacks}{}% 3
-\BOOKMARK [2][-]{subsection.3.1}{Geometric stacks}{section.3}% 4
-\BOOKMARK [2][-]{subsection.3.2}{Truncatedness}{section.3}% 5
-\BOOKMARK [2][-]{subsection.3.3}{Descent}{section.3}% 6
-\BOOKMARK [1][-]{section.4}{Saturated Topologies}{}% 7
-\BOOKMARK [1][-]{section.5}{Lex Modalities}{}% 8
-\BOOKMARK [1][-]{section.6}{Atlas}{}% 9
-\BOOKMARK [1][-]{section.7}{Local Choice}{}% 10
-\BOOKMARK [1][-]{section.8}{Fundamental Theorem of algebraic spaces}{}% 11
-\BOOKMARK [2][-]{subsection.8.1}{For groupoids}{section.8}% 12
-\BOOKMARK [2][-]{subsection.8.2}{For sets}{section.8}% 13
-\BOOKMARK [1][-]{section.9}{Algebraic Space}{}% 14
-\BOOKMARK [2][-]{subsection.9.1}{Geometric propositions}{section.9}% 15
-\BOOKMARK [2][-]{subsection.9.2}{Algebraic spaces}{section.9}% 16
-\BOOKMARK [1][-]{section.10}{Schemes are algebraic Spaces for the Zariski Topology}{}% 17
-\BOOKMARK [1][-]{section.11}{ n-stacks}{}% 18
-\BOOKMARK [1][-]{section.12}{Stability results}{}% 19
-\BOOKMARK [1][-]{section.13}{Saturated Topologies revisited}{}% 20
-\BOOKMARK [2][-]{subsection.13.1}{Zariski Topology is not saturated}{section.13}% 21
-\BOOKMARK [1][-]{section.14}{ beeing a stack is indepent of the truncation level}{}% 22
-\BOOKMARK [1][-]{section.15}{Stability under Quotients}{}% 23
-\BOOKMARK [1][-]{section.16}{Local properties}{}% 24
+\BOOKMARK [1][-]{section.1}{Preparation}{}% 1
+\BOOKMARK [1][-]{section.2}{Covering stacks}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{Geometric stacks}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{About the smallest class in a subuniverse}{section.2}% 4
+\BOOKMARK [2][-]{subsection.2.3}{Truncatedness}{section.2}% 5
+\BOOKMARK [2][-]{subsection.2.4}{Descent}{section.2}% 6
+\BOOKMARK [1][-]{section.3}{Saturated Topologies}{}% 7
+\BOOKMARK [1][-]{section.4}{Lex Modalities}{}% 8
+\BOOKMARK [1][-]{section.5}{Atlas}{}% 9
+\BOOKMARK [1][-]{section.6}{Local Choice}{}% 10
+\BOOKMARK [1][-]{section.7}{Fundamental Theorem of algebraic spaces}{}% 11
+\BOOKMARK [2][-]{subsection.7.1}{For groupoids}{section.7}% 12
+\BOOKMARK [2][-]{subsection.7.2}{For sets}{section.7}% 13
+\BOOKMARK [1][-]{section.8}{Algebraic Space}{}% 14
+\BOOKMARK [2][-]{subsection.8.1}{Geometric propositions}{section.8}% 15
+\BOOKMARK [2][-]{subsection.8.2}{Algebraic spaces}{section.8}% 16
+\BOOKMARK [1][-]{section.9}{Schemes are algebraic Spaces for the Zariski Topology}{}% 17
+\BOOKMARK [1][-]{section.10}{Stability under Quotients}{}% 18
+\BOOKMARK [1][-]{section.11}{Local properties}{}% 19
