@@ -51,10 +51,10 @@ Recall the definition of $\bT$-atlas \ref{def:TAtlas}
 \subsection{Algebraic spaces}
 \begin{definition}{\label{def:coveringEqRel}}
 		%A modal equivalence relation $R : U^2 \to \bT \Prop$ on a set $U$ is covering if the fibers $R_s \equiv \sum_{t: S} R s t$  are covering 0-stacks.
-		Consider a modal equivalence relation $R : U^2 \to \mathsf{GeomProp}$ on an affine $U$. We call it covering if every fiber $R_s \equiv \sum_{t: S} R s t$ satisfy one of the following equivalent conditions
+		Consider a modal equivalence relation $R : U^2 \to \mathsf{GeomProp}$ on an affine $U$. We call it covering if one of the following equivalent conditions
 		\begin{itemize}
-			\item admit a $\bT$-catlas.
-			\item is a covering 0-stack.
+			\item  every fiber $R_s \equiv \sum_{t: S} R s t$ admits a $\bT$-catlas.
+			\item  every fiber $R_s \equiv \sum_{t: S} R s t$ is a covering 0-stack.
 \end{itemize}
 \end{definition}
 \begin{proof}
@@ -97,106 +97,122 @@ is a $\bT$-atlas. As $\sum_{t : S} R s t$ is a covering 0-stack by assumption, t
 \begin{proof}
 	The identity types of $X$ admit a map fibered in covering algebraic spaces (todo check stability under $\sum$) out of an affine by \ref{lemma:havingAbstractAtlasClosedUnderId}. by \ref{lemma:detectGeomProp} they are geometric propositions. The equivalence relation determined by $f$ is covering \ref{def:coveringEqRel} , because the fibers of $f$ are covering 0-stacks.
 \end{proof}
-
-
-\subsection{Stability under covers TODO}
-In this subsection we want to prove the following:
-\begin{theorem}[TODO]
-	The class of covering $\cV$-stacks is the smallest intermediate class $\bT \subset \tilde T \subset \cV$ such that whenever $X \in \tilde \bT, Y \in \cV$ and $X \to Y$ is fibered in $\tilde \bT$, then $Y \in \tilde \bT$.
-\end{theorem}
-
+\section{Schemes are algebraic Spaces for the Zariski Topology}
+\begin{definition}
+ A proposition $U$ is open iff its merely of the form $f_1 \ inv \lor \hdots f_n inv$ for some $f_i : R$.
+\end{definition}
+\begin{definition}
+	A Zariski sheaf $X$ is a scheme if there merely exists some affine $S$  map $S \to X$ whose fibers are Zariski-merely inhabited finite sums of open propositions 
+\end{definition}
 \begin{lemma}
-	Covering stacks are stable by dependent sums: If $X \in \CS_\cV$, $Y : X \to \CS_\cV$, then $\sum_{x: X} Y x \in CS$.
+	Given $f_1, \hdots,f_n : R$ such that $\| D(f_1) + \hdots + D(f_n) \|_{Zar}$ then $\sum_{i=1}^n D(f_i) \in Zar$.
 \end{lemma}
 \begin{proof}
-	Lets first prove the special case where $X \in \bT$. By choice of $X$ we can choose a $C$-atlas $Q x \to Y x$ for every $x$. Now $\sum_{x : X} Q x \to \sum_{x: X} Y x$ is fibered in $C$ by \ref{lemma:AtlasSum} and the domain is in $\bT$ by $\sum$-stability of $\bT$. \\
-	For the general case, choose a $C$-atlas $p : T \to X$ with $T \in \bT$. Then we have a map
+	We have to show that $(f_1,\hdots,f_n) = 1$. 
+	Claim: 	$(f_1,\hdots,f_n) = 1$ is a sheaf.
+	Proof: 
+	Recall that the Zariski topology is subcanonical (\todocite). Now the type is equivalent to the statement that the map between the two sheaves $\Spec 0 \to \Spec R/(f_1,\hdots,f_n)$ is an equivalence. This is a sheaf \todocite.
+\end{proof}
+\begin{prop}
+	Every Zariski-merely-inhabited type that is merely of the form $U_1 + \hdots + U_n$ for open propositions $U_i$ admits a zariski-catlas.
+\end{prop}
+\begin{proof}
+	By definition of openness, We can choose a surjection $\coprod_{j=1}^{n_i} D(f_{ij}) \twoheadrightarrow U_i$ for any $i$. We want to show, that the map
 	\[
-	\sum_{t : T} Y (p t) \to \sum_{x : X} Y x
+	\coprod_{i , j} D(f_{ij}) \twoheadrightarrow U_1 + \hdots U_n
 	\]
-	where every fiber is equivalent to a fiber of $p$, i.e. its a covering $C$-stack. As its domain is a covering $C$-stack by the previous case, we can choose an atlas .
-\end{proof}
-\begin{proof}
-	The first class is definitely contained in the second class. To show that they coincide we need to show, that the first class is stable under $\sum$ and under quotients. For the first point we use choice of affines. The second point 
-\end{proof}
-
-
-The first point is the minimal definition which is good mapping out of the class of coverings stacks and the second one is useful to keep in mind the stability results.
-The closedness under covers assumption is the conjunction of closed under $\sum$ (as $C$ $\sum$-stable) and closed under quotients. \\
-\begin{lemma}
-	covering $C$-stacks contain $1$ and are closed under $\sum$.
-\end{lemma}
-
-
-\begin{example}
-	covering Aff-stacks $=$ saturation of $\bT$. Indeed: By definition, the saturation of $\bT$ is is obtained by quotients of $\bT$ by $\bT$-covers. We have shown, that its closed under covers between affines.
-\end{example}
-
-\begin{definition}
-	We call $X$ a $C'$-stack, iff there merely exists some affine $\Spec A \to X$ fibered in covering $C$-stacks. \\
-	We call $X$ a $C$-stack, iff its a $C'$-stack and $X \in C$.
-\end{definition}
-\begin{definition}
-	The (covering )$\infty$-stacks are the (covering) $\cU$-stacks.
-\end{definition}
-\begin{lemma}
-	$X$ is a $n'$ stack iff its an $n+1$-stack
-\end{lemma}
-\begin{proof}
-	If its 
-\end{proof}
-\begin{lemma}{\label{lemma:geometricStacksClosedUnderId}}
-	$C$-stacks are closed under $\id$-types.
-\end{lemma}
-\begin{proof}
+	is a Zariski-catlas. 
+	\begin{itemize}
+		\item Let us first show that the fibers are in $Zar$. Assume $U_i$ holds. So we find a term in $\coprod_j D(f_{ij})$. In particular we have $\| \coprod_j D(f_{ij})\|_{Zar}$. By the lemma we conclude, that the fiber $\sum_j D(f_{ij})$ belongs to $Zar$.\\
+		\item The total space is in $Zar$: This follows as the surjection after $\bT$-truncation becomes an equivalence. As we have $\| U_1 + \hdots + U_n\|_\bT$, we can conclude by the lemma.
+	\end{itemize}
 	
-	This is similar to \ref{lemma:havingAbstractAtlasClosedUnderId}.
 \end{proof}
 \begin{warning}
-	The previous lemma does not hold for covering stacks: Identity types of things in $\bT$ could be empty.
+	The converse does not hold! Apply \ref{lemma:sheafificationHasTCover} to the map
+	\[Zar \ni 1 + 1 \to \sum D(f) \]
+	$\sum D(f)$ is seperated as $D(f)$ is a sheaf.
+	All the fibers are equivalent to $1 + X$, hence they are in the Zariski topology.
+	Use that beeing in the Zariski topology has Zariski-descent.	
 \end{warning}
+\begin{corollary}
+		Every scheme is an algebraic space for the Zariski topology.
+\end{corollary}
+\begin{question}
+	Is every algebraic space for the zariski topology a scheme?
+\end{question}
 
-THIS IS UNUSUAL, but surprisingly useful.
-Let $n \ge 0$.
-%\begin{lemma}[TODO]
-%	If $D \subset C$, then the cover-closure of (covering $C$-stacks $\cap D$) inside $D$ are  covering $D$-stacks. 
+%
+%\subsection{Stability under covers TODO}
+%In this subsection we want to prove the following:
+%\begin{theorem}[TODO]
+%	The class of covering $\cV$-stacks is the smallest intermediate class $\bT \subset \tilde T \subset \cV$ such that whenever $X \in \tilde \bT, Y \in \cV$ and $X \to Y$ is fibered in $\tilde \bT$, then $Y \in \tilde \bT$.
+%\end{theorem}
+%
+%\begin{lemma}
+%	Covering stacks are stable by dependent sums: If $X \in \CS_\cV$, $Y : X \to \CS_\cV$, then $\sum_{x: X} Y x \in CS$.
 %\end{lemma}
-\begin{example}
-	Affine covering $0$-stacks are the saturation of $\bT$.
-\end{example}
-%\begin{corollary}[Indepedence of the truncation level]
-%	(covering) $n+1$-type-stacks that are $n$-types $=$ (covering) $n$-type stacks.
-%\end{corollary}
 %\begin{proof}
-%	Only need to show $\subset$. First the covering part. For this just show the LHS is closed under covers between $n$-types by the previos lemma. \\
-%	For the non covering part, let $\Spec A \to X$ be fibered in covering $n+1$-type-stacks where $X$ is a $n$-type. Then the fibers are $n$-types, hence by the covering case, they are covering $n$-type stacks.
+%	Lets first prove the special case where $X \in \bT$. By choice of $X$ we can choose a $C$-atlas $Q x \to Y x$ for every $x$. Now $\sum_{x : X} Q x \to \sum_{x: X} Y x$ is fibered in $C$ by \ref{lemma:AtlasSum} and the domain is in $\bT$ by $\sum$-stability of $\bT$. \\
+%	For the general case, choose a $C$-atlas $p : T \to X$ with $T \in \bT$. Then we have a map
+%	\[
+%	\sum_{t : T} Y (p t) \to \sum_{x : X} Y x
+%	\]
+%	where every fiber is equivalent to a fiber of $p$, i.e. its a covering $C$-stack. As its domain is a covering $C$-stack by the previous case, we can choose an atlas .
 %\end{proof}
-\begin{definition}
-	$X$ is a (covering) 0-stack, if its a (covering) 0-type-stack.
-\end{definition}
-\begin{theorem}[TODO]
-	Let $X$ be a type. TFAE for all $n$ :
-	\begin{enumerate}
-		\item $X$ is a covering $n$-type-stack.
-		
-		\item Inductively, There merely exists some $U \in \bT$ with a map $U \to X$ fibered in covering $n-1$-stacks.
-		\item[2'] Inductively, as the previous one but additionally the $\id$-types of $X$ are $n-1$-stacks.
-		\item Inductively, There merely exists some covering $n-1$-stack $U$ with a map $U \to X$ fibered in covering $n-1$-stacks.		
-		\item[3'] Inductively, as the previous one but additionally the $\id$-types of $X$ are $n-1$-stacks.
-	\end{enumerate}
-	If one of the conditions is satisfied we call $X$ a covering $n$-stack.
-\end{theorem}
-\begin{proof}
-	Induction $n-1 \mapsto n$ , $n \ge 1$.
-	\begin{enumerate}
-		\item[1. $\Rightarrow$ 2] We have to show, that the class in 2. is closed under $\sum$ and closed under quotients between $n$-types. This was already done.
-		\item [2. $\Rightarrow$ 3] Clear
-		\item [3. $\Rightarrow$ 3'] By  \ref{lemma:geometricStacksClosedUnderId} and independence of the truncation level (TODO).
-		\item [3'. $\Rightarrow$ 3 , 2' $\Rightarrow$ 2] Clear
-		
-		\item [3'. $\Rightarrow$ 1.]  by induction, covering $n-1$-stacks $=$ covering $n-1$-type-stacks $\subset$ covering $n$-type-stacks. Now use stability under covers between $n$-types.
-		\item [3' $\Rightarrow$ 2'] Use 3 $\Rightarrow 1 \Rightarrow 2$.
-		%	\item [2. $\Rightarrow$ 3] By some argument of Hugo, an $X$ as in $2.$ is an $n$-type.
-	\end{enumerate}
-\end{proof}
-%We want: = covering $n$-stacks. The $\subset$-direction is clear, as covering $n$-stacks should be stable under covers between $n$-types. for $\supset$, make sure that covering $n$-stacks for $n$ small can be constructed as a quotient by a $\bT$-cover
+%\begin{proof}
+%	The first class is definitely contained in the second class. To show that they coincide we need to show, that the first class is stable under $\sum$ and under quotients. For the first point we use choice of affines. The second point 
+%\end{proof}
+%
+%
+%The first point is the minimal definition which is good mapping out of the class of coverings stacks and the second one is useful to keep in mind the stability results.
+%The closedness under covers assumption is the conjunction of closed under $\sum$ (as $C$ $\sum$-stable) and closed under quotients. \\
+%\begin{lemma}
+%	covering $C$-stacks contain $1$ and are closed under $\sum$.
+%\end{lemma}
+%
+%
+%THIS IS UNUSUAL, but surprisingly useful.
+%Let $n \ge 0$.
+%%\begin{lemma}[TODO]
+%%	If $D \subset C$, then the cover-closure of (covering $C$-stacks $\cap D$) inside $D$ are  covering $D$-stacks. 
+%%\end{lemma}
+%\begin{example}
+%	Affine covering $0$-stacks are the saturation of $\bT$.
+%\end{example}
+%%\begin{corollary}[Indepedence of the truncation level]
+%%	(covering) $n+1$-type-stacks that are $n$-types $=$ (covering) $n$-type stacks.
+%%\end{corollary}
+%%\begin{proof}
+%%	Only need to show $\subset$. First the covering part. For this just show the LHS is closed under covers between $n$-types by the previos lemma. \\
+%%	For the non covering part, let $\Spec A \to X$ be fibered in covering $n+1$-type-stacks where $X$ is a $n$-type. Then the fibers are $n$-types, hence by the covering case, they are covering $n$-type stacks.
+%%\end{proof}
+%\begin{definition}
+%	$X$ is a (covering) 0-stack, if its a (covering) 0-type-stack.
+%\end{definition}
+%\begin{theorem}[TODO]
+%	Let $X$ be a type. TFAE for all $n$ :
+%	\begin{enumerate}
+%		\item $X$ is a covering $n$-type-stack.
+%		
+%		\item Inductively, There merely exists some $U \in \bT$ with a map $U \to X$ fibered in covering $n-1$-stacks.
+%		\item[2'] Inductively, as the previous one but additionally the $\id$-types of $X$ are $n-1$-stacks.
+%		\item Inductively, There merely exists some covering $n-1$-stack $U$ with a map $U \to X$ fibered in covering $n-1$-stacks.		
+%		\item[3'] Inductively, as the previous one but additionally the $\id$-types of $X$ are $n-1$-stacks.
+%	\end{enumerate}
+%	If one of the conditions is satisfied we call $X$ a covering $n$-stack.
+%\end{theorem}
+%\begin{proof}
+%	Induction $n-1 \mapsto n$ , $n \ge 1$.
+%	\begin{enumerate}
+%		\item[1. $\Rightarrow$ 2] We have to show, that the class in 2. is closed under $\sum$ and closed under quotients between $n$-types. This was already done.
+%		\item [2. $\Rightarrow$ 3] Clear
+%		\item [3. $\Rightarrow$ 3'] By  \ref{lemma:geometricStacksClosedUnderId} and independence of the truncation level (TODO).
+%		\item [3'. $\Rightarrow$ 3 , 2' $\Rightarrow$ 2] Clear
+%		
+%		\item [3'. $\Rightarrow$ 1.]  by induction, covering $n-1$-stacks $=$ covering $n-1$-type-stacks $\subset$ covering $n$-type-stacks. Now use stability under covers between $n$-types.
+%		\item [3' $\Rightarrow$ 2'] Use 3 $\Rightarrow 1 \Rightarrow 2$.
+%		%	\item [2. $\Rightarrow$ 3] By some argument of Hugo, an $X$ as in $2.$ is an $n$-type.
+%	\end{enumerate}
+%\end{proof}
+%%We want: = covering $n$-stacks. The $\subset$-direction is clear, as covering $n$-stacks should be stable under covers between $n$-types. for $\supset$, make sure that covering $n$-stacks for $n$ small can be constructed as a quotient by a $\bT$-cover
