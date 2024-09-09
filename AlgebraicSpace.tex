@@ -1,7 +1,7 @@
 \section{Algebraic Space}
 Recall the notion of (covering) 0-stacks. it is the smallest pair of classes that satisfies the following
 \begin{itemize}
-	\item Stability under $\sum$ \ref{thm:stabSums} 
+%	\item Stability under $\sum$ \ref{thm:stabSums} 
 	\item (covering) affines are (covering) algebraic spaces. %If $\bT \ni \Spec A \to X$ is a $\bT$-cover and $X$ is a $\bT \Set$, then $X$ is a covering algebraic space
 	\item stable under covering quotients: If $X$ is an algebraic space, $Y$ modal 0-type and $X \to Y$ is fibered in covering algebraic spaces, then $Y$ is an algebraic space. Additionally, if $X$ is covering, then $Y$ is covering.
 \end{itemize}
@@ -42,62 +42,73 @@ Recall the definition of $\bT$-atlas \ref{def:TAtlas}
 
 \end{proof}
 
-\begin{lemma}
-	geometric propositions are algebraic spaces.
-\end{lemma}
-\begin{proof}
-	We have $U \to \|U\|_\bT$ where $U$ is affine, hence an algebraic space and the fibers are in $\bT$ by geometricness of $U$, hence they are covering algebraic spaces. By stability under quotients, our geometric proposition is an algebraic space.
-\end{proof}
+%\begin{lemma}[NECESSARY?]
+%	geometric propositions are algebraic spaces.
+%\end{lemma}
+%\begin{proof}
+%	We have $U \to \|U\|_\bT$ where $U$ is affine, hence an algebraic space and the fibers are in $\bT$ by geometricness of $U$, hence they are covering algebraic spaces. By stability under quotients, our geometric proposition is an algebraic space.
+%\end{proof}
 \subsection{Algebraic spaces}
-\begin{definition}{\label{def:coveringEqRel}}
+\begin{lemma}{\label{def:coveringEqRel}}
 		%A modal equivalence relation $R : U^2 \to \bT \Prop$ on a set $U$ is covering if the fibers $R_s \equiv \sum_{t: S} R s t$  are covering 0-stacks.
-		Consider a modal equivalence relation $R : U^2 \to \mathsf{GeomProp}$ on an affine $U$. We call it covering if one of the following equivalent conditions
+		Consider a modal equivalence relation $R : S^2 \to \bT \Prop$ on an affine $S$. TFAE
 		\begin{itemize}
-			\item  every fiber $R_s \equiv \sum_{t: S} R s t$ admits a $\bT$-catlas.
+			\item $R$ is covering, i.e. every fiber $R_s \equiv \sum_{t: S} R s t$ admits a $\bT$-catlas.
 			\item  every fiber $R_s \equiv \sum_{t: S} R s t$ is a covering 0-stack.
 \end{itemize}
-\end{definition}
+\end{lemma}
 \begin{proof}
 Every type admitting a $\bT$-catlas is a covering 0-stack. 
-Conversely: if the fibers are covering 0-stacks. For all $t : S$ we can choose a geometric atlas $\Spec A_t \to R s t$ by \ref{def:algprop}. Then 
+Conversely: if the fibers are covering 0-stacks. Let us first observe, that for all $s , t : S$, $R s t$ is a geometric proposition: $R s t$ is the fiber of the projection $\sum_{t : S} R s t \to S$ between geometric stacks, which are stable under finite limits. \\
+
+For all $t : S$ we can choose a geometric atlas $\Spec A_t \to R s t$ by \ref{def:algprop}. Then 
 \[
 \sum_{t:S} \Spec A_t \to \sum_{t : S} R s t
 \]
 is a $\bT$-atlas. As $\sum_{t : S} R s t$ is a covering 0-stack by assumption, the map has to be a $\bT$-catlas by \ref{lemma:atlasIsCatlas}. 
 \end{proof}
+%Let us also mention what we learned in the proof:
+%\begin{lemma}[NECESSARY?@²]
+%	A covering equivalence relation $R : S^2 \to \bT \Prop$ has values in geometric propositions.
+%\end{lemma}
 
-
-\begin{definition}
-	A modal set $X$ is an algebraic space iff it is merely of the form $L_\bT (U / R)$ for some affine $U$ and  $R : U^2 \to \Prop$ a covering equivalence relation. Equivalently there exists some map $U \to X$ whose fibers merely have $\bT$-catlasses. We call $X$ covering if $U$ can be choosen to be in $\bT$.
-\end{definition}
-\begin{lemma}
-	Every (covering) algebraic space is a (covering) geometric 0-stack.
-
-\end{lemma}
-\begin{proof}
-	Choose a presentation $ R: U^2 \to \Prop$.
-	It suffices to show, that the map $f : U \to L_\bT ( U / R)$ is a geometric (c)atlas. The map $f$ is $\bT$-surjective by the well-definedness of the bijection $\ref{quotient-by-equivalence-relation}$. By descent we may just show, that the fibers $\fib_f (f(s))$ for $s : U$ are covering 0-stacks. But by the bijection in \ref{quotient-by-equivalence-relation} those are equivalent to the fibers $R_s$, which are covering 0-stacks as the equivalence relation is covering.
-\end{proof}
-\begin{corollary}
-	The identity types of algebraic spaces are geometric propositions.
-\end{corollary}
-\begin{proof}
-	By the previous lemma and \ref{lemma:geometricStacksClosedUnderId}
-\end{proof}
-
-\begin{lemma}{\label{lemma:detectGeomProp}}
-	Let $P$ be a sheaf and a proposition that admits a map $\Spec A \to P$ fibered in covering algebraic spaces. Then $P$ is a geometric proposition.
-\end{lemma}
-\begin{proof}
-	The fibers are covering algebraic spaces and affine, hence covering affine. By \ref{def:algprop} we conclude.
-\end{proof}
+%\begin{corollary}
+%	The identity types of algebraic spaces are geometric propositions.
+%\end{corollary}
+%\begin{proof}
+%	By the previous lemma and \ref{lemma:geometricStacksClosedUnderId}
+%\end{proof}
+%
+%\begin{lemma}{\label{lemma:detectGeomProp}}
+%	Let $P$ be a sheaf and a proposition that admits a map $\Spec A \to P$ fibered in covering algebraic spaces. Then $P$ is a geometric proposition.
+%\end{lemma}
+%\begin{proof}
+%	The fibers are covering algebraic spaces and affine, hence covering affine. By \ref{def:algprop} we conclude.
+%\end{proof}
 \begin{theorem}
-	Let $X$ be a sheaf of sets. Let $S$ be (covering-) affine and $f : S \to X$ be fibered in covering algebraic spaces. Then $X$ is a (covering) algebraic space.
+	Let $X$ be a modal set. The following are equivalent:
+	\begin{enumerate}
+		\item $X$ is a (covering) geometric 0-stack
+		\item $X$ is merely of the form $L_\bT (U / R)$ for some (covering) affine $U$ and  $R : U^2 \to \Prop$ a covering equivalence relation. 
+		\item there exists some map $S \to X$ with $S$ (covering) affine whose fibers merely have $\bT$-catlasses.
+	\end{enumerate}
+	We call this class (covering) algebraic spaces.
 \end{theorem}
 \begin{proof}
-	The identity types of $X$ admit a map fibered in covering algebraic spaces (todo check stability under $\sum$) out of an affine by \ref{lemma:havingAbstractAtlasClosedUnderId}. by \ref{lemma:detectGeomProp} they are geometric propositions. The equivalence relation determined by $f$ is covering \ref{def:coveringEqRel} , because the fibers of $f$ are covering 0-stacks.
+\ 	\begin{enumerate}
+	\item [2 $\leftrightarrow$ 3]
+		\ref {lemma:fundamental-property-algebraic-spaces}
+	\item [2 $\to$ 1]
+	Choose a presentation $ R: U^2 \to \Prop$.
+	It suffices to show, that the map $f : U \to L_\bT ( U / R)$ is a geometric (c)atlas. The map $f$ is $\bT$-surjective by the well-definedness of the bijection $\ref{quotient-by-equivalence-relation}$. By descent we may just show, that the fibers $\fib_f (f(s))$ for $s : U$ are covering 0-stacks. But by the bijection in \ref{quotient-by-equivalence-relation} those are equivalent to the fibers $R_s$, which are covering 0-stacks as the equivalence relation is covering. \\
+	\item [1 $\to$ 2]
+	This can be reformulated in the following way, using the recursion principle for (covering) geometric 0-stacks:
+	Let $X$ be a sheaf of sets. Let $S$ be (covering-) affine and $f : S \to X$ be fibered in covering algebraic spaces. Then $X$ is a (covering) algebraic space.
+%	The identity types of $X$ admit a map fibered in covering algebraic spaces (todo check stability under $\sum$) out of an affine by \ref{lemma:havingAbstractAtlasClosedUnderId}. by \ref{lemma:detectGeomProp} they are geometric propositions. 
+This follows from the observation, that the equivalence relation determined by $f$ is covering \ref{def:coveringEqRel} , because the fibers of $f$ are covering 0-stacks.
+	\end{enumerate}
 \end{proof}
-\section{Schemes are algebraic Spaces for the Zariski Topology}
+\subsection{Schemes are algebraic Spaces for the Zariski Topology}
 \begin{definition}
  A proposition $U$ is open iff its merely of the form $f_1 \ inv \lor \hdots f_n inv$ for some $f_i : R$.
 \end{definition}
@@ -105,7 +116,7 @@ is a $\bT$-atlas. As $\sum_{t : S} R s t$ is a covering 0-stack by assumption, t
 	A Zariski sheaf $X$ is a scheme if there merely exists some affine $S$  map $S \to X$ whose fibers are Zariski-merely inhabited finite sums of open propositions 
 \end{definition}
 \begin{lemma}
-	Given $f_1, \hdots,f_n : R$ such that $\| D(f_1) + \hdots + D(f_n) \|_{Zar}$ then $\sum_{i=1}^n D(f_i) \in Zar$.
+	Given $f_1, \hdots,f_n : R$ such that $\| D(f_1) + \hdots + D(f_n) \|_{\Zar}$ then $\sum_{i=1}^n D(f_i) \in \Zar$.
 \end{lemma}
 \begin{proof}
 	We have to show that $(f_1,\hdots,f_n) = 1$. 
@@ -114,23 +125,23 @@ is a $\bT$-atlas. As $\sum_{t : S} R s t$ is a covering 0-stack by assumption, t
 	Recall that the Zariski topology is subcanonical (\todocite). Now the type is equivalent to the statement that the map between the two sheaves $\Spec 0 \to \Spec R/(f_1,\hdots,f_n)$ is an equivalence. This is a sheaf \todocite.
 \end{proof}
 \begin{prop}
-	Every Zariski-merely-inhabited type that is merely of the form $U_1 + \hdots + U_n$ for open propositions $U_i$ admits a zariski-catlas.
+	Every Zariski-merely-inhabited type that is merely of the form $U_1 + \hdots + U_n$ for open propositions $U_i$ admits a $\Zar$-catlas.
 \end{prop}
 \begin{proof}
 	By definition of openness, We can choose a surjection $\coprod_{j=1}^{n_i} D(f_{ij}) \twoheadrightarrow U_i$ for any $i$. We want to show, that the map
 	\[
 	\coprod_{i , j} D(f_{ij}) \twoheadrightarrow U_1 + \hdots U_n
 	\]
-	is a Zariski-catlas. 
+	is a $\Zar$-catlas. 
 	\begin{itemize}
-		\item Let us first show that the fibers are in $Zar$. Assume $U_i$ holds. So we find a term in $\coprod_j D(f_{ij})$. In particular we have $\| \coprod_j D(f_{ij})\|_{Zar}$. By the lemma we conclude, that the fiber $\sum_j D(f_{ij})$ belongs to $Zar$.\\
-		\item The total space is in $Zar$: This follows as the surjection after $\bT$-truncation becomes an equivalence. As we have $\| U_1 + \hdots + U_n\|_\bT$, we can conclude by the lemma.
+		\item Let us first show that the fibers are in $\Zar$. Assume $U_i$ holds. So we find a term in $\coprod_j D(f_{ij})$. In particular we have $\| \coprod_j D(f_{ij})\|_{\Zar}$. By the lemma we conclude, that the fiber $\sum_j D(f_{ij})$ belongs to $\Zar$.\\
+		\item The total space is in $\Zar$: This follows as the surjection after $\bT$-truncation becomes an equivalence. As we have $\| U_1 + \hdots + U_n\|_\bT$, we can conclude by the lemma.
 	\end{itemize}
 	
 \end{proof}
 \begin{warning}
 	The converse does not hold! Apply \ref{lemma:sheafificationHasTCover} to the map
-	\[Zar \ni 1 + 1 \to \sum D(f) \]
+	\[\Zar \ni 1 + 1 \to \sum D(f) \]
 	$\sum D(f)$ is seperated as $D(f)$ is a sheaf.
 	All the fibers are equivalent to $1 + X$, hence they are in the Zariski topology.
 	Use that beeing in the Zariski topology has Zariski-descent.	
@@ -141,7 +152,12 @@ is a $\bT$-atlas. As $\sum_{t : S} R s t$ is a covering 0-stack by assumption, t
 \begin{question}
 	Is every algebraic space for the zariski topology a scheme?
 \end{question}
-
+\begin{lemma}
+	Every $\Zar$-sheaf that admits a $\Zar$-atlas is a scheme. Hence, every geometric proposition is a scheme
+\end{lemma}
+\begin{proof}
+	Obvious.
+\end{proof}
 %
 %\subsection{Stability under covers TODO}
 %In this subsection we want to prove the following:

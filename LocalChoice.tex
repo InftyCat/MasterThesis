@@ -1,5 +1,6 @@
 
 \section{Local Choice}
+One of the goals of this chapter is to show descent for types admitting a $\bT$-(c)atlas.
 In this section let $\bT$ denote a topology finer than the zariski topology.
 \begin{definition}
 	Let \Cov be a class of morphisms (which we think of $n$-atlasses of some $n$), containing $\bT$-atlas, (stable under pullback NECESSARY TODO?)
@@ -53,27 +54,13 @@ In this section let $\bT$ denote a topology finer than the zariski topology.
 	%For the general case, the previous proof is enough. \todo
 \end{proof}
 The next lemma shows, that the class of types equipped with a $\bT$-atlas is stable under dependent sums.
-\begin{lemma}{\label{lemma:AtlasSum}}
-	Let $\cU' \subset \cU$ be stable under dependent sums (e.g. $\bT$-inhabited types)
-	Let $X$ be a type with a  map $p : U \to X$ fibered in $\cU'$.  For any $x : X$, let $Y_x$ be a type and moreover for any $u : U$, we are given a map $q_u : V_u \to Y_{p(u)}$ fibered in $\cU'$. Then the induced map
-	\[
-	p : \sum_{u : U} V_u \to \sum_{x : X} Y_{x}
-	\]
-	is fibered in $\cU'$
-\end{lemma}
-\begin{proof}
-	The fiber of $p$ over some $(x,y) \in \sum_{x :X} Y_x$ is given by
-	\[
-	\sum_{u : \fib_p x} \fib_{q_u} (y') 
-	\]
-	where $y' : Y_{p(u)}$ (depending on $u$) is the transport of $y : Y_x$ along $x = p(u)$. As $\cU'$ is stable under dependent sum %(\ref{lemma:LexSumStable}, \ref{lemma:LexStability}), 
-	those fibers are again in $\cU'$. This shows the result.
-\end{proof}
+
 \begin{theorem}{\label{thm:atlasStableSum}}
 	Let $\cU'$ be a class stable under dependent sums.
-	The class of types admitting a $\cU'$-atlas is closed under dependent sums. If $\bT$ is a topology, the same holds for $\cU'$-atlasses with domain in $\bT$.
+	The class of types admitting a $\cU'$-atlas is closed under dependent sums. If $\bT$ is a topology, the same holds for $\cU'$-catlasses.
 \end{theorem}
 \begin{proof}
+	The stability under quotients is easy: 
 	Let us construct some atlas $\Spec A \to \sum_{x : X} B_x$ %fibered in smooth $n$-stacks.
 	For any $x : X$ we merely have an atlas $V_x \to B_x$, i.e. with $V_x$ affine. %fibered in smooth $n$-stacks . \\
 	$X$ has local choice wrt atlasses by (\ref{prop:LocalChoice}) using $\cU'$ is $\sum$-stable (we use the trivial topology).\\
@@ -89,4 +76,18 @@ The next lemma shows, that the class of types equipped with a $\bT$-atlas is sta
 	\]
 	Now the desired map is $\sum_{u : U} V_{p u} \to \sum_{x : X} B_x$, because it is  an atlas %fibered in smooth $(n)$-stacks 
 	by \ref{lemma:AtlasSum} \\
+\end{proof}
+\begin{prop}{\label{prop:atlasStableCover}}
+	Let $\cU'$ be a class stable under dependent sums.
+	The class of types admitting a $\cU'$-(c)atlas is closed under $\cU'$-covers: If $X \to Y$ is a $\cU'$-cover, then $X$ admits a $\cU'$-(c)atlas iff $Y$ admits a $\cU'$-(c)atlas.
+\end{prop}
+\begin{proof}
+One direction is the stability under dependent sums. For the other, if $S \to X$ is a $\cU'$-atlas, then $S \to X \to Y$ is a $\cU'$-atlas by $\sum$-stability of $\cU'$.
+\end{proof}
+
+\begin{corollary}{\label{cor:DescentCatlas}}
+	If $\bT$ has descent, The class of sheaves merely admitting a $\bT$-catlas has descent.
+\end{corollary}
+\begin{proof}
+	We can set $\cV = \cU$, and we have to show, that if $X \to Y$ is a $\bT$-cover than $X$ admits a $\bT$-catlas iff $Y$ admits a $\bT$-catlas. This follows from \ref{prop:atlasStableCover}.
 \end{proof}

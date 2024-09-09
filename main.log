@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2023.10.9)  6 SEP 2024 16:31
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2023.10.9)  9 SEP 2024 17:08
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -858,26 +858,27 @@ LaTeX Font Info:    Redeclaring math symbol \ocircle on input line 243.
 \c@axiom=\count319
 \c@question=\count320
 ) (./main.aux
-(./SaturatedTopology.aux) (./LexModalities.aux) (./Atlas.aux)
-(./LocalChoice.aux) (./FundamentalThmAlgSpc.aux) (./AlgebraicSpace.aux))
+(./LexModalities.aux) (./Stacks.aux) (./Descent.aux) (./SaturatedTopology.aux)
+(./Atlas.aux) (./LocalChoice.aux) (./FundamentalThmAlgSpc.aux)
+(./AlgebraicSpace.aux))
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -935,39 +936,39 @@ e
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 18.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 19.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 18.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 19.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+lasy on input line 18
+LaTeX Font Info:    Trying to load font information for U+lasy on input line 19
 .
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <7> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 18.
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 19.
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <5> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 18.
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 19.
 LaTeX Font Info:    Trying to load font information for U+stmry on input line 1
-8.
+9.
 
 (/usr/share/texlive/texmf-dist/tex/latex/stmaryrd/Ustmry.fd)
-LaTeX Font Info:    Trying to load font information for U+wasy on input line 18
+LaTeX Font Info:    Trying to load font information for U+wasy on input line 19
 .
 
 (/usr/share/texlive/texmf-dist/tex/latex/wasysym/uwasy.fd
 File: uwasy.fd 2020/01/19 v2.4 Wasy-2 symbol font definitions
 )
-Package xypdf Info: Line width: 0.39998pt on input line 18.
-Package hyperref Info: Link coloring ON on input line 18.
+Package xypdf Info: Line width: 0.39998pt on input line 19.
+Package hyperref Info: Link coloring ON on input line 19.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
@@ -980,58 +981,24 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count327
 )
-LaTeX Info: Redefining \ref on input line 18.
-LaTeX Info: Redefining \pageref on input line 18.
-LaTeX Info: Redefining \nameref on input line 18.
+LaTeX Info: Redefining \ref on input line 19.
+LaTeX Info: Redefining \pageref on input line 19.
+LaTeX Info: Redefining \nameref on input line 19.
 
 (./main.out) (./main.out)
 \@outlinefile=\write5
 \openout5 = `main.out'.
 
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <8> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 21.
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 22.
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <6> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 21.
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 22.
  [1
 
 
 
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 91--92
-
- []
-
-[2]
-Underfull \hbox (badness 10000) in paragraph at lines 170--171
-
- []
-
-[3] [4]
-Underfull \hbox (badness 10000) in paragraph at lines 272--274
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 272--274
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 296--299
-
- []
-
-[5]
-\openout2 = `SaturatedTopology.aux'.
-
- (./SaturatedTopology.tex
-
-LaTeX Warning: Reference `thM:stabSums' on page 6 undefined on input line 20.
-
-) [6
-
-]
 \openout2 = `LexModalities.aux'.
 
  (./LexModalities.tex
@@ -1039,7 +1006,51 @@ LaTeX Warning: Reference `thM:stabSums' on page 6 undefined on input line 20.
 LaTeX Font Warning: Font shape `U/wasy/m/it' in size <10> not available
 (Font)              Font shape `U/wasy/m/sl' tried instead on input line 12.
 
-) [7
+) [2
+
+]
+\openout2 = `Stacks.aux'.
+
+ (./Stacks.tex [3
+
+
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 110--111
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 131--132
+
+ []
+
+[4]) [5]
+\openout2 = `Descent.aux'.
+
+ (./Descent.tex
+Underfull \hbox (badness 10000) in paragraph at lines 38--40
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 38--40
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 62--65
+
+ []
+
+[6
+
+
+
+]) [7]
+\openout2 = `SaturatedTopology.aux'.
+
+ (./SaturatedTopology.tex) [8
 
 
 
@@ -1048,91 +1059,70 @@ LaTeX Font Warning: Font shape `U/wasy/m/it' in size <10> not available
 
  (./Atlas.tex
 
-LaTeX Warning: Reference `ex:weirdZarAtlasses' on page 8 undefined on input lin
-e 24.
+LaTeX Warning: Reference `ex:weirdZarAtlasses' on page 9 undefined on input lin
+e 27.
 
-) [8
+) [9
 
 
 
 ]
 \openout2 = `LocalChoice.aux'.
 
- (./LocalChoice.tex [9
+ (./LocalChoice.tex [10
 
 
 
-]) [10]
+]) [11]
 \openout2 = `FundamentalThmAlgSpc.aux'.
 
- (./FundamentalThmAlgSpc.tex
-Underfull \hbox (badness 10000) in paragraph at lines 25--27
-
- []
-
-[11
+ (./FundamentalThmAlgSpc.tex [12
 
 
 
-]
-
-LaTeX Warning: Reference `thm:descent' on page 12 undefined on input line 71.
-
-
-LaTeX Warning: Reference `lemma:prop0stacks' on page 12 undefined on input line
- 103.
-
-[12]) [13]
+]) [13]
 \openout2 = `AlgebraicSpace.aux'.
 
- (./AlgebraicSpace.tex
 
-LaTeX Warning: Reference `thm:stabSums' on page 14 undefined on input line 4.
+(./AlgebraicSpace.tex
+Underfull \hbox (badness 10000) in paragraph at lines 61--63
+
+ []
 
 [14
 
 
 
-] [15]
-Underfull \hbox (badness 10000) in paragraph at lines 126--127
-
- []
-
-) [16]
-
-LaTeX Warning: Reference `thm:stack' on page 17 undefined on input line 343.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 340--347
+]
+Underfull \hbox (badness 10000) in paragraph at lines 102--104
 
  []
 
 
-LaTeX Warning: Reference `thm:stack' on page 17 undefined on input line 353.
+Underfull \hbox (badness 10000) in paragraph at lines 137--138
+
+ []
+
+[15]) [16] [17
 
 
-LaTeX Warning: Reference `thm:stack' on page 17 undefined on input line 358.
-
-[17
-
-
-] [18] (./main.aux (./SaturatedTopology.aux) (./LexModalities.aux)
-(./Atlas.aux) (./LocalChoice.aux) (./FundamentalThmAlgSpc.aux)
-(./AlgebraicSpace.aux))
+] (./main.aux (./LexModalities.aux) (./Stacks.aux) (./Descent.aux) (./Saturated
+Topology.aux) (./Atlas.aux) (./LocalChoice.aux)
+(./FundamentalThmAlgSpc.aux) (./AlgebraicSpace.aux))
 
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: C08EC9E53A6937F6F12EC6BED69FBA06;1150.
+(rerunfilecheck)             Checksum: 977470572D46111B31426606515FBFB4;980.
  ) 
 Here is how much of TeX's memory you used:
- 24127 strings out of 479304
- 451287 string characters out of 5869779
- 798254 words of memory out of 5000000
- 40632 multiletter control sequences out of 15000+600000
+ 24231 strings out of 479304
+ 453916 string characters out of 5869779
+ 801283 words of memory out of 5000000
+ 40738 multiletter control sequences out of 15000+600000
  423095 words of font info for 108 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 108i,17n,107p,1499b,1121s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 108i,16n,107p,1499b,1125s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texli
 ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/tex
 mf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dis
@@ -1156,10 +1146,10 @@ nts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
 ts/symbols/msbm7.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb
 ></usr/share/texlive/texmf-dist/fonts/type1/public/stmaryrd/stmary10.pfb></usr/
 share/texlive/texmf-dist/fonts/type1/public/wasy-type1/wasysl10.pfb>
-Output written on main.pdf (18 pages, 300572 bytes).
+Output written on main.pdf (17 pages, 295138 bytes).
 PDF statistics:
- 404 PDF objects out of 1000 (max. 8388607)
- 356 compressed objects within 4 object streams
- 122 named destinations out of 1000 (max. 500000)
- 165 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 372 PDF objects out of 1000 (max. 8388607)
+ 325 compressed objects within 4 object streams
+ 106 named destinations out of 1000 (max. 500000)
+ 141 words of extra memory for PDF output out of 10000 (max. 10000000)
 
