@@ -1,10 +1,4 @@
-\section{Algebraic Space}
-Recall the notion of (covering) 0-stacks. it is the smallest pair of classes that satisfies the following
-\begin{itemize}
-%	\item Stability under $\sum$ \ref{thm:stabSums} 
-	\item (covering) affines are (covering) algebraic spaces. %If $\bT \ni \Spec A \to X$ is a $\bT$-cover and $X$ is a $\bT \Set$, then $X$ is a covering algebraic space
-	\item stable under covering quotients: If $X$ is an algebraic space, $Y$ modal 0-type and $X \to Y$ is fibered in covering algebraic spaces, then $Y$ is an algebraic space. Additionally, if $X$ is covering, then $Y$ is covering.
-\end{itemize}
+\section{Geometric Propositions}
 \subsection{Geometric propositions}
 \begin{definition}
 	An affine Scheme $U$ is called geometric, if 
@@ -14,7 +8,7 @@ Recall the notion of (covering) 0-stacks. it is the smallest pair of classes tha
 	The converse holds always
 \end{lemma}
 \begin{proof}
-	 because things in $\bT$ are automatically $\bT$-merely inhabited
+	because things in $\bT$ are automatically $\bT$-merely inhabited
 \end{proof}
 Recall the definition of $\bT$-atlas \ref{def:TAtlas}
 \begin{definition}{\label{def:algprop}}
@@ -24,22 +18,22 @@ Recall the definition of $\bT$-atlas \ref{def:TAtlas}
 		\item There is a $\bT$-surjective map out of a geometric affine $U$.
 		\item It has a $\bT$-atlas.
 	\end{enumerate}
-
+	
 \end{definition}
 \begin{proof} \
 	\begin{enumerate}
 		\item [1 $\Leftrightarrow$ 2]
 		Clear.
 		\item [1 $\Rightarrow$ 3]
-			we show that $U \to \|U\|_\bT$ is a $\bT$-atlas. Every fiber is in $\bT$, because $U$ is geometric.
+		we show that $U \to \|U\|_\bT$ is a $\bT$-atlas. Every fiber is in $\bT$, because $U$ is geometric.
 		\item [3 $\Rightarrow$ 1]
 		
-				Let $V \to P$ be a $\bT$-atlas.
+		Let $V \to P$ be a $\bT$-atlas.
 		have to show TFAE $\|V\|_\bT \to P \to (V \in \bT) \overset{\ref{lemma:geometricEquiv}}{\to} \|V\|_\bT$. 
 		Proof: $\|V\|_\bT \to P$ as $P$ is modal prop. Secondly, because $V \to P$ is a $\bT$-cover. \\
 		Hence $P$ is a geometric proposition.	
 	\end{enumerate}
-
+	
 \end{proof}
 
 %\begin{lemma}[NECESSARY?]
@@ -48,7 +42,107 @@ Recall the definition of $\bT$-atlas \ref{def:TAtlas}
 %\begin{proof}
 %	We have $U \to \|U\|_\bT$ where $U$ is affine, hence an algebraic space and the fibers are in $\bT$ by geometricness of $U$, hence they are covering algebraic spaces. By stability under quotients, our geometric proposition is an algebraic space.
 %\end{proof}
+\section{Algebraic Space}
+Recall the notion of (covering) 0-stacks. it is the smallest pair of classes that satisfies the following
+\begin{itemize}
+%	\item Stability under $\sum$ \ref{thm:stabSums} 
+	\item (covering) affines are (covering) algebraic spaces. %If $\bT \ni \Spec A \to X$ is a $\bT$-cover and $X$ is a $\bT \Set$, then $X$ is a covering algebraic space
+	\item stable under covering quotients: If $X$ is an algebraic space, $Y$ modal 0-type and $X \to Y$ is fibered in covering algebraic spaces, then $Y$ is an algebraic space. Additionally, if $X$ is covering, then $Y$ is covering.
+\end{itemize}
+\section{Fundamental Theorem of algebraic spaces}
+%\subsection{For groupoids}
+%\begin{lemma}
+%	If $R \twoheadrightarrow X \to X$ is a $\bT$-htpy-coequalizer diagram of two $\bT$-covers between affines, then $X$ is a  1-stack.
+%\end{lemma}
+
+%\subsection{For sets}
+\begin{lemma}{\label{quotient-by-equivalence-relation}}
+	Denote $\bT Set$ for the sets that are $\bT$-sheaves. Assume given a $\bT$set  $X$ then the following maps are mutually inverse
+	\begin{align*}
+		\sum_{R:X\to X\to \bT\Prop} R\ \mathrm{equivalence\ relation} &\simeq \sum_{Y:\bT \mathrm{\Set}} \sum_{p:X\to Y} p\ \bT\mathrm{surjective} \\
+		R &\mapsto (L_\bT \| X//R \|_0,[\_]) \\
+		\lambda x,y.  (p(x)=p(y)) &\mapsfrom (Y,p) 
+	\end{align*}
+	%where $X / R$ is defined by applying $L_T \| \_ \|_0 $ at the higher inductive type $X // R$.
+\end{lemma}
+
+\begin{proof}
+	\begin{itemize}
+		\item Well-definedness: The map $[\_] : X \to \|X // R\|_0 \to L_T \|X // R\|_0$ is the composition of a surjective with a $\bT$-surjective map \todocite, hence its $\bT$-surjective. \\
+		Conversely given $(Y,p)$ as $Y$ is a sheaf, we have for all $x,y : X$ that $p(x) =_Y p(y)$ is a sheaf.
+		\item If $x,y : X$ then we have a chain of equivalences 
+		\[
+		R(x,y) \simeq (\bar x =_{\|X//R\|_0} \bar y) \overset{\mathsf{ap}_\eta}{\to} ([x] =_{L_T\|X//R\|_0} [y])
+		\]
+		where the first map is plain HoTT, meaning that $\|X//R\|_0$ is seperated. The second map is an equivalence by \ref{lemma:sep}. %, i.e. the unit of the modality \ref{lemma:idTypesOfSheafification}, but as the $\bar x =_{\|X//R\|_0} \bar y$ is already a sheaf, it is an isomorphism as well. \\
+		\item Let $(Y,p)$ be in the RHS. Let $R(x,y) = (p(x)=p(y)) : \bT \Prop$. By plain HoTT, There is a map $\eta :  X // R  \to Y$ ( defined by the universal property of the set truncation and by induction on the higher inductive type $ X // R$ on canonical terms through the map $p : X \to Y$). I claim $\eta$ exhibits $Y$ as the localization for $\bT \Set$-modality of $X // R$. Let $T$ be another $\bT \Set$ equipped with a map $X // R  \to T$. By precomposition we obtain a map $X \to T$. 
+		Claim: it factors uniquely through $p : X \to Y$. 
+		% https://q.uiver.app/#q=WzAsNCxbMCwwLCJYIl0sWzEsMCwiXFx8WCAvIFJcXHwiXSxbMiwwLCJUIl0sWzEsMSwiWSJdLFswLDFdLFsxLDJdLFswLDNdLFszLDIsIlxcZXhpc3RzISIsMix7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dXQ==
+		\[\begin{tikzcd}
+			X & {X // R} & T \\
+			& Y
+			\arrow[from=1-1, to=1-2]
+			\arrow[from=1-1, to=2-2]
+			\arrow[from=1-2, to=1-3]
+			\arrow["{\exists!}"', dashed, from=2-2, to=1-3]
+		\end{tikzcd}\]
+		Proof: \\
+		Existence: We want to define a map $Y \to T$. Let $y : Y$. As $p$ is $\bT$-surjective and $T$ is a sheaf, we may assume we merely have some element in the fiber of $p$ over $y$. Now push this element through     
+		\[\|\fib_p y\| \to \|X // R\|_0 \to T\]
+		where the first map is by Plain HoTT and the second one is induced from $X // R \to T$ by assumption and the fact that $T$ is a set.. One can easily check this makes the diagram commute.
+		Uniqueness follows from $X \to Y$ beeing $\bT$-surjective and the following
+		Fact: Two parellel maps $Y \rightrightarrows T$ into a $\bT \Set$ $T$ are already equal if the become equal after precomposition with a $\bT$-surjection $X \to Y$.  \\
+		Proof of the fact : Let $y : Y$. The goal is an identity type of a $\bT \Set$, hence a $\bT \Prop$. Hence As the fiber over $y$ in $X$ is $\bT$-merely inhabited, we may assume an actual term in the fiber. 	As $X \to Y$ equalizes the arrows, this term allows us to conclude. \qed (fact)	\qed(Claim) \\
+		We apply the fact to the ($\bT$-)surjectivity of $X \to X // R $ to get a unique factorization 
+		% https://q.uiver.app/#q=WzAsNCxbMCwwLCJYIl0sWzEsMCwiXFx8WCAvIFJcXHwiXSxbMiwwLCJUIl0sWzEsMSwiWSJdLFswLDEsIiIsMCx7InN0eWxlIjp7ImhlYWQiOnsibmFtZSI6ImVwaSJ9fX1dLFsxLDJdLFswLDNdLFszLDIsIlxcZXhpc3RzISIsMix7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFsxLDNdXQ==
+		\[\begin{tikzcd}
+			X & {X // R} & T \\
+			& Y
+			\arrow[two heads, from=1-1, to=1-2]
+			\arrow[from=1-1, to=2-2]
+			\arrow[from=1-2, to=1-3]
+			\arrow[from=1-2, to=2-2]
+			\arrow["{\exists!}"', dashed, from=2-2, to=1-3]
+		\end{tikzcd}\]
+		making the right triangle commute. This is what we wanted to show.
+	\end{itemize}
+\end{proof}
+
+\begin{definition}
+	A modal equivalence relation $R$ on a type $X$ is called covering, if for any $y:X$ the fibers
+	\[R_y :\equiv \sum_{x:X} R(x,y)\]
+	merely admits a $\bT$-catlas.
+	
+\end{definition}
+
+\begin{lemma}{\label{lemma:fundamental-property-algebraic-spaces}}
+	%Assume that $\bT$ satisfies descent for propositions and for sets 
+	Assume that the topology has descent.
+	Given a $\bT$set $X$, the following types are equivalent:
+	\begin{itemize}
+		\item The type of covering equivalence relations on $X$.
+		\item The type of $\bT$sets $Y$ equipped with a map $X \to Y$ fibered in types admitting a $\bT$-catlas.
+	\end{itemize}
+\end{lemma}
+
+\begin{proof}
+	By the equivalence in \ref{quotient-by-equivalence-relation} it is enough to check that
+	%	\begin{itemize}
+	%		\item The identity types in $X/R$ are 
+	%		(-1)-stacks if and only if the relation $R$ is redundant . For any $x,y:X$ we know that:
+	%		\[R(x,y) \simeq [x] =_{X/R}[y]\]
+	%		so the direct direction is immediate. For the converse we use the assumption that a modal proposition being a  (-1)-stack is a sheaf and that the map $[\_]:X\to X/R$ is $\bT$-surjective.
+	%\item 
+	The fibers of: 
+	\[[\_]:X\to L_\bT \| X//R \|_0\] 
+	merely admit a $\bT$-catlas if and only if the relation $R$ is covering. For any $y:X$ we have that:
+	\[\sum_{x:X} R(x,y) \simeq \mathrm{fib}_{[\_]}([y])\]
+	so the direct direction is immediate. The converse follows from $\bT$-surjectivity of $[\_]$ and from \ref{cor:DescentCatlas}.
+	%	\end{itemize}
+\end{proof}
+
 \subsection{Algebraic spaces}
+
 \begin{lemma}{\label{def:coveringEqRel}}
 		%A modal equivalence relation $R : U^2 \to \bT \Prop$ on a set $U$ is covering if the fibers $R_s \equiv \sum_{t: S} R s t$  are covering 0-stacks.
 		Consider a modal equivalence relation $R : S^2 \to \bT \Prop$ on an affine $S$. TFAE
