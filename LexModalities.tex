@@ -1,0 +1,56 @@
+
+\section{Lex Modalities}
+\begin{lemma}[Stability resuls]{\label{lemma:LexStability}}
+	Lex Modalities are stable under 
+	\begin{enumerate}
+		\item Conjunction
+		\item Composition
+	\end{enumerate}
+	
+\end{lemma}
+\begin{lemma}{\label{lemma:LexSumStable}}
+	Let $\ci$ be a lex-modality. Let $X$ be $\ci$-modal and $B : X \to \cU_{\ci}$ be a family of modal types. Then $\sum_{x : X} B_x$ is $\ci$-modal
+\end{lemma}
+\begin{lemma}{\label{lemma:mod_comm_sum}}
+	Let $B  : \bullet X \to \cU$. Then $\bullet (\sum_{x : X} B (\eta x)) = \sum_{x : \bullet X} \bullet B x$
+\end{lemma}
+\begin{proof}
+	Observe that 
+	\[
+	\sum_{x : X} B \eta x \to \sum_{x : \bullet X} B x
+	\]
+	is a $\bullet$-equivalence, because for all modal types $T$, the type $B x \to T$ is modal for any $x : \bullet X$. \\
+	Then it follows by \todocite.
+\end{proof}
+\begin{lemma}{\label{lemma:idTypesOfSheafification}}
+	Let $\bullet$ be a lex modality. Let $x , y : X$. The map
+	\[
+	\bullet(x = y) \to \eta x =_{\bullet X} \eta y
+	\]
+	induced by $ap_\eta : x = y \to \eta x =_{\bullet X} \eta y$ is an equivalence
+\end{lemma}
+\begin{proof}
+ 	By Modalities Theorem 3.1 [ix].
+\end{proof}
+\begin{definition}{\label{lemma:sep}}
+	Let $\bullet$ be a lex modality. we call a type $X$ $\bullet$-seperated if one of the following equivalent conditions hold
+	\begin{itemize}
+		\item the identity types of $X$ are modal
+		\item the unit $X \to \bullet X$ is an embedding
+	\end{itemize}
+In this case
+\end{definition}
+\begin{proof}
+
+	by \ref{lemma:idTypesOfSheafification} the vertical map in the commutative diagram
+	% https://q.uiver.app/#q=WzAsMyxbMCwwLCJ4ID1fWCB5Il0sWzEsMCwiTCh4PXkpIl0sWzEsMSwiXFxldGEgeCA9X3tMWH0gXFxldGEgeSJdLFswLDIsImFwX3tcXGV0YV9YfSIsMl0sWzEsMiwiXFxzaW1lcSJdLFswLDEsIlxcZXRhX3t4PXl9Il1d
+	\[\begin{tikzcd}
+		{x =_X y} & {L(x=y)} \\
+		& {\eta x =_{LX} \eta y}
+		\arrow["{\eta_{x=y}}", from=1-1, to=1-2]
+		\arrow["{ap_{\eta_X}}"', from=1-1, to=2-2]
+		\arrow["\simeq", from=1-2, to=2-2]
+	\end{tikzcd}\]
+is an equivalence.
+	So $x = y$ is a sheaf if $\eta_{x=y}$ is an equivalence iff $\eta_X$ is an embedding.
+\end{proof}

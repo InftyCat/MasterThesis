@@ -1,0 +1,81 @@
+
+
+\section{Saturated Topologies}
+%Consider a topology $\bT$ finer than the Zariski topology.
+
+\begin{definition}
+	A catlas of $X$ is  some $\hat X \in \bT , \hat X \to X \text{ $\bT$-cover }$
+\end{definition}
+\begin{prop}
+	The saturation of a topology $\bT$ is the class $\bT'$ defined by 
+		\[
+		X \in \bT' \text{ iff $X$ is affine} \land \exists \text{ catlas of } X 
+		\]
+		%i.e. the affine covering $0$-stacks.
+
+
+	
+\end{prop}
+\begin{proof}
+	As $\bT'$ is definitely contained in the saturation, it suffices to show, that the class $\bT'$ defined above is saturated.
+	$\bT'$ is $\sum$-stable by \ref{thm:atlasStableSum}. \\
+	Consider some $\bT'$-cover $\bT' \ni X' \to X$. By replacing $X'$ with some catlas (allowed as $\bT'$-covers compose), we may assume that $X' \in \bT$. As every fiber $X'_x \in \bT'$ and $X$ has choice, we can choose for all $x : X$ a catlas $\tilde X'_x \to X'_x$. We obtain commutative diagram 
+% https://q.uiver.app/#q=WzAsMyxbMCwwLCJcXHN1bV97eCA6IFh9XFx0aWxkZSBYJ194Il0sWzEsMSwiWCJdLFsxLDAsIlxcc3VtX3t4IDogWH1YJ194Il0sWzIsMV0sWzAsMl0sWzAsMV1d
+\[\begin{tikzcd}
+	{\tilde X \equiv \sum_{x : X}\tilde X'_x} & {\sum_{x : X}X'_x} \\
+	& X
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-1, to=2-2]
+	\arrow[from=1-2, to=2-2]
+\end{tikzcd}\]
+	As $X' \in \bT$ and $\tilde X \to X'$ is fibered in $\bT$ (\ref{lemma:AtlasSum}) we have $\tilde X \in \bT$. And $X' \to X$ is a $\bT$-cover hence $Y \to X$ is a $\bT$-cover. Hence $X \in \bT'$. %But $Y \to X$ is a $\bT$-cover and $\hat X \to X$ is a $\bT$-cover, $Y \to X$ is a $\bT$-cover. Hence $X \in \bT'$.
+	%covering $n$-stacks are stable under dependent sums \ref{thM:stabSums}
+	%Obviously $1 \in \bT'$. We say a type $X$ has covering local choice if for all $\bT$-surjections $S \to S'$ and a map $X \to S'$ there exists a catlas of $X$ lifting to $S$. 
+	% %First observe that every $X \in \bT$ has covering local choice:
+	% Now any $X \in \bT'$ satisfies local choice wrt catlasses because it has a catlas and catlasses are stable under composition and Zariski covers are in $\bT$. 
+	% Hence ...
+	
+\end{proof}
+\begin{lemma}
+	A type $T$ is a sheaf wrt to $\bT'$ iff it is a sheaf wrt to $\bT$
+\end{lemma}
+\begin{proof}
+	As $\bT \subset \bT'$ the $\rightarrow$ direction is clear. Now, let $X \in \bT'$. We have to show that $T \to T^{\|X\|}$ is an equivalence. Choose $\bT \ni Y \to X$. Then we have a commutative diagram
+	% https://q.uiver.app/#q=WzAsMyxbMCwwLCJUIl0sWzEsMCwiVF57XFx8WFxcfH0iXSxbMSwxLCJUXntcXHxZXFx8fSJdLFswLDFdLFsxLDJdLFswLDIsIlxcc2ltZXEiLDJdXQ==
+	\[\begin{tikzcd}
+		T & {T^{\|X\|}} \\
+		& {T^{\|Y\|}}
+		\arrow[from=1-1, to=1-2]
+		\arrow["\simeq"', from=1-1, to=2-2]
+		\arrow[from=1-2, to=2-2]
+	\end{tikzcd}\]
+	So $T \to T^{\|X\|}$ has a left-inverse. Thus it suffices to show that any $f : T^{\|X\|}$ has a preimage. Choose $t : T$, s.th. $\mathrm{cnst}^Y_t$ is the composite $\|Y\| \to \|X\| \overset{f}{\to} T$. We have $\|Y\| \to (\mathrm{cnst}^X_t = f)$. But as $Y \in \bT$ and $\Delta_t = f$ is a sheaf (as an identitytype in the sheaf $T^{\|X\|}$) we are done.
+\end{proof}
+\begin{rmk}
+	We never used that we only talk about $\bT$-covers.
+\end{rmk}
+\begin{lemma}
+	Every saturated affine (i.e. $\Spec A \in \bT'$) it $\bT$-merely inhabited.     
+\end{lemma}
+\begin{proof}
+	We have $\|X\| \to \|\Spec A\|$ for some catlas $\bT \ni X \to \Spec A$.
+\end{proof}
+
+\begin{question}
+	Does the converse hold, i.e. is every $\bT$-merely inhabited affine saturated?    
+\end{question}
+
+% \begin{lemma}
+%     A type $T$ is a saturated $\bT$-sheaf if for all $X \in \bT$ the diagonal
+%     \[
+%     T \to T^{L_\bT \|X \|}
+%     \]
+%     is an equivalence.
+% \end{lemma}
+% \begin{proof}
+%     If $X \in \bT'$, we can choose a catlas $\hat X \to X$. As it is in particular $\bT$-surjective we have $\|X\| \overset{\sim}{\to} L_T \|\hat X\| $ which gives us that the composite
+%     \[
+%     T \overset{\simeq}{\to} T^{L_\bT \|X'\|}  \overset{\simeq}{\to}  T^{\|X\|}
+%     \]
+%     is an equivalence. 
+% \end{proof}
