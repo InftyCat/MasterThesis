@@ -1,4 +1,11 @@
-\section{Fundamental Theorem of algebraic spaces}
+\section{Algebraic Space}
+Recall the notion of (covering) geometric 0-stacks, which we call (covering) Algebraic Spaces. it is the smallest pair of classes that satisfies the following
+\begin{itemize}
+	%	\item Stability under $\sum$ \ref{thm:stabSums} 
+	\item (covering) affines are (covering) algebraic spaces. %If $\bT \ni \Spec A \to X$ is a $\bT$-cover and $X$ is a $\bT \Set$, then $X$ is a covering algebraic space
+	\item stable under covering quotients: If $X$ is an algebraic space, $Y$ modal 0-type and $X \to Y$ is fibered in covering algebraic spaces, then $Y$ is an algebraic space. Additionally, if $X$ is covering, then $Y$ is covering.
+\end{itemize}
+\subsection{Equivalence relations vs Surjections}
 %\subsection{For groupoids}
 %\begin{lemma}
 %	If $R \twoheadrightarrow X \to X$ is a $\bT$-htpy-coequalizer diagram of two $\bT$-covers between affines, then $X$ is a  1-stack.
@@ -57,17 +64,36 @@
 	\end{itemize}
 \end{proof}
 
-\begin{definition}
-	A modal equivalence relation $R$ on a type $X$ is called covering, if for any $y:X$ the fibers
-		\[R_y :\equiv \sum_{x:X} R(x,y)\]
-		merely admits a $\bT$-catlas.
 
-\end{definition}
+
+	\begin{definition}{\label{def:coveringEqRel}}
+		%A modal equivalence relation $R : U^2 \to \bT \Prop$ on a set $U$ is covering if the fibers $R_s \equiv \sum_{t: S} R(s,t)$  are covering 0-stacks.
+		An equivalence relation $R$ on an affine $S$ is called covering, if all the propositions $R(s,t)$ are sheaves and one of the following conditions is satisfied
+		
+		\begin{itemize}
+			\item  every fiber $R_s \equiv \sum_{t: S} R(s,t)$ merely admits a $\bT$-catlas.
+			\item  every fiber $R_s \equiv \sum_{t: S} R(s,t)$ is a covering 0-stack.
+		\end{itemize}
+	\end{definition}
+
+\begin{proof}
+	Every sheaf admitting a $\bT$-catlas is a covering 0-stack. 
+	Conversely: if the fibers are covering 0-stacks. Let us first observe, that for all $s , t : S$, $R(s,t)$ is a geometric proposition: $R(s,t)$ is the fiber of the projection $\sum_{t : S} R(s,t) \to S$ between geometric stacks, which are stable under finite limits. \\
+	
+	For all $t : S$ we can choose a geometric atlas $\Spec A_t \to R(s,t)$ by \ref{def:algprop}. Then 
+	\[
+	\sum_{t:S} \Spec A_t \to \sum_{t : S} R(s,t)
+	\]
+	is a $\bT$-atlas. As $\sum_{t : S} R(s,t)$ is a covering 0-stack by assumption, the map has to be a $\bT$-catlas by \ref{lemma:atlasIsCatlas}. 
+\end{proof}
+\begin{think}
+	It may be useful to define covering equivalence relations also for general modal sets and not only affines
+\end{think}
 
 \begin{lemma}{\label{lemma:fundamental-property-algebraic-spaces}}
 	%Assume that $\bT$ satisfies descent for propositions and for sets 
 	Assume that the topology has descent.
-	Given a $\bT$set $X$, the following types are equivalent:
+	Given an affine ($\bT \Set$ would be enough, cmp prev remark) $X$, the following types are equivalent:
 	\begin{itemize}
 		\item The type of covering equivalence relations on $X$.
 		\item The type of $\bT$sets $Y$ equipped with a map $X \to Y$ fibered in types admitting a $\bT$-catlas.
@@ -89,46 +115,7 @@
 		so the direct direction is immediate. The converse follows from $\bT$-surjectivity of $[\_]$ and from \ref{cor:DescentCatlas}.
 %	\end{itemize}
 \end{proof}
-%\begin{corollary}
-%	Assume $\bT$ satisfies descent for propositions and for sets.
-%	A type is a  0-stack iff its merely the $\bT$-quotient of an affine scheme by a covering equivalence relation.
-%\end{corollary}
-%\begin{theorem}{\label{thm:QuotientOfAlgebraicSpace}}
-%	Assume $\bT$ satisfies descent for propositions. 
-%	The quotient of a  $0$-stack $X \in \bT \Set$ by an $0$-covering equivalence relation $R$ is a  $0$-stack. TODO
-%\end{theorem}
-%
-%\begin{proof}
-%	The identity types in $X / R$ are propositional  0-stacks, hence $(-1)$-\truncation s of  -1-stacks by \ref{lemma:prop0stacks} as desired. \\
-%	How to find an atlas: todo. How to proceed, if we could choose all atlasses we want at the same time?
-	% Motivation why the choice of atlasse should work: Let $T = X / R$. 
-	%  If we could choose -1-atlasses $\tilde X_t$ for the covering 0-stacks $\fib_{[]}(t)$ for all $t : T$ at the same time, then $\sum_{t : T} \tilde X_t \to \sum_{t : T} \fib_{[]}(t) \to T$ has as domain a is fibered in covering $-1$-stacks, as the fiber over $t$ would be $\tilde X_t$ which is an affine scheme in the topology. Moreover, This is enough as \\ %, hence by definition a covering -1 stack. \\
-	
-	%     Given $p_1 , p_2 : R \rightrightarrows X$ fibered in covering $0$-stacks, hence the fibers merely have $-1$-atlasses.
-	%     %Claim: There exists a $-1$-atlas $R' \to R$
-	%     As $X$ has Local choice with respect to $-1$-atlasses, we find a $-1$ atlas $f : X' \to X$ with 
-	%     \[
-	%     \prod_{x' : X'} \text{-1-atlas}(\sum_{x : X} R(x,f(x'))
-	%     \]
-	
-%\end{proof}
-%\begin{rmk}
-%	This is equivalent to saying that  $1$-stacks that are $0$-types are geomeric $0$-stacks: One direction we prove later. If $R$ is a 0-covering equivalence relation on a  0-stack $X$, then $ X/ R$ is a  1-stack by observing that any -1-atlas $X' \to X$ gives a 0-atlas $X' \to X \to X/ R$. Moreover, $ X/ R$ is a 0-type, hence by assumption a  0-stack.
-%\end{rmk}
-
-
-% \begin{example}
-%     The Zariski topology does not descent along $\bT$-covers between affines
-% \end{example}
-% \begin{proof}
-% Assume it would hold.
-% By the previous example pick such an open affine subset $U \subset \Spec A$ and pick a Zariski atlas $V \to U$ such that $V$ is mereley of the form $D(a_1) + \hdots + D(a_n)$ for some $a_i \in A$. Let $x : \Spec A$. Then pulling pack the Zariski atlas along $U(x) \to U$ gives us a Zariski atlas of the open proposition $V' \to U(x)$. Now $V' + 1 \to U(x) + 1$ is a Zariski atlas with total space in the Zariski topology. By assumption, $U(x) + 1$ is in the topology, hence $U(x)$ would be a sum of principal opens. As it is a propososition, it would be a principal open subset of $1$. 
-% This is not a contradiction, because an open subset can be non principal although all the fibers are principal open props...
-% This is a contradiction by the assumption on $U \subset \Spec A$ beeing not principal open.
-
-% \end{proof}
-
-
-% \begin{lemma}
-%     A morphism $f : X \to Y$ of  $n$-stacks is fibered in covering $n$-stacks if there exists a covering $n$-atlas of $f$.
-% \end{lemma}
+\begin{think}{\label{think:getRidOfLocalChoice}}
+	Is it maybe useful to also say that a map between $\bT \Set$s $X \to Y$ is a geometric atlas iff its fibered in types that merely admit a $\bT$-catlas? \\
+	If we say this, we can get rid of the local choice chapter, because we dont need to prove descent for types admitting a $\bT$-catlas. We would only need descent for covering 0-stacks which we already have.
+\end{think}

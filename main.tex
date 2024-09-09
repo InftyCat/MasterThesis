@@ -11,15 +11,18 @@
 \newcommand{\Zar}{\mathsf{Zar}}
 
 \include{preamble}
+
 \renewcommand{\GS}{\mathsf{GS}}
 \title{Thesis}
 \author{Tim Lichtnau }
 \date{May 2024}
 
 \begin{document}
-\newtheorem*{warning}{warning}
+\newtheorem*{warning}{Warning}
+\newtheorem*{why}{Why I did it this way}
+\newtheorem*{think}{Think about}
 \maketitle
-
+\include{Atlas}
 \section{Preparation}
 \begin{lemma}{\label{lemma:havingAbstractAtlasClosedUnderId}}
 	Let $C$ be a class of types stable under $\sum$. %HOPE WE DONT NEED (because we want to apply it to \cV = covering stacks) finite limits, i.e. containing 1, stable under dependent sums and finite limits
@@ -66,8 +69,9 @@
 \include{Descent}
 \include{SaturatedTopology}
 
-\include{Atlas}
+
 \include{LocalChoice}
+\include{GeomPropositions}
 \include{FundamentalThmAlgSpc}
 \include{AlgebraicSpace}
 

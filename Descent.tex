@@ -24,7 +24,7 @@ $\St$ a class of sheaves in $\cV$, such that $\bT$ is contained in it and for an
 	We want to apply \ref{lemma:sheafificationHasTCover}. So it remains to show, that $Y$ is seperated, because then we  also know $L_\bT Y \in \cV$ by (*). By surjectivity of $f$ we may only show that for any $x : X, y : Y$, the type $f x =_Y y$ is a sheaf. If we define $U$ to be the fiber over $y$, it is in $\bT$ by assumption. But then $f x =_Y y$ is the outer pullback
 	% https://q.uiver.app/#q=WzAsNixbMCwwLCJmIHggPSB5Il0sWzEsMCwiVSBcXGluXFxiVCJdLFswLDEsIjEiXSxbMSwxLCJYIl0sWzIsMCwiMSJdLFsyLDEsIlkiXSxbMyw1LCJmIl0sWzQsNSwieSIsMl0sWzIsMywieCJdLFsxLDNdLFsxLDRdLFsxLDUsIiIsMSx7InN0eWxlIjp7Im5hbWUiOiJjb3JuZXItaW52ZXJzZSJ9fV0sWzAsMl0sWzAsMV1d
 	\[\begin{tikzcd}
-		{f x = y} & {U \in\bT} & 1 \\
+		{f x = y} & {U} & 1 \\
 		\arrow["\ulcorner"{anchor=center, pos=0.125}, draw=none, from=1-1, to=2-2]
 		1 & X & Y
 		\arrow[from=1-1, to=1-2]
@@ -43,7 +43,7 @@ $\St$ a class of sheaves in $\cV$, such that $\bT$ is contained in it and for an
 	Assume $\bT$ have descent. Then $\St$ is a sheaf.
 \end{theorem}
 \begin{proof}
-	$\St$ is seperated: This follows from the embedding $\St$ into the seperated (TODO) type of sheaves. \\
+	$\St$ is seperated: This follows from the embedding $\St$ into the seperated type of sheaves \ref{lemma:SheavesHaveDescent}. \\
 	Let $U \in \bT$ and $P : \|U\| \to \St$. We want to construct a filler 
 	% https://q.uiver.app/#q=WzAsMyxbMCwwLCJcXHwgVVxcfCJdLFswLDEsIjEiXSxbMSwwLCJcXFNtU3QiXSxbMCwyLCJQIl0sWzAsMV0sWzEsMiwiIiwyLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV1d
 	\[\begin{tikzcd}
@@ -54,7 +54,7 @@ $\St$ a class of sheaves in $\cV$, such that $\bT$ is contained in it and for an
 		\arrow[dashed, from=2-1, to=1-2]
 	\end{tikzcd}\]
 	Claim: $L_\bT (\sum_{x: \|U\|} P x)$ is stacky.
-	\begin{proof} of the claim. We want to apply the previous lemma to the map 
+	\begin{proof} of the claim. We want to apply the previous lemma to the surjection 
 		\[\sum_{x : U} P | x | \to \sum_{x : \| U\|} P x \]
 		The domain is in $\St$ by stability under $\sum$. The fibers are equivalent to $U \in \bT \subset \St$.				
 	\end{proof}
@@ -77,7 +77,7 @@ $\St$ a class of sheaves in $\cV$, such that $\bT$ is contained in it and for an
 	We set $\cV$ as the $n$-truncated-type. We have to check the condition (*):
 	If $Y$ is a seperated $n$ type , then $L_\bT Y$ is an $n$-type.
 	As a sheaf beeing $n$-truncated is a sheaf, we may just show that $\eta x = \eta y$ is $n-1$-truncated for all $x , y : Y$.
-	hence, Apply \ref{lemma:sep} to the seperated $Y$, we know $\eta x =_{L X} \eta y \simeq (x=y) $ beeing an $n-1$-type.
+	Apply \ref{lemma:sep} to the seperated $Y$, we know $\eta x =_{L X} \eta y \simeq (x=y) $ beeing an $n-1$-type.
 	
 	%If $n-stack \ni X \to Y$ is fibered in $\bT$ where $Y$ is an $n$-type. Then its sheafification is an $n$-type as well by the lemma.
 \end{proof}
