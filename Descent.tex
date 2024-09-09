@@ -1,0 +1,84 @@
+
+\subsection{Descent}
+For this subsection lets assume $\cV$ a subuniverse (stable under $\sum$), that satisfies: \\
+If $Y \in \cV$ is seperated, then $L_\bT Y \in \cV$. (*) \\
+$\St$ a class of sheaves in $\cV$, such that $\bT$ is contained in it and for any $\bT$-cover $X \to Y$ of sheaves in $\cV$, $X \in \St$ iff $Y \in \St$. We call types in this class stacky.
+\begin{lemma}{\label{lemma:sheafificationHasTCover}}
+	Let $\bT$ satisfy descent, i.e. beeing affine in the topology is a sheaf. If $Y$ admits a $\bT$-cover $f : X \to Y$ where $Y \in \cV$ is seperated, then there is a $\bT$-cover $X \to L_\bT Y$.
+\end{lemma}
+\begin{proof}
+	
+	Consider $X \overset{f}{\to} Y \overset{\eta}{\to} L_\bT Y$. As beeing affine in $\bT$ is  a sheaf, we may just show that for all $y : Y$ , the fibers over $\eta y : L_\bT Y$ are in $\bT$. As $\eta$ is a monomorphism by \ref{lemma:sep} , $\eta$ restricts to an equivalence
+	\[
+	\fib_f y \to \fib_{ \eta f}(\eta y)
+	\]
+	
+	But the left hand side is in $\bT$ by assumption. 
+\end{proof}
+\begin{lemma}
+	Assume $\bT$ have descent.
+	Let $X \in \St$ and $Y \in \cV$.	Let $f : X \twoheadrightarrow Y$ be fibered in $\bT$ and surjective. Then $L_\bT Y$ is stacky.
+\end{lemma}
+\begin{proof}
+	As $X$ is stacky, it suffices to show, that $L_\bT Y$ admits a $\bT$-cover.
+	We want to apply \ref{lemma:sheafificationHasTCover}. So it remains to show, that $Y$ is seperated, because then we  also know $L_\bT Y \in \cV$ by (*). By surjectivity of $f$ we may only show that for any $x : X, y : Y$, the type $f x =_Y y$ is a sheaf. If we define $U$ to be the fiber over $y$, it is in $\bT$ by assumption. But then $f x =_Y y$ is the outer pullback
+	% https://q.uiver.app/#q=WzAsNixbMCwwLCJmIHggPSB5Il0sWzEsMCwiVSBcXGluXFxiVCJdLFswLDEsIjEiXSxbMSwxLCJYIl0sWzIsMCwiMSJdLFsyLDEsIlkiXSxbMyw1LCJmIl0sWzQsNSwieSIsMl0sWzIsMywieCJdLFsxLDNdLFsxLDRdLFsxLDUsIiIsMSx7InN0eWxlIjp7Im5hbWUiOiJjb3JuZXItaW52ZXJzZSJ9fV0sWzAsMl0sWzAsMV1d
+	\[\begin{tikzcd}
+		{f x = y} & {U \in\bT} & 1 \\
+		\arrow["\ulcorner"{anchor=center, pos=0.125}, draw=none, from=1-1, to=2-2]
+		1 & X & Y
+		\arrow[from=1-1, to=1-2]
+		\arrow[from=1-1, to=2-1]
+		\arrow[from=1-2, to=1-3]
+		\arrow[from=1-2, to=2-2]
+		\arrow["\ulcorner"{anchor=center, pos=0.125}, draw=none, from=1-2, to=2-3]
+		\arrow["y"', from=1-3, to=2-3]
+		\arrow["x", from=2-1, to=2-2]
+		\arrow["f", from=2-2, to=2-3]
+	\end{tikzcd}\]
+	of stacky types, in particular sheaves. \qed(Claim) \\\\
+	
+\end{proof}
+\begin{theorem}
+	Assume $\bT$ have descent. Then $\St$ is a sheaf.
+\end{theorem}
+\begin{proof}
+	$\St$ is seperated: This follows from the embedding $\St$ into the seperated (TODO) type of sheaves. \\
+	Let $U \in \bT$ and $P : \|U\| \to \St$. We want to construct a filler 
+	% https://q.uiver.app/#q=WzAsMyxbMCwwLCJcXHwgVVxcfCJdLFswLDEsIjEiXSxbMSwwLCJcXFNtU3QiXSxbMCwyLCJQIl0sWzAsMV0sWzEsMiwiIiwyLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV1d
+	\[\begin{tikzcd}
+		{\| U\|} & \St \\
+		1
+		\arrow["P", from=1-1, to=1-2]
+		\arrow[from=1-1, to=2-1]
+		\arrow[dashed, from=2-1, to=1-2]
+	\end{tikzcd}\]
+	Claim: $L_\bT (\sum_{x: \|U\|} P x)$ is stacky.
+	\begin{proof} of the claim. We want to apply the previous lemma to the map 
+		\[\sum_{x : U} P | x | \to \sum_{x : \| U\|} P x \]
+		The domain is in $\St$ by stability under $\sum$. The fibers are equivalent to $U \in \bT \subset \St$.				
+	\end{proof}
+	The claim provides the map $1 \to \St$. The diagram commutes: Assuming $x : \|\Spec A\|$ we wish to show $P x = \sum_{x: \|U\|} P x$. Using univalence, we may show that the maps 
+	\[P x \to \sum_{x: \|U\|} P x \overset{\eta}{\to} L_\bT \sum_{x: \|U\|} P x\]
+	are both equivalences.
+	The first one is an equivalence as $\|U\|$ is contractible. Hence the middle term is a sheaf, thus the unit map is an equivalence as well. \\
+	
+	
+	
+\end{proof}
+\begin{corollary}
+	If $\bT$ has descent, (covering) geometric stacks satisfy descent.
+\end{corollary}
+
+\begin{corollary}
+	If $\bT$ has descent. For all $n : \bN $, the class of (covering) ($n$-)stacks has descent.
+\end{corollary}
+\begin{proof}
+	We set $\cV$ as the $n$-truncated-type. We have to check the condition (*):
+	If $Y$ is a seperated $n$ type , then $L_\bT Y$ is an $n$-type.
+	As a sheaf beeing $n$-truncated is a sheaf, we may just show that $\eta x = \eta y$ is $n-1$-truncated for all $x , y : Y$.
+	hence, Apply \ref{lemma:sep} to the seperated $Y$, we know $\eta x =_{L X} \eta y \simeq (x=y) $ beeing an $n-1$-type.
+	
+	%If $n-stack \ni X \to Y$ is fibered in $\bT$ where $Y$ is an $n$-type. Then its sheafification is an $n$-type as well by the lemma.
+\end{proof}
+
