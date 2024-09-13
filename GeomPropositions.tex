@@ -1,0 +1,52 @@
+
+\section{Geometric propositions}
+\begin{definition}
+	$U : \Aff_+$ is called geometric, if 
+	\[\|U\|_\bT \to (U \in \bT)\]	
+\end{definition}
+\begin{lemma}{\label{lemma:geometricEquiv}}
+	The converse holds always
+\end{lemma}
+\begin{proof}
+	because things in $\bT$ are automatically $\bT$-merely inhabited
+\end{proof}
+Recall the definition of $\bT$-atlas \ref{def:TAtlas}
+\begin{definition}{\label{def:algprop}}
+	We call a modal proposition geometric, if one of the equivalent conditions is satisfied:
+	\begin{enumerate}
+		\item  its merely of the form $\|U\|_\bT$ for some geometric affine $U$.
+		\item It is a geometric stack
+%		\item There is a $\bT$-surjective map out of a geometric affine $U$.
+		\item It has a $\bT$-atlas.
+
+	\end{enumerate}
+	
+\end{definition}
+\begin{proof} \
+	\begin{enumerate}
+		\item [1 $\Rightarrow$ 2]
+		we show that $U \to \|U\|_\bT$ is a geometric atlas. Every fiber is in $\bT$, because $U$ is geometric. Conclude by \ref{lemma:TisCS}
+		\item [2 $\Rightarrow$ 3]
+		If $P$ is a geometric -1-stack, then we may choose $U \to P$ a geometric atlas. This is a $\bT$-atlas by \ref{prop:affineCoveringStack}.
+
+		\item [3 $\Rightarrow$ 1]
+		
+		Let $V \to P$ be a $\bT$-atlas.
+		have to show TFAE $\|V\|_\bT \to P \to (V \in \bT) \overset{\ref{lemma:geometricEquiv}}{\to} \|V\|_\bT$. 
+		Proof: $\|V\|_\bT \to P$ as $P$ is modal prop. Secondly, because $V \to P$ is a $\bT$-cover. \\
+		Hence $P$ is a geometric proposition.
+	\end{enumerate}
+	
+\end{proof}
+\begin{lemma}
+every geometric proposition is a scheme
+\end{lemma}
+\begin{proof}
+	By \ref{lemma:IsScheme}
+\end{proof}
+%\begin{lemma}[NECESSARY?]
+%	geometric propositions are algebraic spaces.
+%\end{lemma}
+%\begin{proof}
+%	We have $U \to \|U\|_\bT$ where $U$ is affine, hence an algebraic space and the fibers are in $\bT$ by geometricness of $U$, hence they are covering algebraic spaces. By stability under quotients, our geometric proposition is an algebraic space.
+%\end{proof}
