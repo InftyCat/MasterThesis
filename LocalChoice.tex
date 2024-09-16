@@ -3,21 +3,6 @@
 %One of the goals of this chapter is to show descent for types admitting a $\bT$-(c)atlas. 
 %Recall \ref{think:getRidOfLocalChoice}.
 %In this section let $\bT$ denote a topology finer than the zariski topology.
-\begin{definition}
-	Let \Cov be a class of morphisms (which we think of $n$-atlasses of some $n$), containing $\bT$-atlas, (stable under pullback NECESSARY TODO?)
-	A type $S$ has \emph{local choice} wrt \Cov if for any $\bT$ -surjective map $X \to Y$ and any map $f : S \to Y$ there exists a map  $p' : S' \to S$ in \Cov and a commutative diagram
-	% https://q.uiver.app/#q=WzAsNCxbMCwwLCJUJyJdLFswLDEsIlQiXSxbMSwwLCJYIl0sWzEsMSwiWSJdLFsxLDNdLFsyLDNdLFswLDIsIiIsMix7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFswLDFdXQ==
-	% https://q.uiver.app/#q=WzAsNCxbMCwwLCJUJyJdLFswLDEsIlQiXSxbMSwwLCJYIl0sWzEsMSwiWSJdLFsxLDNdLFsyLDMsInAiLDJdLFswLDIsIiIsMix7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFswLDFdXQ==
-	\[\begin{tikzcd}
-		{S'} & X \\
-		S & Y
-		\arrow[dashed, from=1-1, to=1-2]
-		\arrow[from=1-1, to=2-1]
-		\arrow["p"', from=1-2, to=2-2]
-		\arrow["f",from=2-1, to=2-2]
-	\end{tikzcd}\]
-	%We say $S$ has affine local choice, if one can arrange $S'$ to be affine.
-\end{definition}
 In this section let $\bT$ denote a topology finer than the zariski topology.
 \begin{definition}
 	Let \Cov be a class of morphisms (which we think of $n$-atlasses of some $n$), containing $\bT$-atlas, (stable under pullback NECESSARY TODO?)
@@ -37,19 +22,19 @@ In this section let $\bT$ denote a topology finer than the zariski topology.
 \begin{prop}{\label{prop:LocalChoice}}
 	%Let $\bT$ be a finer topology than the zariski topology.
 	Assume that \Cov is stable under composition and that Zariski-covers are in \Cov.
-	$S$ has  $\bT$-local choice wrt \Cov if it has a projective \Cover, i.e. there exists an affine scheme $\hat{S}$ with a map $g : \hat{S} \to S$ in \Cov. %, satisfying local choice wrt \Cov
+	$S$ has  $\bT$-local choice wrt \Cov if it has an $\Cov$-atlas, i.e. there exists an affine scheme $\hat{S}$ with a map $g : \hat{S} \to S$ in \Cov. %, satisfying local choice wrt \Cov
 \end{prop}
 \begin{proof}
 	%We may assume that $f = \id_S$.
 	By stability under composition of \Cov, We may assume that $g : \hat{S} \to S$ is the identity.
 	As $p$ is $\bT$-surjective, for any $x : S$ there merely is a $\Spec B_x \in T$  and a map $\Spec B_x \to \| \fib_p (x) \| $. 
-	Claim: No matter on the assumptions (on $S = \hat{S}$), there exists a Zariski cover $S' \overset{p'}{\to} S$ with $S'$ projective (affine resp.) and a term in
+	By ZLC  (\ref{ZLCGivesZariski}), there exists a Zariski atlas $S' \overset{p'}{\to} S$ and a term in
 	\[\prod_{x : S'} \sum_{\Spec B_x \in T} \Spec B_x \to \| \fib_p (fp' x)\| \]
-	Proof: In the case of projectivity, just use $p' = \id_S$ and in the case of having ZLC and $S$ beeing affine, use ZLC (\ref{ZLCGivesZariski}). \qed(Claim)\\    
+	
 	By setting 
 	\[(S'' := \sum_{x : S'} \Spec B_x) \overset{\pi}{\longrightarrow} S' \]
 	
-	the projection, we are now in the situation that for any $t : S''$ we merely have a point in $\fib_p((p''(t)))$ and $S'' \to S'$ is a $\bT$-cover, thus it is in \Cov. Moreover, $S''$ is a projective type (affine), as it is a dependent sum of projectives (affines). Hence again we now can find a lift $S'' \to X$. %By replacing $S''$ again with a Zariski cover we find a lift $S'' \to X$     
+	the projection, we are now in the situation that for any $t : S''$ we merely have a point in $\fib_p((p''(t)))$ and $S'' \to S'$ is a $\bT$-cover, thus it is in \Cov. Moreover, $S''$ is affine, as it is a dependent sum of affines. By replacing $S''$ again with a Zariski cover we find a lift $S'' \to X$     
 	making
 	% https://q.uiver.app/#q=WzAsNSxbMCwwLCJUJyciXSxbMCwxLCJUJyJdLFswLDIsIlQiXSxbMSwyLCJYIl0sWzEsMCwiWSJdLFswLDFdLFsyLDMsImYiXSxbNCwzLCJwIiwyXSxbMCw0XSxbMSwyLCJwJyJdXQ==
 	\[\begin{tikzcd}
@@ -105,13 +90,13 @@ The next lemma shows, that the class of types equipped with a $\bT$-atlas is sta
 
 \begin{theorem}{\label{thm:atlasStableSum}}
 	Let $\cU'$ be a class stable under dependent sums.
-	The class of types admitting a $\cU'$-atlas is closed under dependent sums. If $\bT$ is a topology, the same holds for $\cU'$-catlasses.
+	The class of types $\bT$-merely admitting a $\cU'$-atlas is closed under dependent sums. If $\bT$ is a topology, the same holds for $\cU'$-catlasses.
 \end{theorem}
 \begin{proof}
-	The stability under quotients is easy: 
-	Let us construct some atlas $\Spec A \to \sum_{x : X} B_x$ %fibered in smooth $n$-stacks.
-	For any $x : X$ we merely have an atlas $V_x \to B_x$, i.e. with $V_x$ affine. %fibered in smooth $n$-stacks . \\
-	$X$ has local choice wrt atlasses by (\ref{prop:LocalChoice}) using $\cU'$ is $\sum$-stable (we use the trivial topology).\\
+%	The stability under quotients is easy: 
+%	Let us construct some atlas $\Spec A \to \sum_{x : X} B_x$ %fibered in smooth $n$-stacks.
+	For any $x : X$ we $\bT$-merely have an atlas $V_x \to B_x$, i.e. with $V_x$ affine. %fibered in smooth $n$-stacks . \\
+	$X$ has $\bT$-local choice wrt atlasses by (\ref{prop:LocalChoice}) using $\cU'$ is $\sum$-stable (we use the trivial topology).\\
 	If additionally, all the $B_x$ and $X$ are smooth $n$-stacks, just observe that we can choose the affine $V_{p u}$ to lie in $\bT$, Accordingly $\sum_{u : U} V_{p u} \in T$ as $\bT$ is stable under $\Sigma$.
 
 %	$n$-atlasses contain zariski-atlasses, because $\bT$ is finer than the Zariski topology.
@@ -125,17 +110,17 @@ The next lemma shows, that the class of types equipped with a $\bT$-atlas is sta
 	Now the desired map is $\sum_{u : U} V_{p u} \to \sum_{x : X} B_x$, because it is  an atlas %fibered in smooth $(n)$-stacks 
 	by \ref{lemma:AtlasSum} \\
 \end{proof}
-\begin{prop}{\label{prop:atlasStableCover}}
-	Let $\cU'$ be a class stable under dependent sums.
-	The class of types admitting a $\cU'$-(c)atlas is closed under $\cU'$-covers: If $X \to Y$ is a $\cU'$-cover, then $X$ admits a $\cU'$-(c)atlas iff $Y$ admits a $\cU'$-(c)atlas.
-\end{prop}
-\begin{proof}
-One direction is the stability under dependent sums. For the other, if $S \to X$ is a $\cU'$-atlas, then $S \to X \to Y$ is a $\cU'$-atlas by $\sum$-stability of $\cU'$.
-\end{proof}
-
-\begin{corollary}{\label{cor:DescentCatlas}}
-	If $\bT$ has descent, The class of sheaves merely admitting a $\bT$-catlas has descent.
-\end{corollary}
-\begin{proof}
-	We can set $\cV = \cU$, and we have to show, that if $X \to Y$ is a $\bT$-cover than $X$ admits a $\bT$-catlas iff $Y$ admits a $\bT$-catlas. This follows from \ref{prop:atlasStableCover}.
-\end{proof}
+%\begin{prop}{\label{prop:atlasStableCover}}
+%	Let $\cU'$ be a class stable under dependent sums.
+%	The class of types admitting a $\cU'$-(c)atlas is closed under $\cU'$-covers: If $X \to Y$ is a $\cU'$-cover, then $X$ admits a $\cU'$-(c)atlas iff $Y$ admits a $\cU'$-(c)atlas.
+%\end{prop}
+%\begin{proof}
+%One direction is the stability under dependent sums. For the other, if $S \to X$ is a $\cU'$-atlas, then $S \to X \to Y$ is a $\cU'$-atlas by $\sum$-stability of $\cU'$.
+%\end{proof}
+%
+%\begin{corollary}{\label{cor:DescentCatlas}}
+%	If $\bT$ has descent, The class of sheaves merely admitting a $\bT$-catlas has descent.
+%\end{corollary}
+%\begin{proof}
+%	We can set $\cV = \cU$, and we have to show, that if $X \to Y$ is a $\bT$-cover than $X$ admits a $\bT$-catlas iff $Y$ admits a $\bT$-catlas. This follows from \ref{prop:atlasStableCover}.
+%\end{proof}

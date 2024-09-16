@@ -2,7 +2,7 @@
 \section{Covering stacks}
 Fix $\bT$ a topology, which we call the covering-affines.
 \begin{definition}
-	Covering geometric stacks are the smallest class containing contractible Types such that: If $Y$ is a sheaf and $\bT \ni S \to Y$ is fibered in covering geometric stacks, then $Y$ is a covering geometric stack.	
+	Covering geometric stacks are the smallest class containing contractible Types such that: If $Y$ is a stack and $\bT \ni S \to Y$ is fibered in covering geometric stacks, then $Y$ is a covering geometric stack.	
 \end{definition}
 We call such map $X \to Y$ whose fibers are covering stacks a geometric cover. If $X$ is affine we call it a geometric atlas. If $X$ is in $\bT$ we call it a geometric catlas. 
 \begin{definition}
@@ -25,16 +25,91 @@ We call such map $X \to Y$ whose fibers are covering stacks a geometric cover. I
 	No, because we want for the recursion principle for geometric stacks, that the fibers are covering stacks (proof of truncatedness).
 %	If $P$ is defined only for covering stacks, do we need to talk about $P$-covers between covering stacks without knowing that the fibers are covering stacks as well?
 \end{why}
+\begin{prop}{\label{prop:csHasAtlas}}
+Every covering geometric stack $X$ merely admits a geometric catlas. %, i.e. a geometric cover $Y \to X$ with $Y \in \bT$. 
+\end{prop}
+
+\begin{proof}
+%We apply the recursion principle of (covering) geometric stacks 
+\begin{itemize}
+	\item If 	$X$ is covering affine, then $X \to X$ is a geometric catlas. 
+	\item If $X$ is obtained as a quotient then it already is equipped with a catlas. %, i.e. if its equipped with a cover $Y \to X$ with $Y$ a covering stack, then by induction $Y$ admits a $\cV$-catlas $S \to Y$. Then $S \to Y \to X$ is a $\cV$-catlas by  \ref{lemma:coversstableundercomp}. \\
+	%\item If $X$ is obtained as a sum, i.e. we have a $\cV$-cover $f : X \to Y$, then by induction $Y$ admits an $\cV$-catlas $g : S \to Y$ and the fibers merely have $\cV$-catlasses $S_y \to \fib_f y$ s. By choice of $S$, we can choose such catlasses $S_{g s} \to \fib_f (g s)$ for all $s : S$. By \ref{lemma:AtlasSum} the map 
+	%\[
+	%\sum_{s : S} S_{gs} \to (\sum_{y: Y} \fib_f y ) \simeq X
+	%\]
+	%is a $\cV$-cover. Its domain is a covering affine as $\bT$ is $\sum$-stable. Hence $X$ admits a $\cV$-catlas .
+	
+\end{itemize}
+\end{proof}
+
+\subsection{Needing finitely many steps}
+%\subsection{Truncatedness}
+%In this subsection we want to prove that every geometric stack is a geometric $n$-stack for some $n$.
+
+\begin{lemma}{\label{lemma:cstinh}}
+	Every covering stack $X$ is $\bT$-merely inhabited.
+\end{lemma}
+\begin{proof} 
+	\begin{itemize}
+		\item If $X$ is in $\bT$ then its clear.
+		\item  If $X$ is obtained by a quotient, we have a map $\Spec A \to X$ with domain in $\bT$. Now use that we get a map on $\bT$-propositional-truncations and that Spec A is T-merely inhabited.
+		%		\item if $X$ is obtained by  $X = \sum_{y: Y} B y$ for $Y$ a covering $\cV$-stack and $B y$ covering $\cV$-stacks, by induction all the $B y$ are $\bT$-merely inhabited. Hence, for all $y : Y$, we can conclude $\| X\|_\bT$. As $Y$ is $\bT$-merely inhabited by induction and the goal is a stack, we can conclude. 
+	\end{itemize}
+\end{proof}
+\begin{prop}{\label{prop:FindCommonN}}
+	Given a geometric stack $Y$ and a family $M : Y \to (\bN \to \Prop_{\ci})$  be a family of upwards closed merely inhabited subsets of $\bN$. Then there exists some $n$, such that $M y n$ for all $y : Y$.
+\end{prop}
+\begin{proof}
+	Write $M_n = \{y : Y \ | \ M y n\}$.
+	Choose a geometric atlas $f : S \to Y$.
+	For any $x : S$, $M(f x) n$ for some $n$. By foundations Prop 3.3.5, we merely find some $n$ such that $f(x) \in M_n$ for all $x : S$. Let us show that for general $y : Y$ we have $y \in M_n$. Using that $y \in M_n$ is modal , we can conclude by $\bT$-surjectivity of $f$, which follows from \ref{lemma:cstinh}
+	
+\end{proof}
+\begin{prop}{\label{prop:OneToRuleThemAll}}
+	Let $W : \GS \to (\bN \to \Prop_{\ci})$ be a family of upwards closed subsets of $\bN$. Assume
+	\begin{itemize}
+		\item $W 1$ is merely inhabited
+		\item whenever there is some $n : \bN$ and a geometric atlas $S \to X$ fibered in covering stacks $F$ satisfying $W F n \equiv: W_n F$, then $W_{n+1} X$.
+	\end{itemize}  %(or more generally $W X$ is merely inhabited). 
+	Then for any $X \in \GS$, $W X$ is merely inhabited.
+\end{prop}
+\begin{proof}
+		We apply the recursion principle for geometric stacks.
+	\begin{itemize}
+		\item If $Y$ is contractible its clear by assumption
+		\item Assume $Y$ is equipped with a geometric atlas $f : S \to Y$, such that every fiber has $W_n$ for some $n$. Apply \ref{prop:FindCommonN} to $M y n = W_n (\fib_f y)$ to find some $n$ such that $W_n (\fib_f y)$ for all $y : Y$.
+		Then we can conclude by applying the assumption.
+	
+		%	\item Let $X$ be an $n$-truncated covering geometric stack. By \ref{prop:csHasAtlas} we find a geometric catlas $S \to X$. All the fibers are (at most) $n$-truncated. 	
+	\end{itemize}
+\end{proof}
 
 
+\begin{corollary}
+	Define \begin{align*}
+		W_0 &\equiv \isContr \\
+		W_{n+1} &\equiv \| \sum \bT \ni S \to X \text{ fibered in covering stacks having } W_n \|_\bT
+	\end{align*}
+	Then every covering geometric stack has $W_n$ for some $n$.
+\end{corollary}
+\begin{proof}
+	We need that $W_n$ is a sheaf.
+\end{proof}
+\subsection{Stability}
 \begin{theorem}{\label{thm:CSSum}}
 	The class of (covering) geometric stacks is $\sum$-stable.
 \end{theorem}
 \begin{proof}
+	The geometric case follows from the covering geometric case by \ref{thm:atlasStableSum}.
+	Let $X$ be a covering stack and $B : X \to \CS$ a family of covering stacks.
+	By \ref{prop:FindCommonN} we merely find an $n : \bN$ such that $W_n (B x)$ for all $x : X$. By making $n$ larger, we may assume $X$ has $W n$ for some $n$. \\
+	So we are left to show that for all $n : \bN$, $W_n$ covering stacks are $\sum$-stable. \\
+	
+	
+	Induction over $n$. If $n = 0$, then $X$ is contractible. So its clear. \\
+	If we wish to prove the statement for $n+1$, we may assume that $W_n$ covering stacks are $\sum$-stable. So we can apply \ref{thm:atlasStableSum}. \\
 
-	Define the predicate $P X$ as ' the sum of every family $B$ of (covering) geometric stacks is a (covering) geometric stack'.
-	If $X$ is contractible its clear.
-	If $f : S \to X$ is a map fibered in $P$ with $S \in T$, then let $B : X \to \CS$. By Zariski local choice of $S$ we find a Zariski cover $S' \to S$ and we can choose geometric catlasses $\tilde B s \to B (f s)$ for all $s : S'$. Then consider $\sum_{s : S'} \tilde B s \to \sum_{x : X} B x$. Its domain is (covering) affine. It remains to show, that the fiber over $(x,t)$ is a covering stack. It is a dependent sum over $\fib_f x$ by the explicit description in \ref{lemma:AtlasSum}, which by induction (we may prove the covering case of this theorem first) satisfies $P$ that lets us conclude by definition of $P$.
 \end{proof}
 \begin{lemma}{\label{lemma:coversstableundercomp}}
 	geometric covers are stable under composition.
@@ -43,25 +118,9 @@ We call such map $X \to Y$ whose fibers are covering stacks a geometric cover. I
 	covering stacks are stable under $\sum$.
 \end{proof}
 
-\begin{prop}{\label{prop:csHasAtlas}}
-	Every covering geometric stack $X$ merely admits a geometric catlas. %, i.e. a geometric cover $Y \to X$ with $Y \in \bT$. 
-\end{prop}
 
-\begin{proof}
-	%We apply the recursion principle of (covering) geometric stacks 
-	\begin{itemize}
-		\item If 	$X$ is covering affine, then $X \to X$ is a geometric catlas. 
-		\item If $X$ is obtained as a quotient then it already is equipped with a catlas. %, i.e. if its equipped with a cover $Y \to X$ with $Y$ a covering stack, then by induction $Y$ admits a $\cV$-catlas $S \to Y$. Then $S \to Y \to X$ is a $\cV$-catlas by  \ref{lemma:coversstableundercomp}. \\
-		%\item If $X$ is obtained as a sum, i.e. we have a $\cV$-cover $f : X \to Y$, then by induction $Y$ admits an $\cV$-catlas $g : S \to Y$ and the fibers merely have $\cV$-catlasses $S_y \to \fib_f y$ s. By choice of $S$, we can choose such catlasses $S_{g s} \to \fib_f (g s)$ for all $s : S$. By \ref{lemma:AtlasSum} the map 
-		%\[
-		%\sum_{s : S} S_{gs} \to (\sum_{y: Y} \fib_f y ) \simeq X
-		%\]
-		%is a $\cV$-cover. Its domain is a covering affine as $\bT$ is $\sum$-stable. Hence $X$ admits a $\cV$-catlas .
-		
-	\end{itemize}
-\end{proof}
 \begin{prop}{\label{prop:stackQuot}}
-	The class of (covering) geometric stacks is stable under quotients: If $X \to Y$ is fibered in covering stacks and $X$ is a (covering) stack and $Y$ is a sheaf then $Y$ is a (covering) stack.
+	The class of (covering) geometric stacks is stable under quotients: If $X \to Y$ is fibered in covering stacks and $X$ is a (covering) stack and $Y$ is a stack then $Y$ is a (covering) geometric stack.
 \end{prop}
 \begin{proof}
 	Choose a geometric (c)atlas of $X$. Then the composition with the map $X \to Y$ is a cover by \ref{lemma:coversstableundercomp}. As the domain is (covering) affine, its a geometric (c)atlas.
@@ -114,7 +173,7 @@ In a further chapter we will develop this theory further.
 	Let $\cV$ be stable under finite limits and containing (covering) affines. $X$ is a (covering) $\cV$-stack iff it is in $\cV$ and a (covering) geometric stack.
 \end{prop}
 \begin{proof} 	
-	The direct direction is clear. For the converse we apply the recursion principle to the property '$X \in \cV$ implies $X$ is a (covering) $\cV$-stack'. If $X \in \bT$, its clear. Otherwise its equipped with a geometric (c)atlas. The fibers are in $\cV$, as they can be written as a fiberproduct of $S, X, 1 \in \cV$.  By induction all fibers are covering $\cV$-stacks (we may show the covering part of the proposition first). %We are left to show that $F$ is a covering $\cV$-stack. \\
+	The direct direction is clear. For the converse we apply the recursion principle to the property '$X \in \cV$ implies $X$ is a (covering) $\cV$-stack'. If $X$ is contractible, its clear. Otherwise its equipped with a geometric (c)atlas. The fibers are in $\cV$, as they can be written as a fiberproduct of $S, X, 1 \in \cV$.  By induction all fibers are covering $\cV$-stacks (we may show the covering part of the proposition first). %We are left to show that $F$ is a covering $\cV$-stack. \\
 	%	We can choose $S \to F$ a $\cV$-atlas, so in particular a geometric atlas of $F$, which was assumed to be a covering geometric stack. Then $S \in \bT$ by \ref{lemma:atlasIsCatlas}. So we actually have a $\cV$-catlas.
 \end{proof}
 \begin{prop}{\label{prop:CSVSum}}
@@ -125,7 +184,7 @@ In a further chapter we will develop this theory further.
 	The saturation is a class of affines, that in particular contains $1 \in \bT$. We have argued its stable under $\sum$.
 \end{proof}
 \begin{prop}{\label{prop:V'stacks}}
-	A sheaf $X$ merely admits some map $S \to X$ out of a (covering) affine fibered in covering $\cV$-stacks, iff its a (covering) geometric stack whose identity types are in $\cV$. 
+	A stack $X$ merely admits some map $S \to X$ out of a (covering) affine fibered in covering $\cV$-stacks, iff its a (covering) geometric stack whose identity types are in $\cV$. 
 \end{prop}
 \begin{proof}
 	The direct direction: By \ref{lemma:havingAbstractAtlasClosedUnderId} the identity types are geometric $\cV$-stacks. \\
@@ -135,7 +194,7 @@ In a further chapter we will develop this theory further.
 	Let $n \ge -2$. A (covering) geometric $n$-stack is a (covering) geometric stack that is an $n$-type.
 \end{definition}
 \begin{prop}
-	Let $X$ be a sheaf. For all $n \ge 0$, the following are equivalent:
+	Let $X$ be a stack. For all $n \ge 0$, the following are equivalent:
 	\begin{enumerate}
 		\item $X$ is a (covering) geometric $n+1$-stack
 		\item $X$ merely admits some map $S \to X$ out of a (covering) affine fibered in covering $n$-stacks
@@ -158,39 +217,18 @@ In a further chapter we will develop this theory further.
 		$Y$ admits a map $S \to Y$  fibered in covering $n$-stacks with $S$ (covering) affine, so the composition $S \to X$ will have the same property by \ref{lemma:coversstableundercomp}.
 	\end{enumerate}
 \end{proof}
-\subsection{Truncatedness}
-In this subsection we want to prove that every geometric stack is a geometric $n$-stack for some $n$.
 
-\begin{lemma}{\label{lemma:cstinh}}
-	Every covering $\cV$-stack $X$ is $\bT$-merely inhabited.
-\end{lemma}
-\begin{proof} 
-	\begin{itemize}
-		\item If $X$ is in $\bT$ then its clear.
-		\item  If $X$ is obtained by a quotient, we have a map $\Spec A \to X$ with domain in $\bT$. Now use that we get a map on $\bT$-propositional-truncations and that Spec A is T-merely inhabited.
-		%		\item if $X$ is obtained by  $X = \sum_{y: Y} B y$ for $Y$ a covering $\cV$-stack and $B y$ covering $\cV$-stacks, by induction all the $B y$ are $\bT$-merely inhabited. Hence, for all $y : Y$, we can conclude $\| X\|_\bT$. As $Y$ is $\bT$-merely inhabited by induction and the goal is a sheaf, we can conclude. 
-	\end{itemize}
-\end{proof}
+\subsection{Truncatedness}
 \begin{lemma}{\label{lemma:truncTrg}}
-	Let $X$ be an $n+1$-type and $Y$ a sheaf. If $X \to Y$ is a $n$-truncated $\bT$-surjective map, then $Y$ is an $n+1$-type.
+	Let $X$ be an $n+1$-type and $Y$ a stack. If $X \to Y$ is a $n$-truncated $\bT$-surjective map, then $Y$ is an $n+1$-type.
 \end{lemma}
 \begin{proof}
-	Use that $\mathsf{is-n-truncated} (y=y')$ is a sheaf for $y , y' : Y.$
+	Use that $\mathsf{is-n-truncated} (y=y')$ is a stack for $y , y' : Y.$
 \end{proof}
-\begin{theorem}
+
+\begin{corollary}
 	Every geometric stack is $n$-truncated for some $n : \bN$.
-\end{theorem}
+\end{corollary}
 \begin{proof}
-	We apply the recursion principle for geometric stacks.
-	\begin{itemize}
-		\item If $Y$ is affine its clear with $n = 0$.
-		\item Assume $Y$ is equipped with a $\cV$-atlas $f : S \to Y$, such that every fiber in $n$-truncated for some $n$. f is $\bT$-surjetive by \ref{lemma:cstinh}.
-		We apply \ref{lemma:truncTrg}.
-		So it remains to find an $n$ such that all fibers are $n$-truncated.
-		For any $x : S$, By induction $\fib_f (f x)$ is $n$-truncated for some $n$. By projectivity of $S$, we find some $n$ such that $\fib_f (f x)$ is $n$-truncated for all $x : S$. For general $y : Y$, using that is-$n$-truncated $\fib_f y$ is a sheaf , we can conclude by $\bT$-surjectivity of $f$.
-		%	\item Let $X$ be an $n$-truncated covering geometric stack. By \ref{prop:csHasAtlas} we find a geometric catlas $S \to X$. All the fibers are (at most) $n$-truncated. 
-	\end{itemize}
-	
-	%
-	
+	Apply the prop \ref{prop:OneToRuleThemAll}. Use \ref{lemma:truncTrg}. For a stack $X$, is-$n$-truncated $X$ is indeed a stack.
 \end{proof}
