@@ -23,6 +23,7 @@
 \newtheorem*{think}{Think about}
 \maketitle
 \include{Atlas}
+\include{LocalChoice}
 \section{Preparation}
 
 
@@ -35,7 +36,7 @@
 %	It remains to show, that identity types in $Y$ have an atlas provided that $Y$ has an atlas.
 	
 	%This is a special case of stability under dependent sums. But lets prove it anyway.
-	By assumption we can choose a map $\Aff_+ \ni V \overset{p}{\to} Y$ fibered in $C$. Let $y,y' : Y$.  Then we have the map
+	By assumption we can choose a map $\Aff \ni V \overset{p}{\to} Y$ fibered in $C$. Let $y,y' : Y$.  Then we have the map
 	\begin{align*}
 		(\fib_p y) \times_V (\fib_p y') &\to y = y' \\
 		(v , q : y = p v) , (v', q' : y' = p v') , (h : v = v') &\mapsto q \cdot h \cdot q'^{-1}
@@ -46,7 +47,7 @@
 	\sum_{v}  ( \underbrace{\sum_{v'} (h : v = v')}_{\mathsf{isContr}}) \times (q : y = p v) \times (q'  : y' = p v') \times (q \cdot h \cdot q'^{-1} = j) \simeq \sum_v (v = py) \simeq \fib_p y
 	\]
 	Hence the map is fibered in $C$. It suffices to show, that	$(\fib_p y) \times_V (\fib_p y')$ has an atlas, because then we can compose such an atlas with the above map to obtain an atlas of $y = y'$.
-	By assumption the fibers of $p$ have an atlas, so we can choose $q : W \to \fib_p y, q' : W' \to \fib_p y'$ atlasses. Then $W \times_V W' \to (\fib_p y) \times_V (\fib_p y')$ is an atlas: The domain is a fiber product of types in $\Aff_+$, hence it belongs to $\Aff_+$. The fiber over $(x,x')$ is equivalent to the product of fibers $(\fib_q x) \times (\fib_{q'} x')$ which is in $C$ by stability under dependent sums (so in particular under finite products).
+	By assumption the fibers of $p$ have an atlas, so we can choose $q : W \to \fib_p y, q' : W' \to \fib_p y'$ atlasses. Then $W \times_V W' \to (\fib_p y) \times_V (\fib_p y')$ is an atlas: The domain is a fiber product of types in $\Aff$, hence it belongs to $\Aff$. The fiber over $(x,x')$ is equivalent to the product of fibers $(\fib_q x) \times (\fib_{q'} x')$ which is in $C$ by stability under dependent sums (so in particular under finite products).
 	
 \end{proof}
 \begin{lemma}{\label{lemma:AtlasSum}}

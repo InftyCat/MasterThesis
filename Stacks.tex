@@ -2,7 +2,7 @@
 \section{Covering stacks}
 Fix $\bT$ a topology, which we call the covering-affines.
 \begin{definition}
-	Covering geometric stacks are the smallest class containing $\bT$ such that: If $Y$ is a sheaf and $\bT \ni S \to Y$ is fibered in covering geometric stacks, then $Y$ is a covering geometric stack.	
+	Covering geometric stacks are the smallest class containing contractible Types such that: If $Y$ is a sheaf and $\bT \ni S \to Y$ is fibered in covering geometric stacks, then $Y$ is a covering geometric stack.	
 \end{definition}
 We call such map $X \to Y$ whose fibers are covering stacks a geometric cover. If $X$ is affine we call it a geometric atlas. If $X$ is in $\bT$ we call it a geometric catlas. 
 \begin{definition}
@@ -11,7 +11,7 @@ We call such map $X \to Y$ whose fibers are covering stacks a geometric cover. I
 \begin{prop}[Recursion principle for (covering) geometric stacks]
 	Let $P$ be a property of (covering) geometric stacks. Assume
 	\begin{itemize}
-		\item Every (covering) affine has $P$
+		\item contractibles have $P$
 		\item If $S$ is (covering) affine and $S \to Y$ is fibered in covering stacks having $P$ then $Y$ has $P$
 	\end{itemize}
 	Then every (covering) geometric stack has $P$.
@@ -33,8 +33,8 @@ We call such map $X \to Y$ whose fibers are covering stacks a geometric cover. I
 \begin{proof}
 
 	Define the predicate $P X$ as ' the sum of every family $B$ of (covering) geometric stacks is a (covering) geometric stack'.
-	If $X$ is a (covering) affine, by choice of $X$ we can choose geometric catlasses $S_x \to B x$ for all $x : X$. Then $\sum_{x :X } S_x \to \sum_x B x$ is a geometric (c-)atlas. \\
-	If $f : S \to X$ is a map fibered in $P$ with $S \in T$, then let $B : X \to \CS_\cV$. By choice of $S$ we can choose geometric catlasses $\tilde B s \to B (f s)$ for all $s : S$. Then consider $\sum_{s : S} \tilde B s \to \sum_{x : X} B x$. Its domain is (covering) affine. It remains to show, that the fiber over $(x,t)$ is a covering stack. It is a dependent sum over $\fib_f x$ by the explicit description in \ref{lemma:AtlasSum}, which by induction (we may prove the covering case of this theorem first) satisfies $P$ that lets us conclude by definition of $P$.
+	If $X$ is contractible its clear.
+	If $f : S \to X$ is a map fibered in $P$ with $S \in T$, then let $B : X \to \CS$. By Zariski local choice of $S$ we find a Zariski cover $S' \to S$ and we can choose geometric catlasses $\tilde B s \to B (f s)$ for all $s : S'$. Then consider $\sum_{s : S'} \tilde B s \to \sum_{x : X} B x$. Its domain is (covering) affine. It remains to show, that the fiber over $(x,t)$ is a covering stack. It is a dependent sum over $\fib_f x$ by the explicit description in \ref{lemma:AtlasSum}, which by induction (we may prove the covering case of this theorem first) satisfies $P$ that lets us conclude by definition of $P$.
 \end{proof}
 \begin{lemma}{\label{lemma:coversstableundercomp}}
 	geometric covers are stable under composition.
