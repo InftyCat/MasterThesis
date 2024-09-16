@@ -38,7 +38,7 @@
 	
 \end{proof}
 \begin{lemma}
-	A type $T$ is a sheaf wrt to $\bT'$ iff it is a sheaf wrt to $\bT$
+	A type $T$ is a stack wrt to $\bT'$ iff it is a stack wrt to $\bT$
 \end{lemma}
 \begin{proof}
 	As $\bT \subset \bT'$ the $\rightarrow$ direction is clear. Now, let $X \in \bT'$. We have to show that $T \to T^{\|X\|}$ is an equivalence. Choose $\bT \ni Y \to X$. Then we have a commutative diagram
@@ -50,7 +50,7 @@
 		\arrow["\simeq"', from=1-1, to=2-2]
 		\arrow[from=1-2, to=2-2]
 	\end{tikzcd}\]
-	So $T \to T^{\|X\|}$ has a left-inverse. Thus it suffices to show that any $f : T^{\|X\|}$ has a preimage. Choose $t : T$, s.th. $\mathrm{cnst}^Y_t$ is the composite $\|Y\| \to \|X\| \overset{f}{\to} T$. We have $\|Y\| \to (\mathrm{cnst}^X_t = f)$. But as $Y \in \bT$ and $\Delta_t = f$ is a sheaf (as an identitytype in the sheaf $T^{\|X\|}$) we are done.
+	So $T \to T^{\|X\|}$ has a left-inverse. Thus it suffices to show that any $f : T^{\|X\|}$ has a preimage. Choose $t : T$, s.th. $\mathrm{cnst}^Y_t$ is the composite $\|Y\| \to \|X\| \overset{f}{\to} T$. We have $\|Y\| \to (\mathrm{cnst}^X_t = f)$. But as $Y \in \bT$ and $\Delta_t = f$ is a stack (as an identitytype in the stack $T^{\|X\|}$) we are done.
 \end{proof}
 \begin{rmk}
 	We never used that we only talk about $\bT$-covers.
@@ -67,7 +67,7 @@
 \end{question}
 
 % \begin{lemma}
-%     A type $T$ is a saturated $\bT$-sheaf if for all $X \in \bT$ the diagonal
+%     A type $T$ is a saturated $\bT$-stack if for all $X \in \bT$ the diagonal
 %     \[
 %     T \to T^{L_\bT \|X \|}
 %     \]

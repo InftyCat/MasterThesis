@@ -1,69 +1,124 @@
 
+%\subsection{Descent}
+%$\St$ a class of stacks in $\cV$, such that $\bT$ is contained in it and for any $\bT$-cover $X \to Y$ of stacks in $\cV$, $X \in \St$ iff $Y \in \St$. We call types in this class stacky.
+%\begin{lemma}{\label{lemma:stackificationHasTCover}}
+%	Let $\bT$ satisfy descent, i.e. beeing affine in the topology is a stack. If $Y$ admits a $\bT$-cover $f : X \to Y$ where $Y$ is seperated, then there is a $\bT$-cover $X \to L_\bT Y$.
+%\end{lemma}
+%\begin{proof}
+%	
+%	Consider $X \overset{f}{\to} Y \overset{\eta}{\to} L_\bT Y$. As beeing affine in $\bT$ is  a stack, we may just show that for all $y : Y$ , the fibers over $\eta y : L_\bT Y$ are in $\bT$. As $\eta$ is a monomorphism by \ref{lemma:sep} , $\eta$ restricts to an equivalence
+%	\[
+%	\fib_f y \to \fib_{ \eta f}(\eta y)
+%	\]
+%	
+%	But the left hand side is in $\bT$ by assumption. 
+%\end{proof}
+%\begin{lemma}
+%	Assume $\bT$ have descent.
+%	Let $X \in \St$ and $Y$ a type.	Let $f : X \twoheadrightarrow Y$ be fibered in $\bT$ and surjective. Then $L_\bT Y$ is stacky.
+%\end{lemma}
+%\begin{proof}
+%	As $X$ is stacky, it suffices to show, that $L_\bT Y$ admits a $\bT$-cover.
+%	We want to apply \ref{lemma:stackificationHasTCover}. So it remains to show, that $Y$ is seperated. By surjectivity of $f$ we may only show that for any $x : X, y : Y$, the type $f x =_Y y$ is a stack. If we define $U$ to be the fiber over $y$, it is in $\bT$ by assumption. But then $f x =_Y y$ is the outer pullback
+%	% https://q.uiver.app/#q=WzAsNixbMCwwLCJmIHggPSB5Il0sWzEsMCwiVSBcXGluXFxiVCJdLFswLDEsIjEiXSxbMSwxLCJYIl0sWzIsMCwiMSJdLFsyLDEsIlkiXSxbMyw1LCJmIl0sWzQsNSwieSIsMl0sWzIsMywieCJdLFsxLDNdLFsxLDRdLFsxLDUsIiIsMSx7InN0eWxlIjp7Im5hbWUiOiJjb3JuZXItaW52ZXJzZSJ9fV0sWzAsMl0sWzAsMV1d
+%	\[\begin{tikzcd}
+%		{f x = y} & {U} & 1 \\
+%		\arrow["\ulcorner"{anchor=center, pos=0.125}, draw=none, from=1-1, to=2-2]
+%		1 & X & Y
+%		\arrow[from=1-1, to=1-2]
+%		\arrow[from=1-1, to=2-1]
+%		\arrow[from=1-2, to=1-3]
+%		\arrow[from=1-2, to=2-2]
+%		\arrow["\ulcorner"{anchor=center, pos=0.125}, draw=none, from=1-2, to=2-3]
+%		\arrow["y"', from=1-3, to=2-3]
+%		\arrow["x", from=2-1, to=2-2]
+%		\arrow["f", from=2-2, to=2-3]
+%	\end{tikzcd}\]
+%	of stacky types, in particular stacks. \qed(Claim) \\\\
+%	
+%\end{proof}
+%\begin{theorem}
+%	Assume $\bT$ have descent. Then $\St$ is a stack.
+%\end{theorem}
+%\begin{proof}
+%	$\St$ is seperated: This follows from the embedding $\St$ into the seperated type of stacks \ref{lemma:stacksHaveDescent}. \\
+%	Let $U \in \bT$ and $P : \|U\| \to \St$. We want to construct a filler 
+%	% https://q.uiver.app/#q=WzAsMyxbMCwwLCJcXHwgVVxcfCJdLFswLDEsIjEiXSxbMSwwLCJcXFNtU3QiXSxbMCwyLCJQIl0sWzAsMV0sWzEsMiwiIiwyLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV1d
+%	\[\begin{tikzcd}
+%		{\| U\|} & \St \\
+%		1
+%		\arrow["P", from=1-1, to=1-2]
+%		\arrow[from=1-1, to=2-1]
+%		\arrow[dashed, from=2-1, to=1-2]
+%	\end{tikzcd}\]
+%	Claim: $L_\bT (\sum_{x: \|U\|} P x)$ is stacky.
+%	\begin{proof} of the claim. We want to apply the previous lemma to the surjection 
+%		\[\sum_{x : U} P | x | \to \sum_{x : \| U\|} P x \]
+%		The domain is in $\St$ by stability under $\sum$. The fibers are equivalent to $U \in \bT \subset \St$.				
+%	\end{proof}
+%	The claim provides the map $1 \to \St$. The diagram commutes: Assuming $x : \|\Spec A\|$ we wish to show $P x = \sum_{x: \|U\|} P x$. Using univalence, we may show that the maps 
+%	\[P x \to \sum_{x: \|U\|} P x \overset{\eta}{\to} L_\bT \sum_{x: \|U\|} P x\]
+%	are both equivalences.
+%	The first one is an equivalence as $\|U\|$ is contractible. Hence the middle term is a stack, thus the unit map is an equivalence as well. \\
+%	
+%	
+%	
+%\end{proof}
+
 \subsection{Descent}
-$\St$ a class of stacks in $\cV$, such that $\bT$ is contained in it and for any $\bT$-cover $X \to Y$ of stacks in $\cV$, $X \in \St$ iff $Y \in \St$. We call types in this class stacky.
-\begin{lemma}{\label{lemma:stackificationHasTCover}}
-	Let $\bT$ satisfy descent, i.e. beeing affine in the topology is a stack. If $Y$ admits a $\bT$-cover $f : X \to Y$ where $Y$ is seperated, then there is a $\bT$-cover $X \to L_\bT Y$.
-\end{lemma}
-\begin{proof}
-	
-	Consider $X \overset{f}{\to} Y \overset{\eta}{\to} L_\bT Y$. As beeing affine in $\bT$ is  a stack, we may just show that for all $y : Y$ , the fibers over $\eta y : L_\bT Y$ are in $\bT$. As $\eta$ is a monomorphism by \ref{lemma:sep} , $\eta$ restricts to an equivalence
-	\[
-	\fib_f y \to \fib_{ \eta f}(\eta y)
-	\]
-	
-	But the left hand side is in $\bT$ by assumption. 
-\end{proof}
-\begin{lemma}
-	Assume $\bT$ have descent.
-	Let $X \in \St$ and $Y$ a type.	Let $f : X \twoheadrightarrow Y$ be fibered in $\bT$ and surjective. Then $L_\bT Y$ is stacky.
-\end{lemma}
-\begin{proof}
-	As $X$ is stacky, it suffices to show, that $L_\bT Y$ admits a $\bT$-cover.
-	We want to apply \ref{lemma:stackificationHasTCover}. So it remains to show, that $Y$ is seperated. By surjectivity of $f$ we may only show that for any $x : X, y : Y$, the type $f x =_Y y$ is a stack. If we define $U$ to be the fiber over $y$, it is in $\bT$ by assumption. But then $f x =_Y y$ is the outer pullback
-	% https://q.uiver.app/#q=WzAsNixbMCwwLCJmIHggPSB5Il0sWzEsMCwiVSBcXGluXFxiVCJdLFswLDEsIjEiXSxbMSwxLCJYIl0sWzIsMCwiMSJdLFsyLDEsIlkiXSxbMyw1LCJmIl0sWzQsNSwieSIsMl0sWzIsMywieCJdLFsxLDNdLFsxLDRdLFsxLDUsIiIsMSx7InN0eWxlIjp7Im5hbWUiOiJjb3JuZXItaW52ZXJzZSJ9fV0sWzAsMl0sWzAsMV1d
-	\[\begin{tikzcd}
-		{f x = y} & {U} & 1 \\
-		\arrow["\ulcorner"{anchor=center, pos=0.125}, draw=none, from=1-1, to=2-2]
-		1 & X & Y
-		\arrow[from=1-1, to=1-2]
-		\arrow[from=1-1, to=2-1]
-		\arrow[from=1-2, to=1-3]
-		\arrow[from=1-2, to=2-2]
-		\arrow["\ulcorner"{anchor=center, pos=0.125}, draw=none, from=1-2, to=2-3]
-		\arrow["y"', from=1-3, to=2-3]
-		\arrow["x", from=2-1, to=2-2]
-		\arrow["f", from=2-2, to=2-3]
-	\end{tikzcd}\]
-	of stacky types, in particular stacks. \qed(Claim) \\\\
-	
-\end{proof}
+
+
 \begin{theorem}
-	Assume $\bT$ have descent. Then $\St$ is a stack.
+	Let $\bT$ be subcanonical.
+	%	geometric stacks have descent.
+	Consider a class of stacks $\St$ stable under $\sum$ such that $\bT \subset \St$ and whenever you have a $\bT$-cover $X \to Y$ between stacks then $X \in \St$ implies $Y \in \St$.
+	Then $\St$ has descent.
 \end{theorem}
+
 \begin{proof}
-	$\St$ is seperated: This follows from the embedding $\St$ into the seperated type of stacks \ref{lemma:stacksHaveDescent}. \\
+	$\St$ is separated: This follows from the embedding $\GS$ into the separated type of sheaves \ref{lemma:SheavesHaveDescent}. \\
 	Let $U \in \bT$ and $P : \|U\| \to \St$. We want to construct a filler 
 	% https://q.uiver.app/#q=WzAsMyxbMCwwLCJcXHwgVVxcfCJdLFswLDEsIjEiXSxbMSwwLCJcXFNtU3QiXSxbMCwyLCJQIl0sWzAsMV0sWzEsMiwiIiwyLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV1d
 	\[\begin{tikzcd}
-		{\| U\|} & \St \\
+		{\| U\|} & \GS \\
 		1
 		\arrow["P", from=1-1, to=1-2]
 		\arrow[from=1-1, to=2-1]
 		\arrow[dashed, from=2-1, to=1-2]
 	\end{tikzcd}\]
-	Claim: $L_\bT (\sum_{x: \|U\|} P x)$ is stacky.
-	\begin{proof} of the claim. We want to apply the previous lemma to the surjection 
-		\[\sum_{x : U} P | x | \to \sum_{x : \| U\|} P x \]
-		The domain is in $\St$ by stability under $\sum$. The fibers are equivalent to $U \in \bT \subset \St$.				
-	\end{proof}
-	The claim provides the map $1 \to \St$. The diagram commutes: Assuming $x : \|\Spec A\|$ we wish to show $P x = \sum_{x: \|U\|} P x$. Using univalence, we may show that the maps 
+	
+	Given $U \in \bT$ and a map $P : \|U\| \to \St$. Claim: $L_T \sum_{x: \|U\|} P x \in \St$ . 
+	If the claim is proven, the diagram commutes: Assuming $x : \|U\|$ we wish to show $P x = L_T \sum_{x: \|U\|} P x$. Using univalence, we may show that the maps 
 	\[P x \to \sum_{x: \|U\|} P x \overset{\eta}{\to} L_\bT \sum_{x: \|U\|} P x\]
 	are both equivalences.
 	The first one is an equivalence as $\|U\|$ is contractible. Hence the middle term is a stack, thus the unit map is an equivalence as well. \\
+	Proof of the claim:
 	
-	
+	%I have shown above, that in this case the triangle in the sheaf-condition commutes. \\
+
+	We introduce notation 
+	\[ \sum_{x : U} P x \overset{f}{\to} \sum_{x: \|U\|} P x \equiv: Y \overset{\eta}{\hookrightarrow} L_T Y  .\] \\
+	Claim: For any $y : L_T Y$, the map $\fib_{\eta f}{y} \hookrightarrow \sum_{x: U} P x \to U$ is an equivalence.  \\
+	Proof: To ask that a map between stack is an equivalence is a stack, hence we may replace $y$ by $\eta y'$ with $y' : Y$.
+	Consider the following commutative diagram
+	% https://q.uiver.app/#q=WzAsNCxbMCwwLCJcXGZpYl97XFxldGEgZn0gXFxldGEgeSciXSxbMSwwLCJcXHN1bV97eCA6IFVfaX0gUCB4Il0sWzEsMSwiVV9pIl0sWzAsMSwiXFxmaWJfZiB5JyJdLFswLDFdLFszLDBdLFszLDIsIlxcc2ltZXEiLDJdLFsxLDJdXQ==
+	\[\begin{tikzcd}
+		{\fib_{\eta f} \eta y'} & {\sum_{x : U} P x} \\
+		{\fib_{f} y'} & {U}
+		\arrow[from=1-1, to=1-2]
+		\arrow[from=1-2, to=2-2]
+		\arrow[from=2-1, to=1-1]
+		\arrow["\simeq"', from=2-1, to=2-2]
+	\end{tikzcd}\]
+	The left vertical map is an equivalence, as $\sum_{x:\|U\|} P x$ is seperated (the geometric stacks $P x$ are stacks, so in particular seperated). \\
+	%We have that the map $U_i \overset{\simeq}{\leftarrow} \fib_{f_i} y' \to \fib_{\eta f_i}{\eta y'}$ is an equivalence. \qed(Claim) \\
+	As $U \in \St$ and $\St$ is $\sum$-stable,  $\sum_{x: U} P x \in \St$ By the assumption of the theorem $L_T Y \in \St$ %\ref{lemma:GSPlusStability} 
 	
 \end{proof}
+In the proof we have learned the following:
+\begin{lemma}{\label{lemma:stackificationHasTCover}}
+	If $Y$ is seperated and admits some $U \in \bT$ and a map $f : X \to Y$ such that every fiber is equivalent to $U$, then there is a $\bT$-cover $X \to L_\bT Y$.
+\end{lemma}
 \begin{corollary}
 	If $\bT$ has descent, (covering) geometric stacks satisfy descent.
 \end{corollary}

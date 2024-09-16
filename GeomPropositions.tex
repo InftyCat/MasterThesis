@@ -1,7 +1,7 @@
 
 \section{Geometric propositions}
 \begin{definition}
-	$U : \Aff_+$ is called geometric, if 
+	$U : \Aff$ is called geometric, if 
 	\[\|U\|_\bT \to (U \in \bT)\]	
 \end{definition}
 \begin{lemma}{\label{lemma:geometricEquiv}}
@@ -25,7 +25,7 @@ Recall the definition of $\bT$-atlas \ref{def:TAtlas}
 \begin{proof} \
 	\begin{enumerate}
 		\item [1 $\Rightarrow$ 2]
-		we show that $U \to \|U\|_\bT$ is a geometric atlas. Every fiber is in $\bT$, because $U$ is geometric. Conclude by \ref{lemma:TisCS}
+		we show that $U \to \|U\|_\bT$ is a geometric atlas. Every fiber is in $\bT$, because $U$ is geometric. A $\bT$-atlas is a geometric atlas.
 		\item [2 $\Rightarrow$ 3]
 		If $P$ is a geometric -1-stack, then we may choose $U \to P$ a geometric atlas. This is a $\bT$-atlas by \ref{prop:affineCoveringStack}.
 
@@ -38,12 +38,10 @@ Recall the definition of $\bT$-atlas \ref{def:TAtlas}
 	\end{enumerate}
 	
 \end{proof}
-\begin{lemma}
-every geometric proposition is a scheme
-\end{lemma}
-\begin{proof}
-	By \ref{lemma:IsScheme}
-\end{proof}
+\begin{question}
+Is every geometric proposition a scheme?
+\end{question}
+
 %\begin{lemma}[NECESSARY?]
 %	geometric propositions are algebraic spaces.
 %\end{lemma}

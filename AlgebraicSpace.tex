@@ -52,14 +52,8 @@ This follows from the observation, that the equivalence relation determined by $
 \end{definition}
 
 \begin{lemma}
-	Given $f_1, \hdots,f_n : R$ such that $\| D(f_1) + \hdots + D(f_n) \|_{\Zar}$ then $\sum_{i=1}^n D(f_i) \in \Zar$.
+	Given $f_1, \hdots,f_n : R$ such that $\| D(f_1) + \hdots + D(f_n) \|$ then $\sum_{i=1}^n D(f_i) \in \Zar$.
 \end{lemma}
-\begin{proof}
-	We have to show that $(f_1,\hdots,f_n) = 1$. 
-	Claim: 	$(f_1,\hdots,f_n) = 1$ is a sheaf.
-	Proof: 
-	Recall that the Zariski topology is subcanonical (\todocite). Now the type is equivalent to the statement that the map between the two sheaves $\Spec 0 \to \Spec R/(f_1,\hdots,f_n)$ is an equivalence. This is a sheaf \todocite.
-\end{proof}
 \begin{prop}
 	Every Zariski-merely-inhabited type that is merely of the form $U_1 + \hdots + U_n$ for open propositions $U_i$ admits a $\Zar$-catlas.
 \end{prop}
@@ -71,19 +65,22 @@ This follows from the observation, that the equivalence relation determined by $
 	is a $\Zar$-catlas. 
 	\begin{itemize}
 		\item Let us first show that the fibers are in $\Zar$. Assume $U_i$ holds. So we find a term in $\coprod_j D(f_{ij})$. In particular we have $\| \coprod_j D(f_{ij})\|_{\Zar}$. By the lemma we conclude, that the fiber $\sum_j D(f_{ij})$ belongs to $\Zar$.\\
-		\item The total space is in $\Zar$: This follows as the surjection after $\bT$-truncation becomes an equivalence. As we have $\| U_1 + \hdots + U_n\|_\bT$, we can conclude by the lemma.
+		\item The total space is in $\Zar$: This follows as the surjection after propositional truncation becomes an equivalence. As we have $\| U_1 + \hdots + U_n\|$, we can conclude by the lemma.
 	\end{itemize}
 	
 \end{proof}
 \begin{warning}
-	The converse does not hold! We want to apply \ref{lemma:sheafificationHasTCover}, to the map
+	The converse does not hold! We want to apply \ref{lemma:stackificationHasTCover}, to the map
 	\[\Zar \ni 1 + 1 \to \sum D(f) \]
 	\begin{itemize}
-		\item the Zariski topology has descent TODO
 		\item 	$\sum D(f)$ is seperated as $D(f)$ is a sheaf.
 		\item 	All the fibers are equivalent to $1 + X$, hence they are in the Zariski topology.
 	\end{itemize}	
 \end{warning}
+\begin{lemma}
+	let $X$ be a scheme. There merely exists some affine $S$  map $S \to X$ whose fibers are Zariski-merely inhabited finite sums of open propositions 
+\end{lemma}
+
 \begin{corollary}
 		Every scheme is an algebraic space for the Zariski topology.
 \end{corollary}
