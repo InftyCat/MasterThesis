@@ -81,7 +81,8 @@
 
 \section{Local properties}
 
-\begin{lemma}
+\begin{definition}
+	We call a property $P$ of morphisms of geometric stacks local, if its satisfied by identities, stable under composition and under basechange along geometric cover  and the following condition is satisfied:
 	Given a commutative triangle% https://q.uiver.app/#q=WzAsMyxbMCwwLCJYIl0sWzEsMCwiWSJdLFsxLDEsIloiXSxbMCwxLCJmIl0sWzEsMiwiZyJdLFswLDIsImgiLDJdXQ==
 	\[\begin{tikzcd}
 		X & Y \\
@@ -90,26 +91,21 @@
 		\arrow["h"', from=1-1, to=2-2]
 		\arrow["g", from=1-2, to=2-2]
 	\end{tikzcd}\]
-with $X \to Y$ a geometric cover. Then $h$ is a geometric cover iff $g$ is a geometric cover.
+with $X \to Y$ a geometric cover. Then $h$ has $P$ iff $g$ has $P$
+\end{definition}
+\begin{lemma}
+	Beeing a geometric cover is local.
 \end{lemma}
 \begin{proof}
 	Reduce to the case of $Z = 1$. If $X \to Y$ is a geometric cover, then $X$ is a covering stack iff $Y$ is a covering stack by stability under quotients and under sums. If both are coverings stacks, then the fibers 
 \end{proof}
 
 \begin{lemma}
-    A morphism between geometric stacks $f : X \to Y$ is a geometric cover iff there exist atlasses and a $\bT$-cover on affines 
-    % https://q.uiver.app/#q=WzAsNCxbMCwwLCJcXFNwZWMgQSJdLFswLDEsIlgiXSxbMSwxLCJZIl0sWzEsMCwiXFxTcGVjIEIiXSxbMywyXSxbMCwxXSxbMSwyLCJmIiwxXSxbMCwzLCJcXGhhdCBmIiwwLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV1d
-    \[\begin{tikzcd}
-    	{\Spec A} & {\Spec B} \\
-    	X & Y
-    	\arrow["{\hat f}", dashed, from=1-1, to=1-2]
-    	\arrow[from=1-1, to=2-1]
-    	\arrow[from=1-2, to=2-2]
-    	\arrow["f"{description}, from=2-1, to=2-2]
-    \end{tikzcd}\]
+    Let $P$ be a local property of morphisms of geometric stacks. Then a morphism between geometric stacks $f : X \to Y$ has $P$ iff $f$ has an atlas that has $P$.
 \end{lemma}
 \begin{proof}
-	The converse follows by the previous lemma. The direct direction follows by choosing a geometric atlas $\Spec B \to Y$ and taking the pullback % https://q.uiver.app/#q=WzAsNCxbMCwwLCJYIFxcdGltZXNfWSBcXFNwZWMgQSJdLFswLDEsIlgiXSxbMSwwLCJcXFNwZWMgQSJdLFsxLDEsIlkiXSxbMSwzLCJmIl0sWzAsMiwiZiciXSxbMiwzXSxbMCwxXV0=
+	The converse: If we have an atlas $\tilde f : \tilde X \to \tilde Y$, then $\tilde X \to \tilde Y \to Y$ has $P$ by stability under composition. Then by locality $X \to Y$ has $P$. \\
+	The direct direction follows by choosing a geometric atlas $\Spec B \to Y$ and taking the pullback % https://q.uiver.app/#q=WzAsNCxbMCwwLCJYIFxcdGltZXNfWSBcXFNwZWMgQSJdLFswLDEsIlgiXSxbMSwwLCJcXFNwZWMgQSJdLFsxLDEsIlkiXSxbMSwzLCJmIl0sWzAsMiwiZiciXSxbMiwzXSxbMCwxXV0=
 	\[\begin{tikzcd}
 		{X \times_Y \Spec A} & {\Spec A} \\
 		X & Y
@@ -118,10 +114,23 @@ with $X \to Y$ a geometric cover. Then $h$ is a geometric cover iff $g$ is a geo
 		\arrow[from=1-2, to=2-2]
 		\arrow["f", from=2-1, to=2-2]
 	\end{tikzcd}\]
-$f'$ has the same fibers as $f$, hence it will be geometric cover. Now $X \times_Y \Spec A$ is a geometric stack, hence we can choose a geometric atlas $\Spec B \to X \times_Y \Spec A$. The composition will be a geometric cover between affines, hence a $\bT$-cover.
+$f'$ has $P$ as a basechange of $f$ along a geometric cover. Now $X \times_Y \Spec A$ is a geometric stack, hence we can choose a geometric atlas $\Spec B \to X \times_Y \Spec A$. The composition will be a geometric cover between affines, hence a $\bT$-cover.
 \end{proof}
 
-
-
+So we may extend algebraic notions of maps to all geometric stacks:
+\begin{definition}
+	Let $P$ be a property of morphisms of affine schemes. We define a morphism of geometric stacks $f : X \to Y$ to have $P$ iff
+	there exist atlasses and a $P$-map on affines 
+	% https://q.uiver.app/#q=WzAsNCxbMCwwLCJcXFNwZWMgQSJdLFswLDEsIlgiXSxbMSwxLCJZIl0sWzEsMCwiXFxTcGVjIEIiXSxbMywyXSxbMCwxXSxbMSwyLCJmIiwxXSxbMCwzLCJcXGhhdCBmIiwwLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV1d
+	\[\begin{tikzcd}
+		{\Spec A} & {\Spec B} \\
+		X & Y
+		\arrow["{\hat f}", dashed, from=1-1, to=1-2]
+		\arrow[from=1-1, to=2-1]
+		\arrow[from=1-2, to=2-2]
+		\arrow["f"{description}, from=2-1, to=2-2]
+	\end{tikzcd}\]
+\end{definition}
+%The definition is reasonable because the following
 \end{document}
 
