@@ -44,8 +44,7 @@ Every covering geometric stack $X$ merely admits a geometric catlas. %, i.e. a g
 \end{proof}
 
 \subsection{Needing finitely many steps}
-%\subsection{Truncatedness}
-%In this subsection we want to prove that every geometric stack is a geometric $n$-stack for some $n$.
+In this subsection we want to prove that one could equivalently define covering stacks just by induction over the natural numbers.
 
 \begin{lemma}{\label{lemma:cstinh}}
 	Every covering stack $X$ is $\bT$-merely inhabited.
@@ -87,19 +86,41 @@ Every covering geometric stack $X$ merely admits a geometric catlas. %, i.e. a g
 \end{proof}
 
 
-\begin{corollary}
+\begin{definition}
 	Define \begin{align*}
 		W_0 &\equiv \bT \\
-		W_{n+1} &\equiv \| \sum \bT \ni S \to X \text{ fibered in covering stacks having } W_n \|_\bT
+		W_{n+1} &\equiv \{X \ stack \ | \  X \text{ has a } W_n-catlas \}
 	\end{align*}
-	Then every covering geometric stack has $W_n$ for some $n$.
-\end{corollary}
-\begin{proof}
-	We need that $W_n$ is a sheaf 
-\end{proof}
+\end{definition}
 \begin{why}
 	$W 0 $ is not defined as $\isContr$, because for $\sum$ stability later, we want to apply \ref{thm:atlasStableSum}, so we need that Zariski covers are allowed covers.
 \end{why}
+\begin{lemma}
+	$W$  is monotone
+\end{lemma}
+\begin{proof}
+	We prove $\forall n . W n \subset W (n+1)$.
+	Induction. $n = 0$. For any $X :\bT$ , $ X \to X$ is a $W_0$-catlas, as $1 \in \bT = W_0$. If $X \in W_n$, it admits a $W_{n-1}$ catlas. By induction this is a $W_n$ catlas. So $X \in W_{n+1}$.
+\end{proof}
+\begin{lemma}{\label{prop:WnSigma}}
+	For all $n : \bN$, $W_n$ covering stacks are $\sum$-stable. \\
+\end{lemma}
+\begin{proof}	
+	Induction over $n$. If $n = 1$, then this is the stability under $\sum$ of $\bT$ \\
+	If we wish to prove the statement for $n+1$, we may assume that $W_n$ covering stacks are $\sum$-stable. We have $\Zar \subset \bT \subset W_n$. So we can apply \ref{thm:atlasStableSum}. \\
+\end{proof}	
+\begin{prop}{\label{prop:WTrunc}}
+	Every covering geometric stack has $W_n$ for some $n$.
+\end{prop}
+\begin{proof}
+	The idea is to apply \ref{prop:OneToRuleThemAll}.
+	We need that $X \in W_n$ is a sheaf for $X$ a stack. \\
+	Let $T \in \bT$ such that $T \to \exists (\bT \ni S \to X \ W_n \text{-atlas})$. We want to construct a $W_n$-catlas of $X$. By Zariski local choice we find a Zariski atlas $T' \to T$ with a term in 
+	\[\prod_{t : T'} \sum_{S_t : \bT} W_n \mathsf{atlas} (S_t , X) \]
+	 From this we obtain a map 
+	 \[\sum_{t : T'} S_t \to T' \times X \to X\].  As $T' \in \bT \subset W_n$ by $\sum$-stability of $\bT$, both maps are $W_n$-covers. By $\ref{prop:WnSigma}$ the composite is a $W_n$-cover. Its domain is in $\bT$ by $\sum$-stability of $\bT$. This is what we wanted to show.
+\end{proof}
+
 \subsection{Stability}
 \begin{theorem}{\label{thm:CSSum}}
 	The class of (covering) geometric stacks is $\sum$-stable.
@@ -107,12 +128,9 @@ Every covering geometric stack $X$ merely admits a geometric catlas. %, i.e. a g
 \begin{proof}
 	The geometric case follows from the covering geometric case by \ref{thm:atlasStableSum}.
 	Let $X$ be a covering stack and $B : X \to \CS$ a family of covering stacks.
-	By \ref{prop:FindCommonN} we merely find an $n : \bN$ such that $W_n (B x)$ for all $x : X$. By making $n$ larger, we may assume $X$ has $W n$ for some $n$. \\
-	So we are left to show that for all $n : \bN$, $W_n$ covering stacks are $\sum$-stable. \\
-	
-	
-	Induction over $n$. If $n = 1$, then this is the stability under $\sigma$ of $\bT$ \\
-	If we wish to prove the statement for $n+1$, we may assume that $W_n$ covering stacks are $\sum$-stable. We have $\Zar \subset \bT \subset W_n$. So we can apply \ref{thm:atlasStableSum}. \\
+	We apply \ref{prop:FindCommonN} to the predicate ' $X$ belongs to $W n$ for some $n$', which holds definitely for some $n$ by \ref{prop:WTrunc}.
+	So we merely find an $n : \bN$ such that $B x \in W_n $ for all $x : X$. By making $n$ larger, we may assume $X$ has $W n$ for some $n$. Conclude by \ref{prop:WnSigma}\\
+
 
 \end{proof}
 \begin{lemma}{\label{lemma:coversstableundercomp}}
