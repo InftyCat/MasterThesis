@@ -74,6 +74,7 @@ Every covering geometric stack $X$ merely admits a geometric catlas. %, i.e. a g
 	\end{itemize}  %(or more generally $W X$ is merely inhabited). 
 	Then for any $X \in \GS$, $W X$ is merely inhabited.
 \end{prop}
+
 \begin{proof}
 		We apply the recursion principle for geometric stacks.
 	\begin{itemize}
@@ -88,14 +89,17 @@ Every covering geometric stack $X$ merely admits a geometric catlas. %, i.e. a g
 
 \begin{corollary}
 	Define \begin{align*}
-		W_0 &\equiv \isContr \\
+		W_0 &\equiv \bT \\
 		W_{n+1} &\equiv \| \sum \bT \ni S \to X \text{ fibered in covering stacks having } W_n \|_\bT
 	\end{align*}
 	Then every covering geometric stack has $W_n$ for some $n$.
 \end{corollary}
 \begin{proof}
-	We need that $W_n$ is a sheaf.
+	We need that $W_n$ is a sheaf 
 \end{proof}
+\begin{why}
+	$W 0 $ is not defined as $\isContr$, because for $\sum$ stability later, we want to apply \ref{thm:atlasStableSum}, so we need that Zariski covers are allowed covers.
+\end{why}
 \subsection{Stability}
 \begin{theorem}{\label{thm:CSSum}}
 	The class of (covering) geometric stacks is $\sum$-stable.
@@ -107,8 +111,8 @@ Every covering geometric stack $X$ merely admits a geometric catlas. %, i.e. a g
 	So we are left to show that for all $n : \bN$, $W_n$ covering stacks are $\sum$-stable. \\
 	
 	
-	Induction over $n$. If $n = 0$, then $X$ is contractible. So its clear. \\
-	If we wish to prove the statement for $n+1$, we may assume that $W_n$ covering stacks are $\sum$-stable. So we can apply \ref{thm:atlasStableSum}. \\
+	Induction over $n$. If $n = 1$, then this is the stability under $\sigma$ of $\bT$ \\
+	If we wish to prove the statement for $n+1$, we may assume that $W_n$ covering stacks are $\sum$-stable. We have $\Zar \subset \bT \subset W_n$. So we can apply \ref{thm:atlasStableSum}. \\
 
 \end{proof}
 \begin{lemma}{\label{lemma:coversstableundercomp}}

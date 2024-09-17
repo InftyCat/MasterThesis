@@ -89,8 +89,9 @@ In this section let $\bT$ denote a topology finer than the zariski topology.
 The next lemma shows, that the class of types equipped with a $\bT$-atlas is stable under dependent sums.
 
 \begin{theorem}{\label{thm:atlasStableSum}}
-	Let $\cU'$ be a class stable under dependent sums.
-	The class of types $\bT$-merely admitting a $\cU'$-atlas is closed under dependent sums. If $\bT$ is a topology, the same holds for $\cU'$-catlasses.
+	Let $\bT$ be a topology.
+	Let $\cU'$ be a class stable under dependent sums containing $\Zar$.
+	The class of types $\bT$-merely admitting a $\cU'$-atlas is closed under dependent sums. The same holds for $\cU'$-catlasses.
 \end{theorem}
 \begin{proof}
 %	The stability under quotients is easy: 
@@ -105,7 +106,7 @@ The next lemma shows, that the class of types equipped with a $\bT$-atlas is sta
 	By Local choice for $X$, we merely find $U$ affine, an atlas $p : U \to X$ % fibered in smooth $n$-stacks 
 	with
 	\[
-	\prod_{u : U} \sum_{V_{p(u)} \in T} (q : V_{p(u)} \to B_{p(u)}) \times (q \ \text{fibered in smooth } n \text{ stacks } )
+	\prod_{u : U} \sum_{V_{p(u)} \in T} (q : V_{p(u)} \to B_{p(u)}) \times (q \ \text{fibered in } \cU'  )
 	\]
 	Now the desired map is $\sum_{u : U} V_{p u} \to \sum_{x : X} B_x$, because it is  an atlas %fibered in smooth $(n)$-stacks 
 	by \ref{lemma:AtlasSum} \\
