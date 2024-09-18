@@ -82,11 +82,12 @@
 \section{Local properties}
 
 \begin{definition}
-	We call a property $P$ of morphisms of geometric stacks local, if 
+	Let $\cV \subset \cU$ a subclass of types be stable under finite limits. 
+	We call a property $P$ of morphisms of types in $\cV$ local, if 
 	\begin{enumerate}
-		\item its satisfied by identities,
+		\item its satisfied by identities in $\cV$,
 		\item stable under composition 
-		\item if $Y \to W$ is a geometric cover, then 
+		\item Given $X,Y,Z,W \in \cV$. if $Y \to W$ is a geometric cover , then 
 			% https://q.uiver.app/#q=WzAsNCxbMCwwLCJYIl0sWzAsMSwiWSJdLFsxLDEsIlciXSxbMSwwLCJaIl0sWzAsM10sWzAsMSwiZiciLDJdLFsxLDJdLFszLDIsImYiXSxbMCwyLCIiLDEseyJzdHlsZSI6eyJuYW1lIjoiY29ybmVyLWludmVyc2UifX1dXQ==
 			\[\begin{tikzcd}
 				X & Z \\
@@ -99,7 +100,7 @@
 			\end{tikzcd}\]
 		$f$ has $P$ iff $f'$ has $P$.
 		\item
-	Given a commutative triangle% https://q.uiver.app/#q=WzAsMyxbMCwwLCJYIl0sWzEsMCwiWSJdLFsxLDEsIloiXSxbMCwxLCJmIl0sWzEsMiwiZyJdLFswLDIsImgiLDJdXQ==
+	Given a commutative triangle in $\cV$% https://q.uiver.app/#q=WzAsMyxbMCwwLCJYIl0sWzEsMCwiWSJdLFsxLDEsIloiXSxbMCwxLCJmIl0sWzEsMiwiZyJdLFswLDIsImgiLDJdXQ==
 	\[\begin{tikzcd}
 		X & Y \\
 		& Z
@@ -109,6 +110,13 @@
 	\end{tikzcd}\]
 with $X \to Y$ a geometric cover. Then $h$ has $P$ iff $g$ has $P$
 \end{enumerate}
+\begin{lemma}{\label{lemma:local}}
+	If $P$ is local, then 
+	\begin{itemize}
+		\item geometric covers have P
+		\item in Point 3, The statement 'If $f'$ has $P$ then $f$ has $P$' is automatic by Point 4.
+	\end{itemize}
+\end{lemma}
 \end{definition}
 \begin{lemma}
 	Beeing a geometric cover is local.
@@ -117,7 +125,7 @@ with $X \to Y$ a geometric cover. Then $h$ has $P$ iff $g$ has $P$
 	Reduce to the case of $Z = 1$. If $X \to Y$ is a geometric cover, then $X$ is a covering stack iff $Y$ is a covering stack by stability under quotients and under sums. If both are coverings stacks, then the fibers 
 \end{proof}
 
-\begin{lemma}
+\begin{lemma}{\label{lemma:atlasOfMap}}
     Let $P$ be a local property of morphisms of geometric stacks. For
     A morphism between geometric stacks $f : X \to Y$  TFAE 
     \begin{enumerate}
@@ -139,9 +147,9 @@ with $X \to Y$ a geometric cover. Then $h$ has $P$ iff $g$ has $P$
 		\arrow[from=1-2, to=2-2]
 		\arrow["f", from=2-1, to=2-2]
 	\end{tikzcd}\]
-$f'$ has $P$ as a basechange of $f$ along a geometric cover. Now $X \times_Y \Spec A$. Given a a geometric atlas $S \to X \times_Y \Spec A$. The composition will be in $P$.
+$f'$ has $P$ as a basechange of $f$ along a geometric cover. Given a geometric atlas $S \to X \times_Y \Spec A$, it will have $P$, the composition $S \to \Spec A$ will be in $P$.
 \item [2 $\Rightarrow$ 3]
-Both $Y$ and $X \times_Y \Spec A$ are geometric stacks hence admit atlasses.
+$Y$ is a geometric stack, hence admits some geom atlas $\Spec A \to Y$. Again, $X \times_Y \Spec A$ is a geometric stack hence admits a geometric atlass.
 \item [3 $\Rightarrow$ 1]
 	If we have an atlas $\tilde f : \tilde X \to \tilde Y$, then $\tilde X \to \tilde Y \to Y$ has $P$ by stability under composition. Then by (4) $X \to Y$ has $P$, as $\tilde X \to X$ is a geometric cover \\
 
@@ -150,10 +158,7 @@ Both $Y$ and $X \times_Y \Spec A$ are geometric stacks hence admit atlasses.
 
 So we may extend algebraic notions of maps to all geometric stacks:
 \begin{definition}
-	Let $P$ be a property of morphisms of affine schemes, that is local, i.e.
-	\begin{enumerate}
-		\item Stable under composition.
-	\end{enumerate}
+	Let $P$ be a property of morphisms local in affine schemes.
 	
 	 We define a morphism of geometric stacks $f : X \to Y$ to have $P$ iff
 	there exist atlasses and a $P$-map on affines 
@@ -168,11 +173,58 @@ So we may extend algebraic notions of maps to all geometric stacks:
 	\end{tikzcd}\]
 \end{definition}
 \begin{lemma}
-	Let $P$  be a property of morphisms of affine schemes. The induced property of morphisms of geometric stacks is local.
+	Let $P$  be a local property of affine schemes. The induced property of morphisms of geometric stacks is local.
 \end{lemma}
 \begin{proof}
 	\begin{enumerate}
 		\item Ok
+		\item Ok
+		\item By \ref{lemma:local} we only need to show stability under basechange. Let $Z \to W$ have $P$, Given $Y \to W$ a geometric cover. We want to show that a basechagne $Y \times_W Z \to Y$ has $P$. The idea is to construct a common atlas of $Z \to W$ and its basechange. Choose an atlas $\tilde Y \to Y$. Then $\tilde Y \times_W Z \to Y \times_W Z$ is a geometric cover: It is a basechange of $\tilde Y \to Y$, because the outer diagram is a pullback
+		% https://q.uiver.app/#q=WzAsNixbMCwwLCJcXHRpbGRlIFkgXFx0aW1lc19XIFoiXSxbMSwwLCJZIFxcdGltZXNfVyBaIl0sWzAsMSwiXFx0aWxkZSBZIl0sWzEsMSwiWSJdLFsyLDAsIloiXSxbMiwxLCJXIl0sWzAsMl0sWzAsMV0sWzIsM10sWzEsM10sWzMsNV0sWzEsNF0sWzQsNV0sWzEsNSwiIiwxLHsic3R5bGUiOnsibmFtZSI6ImNvcm5lci1pbnZlcnNlIn19XSxbMCwzLCIiLDEseyJzdHlsZSI6eyJuYW1lIjoiY29ybmVyLWludmVyc2UifX1dXQ==
+		\[\begin{tikzcd}
+			{\tilde Y \times_W Z} & {Y \times_W Z} & Z \\
+			{\tilde Y} & Y & W
+			\arrow[from=1-1, to=1-2]
+			\arrow[from=1-1, to=2-1]
+			\arrow["\ulcorner"{anchor=center, pos=0.125}, draw=none, from=1-1, to=2-2]
+			\arrow[from=1-2, to=1-3]
+			\arrow[from=1-2, to=2-2]
+			\arrow["\ulcorner"{anchor=center, pos=0.125}, draw=none, from=1-2, to=2-3]
+			\arrow[from=1-3, to=2-3]
+			\arrow[from=2-1, to=2-2]
+			\arrow[from=2-2, to=2-3]
+		\end{tikzcd}\]
+		Now choose any geometric atlas $S \to \tilde Y \times_W Z$. By composition this induce a map $S \to \tilde Y$: 
+		It is both an atlas of the $P$-map $Z \to W$ and of $ Y\times_W Z \to Y$. So by \ref{lemma:atlasOfMap} $S \to \tilde Y$ has $P$ and thus $Y \times_W Z \to Y$ has $P$. 
+		\item geometric covers have $P$ and we have proven point 2., so one direction is clear.  Now assume 
+		%https://q.uiver.app/#q=WzAsMyxbMCwwLCJYIl0sWzEsMCwiWSJdLFsxLDEsIloiXSxbMCwxLCJmIl0sWzEsMiwiZyJdLFswLDIsImgiLDJdXQ==
+		\[\begin{tikzcd}
+			X & Y \\
+			& Z
+			\arrow["f", from=1-1, to=1-2]
+			\arrow["h"', from=1-1, to=2-2]
+			\arrow["g", from=1-2, to=2-2]
+		\end{tikzcd}\]
+		Such that $f$ is a geometric cover and $h$ has $P$. \\
+		We first reduce to the case where $Z$ is affine. Choose a geometric atlas $\tilde Z \to Z$. Then take the pullbacks
+		% https://q.uiver.app/#q=WzAsNixbMiwwLCJcXHRpbGRlIFoiXSxbMiwxLCJaIl0sWzEsMCwiWSciXSxbMSwxLCJZIl0sWzAsMCwiWCciXSxbMCwxLCJYIl0sWzIsM10sWzMsMV0sWzAsMV0sWzIsMF0sWzIsMSwiIiwxLHsic3R5bGUiOnsibmFtZSI6ImNvcm5lci1pbnZlcnNlIn19XSxbNSwzXSxbNCw1XSxbNSwxLCJQIiwxLHsiY3VydmUiOjJ9XSxbNCwyXSxbNCwzLCIiLDEseyJzdHlsZSI6eyJuYW1lIjoiY29ybmVyLWludmVyc2UifX1dXQ==
+		\[\begin{tikzcd}
+			{X'} & {Y'} & {\tilde Z} \\
+			X & Y & Z
+			\arrow[from=1-1, to=1-2]
+			\arrow[from=1-1, to=2-1]
+			\arrow["\ulcorner"{anchor=center, pos=0.125}, draw=none, from=1-1, to=2-2]
+			\arrow[from=1-2, to=1-3]
+			\arrow[from=1-2, to=2-2]
+			\arrow["\ulcorner"{anchor=center, pos=0.125}, draw=none, from=1-2, to=2-3]
+			\arrow[from=1-3, to=2-3]
+			\arrow[from=2-1, to=2-2]
+			\arrow["P"{description}, curve={height=12pt}, from=2-1, to=2-3]
+			\arrow[from=2-2, to=2-3]
+		\end{tikzcd}\]
+		$X' \to Y'$ is a geometric cover and By 3. $X' \to \tilde Z$ has $P$. \\
+		So we may assume that $Z$ is affine. Then take a geometric atlas $\tilde X \to X$. The map $Y \to Z$ has the atlas $\tilde X \to X \to Z$ which has $P$ by stability under composition. Hence $Y \to Z$ has $P$.
+	
 		
 	\end{enumerate}
 \end{proof}
@@ -218,16 +270,16 @@ Things in $\bP$ we call 'flat'.
 	Given $a : A$ , $I \subset R$, s.th. $\forall x : \Spec A , a(x) \in I$. Then $a \in IA$.
 \end{lemma}
 \begin{prop}
-	An $R$-algebra $A$ is flat iff $\forall M : \Mod_R$ the natural $A$-linear map
+	An $R$-algebra $A$ is flat iff for all finitely generated ideals $I$ the natural $A$-linear map
 	\begin{align*}
-	\phi: A \otimes_R M &\to M^{\Spec A} \\
+	\phi: A \otimes_R I &\to I^{\Spec A} \\
 	a \otimes m &\mapsto a(\bullet) \cdot m
 	\end{align*}
 	is injective.
 \end{prop}
 \begin{proof}
 
-	If $\phi$ is injective: Let $ M \hookrightarrow N$ be an $R$-linear injection. then from the commutativity of
+	If $\phi$ is injective: By lombardi quitte its enough to check the flatness conditions for inclusions $I \hookrightarrow R$. then from the commutativity of
 	% https://q.uiver.app/#q=WzAsNCxbMCwwLCJBIFxcb3RpbWVzX1IgTSJdLFsxLDAsIk1ee1xcU3BlYyBBfSJdLFsxLDEsIk5ee1xcU3BlYyBBfSJdLFswLDEsIkEgXFxvdGltZXNfUiBOIl0sWzEsMiwiIiwwLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoiaG9vayIsInNpZGUiOiJ0b3AifX19XSxbMCwzXSxbMywyXSxbMCwxLCIiLDEseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJob29rIiwic2lkZSI6InRvcCJ9fX1dXQ==
 	\[\begin{tikzcd}
 		{A \otimes_R M} & {M^{\Spec A}} \\
@@ -238,34 +290,20 @@ Things in $\bP$ we call 'flat'.
 		\arrow[from=2-1, to=2-2]
 	\end{tikzcd}\]
 we deduce that the left vertical map is injective. \\
-
-If $A$ is flat, then we may factor $\phi$ as the composite
-\[
-A \otimes_R M \hookrightarrow A \otimes_R M^{\Spec A} \to A \otimes_A M^{\Spec A} = M^{\Spec A}
-\]
-where the first map is injective by applying flatness of $A$ to the injection $M \to M^{\Spec A}$. \\
-
-%Claim 1: Given $\sum_ i a_i \otimes m_i = \sum_j b_j \otimes f_j$ with $m_i \in M, f_j : M^{\Spec A}$, then each $f_j$ is constant. WRONG
-Claim 2: if both $f$ and $af$ are constant, then there exists $r : R$ such that $r | (a-1)$ and $r f = 0$
-If we have shown the claim:
-Let $\sum_i a_i \otimes m_i : \ker \phi$.
-The kernel of the latter above map is generated by terms $a \otimes a'f - aa' \otimes f$.
-Hence we find $a_j , a'_j, f_j$ such that 
-\[
-\sum_i a_i \otimes m_i = \sum_j a_j \otimes a'_j f_j - a_j a'_j \otimes f_j
-\]
-By claim 1, each $f_j$ and $a'_j f_j$ are constant, hence by claim 2 we have $a_j' f_j = f_j$ and we can rewrite the right hand side as
-
-\[
-\sum_j a_j \otimes f_j - a_j a'_j \otimes f_j = \sum_j a_j (1 - a'_j) \otimes f_j 
-\]
-which is zero by claim 2.
-
-Proof of claim 2:
-By 
+Conversely, from the commutative diagram % https://q.uiver.app/#q=WzAsNCxbMCwwLCJBIFxcb3RpbWVzX1IgSSJdLFsxLDAsIkEiXSxbMCwxLCJJXntcXFNwZWMgQX0iXSxbMSwxLCJSXntcXFNwZWMgQX0iXSxbMSwzLCJcXHNpbWVxIl0sWzAsMSwiIiwwLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoiaG9vayIsInNpZGUiOiJ0b3AifX19XSxbMCwyXSxbMiwzXV0=
+\[\begin{tikzcd}
+	{A \otimes_R I} & A \\
+	{I^{\Spec A}} & {R^{\Spec A}}
+	\arrow[hook, from=1-1, to=1-2]
+	\arrow[from=1-1, to=2-1]
+	\arrow["\simeq", from=1-2, to=2-2]
+	\arrow[from=2-1, to=2-2]
+\end{tikzcd}\]
+we deduce that the left vertical map is injective.
 
 
 \end{proof}
+
 %The definition is reasonable because the following
 \end{document}
 

@@ -106,7 +106,7 @@ In this subsection we want to prove that one could equivalently define covering 
 	For all $n : \bN$, $W_n$ covering stacks are $\sum$-stable. \\
 \end{lemma}
 \begin{proof}	
-	Induction over $n$. If $n = 1$, then this is the stability under $\sum$ of $\bT$ \\
+	Induction over $n$. If $n = 0$, then this is the stability under $\sum$ of $\bT$ \\
 	If we wish to prove the statement for $n+1$, we may assume that $W_n$ covering stacks are $\sum$-stable. We have $\Zar \subset \bT \subset W_n$. So we can apply \ref{thm:atlasStableSum}. \\
 \end{proof}	
 \begin{prop}{\label{prop:WTrunc}}
@@ -215,7 +215,7 @@ In a further chapter we will develop this theory further.
 \begin{definition}
 	Let $n \ge -2$. A (covering) geometric $n$-stack is a (covering) geometric stack that is an $n$-type.
 \end{definition}
-\begin{prop}
+\begin{prop}{\label{prop:nstack}}
 	Let $X$ be a stack. For all $n \ge 0$, the following are equivalent:
 	\begin{enumerate}
 		\item $X$ is a (covering) geometric $n+1$-stack
@@ -238,6 +238,13 @@ In a further chapter we will develop this theory further.
 		\item [3. $\Rightarrow$ 2]
 		$Y$ admits a map $S \to Y$  fibered in covering $n$-stacks with $S$ (covering) affine, so the composition $S \to X$ will have the same property by \ref{lemma:coversstableundercomp}.
 	\end{enumerate}
+\end{proof}
+\begin{prop}
+	We have inclusions 
+	\[W_n \subset \CS_{n} \subset W_{n+1}\]
+\end{prop}
+\begin{proof}
+	
 \end{proof}
 
 \subsection{Truncatedness}

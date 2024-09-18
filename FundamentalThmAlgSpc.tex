@@ -68,17 +68,20 @@ Recall the notion of (covering) geometric 0-stacks, which we call (covering) Alg
 
 	\begin{definition}{\label{def:coveringEqRel}}
 		%A modal equivalence relation $R : U^2 \to \bT \Prop$ on a set $U$ is covering if the fibers $R_s \equiv \sum_{t: S} R(s,t)$  are covering 0-stacks.
-		An equivalence relation $R$ on an affine $S$ is called covering, if all the propositions $R(s,t)$ are sheaves and one of the following conditions is satisfied
-		
-		\begin{itemize}
-			\item  every fiber $R_s \equiv \sum_{t: S} R(s,t)$ merely admits a $\bT$-catlas.
-			\item  every fiber $R_s \equiv \sum_{t: S} R(s,t)$ is a covering 0-stack.
-		\end{itemize}
+		Let $S$ be a geometric stack. An equivalence relation $R$ on $S$ is called covering, if all the propositions $R(s,t)$ are sheaves and every fiber $R_s \equiv \sum_{t: S} R(s,t)$ is a covering 0-stack. 
 	\end{definition}
-
+\begin{lemma}
+	If $R$ is covering on $S$, then the propsotions $R(x,y)$ are geometric propositions.
+\end{lemma}
+\begin{proof}
+	 For all $s , t : S$, $R(s,t)$ is a geometric proposition: $R(s,t)$ is the fiber of the projection $\sum_{t : S} R(s,t) \to S$ between geometric stacks, which are stable under finite limits. \\
+\end{proof}
+\begin{lemma}
+	If $S$ is affine, then a modal equivalence relation on $S$ is covering iff every fiber $R_s \equiv \sum_{t: S} R(s,t)$ merely admits a $\bT$-catlas.
+\end{lemma}
 \begin{proof}
 	Every sheaf admitting a $\bT$-catlas is a covering 0-stack. 
-	Conversely: if the fibers are covering 0-stacks. Let us first observe, that for all $s , t : S$, $R(s,t)$ is a geometric proposition: $R(s,t)$ is the fiber of the projection $\sum_{t : S} R(s,t) \to S$ between geometric stacks, which are stable under finite limits. \\
+	Conversely: if the fibers are covering 0-stacks.
 	
 	For all $t : S$ we can choose a geometric atlas $\Spec A_t \to R(s,t)$ by \ref{def:algprop}. Then 
 	\[
@@ -86,14 +89,11 @@ Recall the notion of (covering) geometric 0-stacks, which we call (covering) Alg
 	\]
 	is a $\bT$-atlas. As $\sum_{t : S} R(s,t)$ is a covering 0-stack by assumption, the map has to be a $\bT$-catlas by \ref{lemma:atlasIsCatlas}. 
 \end{proof}
-\begin{think}
-	It may be useful to define covering equivalence relations also for general modal sets and not only affines
-\end{think}
 
 \begin{lemma}{\label{lemma:fundamental-property-algebraic-spaces}}
 	%Assume that $\bT$ satisfies descent for propositions and for sets 
 %	Assume that the topology has descent.
-	Given an affine ($\bT \Set$ would be enough, cmp prev remark) $X$, the following types are equivalent:
+	Given an affine $X$, the following types are equivalent:
 	\begin{itemize}
 		\item The type of covering equivalence relations on $X$.
 		\item The type of $\bT$sets $Y$ equipped with a map $X \to Y$ fibered in types admitting a $\bT$-catlas.
