@@ -163,7 +163,14 @@ Now we want to show that the clash of terminology regarding 'covering' is reason
 \begin{proof}
 	As $\Spec A \simeq \sum_{x : X} \fib_f x$ is a dependent sum of covering stacks, it is a covering stack again by \ref{thm:CSSum}. We conclude by \ref{prop:affineCoveringStack}.
 \end{proof}	
-
+\begin{lemma}{\label{lemma:geomStackPlusStable}}
+	geometric stacks are stable under finite sums.
+	If $\bT$ is finer than the zariski topology, then this holds for covering geometric stacks as well
+\end{lemma}
+\begin{proof}
+	We have to show that finite sums of geometric (c)atlasses are geometric (c)atlasses.
+	For the geometric case just use that affines are stable under finite sums. For the covering case use that $1 + \hdots + 1 \in \Zar \subset \bT$, hence the topology is stable under finite sums.
+\end{proof}
 %\subsection{Geometric stacks}
 
 \begin{lemma}{\label{lemma:geometricStacksClosedUnderId}}

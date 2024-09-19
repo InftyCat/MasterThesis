@@ -27,7 +27,7 @@
 	Let $X$ be a modal set. The following are equivalent:
 	\begin{enumerate}
 		\item $X$ is a (covering) geometric 0-stack
-		\item $X$ is merely of the form $L_\bT (U / R)$ for some (covering) affine $U$ and  $R : U^2 \to \Prop$ a covering equivalence relation. 
+		\item $X$ is merely of the form $L_\bT (U / R)$ for some (covering) affine $U$ and  $R : U^2 \to \Prop_{\ci}$ a covering equivalence relation. 
 		\item there exists some map $S \to X$ with $S$ (covering) affine whose fibers merely have $\bT$-catlasses.
 	\end{enumerate}
 	We call this class (covering) algebraic spaces.
@@ -102,11 +102,14 @@ This follows from the observation, that the equivalence relation determined by $
 
 
 \section{Group quotients}
-For this section let $G$ denote a group that is a covering 0-stack. Let $X$ be a stack equipped with a free $G$ action, i.e. for all $x , y : X$ the type 
-\[
-\sum_{g: G} g x = y
-\]
-is a proposition. 
+For this section let $G$ denote a group that is a covering 0-stack. Let $X$ be a stack equipped with a $G$ action, 
+\begin{definition}
+	A $G$ action on $X$ is free, if for all $x , y : X$ the type 
+	\[
+	\sum_{g: G} g x = y
+	\]
+	is a proposition. 
+\end{definition}
 \begin{lemma}
 	Let $G$ act freely on a stack $X$. Then the relation
 	\[
@@ -122,8 +125,25 @@ is a proposition.
 	is a covering 0-stack by assumption.
 \end{proof}
 \begin{lemma}
-	geometric $(n)$-stacks are stable by quotients of covering Group sheaves.
+	For $n \ge 0$, geometric $(n)$-stacks are stable by free quotients of covering 0-stack Groups.
 \end{lemma}
 \begin{proof}
-	The map $ X \to L_T (X / G)$ is fibered in covering 0-stacks. As $X$ is a geometric stack, the quotient is a geometric stack as well.
+	The map $ X \to L_T (X / G)$ is fibered in covering 0-stacks, so in particular covering $n-1$-stacks. As $X$ is a geometric $n$-stack, the quotient is a geometric $n$-stack as well, This follows by the description in \label{prop:nstack}, choosing a geometric atlas of $X$ and postcomposing this to get a geometric atlas of the quotient.
+\end{proof}
+
+\begin{lemma}
+	Let $X$ be a geometric stack, whose identity types are covering stacks. Let $G$ be a finite group acting on $X$. Then $L_\bT (X / G)$ is a geometric stack.
+\end{lemma}
+\begin{proof}
+	Consider for $x , y : X$ , $R(x,y) \equiv \| \sum_{g : G} g x = y\|_\bT$ which is indeed modal. We have to check that the relation is covering, i.e. that for all $x : X$, 
+	\[
+	\sum_{y: X} \|\sum_{g: G} g x = y\|_\bT
+	\]
+	is a covering stack. \\
+	To prove this, as covering stacks are stable under quotients, it suffices to show, that the map
+	\[
+	G \simeq \sum_{y : X} \sum_{g : G} g x = y \to \sum_{y: X} \|\sum_{g: G} g x = y\|_\bT
+	\]
+	is a geometric cover. But the fibers look like $\sum_{g : G} gx  = y$ which is a finite sum of identity types in $X$, which were assumed to be covering stacks. By \ref{lemma:geomStackPlusStable} the fibers are covering stacks.
+	
 \end{proof}
