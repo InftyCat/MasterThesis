@@ -1,0 +1,149 @@
+\section{Local properties}
+
+\begin{definition}
+	Let $\cV \subset \cU$ a subclass of types be stable under finite limits. 
+	We call a property $P$ of morphisms of types in $\cV$ local, if 
+	\begin{enumerate}
+		\item its satisfied by identities in $\cV$,
+		\item stable under composition 
+		\item Given $X,Y,Z,W \in \cV$. if $Y \to W$ is a geometric cover , then 
+		% https://q.uiver.app/#q=WzAsNCxbMCwwLCJYIl0sWzAsMSwiWSJdLFsxLDEsIlciXSxbMSwwLCJaIl0sWzAsM10sWzAsMSwiZiciLDJdLFsxLDJdLFszLDIsImYiXSxbMCwyLCIiLDEseyJzdHlsZSI6eyJuYW1lIjoiY29ybmVyLWludmVyc2UifX1dXQ==
+		\[\begin{tikzcd}
+			X & Z \\
+			Y & W
+			\arrow[from=1-1, to=1-2]
+			\arrow["{f'}"', from=1-1, to=2-1]
+			\arrow["\ulcorner"{anchor=center, pos=0.125}, draw=none, from=1-1, to=2-2]
+			\arrow["f", from=1-2, to=2-2]
+			\arrow[from=2-1, to=2-2]
+		\end{tikzcd}\]
+		$f$ has $P$ iff $f'$ has $P$.
+		\item
+		Given a commutative triangle in $\cV$% https://q.uiver.app/#q=WzAsMyxbMCwwLCJYIl0sWzEsMCwiWSJdLFsxLDEsIloiXSxbMCwxLCJmIl0sWzEsMiwiZyJdLFswLDIsImgiLDJdXQ==
+		\[\begin{tikzcd}
+			X & Y \\
+			& Z
+			\arrow["f", from=1-1, to=1-2]
+			\arrow["h"', from=1-1, to=2-2]
+			\arrow["g", from=1-2, to=2-2]
+		\end{tikzcd}\]
+		with $X \to Y$ a geometric cover. Then $h$ has $P$ iff $g$ has $P$
+	\end{enumerate}
+	\begin{lemma}{\label{lemma:local}}
+		If $P$ is local, then 
+		\begin{itemize}
+			\item geometric covers have P
+			\item in Point 3, The statement 'If $f'$ has $P$ then $f$ has $P$' is automatic by Point 4.
+		\end{itemize}
+	\end{lemma}
+\end{definition}
+\begin{lemma}
+	Beeing a geometric cover is local.
+\end{lemma}
+\begin{proof}
+	Reduce to the case of $Z = 1$. If $X \to Y$ is a geometric cover, then $X$ is a covering stack iff $Y$ is a covering stack by stability under quotients and under sums. If both are coverings stacks, then the fibers 
+\end{proof}
+
+\begin{lemma}{\label{lemma:atlasOfMap}}
+	Let $P$ be a local property of morphisms of geometric stacks. For
+	A morphism between geometric stacks $f : X \to Y$  TFAE 
+	\begin{enumerate}
+		\item $f$ has $P$
+		
+		\item For any Atlas $\Spec A \to Y$ and any atlas $S \to X \times_Y \Spec A$ the composite $S \to \Spec A$ has $P$
+		\item $f$ has an atlas that has $P$.
+	\end{enumerate}
+\end{lemma}
+\begin{proof}
+	\begin{itemize}
+		\item [1 $\Rightarrow$ 2]
+		Given a geometric atlas $\Spec A \to Y$ and taking the pullback % https://q.uiver.app/#q=WzAsNCxbMCwwLCJYIFxcdGltZXNfWSBcXFNwZWMgQSJdLFswLDEsIlgiXSxbMSwwLCJcXFNwZWMgQSJdLFsxLDEsIlkiXSxbMSwzLCJmIl0sWzAsMiwiZiciXSxbMiwzXSxbMCwxXV0=
+		\[\begin{tikzcd}
+			{X \times_Y \Spec A} & {\Spec A} \\
+			X & Y
+			\arrow["{f'}", from=1-1, to=1-2]
+			\arrow[from=1-1, to=2-1]
+			\arrow[from=1-2, to=2-2]
+			\arrow["f", from=2-1, to=2-2]
+		\end{tikzcd}\]
+		$f'$ has $P$ as a basechange of $f$ along a geometric cover. Given a geometric atlas $S \to X \times_Y \Spec A$, it will have $P$, the composition $S \to \Spec A$ will be in $P$.
+		\item [2 $\Rightarrow$ 3]
+		$Y$ is a geometric stack, hence admits some geom atlas $\Spec A \to Y$. Again, $X \times_Y \Spec A$ is a geometric stack hence admits a geometric atlass.
+		\item [3 $\Rightarrow$ 1]
+		If we have an atlas $\tilde f : \tilde X \to \tilde Y$, then $\tilde X \to \tilde Y \to Y$ has $P$ by stability under composition. Then by (4) $X \to Y$ has $P$, as $\tilde X \to X$ is a geometric cover \\
+		
+	\end{itemize}
+\end{proof}
+
+So we may extend algebraic notions of maps to all geometric stacks:
+\begin{definition}
+	Let $P$ be a property of morphisms local in affine schemes.
+	
+	We define a morphism of geometric stacks $f : X \to Y$ to have $P$ iff
+	there exist atlasses and a $P$-map on affines 
+	% https://q.uiver.app/#q=WzAsNCxbMCwwLCJcXFNwZWMgQSJdLFswLDEsIlgiXSxbMSwxLCJZIl0sWzEsMCwiXFxTcGVjIEIiXSxbMywyXSxbMCwxXSxbMSwyLCJmIiwxXSxbMCwzLCJcXGhhdCBmIiwwLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV1d
+	\[\begin{tikzcd}
+		{\Spec A} & {\Spec B} \\
+		X & Y
+		\arrow["{\hat f}", dashed, from=1-1, to=1-2]
+		\arrow[from=1-1, to=2-1]
+		\arrow[from=1-2, to=2-2]
+		\arrow["f"{description}, from=2-1, to=2-2]
+	\end{tikzcd}\]
+\end{definition}
+\begin{lemma}
+	Let $P$  be a local property of affine schemes. The induced property of morphisms of geometric stacks is local.
+\end{lemma}
+\begin{proof}
+	\begin{enumerate}
+		\item Ok
+		\item Ok
+		\item By \ref{lemma:local} we only need to show stability under basechange. Let $Z \to W$ have $P$, Given $Y \to W$ a geometric cover. We want to show that a basechagne $Y \times_W Z \to Y$ has $P$. The idea is to construct a common atlas of $Z \to W$ and its basechange. Choose an atlas $\tilde Y \to Y$. Then $\tilde Y \times_W Z \to Y \times_W Z$ is a geometric cover: It is a basechange of $\tilde Y \to Y$, because the outer diagram is a pullback
+		% https://q.uiver.app/#q=WzAsNixbMCwwLCJcXHRpbGRlIFkgXFx0aW1lc19XIFoiXSxbMSwwLCJZIFxcdGltZXNfVyBaIl0sWzAsMSwiXFx0aWxkZSBZIl0sWzEsMSwiWSJdLFsyLDAsIloiXSxbMiwxLCJXIl0sWzAsMl0sWzAsMV0sWzIsM10sWzEsM10sWzMsNV0sWzEsNF0sWzQsNV0sWzEsNSwiIiwxLHsic3R5bGUiOnsibmFtZSI6ImNvcm5lci1pbnZlcnNlIn19XSxbMCwzLCIiLDEseyJzdHlsZSI6eyJuYW1lIjoiY29ybmVyLWludmVyc2UifX1dXQ==
+		\[\begin{tikzcd}
+			{\tilde Y \times_W Z} & {Y \times_W Z} & Z \\
+			{\tilde Y} & Y & W
+			\arrow[from=1-1, to=1-2]
+			\arrow[from=1-1, to=2-1]
+			\arrow["\ulcorner"{anchor=center, pos=0.125}, draw=none, from=1-1, to=2-2]
+			\arrow[from=1-2, to=1-3]
+			\arrow[from=1-2, to=2-2]
+			\arrow["\ulcorner"{anchor=center, pos=0.125}, draw=none, from=1-2, to=2-3]
+			\arrow[from=1-3, to=2-3]
+			\arrow[from=2-1, to=2-2]
+			\arrow[from=2-2, to=2-3]
+		\end{tikzcd}\]
+		Now choose any geometric atlas $S \to \tilde Y \times_W Z$. By composition this induce a map $S \to \tilde Y$: 
+		It is both an atlas of the $P$-map $Z \to W$ and of $ Y\times_W Z \to Y$. So by \ref{lemma:atlasOfMap} $S \to \tilde Y$ has $P$ and thus $Y \times_W Z \to Y$ has $P$. 
+		\item geometric covers have $P$ and we have proven point 2., so one direction is clear.  Now assume 
+		%https://q.uiver.app/#q=WzAsMyxbMCwwLCJYIl0sWzEsMCwiWSJdLFsxLDEsIloiXSxbMCwxLCJmIl0sWzEsMiwiZyJdLFswLDIsImgiLDJdXQ==
+		\[\begin{tikzcd}
+			X & Y \\
+			& Z
+			\arrow["f", from=1-1, to=1-2]
+			\arrow["h"', from=1-1, to=2-2]
+			\arrow["g", from=1-2, to=2-2]
+		\end{tikzcd}\]
+		Such that $f$ is a geometric cover and $h$ has $P$. \\
+		We first reduce to the case where $Z$ is affine. Choose a geometric atlas $\tilde Z \to Z$. Then take the pullbacks
+		% https://q.uiver.app/#q=WzAsNixbMiwwLCJcXHRpbGRlIFoiXSxbMiwxLCJaIl0sWzEsMCwiWSciXSxbMSwxLCJZIl0sWzAsMCwiWCciXSxbMCwxLCJYIl0sWzIsM10sWzMsMV0sWzAsMV0sWzIsMF0sWzIsMSwiIiwxLHsic3R5bGUiOnsibmFtZSI6ImNvcm5lci1pbnZlcnNlIn19XSxbNSwzXSxbNCw1XSxbNSwxLCJQIiwxLHsiY3VydmUiOjJ9XSxbNCwyXSxbNCwzLCIiLDEseyJzdHlsZSI6eyJuYW1lIjoiY29ybmVyLWludmVyc2UifX1dXQ==
+		\[\begin{tikzcd}
+			{X'} & {Y'} & {\tilde Z} \\
+			X & Y & Z
+			\arrow[from=1-1, to=1-2]
+			\arrow[from=1-1, to=2-1]
+			\arrow["\ulcorner"{anchor=center, pos=0.125}, draw=none, from=1-1, to=2-2]
+			\arrow[from=1-2, to=1-3]
+			\arrow[from=1-2, to=2-2]
+			\arrow["\ulcorner"{anchor=center, pos=0.125}, draw=none, from=1-2, to=2-3]
+			\arrow[from=1-3, to=2-3]
+			\arrow[from=2-1, to=2-2]
+			\arrow["P"{description}, curve={height=12pt}, from=2-1, to=2-3]
+			\arrow[from=2-2, to=2-3]
+		\end{tikzcd}\]
+		$X' \to Y'$ is a geometric cover and By 3. $X' \to \tilde Z$ has $P$. \\
+		So we may assume that $Z$ is affine. Then take a geometric atlas $\tilde X \to X$. The map $Y \to Z$ has the atlas $\tilde X \to X \to Z$ which has $P$ by stability under composition. Hence $Y \to Z$ has $P$.
+		
+		
+	\end{enumerate}
+\end{proof}

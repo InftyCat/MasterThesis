@@ -1,0 +1,75 @@
+\section{Flat}
+Consider a lex modality $L$.
+\begin{definition}
+	A subset of affines $\bP$ \emph{flattens} $L$ if
+	\begin{itemize}
+		\item $1 \in \bP$
+		\item $\bP$ is stable under finite sums
+		\item 	 the pretopology $\bT := \{ X \in \bP \ | \ L \| X \| \}$ induces the lex modality $L$.
+	\end{itemize}
+	
+	%	\begin{itemize}
+	%		\item Either $X$ is contractible
+	%		\item Or Whenever we find $\Spec B \in \bT$ such that $\Spec B \to L \|X\|$
+	%	\end{itemize}
+	%	generates $L$.
+\end{definition}
+
+Things in $\bP$ we call 'flat'.
+\begin{example}
+	For the Zariski topology, the flat affines are the finite sums of principal opens.
+\end{example}
+\begin{example}
+	For the fppf topology, flat is flat
+\end{example}
+\begin{example}
+	For the etale topology, flat affines are the formally \etale + flats.
+\end{example}
+\begin{lemma}
+	If $\Spec A \in \bP$, then $\| \Spec A\|_\bT$ is geometric.
+\end{lemma}
+\begin{lemma}
+	If $X$ is a covering stack and $Y$ a flat geometric stack, then $X + Y$ is covering
+\end{lemma}
+\begin{proof}
+	Let $\bT \ni \tilde X \to X, \tilde Y \to Y$ be geometric atlasses. Then $\tilde X+ \tilde Y$ is flat and $\bT$-merely inhabited, hence in the topology.
+\end{proof}
+
+
+\begin{lemma}
+	Given $a : A$ , $I \subset R$, s.th. $\forall x : \Spec A , a(x) \in I$. Then $a \in IA$.
+\end{lemma}
+\begin{prop}
+	An $R$-algebra $A$ is flat iff for all finitely generated ideals $I$ the natural $A$-linear map
+	\begin{align*}
+		\phi: A \otimes_R I &\to I^{\Spec A} \\
+		a \otimes m &\mapsto a(\bullet) \cdot m
+	\end{align*}
+	is injective.
+\end{prop}
+\begin{proof}
+	
+	If $\phi$ is injective: By lombardi quitte its enough to check the flatness conditions for inclusions $I \hookrightarrow R$. then from the commutativity of
+	% https://q.uiver.app/#q=WzAsNCxbMCwwLCJBIFxcb3RpbWVzX1IgTSJdLFsxLDAsIk1ee1xcU3BlYyBBfSJdLFsxLDEsIk5ee1xcU3BlYyBBfSJdLFswLDEsIkEgXFxvdGltZXNfUiBOIl0sWzEsMiwiIiwwLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoiaG9vayIsInNpZGUiOiJ0b3AifX19XSxbMCwzXSxbMywyXSxbMCwxLCIiLDEseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJob29rIiwic2lkZSI6InRvcCJ9fX1dXQ==
+	\[\begin{tikzcd}
+		{A \otimes_R M} & {M^{\Spec A}} \\
+		{A \otimes_R N} & {N^{\Spec A}}
+		\arrow[hook, from=1-1, to=1-2]
+		\arrow[from=1-1, to=2-1]
+		\arrow[hook, from=1-2, to=2-2]
+		\arrow[from=2-1, to=2-2]
+	\end{tikzcd}\]
+	we deduce that the left vertical map is injective. \\
+	Conversely, from the commutative diagram % https://q.uiver.app/#q=WzAsNCxbMCwwLCJBIFxcb3RpbWVzX1IgSSJdLFsxLDAsIkEiXSxbMCwxLCJJXntcXFNwZWMgQX0iXSxbMSwxLCJSXntcXFNwZWMgQX0iXSxbMSwzLCJcXHNpbWVxIl0sWzAsMSwiIiwwLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoiaG9vayIsInNpZGUiOiJ0b3AifX19XSxbMCwyXSxbMiwzXV0=
+	\[\begin{tikzcd}
+		{A \otimes_R I} & A \\
+		{I^{\Spec A}} & {R^{\Spec A}}
+		\arrow[hook, from=1-1, to=1-2]
+		\arrow[from=1-1, to=2-1]
+		\arrow["\simeq", from=1-2, to=2-2]
+		\arrow[from=2-1, to=2-2]
+	\end{tikzcd}\]
+	we deduce that the left vertical map is injective.
+	
+	
+\end{proof}

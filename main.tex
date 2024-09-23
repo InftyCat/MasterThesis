@@ -9,6 +9,8 @@
 \newcommand{\St}{\mathsf{St}}
 \newcommand{\CS}{\mathsf{CS}}
 \newcommand{\Zar}{\mathsf{Zar}}
+\newcommand{\refl}{\mathsf{refl}}
+\newcommand{\ap}{\mathsf{ap}}
 \newcommand{\Aff}{\mathsf{Aff}}
 \include{preamble}
 
@@ -71,239 +73,157 @@
 \include{Stacks}
 \include{Descent}
 \include{SaturatedTopology}
-
-
+\include{LocalProperties}
+\include{Flat}
 \include{GeomPropositions}
 \include{FundamentalThmAlgSpc}
 \include{AlgebraicSpace}
 
 
 
-\section{Local properties}
 
+\section{Deloopings and Truncations}
+
+We denote $\| \cdot \|_n^\bT := L_\bT \| \cdot \|_n$, which is a modality.
 \begin{definition}
-	Let $\cV \subset \cU$ a subclass of types be stable under finite limits. 
-	We call a property $P$ of morphisms of types in $\cV$ local, if 
-	\begin{enumerate}
-		\item its satisfied by identities in $\cV$,
-		\item stable under composition 
-		\item Given $X,Y,Z,W \in \cV$. if $Y \to W$ is a geometric cover , then 
-			% https://q.uiver.app/#q=WzAsNCxbMCwwLCJYIl0sWzAsMSwiWSJdLFsxLDEsIlciXSxbMSwwLCJaIl0sWzAsM10sWzAsMSwiZiciLDJdLFsxLDJdLFszLDIsImYiXSxbMCwyLCIiLDEseyJzdHlsZSI6eyJuYW1lIjoiY29ybmVyLWludmVyc2UifX1dXQ==
-			\[\begin{tikzcd}
-				X & Z \\
-				Y & W
-				\arrow[from=1-1, to=1-2]
-				\arrow["{f'}"', from=1-1, to=2-1]
-				\arrow["\ulcorner"{anchor=center, pos=0.125}, draw=none, from=1-1, to=2-2]
-				\arrow["f", from=1-2, to=2-2]
-				\arrow[from=2-1, to=2-2]
-			\end{tikzcd}\]
-		$f$ has $P$ iff $f'$ has $P$.
-		\item
-	Given a commutative triangle in $\cV$% https://q.uiver.app/#q=WzAsMyxbMCwwLCJYIl0sWzEsMCwiWSJdLFsxLDEsIloiXSxbMCwxLCJmIl0sWzEsMiwiZyJdLFswLDIsImgiLDJdXQ==
-	\[\begin{tikzcd}
-		X & Y \\
-		& Z
-		\arrow["f", from=1-1, to=1-2]
-		\arrow["h"', from=1-1, to=2-2]
-		\arrow["g", from=1-2, to=2-2]
-	\end{tikzcd}\]
-with $X \to Y$ a geometric cover. Then $h$ has $P$ iff $g$ has $P$
-\end{enumerate}
-\begin{lemma}{\label{lemma:local}}
-	If $P$ is local, then 
-	\begin{itemize}
-		\item geometric covers have P
-		\item in Point 3, The statement 'If $f'$ has $P$ then $f$ has $P$' is automatic by Point 4.
-	\end{itemize}
-\end{lemma}
+	A pointed stack $(X,x)$ is called $\bT$-connected if for any $y : X$ we have $\|x = y\|_\bT$.
 \end{definition}
-\begin{lemma}
-	Beeing a geometric cover is local.
-\end{lemma}
-\begin{proof}
-	Reduce to the case of $Z = 1$. If $X \to Y$ is a geometric cover, then $X$ is a covering stack iff $Y$ is a covering stack by stability under quotients and under sums. If both are coverings stacks, then the fibers 
-\end{proof}
-
-\begin{lemma}{\label{lemma:atlasOfMap}}
-    Let $P$ be a local property of morphisms of geometric stacks. For
-    A morphism between geometric stacks $f : X \to Y$  TFAE 
-    \begin{enumerate}
-    	\item $f$ has $P$
-
-    	\item For any Atlas $\Spec A \to Y$ and any atlas $S \to X \times_Y \Spec A$ the composite $S \to \Spec A$ has $P$
-	    \item $f$ has an atlas that has $P$.
-    \end{enumerate}
-\end{lemma}
-\begin{proof}
-\begin{itemize}
-	\item [1 $\Rightarrow$ 2]
-	Given a geometric atlas $\Spec A \to Y$ and taking the pullback % https://q.uiver.app/#q=WzAsNCxbMCwwLCJYIFxcdGltZXNfWSBcXFNwZWMgQSJdLFswLDEsIlgiXSxbMSwwLCJcXFNwZWMgQSJdLFsxLDEsIlkiXSxbMSwzLCJmIl0sWzAsMiwiZiciXSxbMiwzXSxbMCwxXV0=
-	\[\begin{tikzcd}
-		{X \times_Y \Spec A} & {\Spec A} \\
-		X & Y
-		\arrow["{f'}", from=1-1, to=1-2]
-		\arrow[from=1-1, to=2-1]
-		\arrow[from=1-2, to=2-2]
-		\arrow["f", from=2-1, to=2-2]
-	\end{tikzcd}\]
-$f'$ has $P$ as a basechange of $f$ along a geometric cover. Given a geometric atlas $S \to X \times_Y \Spec A$, it will have $P$, the composition $S \to \Spec A$ will be in $P$.
-\item [2 $\Rightarrow$ 3]
-$Y$ is a geometric stack, hence admits some geom atlas $\Spec A \to Y$. Again, $X \times_Y \Spec A$ is a geometric stack hence admits a geometric atlass.
-\item [3 $\Rightarrow$ 1]
-	If we have an atlas $\tilde f : \tilde X \to \tilde Y$, then $\tilde X \to \tilde Y \to Y$ has $P$ by stability under composition. Then by (4) $X \to Y$ has $P$, as $\tilde X \to X$ is a geometric cover \\
-
-\end{itemize}
-\end{proof}
-
-So we may extend algebraic notions of maps to all geometric stacks:
 \begin{definition}
-	Let $P$ be a property of morphisms local in affine schemes.
-	
-	 We define a morphism of geometric stacks $f : X \to Y$ to have $P$ iff
-	there exist atlasses and a $P$-map on affines 
-	% https://q.uiver.app/#q=WzAsNCxbMCwwLCJcXFNwZWMgQSJdLFswLDEsIlgiXSxbMSwxLCJZIl0sWzEsMCwiXFxTcGVjIEIiXSxbMywyXSxbMCwxXSxbMSwyLCJmIiwxXSxbMCwzLCJcXGhhdCBmIiwwLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV1d
-	\[\begin{tikzcd}
-		{\Spec A} & {\Spec B} \\
-		X & Y
-		\arrow["{\hat f}", dashed, from=1-1, to=1-2]
-		\arrow[from=1-1, to=2-1]
-		\arrow[from=1-2, to=2-2]
-		\arrow["f"{description}, from=2-1, to=2-2]
-	\end{tikzcd}\]
-\end{definition}
-\begin{lemma}
-	Let $P$  be a local property of affine schemes. The induced property of morphisms of geometric stacks is local.
-\end{lemma}
-\begin{proof}
-	\begin{enumerate}
-		\item Ok
-		\item Ok
-		\item By \ref{lemma:local} we only need to show stability under basechange. Let $Z \to W$ have $P$, Given $Y \to W$ a geometric cover. We want to show that a basechagne $Y \times_W Z \to Y$ has $P$. The idea is to construct a common atlas of $Z \to W$ and its basechange. Choose an atlas $\tilde Y \to Y$. Then $\tilde Y \times_W Z \to Y \times_W Z$ is a geometric cover: It is a basechange of $\tilde Y \to Y$, because the outer diagram is a pullback
-		% https://q.uiver.app/#q=WzAsNixbMCwwLCJcXHRpbGRlIFkgXFx0aW1lc19XIFoiXSxbMSwwLCJZIFxcdGltZXNfVyBaIl0sWzAsMSwiXFx0aWxkZSBZIl0sWzEsMSwiWSJdLFsyLDAsIloiXSxbMiwxLCJXIl0sWzAsMl0sWzAsMV0sWzIsM10sWzEsM10sWzMsNV0sWzEsNF0sWzQsNV0sWzEsNSwiIiwxLHsic3R5bGUiOnsibmFtZSI6ImNvcm5lci1pbnZlcnNlIn19XSxbMCwzLCIiLDEseyJzdHlsZSI6eyJuYW1lIjoiY29ybmVyLWludmVyc2UifX1dXQ==
-		\[\begin{tikzcd}
-			{\tilde Y \times_W Z} & {Y \times_W Z} & Z \\
-			{\tilde Y} & Y & W
-			\arrow[from=1-1, to=1-2]
-			\arrow[from=1-1, to=2-1]
-			\arrow["\ulcorner"{anchor=center, pos=0.125}, draw=none, from=1-1, to=2-2]
-			\arrow[from=1-2, to=1-3]
-			\arrow[from=1-2, to=2-2]
-			\arrow["\ulcorner"{anchor=center, pos=0.125}, draw=none, from=1-2, to=2-3]
-			\arrow[from=1-3, to=2-3]
-			\arrow[from=2-1, to=2-2]
-			\arrow[from=2-2, to=2-3]
-		\end{tikzcd}\]
-		Now choose any geometric atlas $S \to \tilde Y \times_W Z$. By composition this induce a map $S \to \tilde Y$: 
-		It is both an atlas of the $P$-map $Z \to W$ and of $ Y\times_W Z \to Y$. So by \ref{lemma:atlasOfMap} $S \to \tilde Y$ has $P$ and thus $Y \times_W Z \to Y$ has $P$. 
-		\item geometric covers have $P$ and we have proven point 2., so one direction is clear.  Now assume 
-		%https://q.uiver.app/#q=WzAsMyxbMCwwLCJYIl0sWzEsMCwiWSJdLFsxLDEsIloiXSxbMCwxLCJmIl0sWzEsMiwiZyJdLFswLDIsImgiLDJdXQ==
-		\[\begin{tikzcd}
-			X & Y \\
-			& Z
-			\arrow["f", from=1-1, to=1-2]
-			\arrow["h"', from=1-1, to=2-2]
-			\arrow["g", from=1-2, to=2-2]
-		\end{tikzcd}\]
-		Such that $f$ is a geometric cover and $h$ has $P$. \\
-		We first reduce to the case where $Z$ is affine. Choose a geometric atlas $\tilde Z \to Z$. Then take the pullbacks
-		% https://q.uiver.app/#q=WzAsNixbMiwwLCJcXHRpbGRlIFoiXSxbMiwxLCJaIl0sWzEsMCwiWSciXSxbMSwxLCJZIl0sWzAsMCwiWCciXSxbMCwxLCJYIl0sWzIsM10sWzMsMV0sWzAsMV0sWzIsMF0sWzIsMSwiIiwxLHsic3R5bGUiOnsibmFtZSI6ImNvcm5lci1pbnZlcnNlIn19XSxbNSwzXSxbNCw1XSxbNSwxLCJQIiwxLHsiY3VydmUiOjJ9XSxbNCwyXSxbNCwzLCIiLDEseyJzdHlsZSI6eyJuYW1lIjoiY29ybmVyLWludmVyc2UifX1dXQ==
-		\[\begin{tikzcd}
-			{X'} & {Y'} & {\tilde Z} \\
-			X & Y & Z
-			\arrow[from=1-1, to=1-2]
-			\arrow[from=1-1, to=2-1]
-			\arrow["\ulcorner"{anchor=center, pos=0.125}, draw=none, from=1-1, to=2-2]
-			\arrow[from=1-2, to=1-3]
-			\arrow[from=1-2, to=2-2]
-			\arrow["\ulcorner"{anchor=center, pos=0.125}, draw=none, from=1-2, to=2-3]
-			\arrow[from=1-3, to=2-3]
-			\arrow[from=2-1, to=2-2]
-			\arrow["P"{description}, curve={height=12pt}, from=2-1, to=2-3]
-			\arrow[from=2-2, to=2-3]
-		\end{tikzcd}\]
-		$X' \to Y'$ is a geometric cover and By 3. $X' \to \tilde Z$ has $P$. \\
-		So we may assume that $Z$ is affine. Then take a geometric atlas $\tilde X \to X$. The map $Y \to Z$ has the atlas $\tilde X \to X \to Z$ which has $P$ by stability under composition. Hence $Y \to Z$ has $P$.
-	
-		
-	\end{enumerate}
-\end{proof}
-\section{Flat}
-Consider a lex modality $L$.
-\begin{definition}
-	A subset of affines $\bP$ \emph{flattens} $L$ if
-	\begin{itemize}
-		\item $1 \in \bP$
-		\item $\bP$ is stable under finite sums
-		\item 	 the pretopology $\bT := \{ X \in \bP \ | \ L \| X \| \}$ induces the lex modality $L$.
-	\end{itemize}
-
-%	\begin{itemize}
-%		\item Either $X$ is contractible
-%		\item Or Whenever we find $\Spec B \in \bT$ such that $\Spec B \to L \|X\|$
-%	\end{itemize}
-%	generates $L$.
+	Let $G$ be a stack. A delooping stack of $G$ is a  pointed $\bT$-connected stack $B G$ equipped with an equivalence $\Omega B G \simeq G$.
 \end{definition}
 
-Things in $\bP$ we call 'flat'.
-\begin{example}
-	For the Zariski topology, the flat affines are the finite sums of principal opens.
-\end{example}
-\begin{example}
-	For the fppf topology, flat is flat
-\end{example}
-\begin{example}
-	For the etale topology, flat affines are the formally \etale + flats.
-\end{example}
-\begin{lemma}
-	If $\Spec A \in \bP$, then $\| \Spec A\|_\bT$ is geometric.
-\end{lemma}
-\begin{lemma}
-	If $X$ is a covering stack and $Y$ a flat geometric stack, then $X + Y$ is covering
+\begin{lemma}{\label{lemma:deloopingCS}}
+	Let $G$ be a covering stack, that admits a delooping stack $B G$. Then $B G$ is a covering stack.
 \end{lemma}
 \begin{proof}
-	Let $\bT \ni \tilde X \to X, \tilde Y \to Y$ be geometric atlasses. Then $\tilde X+ \tilde Y$ is flat and $\bT$-merely inhabited, hence in the topology.
+	Now assume $G$ is a covering stack. 	To show, that  $B G$ is a covering stack, we may show that the map $\bT \ni 1 \to B G$ is a geometric atlas. As $B G$ is $\bT$-connected, every point is $\bT$-merely equal to the basepoint. By descent for covering stacks, we may just show that the fiber over the basepoint is a covering stack
+	But this is equivalent to $\Omega B G \simeq G$. 
 \end{proof}
-
-
+\begin{corollary}
+	If $G$ is a covering group 0-stack,  that admits an $n$-fold delooping stack $B^n G$, then this will be a covering $n$-stack.
+\end{corollary}
 \begin{lemma}
-	Given $a : A$ , $I \subset R$, s.th. $\forall x : \Spec A , a(x) \in I$. Then $a \in IA$.
+	The fiber of $X \to \|X\|_n^\bT$ over $|x|$ is $\sum_{y : X} \| x = y\|_{(n-1)\bT}$
 \end{lemma}
-\begin{prop}
-	An $R$-algebra $A$ is flat iff for all finitely generated ideals $I$ the natural $A$-linear map
+\begin{proof}
+	For any $x : X$, we may show that the type family
 	\begin{align*}
-	\phi: A \otimes_R I &\to I^{\Spec A} \\
-	a \otimes m &\mapsto a(\bullet) \cdot m
+		B : \|X\|_n^\bT &\to \cU_{n-1}^\bT \\
+		\|y\|_n &\mapsto \| x = y \|_{n-1}^\bT
 	\end{align*}
-	is injective.
+	defined using the $n$ truncatedness of the stack $\cU_{n-1,\bT}$, is a unary identity system of $\|X\|_{n}^\bT$ at $|x|$. 
+	By the fundamental system of identity types its enough to construct for all $y : \| X\|_n^\bT$, a section of the map $|x| = y \to B y$ induced by path induction. \\
+	As the space of sections of a map between $n$-stacks is in particular an $n$-stack, we may just for all $y : X$ construct a section of the map 
+	\[\mathrm{ind} : |x| =_{\|X\|_n^\bT} |y| \to \| x = y \|_{n-1}^\bT\]
+	But $|x| = |y|$ is an $n-1$-stack, so there is a unique dashed map $\sigma$ such that the above triangle
+% https://q.uiver.app/#q=WzAsNCxbMCwxLCJ8eHw9fHl8Il0sWzEsMSwiXFx8eCA9X1ggeSBcXHxfe259XlxcYlQiXSxbMSwwLCJ4ID1fWCB5Il0sWzEsMiwiXFx8eCA9X1ggeSBcXHxfe259XlxcYlQiXSxbMiwxLCJcXGV0YSJdLFsyLDAsIlxcYXAiLDJdLFsxLDAsIlxcc2lnbWEiLDAseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbMSwzLCJcXGlkIl0sWzAsMywiXFxtYXRocm17aW5kfSIsMix7ImN1cnZlIjoyfV1d
+\[\begin{tikzcd}
+	& {x =_X y} \\
+	{|x|=|y|} & {\|x =_X y \|_{n}^\bT} \\
+	& {\|x =_X y \|_{n}^\bT}
+	\arrow["\ap"', from=1-2, to=2-1]
+	\arrow["\eta", from=1-2, to=2-2]
+	\arrow["{\mathrm{ind}}"', curve={height=12pt}, from=2-1, to=3-2]
+	\arrow["\exists! \sigma", dashed, from=2-2, to=2-1]
+	\arrow["\id", from=2-2, to=3-2]
+\end{tikzcd}\]
+	commutes. This is indeed a section of the above map, because the maps $\mathrm{ind} \circ \sigma$ and $\id$ targeting an $n$-stack become equal after postcomposition with the unit $\eta$ of the modality $L_\bT \| \cdot \|_n$.
+	
+%	
+%	
+%	We may show, that the map
+%	
+%		For this we need that for all $x ,y : X$ the map
+%	\[
+%	\|x =_X y \|_{n-1,\bT} \to |x| =_{\|X\|_{n\bT}} |y|
+%	\]
+%	is an equivalence. 
+ 	
+%	\[
+%	\isContr \sum_{y : \|X\|_n^\bT} B y \simeq \prod_{y : \|X\|_n^\bT} \prod_{t : By}(p : |x| = y) \times (\tp_p r = t)
+%	\]
+%	where $r : B |x|$ is defined as $| \refl_x|$. \\
+%	So Let $x : X$. For any such $y$ the type $\prod_{t : By}(p : |x| =_{\|X\|_n^\bT} y) \times (\tp_p r = t)$ is an $n$-stack so we may just provide a term in
+%	\[
+%	\prod_{y : X} \prod_{t : \| x = y\|_{n-1,\bT}}(p : |x| =_{\|X\|_n^\bT} |y|) \times (\tp_p r = t)	
+%	\]
+%	Let $y : X$. For any such $t$, as $(p : |x| =_{\|X\|_n^\bT} |y|) \times (|p| = t)$ is a $n-1$-stack, we may just construct a term in
+%	\[
+%	\prod_{t : x = y} (p : |x| = |y|) \times \tp_p r = |t|
+%	\]
+%	this is obvious by setting $p := \mathsf{ap}_{|\_|} t$ and we compute
+%	\[
+%	\tp_{\ap_{|\_|} t} |\refl_x| = | t \cdot \refl_x | = |t|
+%	\]
+\end{proof}
+\begin{lemma}
+	For any $X$ and any $n \ge -1$, the map $X \to \|X\|_n^\bT$ is $\bT$-surjective.
+\end{lemma}
+\begin{proof}
+	It factors as $X \to \|X\|_n \to L_\bT \|X\|_n$ where the latter map is $\bT$-surjective. So it sufficess to show, that the former map is surjective. As $X \to \|X\|_0$ is surjective it suffices to show, that $\ap$ of the map $\|X\|_n \to \|X\|_0$ is surjective. TODO %But for any type $T$ the map $T \to \|T\|_0$ is surjective.
+\end{proof}
+\begin{prop}
+	Let $X$ be a geometric stack, such that for all $x : X$, $\Omega^{n+1} (X , x)$ is a covering stack for all $x : X$. Then $\|X\|_n^\bT$ is a geometric $n$-stack.
 \end{prop}
 \begin{proof}
-
-	If $\phi$ is injective: By lombardi quitte its enough to check the flatness conditions for inclusions $I \hookrightarrow R$. then from the commutativity of
-	% https://q.uiver.app/#q=WzAsNCxbMCwwLCJBIFxcb3RpbWVzX1IgTSJdLFsxLDAsIk1ee1xcU3BlYyBBfSJdLFsxLDEsIk5ee1xcU3BlYyBBfSJdLFswLDEsIkEgXFxvdGltZXNfUiBOIl0sWzEsMiwiIiwwLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoiaG9vayIsInNpZGUiOiJ0b3AifX19XSxbMCwzXSxbMywyXSxbMCwxLCIiLDEseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJob29rIiwic2lkZSI6InRvcCJ9fX1dXQ==
-	\[\begin{tikzcd}
-		{A \otimes_R M} & {M^{\Spec A}} \\
-		{A \otimes_R N} & {N^{\Spec A}}
-		\arrow[hook, from=1-1, to=1-2]
-		\arrow[from=1-1, to=2-1]
-		\arrow[hook, from=1-2, to=2-2]
-		\arrow[from=2-1, to=2-2]
-	\end{tikzcd}\]
-we deduce that the left vertical map is injective. \\
-Conversely, from the commutative diagram % https://q.uiver.app/#q=WzAsNCxbMCwwLCJBIFxcb3RpbWVzX1IgSSJdLFsxLDAsIkEiXSxbMCwxLCJJXntcXFNwZWMgQX0iXSxbMSwxLCJSXntcXFNwZWMgQX0iXSxbMSwzLCJcXHNpbWVxIl0sWzAsMSwiIiwwLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoiaG9vayIsInNpZGUiOiJ0b3AifX19XSxbMCwyXSxbMiwzXV0=
-\[\begin{tikzcd}
-	{A \otimes_R I} & A \\
-	{I^{\Spec A}} & {R^{\Spec A}}
-	\arrow[hook, from=1-1, to=1-2]
-	\arrow[from=1-1, to=2-1]
-	\arrow["\simeq", from=1-2, to=2-2]
-	\arrow[from=2-1, to=2-2]
-\end{tikzcd}\]
-we deduce that the left vertical map is injective.
-
-
+	As $X$ is a geometric stack it suffices to show, that the $\bT$-surjection map $X \to \|X\|_n^\bT$ is a geometric cover.
+	Let us show by induction over $k = -1,\hdots,n$ that 
+	\[\Omega^{n - k} X \to \|\Omega^{n - k} X\|_k^\bT\]
+	is a geometric cover.  \\
+	$k=-1$ is okay as $\Omega^{n+1} X$ is a covering stack and $\bT$-truncations of covering stacks are contractible. \\
+	For the induction step $k - 1 \mapsto k$:
+	Set $X' := \Omega^{n-k} X$, so we want to show that $X' \to \|X'\|_k^\bT$ is a geometric cover.
+	Every fiber is modal so the fiber beeing a covering stack has descent, so we may just show that the fiber over the image of some $x : X$ is a covering stack. The fiber $\sum_{y : X} \| x = y\|_{(k-1)\bT}$ is $\bT$-connected, so its a delooping stack of 
+	\[(p : \Omega X) \times \left(\tp_p r =_{\|\Omega X\|_{k-1,\bT}} r  \right),\]
+	where $ r= |\refl|$.
+	By \ref{lemma:deloopingCS} it suffices to show that this is a covering stack. But we calculate $\tp_p r = |p|$, so it is the fiber of 
+	\[
+	\Omega X  \to \|\Omega X \|_{k-1, \bT}
+	\]
+	over the basepoint $|\refl|$.
 \end{proof}
+
+
+\begin{definition}
+	A higher group stack is a pointed $\bT$-connected stack.
+\end{definition}
+Let $BG$ be a higher group stack and $X$ be a geometric stack equipped with an action $\rho : BG \to \GS$. We use the standart notation
+
+\[
+X // G :\equiv \sum_{BG} \rho
+\]
+\begin{lemma}
+ If $G$ is covering, then $X // G$ is a geometric stack
+\end{lemma}
+\begin{proof}
+	$BG$ is a covering stack, as $G$ is a covering stack \ref{lemma:deloopingCS}. Hence $X // G :\equiv \sum_{BG} \rho$ is a geometric stack.
+\end{proof}
+\begin{prop}
+	%Let $BG$ be a higher group stack and $X : BG \to \GS$ be a geometric $G$-stack. 
+	If $X // G$ is a geometric stack (e.g. if $G$ is covering) and the isotropy stacks $\sum_{g : G} g x = x$ are covering stacks, then $\| X // G \|_0^\bT$ is an algebraic space.
+\end{prop}
+\begin{proof}
+	To apply the prop, we have to show, that for all $x : X // G$, $\Omega (X // G,x)$ is a covering stack. As $X \to X // G$ is $\bT$-surjective (todo details), we may just show this for $x : X$.
+	\[
+	\Omega (X // G , [x]) \simeq \sum_{g: G} g x = x
+	\]
+	which was covering by assumption
+\end{proof}
+\begin{corollary}
+	Let $X$ be a geometric stack, whose identity types are covering stacks. Let $G$ be a finite group acting on $X$. Then $L_\bT (X / G)$ is a geometric stack.
+\end{corollary}
+\begin{proof}
+	 The isotropy stacks are covering, as they are $\sum$ of covering stacks.
+\end{proof}
+We can also reprove \ref{lemma:algSpacesStabFreeQuots}: $G$ is a finite type by assumption, hence covering. The isotropy stacks are assumed to be propositions, but they are inhabited, so they are covering \qed(lemma) \\
+
+TODO: Find a good example of a non covering $G$.
+
+
+%Observe by stability under $\sum$ this is an geometric stack, if $BG$ is geometric.
+
 
 %The definition is reasonable because the following
 \end{document}
 
+ 

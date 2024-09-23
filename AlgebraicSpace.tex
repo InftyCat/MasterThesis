@@ -90,7 +90,7 @@ This follows from the observation, that the equivalence relation determined by $
 	\end{itemize}	
 \end{warning}
 \begin{lemma}
-	let $X$ be a scheme. There merely exists some affine $S$  map $S \to X$ whose fibers are Zariski-merely inhabited finite sums of open propositions 
+	let $X$ be a scheme. There merely exists some affine $S$  map $S \to X$ whose fibers are merely inhabited finite sums of open propositions 
 \end{lemma}
 
 \begin{corollary}		
@@ -101,8 +101,27 @@ This follows from the observation, that the equivalence relation determined by $
 \end{question}
 
 
+\begin{lemma}
+	If $X$ is an algebraic space, then the global sections embed via a $R$-algebra homomorphisms into a finitely presented $R$-algebra.
+\end{lemma}
+\begin{proof}
+	Choose an atlas $S \to X$, in particular $\bT$-surjective. As $\bT$ is subcanonical the map $R^X \to R^S$ is an injection.
+\end{proof}
+\begin{question}
+	Is it an open embedding of types?
+\end{question}
+%\begin{lemma}
+%	Consider a morphism $X \to Y$ between algebraic spaces such that $R^F$ is finitely presented and the affinizations of the fibers $F \to \Spec R^F$ are open immersions. If $Y$ is a scheme, then $X$ is a scheme.
+%\end{lemma}
+%\begin{proof}
+%	Consider the stein factorization
+%	\[
+%	X = \sum_{y : Y} \fib_f y \to \sum_{y : Y} \Spec R^{\fib_f y} \to Y
+%	\]
+%	The first map 
+%\end{proof}
 \section{Group quotients}
-For this section let $G$ denote a group that is a covering 0-stack. Let $X$ be a stack equipped with a $G$ action, 
+For this section let $G$ denote a group that is a covering 0-stack. Let $X$ be a sheaf equipped with a $G$ action.
 \begin{definition}
 	A $G$ action on $X$ is free, if for all $x , y : X$ the type 
 	\[
@@ -111,39 +130,40 @@ For this section let $G$ denote a group that is a covering 0-stack. Let $X$ be a
 	is a proposition. 
 \end{definition}
 \begin{lemma}
-	Let $G$ act freely on a stack $X$. Then the relation
+	Let $G$ act freely on a sheaf $X$. Then the relation
 	\[
 	x , y\mapsto \sum_{g : G} g x = y
 	\]
 	is a covering equivalence relation on $X$
 \end{lemma}
 \begin{proof}
-	All those propositions are modal as $X$ and $G$ are stacks. For all $x : X$ , the fiber
+	All those propositions are modal as $X$ and $G$ are sheaves. For all $x : X$ , the fiber
 	\[
 	\sum_{y : X} \sum_{g : G} g x = y \simeq \sum_{g : G} \sum_{y: X} g x = y \simeq G
 	\]
 	is a covering 0-stack by assumption.
 \end{proof}
-\begin{lemma}
-	For $n \ge 0$, geometric $(n)$-stacks are stable by free quotients of covering 0-stack Groups.
+\begin{lemma}{\label{lemma:algSpacesStabFreeQuots}}
+	%For $n \ge 0$, geometric $(n)$-stacks 
+	Algebraic spaces are stable by free quotients of covering group 0-stacks.
 \end{lemma}
 \begin{proof}
-	The map $ X \to L_T (X / G)$ is fibered in covering 0-stacks, so in particular covering $n-1$-stacks. As $X$ is a geometric $n$-stack, the quotient is a geometric $n$-stack as well, This follows by the description in \label{prop:nstack}, choosing a geometric atlas of $X$ and postcomposing this to get a geometric atlas of the quotient.
+	The map $ X \to L_T (X / G)$ is fibered in covering 0-stacks, so in particular covering $0$-stacks. As $X$ is a geometric $0$-stack, the quotient is a geometric $0$-stack as well, This follows by the description in \label{prop:nstack}, choosing a geometric atlas of $X$ and postcomposing this to get a geometric atlas of the quotient.
 \end{proof}
 
-\begin{lemma}
-	Let $X$ be a geometric stack, whose identity types are covering stacks. Let $G$ be a finite group acting on $X$. Then $L_\bT (X / G)$ is a geometric stack.
-\end{lemma}
-\begin{proof}
-	Consider for $x , y : X$ , $R(x,y) \equiv \| \sum_{g : G} g x = y\|_\bT$ which is indeed modal. We have to check that the relation is covering, i.e. that for all $x : X$, 
-	\[
-	\sum_{y: X} \|\sum_{g: G} g x = y\|_\bT
-	\]
-	is a covering stack. \\
-	To prove this, as covering stacks are stable under quotients, it suffices to show, that the map
-	\[
-	G \simeq \sum_{y : X} \sum_{g : G} g x = y \to \sum_{y: X} \|\sum_{g: G} g x = y\|_\bT
-	\]
-	is a geometric cover. But the fibers look like $\sum_{g : G} gx  = y$ which is a finite sum of identity types in $X$, which were assumed to be covering stacks. By \ref{lemma:geomStackPlusStable} the fibers are covering stacks.
-	
-\end{proof}
+%\begin{lemma}
+%	Let $X$ be a geometric stack, whose identity types are covering stacks. Let $G$ be a finite group acting on $X$. Then $L_\bT (X / G)$ is a geometric stack.
+%\end{lemma}
+%\begin{proof}
+%	Consider for $x , y : X$ , $R(x,y) \equiv \| \sum_{g : G} g x = y\|_\bT$ which is indeed modal. We have to check that the relation is covering, i.e. that for all $x : X$, 
+%	\[
+%	\sum_{y: X} \|\sum_{g: G} g x = y\|_\bT
+%	\]
+%	is a covering stack. \\
+%	To prove this, as covering stacks are stable under quotients, it suffices to show, that the map
+%	\[
+%	G \simeq \left (\sum_{y : X} \sum_{g : G} g x = y \right) \to \sum_{y: X} \|\sum_{g: G} g x = y\|_\bT
+%	\]
+%	is a geometric cover. But the fibers look like $\sum_{g : G} gx  = y$ which is a finite sum of identity types in $X$, which were assumed to be covering stacks. By \ref{lemma:geomStackPlusStable} the fibers are covering stacks.
+%	
+%\end{proof}
