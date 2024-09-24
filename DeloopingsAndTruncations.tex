@@ -1,0 +1,152 @@
+
+\section{Deloopings and Truncations}
+
+We denote $\| \cdot \|_n^\bT := L_\bT \| \cdot \|_n$, which is a modality. We denote 
+\[
+\eta_n^\bT X : X \to \| X\|_n^\bT
+\]
+\begin{definition}
+	A pointed stack $(X,x)$ is called $\bT$-connected if for any $y : X$ we have $\|x = y\|_\bT$.
+\end{definition}
+\begin{definition}
+	Let $G$ be a stack. A delooping stack of $G$ is a  pointed $\bT$-connected stack $B G$ equipped with an equivalence $\Omega B G \simeq G$.
+\end{definition}
+
+\begin{lemma}{\label{lemma:deloopingCS}}
+	Let $G$ be a covering stack, that admits a delooping stack $B G$. Then $B G$ is a covering stack.
+\end{lemma}
+\begin{proof}
+	Now assume $G$ is a covering stack. 	To show, that  $B G$ is a covering stack, we may show that the map $\bT \ni 1 \to B G$ is a geometric atlas. As $B G$ is $\bT$-connected, every point is $\bT$-merely equal to the basepoint. By descent for covering stacks, we may just show that the fiber over the basepoint is a covering stack
+	But this is equivalent to $\Omega B G \simeq G$. 
+\end{proof}
+\begin{corollary}
+	If $G$ is a covering group 0-stack,  that admits an $n$-fold delooping stack $B^n G$, then this will be a covering $n$-stack.
+\end{corollary}
+\begin{lemma}
+	The fiber of $\eta_n^\bT X : X \to \|X\|_n^\bT$ over $|x|$ is $\sum_{y : X} \| x = y\|_{(n-1)\bT}$
+\end{lemma}
+\begin{proof}
+	For any $x : X$, we may show that the type family
+	\begin{align*}
+		B : \|X\|_n^\bT &\to \cU_{n-1}^\bT \\
+		\|y\|_n &\mapsto \| x = y \|_{n-1}^\bT
+	\end{align*}
+	defined using the $n$ truncatedness of the stack $\cU_{n-1,\bT}$, is a unary identity system of $\|X\|_{n}^\bT$ at $|x|$. 
+	By the fundamental system of identity types its enough to construct for all $y : \| X\|_n^\bT$, a section of the map $|x| = y \to B y$ induced by path induction. \\
+	As the space of sections of a map between $n$-stacks is in particular an $n$-stack, we may just for all $y : X$ construct a section of the map 
+	\[\mathrm{ind} : |x| =_{\|X\|_n^\bT} |y| \to \| x = y \|_{n-1}^\bT\]
+	But $|x| = |y|$ is an $n-1$-stack, so there is a unique dashed map $\sigma$ such that the above triangle
+	% https://q.uiver.app/#q=WzAsNCxbMCwxLCJ8eHw9fHl8Il0sWzEsMSwiXFx8eCA9X1ggeSBcXHxfe259XlxcYlQiXSxbMSwwLCJ4ID1fWCB5Il0sWzEsMiwiXFx8eCA9X1ggeSBcXHxfe259XlxcYlQiXSxbMiwxLCJcXGV0YSJdLFsyLDAsIlxcYXAiLDJdLFsxLDAsIlxcc2lnbWEiLDAseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbMSwzLCJcXGlkIl0sWzAsMywiXFxtYXRocm17aW5kfSIsMix7ImN1cnZlIjoyfV1d
+	\[\begin{tikzcd}
+		& {x =_X y} \\
+		{|x|=|y|} & {\|x =_X y \|_{n}^\bT} \\
+		& {\|x =_X y \|_{n}^\bT}
+		\arrow["\ap"', from=1-2, to=2-1]
+		\arrow["\eta", from=1-2, to=2-2]
+		\arrow["{\mathrm{ind}}"', curve={height=12pt}, from=2-1, to=3-2]
+		\arrow["\exists! \sigma", dashed, from=2-2, to=2-1]
+		\arrow["\id", from=2-2, to=3-2]
+	\end{tikzcd}\]
+	commutes. This is indeed a section of the above map, because the maps $\mathrm{ind} \circ \sigma$ and $\id$ targeting an $n$-stack become equal after postcomposition with the unit $\eta$ of the modality $L_\bT \| \cdot \|_n$.
+	
+	%	
+	%	
+	%	We may show, that the map
+	%	
+	%		For this we need that for all $x ,y : X$ the map
+	%	\[
+	%	\|x =_X y \|_{n-1,\bT} \to |x| =_{\|X\|_{n\bT}} |y|
+	%	\]
+	%	is an equivalence. 
+	
+	%	\[
+	%	\isContr \sum_{y : \|X\|_n^\bT} B y \simeq \prod_{y : \|X\|_n^\bT} \prod_{t : By}(p : |x| = y) \times (\tp_p r = t)
+	%	\]
+	%	where $r : B |x|$ is defined as $| \refl_x|$. \\
+	%	So Let $x : X$. For any such $y$ the type $\prod_{t : By}(p : |x| =_{\|X\|_n^\bT} y) \times (\tp_p r = t)$ is an $n$-stack so we may just provide a term in
+	%	\[
+	%	\prod_{y : X} \prod_{t : \| x = y\|_{n-1,\bT}}(p : |x| =_{\|X\|_n^\bT} |y|) \times (\tp_p r = t)	
+	%	\]
+	%	Let $y : X$. For any such $t$, as $(p : |x| =_{\|X\|_n^\bT} |y|) \times (|p| = t)$ is a $n-1$-stack, we may just construct a term in
+	%	\[
+	%	\prod_{t : x = y} (p : |x| = |y|) \times \tp_p r = |t|
+	%	\]
+	%	this is obvious by setting $p := \mathsf{ap}_{|\_|} t$ and we compute
+	%	\[
+	%	\tp_{\ap_{|\_|} t} |\refl_x| = | t \cdot \refl_x | = |t|
+	%	\]
+\end{proof}
+\begin{lemma}
+	For any $X$ and any $n \ge -1$, the map $\eta_n^\bT X : X \to \|X\|_n^\bT$ is $\bT$-surjective.
+\end{lemma}
+\begin{proof}
+	It factors as $X \to \|X\|_n \to L_\bT \|X\|_n$ where the latter map is $\bT$-surjective. So it sufficess to show, that the former map is surjective. As $X \to \|X\|_0$ is surjective it suffices to show, that $\ap$ of the map $\|X\|_n \to \|X\|_0$ is surjective. TODO %But for any type $T$ the map $T \to \|T\|_0$ is surjective.
+\end{proof}
+\begin{lemma}{\label{lemma:loopOfFiber}}
+	If $(X,x)$ is a pointed stack, the looping of the fiber of $X \to \|X\|_{n}^\bT$ over $|x|$ is the basefiber of $\Omega X \to \|\Omega X\|_{n-1}^\bT$.
+	\[
+	\Omega (\fib(\eta_n^\bT X)(|x|)) \simeq \fib (\eta_{n-1}^\bT \Omega (X,x))(pt)
+	\]
+\end{lemma}
+\begin{proof}
+	We have to understand the loop space of $\sum_{y : X} \| x = y\|_{(k-1)\bT}$. It is given by
+	\[(p : \Omega X) \times \left(\tp_p r =_{\|\Omega X\|_{k-1,\bT}} r  \right),\]
+	where $ r= |\refl|$.
+	we calculate $\tp_p r = |p|$, so it is the fiber of 
+	\[
+	\Omega X  \to \|\Omega X \|_{k-1, \bT}
+	\]
+	over the basepoint $|\refl|$.
+\end{proof}
+\begin{prop}
+	Let $n \ge 0$ , $X$ be a geometric stack, such that for all $x : X$, $\Omega^{n+1} (X , x)$ is a covering stack for all $x : X$. Then $\eta_n^\bT X : X \to \|X\|_n^\bT$ is a geometric cover. In particular, $\|X\|_n^\bT$ is a geometric $n$-stack.
+\end{prop}
+\begin{proof}
+	Let us show by induction over $k = -1,\hdots,n$ that 
+	\[\eta_k^\bT (\Omega^{n - k} X) : \Omega^{n - k} X \to \|\Omega^{n - k} X\|_k^\bT\]
+	is a geometric cover.  \\
+	$k=-1$ is okay as $\Omega^{n+1} X$ is a covering stack and $\bT$-truncations of covering stacks are contractible. \\
+	For the induction step $k - 1 \mapsto k$:
+	Set $X' := \Omega^{n-k} X$, so we want to show that $X' \to \|X'\|_k^\bT$ is a geometric cover.
+	Every fiber is modal so the fiber beeing a covering stack has descent, so we may just show that the fiber over the image of some $x : X$ is a covering stack. The fiber $\sum_{y : X} \| x = y\|_{(k-1)\bT}$ is $\bT$-connected, so its a delooping stack of the basefiber of 
+	\[
+	\Omega X  \to \|\Omega X \|_{k-1, \bT}
+	\]
+	by \ref{lemma:loopOfFiber} and \ref{lemma:deloopingCS} we conclude.
+\end{proof}
+
+
+\begin{definition}
+	A higher group stack is a pointed $\bT$-connected stack.
+\end{definition}
+Let $BG$ be a higher group stack and $X$ be a geometric stack equipped with an action $\rho : BG \to \GS$. We use the standart notation
+
+\[
+X // G :\equiv \sum_{BG} \rho
+\]
+\begin{lemma}
+	If $G$ is covering, then $X // G$ is a geometric stack
+\end{lemma}
+\begin{proof}
+	$BG$ is a covering stack, as $G$ is a covering stack \ref{lemma:deloopingCS}. Hence $X // G :\equiv \sum_{BG} \rho$ is a geometric stack.
+\end{proof}
+\begin{prop}
+	%Let $BG$ be a higher group stack and $X : BG \to \GS$ be a geometric $G$-stack. 
+	If $X // G$ is a geometric stack (e.g. if $G$ is covering) and the isotropy stacks $\sum_{g : G} g x = x$ are covering stacks, then $\| X // G \|_0^\bT$ is an algebraic space.
+\end{prop}
+\begin{proof}
+	To apply the prop, we have to show, that for all $x : X // G$, $\Omega (X // G,x)$ is a covering stack. As $X \to X // G$ is $\bT$-surjective (todo details), we may just show this for $x : X$.
+	\[
+	\Omega (X // G , [x]) \simeq \sum_{g: G} g x = x
+	\]
+	which was covering by assumption
+\end{proof}
+\begin{corollary}
+	Let $X$ be a geometric stack, whose identity types are covering stacks. Let $G$ be a finite group acting on $X$. Then $L_\bT (X / G)$ is a geometric stack.
+\end{corollary}
+\begin{proof}
+	The isotropy stacks are covering, as they are $\sum$ of covering stacks.
+\end{proof}
+We can also reprove \ref{lemma:algSpacesStabFreeQuots}: $G$ is a finite type by assumption, hence covering. The isotropy stacks are assumed to be propositions, but they are inhabited, so they are covering \qed(lemma) \\
+
+TODO: Find a good example of a non covering $G$.
