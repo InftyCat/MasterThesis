@@ -6,6 +6,16 @@
 	\begin{enumerate}
 		\item its satisfied by identities in $\cV$,
 		\item stable under composition 
+		\item
+		Given a commutative triangle in $\cV$% https://q.uiver.app/#q=WzAsMyxbMCwwLCJYIl0sWzEsMCwiWSJdLFsxLDEsIloiXSxbMCwxLCJmIl0sWzEsMiwiZyJdLFswLDIsImgiLDJdXQ==
+		\[\begin{tikzcd}
+			X & Y \\
+			& Z
+			\arrow["f", from=1-1, to=1-2]
+			\arrow["h"', from=1-1, to=2-2]
+			\arrow["g", from=1-2, to=2-2]
+		\end{tikzcd}\]
+		with $X \to Y$ a geometric cover. Then $h$ has $P$ iff $g$ has $P$
 		\item Given $X,Y,Z,W \in \cV$. if $Y \to W$ is a geometric cover , then 
 		% https://q.uiver.app/#q=WzAsNCxbMCwwLCJYIl0sWzAsMSwiWSJdLFsxLDEsIlciXSxbMSwwLCJaIl0sWzAsM10sWzAsMSwiZiciLDJdLFsxLDJdLFszLDIsImYiXSxbMCwyLCIiLDEseyJzdHlsZSI6eyJuYW1lIjoiY29ybmVyLWludmVyc2UifX1dXQ==
 		\[\begin{tikzcd}
@@ -18,22 +28,13 @@
 			\arrow[from=2-1, to=2-2]
 		\end{tikzcd}\]
 		$f$ has $P$ iff $f'$ has $P$.
-		\item
-		Given a commutative triangle in $\cV$% https://q.uiver.app/#q=WzAsMyxbMCwwLCJYIl0sWzEsMCwiWSJdLFsxLDEsIloiXSxbMCwxLCJmIl0sWzEsMiwiZyJdLFswLDIsImgiLDJdXQ==
-		\[\begin{tikzcd}
-			X & Y \\
-			& Z
-			\arrow["f", from=1-1, to=1-2]
-			\arrow["h"', from=1-1, to=2-2]
-			\arrow["g", from=1-2, to=2-2]
-		\end{tikzcd}\]
-		with $X \to Y$ a geometric cover. Then $h$ has $P$ iff $g$ has $P$
+	
 	\end{enumerate}
 	\begin{lemma}{\label{lemma:local}}
 		If $P$ is local, then 
 		\begin{itemize}
 			\item geometric covers have P
-			\item in Point 3, The statement 'If $f'$ has $P$ then $f$ has $P$' is automatic by Point 4.
+			\item in Point 4, The statement 'If $f'$ has $P$ then $f$ has $P$' is automatic by Point 3.
 		\end{itemize}
 	\end{lemma}
 \end{definition}
@@ -98,23 +99,7 @@ So we may extend algebraic notions of maps to all geometric stacks:
 	\begin{enumerate}
 		\item Ok
 		\item Ok
-		\item By \ref{lemma:local} we only need to show stability under basechange. Let $Z \to W$ have $P$, Given $Y \to W$ a geometric cover. We want to show that a basechagne $Y \times_W Z \to Y$ has $P$. The idea is to construct a common atlas of $Z \to W$ and its basechange. Choose an atlas $\tilde Y \to Y$. Then $\tilde Y \times_W Z \to Y \times_W Z$ is a geometric cover: It is a basechange of $\tilde Y \to Y$, because the outer diagram is a pullback
-		% https://q.uiver.app/#q=WzAsNixbMCwwLCJcXHRpbGRlIFkgXFx0aW1lc19XIFoiXSxbMSwwLCJZIFxcdGltZXNfVyBaIl0sWzAsMSwiXFx0aWxkZSBZIl0sWzEsMSwiWSJdLFsyLDAsIloiXSxbMiwxLCJXIl0sWzAsMl0sWzAsMV0sWzIsM10sWzEsM10sWzMsNV0sWzEsNF0sWzQsNV0sWzEsNSwiIiwxLHsic3R5bGUiOnsibmFtZSI6ImNvcm5lci1pbnZlcnNlIn19XSxbMCwzLCIiLDEseyJzdHlsZSI6eyJuYW1lIjoiY29ybmVyLWludmVyc2UifX1dXQ==
-		\[\begin{tikzcd}
-			{\tilde Y \times_W Z} & {Y \times_W Z} & Z \\
-			{\tilde Y} & Y & W
-			\arrow[from=1-1, to=1-2]
-			\arrow[from=1-1, to=2-1]
-			\arrow["\ulcorner"{anchor=center, pos=0.125}, draw=none, from=1-1, to=2-2]
-			\arrow[from=1-2, to=1-3]
-			\arrow[from=1-2, to=2-2]
-			\arrow["\ulcorner"{anchor=center, pos=0.125}, draw=none, from=1-2, to=2-3]
-			\arrow[from=1-3, to=2-3]
-			\arrow[from=2-1, to=2-2]
-			\arrow[from=2-2, to=2-3]
-		\end{tikzcd}\]
-		Now choose any geometric atlas $S \to \tilde Y \times_W Z$. By composition this induce a map $S \to \tilde Y$: 
-		It is both an atlas of the $P$-map $Z \to W$ and of $ Y\times_W Z \to Y$. So by \ref{lemma:atlasOfMap} $S \to \tilde Y$ has $P$ and thus $Y \times_W Z \to Y$ has $P$. 
+	
 		\item geometric covers have $P$ and we have proven point 2., so one direction is clear.  Now assume 
 		%https://q.uiver.app/#q=WzAsMyxbMCwwLCJYIl0sWzEsMCwiWSJdLFsxLDEsIloiXSxbMCwxLCJmIl0sWzEsMiwiZyJdLFswLDIsImgiLDJdXQ==
 		\[\begin{tikzcd}
@@ -143,7 +128,45 @@ So we may extend algebraic notions of maps to all geometric stacks:
 		\end{tikzcd}\]
 		$X' \to Y'$ is a geometric cover and By 3. $X' \to \tilde Z$ has $P$. \\
 		So we may assume that $Z$ is affine. Then take a geometric atlas $\tilde X \to X$. The map $Y \to Z$ has the atlas $\tilde X \to X \to Z$ which has $P$ by stability under composition. Hence $Y \to Z$ has $P$.
-		
+			\item By \ref{lemma:local} we only need to show stability under basechange. Let $Z \to W$ have $P$, Given $Y \to W$ a geometric cover. We want to show that a basechagne $Y \times_W Z \to Y$ has $P$. The idea is to construct a common atlas of $Z \to W$ and its basechange. Choose an atlas $\tilde Y \to Y$. Then $\tilde Y \times_W Z \to Y \times_W Z$ is a geometric cover: It is a basechange of $\tilde Y \to Y$, because the outer diagram is a pullback
+		% https://q.uiver.app/#q=WzAsNixbMCwwLCJcXHRpbGRlIFkgXFx0aW1lc19XIFoiXSxbMSwwLCJZIFxcdGltZXNfVyBaIl0sWzAsMSwiXFx0aWxkZSBZIl0sWzEsMSwiWSJdLFsyLDAsIloiXSxbMiwxLCJXIl0sWzAsMl0sWzAsMV0sWzIsM10sWzEsM10sWzMsNV0sWzEsNF0sWzQsNV0sWzEsNSwiIiwxLHsic3R5bGUiOnsibmFtZSI6ImNvcm5lci1pbnZlcnNlIn19XSxbMCwzLCIiLDEseyJzdHlsZSI6eyJuYW1lIjoiY29ybmVyLWludmVyc2UifX1dXQ==
+		\[\begin{tikzcd}
+			{\tilde Y \times_W Z} & {Y \times_W Z} & Z \\
+			{\tilde Y} & Y & W
+			\arrow[from=1-1, to=1-2]
+			\arrow[from=1-1, to=2-1]
+			\arrow["\ulcorner"{anchor=center, pos=0.125}, draw=none, from=1-1, to=2-2]
+			\arrow[from=1-2, to=1-3]
+			\arrow[from=1-2, to=2-2]
+			\arrow["\ulcorner"{anchor=center, pos=0.125}, draw=none, from=1-2, to=2-3]
+			\arrow[from=1-3, to=2-3]
+			\arrow[from=2-1, to=2-2]
+			\arrow[from=2-2, to=2-3]
+		\end{tikzcd}\]
+		Now choose any geometric atlas $S \to \tilde Y \times_W Z$. By composition this induce a map $S \to \tilde Y$: 
+		It is both an atlas of the $P$-map $Z \to W$ and of $ Y\times_W Z \to Y$. So by \ref{lemma:atlasOfMap} $S \to \tilde Y$ has $P$ and thus $Y \times_W Z \to Y$ has $P$. 
 		
 	\end{enumerate}
+\end{proof}
+\subsection{Local properties of stacks}
+\begin{definition}
+	Let $\cV \subset \cU$ be a subclass of types stable under finite limits. A property of $P$ of types in $\cV$ is local if 
+	\begin{enumerate}
+		\item $1 \in \cV$
+		\item $P$ is $\sum$-stable
+		\item If $X \to Y$ is a geometric cover, then $X$ has $P$ iff $Y$ has $P$.
+	\end{enumerate}
+\end{definition}
+\begin{lemma}
+	Every local property of types in $\cV$ induces a local property of morphisms of types in $\cV$, by asking the property fiberwise.
+\end{lemma}
+\begin{lemma}{\label{lemma:SeperationIsLocal}}
+	Let $P$ be a local property of stacks. Then $\mathrm{Sep}(P)$ is local, defined as $X \in \mathrm{Sep}(P)$ iff $x = y$ has $P$ for all $x ,y : X$.
+\end{lemma}
+\begin{proof}
+	Let $f : X \to Y$ be a geometric cover with $X$ beeing $P$-seperated. Let $x , y : Y$. Then by the construction in \ref{lemma:havingAbstractAtlasClosedUnderId} the map
+	\[
+	\fib_f x \times_X \fib_f y \to x = y
+	\]
+	is a geometric cover, whose domain has $P$ as $X$ is $P$-seperated and $P$ is stable under $\sum$. As $P$ is local, $x = y$ has $P$.
 \end{proof}

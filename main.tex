@@ -12,6 +12,7 @@
 \newcommand{\refl}{\mathsf{refl}}
 \newcommand{\ap}{\mathsf{ap}}
 \newcommand{\Aff}{\mathsf{Aff}}
+\newcommand{\Sep}{\mathsf{Sep}}
 \include{preamble}
 
 \renewcommand{\GS}{\mathsf{GS}}
@@ -84,7 +85,10 @@
 
 \section{Deloopings and Truncations}
 
-We denote $\| \cdot \|_n^\bT := L_\bT \| \cdot \|_n$, which is a modality.
+We denote $\| \cdot \|_n^\bT := L_\bT \| \cdot \|_n$, which is a modality. We denote 
+\[
+\eta_n^\bT X : X \to \| X\|_n^\bT
+\]
 \begin{definition}
 	A pointed stack $(X,x)$ is called $\bT$-connected if for any $y : X$ we have $\|x = y\|_\bT$.
 \end{definition}
@@ -103,7 +107,7 @@ We denote $\| \cdot \|_n^\bT := L_\bT \| \cdot \|_n$, which is a modality.
 	If $G$ is a covering group 0-stack,  that admits an $n$-fold delooping stack $B^n G$, then this will be a covering $n$-stack.
 \end{corollary}
 \begin{lemma}
-	The fiber of $X \to \|X\|_n^\bT$ over $|x|$ is $\sum_{y : X} \| x = y\|_{(n-1)\bT}$
+	The fiber of $\eta_n^\bT X : X \to \|X\|_n^\bT$ over $|x|$ is $\sum_{y : X} \| x = y\|_{(n-1)\bT}$
 \end{lemma}
 \begin{proof}
 	For any $x : X$, we may show that the type family
@@ -157,30 +161,42 @@ We denote $\| \cdot \|_n^\bT := L_\bT \| \cdot \|_n$, which is a modality.
 %	\]
 \end{proof}
 \begin{lemma}
-	For any $X$ and any $n \ge -1$, the map $X \to \|X\|_n^\bT$ is $\bT$-surjective.
+	For any $X$ and any $n \ge -1$, the map $\eta_n^\bT X : X \to \|X\|_n^\bT$ is $\bT$-surjective.
 \end{lemma}
 \begin{proof}
 	It factors as $X \to \|X\|_n \to L_\bT \|X\|_n$ where the latter map is $\bT$-surjective. So it sufficess to show, that the former map is surjective. As $X \to \|X\|_0$ is surjective it suffices to show, that $\ap$ of the map $\|X\|_n \to \|X\|_0$ is surjective. TODO %But for any type $T$ the map $T \to \|T\|_0$ is surjective.
 \end{proof}
-\begin{prop}
-	Let $X$ be a geometric stack, such that for all $x : X$, $\Omega^{n+1} (X , x)$ is a covering stack for all $x : X$. Then $\|X\|_n^\bT$ is a geometric $n$-stack.
-\end{prop}
+\begin{lemma}{\label{lemma:loopOfFiber}}
+	If $(X,x)$ is a pointed stack, the looping of the fiber of $X \to \|X\|_{n}^\bT$ over $|x|$ is the basefiber of $\Omega X \to \|\Omega X\|_{n-1}^\bT$.
+	\[
+	\Omega (\fib(\eta_n^\bT X)(|x|)) \simeq \fib (\eta_{n-1}^\bT \Omega (X,x))(pt)
+	\]
+\end{lemma}
 \begin{proof}
-	As $X$ is a geometric stack it suffices to show, that the $\bT$-surjection map $X \to \|X\|_n^\bT$ is a geometric cover.
-	Let us show by induction over $k = -1,\hdots,n$ that 
-	\[\Omega^{n - k} X \to \|\Omega^{n - k} X\|_k^\bT\]
-	is a geometric cover.  \\
-	$k=-1$ is okay as $\Omega^{n+1} X$ is a covering stack and $\bT$-truncations of covering stacks are contractible. \\
-	For the induction step $k - 1 \mapsto k$:
-	Set $X' := \Omega^{n-k} X$, so we want to show that $X' \to \|X'\|_k^\bT$ is a geometric cover.
-	Every fiber is modal so the fiber beeing a covering stack has descent, so we may just show that the fiber over the image of some $x : X$ is a covering stack. The fiber $\sum_{y : X} \| x = y\|_{(k-1)\bT}$ is $\bT$-connected, so its a delooping stack of 
+	We have to understand the loop space of $\sum_{y : X} \| x = y\|_{(k-1)\bT}$. It is given by
 	\[(p : \Omega X) \times \left(\tp_p r =_{\|\Omega X\|_{k-1,\bT}} r  \right),\]
 	where $ r= |\refl|$.
-	By \ref{lemma:deloopingCS} it suffices to show that this is a covering stack. But we calculate $\tp_p r = |p|$, so it is the fiber of 
+	 we calculate $\tp_p r = |p|$, so it is the fiber of 
 	\[
 	\Omega X  \to \|\Omega X \|_{k-1, \bT}
 	\]
 	over the basepoint $|\refl|$.
+\end{proof}
+\begin{prop}
+	Let $n \ge 0$ , $X$ be a geometric stack, such that for all $x : X$, $\Omega^{n+1} (X , x)$ is a covering stack for all $x : X$. Then $\eta_n^\bT X : X \to \|X\|_n^\bT$ is a geometric cover. In particular, $\|X\|_n^\bT$ is a geometric $n$-stack.
+\end{prop}
+\begin{proof}
+	Let us show by induction over $k = -1,\hdots,n$ that 
+	\[\eta_k^\bT (\Omega^{n - k} X) : \Omega^{n - k} X \to \|\Omega^{n - k} X\|_k^\bT\]
+	is a geometric cover.  \\
+	$k=-1$ is okay as $\Omega^{n+1} X$ is a covering stack and $\bT$-truncations of covering stacks are contractible. \\
+	For the induction step $k - 1 \mapsto k$:
+	Set $X' := \Omega^{n-k} X$, so we want to show that $X' \to \|X'\|_k^\bT$ is a geometric cover.
+	Every fiber is modal so the fiber beeing a covering stack has descent, so we may just show that the fiber over the image of some $x : X$ is a covering stack. The fiber $\sum_{y : X} \| x = y\|_{(k-1)\bT}$ is $\bT$-connected, so its a delooping stack of the basefiber of 
+	\[
+	\Omega X  \to \|\Omega X \|_{k-1, \bT}
+	\]
+	by \ref{lemma:loopOfFiber} and \ref{lemma:deloopingCS} we conclude.
 \end{proof}
 
 
@@ -219,11 +235,134 @@ We can also reprove \ref{lemma:algSpacesStabFreeQuots}: $G$ is a finite type by 
 
 TODO: Find a good example of a non covering $G$.
 
+\section{Artin stacks vs Deligne Mumford}
 
-%Observe by stability under $\sum$ this is an geometric stack, if $BG$ is geometric.
 
 
-%The definition is reasonable because the following
+\subsection{Weakly-flat stacks}
+\begin{definition}
+	We call a geometric stack $X$ weakly-flat iff one of the following conditions is satisfied
+	\begin{enumerate}
+		\item $\|X\|_{-1}^\bT \to X \in \CS$
+		\item For any geometric atlas $W \to X$ , $W$ is weakly-flat, i.e $\|W\|^\bT \to W \in \bT$.
+	\end{enumerate}
+
+\end{definition}
+\begin{proof}
+	\ \begin{enumerate}
+		\item [1 $\Rightarrow$ 2] Choose a geometric atlas $W \to X$. In particular its $\bT$-surjective, hence we have $\|W\|^\bT$, so by assumption $W \in \bT$. So $X \in CS$.
+		\item [2 $\Rightarrow$ 1] 
+		\[\|W\|^\bT \to \|X\|^\bT \to X \in \CS \overset{\ref{lemma:atlasIsCatlas}} W \in \bT \]
+	\end{enumerate}
+\end{proof}
+%		\item 
+%
+\begin{lemma}
+For any weakly-flat geometric stack $X$, $\|X\|_{-1}^\bT$ is a geometric stack.
+\end{lemma}
+\begin{proof}
+	$X \to \|X\|_{-1}^\bT$ is a geometric cover.
+\end{proof}
+\begin{prop}{\label{prop:EtaleTruncations}}
+	Assume that loopspaces of covering stacks are covering. TFAE
+	\begin{enumerate}
+		\item $X \to \|X\|_n^\bT$ is a geometric cover
+		\item  all $n+1$-fold identity types of $X$ are weakly-flat.
+	
+		\item For any $x$, $\Omega^{n+1} (X , x)$ is covering.
+			\item For any sequence $x_0 : X \equiv X_0$ , $x_{k+1} : (x_{k} =_{X_k} x_k) \equiv X_{k+1}$, $x_n =_{X_n} x_n$ is covering.
+	\end{enumerate}
+
+\end{prop}
+\begin{proof}
+	\item [3 $\Rightarrow$ 1] already done
+	\item [2 $\Rightarrow$ 4] ez
+	\item [1 $\Rightarrow$ 3]
+
+	By applying iteratively \ref{lemma:loopOfFiber} 
+	\begin{align*}
+	\Omega^{n+1} (\fib (\eta_n^\bT X) |x|) &\simeq \Omega^n \fib (\eta_{n-1}^\bT (\Omega (X,x))) pt \simeq \hdots \\
+	&\simeq \Omega^{n-k} \fib(\eta_{n-k-1}^\bT \Omega^{k+1}(X,x)) pt \simeq \hdots \\
+	&\simeq \fib (\eta_{-1}^\bT \Omega^{n+1} (X,x)) pt \\
+	&\simeq \Omega^{n+1} (X , x)
+	\end{align*}
+	If for any $x$ , the fiber of $\eta_n^\bT X$ over $|x|$ is covering, then its $n+1$-fold loop space covering by assumption, so also $\Omega^{n+1} (X , x)$.	
+	\item [4 $\Rightarrow$ 2] If $I_n$ is an $n$-fold identity type. To show that $x =_{I_n} y$ is weakly-flat, by descent we may assume that $x = y$. Then we have $(x = y) \simeq (x =_{I_n} x)$. Now $x$ induces an equivalence $I_n \simeq X_n$ to a reflexive $n$-fold identity type by iterated transport. By 4. the corresponding loopspace of $X_n$ is covering.
+	\item [3 $\Rightarrow$ 4] Applying $x_k \cdot \_$ from the left induces an equivalence
+	\[\refl =_{X_k} \refl \to x_k =_{X_k} x_k \]
+	Conclude inductively
+\end{proof}
+\subsection{Deligne Mumford stacks are uninteresting}
+%The goal of this subsection is the following:
+\begin{lemma}{\label{lemma:SetUnramfied}}
+	Given morphisms of types $X \to Y \to Z$ with $X \to Z$ formally unramified and $Y$ a set, then $X \to Y$ formally unramified.
+\end{lemma}
+\begin{proof}
+	We can argue fiberwise so we may assume $Z$ beeing the point. A fiber of $f : X \to Y$ over $y$ is $\sum_{x: X} f x = y$ where $f x = y$ is a proposition,hence formally unramified. As $X$ is formally unramified we conclude as formally unramified types are $\sum$-stable.
+\end{proof}
+\begin{lemma}{\label{lemma:DMUnrIdTypes}}
+	Any Deligne Mumford stack $X$ has formally unramified identity types.
+\end{lemma}
+\begin{proof}
+	 We need to show that $X \to X \times X$ is formally unramified. As formally unramified is a local property of stacks \ref{lemma:SeperationIsLocal} it suffices to show that the map $W \times_X W \to W \times W$ as a basechange along the covering $W \times W \to X \times X$ is formally unramified. But postcomposing with the first projection $W \times_X W \to W \times W \to W$ is formally unramified so by \ref{lemma:SetUnramfied} we conclude.
+\end{proof}
+
+\begin{theorem}
+	For any Deligne-Mumford stack $X$, the map $X \to \|X\|_1^\bT$ is an \etale cover. In particular $\|X\|_1^\bT$ is a Deligne-Mumford stack.
+\end{theorem}
+\begin{proof}
+	By \ref{prop:EtaleTruncations}, \ref{lemma:coveringDMstacks} we need to show that for any $x : X$, $\Omega^2(X,x)$ is formally \etale. By \ref{lemma:DMUnrIdTypes}, $x =_X x$ is formally unramified, hence its identity types are formally \etale.
+\end{proof}
+
+\begin{theorem}[TODO]
+	An Artin stack $X$ is Deligne Mumford iff one of the following conditions is satisfied:
+	\begin{enumerate}
+		\item There exists a geometric atlas $W \to X$
+		\item The identity types of $X$ are formally unramified
+	\end{enumerate}
+\end{theorem}
+\begin{proof}
+	\begin{enumerate}
+		\item [1. $\Rightarrow $2.] \ref{lemma:DMUnrIdTypes}
+		\item [2. $\Rightarrow$ 1] Residual gerbes??? [06MF]
+		%As a stack beeing formally unramified is a sheaf and $%
+	\end{enumerate}
+\end{proof}
+%
+%\begin{lemma}
+%	Given a geometric atlas $p : X_0 \to X$ of a geometric stack $X$, $\|X_0 \times_X X_0\|_0^\bT$ is an algebraic space, iff for any $x, y : X$ , $\| x =_X y \|_0^\bT$ are algebraic spaces.	
+%\end{lemma}
+%\begin{proof}
+%	The map $p : X_0 \to X$ is $\bT$-surjective, so by descent we may just show the respective statement for $p x, p y : X$ for $x ,y : X_0$. 
+%	Now we use 	that the fibers of the map
+%	\[
+%	\|X_0 \times_X X_0\|_0^\bT = \sum_{x y : X_0} \| x =_X y\|_0^\bT \to X_0 \times X_0 
+%	\] %= \sum_{x , y} |x| =_{\|X\|_1^\bT} |y|
+%	are geometric stacks iff the domain is a geometric stack.
+%	
+%\end{proof}
+%\begin{lemma}
+%	TFAE
+%	\begin{enumerate}
+%		\item  Any geometric atlas $X_0 \to X$ satisfies that $p_1 : \|X_0 \times_X X_0\|_0^\bT \to X_0$ is covering
+%		\item $X \to \|X\|_1^\bT$ is covering
+%		\item  $\Omega^2(X,x)$ is covering for all $x : X$. 
+%	\end{enumerate}
+%
+%\end{lemma}
+%\begin{proof}
+%	2. and 3. are equivalent by \ref{prop:EtaleTruncations}. Choose a geometric atlas $X_0 \to X$. Then 
+%	\[
+%	\|X_0 \times_X X_0\|_0^\bT \simeq \| \sum_{x y : X_0} p x =_X py \|_0^\bT \simeq \sum_{x y  : X_0} \| px  =_X p y \|_0^\bT = \sum_{x y : X_0} |x| =_{\|X\|_1^\bT} |y| \simeq X_0 \times_{\|X\|_1^\bT} X_0
+%	\]
+%	So $\|X_0 \times_X X_0\|_0^\bT \to X_0$ is covering iff $X_0 \to \|X\|_1^\bT$ is covering iff $X \to \|X\|_1^\bT$ is covering by stability under covers.
+%\end{proof}
+
+	%	$X \to \|X\|_0^\bT$ is a geometric cover iff for all $x : X$, $\sum_{y : X} \|x = y\|^\bT$ is covering. If the identity types are weakly-flat then 
+%\[
+%\bT \ni 1 \simeq \sum_{y : X} x = y \to \sum_{y : X} \| y = x\|^\bT
+%\]
+%is a geometric catlas. \\
 \end{document}
 
  
