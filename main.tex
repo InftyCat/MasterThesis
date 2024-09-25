@@ -101,7 +101,7 @@
 	\ \begin{enumerate}
 		\item [1 $\Rightarrow$ 2] Choose a geometric atlas $W \to X$. In particular its $\bT$-surjective, hence we have $\|W\|^\bT$, so by assumption $W \in \bT$. So $X \in CS$.
 		\item [2 $\Rightarrow$ 1] 
-		\[\|W\|^\bT \to \|X\|^\bT \to X \in \CS \overset{\ref{lemma:atlasIsCatlas}} W \in \bT \]
+		\[\|W\|^\bT \to \|X\|^\bT \to X \in \CS \overset{\ref{lemma:atlasIsCatlas}}{\to} W \in \bT \]
 	\end{enumerate}
 \end{proof}
 %		\item 
@@ -160,7 +160,7 @@ For any weakly-flat geometric stack $X$, $\|X\|_{-1}^\bT$ is a geometric stack.
 	For any Deligne-Mumford stack $X$, the map $X \to \|X\|_1^\bT$ is an \etale cover. In particular $\|X\|_1^\bT$ is a Deligne-Mumford stack.
 \end{theorem}
 \begin{proof}
-	By \ref{prop:EtaleTruncations}, \ref{lemma:coveringDMstacks} we need to show that for any $x : X$, $\Omega^2(X,x)$ is formally \etale. By \ref{lemma:DMUnrIdTypes}, $x =_X x$ is formally unramified, hence its identity types are formally \etale.
+	By \ref{prop:EtaleTruncations}, \ref{lemma:coveringDMstacks} we need to show that for any $x : X$, $\Omega^2(X,x)$ is formally \etale. By \ref{lemma:DMUnrIdTypes}, $x =_X x$ is formally unramified, hence its identity types are formally \etale and flat (because open). By \ref{lemma:detectCovering} $\Omega^2(X,x)$ is covering.
 \end{proof}
 
 \begin{theorem}[TODO]
