@@ -112,79 +112,95 @@ For any weakly-flat geometric stack $X$, $\|X\|_{-1}^\bT$ is a geometric stack.
 	$X \to \|X\|_{-1}^\bT$ is a geometric cover.
 \end{proof}
 \begin{prop}{\label{prop:TruncationCover}}
-	Assume that loopspaces of covering stacks are covering. TFAE
-	\begin{enumerate}
-		\item $X \to \|X\|_n^\bT$ is a geometric cover
-		\item  all $n+1$-fold identity types of $X$ are weakly-flat.
+	We may define $X$ to be $0$-wf-seperated, iff its weakly flat and $n+1$-wf-seperated, iff identity types of $X$ are $n$-wf-seperated. \\
+	%Assume that loopspaces of covering stacks are covering. TFAE
+	For $X$ a geometric stack, TFAE \begin{enumerate}
+	%	\item $X \to \|X\|_n^\bT$ is a geometric cover
+		\item  $X$ is $n+1$-wf-seperated, i.e. all $n+1$-fold identity types of $X$ are weakly-flat.
 	
 		\item For any $x$, $\Omega^{n+1} (X , x)$ is covering.
-			\item For any sequence $x_0 : X \equiv X_0$ , $x_{k+1} : (x_{k} =_{X_k} x_k) \equiv X_{k+1}$, $x_n =_{X_n} x_n$ is covering.
+		\item For any $x: X$ , $x=x$ is $n$-wf-seperated, i.e. $n$-fold identity types of $x=x$ are weakly flat. %For any sequence $x_0 : X \equiv X_0$ , $x_{k+1} : (x_{k} =_{X_k} x_k) \equiv X_{k+1}$, $x_n =_{X_n} x_n$ is covering.
 	\end{enumerate}
 
 \end{prop}
 \begin{proof}
-	\item [3 $\Rightarrow$ 1] already done
-	\item [2 $\Rightarrow$ 4] ez
-	\item [1 $\Rightarrow$ 3]
+	
+%	Claim: A stack beeing $n$-wf-seperated has descent.
+%	\item [3 $\Rightarrow$ 1] already done
+	\item [1 $\Rightarrow$ 3 $\Rightarrow$ 2] ez
+%	\item [1 $\Rightarrow$ 3]
 
-	By applying iteratively \ref{lemma:loopOfFiber} 
-	\begin{align*}
-	\Omega^{n+1} (\fib (\eta_n^\bT X) |x|) &\simeq \Omega^n \fib (\eta_{n-1}^\bT (\Omega (X,x))) pt \simeq \hdots \\
-	&\simeq \Omega^{n-k} \fib(\eta_{n-k-1}^\bT \Omega^{k+1}(X,x)) pt \simeq \hdots \\
-	&\simeq \fib (\eta_{-1}^\bT \Omega^{n+1} (X,x)) pt \\
-	&\simeq \Omega^{n+1} (X , x)
-	\end{align*}
-	If for any $x$ , the fiber of $\eta_n^\bT X$ over $|x|$ is covering, then its $n+1$-fold loop space covering by assumption, so also $\Omega^{n+1} (X , x)$.	
-	\item [4 $\Rightarrow$ 2] If $I_n$ is an $n$-fold identity type. To show that $x =_{I_n} y$ is weakly-flat, by descent we may assume that $x = y$. Then we have $(x = y) \simeq (x =_{I_n} x)$. Now $x$ induces an equivalence $I_n \simeq X_n$ to a reflexive $n$-fold identity type by iterated transport. By 4. the corresponding loopspace of $X_n$ is covering.
-	\item [3 $\Rightarrow$ 4] Applying $x_k \cdot \_$ from the left induces an equivalence
-	\[\refl =_{X_k} \refl \to x_k =_{X_k} x_k \]
-	Conclude inductively
+%	If for any $x$ , the fiber of $\eta_n^\bT X$ over $|x|$ is covering, then its $n+1$-fold loop space covering by assumption, so also $\Omega^{n+1} (X , x)$.	
+	\item [3 $\Rightarrow$ 1] We prove this by induction. $n = 0$. To show that $x =_{X} y$ is weakly-flat, by descent we may assume that $x = y$. Then we have $(x = y) \simeq (x =_{X} x)$. By assumption this is weakly flat. \\
+	Assume now, that for any $x : X$, that $x = x$ is $n$-wf-seperated. Let $x, y : X$. We want to show that $x = y$ is $n$-wf-seperated. By induction we may just prove that for any $p : x = y$, $p = p$ is $n-1$-wf-seperated. Applying $p \cdot \_$ induces an equivalence $\refl_x = \refl_x \simeq p = p$ . But $x = x$ is $n$-wf-seperated, hence $\refl_x = \refl_x$ is $n-1$-wf-seperated.
+	\item [2 $\Rightarrow$ 3] Induction. $n=0$ is fine. 
+	Let $x : X$. To show that $\Omega(X,x)$ is $n$-wf-seperated, just use that $\Omega^n(\Omega(X,x))$ is covering, hence by the inductive statement $2 \Rightarrow 3 \Rightarrow 1$, we now that $\Omega(X,x)$ is $n$-wf-seperated.
+	%Applying $x_k \cdot \_$ from the left induces an equivalence
+%	\[\refl =_{X_k} \refl \to x_k =_{X_k} x_k \]
+%	Conclude inductively
 \end{proof}
-
-\subsection{geometric stacks are 1-gerbes}
-%The goal of this subsection is the following:
-
+\subsection{Omega-stability and gerbes}
 \begin{definition}
 	A geometric stack $X$ is an $n$-gerbe iff the map $\eta_n^\bT : X \to \|X\|_n^\bT$ is a geometric cover.
 \end{definition}
+
 \begin{theorem}
 	Assume that Covering stacks are $\Omega$-stable, % either that loop spaces of covering spaces are covering or that .\\
 	Then every geometric stack is a 1-gerbe. %For any geometric stack $X$, the map $X \to \|X\|_1^\bT$ is a geometric cover. In particular $\|X\|_1^\bT$ is a geometric stack.
 \end{theorem}
 \begin{proof}
-	By \ref{prop:TruncationCover}, we need to show that for any $x : X$, $\Omega^2(X,x)$ is covering.
+	By \ref{prop:LoopingsImplyGerbe}, we need to show that for any $x : X$, $\Omega^2(X,x)$ is covering.
 	choose an geometric atlas $f : S \to X$. by descent we may only show that $\Omega^2(X , fs)$ for $s : S$ is covering.
-%	 % https://q.uiver.app/#q=WzAsMTAsWzMsMSwiMSJdLFszLDIsIlgiXSxbMiwyLCJTIl0sWzIsMSwiXFxzdW1fe3QgOiBTfWZ0ID1fWCBmcyJdLFsxLDEsImZzID0gZnMiXSxbMSwyLCIxIl0sWzEsMCwiMSJdLFsyLDAsIjEiXSxbMCwwLCJcXE9tZWdhKGZzID0gZnMpIl0sWzAsMSwiMSJdLFsyLDEsImYiXSxbMCwxLCJmcyJdLFszLDJdLFszLDBdLFs1LDIsInMiXSxbNCw1XSxbNCwzXSxbNywzLCIocyxcXHJlZmwpIl0sWzYsNF0sWzYsN10sWzksNCwiXFxyZWZsIl0sWzgsNl0sWzgsOV1d
-%	 \[\begin{tikzcd}
-%	 	{\Omega(fs = fs)} & 1 & 1 \\
-%	 	1 & {fs = fs} & {\sum_{t : S}ft =_X fs} & 1 \\
-%	 	& 1 & S & X
-%	 	\arrow[from=1-1, to=1-2]
-%	 	\arrow[from=1-1, to=2-1]
-%	 	\arrow[from=1-2, to=1-3]
-%	 	\arrow[from=1-2, to=2-2]
-%	 	\arrow["{(s,\refl)}", from=1-3, to=2-3]
-%	 	\arrow["\refl", from=2-1, to=2-2]
-%	 	\arrow[from=2-2, to=2-3]
-%	 	\arrow[from=2-2, to=3-2]
-%	 	\arrow[from=2-3, to=2-4]
-%	 	\arrow[from=2-3, to=3-3]
-%	 	\arrow["fs", from=2-4, to=3-4]
-%	 	\arrow["s", from=3-2, to=3-3]
-%	 	\arrow["f", from=3-3, to=3-4]
-%	 \end{tikzcd}\]
- 	%By pullback pasting every square is a pullback. Hence 
- 	
-% 	\[
-% 	\Omega(fs = fs) \simeq \Omega(\sum_{t : S} ft = fs) 
-% 	\]
- 	\[
- 	\Omega(\sum_{t : S} ft = fs) \simeq \left (\sum_{p : \Omega(S,s)} \tp_p (\refl_{f s}) = \refl_{f s} \right) \simeq \refl =_{f s = f s} \refl
- 	\]
- 	where the last equivalence is obtained, as $\Omega(S,s)$ is contractible with center $\refl_s$.
- 	
- 	So $\Omega^2(X,fs)$ is the loop space of a covering stack, hence by assumption covering.
+	%	 % https://q.uiver.app/#q=WzAsMTAsWzMsMSwiMSJdLFszLDIsIlgiXSxbMiwyLCJTIl0sWzIsMSwiXFxzdW1fe3QgOiBTfWZ0ID1fWCBmcyJdLFsxLDEsImZzID0gZnMiXSxbMSwyLCIxIl0sWzEsMCwiMSJdLFsyLDAsIjEiXSxbMCwwLCJcXE9tZWdhKGZzID0gZnMpIl0sWzAsMSwiMSJdLFsyLDEsImYiXSxbMCwxLCJmcyJdLFszLDJdLFszLDBdLFs1LDIsInMiXSxbNCw1XSxbNCwzXSxbNywzLCIocyxcXHJlZmwpIl0sWzYsNF0sWzYsN10sWzksNCwiXFxyZWZsIl0sWzgsNl0sWzgsOV1d
+	%	 \[\begin{tikzcd}
+	%	 	{\Omega(fs = fs)} & 1 & 1 \\
+	%	 	1 & {fs = fs} & {\sum_{t : S}ft =_X fs} & 1 \\
+	%	 	& 1 & S & X
+	%	 	\arrow[from=1-1, to=1-2]
+	%	 	\arrow[from=1-1, to=2-1]
+	%	 	\arrow[from=1-2, to=1-3]
+	%	 	\arrow[from=1-2, to=2-2]
+	%	 	\arrow["{(s,\refl)}", from=1-3, to=2-3]
+	%	 	\arrow["\refl", from=2-1, to=2-2]
+	%	 	\arrow[from=2-2, to=2-3]
+	%	 	\arrow[from=2-2, to=3-2]
+	%	 	\arrow[from=2-3, to=2-4]
+	%	 	\arrow[from=2-3, to=3-3]
+	%	 	\arrow["fs", from=2-4, to=3-4]
+	%	 	\arrow["s", from=3-2, to=3-3]
+	%	 	\arrow["f", from=3-3, to=3-4]
+	%	 \end{tikzcd}\]
+	%By pullback pasting every square is a pullback. Hence 
+	
+	% 	\[
+	% 	\Omega(fs = fs) \simeq \Omega(\sum_{t : S} ft = fs) 
+	% 	\]
+	\[
+	\Omega(\sum_{t : S} ft = fs) \simeq \left (\sum_{p : \Omega(S,s)} \tp_p (\refl_{f s}) = \refl_{f s} \right) \simeq \refl =_{f s = f s} \refl
+	\]
+	where the last equivalence is obtained, as $\Omega(S,s)$ is contractible with center $\refl_s$.
+	
+	So $\Omega^2(X,fs)$ is the loop space of a covering stack, hence by assumption covering.
 \end{proof}
+\begin{prop}
+	This proposition seems only interesting for $n = 0$ by the previous theorem. Assume that covering stacks are $\Omega$-stable. Then $X$ is an $n$-gerbe iff $\Omega^{n+1}(X,x)$ is covering for all $x: X$	
+\end{prop}
+\begin{proof}
+	One direction is \ref{prop:LoopingsImplyGerbe}. The other follows
+	
+	By applying iteratively \ref{lemma:loopOfFiber} 
+	\begin{align*}
+		\Omega^{n+1} (\fib (\eta_n^\bT X) |x|) &\simeq \Omega^n \fib (\eta_{n-1}^\bT (\Omega (X,x))) pt \simeq \hdots \\
+		&\simeq \Omega^{n-k} \fib(\eta_{n-k-1}^\bT \Omega^{k+1}(X,x)) pt \simeq \hdots \\
+		&\simeq \fib (\eta_{-1}^\bT \Omega^{n+1} (X,x)) pt \\
+		&\simeq \Omega^{n+1} (X , x)
+	\end{align*}
+	The LHS is covering by $\Omega$-stability.
+\end{proof}
+
+%The goal of this subsection is the following:
+
+
 \begin{lemma}
 	If the topology is flattened by some $\bP$ that is stable under $\id$-types, then Covering stacks are $\Omega$-stable
 \end{lemma}
