@@ -2,7 +2,7 @@
 
 \begin{definition}
 	Let $\cV \subset \cU$ a subclass of types be stable under finite limits. 
-	We call a property $P$ of morphisms of types in $\cV$ local, if 
+	We call a property $P$ of morphisms of types in $\cV$ $\bT$-local, if 
 	\begin{enumerate}
 		\item its satisfied by identities in $\cV$,
 		\item stable under composition 
@@ -15,7 +15,7 @@
 			\arrow["h"', from=1-1, to=2-2]
 			\arrow["g", from=1-2, to=2-2]
 		\end{tikzcd}\]
-		with $X \to Y$ a geometric cover. Then $h$ has $P$ iff $g$ has $P$
+		with $X \to Y$ a geometric cover (wrt to $\bT$). Then $h$ has $P$ iff $g$ has $P$
 		\item Given $X,Y,Z,W \in \cV$. if $Y \to W$ is a geometric cover , then 
 		% https://q.uiver.app/#q=WzAsNCxbMCwwLCJYIl0sWzAsMSwiWSJdLFsxLDEsIlciXSxbMSwwLCJaIl0sWzAsM10sWzAsMSwiZiciLDJdLFsxLDJdLFszLDIsImYiXSxbMCwyLCIiLDEseyJzdHlsZSI6eyJuYW1lIjoiY29ybmVyLWludmVyc2UifX1dXQ==
 		\[\begin{tikzcd}
@@ -78,7 +78,7 @@
 
 So we may extend algebraic notions of maps to all geometric stacks:
 \begin{definition}
-	Let $P$ be a property of morphisms local in affine schemes.
+	Let $P$ be a property of morphisms $\bT$-local in affine schemes.
 	
 	We define a morphism of geometric stacks $f : X \to Y$ to have $P$ iff
 	there exist atlasses and a $P$-map on affines 
@@ -90,7 +90,7 @@ So we may extend algebraic notions of maps to all geometric stacks:
 		\arrow[from=1-1, to=2-1]
 		\arrow[from=1-2, to=2-2]
 		\arrow["f"{description}, from=2-1, to=2-2]
-	\end{tikzcd}\]
+	\end{tikzcd}\]	
 \end{definition}
 \begin{lemma}
 	Let $P$  be a local property of affine schemes. The induced property of morphisms of geometric stacks is local.
@@ -150,23 +150,51 @@ So we may extend algebraic notions of maps to all geometric stacks:
 \end{proof}
 \subsection{Local properties of stacks}
 \begin{definition}
-	Let $\cV \subset \cU$ be a subclass of types stable under finite limits. A property of $P$ of types in $\cV$ is local if 
+	Let $\cV \subset \cU$ be a subclass of types stable under finite limits. A property $P$ of types in $\cV$ is local if 
 	\begin{enumerate}
-		\item $1 \in \cV$
+		\item $1 \in P$
 		\item $P$ is $\sum$-stable
 		\item If $X \to Y$ is a geometric cover, then $X$ has $P$ iff $Y$ has $P$.
+		\item A stack $X$ having $P$ is a sheaf.
 	\end{enumerate}
 \end{definition}
 \begin{lemma}
 	Every local property of types in $\cV$ induces a local property of morphisms of types in $\cV$, by asking the property fiberwise.
 \end{lemma}
+\begin{proof}
+	Use descent for the descent along a geometric cover ($\bT$-surjective!).
+\end{proof}
+\subsection{Seperatedness}
+\begin{definition}
+Let $P$ be a $\bT$-local property of stacks.
+We call a stack $P$-seperated, iff its identity types are $P$ stacks.
+\end{definition}
+
 \begin{lemma}{\label{lemma:SeperationIsLocal}}
-	Let $P$ be a local property of stacks. Then $\mathrm{Sep}(P)$ is local, defined as $X \in \mathrm{Sep}(P)$ iff $x = y$ has $P$ for all $x ,y : X$.
+	Let $P$ be a $\bT$-local property of stacks. Then beeing $P$-seperated is a $\bT$-local property %Then $\mathrm{Sep}(P)$ is local, defined as $X \in \mathrm{Sep}(P)$ iff $x = y$ has $P$ for all $x ,y : X$.
 \end{lemma}
 \begin{proof}
 	Let $f : X \to Y$ be a geometric cover with $X$ beeing $P$-seperated. Let $x , y : Y$. Then by the construction in \ref{lemma:havingAbstractAtlasClosedUnderId} the map
 	\[
 	\fib_f x \times_X \fib_f y \to x = y
 	\]
-	is a geometric cover, whose domain has $P$ as $X$ is $P$-seperated and $P$ is stable under $\sum$. As $P$ is local, $x = y$ has $P$.
+	is a geometric cover, whose domain has $P$ as $X$ is $P$-seperated and $P$ is stable under $\sum$. As $P$ is local, $x = y$ has $P$. \\
+	TODO Beeing $\bP$-seperated has descent.
+\end{proof}
+
+\begin{example}
+	If $\cP$ is formally \etale, then beeing $\cP$-seperated means formally unramified.
+\end{example}
+\begin{lemma}{\label{lemma:SetUnramfied}}
+	Given morphisms of types $X \to Y \to Z$ with $X \to Z$ $\cP$-seperated and $Y$ a set, then $X \to Y$ is $\cP$-seperated.
+\end{lemma}
+\begin{proof}
+	We can argue fiberwise so we may assume $Z$ beeing the point. A fiber of $f : X \to Y$ over $y$ is $\sum_{x: X} f x = y$ where $f x = y$ is a proposition,hence $\cP$-seperated. As $X$ is $\cP$-seperated we conclude as $\cP$-seperated types are $\sum$-stable.
+\end{proof}
+
+\begin{lemma}{\label{lemma:PImpliesPsep}}
+	If a $\bT$-local property of affine schemes is stable under identity types, then the induced $\bT$-local property of geometric stacks is as well
+\end{lemma}
+\begin{proof}
+	Let $X$ be a $P$ geometric stack. We want to show that $X$ is $P$-seperated. Choose a geometric atlas $P \ni \Spec A \to X$ . By assumption $\Spec A$ is $P$-seperated. Hence $X$ is $P$-seperated.
 \end{proof}
