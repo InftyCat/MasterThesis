@@ -192,20 +192,7 @@ For any weakly-flat geometric stack $X$, $\|X\|_{-1}^\bT$ is a geometric stack.
 	If $X$ is a covering stack then $\Omega X$ is a $\bP$ geometric stack and $\bT$-merely inhabited. Conclude by  \ref{lemma:detectCovering}.
 \end{proof}
 
-\begin{theorem}[TODO]
-	An Artin stack $X$ is Deligne Mumford iff one of the following conditions is satisfied:
-	\begin{enumerate}
-		\item There exists a geometric atlas $W \to X$
-		\item The identity types of $X$ are $\bP$-seperated
-	\end{enumerate}
-\end{theorem}
-\begin{proof}
-	\begin{enumerate}
-		\item [1. $\Rightarrow $2.] \ref{lemma:DMUnrIdTypes}
-		\item [2. $\Rightarrow$ 1] Residual gerbes??? [06MF]
-		%As a stack beeing $\bP$-seperated is a sheaf and $%
-	\end{enumerate}
-\end{proof}
+
 %
 %\begin{lemma}
 %	Given a geometric atlas $p : X_0 \to X$ of a geometric stack $X$, $\|X_0 \times_X X_0\|_0^\bT$ is an algebraic space, iff for any $x, y : X$ , $\| x =_X y \|_0^\bT$ are algebraic spaces.	
@@ -241,6 +228,44 @@ For any weakly-flat geometric stack $X$, $\|X\|_{-1}^\bT$ is a geometric stack.
 %\bT \ni 1 \simeq \sum_{y : X} x = y \to \sum_{y : X} \| y = x\|^\bT
 %\]
 %is a geometric catlas. \\
+\section{Not clear where to put that}
+\begin{prop}
+	Assume covering stacks are $\Omega$-stable.
+	A $\bT$-merely inhabited truncated stack (e.g. geometric stack) is covering iff $\pi_0^\bT X := \|X\|_0^\bT$ and all higher homotopy groups 
+	\[
+	\pi_i^\bT(X,x) = \|\Omega^i (X , x)\|_0^\bT , i \ge 1
+	\]
+	are covering algebraic spaces.
+\end{prop}
+\begin{proof}
+	Let $X$ be an $n$-stack.
+	If $X$ is covering, then by $\Omega$-stability all the $\pi_i^\bT$ are covering (settrunc \todocite). Now the converse.
+	Consider the postnikov tower
+	\[
+	X = \|X\|_n^\bT \to \|X\|_{n-1}^\bT \to \hdots \to \|X\|_1^\bT \to \|X\|_0^\bT 
+	\]
+	As $\|X\|_0^\bT$ is covering, by quotient stability of covering stacks we may show that all the maps are geometric covers. 
+	Let $1 \le k \le n$ and consider the map $\|X\|_{k}^\bT \to \|X\|_{k-1}^\bT$. By descent for covering stacks, we may only consider the fiber over $|x|$, as the $\eta_{k-1}^\bT$ is $\bT$-surjective. 
+	It suffices to show, that the fiber is given by $B_\bT^k \pi^\bT_k(X,x)$ as deloopings of covering stacks are covering \ref{lemma:deloopingCS}.\\	
+	TODO details		
+\end{proof}
 \end{document}
+
+\section{Questions}
+\begin{theorem}[TODO]
+	An Artin stack $X$ is Deligne Mumford iff one of the following conditions is satisfied:
+	\begin{enumerate}
+		\item There exists a geometric atlas $W \to X$
+		\item The identity types of $X$ are $\bP$-seperated
+	\end{enumerate}
+\end{theorem}
+\begin{proof}
+	\begin{enumerate}
+		\item [1. $\Rightarrow $2.] \ref{lemma:DMUnrIdTypes}
+		\item [2. $\Rightarrow$ 1] Residual gerbes??? [06MF]
+		%As a stack beeing $\bP$-seperated is a sheaf and $%
+	\end{enumerate}
+\end{proof}
+
 
  
