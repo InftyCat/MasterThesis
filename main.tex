@@ -183,7 +183,7 @@ For any weakly-flat geometric stack $X$, $\|X\|_{-1}^\bT$ is a geometric stack.
 	
 	So $\Omega^2(X,fs)$ is the loop space of a covering stack, hence by assumption covering.
 \end{proof}
-\begin{prop}
+\begin{prop}{\label{prop:GerbeIffLooping}}
 	This proposition seems only interesting for $n = 0$ by the previous theorem. Assume that covering stacks are $\Omega$-stable. Then $X$ is an $n$-gerbe iff $\Omega^{n+1}(X,x)$ is covering for all $x: X$	
 \end{prop}
 \begin{proof}
@@ -208,7 +208,9 @@ For any weakly-flat geometric stack $X$, $\|X\|_{-1}^\bT$ is a geometric stack.
 \begin{proof}
 	If $X$ is a covering stack then $\Omega X$ is a $\bP$ geometric stack and $\bT$-merely inhabited. Conclude by  \ref{lemma:detectCovering}.
 \end{proof}
-
+\begin{example}
+	Put $\bP$ = formally \etale $+$ flat. Then $\bP$ is stable under identity types as formally \etale seperated schemes have decidable equality. 
+\end{example}
 
 %
 %\begin{lemma}
@@ -256,7 +258,7 @@ For any weakly-flat geometric stack $X$, $\|X\|_{-1}^\bT$ is a geometric stack.
 \end{prop}
 \begin{proof}
 	Let $X$ be an $n$-stack.
-	If $X$ is covering, then by $\Omega$-stability all the $\pi_i^\bT$ are covering (settrunc \todocite). Now the converse.
+	If $X$ is covering, then by $\Omega$-stability all the $\pi_i^\bT$ are covering \ref{prop:GerbeIffLooping} Now the converse.
 	Consider the postnikov tower
 	\[
 	X = \|X\|_n^\bT \to \|X\|_{n-1}^\bT \to \hdots \to \|X\|_1^\bT \to \|X\|_0^\bT 
