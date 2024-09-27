@@ -258,9 +258,17 @@ For any weakly-flat geometric stack $X$, $\|X\|_{-1}^\bT$ is a geometric stack.
 	X = \|X\|_n^\bT \to \|X\|_{n-1}^\bT \to \hdots \to \|X\|_1^\bT \to \|X\|_0^\bT 
 	\]
 	As $\|X\|_0^\bT$ is covering, by quotient stability of covering stacks we may show that all the maps are geometric covers. 
-	Let $1 \le k \le n$ and consider the map $\|X\|_{k}^\bT \to \|X\|_{k-1}^\bT$. By descent for covering stacks, we may only consider the fiber over $|x|$, as the $\eta_{k-1}^\bT$ is $\bT$-surjective. 
+	Let $1 \le k \le n$ and consider the map $f_k^X : \|X\|_{k}^\bT \to \|X\|_{k-1}^\bT$. By descent for covering stacks, we may only consider the fiber over $|x|$, as the $\eta_{k-1}^\bT$ is $\bT$-surjective. 
 	It suffices to show, that the fiber is given by $B_\bT^k \pi^\bT_k(X,x)$ as deloopings of covering stacks are covering \ref{lemma:deloopingCS}.\\	
-	TODO details		
+	We apply \ref{lemma:detectDelooping}.
+	First observe that $\Omega^k (\fib(f_k^X) |x| = \fib (\Omega^k (f_k^X , x))$ is equivalent to the basefiber of
+	
+	\[
+	\pi_k^\bT(X,x) \equiv \|\Omega^k X \|_0^\bT \simeq \Omega^k(\|X\|_k^\bT) \to \Omega^k \|X\|_{k-1}^\bT \simeq 1
+	\]
+	So it suffices to show by induction over $k$, that for all pointed stacks $(X,x)$, $\fib(f_k^X) |x|$ is $\bT$-$k$-connected.
+
+	This is definitely $\bT$-connected by using that any term $(y, p) : \fib(f_k^X) |x| = \sum_{y : \|X\|_n^\bT} \|x = y\|_{n-1}^\bT$ yields a witness of $\|x - y\|^\bT$. Then $\Omega (\fib(f_k^X) |x| = \fib (\Omega (f_k^X , x)) = \fib (f_{k-1}^{\Omega (X , x)})$ which is $\bT$-$k-1$-connected by induction.
 \end{proof}
 \end{document}
 

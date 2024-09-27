@@ -6,11 +6,18 @@ We denote $\| \cdot \|_n^\bT := L_\bT \| \cdot \|_n$, which is a modality. We de
 \eta_n^\bT X : X \to \| X\|_n^\bT
 \]
 \begin{definition}
-	A pointed stack $(X,x)$ is called $\bT$-connected if for any $y : X$ we have $\|x = y\|_\bT$.
+	A pointed stack $(X,x)$ is called $\bT$-1-connected (or $\bT$-connected) if for any $y : X$ we have $\|x = y\|_\bT$. \\
+	Inductively, $(X,x)$ is called $\bT$-$n+1$-connected if its $\bT$-connected and $\Omega X$ is $\bT$-$n$-connected.
 \end{definition}
 \begin{definition}
 	Let $G$ be a stack. A delooping stack of $G$ is a  pointed $\bT$-connected stack $B G$ equipped with an equivalence $\Omega B G \simeq G$.
 \end{definition}
+\begin{lemma}{\label{lemma:detectDelooping}}
+	For $X,Y$ pointed stacks, to construct an equivalence $X \simeq B^k Y$ we may show that $X$ is $\bT$-$k$-connected and construct an equivalence $\Omega^k X \simeq Y$.
+\end{lemma}
+\begin{proof}
+	If $k = 1$ its fine. Then $X \simeq B^{k+1} Y$ iff $X$ is $\bT$-connected and $\Omega X \simeq B^k Y$. By induction the latter is equivalent to $\Omega X$ beeing $\bT$-$k$-connected and $\Omega^{k+1} X \simeq Y$.
+\end{proof}
 
 \begin{lemma}{\label{lemma:deloopingCS}}
 	Let $G$ be a covering stack, that admits a delooping stack $B G$. Then $B G$ is a covering stack.
@@ -82,10 +89,20 @@ We denote $\| \cdot \|_n^\bT := L_\bT \| \cdot \|_n$, which is a modality. We de
 \begin{proof}
 	It factors as $X \to \|X\|_n \to L_\bT \|X\|_n$ where the latter map is $\bT$-surjective. So it sufficess to show, that the former map is surjective. As $X \to \|X\|_0$ is surjective it suffices to show, that $\ap$ of the map $\|X\|_n \to \|X\|_0$ is surjective. TODO %But for any type $T$ the map $T \to \|T\|_0$ is surjective.
 \end{proof}
+\begin{notation}
+	Given a map $f : X \to Y$ and some $x : X$ we denote $	\fib f x$ for the pointed type
+	\[
+	\fib f x \equiv (\fib_f (f x) , (x , \refl))
+	\]
+	and $f , x$ for the pointed map 
+	\[
+	(f , \refl_{f x}) : (X , x) \to (Y,f(x))
+	\]
+\end{notation}
 \begin{lemma}{\label{lemma:loopOfFiber}}
 	If $(X,x)$ is a pointed stack, the looping of the fiber of $X \to \|X\|_{n}^\bT$ over $|x|$ is the basefiber of $\Omega X \to \|\Omega X\|_{n-1}^\bT$.
 	\[
-	\Omega (\fib(\eta_n^\bT X)(|x|)) \simeq \fib (\eta_{n-1}^\bT \Omega (X,x))(pt)
+	\Omega (\fib(\eta_n^\bT X)(x)) \simeq \fib (\eta_{n-1}^\bT \Omega (X,x))(pt)
 	\]
 \end{lemma}
 \begin{proof}
@@ -108,7 +125,7 @@ We denote $\| \cdot \|_n^\bT := L_\bT \| \cdot \|_n$, which is a modality. We de
 	\arrow["{\simeq }", from=1-2, to=2-2]
 \end{tikzcd}\]
 	\[
-		\Omega (\fib(\eta_n^\bT X)(|x|)) = \fib (\Omega (\eta_n^\bT X ,x)) pt = \fib (\eta_{n-1}^\bT \Omega (X ,x)) pt
+		\Omega (\fib(\eta_n^\bT X)(x)) = \fib (\Omega (\eta_n^\bT X ,x)) pt = \fib (\eta_{n-1}^\bT \Omega (X ,x)) pt
 	\]
 \end{proof}
 \begin{prop}{\label{prop:LoopingsImplyGerbe}}

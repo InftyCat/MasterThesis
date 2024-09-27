@@ -2,24 +2,45 @@
 
 \section{Saturated Topologies}
 %Consider a topology $\bT$ finer than the Zariski topology.
+\begin{definition}
+	A $\sum$-stablility-preserving merely-inhabited Monad $P$ is a inflationary monotone idempotent endofunction on the  partial order $\Prop^\Aff$,  that preserves $\sum$-stability and satisfies that for any topology $\bT$, $P \bT \subset \bT$-merely inhabited types.\\
+\end{definition}W
+\begin{prop}{\label{prop:TopologyMonad}}
+	Given $\sum$-stable $\bT$-mere Monad $P$. Then for any topology $\bT$, A Type $Y$ is a stack wrt to $P \bT$ iff it is a stack wrt to $\bT$. \\
+	If $P$ is idempotent, then the class $P \bT$ is the smallest $P$-fixpoint topology containing $\bT$. 
+\end{prop}
+
+\begin{proof}
+	$\bT \subset P \bT$ by inflationarity. Its $\sum$ stable as by assumption. 	Regarding Stacks: As $\bT \subset \bT'$ the $\rightarrow$ direction is clear. Now, let $X \in \bT'$. We have
+	% https://q.uiver.app/#q=WzAsMyxbMCwwLCJcXHxYXFx8Il0sWzEsMCwiVCJdLFswLDEsIlxcfFhcXHxfXFxiVCBcXHNpbWVxIDEiXSxbMCwxLCJcXGZvcmFsbCJdLFswLDJdLFsyLDEsIlxcZXhpc3RzISIsMl1d
+	\[\begin{tikzcd}
+		{\|X\|} & Y \\
+		{\|X\|_\bT}
+		\arrow["\forall", from=1-1, to=1-2]
+		\arrow[from=1-1, to=2-1]
+		\arrow["{\exists!}"', dashed, from=2-1, to=1-2]
+	\end{tikzcd}\]
+	by the merely-inhabited-property $\|X\|_\bT  \simeq 1$. Hence $T$ is $\|X\|$-local	
+	If $P$ is idempotent, every other fixpoint $X$ containg $\bT$ satisfies $P T \subset P X = X$ by monotonicity. \\
+\end{proof}
 
 \begin{definition}
 	A catlas of $X$ is  some $\hat X \in \bT , \hat X \to X \text{ $\bT$-cover }$
 \end{definition}
 \begin{prop}
-	The saturation of a topology $\bT$ is the class $\bT'$ defined by 
+	The assignment
 		\[
-		X \in \bT' \text{ iff $X$ is affine} \land \exists \text{ catlas of } X 
+		\bT \mapsto \bT' \equiv \{X \in \Aff \ | \  \exists \text{ catlas of } X \}
 		\]
-		%i.e. the affine covering $0$-stacks.
-
-
-	
+		%i.e. the affine covering $0$-stacks.	
+	$\sum$-stable $\bT$-mere idempotent Monad, called the saturation monad. \\
+	 $\bT'$ is the class of covering $\Aff$-stacks.
 \end{prop}
 \begin{proof}
-	As $\bT'$ is definitely contained in the saturation, it suffices to show, that the class $\bT'$ defined above is saturated.
-	$\bT'$ is $\sum$-stable by \ref{thm:atlasStableSum}. \\
-	Now consider some $\bT'$-cover $\bT' \ni X' \to X$. By replacing $X'$ with some smooth atlas, we may assume that $X' \in \bT$. As every fiber $X'_x \in \bT'$, we merely find a smooth atlas $\tilde X'_x \to X'_x$. Then by Zariski local choice there exists a Zariski atlas $\hat X \to X$ and a commutative diagram 
+	\begin{itemize}
+		\item $\bT \subset \bT'$ is clear.
+		\item Monotonicity clear
+		\item Idempotentency:  consider some $\bT'$-cover $\bT' \ni X' \to X$. By replacing $X'$ with some smooth atlas, we may assume that $X' \in \bT$. As every fiber $X'_x \in \bT'$, we merely find a smooth atlas $\tilde X'_x \to X'_x$. Then by Zariski local choice there exists a Zariski atlas $\hat X \to X$ and a commutative diagram 
 	% https://q.uiver.app/#q=WzAsNCxbMCwwLCJcXHN1bV97eCA6IFxcaGF0IFh9XFx0aWxkZSBYJ194Il0sWzAsMSwiXFxoYXQgWCJdLFsxLDEsIlgiXSxbMSwwLCJcXHN1bV97eCA6IFh9WCdfeCJdLFszLDJdLFsxLDIsIlphciIsMl0sWzAsMV0sWzAsM11d
 	\[\begin{tikzcd}
 		Y \equiv {\sum_{x : \hat X}\tilde X'_x} & {\sum_{x : X}X'_x} = X' \\
@@ -29,42 +50,44 @@
 		\arrow[from=1-2, to=2-2]
 		\arrow["Zar"', from=2-1, to=2-2]
 	\end{tikzcd}\]
-	As $X' \in \bT$ and $Y \to X'$ is fibered in $\bT$ (\ref{lemma:AtlasSum}) we have $Y \in \bT$. But $Y \to \hat X$ is a $\bT$-cover and $\hat X \to X$ is a $\bT$-cover, $Y \to X$ is a $\bT$-cover. Hence $X \in \bT'$.%But $Y \to X$ is a $\bT$-cover and $\hat X \to X$ is a $\bT$-cover, $Y \to X$ is a $\bT$-cover. Hence $X \in \bT'$.
+	As $X' \in \bT$ and $Y \to X'$ is fibered in $\bT$ (\ref{lemma:AtlasSum}) we have $Y \in \bT$. But $Y \to \hat X$ is a $\bT$-cover and $\hat X \to X$ is a $\bT$-cover, $Y \to X$ is a $\bT$-cover. Hence $X \in \bT'$.
+		\item 	$\bT'$ is $\sum$-stable by \ref{thm:atlasStableSum}. \\
+		\item $\bT$-mere property: We have $\|X\| \to \|\Spec A\|$ for some catlas $\bT \ni X \to \Spec A$.
+		\end{itemize}
+		For the last claim, just observe that $\bT'$ is definitely contained in covering $\Aff$-stacks.
+	%But $Y \to X$ is a $\bT$-cover and $\hat X \to X$ is a $\bT$-cover, $Y \to X$ is a $\bT$-cover. Hence $X \in \bT'$.
 	%covering $n$-stacks are stable under dependent sums \ref{thM:stabSums}
 	%Obviously $1 \in \bT'$. We say a type $X$ has covering local choice if for all $\bT$-surjections $S \to S'$ and a map $X \to S'$ there exists a catlas of $X$ lifting to $S$. 
 	% %First observe that every $X \in \bT$ has covering local choice:
 	% Now any $X \in \bT'$ satisfies local choice wrt catlasses because it has a catlas and catlasses are stable under composition and Zariski covers are in $\bT$. 
 	% Hence ...
-	
-\end{proof}
-\begin{lemma}
-	A type $T$ is a stack wrt to $\bT'$ iff it is a stack wrt to $\bT$
-\end{lemma}
-\begin{proof}
-	As $\bT \subset \bT'$ the $\rightarrow$ direction is clear. Now, let $X \in \bT'$. We have to show that $T \to T^{\|X\|}$ is an equivalence. Choose $\bT \ni Y \to X$. Then we have a commutative diagram
-	% https://q.uiver.app/#q=WzAsMyxbMCwwLCJUIl0sWzEsMCwiVF57XFx8WFxcfH0iXSxbMSwxLCJUXntcXHxZXFx8fSJdLFswLDFdLFsxLDJdLFswLDIsIlxcc2ltZXEiLDJdXQ==
-	\[\begin{tikzcd}
-		T & {T^{\|X\|}} \\
-		& {T^{\|Y\|}}
-		\arrow[from=1-1, to=1-2]
-		\arrow["\simeq"', from=1-1, to=2-2]
-		\arrow[from=1-2, to=2-2]
-	\end{tikzcd}\]
-	So $T \to T^{\|X\|}$ has a left-inverse. Thus it suffices to show that any $f : T^{\|X\|}$ has a preimage. Choose $t : T$, s.th. $\mathrm{cnst}^Y_t$ is the composite $\|Y\| \to \|X\| \overset{f}{\to} T$. We have $\|Y\| \to (\mathrm{cnst}^X_t = f)$. But as $Y \in \bT$ and $\Delta_t = f$ is a stack (as an identitytype in the stack $T^{\|X\|}$) we are done.
-\end{proof}
-\begin{rmk}
-	We never used that we only talk about $\bT$-covers.
-\end{rmk}
-\begin{lemma}
-	Every saturated affine (i.e. $\Spec A \in \bT'$) it $\bT$-merely inhabited.     
-\end{lemma}
-\begin{proof}
-	We have $\|X\| \to \|\Spec A\|$ for some catlas $\bT \ni X \to \Spec A$.
+%		As $\bT'$ is definitely contained in the saturation, it suffices to show, that the class $\bT'$ defined above is saturated.
 \end{proof}
 
-\begin{question}
-	Does the converse hold, i.e. is every $\bT$-merely inhabited affine saturated?    
-\end{question}
+%
+%\begin{lemma}
+%
+%\end{lemma}
+%\begin{proof}
+%
+%%We have to show that $T \to T^{\|X\|}$ is an equivalence. Choose $\bT \ni Y \to X$. Then we have a commutative diagram
+%%	% https://q.uiver.app/#q=WzAsMyxbMCwwLCJUIl0sWzEsMCwiVF57XFx8WFxcfH0iXSxbMSwxLCJUXntcXHxZXFx8fSJdLFswLDFdLFsxLDJdLFswLDIsIlxcc2ltZXEiLDJdXQ==
+%%	\[\begin{tikzcd}
+%%		T & {T^{\|X\|}} \\
+%%		& {T^{\|Y\|}}
+%%		\arrow[from=1-1, to=1-2]
+%%		\arrow["\simeq"', from=1-1, to=2-2]
+%%		\arrow[from=1-2, to=2-2]
+%%	\end{tikzcd}\]
+%%	So $T \to T^{\|X\|}$ has a left-inverse. Thus it suffices to show that any $f : T^{\|X\|}$ has a preimage. Choose $t : T$, s.th. $\mathrm{cnst}^Y_t$ is the composite $\|Y\| \to \|X\| \overset{f}{\to} T$. We have $\|Y\| \to (\mathrm{cnst}^X_t = f)$. But as $Y \in \bT$ and $\Delta_t = f$ is a stack (as an identitytype in the stack $T^{\|X\|}$) we are done.
+%\end{proof}
+%\begin{rmk}
+%	We never used that we only talk about $\bT$-covers.
+%\end{rmk}
+%
+%\begin{question}
+%	Does the converse hold, i.e. is every $\bT$-merely inhabited affine saturated?    
+%\end{question}
 
 % \begin{lemma}
 %     A type $T$ is a saturated $\bT$-stack if for all $X \in \bT$ the diagonal

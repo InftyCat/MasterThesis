@@ -1,22 +1,68 @@
 \section{Flat}
-Consider a lex modality $L$.
-\begin{definition}
-	A subset of affines $\bP$ \emph{flattens} $L$ if
-	\begin{itemize}
-		\item $1 \in \bP$
-		\item $\bP$ is $\sum$-stable
-		\item The topology $\bT := \{ X \in \bP \ | \ L \| X \| \}$ induces the lex modality $L$.
+Given a  Lawvere-Tierney operator $j$ , i.e. a reflective subuniverse of $\Prop$, we will construct a topology $\bP_j$ such that %monotone map $j : \Prop \to \Prop$ (e.g. ) and a $\sum$-stable class of affines $\bP$ containing 1, 
+\[
+\bP_j = \{ X \in \bP \ | \ \| X \|_{\bP_{j}} \}
+\]
+\begin{construction}
 
-	%	\item If $\bP \ni X \to Y \in \Aff$ is a $\bT$-cover, then $Y \in \bP$.
-%		\item $\bP$ is $\bT$-local property of affines. local satisfies descent
-	\end{itemize}
+Just set 
+\[\bP_j := \{ X \in \bP \ | \ j \|X \| \}	 \]
+This is indeed a topology as $\bP$ and $j$ are $\sum$-stable %and $j$ is $\sum$-closed.
+We need to show, that for any $X \in \bP$, we have $\|X\|_{\bP_j} = j\|X\|$.
+Note
+\[
+\|X\|_{\bP_j} = \exists Y \in \bP_j : \|Y\| \to \|X\|
+\]
+If $j\|X\|$, then put $Y := X$. Conversely, given $Y \in \bP_j$ such that $\|Y\| \to \|X\|$, we deduce from $j \|Y\|$ that $j\|X\|$.
+%	First observe that $j \|X\|$ is indeed a ${\bP_j}$-sheaf: Let $Y \in {\bP_j}$ such that $\|Y\| \to j \|X\|$. Then as $j$ is a modality there exists a unique filler 
+%	% https://q.uiver.app/#q=WzAsMyxbMCwwLCJcXHxZXFx8Il0sWzEsMCwiTFxcfFhcXHwiXSxbMCwxLCJMXFx8WVxcfCJdLFswLDEsIlxcZm9yYWxsIl0sWzAsMl0sWzIsMSwiXFxleGlzdHMhIiwyLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV1d
+%	\[\begin{tikzcd}
+%		{\|Y\|} & {j\|X\|} \\
+%		{j\|Y\|}
+%		\arrow["\forall", from=1-1, to=1-2]
+%		\arrow[from=1-1, to=2-1]
+%		\arrow["{\exists!}"', dashed, from=2-1, to=1-2]
+%	\end{tikzcd}\]
+%	But $j\|Y\| = 1$ by construction. This is what we wanted to show. \\
+%	It remains to show that for any ${\bP_j}$-sheaf $\cF$
+%	% https://q.uiver.app/#q=WzAsMyxbMCwwLCJcXHxYXFx8Il0sWzEsMCwiXFxjRiJdLFswLDEsIkxcXHxYXFx8Il0sWzAsMSwiXFxmb3JhbGwiXSxbMCwyXSxbMiwxLCJcXGV4aXN0cyEiLDIseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XV0=
+%	\[\begin{tikzcd}
+%		{\|X\|} & \cF \\
+%		{j\|X\|}
+%		\arrow["\forall t", from=1-1, to=1-2]
+%		\arrow[from=1-1, to=2-1]
+%		\arrow["{\exists!}"', dashed, from=2-1, to=1-2]
+%	\end{tikzcd}\]
+%	Assume $j\|X\|$. We have to show 
+%	\[
+%	\isContr(\sum_{t': \cF} \prod_{* : \|X\|} t(*) = t' )
+%	\]
+%	Then by construction $X \in {\bP_j}$. As $\cF$ is $\|X\|$ local, there exists a unique term $t' : \cF$ with $ \prod_{* : \|X\|} t(*) = t' $. This is what we wanted to show.
+\end{construction}
+\begin{definition}
+	Let $L$ be a lex modality.
+	$\bP$ flattens $L$if for a type to be a $L$-sheaf its enough to check that its $\|X\|$-local for all $X \in \bP_L$. Here we view $L$ as a Lavwere Tierney Operator.
 	
-	%	\begin{itemize}
-	%		\item Either $X$ is contractible
-	%		\item Or Whenever we find $\Spec B \in \bT$ such that $\Spec B \to L \|X\|$
-	%	\end{itemize}
-	%	generates $L$.
+	%if there exists a Lavwere Tierney operator $j$, such that $L$ sheaves are exactly the types that are $\|X\|$-local for all $X \in \bP_L$. 
 \end{definition}
+%Consider a lex modality $L$.
+%\begin{definition}
+%	A subset of affines $\bP$ \emph{flattens} $L$ if
+%	\begin{itemize}
+%		\item $1 \in \bP$
+%		\item $\bP$ is $\sum$-stable
+%		\item The topology ${\bP_L} := \{ X \in \bP \ | \ L \| X \| \}$ induces the lex modality $L$.
+%
+%	%	\item If $\bP \ni X \to Y \in \Aff$ is a ${\bP_L}$-cover, then $Y \in \bP$.
+%%		\item $\bP$ is ${\bP_L}$-local property of affines. local satisfies descent
+%	\end{itemize}
+%	
+%	%	\begin{itemize}
+%	%		\item Either $X$ is contractible
+%	%		\item Or Whenever we find $\Spec B \in {\bP_L}$ such that $\Spec B \to L \|X\|$
+%	%	\end{itemize}
+%	%	generates $L$.
+%\end{definition}
 
 %Things in $\bP$ we call 'flat'.
 \begin{example}
@@ -43,7 +89,7 @@ Consider a lex modality $L$.
 \end{example}
 \begin{proof}
 	By the same argument as above. \\
-	The locality: If $\Spec B \to \Spec A$ is a $\bT$-cover (i.e. an \etale faithfully flat map) and $\Spec B$ \etale flat then we want to show $\Spec A$ is \etale. 
+	The locality: If $\Spec B \to \Spec A$ is a ${\bP_{et}}$-cover (i.e. an \etale faithfully flat map) and $\Spec B$ \etale flat then we want to show $\Spec A$ is \etale. 
 %	The square 
 %	% https://q.uiver.app/#q=WzAsNCxbMCwwLCJcXFNwZWMgQiJdLFsxLDAsIlxcU3BlYyBBIl0sWzAsMSwiRXQoXFxTcGVjIEIpIl0sWzEsMSwiRXQoXFxTcGVjIEEpIl0sWzEsM10sWzAsMiwiXFxzaW0iXSxbMiwzLCIiLDEseyJzdHlsZSI6eyJoZWFkIjp7Im5hbWUiOiJlcGkifX19XSxbMCwxXSxbMSwzXSxbMCwzLCIiLDEseyJzdHlsZSI6eyJuYW1lIjoiY29ybmVyLWludmVyc2UifX1dXQ==
 %	\[\begin{tikzcd}
@@ -65,26 +111,102 @@ Consider a lex modality $L$.
 %	Todo
 %\end{proof}
 \begin{lemma}
-	If $\Spec A \in \bP$, then $\Spec A$ is weakly-flat, i.e $\| \Spec A\|_\bT$ is a geometric prop.
+	If $\Spec A \in \bP$, then $\Spec A$ is weakly-flat, i.e $\| \Spec A\|_{\bP_L}$ is a geometric prop.
 \end{lemma}
 \begin{lemma}{\label{lemma:detectCovering}}
-	A geometric stack is covering iff its flat and $\bT$-merely inhabited.
+	A $\bP_j$-geometric stack is covering iff it has $\bP_j$ and ${\bP_j}$-merely inhabited.
 \end{lemma}
 
 \begin{lemma}
-	Assume $\bP$ is stable under finite sums. If $X$ is a covering stack and $Y$ a flat geometric stack, then $X + Y$ is covering
+	Assume $\bP$ is stable under finite sums. If $X$ is a covering stack and $Y$ a $\bP_j$ geometric stack, then $X + Y$ is covering
 \end{lemma}
 \begin{proof}
-	Let $\bT \ni \tilde X \to X, \tilde Y \to Y$ be geometric atlasses. Then $\tilde X+ \tilde Y$ is flat and $\bT$-merely inhabited, hence in the topology.
+	Let ${\bP_L} \ni \tilde X \to X, \tilde Y \to Y$ be geometric atlasses. Then $\tilde X+ \tilde Y$ is $\bP_j$ and ${\bP_L}$-merely inhabited, hence in the topology.
 \end{proof}
 \subsection{Flat results}
 
 \begin{lemma}
-	If the topology is flattened by some $\bP$ that is stable under $\id$-types, then Covering stacks are $\Omega$-stable
+	Let $\bP$ be stable under $\id$-types and $j$ any Lavwere Tierney Operator. Then $\bP_j$-covering stacks are $\Omega$-stable
 \end{lemma}
 \begin{proof}
-	If $X$ is a covering stack then $\Omega X$ is a $\bP$ geometric stack \ref{lemma:PImpliesPsep} and $\bT$-merely inhabited. Conclude by  \ref{lemma:detectCovering}.
+	If $X$ is a covering stack then $\Omega X$ is a $\bP$ geometric stack \ref{lemma:PImpliesPsep} and ${\bP_j}$-merely inhabited. Conclude by  \ref{lemma:detectCovering}.
 \end{proof}
 \begin{example}
-	Put $\bP$ = formally \etale $+$ flat affines. Then the \etale-local property $\bP$ is stable under identity types \ref{lemma:PImpliesPsep}, as formally \etale seperated schemes have decidable equality. 
+	Put $\bP$ = formally \etale $+$ flat affines. Then $\bP$ is stable under identity types , as formally \etale seperated schemes have decidable equality.  %\ref{lemma:PImpliesPsep}
 \end{example}
+
+\subsection{Decompostable}
+ Observe that if $X + Y$ is affine, then $X$ is affine, as $X \to X + Y$ is an affine map.
+
+Let $\bT$ be a saturated topology finer than the Zariski-topology.
+\begin{definition}
+	\[
+	\bP= \{X  \ | \ \exists Y , X + Y \in \bT\}
+	\]
+\end{definition}
+
+\begin{lemma}
+
+\begin{enumerate}
+	\
+	\item $\bP \subset \Aff$.
+	\item $\bot \in \bP$
+	\item $\bT \subset \bP$
+	\item Whenever $\bP \ni S \to X \in \Aff$ is a $\bT$-cover, then $X \in \bP$. Indeed, choose $S + Y \in \bT$, Then $\bT \ni S + Y \to X + Y$ is a $\bT$-cover, hence by saturatedness $X + Y \in \bT$. Thus $X \in \bP$.
+	\item If $X + Y \in \bP$ then $X \in \bP$.
+\end{enumerate}
+\end{lemma}
+
+
+\begin{prop}
+	$\bP$ is stable under $\sum$.
+\end{prop}
+\begin{proof}
+	Let $\bP \ni X \overset{B}{\to} \bP$. Lets first handle the special case, where $B x \in \bT$ for any $x : X$. Choose $Y$ such that $X + Y \in \bT$ . Then $\sum_{x: X} B x + \sum_{y:Y} 1$ can be expressed as $\sum_{x : X + Y} (B + \mathrm{cnst}_1) x$, which belongs to $\bT$. \\	 
+	Now the general case. By Zariski local choice we find a Zariski cover $p : X' \to X$ with 
+	\[
+	\prod_{x' : X'} \sum_{Y_{x'}} B (p x) + Y_{x'} \in \bT
+	\]
+	Then $\sum_{x' : X'} Y_{x'} + \sum_{x' : X'} B (p x) \in \bP$, hence by (5.) $\sum_{x': X'} B (p x) \in \bP$. As $\sum_{x': X'} B (p x) \to \sum_{x: X} B x \in \Aff$ is a $\bT$-cover, we conclude by (4.)
+
+\end{proof}
+
+\begin{definition}
+	$\bT$ is decompostable if for any type $X$
+	\[ \left(\|X\|_\bT \land \exists Y , X + Y \in \bT  \right) \to X \in \bT. \]\\ 
+
+\end{definition}
+
+\begin{prop}
+	There exists a smallest decompostable topology $\tilde \bT$ containing $\bT$. Moreover, the stacks coincide.	
+\end{prop}
+\begin{proof}
+	Define
+	\[
+	\bT \mapsto \tilde \bT \equiv \{X \ | \ \|X\|_{\bT} \land \exists Y , X + Y \in \bT \} %
+	\]
+	We apply \ref{prop:TopologyMonad}.
+	\begin{itemize}
+		\item Monotonicity clear.
+		\item Inflationarity clear
+		\item mere-inhabitance is clear by construction.
+\item 	The class is stable under $\sum$  as $\bP$ and $\bT$-merely inhabited types are both  $\sum$-stable. \\
+	%Let us first show, that the sheaves coincide.Obviously we have $\bT \subset \tilde \bT$, so it remains to show that every $\bT$-sheaf is a $\tilde \bT$-sheaf. Let $X \in \tilde \bT$. Then as in particular $\|X\|_\bT$ , every $\bT$-sheaf will be local wrt $\|X\|$. \\
+	\item idempotency: %	Now we will prove that $\tilde \bT$ is decompostable. 
+Let $X$ be a type such that $\|X\|_{\tilde \bT}$ and there exists a $Y$  with $X + Y \in \tilde \bT$. By the first assumption, we have $\|X\|_\bT$ as the stacks coincide by \ref{prop:TopologyMonad}. \\
+The latter means in particular that we find $Z$ with $X + Y + Z \in \bT$. But this witnesses that $X  \in \tilde \bT$.		
+\end{itemize}
+
+\end{proof}
+\begin{prop}
+	Assume that $\bT$ is decompostable. Then 
+	\begin{enumerate}
+			\item For any $X \in \bP$ we have $\|X\|_\bT \to X \in \bT$.
+			\item $\bP = \bT - 1 \equiv \{X \ | \ X + 1 \in \bT\}$.
+	\end{enumerate}
+\end{prop}
+\begin{proof}
+	The first statement is trivial.
+	For the second observe $\bT - 1 \subset \bP$. Then If $X + Y \in \bT$, then $1 + X + Y \in \bT$ as $\bT$ is stable under $+$. By decompostability $1 + X \in \bT$. Hence $X \in \bT - 1$. %$\Zar \in \bT$.
+	
+\end{proof}
