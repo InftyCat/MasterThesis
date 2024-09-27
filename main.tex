@@ -81,10 +81,10 @@
 \include{FundamentalThmAlgSpc}
 \include{AlgebraicSpace}
 
-
-\include{LocalProperties}
-\include{Flat}
 \include{DeloopingsAndTruncations}
+\include{LocalProperties}
+
+
 
 
 \subsection{Weakly-flat stacks}
@@ -202,15 +202,7 @@ For any weakly-flat geometric stack $X$, $\|X\|_{-1}^\bT$ is a geometric stack.
 %The goal of this subsection is the following:
 
 
-\begin{lemma}
-	If the topology is flattened by some $\bP$ that is stable under $\id$-types, then Covering stacks are $\Omega$-stable
-\end{lemma}
-\begin{proof}
-	If $X$ is a covering stack then $\Omega X$ is a $\bP$ geometric stack and $\bT$-merely inhabited. Conclude by  \ref{lemma:detectCovering}.
-\end{proof}
-\begin{example}
-	Put $\bP$ = formally \etale $+$ flat. Then $\bP$ is stable under identity types as formally \etale seperated schemes have decidable equality. 
-\end{example}
+
 
 %
 %\begin{lemma}
@@ -247,6 +239,8 @@ For any weakly-flat geometric stack $X$, $\|X\|_{-1}^\bT$ is a geometric stack.
 %\bT \ni 1 \simeq \sum_{y : X} x = y \to \sum_{y : X} \| y = x\|^\bT
 %\]
 %is a geometric catlas. \\
+
+\include{Flat}
 \section{Not clear where to put that}
 \begin{prop}
 	Assume covering stacks are $\Omega$-stable.
@@ -285,6 +279,8 @@ For any weakly-flat geometric stack $X$, $\|X\|_{-1}^\bT$ is a geometric stack.
 		%As a stack beeing $\bP$-seperated is a sheaf and $%
 	\end{enumerate}
 \end{proof}
+
+
 
 
  

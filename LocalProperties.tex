@@ -16,28 +16,32 @@
 			\arrow["g", from=1-2, to=2-2]
 		\end{tikzcd}\]
 		with $X \to Y$ a geometric cover (wrt to $\bT$). Then $h$ has $P$ iff $g$ has $P$
-		\item Given $X,Y,Z,W \in \cV$. if $Y \to W$ is a geometric cover , then 
-		% https://q.uiver.app/#q=WzAsNCxbMCwwLCJYIl0sWzAsMSwiWSJdLFsxLDEsIlciXSxbMSwwLCJaIl0sWzAsM10sWzAsMSwiZiciLDJdLFsxLDJdLFszLDIsImYiXSxbMCwyLCIiLDEseyJzdHlsZSI6eyJuYW1lIjoiY29ybmVyLWludmVyc2UifX1dXQ==
-		\[\begin{tikzcd}
-			X & Z \\
-			Y & W
-			\arrow[from=1-1, to=1-2]
-			\arrow["{f'}"', from=1-1, to=2-1]
-			\arrow["\ulcorner"{anchor=center, pos=0.125}, draw=none, from=1-1, to=2-2]
-			\arrow["f", from=1-2, to=2-2]
-			\arrow[from=2-1, to=2-2]
-		\end{tikzcd}\]
-		$f$ has $P$ iff $f'$ has $P$.
+		
 	
 	\end{enumerate}
-	\begin{lemma}{\label{lemma:local}}
-		If $P$ is local, then 
-		\begin{itemize}
-			\item geometric covers have P
-			\item in Point 4, The statement 'If $f'$ has $P$ then $f$ has $P$' is automatic by Point 3.
-		\end{itemize}
-	\end{lemma}
+
 \end{definition}
+\begin{definition}
+	$P$ has descent along geometric covers: Given $X,Y,Z,W \in \cV$. if $Y \to W$ is a geometric cover , then 
+	% https://q.uiver.app/#q=WzAsNCxbMCwwLCJYIl0sWzAsMSwiWSJdLFsxLDEsIlciXSxbMSwwLCJaIl0sWzAsM10sWzAsMSwiZiciLDJdLFsxLDJdLFszLDIsImYiXSxbMCwyLCIiLDEseyJzdHlsZSI6eyJuYW1lIjoiY29ybmVyLWludmVyc2UifX1dXQ==
+	\[\begin{tikzcd}
+		X & Z \\
+		Y & W
+		\arrow[from=1-1, to=1-2]
+		\arrow["{f'}"', from=1-1, to=2-1]
+		\arrow["\ulcorner"{anchor=center, pos=0.125}, draw=none, from=1-1, to=2-2]
+		\arrow["f", from=1-2, to=2-2]
+		\arrow[from=2-1, to=2-2]
+	\end{tikzcd}\]
+	If $f$ has $P$ then $f'$ has $P$.
+\end{definition}
+	\begin{lemma}{\label{lemma:local}}
+	If $P$ is local, then 
+	\begin{itemize}
+		\item geometric covers have P
+		\item in descent, The statement 'If $f'$ has $P$ then $f$ has $P$' is automatic by Point 3.
+	\end{itemize}
+\end{lemma}
 \begin{lemma}
 	Beeing a geometric cover is local.
 \end{lemma}
@@ -93,7 +97,7 @@ So we may extend algebraic notions of maps to all geometric stacks:
 	\end{tikzcd}\]	
 \end{definition}
 \begin{lemma}
-	Let $P$  be a local property of affine schemes. The induced property of morphisms of geometric stacks is local.
+	Let $P$  be a local property of affine schemes. The induced property of morphisms of geometric stacks is local. Additionally descent is inherited.
 \end{lemma}
 \begin{proof}
 	\begin{enumerate}
@@ -128,7 +132,7 @@ So we may extend algebraic notions of maps to all geometric stacks:
 		\end{tikzcd}\]
 		$X' \to Y'$ is a geometric cover and By 3. $X' \to \tilde Z$ has $P$. \\
 		So we may assume that $Z$ is affine. Then take a geometric atlas $\tilde X \to X$. The map $Y \to Z$ has the atlas $\tilde X \to X \to Z$ which has $P$ by stability under composition. Hence $Y \to Z$ has $P$.
-			\item By \ref{lemma:local} we only need to show stability under basechange. Let $Z \to W$ have $P$, Given $Y \to W$ a geometric cover. We want to show that a basechagne $Y \times_W Z \to Y$ has $P$. The idea is to construct a common atlas of $Z \to W$ and its basechange. Choose an atlas $\tilde Y \to Y$. Then $\tilde Y \times_W Z \to Y \times_W Z$ is a geometric cover: It is a basechange of $\tilde Y \to Y$, because the outer diagram is a pullback
+			\item We show also descent: By \ref{lemma:local} we only need to show stability under basechange. Let $Z \to W$ have $P$, Given $Y \to W$ a geometric cover. We want to show that a basechagne $Y \times_W Z \to Y$ has $P$. The idea is to construct a common atlas of $Z \to W$ and its basechange. Choose an atlas $\tilde Y \to Y$. Then $\tilde Y \times_W Z \to Y \times_W Z$ is a geometric cover: It is a basechange of $\tilde Y \to Y$, because the outer diagram is a pullback
 		% https://q.uiver.app/#q=WzAsNixbMCwwLCJcXHRpbGRlIFkgXFx0aW1lc19XIFoiXSxbMSwwLCJZIFxcdGltZXNfVyBaIl0sWzAsMSwiXFx0aWxkZSBZIl0sWzEsMSwiWSJdLFsyLDAsIloiXSxbMiwxLCJXIl0sWzAsMl0sWzAsMV0sWzIsM10sWzEsM10sWzMsNV0sWzEsNF0sWzQsNV0sWzEsNSwiIiwxLHsic3R5bGUiOnsibmFtZSI6ImNvcm5lci1pbnZlcnNlIn19XSxbMCwzLCIiLDEseyJzdHlsZSI6eyJuYW1lIjoiY29ybmVyLWludmVyc2UifX1dXQ==
 		\[\begin{tikzcd}
 			{\tilde Y \times_W Z} & {Y \times_W Z} & Z \\
@@ -154,9 +158,10 @@ So we may extend algebraic notions of maps to all geometric stacks:
 	\begin{enumerate}
 		\item $1 \in P$
 		\item $P$ is $\sum$-stable
-		\item If $X \to Y$ is a geometric cover, then $X$ has $P$ iff $Y$ has $P$.
-		\item A stack $X$ having $P$ is a sheaf.
+		\item If $X \to Y$ is a geometric cover between types in $\cV$, then $X$ has $P$ iff $Y$ has $P$.
+		
 	\end{enumerate}
+	We say $P$ has descent if for all $X : \cV$, then $X$ having $P$ is a $\bT$-sheaf.
 \end{definition}
 \begin{lemma}
 	Every local property of types in $\cV$ induces a local property of morphisms of types in $\cV$, by asking the property fiberwise.
@@ -164,11 +169,18 @@ So we may extend algebraic notions of maps to all geometric stacks:
 \begin{proof}
 	Use descent for the descent along a geometric cover ($\bT$-surjective!).
 \end{proof}
+\begin{lemma}
+	Let $P$ be a $\sum$-stable-property of affines containg $\bT$. The induced property of geometric stacks is $\bT$-local.
+\end{lemma}
+\begin{proof}
+	The $\sum$-stability is \ref{thm:atlasStableSum}. Covering stacks have $P$, as $\bT \subset P$. The quotient stability is straightforward.
+\end{proof}
 \subsection{Seperatedness}
 \begin{definition}
 Let $P$ be a $\bT$-local property of stacks.
 We call a stack $P$-seperated, iff its identity types are $P$ stacks.
 \end{definition}
+
 
 \begin{lemma}{\label{lemma:SeperationIsLocal}}
 	Let $P$ be a $\bT$-local property of stacks. Then beeing $P$-seperated is a $\bT$-local property %Then $\mathrm{Sep}(P)$ is local, defined as $X \in \mathrm{Sep}(P)$ iff $x = y$ has $P$ for all $x ,y : X$.
@@ -179,22 +191,22 @@ We call a stack $P$-seperated, iff its identity types are $P$ stacks.
 	\fib_f x \times_X \fib_f y \to x = y
 	\]
 	is a geometric cover, whose domain has $P$ as $X$ is $P$-seperated and $P$ is stable under $\sum$. As $P$ is local, $x = y$ has $P$. \\
-	TODO Beeing $\bP$-seperated has descent.
+%	TODO Beeing $\bP$-seperated has descent.
 \end{proof}
-
-\begin{example}
-	If $\cP$ is formally \etale, then beeing $\cP$-seperated means formally unramified.
-\end{example}
-\begin{lemma}{\label{lemma:SetUnramfied}}
-	Given morphisms of types $X \to Y \to Z$ with $X \to Z$ $\cP$-seperated and $Y$ a set, then $X \to Y$ is $\cP$-seperated.
-\end{lemma}
-\begin{proof}
-	We can argue fiberwise so we may assume $Z$ beeing the point. A fiber of $f : X \to Y$ over $y$ is $\sum_{x: X} f x = y$ where $f x = y$ is a proposition,hence $\cP$-seperated. As $X$ is $\cP$-seperated we conclude as $\cP$-seperated types are $\sum$-stable.
-\end{proof}
+%
+%\begin{example}
+%	If $\cP$ is formally \etale, then beeing $\cP$-seperated means formally unramified.
+%\end{example}
+%\begin{lemma}{\label{lemma:SetUnramfied}}
+%	Given morphisms of types $X \to Y \to Z$ with $X \to Z$ $\cP$-seperated and $Y$ a set, then $X \to Y$ is $\cP$-seperated.
+%\end{lemma}
+%\begin{proof}
+%	We can argue fiberwise so we may assume $Z$ beeing the point. A fiber of $f : X \to Y$ over $y$ is $\sum_{x: X} f x = y$ where $f x = y$ is a proposition,hence $\cP$-seperated. As $X$ is $\cP$-seperated we conclude as $\cP$-seperated types are $\sum$-stable.
+%\end{proof}
 
 \begin{lemma}{\label{lemma:PImpliesPsep}}
-	If a $\bT$-local property of affine schemes is stable under identity types, then the induced $\bT$-local property of geometric stacks is as well
+	If $\sum$-stable property of affine schemes containing $\bT$ is stable under identity types, then the induced $\bT$-local property of geometric stacks is as well. %In this case the identity types of a $P$ stack have $P$ as well. \\	
 \end{lemma}
 \begin{proof}
-	Let $X$ be a $P$ geometric stack. We want to show that $X$ is $P$-seperated. Choose a geometric atlas $P \ni \Spec A \to X$ . By assumption $\Spec A$ is $P$-seperated. Hence $X$ is $P$-seperated.
+	Let $X$ be a $P$ geometric stack. Let $x,y : X$ we want to show that $x =_X y$ has $P$. Choose a geometric atlas $P \ni S \overset{f}{\to} X$ . By assumption $S$ is $P$-seperated. We have a geometric atlas $\fib_f x \times_S \fib_f y \to x = y$. The domain is a $\sum$ of types in $\bT$ and identity types of $S$, which have $P$ by stability under identity types for the affine $S$. Hence $x = y$ has $P$. 
 \end{proof}

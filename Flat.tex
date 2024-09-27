@@ -4,10 +4,11 @@ Consider a lex modality $L$.
 	A subset of affines $\bP$ \emph{flattens} $L$ if
 	\begin{itemize}
 		\item $1 \in \bP$
-		\item $\bP$ is stable under finite sums
+		\item $\bP$ is $\sum$-stable
 		\item The topology $\bT := \{ X \in \bP \ | \ L \| X \| \}$ induces the lex modality $L$.
-		\item $\bP$ is a $\bT$-local property of affines.
 
+	%	\item If $\bP \ni X \to Y \in \Aff$ is a $\bT$-cover, then $Y \in \bP$.
+%		\item $\bP$ is $\bT$-local property of affines. local satisfies descent
 	\end{itemize}
 	
 	%	\begin{itemize}
@@ -17,16 +18,46 @@ Consider a lex modality $L$.
 	%	generates $L$.
 \end{definition}
 
-Things in $\bP$ we call 'flat'.
+%Things in $\bP$ we call 'flat'.
 \begin{example}
-	For the Zariski topology, the flat affines are the finite sums of open affines.
+	 finite sums of open affines flatten the Zariski topology
 \end{example}
 \begin{example}
-	For the fppf topology, flat is flat
+	flat affines flatten the fppf topology. Beeing flat if fppf-local.
 \end{example}
+\begin{proof}
+	 Indeed, TFAE
+	 \begin{enumerate}
+	 	\item  $X$ is flat and fppf-merely inhabited
+	 	\item $X$ is flat  and $\lnot\lnot$-inhabited
+	 	\item $X$ is fppf
+	 \end{enumerate}
+ 
+	\begin{proof}
+		$1 \Rightarrow 2 \Rightarrow 3 \Rightarrow 1$ \todocite
+	\end{proof}	 
+	The last point: if $\Spec B \to \Spec A$ is faithfully flat and $\Spec B$ is flat, then $\Spec A$ is flat.
+\end{proof}
 \begin{example}
-	For the etale topology, $\bP$ = formally \etale + flats. Indeed if $X \in \bP$ is \etale-merely inhabited, then its $\lnot\lnot$-inhabited. As $X$ is in particular flat, its fppf \todocite. We conclude that $X$ is \etale + fppf.
+	For the etale topology $=$ formally \etale $+$ fppf, we can put $\bP$ = formally \etale + flats. %$\bP$ is local.
 \end{example}
+\begin{proof}
+	By the same argument as above. \\
+	The locality: If $\Spec B \to \Spec A$ is a $\bT$-cover (i.e. an \etale faithfully flat map) and $\Spec B$ \etale flat then we want to show $\Spec A$ is \etale. 
+%	The square 
+%	% https://q.uiver.app/#q=WzAsNCxbMCwwLCJcXFNwZWMgQiJdLFsxLDAsIlxcU3BlYyBBIl0sWzAsMSwiRXQoXFxTcGVjIEIpIl0sWzEsMSwiRXQoXFxTcGVjIEEpIl0sWzEsM10sWzAsMiwiXFxzaW0iXSxbMiwzLCIiLDEseyJzdHlsZSI6eyJoZWFkIjp7Im5hbWUiOiJlcGkifX19XSxbMCwxXSxbMSwzXSxbMCwzLCIiLDEseyJzdHlsZSI6eyJuYW1lIjoiY29ybmVyLWludmVyc2UifX1dXQ==
+%	\[\begin{tikzcd}
+%		{\Spec B} & {\Spec A} \\
+%		{Et(\Spec B)} & {Et(\Spec A)}
+%		\arrow[from=1-1, to=1-2]
+%		\arrow["\sim", from=1-1, to=2-1]
+%		\arrow["\ulcorner"{anchor=center, pos=0.125}, draw=none, from=1-1, to=2-2]
+%		\arrow[from=1-2, to=2-2]
+%		\arrow[from=1-2, to=2-2]
+%		\arrow[two heads, from=2-1, to=2-2]
+%	\end{tikzcd}\]
+%	is a pullback as the formally \etale modality is lex. As the lower map is surjective, the right vertical map is an equivalence.	
+\end{proof}
 %\begin{lemma}{\label{lemma:coveringDMstacks}}
 %	Any formally \etale, \etale-merely inhabited Deligne-Mumford-stack is covering.
 %\end{lemma}
@@ -41,11 +72,19 @@ Things in $\bP$ we call 'flat'.
 \end{lemma}
 
 \begin{lemma}
-	If $X$ is a covering stack and $Y$ a flat geometric stack, then $X + Y$ is covering
+	Assume $\bP$ is stable under finite sums. If $X$ is a covering stack and $Y$ a flat geometric stack, then $X + Y$ is covering
 \end{lemma}
 \begin{proof}
 	Let $\bT \ni \tilde X \to X, \tilde Y \to Y$ be geometric atlasses. Then $\tilde X+ \tilde Y$ is flat and $\bT$-merely inhabited, hence in the topology.
 \end{proof}
+\subsection{Flat results}
 
-
-
+\begin{lemma}
+	If the topology is flattened by some $\bP$ that is stable under $\id$-types, then Covering stacks are $\Omega$-stable
+\end{lemma}
+\begin{proof}
+	If $X$ is a covering stack then $\Omega X$ is a $\bP$ geometric stack \ref{lemma:PImpliesPsep} and $\bT$-merely inhabited. Conclude by  \ref{lemma:detectCovering}.
+\end{proof}
+\begin{example}
+	Put $\bP$ = formally \etale $+$ flat affines. Then the \etale-local property $\bP$ is stable under identity types \ref{lemma:PImpliesPsep}, as formally \etale seperated schemes have decidable equality. 
+\end{example}
