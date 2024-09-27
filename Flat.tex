@@ -178,19 +178,21 @@ Let $\bT$ be a saturated topology finer than the Zariski-topology.
 \end{definition}
 
 \begin{prop}
-	There exists a smallest decompostable topology $\tilde \bT$ containing $\bT$. Moreover, the stacks coincide.	
+	There exists a smallest decompostable topology $\tilde \bT$ containing $\bT$ such that the stacks coincide.	
 \end{prop}
 \begin{proof}
 	Define
-	\[
-	\bT \mapsto \tilde \bT \equiv \{X \ | \ \|X\|_{\bT} \land \exists Y , X + Y \in \bT \} %
-	\]
+\begin{align*}
+	\Top &\to \Top \\
+	\bT &\mapsto \tilde \bT \equiv \{X \ | \ \|X\|_{\bT} \land \exists Y , X + Y \in \bT \} %
+\end{align*}
+
 	We apply \ref{prop:TopologyMonad}.
 	\begin{itemize}
+		\item 	The class is stable under $\sum$  as $\bP$ and $\bT$-merely inhabited types are both  $\sum$-stable. \\
 		\item Monotonicity clear.
 		\item Inflationarity clear
-		\item mere-inhabitance is clear by construction.
-\item 	The class is stable under $\sum$  as $\bP$ and $\bT$-merely inhabited types are both  $\sum$-stable. \\
+		\item stack-preservation is clear by construction.
 	%Let us first show, that the sheaves coincide.Obviously we have $\bT \subset \tilde \bT$, so it remains to show that every $\bT$-sheaf is a $\tilde \bT$-sheaf. Let $X \in \tilde \bT$. Then as in particular $\|X\|_\bT$ , every $\bT$-sheaf will be local wrt $\|X\|$. \\
 	\item idempotency: %	Now we will prove that $\tilde \bT$ is decompostable. 
 Let $X$ be a type such that $\|X\|_{\tilde \bT}$ and there exists a $Y$  with $X + Y \in \tilde \bT$. By the first assumption, we have $\|X\|_\bT$ as the stacks coincide by \ref{prop:TopologyMonad}. \\

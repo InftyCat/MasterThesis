@@ -3,15 +3,22 @@
 \section{Saturated Topologies}
 %Consider a topology $\bT$ finer than the Zariski topology.
 \begin{definition}
-	A $\sum$-stablility-preserving merely-inhabited Monad $P$ is a inflationary monotone idempotent endofunction on the  partial order $\Prop^\Aff$,  that preserves $\sum$-stability and satisfies that for any topology $\bT$, $P \bT \subset \bT$-merely inhabited types.\\
-\end{definition}W
+	Consider the partial order
+	\[
+	\Top = \{\bT : \Prop^\Aff \ | \ 1 \in \bT \land \bT \sum-stable \}
+	\]
+	ordered by inclusion.
+	An inflation $P$ on $\Top$ is a monotone endofunction such that $X \subset P X$. 
+	$P$ is stack-preserving if for any topology $\bT$, $P \bT \subset \bT$-merely inhabited types.\\
+%   that preserves $\sum$-stability and satisfies that 
+\end{definition}
 \begin{prop}{\label{prop:TopologyMonad}}
-	Given $\sum$-stable $\bT$-mere Monad $P$. Then for any topology $\bT$, A Type $Y$ is a stack wrt to $P \bT$ iff it is a stack wrt to $\bT$. \\
+	Given a stack-preserving inflation $P$. Then for any topology $\bT$, A Type $Y$ is a stack wrt to $P \bT$ iff it is a stack wrt to $\bT$. \\
 	If $P$ is idempotent, then the class $P \bT$ is the smallest $P$-fixpoint topology containing $\bT$. 
 \end{prop}
 
 \begin{proof}
-	$\bT \subset P \bT$ by inflationarity. Its $\sum$ stable as by assumption. 	Regarding Stacks: As $\bT \subset \bT'$ the $\rightarrow$ direction is clear. Now, let $X \in \bT'$. We have
+	$\bT \subset P \bT$ by inflationarity. 	Regarding Stacks: As $\bT \subset \bT'$ the $\rightarrow$ direction is clear. Now, let $X \in \bT'$. We have
 	% https://q.uiver.app/#q=WzAsMyxbMCwwLCJcXHxYXFx8Il0sWzEsMCwiVCJdLFswLDEsIlxcfFhcXHxfXFxiVCBcXHNpbWVxIDEiXSxbMCwxLCJcXGZvcmFsbCJdLFswLDJdLFsyLDEsIlxcZXhpc3RzISIsMl1d
 	\[\begin{tikzcd}
 		{\|X\|} & Y \\
@@ -20,7 +27,7 @@
 		\arrow[from=1-1, to=2-1]
 		\arrow["{\exists!}"', dashed, from=2-1, to=1-2]
 	\end{tikzcd}\]
-	by the merely-inhabited-property $\|X\|_\bT  \simeq 1$. Hence $T$ is $\|X\|$-local	
+	by the stack-preserving-property $\|X\|_\bT  \simeq 1$. Hence $T$ is $\|X\|$-local	
 	If $P$ is idempotent, every other fixpoint $X$ containg $\bT$ satisfies $P T \subset P X = X$ by monotonicity. \\
 \end{proof}
 
@@ -29,15 +36,17 @@
 \end{definition}
 \begin{prop}
 	The assignment
-		\[
-		\bT \mapsto \bT' \equiv \{X \in \Aff \ | \  \exists \text{ catlas of } X \}
-		\]
+		\begin{align*}
+		\Top &\to \Top \\
+		\bT &\mapsto \bT' \equiv \{X \in \Aff \ | \  \exists \text{ catlas of } X \}
+		\end{align*}
 		%i.e. the affine covering $0$-stacks.	
-	$\sum$-stable $\bT$-mere idempotent Monad, called the saturation monad. \\
+	stack-preserving idempotent Monad, called the saturation monad. \\
 	 $\bT'$ is the class of covering $\Aff$-stacks.
 \end{prop}
 \begin{proof}
 	\begin{itemize}
+		\item 	$\bT'$ is $\sum$-stable by \ref{thm:atlasStableSum}. \\
 		\item $\bT \subset \bT'$ is clear.
 		\item Monotonicity clear
 		\item Idempotentency:  consider some $\bT'$-cover $\bT' \ni X' \to X$. By replacing $X'$ with some smooth atlas, we may assume that $X' \in \bT$. As every fiber $X'_x \in \bT'$, we merely find a smooth atlas $\tilde X'_x \to X'_x$. Then by Zariski local choice there exists a Zariski atlas $\hat X \to X$ and a commutative diagram 
@@ -51,8 +60,8 @@
 		\arrow["Zar"', from=2-1, to=2-2]
 	\end{tikzcd}\]
 	As $X' \in \bT$ and $Y \to X'$ is fibered in $\bT$ (\ref{lemma:AtlasSum}) we have $Y \in \bT$. But $Y \to \hat X$ is a $\bT$-cover and $\hat X \to X$ is a $\bT$-cover, $Y \to X$ is a $\bT$-cover. Hence $X \in \bT'$.
-		\item 	$\bT'$ is $\sum$-stable by \ref{thm:atlasStableSum}. \\
-		\item $\bT$-mere property: We have $\|X\| \to \|\Spec A\|$ for some catlas $\bT \ni X \to \Spec A$.
+
+		\item stack-preserving: We have $\|X\| \to \|\Spec A\|$ for some catlas $\bT \ni X \to \Spec A$.
 		\end{itemize}
 		For the last claim, just observe that $\bT'$ is definitely contained in covering $\Aff$-stacks.
 	%But $Y \to X$ is a $\bT$-cover and $\hat X \to X$ is a $\bT$-cover, $Y \to X$ is a $\bT$-cover. Hence $X \in \bT'$.
