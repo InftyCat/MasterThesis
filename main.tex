@@ -144,7 +144,18 @@ For any weakly-flat geometric stack $X$, $\|X\|_{-1}^\bT$ is a geometric stack.
 \begin{definition}
 	A geometric stack $X$ is an $n$-gerbe iff the map $\eta_n^\bT : X \to \|X\|_n^\bT$ is a geometric cover.
 \end{definition}
-
+\begin{example}
+	If $G$ is a covering group sheaf, then $BG$ is a 0-gerbe.
+\end{example}
+\begin{lemma}
+	Assume that $\bP$ is lex. Then any $\bP$ geometric $\cT_\bP^j$-stack is a 0-gerbe.
+\end{lemma}
+\begin{proof}
+	By descent, we may only show that the fiber $\sum_{y: X} \|x = y\|_{-1}^\bT$ of $\eta_0^\bT$ over $|x|$ is a covering stack. Note that $x = y$ has $\bP$ by id-stability of $\bP$ \ref{lemma:PImpliesPsep}. The $\bT$-truncation of a $\bP$-geometric stack is a $\bP$ geometric stack \ref{lemma:TruncOfP}. by $\sum$-stability of $\bP$ the fiber is $\bP$, but its $\bT$-merely inhabited. by \ref{lemma:detectCovering} its covering.
+\end{proof}
+\begin{corollary}
+	If $\bT$ is lex-flattened, then identity types of covering stacks are 0-gerbes.
+\end{corollary}
 \begin{theorem}
 	Assume that Covering stacks are $\Omega$-stable, % either that loop spaces of covering spaces are covering or that .\\
 	Then every geometric stack is a 1-gerbe. %For any geometric stack $X$, the map $X \to \|X\|_1^\bT$ is a geometric cover. In particular $\|X\|_1^\bT$ is a geometric stack.
@@ -182,6 +193,12 @@ For any weakly-flat geometric stack $X$, $\|X\|_{-1}^\bT$ is a geometric stack.
 	where the last equivalence is obtained, as $\Omega(S,s)$ is contractible with center $\refl_s$.
 	
 	So $\Omega^2(X,fs)$ is the loop space of a covering stack, hence by assumption covering.
+\end{proof}
+\begin{corollary}
+	Any Deligne Mumford Stack is a 1-gerbe
+\end{corollary}
+\begin{proof}
+	Use that \etale topology is lex-flattened and \ref{prop:LexFlattenedOmegaStable}.
 \end{proof}
 \begin{prop}{\label{prop:GerbeIffLooping}}
 	This proposition seems only interesting for $n = 0$ by the previous theorem. Assume that covering stacks are $\Omega$-stable. Then $X$ is an $n$-gerbe iff $\Omega^{n+1}(X,x)$ is covering for all $x: X$	
@@ -244,7 +261,7 @@ For any weakly-flat geometric stack $X$, $\|X\|_{-1}^\bT$ is a geometric stack.
 \section{Not clear where to put that}
 \begin{prop}
 	Assume covering stacks are $\Omega$-stable.
-	A $\bT$-merely inhabited truncated stack (e.g. geometric stack) is covering iff $\pi_0^\bT X := \|X\|_0^\bT$ and all higher homotopy groups 
+	A truncated stack (e.g. geometric stack) is covering iff $\pi_0^\bT X := \|X\|_0^\bT$ and all higher homotopy groups 
 	\[
 	\pi_i^\bT(X,x) = \|\Omega^i (X , x)\|_0^\bT , i \ge 1
 	\]

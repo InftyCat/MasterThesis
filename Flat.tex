@@ -1,50 +1,326 @@
 \section{Flat}
-Given a  Lawvere-Tierney operator $j$ , i.e. a reflective subuniverse of $\Prop$, we will construct a topology $\bP_j$ such that %monotone map $j : \Prop \to \Prop$ (e.g. ) and a $\sum$-stable class of affines $\bP$ containing 1, 
-\[
-\bP_j = \{ X \in \bP \ | \ \| X \|_{\bP_{j}} \}
-\]
-\begin{construction}
 
-Just set 
-\[\bP_j := \{ X \in \bP \ | \ j \|X \| \}	 \]
-This is indeed a topology as $\bP$ and $j$ are $\sum$-stable %and $j$ is $\sum$-closed.
-We need to show, that for any $X \in \bP$, we have $\|X\|_{\bP_j} = j\|X\|$.
-Note
-\[
-\|X\|_{\bP_j} = \exists Y \in \bP_j : \|Y\| \to \|X\|
-\]
-If $j\|X\|$, then put $Y := X$. Conversely, given $Y \in \bP_j$ such that $\|Y\| \to \|X\|$, we deduce from $j \|Y\|$ that $j\|X\|$.
-%	First observe that $j \|X\|$ is indeed a ${\bP_j}$-sheaf: Let $Y \in {\bP_j}$ such that $\|Y\| \to j \|X\|$. Then as $j$ is a modality there exists a unique filler 
-%	% https://q.uiver.app/#q=WzAsMyxbMCwwLCJcXHxZXFx8Il0sWzEsMCwiTFxcfFhcXHwiXSxbMCwxLCJMXFx8WVxcfCJdLFswLDEsIlxcZm9yYWxsIl0sWzAsMl0sWzIsMSwiXFxleGlzdHMhIiwyLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV1d
-%	\[\begin{tikzcd}
-%		{\|Y\|} & {j\|X\|} \\
-%		{j\|Y\|}
-%		\arrow["\forall", from=1-1, to=1-2]
-%		\arrow[from=1-1, to=2-1]
-%		\arrow["{\exists!}"', dashed, from=2-1, to=1-2]
-%	\end{tikzcd}\]
-%	But $j\|Y\| = 1$ by construction. This is what we wanted to show. \\
-%	It remains to show that for any ${\bP_j}$-sheaf $\cF$
-%	% https://q.uiver.app/#q=WzAsMyxbMCwwLCJcXHxYXFx8Il0sWzEsMCwiXFxjRiJdLFswLDEsIkxcXHxYXFx8Il0sWzAsMSwiXFxmb3JhbGwiXSxbMCwyXSxbMiwxLCJcXGV4aXN0cyEiLDIseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XV0=
-%	\[\begin{tikzcd}
-%		{\|X\|} & \cF \\
-%		{j\|X\|}
-%		\arrow["\forall t", from=1-1, to=1-2]
-%		\arrow[from=1-1, to=2-1]
-%		\arrow["{\exists!}"', dashed, from=2-1, to=1-2]
-%	\end{tikzcd}\]
-%	Assume $j\|X\|$. We have to show 
-%	\[
-%	\isContr(\sum_{t': \cF} \prod_{* : \|X\|} t(*) = t' )
-%	\]
-%	Then by construction $X \in {\bP_j}$. As $\cF$ is $\|X\|$ local, there exists a unique term $t' : \cF$ with $ \prod_{* : \|X\|} t(*) = t' $. This is what we wanted to show.
-\end{construction}
+
 \begin{definition}
-	Let $L$ be a lex modality.
-	$\bP$ flattens $L$if for a type to be a $L$-sheaf its enough to check that its $\|X\|$-local for all $X \in \bP_L$. Here we view $L$ as a Lavwere Tierney Operator.
-	
-	%if there exists a Lavwere Tierney operator $j$, such that $L$ sheaves are exactly the types that are $\|X\|$-local for all $X \in \bP_L$. 
+	Denote $\Top$ the saturated topologies finer than the Zariski-topology.
+	Let $\mathsf{FLAT}$ consists of all the classes of affines $\bP$ containing $1, \bot$ stable under $\sum$. \\
+	Given $\bP: \mathsf{FLAT} , \bT: \Top$ we say $\bP$ flattens $\bT$ iff 
+	\[
+	\bT= \{X : \bP\ | \ \|X\|_\bT \}
+	\]
 \end{definition}
+The goal of this section is to prove the following theorem
+\begin{theorem}{\label{thm:Flat}}
+ \
+	\begin{enumerate}
+		\item There is at most one $\bP$ that flattens a topology. Then we say, the topology is flatten.
+		\item A topology can be idempotently flattened without changing the stacks
+		\item For any $\bP: \mathsf{FLAT}$ and any Lavwere Tierney Operator $j$, $\{ X: \bP \ | \ \|X\|_j \}$ is flatten by $\bP$.
+	\end{enumerate}
+\end{theorem}
+We first want to show the power of this theorem.
+\begin{example}
+	finite sums of open affines (or principal opens todo) flatten the Zariski topology. 
+\end{example}
+\begin{example}
+	flat affines flatten the fppf topology. %Beeing flat if fppf-local.
+\end{example}
+\begin{proof}
+	Indeed we can either put $j = \lnot \lnot$ or $j$ the fppf sheafification, because TFAE
+	\begin{enumerate}
+		\item  $X$ is flat and fppf-merely inhabited
+		\item $X$ is flat  and $\lnot\lnot$-inhabited
+		\item $X$ is fppf
+	\end{enumerate}
+	
+	\begin{proof}
+		$1 \Rightarrow 2 \Rightarrow 3 \Rightarrow 1$ \todocite
+	\end{proof}	 
+	%The last point: if $\Spec B \to \Spec A$ is faithfully flat and $\Spec B$ is flat, then $\Spec A$ is flat.
+\end{proof}
+\begin{example}
+	For the etale topology $=$ formally \etale $+$ fppf, we can put $\bP$ = formally \etale + flats. %$\bP$ is local.
+\end{example}
+%\begin{proof}
+%	By the same argument as above. \\
+	%The locality: If $\Spec B \to \Spec A$ is a ${\bP_{et}}$-cover (i.e. an \etale faithfully flat map) and $\Spec B$ \etale flat then we want to show $\Spec A$ is \etale. 
+	%	The square 
+	%	% https://q.uiver.app/#q=WzAsNCxbMCwwLCJcXFNwZWMgQiJdLFsxLDAsIlxcU3BlYyBBIl0sWzAsMSwiRXQoXFxTcGVjIEIpIl0sWzEsMSwiRXQoXFxTcGVjIEEpIl0sWzEsM10sWzAsMiwiXFxzaW0iXSxbMiwzLCIiLDEseyJzdHlsZSI6eyJoZWFkIjp7Im5hbWUiOiJlcGkifX19XSxbMCwxXSxbMSwzXSxbMCwzLCIiLDEseyJzdHlsZSI6eyJuYW1lIjoiY29ybmVyLWludmVyc2UifX1dXQ==
+	%	\[\begin{tikzcd}
+	%		{\Spec B} & {\Spec A} \\
+	%		{Et(\Spec B)} & {Et(\Spec A)}
+	%		\arrow[from=1-1, to=1-2]
+	%		\arrow["\sim", from=1-1, to=2-1]
+	%		\arrow["\ulcorner"{anchor=center, pos=0.125}, draw=none, from=1-1, to=2-2]
+	%		\arrow[from=1-2, to=2-2]
+	%		\arrow[from=1-2, to=2-2]
+	%		\arrow[two heads, from=2-1, to=2-2]
+	%	\end{tikzcd}\]
+	%	is a pullback as the formally \etale modality is lex. As the lower map is surjective, the right vertical map is an equivalence.	
+%\end{proof}
+%\begin{lemma}{\label{lemma:coveringDMstacks}}
+%	Any formally \etale, \etale-merely inhabited Deligne-Mumford-stack is covering.
+%\end{lemma}
+%\begin{proof}
+%	Todo
+%\end{proof}
+
+\begin{lemma}{\label{lemma:TruncOfP}}
+	Assume $\bT$ is flatten.
+	If $X$ is $\bT$-flat geometric stack, then $\|X\|_{\bT}$ is a geometric prop.
+\end{lemma}
+\begin{proof}
+	
+	If $\Spec A$ is $\bT$-flat, then $\Spec A$ is weakly-flat, i.e $\| \Spec A\|_{\bT}$ is a geometric prop.
+\end{proof}
+\begin{lemma}{\label{lemma:detectCovering}}
+	Assume $\bT$ is flatten.
+	A stack is covering iff it it a $\bT$-flat geometric stack and $\bT$-merely inhabited.
+\end{lemma}
+
+\begin{lemma}
+	Assume $\bT$ is flatten.
+	If $X$ is a covering stack and $Y$ a $\bT$-flat geometric stack, then $X + Y$ is covering
+\end{lemma}
+\begin{proof}
+	Let $\bP$ flatten $\bT$.
+	Let ${\bP} \ni \tilde X \to X, \tilde Y \to Y$ be geometric atlasses. Then $\tilde X+ \tilde Y$ is $\bP$ and ${\bT}$-merely inhabited, hence in the topology.
+\end{proof}
+
+\subsection{Lex flatten Topologies}
+
+
+\begin{definition}
+	A saturated topology $\bT$ is lex-flatten, if its flatten by some lex $\bP$. % there exists a lex subclass $\bP$ of affines such that $\bT \subset \bP$ and $\cT_{\bP}^{\|\cdot\|_\bT} \equiv \{X \in \bP \ | \ \|X\|_\bT\} \subset \CS_\bT$.
+\end{definition}
+Note that $\bot = (left =_{1+1} right) \in \bP$ is automatic as $\bP$ is lex.
+%If $\bT$ is saturated, equivalentely $\cT_{\bP}^{\|\cdot\|_\bT}  = \bT$.
+
+\begin{example}
+	The \etale topology is lex-flatten:
+	formally \etale $+$ flat affines are stable under identity types , as formally \etale seperated schemes have decidable equality.  %\ref{lemma:PImpliesPsep}
+\end{example}
+
+\begin{prop}{\label{prop:LexflattenOmegaStable}}
+	Let $\bT$ be lex-flatten. Then covering stacks are $\Omega$-stable. %In particular:
+	%	Let $\bP$ be stable under $\id$-types and $j$ any Lavwere Tierney Operator. Then $\cT^j_{\bP}$-covering stacks are $\Omega$-stable
+\end{prop}
+\begin{proof}
+	Choose $\bP$ lex such that $\bT = \cT_{\bP}^{\|\cdot\|_\bT}$. If $X$ is a covering stack then $\Omega X$ is a $\bP$ geometric stack \ref{lemma:PImpliesPsep} and $\bT$-merely inhabited. Conclude by  \ref{lemma:detectCovering}.
+\end{proof}
+
+\subsection{Proof of the theorem}
+ Observe that if $X + Y$ is affine, then $X$ is affine, as $X \to X + Y$ is an affine map.
+
+Let $\bT$ be a saturated topology finer than the Zariski-topology.
+\begin{definition}
+	\[
+	\cP_\bT= \{X  \ | \ \exists Y , X + Y \in \bT\}
+	\]
+\end{definition}
+
+\begin{lemma}{\label{lemma:flatBasics}}
+
+\begin{enumerate}
+	\
+	\item $\cP_\bT \subset \Aff$.
+	\item $\bot \in \cP_\bT$
+	\item $\bT \subset \cP_\bT$
+	\item Whenever $\cP_\bT \ni S \to X \in \Aff$ is a $\bT$-cover, then $X \in \cP_\bT$. 
+	%\item Summand-stability: If $X + Y \in \cP_\bT$ then $X \in \cP_\bT$.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+	4. choose $S + Y \in \bT$, Then $\bT \ni S + Y \to X + Y$ is a $\bT$-cover, hence by saturatedness $X + Y \in \bT$. Thus $X \in \cP_\bT$.
+\end{proof}
+\begin{lemma}{\label{lemma:SummandStable}}
+	Let $\bP$ be $\sum$ stable containing $\top , \bot$. Then its Summand stable.
+\end{lemma}
+\begin{proof}
+	Given $X + Y \in \bP$, we can define $(\top, \bot) : X + Y \to \bP$ Its $\sum$ will be $X$. \\
+\end{proof}
+
+
+
+\begin{prop}
+	$\cP_\bT$ is stable under $\sum$.
+\end{prop}
+\begin{proof}
+	Let $\cP_\bT \ni X \overset{B}{\to} \cP_\bT$. Lets first handle the special case, where $B x \in \bT$ for any $x : X$. Choose $Y$ such that $X + Y \in \bT$ . Then $\sum_{x: X} B x + \sum_{y:Y} 1$ can be expressed as $\sum_{x : X + Y} (B + \mathrm{cnst}_1) x$, which belongs to $\bT$. \\	 
+	Now the general case. By Zariski local choice we find a Zariski cover $p : X' \to X$ with 
+	\[
+	\prod_{x' : X'} \sum_{Y_{x'}} B (p x) + Y_{x'} \in \bT
+	\]
+	Then $\sum_{x' : X'} Y_{x'} + \sum_{x' : X'} B (p x) \in \cP_\bT$, hence by \ref{lemma:SummandStable} $\sum_{x': X'} B (p x) \in \cP_\bT$. As $\sum_{x': X'} B (p x) \to \sum_{x: X} B x \in \Aff$ is a $\bT$-cover, we conclude by (4.)
+
+\end{proof}
+
+\begin{definition}
+	$\bT$ is decompostable if for any type $X$
+	\[ \left(\|X\|_\bT \land \exists Y , X + Y \in \bT  \right) \to X \in \bT. \]\\ 
+
+\end{definition}
+
+\begin{prop}
+	There exists a smallest decompostable topology $\tilde \bT$ containing $\bT$. Moreover the stacks coincide.	
+\end{prop}
+\begin{proof}
+	Define
+\begin{align*}
+	\Top &\to \Top \\
+	\bT &\mapsto \tilde \bT \equiv \{X \ | \ \|X\|_{\bT} \land \exists Y , X + Y \in \bT \} %\equiv \cT_{\cP_\bT}^{\|\cdot\|_\bT}%
+\end{align*}
+
+	We apply \ref{prop:TopologyMonad}.
+	\begin{itemize}
+		\item 	The class is stable under $\sum$  as $\cP_\bT$ and $\bT$-merely inhabited types are both  $\sum$-stable. \\
+		\item Monotonicity clear.
+		\item Inflationarity clear
+		\item stack-preservation is clear by construction.
+	%Let us first show, that the sheaves coincide.Obviously we have $\bT \subset \tilde \bT$, so it remains to show that every $\bT$-sheaf is a $\tilde \bT$-sheaf. Let $X \in \tilde \bT$. Then as in particular $\|X\|_\bT$ , every $\bT$-sheaf will be local wrt $\|X\|$. \\
+	\item idempotency: %	Now we will prove that $\tilde \bT$ is decompostable. 
+Let $X$ be a type such that $\|X\|_{\tilde \bT}$ and there exists a $Y$  with $X + Y \in \tilde \bT$. By the first assumption, we have $\|X\|_\bT$ as the stacks coincide by \ref{prop:TopologyMonad}. \\
+The latter means in particular that we find $Z$ with $X + Y + Z \in \bT$. But this witnesses that $X  \in \tilde \bT$.		
+\end{itemize}
+
+\end{proof}
+
+
+
+\begin{lemma}
+	Let $\bT$ be a topology, such that any $X : \cP_\bT$ is $(\bT-1)$-seperated, i.e. that the identity types of $X$ belong to $\bT-1  \equiv \{X \ | \ X + 1 \in \bT\}.$. Then we have for all $X$
+	\[
+	(\exists Y : \bT - 1 , X + Y \in \bT) = (X \in (\bT - 1)) \to (\|X\|_\bT \to X \in CS)
+	\]
+\end{lemma}
+\begin{proof}
+	For the first equality notice that $X + Y \to X + 1$ is a $\bT$-cover. For the last implication, by descent for covering stacks we may choose a map $1 \to X$. Then $\bT \ni X + 1 \to X$ is a $\bT$-cover by assumption.
+\end{proof}
+\begin{warning}
+	In general, the $\tilde \cdot$ -construction is presumably not covering-stack preserving: In the above lemma we would need 
+	\[
+	X \in \bP \to (\|X\|_\bT \to X \in CS)
+	\]
+\end{warning}
+
+\begin{example}
+	If any type in $\bT$ has decidable equality, then any type in $\cP$ is $(\bT-1)$seperated.
+\end{example}
+\begin{prop}{\label{prop:detectDecompostable}}
+TFAE
+	\begin{enumerate}
+		\item  $\bT$ is decompostable, i.e. for any $X \in \cP_\bT$ we have $\|X\|_\bT \to X \in \bT$.
+		\item $\cP_\bT$ flattens $\bT$, i.e. $\bT = \{X : \cP_\bT \ | \ \|X\|_\bT \}$ % \}\cT_{\cP_\bT}^{\|\cdot\|_\bT}$
+	\end{enumerate}
+	In this case we have  $3 . \cP_\bT = \bT - 1$. If $\cP_\bT \subset (\bT-1)-$seperated and $\bT$ is saturated.  , then the converse holds.
+\end{prop}
+\begin{proof}
+	\ \begin{itemize}
+			\item [1 $\Leftrightarrow$ 2]
+		We have
+		\[
+		\{X \in \cP_\bT \ | \ \|X \|_\bT\} = \{ X \ | \ \|X\|_\bT \land \exists Y , X + Y \in \bT \}
+		\] % \cT_{\cP_\bT}^{\|\cdot\|_\bT} \equiv 
+		which coincides with $\bT$ iff $\bT$ is decompostable.
+	\item [1 $\Rightarrow$ 3]
+	For the second observe $\bT - 1 \subset \cP_\bT$. Then If $X + Y \in \bT$, then $1 + X + Y \in \bT$ as $\bT$ is stable under $+$. By decompostability $1 + X \in \bT$. Hence $X \in \bT - 1$. %$\Zar \in \bT$.
+	\item [3 $\Rightarrow$ 1]
+	By the above lemma and saturatedness of the topology.
+
+\end{itemize}	
+\end{proof}
+
+%\begin{theorem}{\label{thm:ModSec}}
+%	 Denote $\tilde \Top$ for decompostable topologies. Consider the map 
+%	\begin{align*}
+%		\cP_\bullet : \tilde \Top &\to \mathsf{FLAT} \\ \bT &\mapsto \cP_\bT. 
+%		\end{align*}
+%	Then any Lavwere Tierney Operator $j$ induces a section of $\cP_\bullet$ mapping onto the class of topologies $\bT$ such that forall $X$
+%	\[
+%\ \|X\|_j \land (\exists Y, X + Y \in \bT) \to X \in \bT  %	\{\bT  : \Top \ | \forall X,  
+%	\]
+%	For any decompostable topology $\bT$ we find such a section whose image contains $\bT$.
+%%	Moreover, any such topology will be decompostable.
+%%	Then we have a bijection
+%%	% https://q.uiver.app/#q=WzAsNixbMCwwLCJcXG1hdGhzZntGTEFUfSJdLFsxLDAsIlxcVG9wIl0sWzEsMSwiXFxiVCJdLFswLDEsIlxcY1BfXFxiVCJdLFswLDIsIlxcYlAiXSxbMSwyLCJcXGNUX3tcXGJQfV57XFxsbm90XFxsbm90fSJdLFswLDEsIlxcc2ltZXEiLDAseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJhcnJvd2hlYWQifX19XSxbMiwzLCIiLDAseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJtYXBzIHRvIn19fV0sWzQsNSwiIiwwLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoibWFwcyB0byJ9fX1dXQ==
+%%	\[\begin{tikzcd}
+%%		{\mathsf{FLAT}} & \{\bT  : \Top \ | \forall X,  \ \|X\|_j \land (\exists Y, X + Y \in \bT) \to X \in \bT \} \\ % _{decompostable} \\
+%%		{\cP_\bT} & \bT \\
+%%		\bP & {\cT_{\bP}^{j}}
+%%		\arrow["\simeq", tail reversed, from=1-1, to=1-2]
+%%		\arrow[maps to, from=2-2, to=2-1]
+%%		\arrow[maps to, from=3-1, to=3-2]
+%%	\end{tikzcd}\]
+%\end{theorem}
+%\begin{proof}
+%	The map $\cP_\bullet$ is well-defined by \ref{lemma:flatBasics}. \\
+%	
+%	Given any $\sum$-stable class of affines $\bP$ containing 1 and a  Lawvere-Tierney operator $j$ , i.e. a reflective subuniverse of $\Prop$, we will construct a decompostable topology $\cT^j_{\bP}$ such that \[
+%	\cT^j_{\bP} = \{ X \in \bP \ | \ \| X \|_{\cT_\bP^{j}} \}
+%	\]
+%	\begin{construction}
+%		
+%		Just set 
+%	
+%		Decompostability: From $X + Y \in \cT_{\bP}^{j}$ we get $X + Y\in \bP$, thus we deduce $X \in \bP$ by Summand-stability and $\|X\|_{\cT_{\bP}^j} = \|X\|_j$ by construction of $\cT^j$. This ends the construction \\		
+%	\end{construction}	
+%%	Given $j$, the section $\cT_\bullet^j$ is well-defined, i.e. has image in decompostable topologies: . % and $\|X\|_{\bP}^{\lnot \lnot}$ from the former we . From the latter we see $\lnot \lnot X$. Hence $X \in \cT_{\bP}^{\lnot \lnot}$. \\
+%	We have 
+%	\[
+%	\cT_{\cP^{j}_\bT} = \bT
+%	\]
+%	by assumption on $\bT$.
+%
+%%	It remains to show that $\cT_\bP^j$ is decompostable. If $X + Y \in \cT_\bP^j$, then by Summand stability 
+%\end{proof}
+\begin{lemma}{\label{lemma:AtMostOneFlat}}
+		For any $\bP : \mathsf{FLAT}$ and any Lavwere Tierney operator $j$,
+	\[\cT^j_{\bP} := \{ X \in \bP \ | \ j \|X \| \}	 \]
+	
+	is flatten by $\bP$.
+%	\[\bP  = \cP_{\cT^{j}_{\bP}}.\]
+\end{lemma}
+\begin{proof}
+
+				This is indeed a topology as $\bP$ and $j$ are $\sum$-stable %and $j$ is $\sum$-closed.
+			We need to show, that for any $X \in \bP$, we have $\|X\|_{\cT^j_{\bP}} = j\|X\|$.
+			Note
+			\[
+			\|X\|_{\cT^j_{\bP}} = \exists Y \in \cT^j_{\bP} : \|Y\| \to \|X\|
+			\]
+			If $j\|X\|$, then put $Y := X$. Conversely, given $Y \in \cT^j_{\bP}$ such that $\|Y\| \to \|X\|$, we deduce from $j \|Y\|$ that $j\|X\|$. \\
+%		\[
+%	\{X \ | \ \exists Y , X + Y \in \bP \land j \|X + Y\| \} = \{X \ | \ X \in \bP\}
+%	\]
+%	by Summand-stability on $\bP$ we have $'\subset'$.
+%	if $X \in \bP$, then use $Y:=1$: $X + 1 \in \bP$ and $j \| X + 1\|$. \\
+\end{proof}
+Proof of theorem \ref{thm:Flat}:
+\begin{enumerate}
+	\item [1. and 2.] 	Assume that $\bP : \mathsf{FLAT}$ flattens $\bT$, i.e. $\cT_{\bP}^{\|\cdot\|_\bT}  = \bT$. We want to show that then $\bT$ is decompostable and $\bP= \cP_\cT$. 
+	First observe that $\cP_\bT \subset \bP$ as $\bT \subset \bP$ and $\bP$ is Summand stable by \ref{lemma:SummandStable}. \\
+	For decompostability we apply \ref{prop:detectDecompostable}.
+	Observe
+	\[\cT_{\cP_\bT}^{\|\cdot\|_\bT} \subset \cT_{\bP}^{\|\cdot\|_\bT} = \bT \]
+	The other inclusion is automatic. This shows decompostability.
+	Note
+	\[
+	\cP_\bT = \cP_{\cT_{\bP}^{\|\cdot\|_\bT}} \overset{\ref{lemma:AtMostOneFlat}}{=} \bT
+	\]
+	\item [3.] By the first point and \ref{lemma:AtMostOneFlat}.
+\end{enumerate}
+
+
+
+
+%\begin{definition}
+%	Let $\bP$ contain 1 and be stable under $ \sum$ and under summands. $\bP$ flattens $\bT$ iff there exists a modality $j$ such that $\bT = \cT_\bP^j$.
+%	%	Let $L$ be a lex modality.
+%	%	$\bP$ flattens $L$ if for a type to be a $L$-sheaf its enough to check that its $\|X\|$-local for all $X \in \bP_L$. Here we view $L$ as a Lavwere Tierney Operator.
+%	
+%	%if there exists a Lavwere Tierney operator $j$, such that $L$ sheaves are exactly the types that are $\|X\|$-local for all $X \in \bP_L$. 
+%\end{definition}
+
 %Consider a lex modality $L$.
 %\begin{definition}
 %	A subset of affines $\bP$ \emph{flattens} $L$ if
@@ -65,150 +341,3 @@ If $j\|X\|$, then put $Y := X$. Conversely, given $Y \in \bP_j$ such that $\|Y\|
 %\end{definition}
 
 %Things in $\bP$ we call 'flat'.
-\begin{example}
-	 finite sums of open affines flatten the Zariski topology
-\end{example}
-\begin{example}
-	flat affines flatten the fppf topology. Beeing flat if fppf-local.
-\end{example}
-\begin{proof}
-	 Indeed, TFAE
-	 \begin{enumerate}
-	 	\item  $X$ is flat and fppf-merely inhabited
-	 	\item $X$ is flat  and $\lnot\lnot$-inhabited
-	 	\item $X$ is fppf
-	 \end{enumerate}
- 
-	\begin{proof}
-		$1 \Rightarrow 2 \Rightarrow 3 \Rightarrow 1$ \todocite
-	\end{proof}	 
-	The last point: if $\Spec B \to \Spec A$ is faithfully flat and $\Spec B$ is flat, then $\Spec A$ is flat.
-\end{proof}
-\begin{example}
-	For the etale topology $=$ formally \etale $+$ fppf, we can put $\bP$ = formally \etale + flats. %$\bP$ is local.
-\end{example}
-\begin{proof}
-	By the same argument as above. \\
-	The locality: If $\Spec B \to \Spec A$ is a ${\bP_{et}}$-cover (i.e. an \etale faithfully flat map) and $\Spec B$ \etale flat then we want to show $\Spec A$ is \etale. 
-%	The square 
-%	% https://q.uiver.app/#q=WzAsNCxbMCwwLCJcXFNwZWMgQiJdLFsxLDAsIlxcU3BlYyBBIl0sWzAsMSwiRXQoXFxTcGVjIEIpIl0sWzEsMSwiRXQoXFxTcGVjIEEpIl0sWzEsM10sWzAsMiwiXFxzaW0iXSxbMiwzLCIiLDEseyJzdHlsZSI6eyJoZWFkIjp7Im5hbWUiOiJlcGkifX19XSxbMCwxXSxbMSwzXSxbMCwzLCIiLDEseyJzdHlsZSI6eyJuYW1lIjoiY29ybmVyLWludmVyc2UifX1dXQ==
-%	\[\begin{tikzcd}
-%		{\Spec B} & {\Spec A} \\
-%		{Et(\Spec B)} & {Et(\Spec A)}
-%		\arrow[from=1-1, to=1-2]
-%		\arrow["\sim", from=1-1, to=2-1]
-%		\arrow["\ulcorner"{anchor=center, pos=0.125}, draw=none, from=1-1, to=2-2]
-%		\arrow[from=1-2, to=2-2]
-%		\arrow[from=1-2, to=2-2]
-%		\arrow[two heads, from=2-1, to=2-2]
-%	\end{tikzcd}\]
-%	is a pullback as the formally \etale modality is lex. As the lower map is surjective, the right vertical map is an equivalence.	
-\end{proof}
-%\begin{lemma}{\label{lemma:coveringDMstacks}}
-%	Any formally \etale, \etale-merely inhabited Deligne-Mumford-stack is covering.
-%\end{lemma}
-%\begin{proof}
-%	Todo
-%\end{proof}
-\begin{lemma}
-	If $\Spec A \in \bP$, then $\Spec A$ is weakly-flat, i.e $\| \Spec A\|_{\bP_L}$ is a geometric prop.
-\end{lemma}
-\begin{lemma}{\label{lemma:detectCovering}}
-	A $\bP_j$-geometric stack is covering iff it has $\bP_j$ and ${\bP_j}$-merely inhabited.
-\end{lemma}
-
-\begin{lemma}
-	Assume $\bP$ is stable under finite sums. If $X$ is a covering stack and $Y$ a $\bP_j$ geometric stack, then $X + Y$ is covering
-\end{lemma}
-\begin{proof}
-	Let ${\bP_L} \ni \tilde X \to X, \tilde Y \to Y$ be geometric atlasses. Then $\tilde X+ \tilde Y$ is $\bP_j$ and ${\bP_L}$-merely inhabited, hence in the topology.
-\end{proof}
-\subsection{Flat results}
-
-\begin{lemma}
-	Let $\bP$ be stable under $\id$-types and $j$ any Lavwere Tierney Operator. Then $\bP_j$-covering stacks are $\Omega$-stable
-\end{lemma}
-\begin{proof}
-	If $X$ is a covering stack then $\Omega X$ is a $\bP$ geometric stack \ref{lemma:PImpliesPsep} and ${\bP_j}$-merely inhabited. Conclude by  \ref{lemma:detectCovering}.
-\end{proof}
-\begin{example}
-	Put $\bP$ = formally \etale $+$ flat affines. Then $\bP$ is stable under identity types , as formally \etale seperated schemes have decidable equality.  %\ref{lemma:PImpliesPsep}
-\end{example}
-
-\subsection{Decompostable}
- Observe that if $X + Y$ is affine, then $X$ is affine, as $X \to X + Y$ is an affine map.
-
-Let $\bT$ be a saturated topology finer than the Zariski-topology.
-\begin{definition}
-	\[
-	\bP= \{X  \ | \ \exists Y , X + Y \in \bT\}
-	\]
-\end{definition}
-
-\begin{lemma}
-
-\begin{enumerate}
-	\
-	\item $\bP \subset \Aff$.
-	\item $\bot \in \bP$
-	\item $\bT \subset \bP$
-	\item Whenever $\bP \ni S \to X \in \Aff$ is a $\bT$-cover, then $X \in \bP$. Indeed, choose $S + Y \in \bT$, Then $\bT \ni S + Y \to X + Y$ is a $\bT$-cover, hence by saturatedness $X + Y \in \bT$. Thus $X \in \bP$.
-	\item If $X + Y \in \bP$ then $X \in \bP$.
-\end{enumerate}
-\end{lemma}
-
-
-\begin{prop}
-	$\bP$ is stable under $\sum$.
-\end{prop}
-\begin{proof}
-	Let $\bP \ni X \overset{B}{\to} \bP$. Lets first handle the special case, where $B x \in \bT$ for any $x : X$. Choose $Y$ such that $X + Y \in \bT$ . Then $\sum_{x: X} B x + \sum_{y:Y} 1$ can be expressed as $\sum_{x : X + Y} (B + \mathrm{cnst}_1) x$, which belongs to $\bT$. \\	 
-	Now the general case. By Zariski local choice we find a Zariski cover $p : X' \to X$ with 
-	\[
-	\prod_{x' : X'} \sum_{Y_{x'}} B (p x) + Y_{x'} \in \bT
-	\]
-	Then $\sum_{x' : X'} Y_{x'} + \sum_{x' : X'} B (p x) \in \bP$, hence by (5.) $\sum_{x': X'} B (p x) \in \bP$. As $\sum_{x': X'} B (p x) \to \sum_{x: X} B x \in \Aff$ is a $\bT$-cover, we conclude by (4.)
-
-\end{proof}
-
-\begin{definition}
-	$\bT$ is decompostable if for any type $X$
-	\[ \left(\|X\|_\bT \land \exists Y , X + Y \in \bT  \right) \to X \in \bT. \]\\ 
-
-\end{definition}
-
-\begin{prop}
-	There exists a smallest decompostable topology $\tilde \bT$ containing $\bT$ such that the stacks coincide.	
-\end{prop}
-\begin{proof}
-	Define
-\begin{align*}
-	\Top &\to \Top \\
-	\bT &\mapsto \tilde \bT \equiv \{X \ | \ \|X\|_{\bT} \land \exists Y , X + Y \in \bT \} %
-\end{align*}
-
-	We apply \ref{prop:TopologyMonad}.
-	\begin{itemize}
-		\item 	The class is stable under $\sum$  as $\bP$ and $\bT$-merely inhabited types are both  $\sum$-stable. \\
-		\item Monotonicity clear.
-		\item Inflationarity clear
-		\item stack-preservation is clear by construction.
-	%Let us first show, that the sheaves coincide.Obviously we have $\bT \subset \tilde \bT$, so it remains to show that every $\bT$-sheaf is a $\tilde \bT$-sheaf. Let $X \in \tilde \bT$. Then as in particular $\|X\|_\bT$ , every $\bT$-sheaf will be local wrt $\|X\|$. \\
-	\item idempotency: %	Now we will prove that $\tilde \bT$ is decompostable. 
-Let $X$ be a type such that $\|X\|_{\tilde \bT}$ and there exists a $Y$  with $X + Y \in \tilde \bT$. By the first assumption, we have $\|X\|_\bT$ as the stacks coincide by \ref{prop:TopologyMonad}. \\
-The latter means in particular that we find $Z$ with $X + Y + Z \in \bT$. But this witnesses that $X  \in \tilde \bT$.		
-\end{itemize}
-
-\end{proof}
-\begin{prop}
-	Assume that $\bT$ is decompostable. Then 
-	\begin{enumerate}
-			\item For any $X \in \bP$ we have $\|X\|_\bT \to X \in \bT$.
-			\item $\bP = \bT - 1 \equiv \{X \ | \ X + 1 \in \bT\}$.
-	\end{enumerate}
-\end{prop}
-\begin{proof}
-	The first statement is trivial.
-	For the second observe $\bT - 1 \subset \bP$. Then If $X + Y \in \bT$, then $1 + X + Y \in \bT$ as $\bT$ is stable under $+$. By decompostability $1 + X \in \bT$. Hence $X \in \bT - 1$. %$\Zar \in \bT$.
-	
-\end{proof}
