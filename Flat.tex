@@ -2,11 +2,11 @@
 
 
 \begin{definition}
-	Denote $\Top$ the saturated topologies finer than the Zariski-topology.
+	Denote $\Top$ the topologies containing $\mathsf{Bool}$, e.g. finer than the Zariski-topology.
 	Let $\mathsf{FLAT}$ consists of all the classes of affines $\bP$ containing $1, \bot$ stable under $\sum$. \\
-	Given $\bP: \mathsf{FLAT} , \bT: \Top$ we say $\bP$ flattens $\bT$ iff 
+	Given $\bP: \mathsf{FLAT} , \bT: \Top$ we say $\bP$ flattens $\bT$ iff ($\bT \subset \bP$ and)
 	\[
-	\bT= \{X : \bP\ | \ \|X\|_\bT \}
+		\bT= \{X : \bP\ | \ \|X\|_\bT \}
 	\]
 \end{definition}
 The goal of this section is to prove the following theorem
@@ -15,12 +15,12 @@ The goal of this section is to prove the following theorem
 	\begin{enumerate}
 		\item There is at most one $\bP$ that flattens a topology. Then we say, the topology is flatten.
 		\item A topology can be idempotently flattened without changing the stacks
-		\item For any $\bP: \mathsf{FLAT}$ and any Lavwere Tierney Operator $j$, $\{ X: \bP \ | \ \|X\|_j \}$ is flatten by $\bP$.
+		\item For any $\bP: \mathsf{FLAT}$ and any Lavwere Tierney Operator $j$, $\{ X: \bP \ | \ \|X\|_j \}$ is flattened by $\bP$.
 	\end{enumerate}
 \end{theorem}
 We first want to show the power of this theorem.
 \begin{example}
-	finite sums of open affines (or principal opens todo) flatten the Zariski topology. 
+	finite sums of principal opens flatten the Zariski topology. 
 \end{example}
 \begin{example}
 	flat affines flatten the fppf topology. %Beeing flat if fppf-local.
@@ -39,6 +39,7 @@ We first want to show the power of this theorem.
 	%The last point: if $\Spec B \to \Spec A$ is faithfully flat and $\Spec B$ is flat, then $\Spec A$ is flat.
 \end{proof}
 \begin{example}
+	 formally \etale + flat affines flatten the \etale topology.
 	For the etale topology $=$ formally \etale $+$ fppf, we can put $\bP$ = formally \etale + flats. %$\bP$ is local.
 \end{example}
 %\begin{proof}
@@ -91,7 +92,7 @@ We first want to show the power of this theorem.
 
 
 \begin{definition}
-	A saturated topology $\bT$ is lex-flatten, if its flatten by some lex $\bP$. % there exists a lex subclass $\bP$ of affines such that $\bT \subset \bP$ and $\cT_{\bP}^{\|\cdot\|_\bT} \equiv \{X \in \bP \ | \ \|X\|_\bT\} \subset \CS_\bT$.
+	A saturated topology $\bT$ is lex-flatten, if its flattened by some lex $\bP$. % there exists a lex subclass $\bP$ of affines such that $\bT \subset \bP$ and $\cT_{\bP}^{\|\cdot\|_\bT} \equiv \{X \in \bP \ | \ \|X\|_\bT\} \subset \CS_\bT$.
 \end{definition}
 Note that $\bot = (left =_{1+1} right) \in \bP$ is automatic as $\bP$ is lex.
 %If $\bT$ is saturated, equivalentely $\cT_{\bP}^{\|\cdot\|_\bT}  = \bT$.
@@ -106,53 +107,56 @@ Note that $\bot = (left =_{1+1} right) \in \bP$ is automatic as $\bP$ is lex.
 	%	Let $\bP$ be stable under $\id$-types and $j$ any Lavwere Tierney Operator. Then $\cT^j_{\bP}$-covering stacks are $\Omega$-stable
 \end{prop}
 \begin{proof}
-	Choose $\bP$ lex such that $\bT = \cT_{\bP}^{\|\cdot\|_\bT}$. If $X$ is a covering stack then $\Omega X$ is a $\bP$ geometric stack \ref{lemma:PImpliesPsep} and $\bT$-merely inhabited. Conclude by  \ref{lemma:detectCovering}.
+	If $X$ is a covering stack then $\Omega X$ is a $\bT$-flat geometric stack \ref{lemma:PImpliesPsep} and $\bT$-merely inhabited. Conclude by  \ref{lemma:detectCovering}.
 \end{proof}
-
+\begin{lemma}
+	Assume that $\bT$ is lex-flattened. Then any $\bT$-flat geometric stack is a 0-gerbe.
+\end{lemma}
+\begin{proof}
+	By descent, we may only show that the fiber $\sum_{y: X} \|x = y\|_{-1}^\bT$ of $\eta_0^\bT$ over $|x|$ is a covering stack. Note that $x = y$ has $\bP$ by id-stability of $\bP$ \ref{lemma:PImpliesPsep}. The $\bT$-truncation of a $\bP$-geometric stack is a $\bP$ geometric stack \ref{lemma:TruncOfP}. by $\sum$-stability of $\bP$ the fiber is $\bP$, but its $\bT$-merely inhabited. by \ref{lemma:detectCovering} its covering.
+\end{proof}
+\begin{corollary}
+	If $\bT$ is lex-flattened, then identity types of covering stacks are 0-gerbes.
+\end{corollary}
 \subsection{Proof of the theorem}
  Observe that if $X + Y$ is affine, then $X$ is affine, as $X \to X + Y$ is an affine map.
 
-Let $\bT$ be a saturated topology finer than the Zariski-topology.
+Let $\bT$ be a topology containing $2$.% finer than the Zariski-topology.
 \begin{definition}
+	$\cP_\bT$ is the smallest topology containing $\bT \cup \{\bot\}$
+\end{definition}
+\begin{lemma}{\label{lemma:SummandStable}}
+	Let $\bP$ be $\sum$ stable containing $1 , \bot$. Then its stable under decidable subtypes, i.e. If $X + Y \in \bP$ then $X \in \bP$.
+\end{lemma}
+\begin{proof}
+	Given $X + Y \in \bP$, we can define $(1, \bot) : X + Y \to \bP$ Its $\sum$ will be $X$. \\
+\end{proof}
+
+\begin{prop}
+	Assume that $\bT$ is saturated. 	
 	\[
 	\cP_\bT= \{X  \ | \ \exists Y , X + Y \in \bT\}
 	\]
-\end{definition}
-
-\begin{lemma}{\label{lemma:flatBasics}}
-
-\begin{enumerate}
-	\
-	\item $\cP_\bT \subset \Aff$.
-	\item $\bot \in \cP_\bT$
-	\item $\bT \subset \cP_\bT$
-	\item Whenever $\cP_\bT \ni S \to X \in \Aff$ is a $\bT$-cover, then $X \in \cP_\bT$. 
-	%\item Summand-stability: If $X + Y \in \cP_\bT$ then $X \in \cP_\bT$.
-\end{enumerate}
-\end{lemma}
-\begin{proof}
-	4. choose $S + Y \in \bT$, Then $\bT \ni S + Y \to X + Y$ is a $\bT$-cover, hence by saturatedness $X + Y \in \bT$. Thus $X \in \cP_\bT$.
-\end{proof}
-\begin{lemma}{\label{lemma:SummandStable}}
-	Let $\bP$ be $\sum$ stable containing $\top , \bot$. Then its Summand stable.
-\end{lemma}
-\begin{proof}
-	Given $X + Y \in \bP$, we can define $(\top, \bot) : X + Y \to \bP$ Its $\sum$ will be $X$. \\
-\end{proof}
-
-
-
-\begin{prop}
-	$\cP_\bT$ is stable under $\sum$.
 \end{prop}
 \begin{proof}
-	Let $\cP_\bT \ni X \overset{B}{\to} \cP_\bT$. Lets first handle the special case, where $B x \in \bT$ for any $x : X$. Choose $Y$ such that $X + Y \in \bT$ . Then $\sum_{x: X} B x + \sum_{y:Y} 1$ can be expressed as $\sum_{x : X + Y} (B + \mathrm{cnst}_1) x$, which belongs to $\bT$. \\	 
+	By \ref{lemma:SummandStable} and as $\bT \subset \cP_\bT$, we have $'\supset'$. So it remains to show that the RHS, lets call it $\bP$, is a topology containing $\bT, \bot$.
+%\begin{lemma}{\label{lemma:flatBasics}}
+%
+\begin{enumerate}
+	
+	\item $\cP_\bT \subset \Aff$.
+	\item $\bot \in \bP$
+	\item $\bT \subset \bP$
+	\item Assume $\bT$ is saturated. Whenever $\bP \ni S \to X \in \Aff$ is a $\bT$-cover, then $X \in \bP$. Indeed : choose $S + Y \in \bT$, Then $\bT \ni S + Y \to X + Y$ is a $\bT$-cover, hence by saturatedness $X + Y \in \bT$. Thus $X \in \bP$.
+	\item If $\bT$ is saturated, then $\bP$ is stable under $\sum$. Proof:
+%\begin{proof}
+	Let $\bP \ni X \overset{B}{\to} \bP$. Lets first handle the special case, where $B x \in \bT$ for any $x : X$. Choose $Y$ such that $X + Y \in \bT$ . Then $\sum_{x: X} B x + \sum_{y:Y} 1$ can be expressed as $\sum_{x : X + Y} (B + \mathrm{cnst}_1) x$, which belongs to $\bT$. \\	 
 	Now the general case. By Zariski local choice we find a Zariski cover $p : X' \to X$ with 
 	\[
 	\prod_{x' : X'} \sum_{Y_{x'}} B (p x) + Y_{x'} \in \bT
 	\]
-	Then $\sum_{x' : X'} Y_{x'} + \sum_{x' : X'} B (p x) \in \cP_\bT$, hence by \ref{lemma:SummandStable} $\sum_{x': X'} B (p x) \in \cP_\bT$. As $\sum_{x': X'} B (p x) \to \sum_{x: X} B x \in \Aff$ is a $\bT$-cover, we conclude by (4.)
-
+	Then $\sum_{x' : X'} Y_{x'} + \sum_{x' : X'} B (p x) \in \bP$, hence by \ref{lemma:SummandStable} $\sum_{x': X'} B (p x) \in \bP$. As $\sum_{x': X'} B (p x) \to \sum_{x: X} B x \in \Aff$ is a $\bT$-cover, we conclude by (4.)
+\end{enumerate}
 \end{proof}
 
 \begin{definition}
@@ -162,7 +166,7 @@ Let $\bT$ be a saturated topology finer than the Zariski-topology.
 \end{definition}
 
 \begin{prop}
-	There exists a smallest decompostable topology $\tilde \bT$ containing $\bT$. Moreover the stacks coincide.	
+	Let $\bT$ be saturated. There exists a smallest decompostable topology $\tilde \bT$ containing $\bT$. Moreover the stacks coincide.	
 \end{prop}
 \begin{proof}
 	Define
@@ -204,10 +208,10 @@ The latter means in particular that we find $Z$ with $X + Y + Z \in \bT$. But th
 \end{warning}
 
 \begin{example}
-	If any type in $\bT$ has decidable equality, then any type in $\cP$ is $(\bT-1)$seperated.
+	If any type in $\bP$ has decidable equality, then any type in $\cP$ is $(\bT-1)$seperated.
 \end{example}
 \begin{prop}{\label{prop:detectDecompostable}}
-TFAE
+Let $\bT$ be saturated. TFAE
 	\begin{enumerate}
 		\item  $\bT$ is decompostable, i.e. for any $X \in \cP_\bT$ we have $\|X\|_\bT \to X \in \bT$.
 		\item $\cP_\bT$ flattens $\bT$, i.e. $\bT = \{X : \cP_\bT \ | \ \|X\|_\bT \}$ % \}\cT_{\cP_\bT}^{\|\cdot\|_\bT}$
@@ -277,8 +281,8 @@ TFAE
 		For any $\bP : \mathsf{FLAT}$ and any Lavwere Tierney operator $j$,
 	\[\cT^j_{\bP} := \{ X \in \bP \ | \ j \|X \| \}	 \]
 	
-	is flatten by $\bP$.
-%	\[\bP  = \cP_{\cT^{j}_{\bP}}.\]
+	is flattened by $\bP$. Furthermore
+	\[\bP  = \cP_{\cT^{j}_{\bP}}.\]
 \end{lemma}
 \begin{proof}
 
@@ -289,28 +293,41 @@ TFAE
 			\|X\|_{\cT^j_{\bP}} = \exists Y \in \cT^j_{\bP} : \|Y\| \to \|X\|
 			\]
 			If $j\|X\|$, then put $Y := X$. Conversely, given $Y \in \cT^j_{\bP}$ such that $\|Y\| \to \|X\|$, we deduce from $j \|Y\|$ that $j\|X\|$. \\
-%		\[
-%	\{X \ | \ \exists Y , X + Y \in \bP \land j \|X + Y\| \} = \{X \ | \ X \in \bP\}
-%	\]
-%	by Summand-stability on $\bP$ we have $'\subset'$.
-%	if $X \in \bP$, then use $Y:=1$: $X + 1 \in \bP$ and $j \| X + 1\|$. \\
+			Furthermore,
+		\[
+	\{X \ | \ \exists Y , X + Y \in \bP \land j \|X + Y\| \} = \{X \ | \ X \in \bP\}
+	\]
+	by Summand-stability on $\bP$ we have $'\subset'$.
+	if $X \in \bP$, then use $Y:=1$: $X + 1 \in \bP$ and $j \| X + 1\|$. \\
 \end{proof}
 Proof of theorem \ref{thm:Flat}:
 \begin{enumerate}
 	\item [1. and 2.] 	Assume that $\bP : \mathsf{FLAT}$ flattens $\bT$, i.e. $\cT_{\bP}^{\|\cdot\|_\bT}  = \bT$. We want to show that then $\bT$ is decompostable and $\bP= \cP_\cT$. 
-	First observe that $\cP_\bT \subset \bP$ as $\bT \subset \bP$ and $\bP$ is Summand stable by \ref{lemma:SummandStable}. \\
+	First observe that $\cP_\bT \subset \bP$ as $\{\bot\} \cup \bT \subset \bP$ %and $\bP$ is stable by decidable subtypes by \ref{lemma:SummandStable}. \\
 	For decompostability we apply \ref{prop:detectDecompostable}.
 	Observe
 	\[\cT_{\cP_\bT}^{\|\cdot\|_\bT} \subset \cT_{\bP}^{\|\cdot\|_\bT} = \bT \]
 	The other inclusion is automatic. This shows decompostability.
 	Note
 	\[
-	\cP_\bT = \cP_{\cT_{\bP}^{\|\cdot\|_\bT}} \overset{\ref{lemma:AtMostOneFlat}}{=} \bT
+	\cP_\bT = \cP_{\cT_{\bP}^{\|\cdot\|_\bT}} \overset{\ref{lemma:AtMostOneFlat}}{=} \bP
 	\]
 	\item [3.] By the first point and \ref{lemma:AtMostOneFlat}.
 \end{enumerate}
-
-
+%\begin{lemma}
+%	Let $L$ be a lex subcanonical modality. Assume $\bT$ is flattened. Assume for $X$ affine, $X \in \bT$ is an $L$-sheaf.
+%	Then we have 
+%	\[\{X : \cP_\bT \ | \ L \| X \|\} \subset \bT\]
+%\end{lemma}
+%\begin{proof}
+%	$'\supset'$ is clear. 
+%	We prove the other inclusion by induction over $\cP_\bT$ for the predicate $Q X := L \| X \| \to X \in \bT$. \\
+%	It holds for $X \in \bT$ and $X = \bot$. Now suppose $ X: \cP_\bT$ with $Q \ni X \overset{B}{\to} Q$ is a type family, we want to show $\sum_{x: X} B x \in Q$. So assume $L \left \| \sum_{x: X} Bx \right \|$, we get $L \| X \|$, so as $X \in Q$ , we have $X \in \bT$. We may show $\|X\|_\bT$. Then as the goal is an $L$-sheaf by assumption, we may assume $(x , t) : \sum_{x: X} Bx $ . Hence we have a $\bT$-merely 
+%\end{proof}
+\begin{question}
+	If $\bT$ is flattened, what is the difference between $\Omega$-stability for covering stacks and lex $\bP$? \\
+	Are 0-gerbes $\bT$-flat ?
+\end{question}
 
 
 %\begin{definition}
