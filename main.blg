@@ -1,18 +1,25 @@
 This is BibTeX, Version 0.99d (TeX Live 2020/Debian)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: main.aux
-A level-1 auxiliary file: SaturatedTopology.aux
-A level-1 auxiliary file: LexModalities.aux
 A level-1 auxiliary file: Atlas.aux
+A level-1 auxiliary file: LexModalities.aux
 A level-1 auxiliary file: LocalChoice.aux
+A level-1 auxiliary file: Stacks.aux
+A level-1 auxiliary file: Descent.aux
+A level-1 auxiliary file: SaturatedTopology.aux
+A level-1 auxiliary file: GeomPropositions.aux
 A level-1 auxiliary file: FundamentalThmAlgSpc.aux
 A level-1 auxiliary file: AlgebraicSpace.aux
+A level-1 auxiliary file: DeloopingsAndTruncations.aux
+A level-1 auxiliary file: LocalProperties.aux
+A level-1 auxiliary file: Flat.aux
+A level-1 auxiliary file: TangentSpace.aux
 I found no \citation commands---while reading file main.aux
 I found no \bibdata command---while reading file main.aux
 I found no \bibstyle command---while reading file main.aux
 You've used 0 entries,
             0 wiz_defined-function locations,
-            89 strings with 586 characters,
+            96 strings with 698 characters,
 and the built_in function-call counts, 0 in all, are:
 = -- 0
 > -- 0

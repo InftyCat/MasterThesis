@@ -1,0 +1,164 @@
+\section{Tangent Spaces}
+\begin{definition}
+	A type $D$ is tiny if
+	\begin{itemize}
+		\item it has choice
+		\item for any $W : D \to \Aff$, $\prod_d W d$ is affine
+		\item $D$ admits a strong boundedness principle (e.g. because its affine)
+	\end{itemize}
+\end{definition}
+\begin{question}
+	Are closed dense propositions tiny?
+\end{question}
+\begin{question}
+	Are pointed tiny types stable under wedge-sum?
+\end{question}
+Fix a saturated topology $\bT$ which is stable under exponentials over tiny types, i.e. such that for any $D$ tiny, and any $W : D \to \bT$, the affine $\prod_{d:D} W_d$ belongs to $\bT$.
+\begin{theorem}
+	Covering / Geometric stacks are stable under exponentials over tiny types.
+\end{theorem}
+\begin{proof}
+	Let $P : D \to \GS$. 
+%	$\prod_d P d$ has a geometric atlas. 
+	We first prove the covering case by the $W$ induction principle of covering stacks: By choice of $D$ We may assume that $P : D \to W_n$. If $n = 0$ its fine by assumption on $\bT$.
+	by choice of $D$ we can choose $W_{n-1}$ atlasses $p d : X d \to P d$ for $d : D$.
+	Claim :  $\prod_{d: D} X(d) \to \prod_{d : D} P d$ is a geometric atlas.
+	Proof : Indeed the fiber over $f$ is $\prod_{d : D} \fib_{p d} (f d)$ which is a dependent product over $W_{n-1}$ types, hence covering by induction. \\
+	Hence $\prod_d P d$ is geometric.
+	If, additionally, all the $P d$ are covering then all the $X d$ are covering affine by saturatedness of $\bT$. By assumption on $\bT$, $\prod_{d: D} X d$ belongs to $\bT$, hence $\prod_{d: D} P d$ is a covering stack.
+\end{proof}
+\begin{corollary}{\label{cor:GeomAtlExpStable}}
+		For any $D$ tiny and $W_d \to X_d$ a family of geometric atlasses the map $\prod_{d : D} W_d \to \prod_{d: D} X_d$ is a geometric atlas.
+\end{corollary}
+\begin{lemma}{\label{lemma:TinyStrongLocalChoice}}
+	Let $D$ be such that $\bT$ is $\prod$-stable over $D$. Let $B : D \to \cU$ be a type family. Then
+	\[
+	\forall d:D \|B d\|_\bT \to \| \prod_d B d\|_\bT
+	\]		
+\end{lemma}
+\begin{proof}
+	By choice of $D$ we find $S_d \in \bT$ and $S_d \to \|B d\|$. by $\prod$-stability over $D$ on $\bT$ we have $\prod_d S_d \in \bT$,s  in particular $\| \prod_d S_d \|_\bT$. Hence we $\bT$-merely have $\prod_d \| B d\|.$ By choice of $D$ we $\bT$-merely get $\prod_d B d$. 
+	
+\end{proof}
+\begin{lemma}[NEEDED?]
+	Let $D$ be tiny. Consider a family of smooth maps $f_d : W_d \to X_d$ and an element $w : W 0$.
+	Consider $g : \prod_d X_d$ such that $p : g_0 = f_0 w$. Then we merely find some $h : \prod_{d: D} W_d$ such that $h_0 = w$ with $q_d : g_d = f_d (h_d) $.
+%	and a commutative diagram
+%	% https://q.uiver.app/#q=WzAsNCxbMCwwLCIxIl0sWzAsMSwiRCJdLFsxLDAsIlciXSxbMSwxLCJYIl0sWzAsMl0sWzEsM10sWzIsM10sWzAsMV0sWzEsMiwiIiwxLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV1d
+%	\[\begin{tikzcd}
+%		1 & W \\
+%		D & X
+%		\arrow["w",from=1-1, to=1-2]
+%		\arrow["0",from=1-1, to=2-1]
+%		\arrow[from=1-2, to=2-2]
+%		\arrow[dashed, from=2-1, to=1-2]
+%		\arrow["g",from=2-1, to=2-2]
+%	\end{tikzcd}\]
+%%	
+	%we merely find a dashed lift.  %$\bT$-merely
+	
+\end{lemma}
+\begin{proof}
+%	Using choice of $
+	For any $d : D$ by smoothness of $W_d \to X_d$ we merely have a lift 
+	% https://q.uiver.app/#q=WzAsMyxbMCwwLCJkPTAiXSxbMCwxLCIxIl0sWzEsMCwiXFxmaWJfZiBnIGQiXSxbMSwyLCJcXGV4aXN0cyIsMix7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFswLDJdLFswLDFdXQ==
+	\[\begin{tikzcd}
+		{d=0} & {\fib_{f_d} g_d} \\
+		1
+		\arrow[from=1-1, to=1-2]
+		\arrow[from=1-1, to=2-1]
+		\arrow["\exists"', dashed, from=2-1, to=1-2]
+	\end{tikzcd}\]
+	where the above map is given by transport of $(w , p) : \fib_{f_0}(g_0)$.
+	By choice of $D$ we can produce a term in 
+	\[
+	\prod_d (h_d : \fib_{f_d} g_d) \times ((r : d = 0) \to  h_d = \mathrm{tp}_r(w,p)) \simeq \left(\prod_d (h_d : \fib_{f_d} g_d) \right) \times h_0 = w 
+	\]
+	Which is the datum of a filler.
+%	$\bT$-merely have point in the fiber of $f$ over $g d$ that moreover equals $w$, if $d = 0$.	
+\end{proof}
+
+\begin{prop}
+	Let $j : D \to D'$ be a map between tiny types, that is local wrt to all affine schemes, i.e. $X ^ {D'} \to X ^D$ is an equivalence for any affine $X$. Then its local wrt to all geometric stacks.
+	In particular, geometric stacks are infinitesimally linear, i.e. a geometric stack $X$ is local wrt $j : \bD(n_1) \lor \hdots \lor \bD(n_k) \to \bD(n_1+ \hdots + n_k)$ for any $n_1,\hdots,n_k : \bN$ .
+\end{prop}
+\begin{proof}
+We prove more generally, that for any family $X :D' \to \GS$, the map
+\[
+\prod_{d:D'} X d \to \prod_{d:D} X (j d) \tag{$\star$}
+\]
+is an equivalence. Lets first check the special case where all the $X d$ are affine: We have a pullback
+% https://q.uiver.app/#q=WzAsNCxbMCwxLCJcXGxlZnQgKFxcc3VtX3tkOlxcYkQobittKX1YIGkgZCBcXHJpZ2h0KV57XFxiRChuK20pfSJdLFsxLDEsIlxcbGVmdCAoXFxzdW1fe2Q6XFxiRChuK20pfSBYIGQgXFxyaWdodClee1xcYkQobikgXFxsb3IgXFxiRChtKX0iXSxbMCwwLCJcXHByb2Rfe2Q6IFxcYkQobittKX0gWCBkICJdLFsxLDAsIlxccHJvZF97ZDpcXGJEKG4pIFxcbG9yIFxcYkQobSl9IFggKGkgZCkgIl0sWzAsMV0sWzIsM10sWzMsMV0sWzIsMF0sWzIsMSwiIiwxLHsic3R5bGUiOnsibmFtZSI6ImNvcm5lci1pbnZlcnNlIn19XV0=
+\[\begin{tikzcd}
+	{\prod_{d:D'} X d } & {\prod_{d:D} X (j d) } \\
+	{\left (\sum_{d:D}X j d \right)^{D'}} & {\left (\sum_{d:D'} X d \right)^{D}}
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-1, to=2-1]
+	\arrow["\ulcorner"{anchor=center, pos=0.125, rotate=45}, draw=none, from=1-1, to=2-2]
+	\arrow[from=1-2, to=2-2]
+	\arrow[from=2-1, to=2-2]
+\end{tikzcd}\]
+
+The lower map is an equivalence, as $\sum_{d :D'} X d$ is affine scheme, hence infinitesimally linear. So the above map is an equivalence as well. \\
+We split the prove of equivalence up into $\bT$-surjectivity and beeing an embedding.
+\begin{itemize}
+	\item
+We need to show, that for any $(d : D) \to X (j d)$ we $\bT$-merely find an extension $(d :D') \to X d$. \\
+%First observe, that the statement is a sheaf, as the $X d$ are stacks. 
+By choice of $D'$ we find geometric atlasses $W d \to X d$ for $d :D'$.
+Then by the special case and \ref{cor:GeomAtlExpStable} we can conclude by the following commutative diagram
+
+% https://q.uiver.app/#q=WzAsNCxbMSwxLCJcXHByb2Rfe2QgOiBcXGJEKG4pIFxcbG9yIFxcYkQobSl9IFgoamQpIl0sWzEsMCwiXFxwcm9kX3tkIDogXFxiRChuKSBcXGxvciBcXGJEKG0pfSBXKGpkKSJdLFswLDEsIlxccHJvZF97ZCA6IFxcYkQobittKX0gWCBkIl0sWzAsMCwiXFxwcm9kX3tkIDogXFxiRChuK20pfVcgZCJdLFszLDEsIlxcc2ltIl0sWzMsMl0sWzIsMF0sWzEsMCwiXFxiVCAtc3VyaiJdXQ==
+\[\begin{tikzcd}
+	{\prod_{d :D'}W d} & {\prod_{d : D} W(jd)} \\
+	{\prod_{d :D'} X d} & {\prod_{d : D} X(jd)}
+	\arrow["\sim", from=1-1, to=1-2]
+	\arrow[from=1-1, to=2-1]
+	\arrow["{\bT -surj}", from=1-2, to=2-2]
+	\arrow[from=2-1, to=2-2]
+\end{tikzcd}\]
+\item
+Now we need to show that the map is an embedding. Induction over the truncatedness of $X$. For $n=-2$ its fine.
+For the induction step $n \mapsto n+1$, observe that the identity types of $X$ are geometric $n$-stacks, so the map $(\star)$ where we replace $X d$ by its appropriate identity type, is an equivalence by induction.
+\end{itemize}
+\end{proof}
+
+
+\begin{lemma}[If closed dense props are tiny]
+	Let $X \to Y$ be a $\bT$-surjective map of stacks, where $X$ is formally smooth. Then $Y$ is formally smooth.
+\end{lemma}
+\begin{proof}
+	Consider a closed dense prop $P$ and a map $f : Y^P$. By \ref{lemma:TinyStrongLocalChoice} we $\bT$-merely have a lift (1.). As the goal $\fib_{Y \to Y^P}(f)$ is a stack, using that $Y$ is a stack, we may pick a lift (1.). As $X$ is formally smooth we obtain (2.). From this we get the required lift of $f$ by composition $1 \to X \to Y$ .
+	% https://q.uiver.app/#q=WzAsNCxbMCwwLCJQIl0sWzAsMSwiMSJdLFsxLDAsIlkiXSxbMSwxLCJYIl0sWzAsMV0sWzAsMywiMS4iLDEseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbMCwyXSxbMywyXSxbMSwzLCIyLiIsMSx7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dXQ==
+	\[\begin{tikzcd}
+		P & Y \\
+		1 & X
+		\arrow["f",from=1-1, to=1-2]
+		\arrow[from=1-1, to=2-1]
+		\arrow["{1.}"{description}, dashed, from=1-1, to=2-2]
+		\arrow["{2.}"{description}, dashed, from=2-1, to=2-2]
+		\arrow[from=2-2, to=1-2]
+	\end{tikzcd}\]
+\end{proof}
+\begin{lemma}[TODO]
+	Let $X$ be a type. The following data is equivalent
+	\begin{itemize}
+		\item An automorphism $X \times \bD(1)$ over $\bD(1)$ that pulls back along $1 \to \bD(1)$ to the identity on $X$.
+		\item A nowhere vanishing vector field, i.e. a section of the tangent bundle $X^{\bD(1)} \to X$.
+	\end{itemize}
+\end{lemma}
+\begin{proof}
+	TODO
+	the map
+	\[
+	\Aut_{\bD(1)}(X \times \bD(1)) \hookrightarrow \Hom(X \times \bD(1) , X) = \Hom(X , X^{\bD(1)})
+	\]
+	factors through 
+	\[
+	Inf(X) \to \mathsf{Sections} (T X \to X)
+	\]
+\end{proof}
+
+\begin{definition}
+	An infinitesimal automorphism of $X$ at $x$ is the Tangent space of $x = x$ at $\refl$.
+\end{definition}
