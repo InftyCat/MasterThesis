@@ -32,15 +32,17 @@
 
 
 \begin{lemma}{\label{lemma:havingAbstractAtlasClosedUnderId}}
-	Let $C$ be a class of types stable under $\sum$. %HOPE WE DONT NEED (because we want to apply it to \cV = covering stacks) finite limits, i.e. containing 1, stable under dependent sums and finite limits
-	The class $\mathsf{HasAtlas}_C$ of types $Y$ which admit a map $\Aff \ni S \to Y$ fibered in $C$ is stable under identity types. %.  If it contains $C$ and is closed under dependent sums, then it is closed under taking identity types.
+	Let $C$ be a class of types stable under $\sum$. Let $\bP \subset \Aff$ (in most cases $\bP := \Aff$) be any subclass of affines stable under finite limits.  %HOPE WE DONT NEED (because we want to apply it to \cV = covering stacks) finite limits, i.e. containing 1, stable under dependent sums and finite limits
+	The class $\mathsf{HasAtlas}_C^\bP$ of types $Y$ which admit a map $\bP \ni S \to Y$ fibered in $C$ is stable under identity types. \\
+	
+	%.  If it contains $C$ and is closed under dependent sums, then it is closed under taking identity types.
 \end{lemma}
 \begin{proof}
 %	Obviously 1 has an atlas, and the class of types admitting an atlas is stable by $\sum$ by \ref{thm:atlasStableSum}.
 %	It remains to show, that identity types in $Y$ have an atlas provided that $Y$ has an atlas.
 	
 	%This is a special case of stability under dependent sums. But lets prove it anyway.
-	By assumption we can choose a map $\Aff \ni V \overset{p}{\to} Y$ fibered in $C$. Let $y,y' : Y$.  Then we have the map
+	By assumption we can choose a map $\bP \ni V \overset{p}{\to} Y$ fibered in $C$. Let $y,y' : Y$.  Then we have the map
 	\begin{align*}
 		(\fib_p y) \times_V (\fib_p y') &\to y = y' \\
 		(v , q : y = p v) , (v', q' : y' = p v') , (h : v = v') &\mapsto q \cdot h \cdot q'^{-1}
@@ -51,7 +53,7 @@
 	\sum_{v}  ( \underbrace{\sum_{v'} (h : v = v')}_{\mathsf{isContr}}) \times (q : y = p v) \times (q'  : y' = p v') \times (q \cdot h \cdot q'^{-1} = j) \simeq \sum_v (v = py) \simeq \fib_p y
 	\]
 	Hence the map is fibered in $C$. It suffices to show, that	$(\fib_p y) \times_V (\fib_p y')$ has an atlas, because then we can compose such an atlas with the above map to obtain an atlas of $y = y'$.
-	By assumption the fibers of $p$ have an atlas, so we can choose $q : W \to \fib_p y, q' : W' \to \fib_p y'$ atlasses. Then $W \times_V W' \to (\fib_p y) \times_V (\fib_p y')$ is an atlas: The domain is a fiber product of types in $\Aff$, hence it belongs to $\Aff$. The fiber over $(x,x')$ is equivalent to the product of fibers $(\fib_q x) \times (\fib_{q'} x')$ which is in $C$ by stability under dependent sums (so in particular under finite products).
+	By assumption the fibers of $p$ have an atlas, so we can choose $q : W \to \fib_p y, q' : W' \to \fib_p y'$ atlasses. Then $W \times_V W' \to (\fib_p y) \times_V (\fib_p y')$ is an atlas: The domain is a fiber product of types in $\bP$, hence it belongs to $\bP$. The fiber over $(x,x')$ is equivalent to the product of fibers $(\fib_q x) \times (\fib_{q'} x')$ which is in $C$ by stability under dependent sums (so in particular under finite products).
 	
 \end{proof}
 \begin{lemma}{\label{lemma:AtlasSum}}

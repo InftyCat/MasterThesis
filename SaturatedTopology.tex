@@ -76,7 +76,26 @@ Note that covering-stack-preserving implies stack-preserving, as $\bT$-covering 
 	% Hence ...
 %		As $\bT'$ is definitely contained in the saturation, it suffices to show, that the class $\bT'$ defined above is saturated.
 \end{proof}
+\begin{lemma}
+ if $\Spec B \to \Spec A$ is faithfully flat and $\Spec B$ is flat, then $\Spec A$ is flat.
+\end{lemma}
+\begin{proof}
+	Consider an injection of $R$-modules $M \hookrightarrow N$. We wish to show, that $A \otimes_R M \to A \otimes_R N$ is injective. As $B$ is faithfully flat over $A$ it suffices to show, that $B \otimes_R M \cong B \otimes_A A \otimes_R N \to B \otimes_A A \otimes_R N = B \otimes_R N$ is injective. This follows as $B$ is flat over $R$.
+\end{proof}
+\begin{example}
+	The fppf-Topology is saturated.
+\end{example}
+\begin{proof}
+	Given a faithfully flat algebra homomorphism $A \to B$ with $B$ faithfully flat, we want to show, that $A$ is faithfully flat. First observe, that $A$ is flat by the previous lemma. Then if $M \otimes_R A = 0$ for some $R$-module $M$, then $M \otimes_R B = M \otimes_R A \otimes_A B = 0$. As $B$ is faithfully flat over $R$, we conclude $M = 0$.
+\end{proof}
 
+\begin{example}
+	The unramified-topology (unramified + fppf) is saturated.
+\end{example}
+\begin{proof}
+	Let $\Spec B \to \Spec A$ be unramified + fppf and $\Spec B$ unramified + fppf. We have to show that $\Spec A$ is unramified (fppf is the above example). For this, we may show that identity types $x = y$ are $\lnot \lnot$-stable. So assume $\lnot \lnot (x = y).$\\
+	As $\Spec A$ admits a faithfully flat map with flat affine domain, the identity type $x = y$ admits such a map $\Spec B' \to x = y$ as well. As its fibers are $\lnot \lnot$-inhabited, we can conclude that the flat $\Spec B'$ is $\lnot \lnot $-inhabited, hence fppf. But now $x = y$ is a fppf-covering -1-stack, hence contractible \ref{lemma:covM1Stacks}.
+\end{proof}
 %
 %\begin{lemma}
 %
