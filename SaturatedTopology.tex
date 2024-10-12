@@ -11,7 +11,7 @@
 	An inflation $P$ on $\Top$ is a monotone endofunction such that $X \subset P X$. 
 	$P$ is stack-preserving if for any topology $\bT$, $P \bT \subset \bT$-merely inhabited types.\\
 	it is covering-stack-preserving if for any $X : P \bT$, $X$ is a $\bT$-covering stack.
-%   that preserves $\sum$-stability and satisfies that 
+	%   that preserves $\sum$-stability and satisfies that 
 \end{definition}
 Note that covering-stack-preserving implies stack-preserving, as $\bT$-covering stacks are $\bT$-merely inhabited.
 \begin{prop}{\label{prop:TopologyMonad}}
@@ -40,13 +40,13 @@ Note that covering-stack-preserving implies stack-preserving, as $\bT$-covering 
 \end{definition}
 \begin{prop}
 	The assignment
-		\begin{align*}
+	\begin{align*}
 		\Top &\to \Top \\
 		\bT &\mapsto \bT' \equiv \{X \in \Aff \ | \  \exists \text{ catlas of } X \}
-		\end{align*}
-		%i.e. the affine covering $0$-stacks.	
+	\end{align*}
+	%i.e. the affine covering $0$-stacks.	
 	covering-stack-preserving idempotent Monad, called the saturation monad. \\
-	 $\bT'$ is the class of covering $\Aff$-stacks.
+	$\bT'$ is the class of covering $\Aff$-stacks.
 \end{prop}
 \begin{proof}
 	\begin{itemize}
@@ -54,30 +54,30 @@ Note that covering-stack-preserving implies stack-preserving, as $\bT$-covering 
 		\item $\bT \subset \bT'$ is clear.
 		\item Monotonicity clear
 		\item Idempotentency:  consider some $\bT'$-cover $\bT' \ni X' \to X$. By replacing $X'$ with some smooth atlas, we may assume that $X' \in \bT$. As every fiber $X'_x \in \bT'$, we merely find a smooth atlas $\tilde X'_x \to X'_x$. Then by Zariski local choice there exists a Zariski atlas $\hat X \to X$ and a commutative diagram 
-	% https://q.uiver.app/#q=WzAsNCxbMCwwLCJcXHN1bV97eCA6IFxcaGF0IFh9XFx0aWxkZSBYJ194Il0sWzAsMSwiXFxoYXQgWCJdLFsxLDEsIlgiXSxbMSwwLCJcXHN1bV97eCA6IFh9WCdfeCJdLFszLDJdLFsxLDIsIlphciIsMl0sWzAsMV0sWzAsM11d
-	\[\begin{tikzcd}
-		Y \equiv {\sum_{x : \hat X}\tilde X'_x} & {\sum_{x : X}X'_x} = X' \\
-		{\hat X} & X
-		\arrow[from=1-1, to=1-2]
-		\arrow[from=1-1, to=2-1]
-		\arrow[from=1-2, to=2-2]
-		\arrow["Zar"', from=2-1, to=2-2]
-	\end{tikzcd}\]
-	As $X' \in \bT$ and $Y \to X'$ is fibered in $\bT$ (\ref{lemma:AtlasSum}) we have $Y \in \bT$. But $Y \to \hat X$ is a $\bT$-cover and $\hat X \to X$ is a $\bT$-cover, $Y \to X$ is a $\bT$-cover. Hence $X \in \bT'$.
-
+		% https://q.uiver.app/#q=WzAsNCxbMCwwLCJcXHN1bV97eCA6IFxcaGF0IFh9XFx0aWxkZSBYJ194Il0sWzAsMSwiXFxoYXQgWCJdLFsxLDEsIlgiXSxbMSwwLCJcXHN1bV97eCA6IFh9WCdfeCJdLFszLDJdLFsxLDIsIlphciIsMl0sWzAsMV0sWzAsM11d
+		\[\begin{tikzcd}
+			Y \equiv {\sum_{x : \hat X}\tilde X'_x} & {\sum_{x : X}X'_x} = X' \\
+			{\hat X} & X
+			\arrow[from=1-1, to=1-2]
+			\arrow[from=1-1, to=2-1]
+			\arrow[from=1-2, to=2-2]
+			\arrow["Zar"', from=2-1, to=2-2]
+		\end{tikzcd}\]
+		As $X' \in \bT$ and $Y \to X'$ is fibered in $\bT$ (\ref{lemma:AtlasSum}) we have $Y \in \bT$. But $Y \to \hat X$ is a $\bT$-cover and $\hat X \to X$ is a $\bT$-cover, $Y \to X$ is a $\bT$-cover. Hence $X \in \bT'$.
+		
 		\item covering-stack-preserving: For any $\Spec A : \bT'$ we merely have some $\bT$-catlas $\bT \ni X \to \Spec A$, witnessing that $\Spec A$ is a covering stack.
-		\end{itemize}
-		For the last claim, just observe that $\bT'$ is definitely contained in covering $\Aff$-stacks.
+	\end{itemize}
+	For the last claim, just observe that $\bT'$ is definitely contained in covering $\Aff$-stacks.
 	%But $Y \to X$ is a $\bT$-cover and $\hat X \to X$ is a $\bT$-cover, $Y \to X$ is a $\bT$-cover. Hence $X \in \bT'$.
 	%covering $n$-stacks are stable under dependent sums \ref{thM:stabSums}
 	%Obviously $1 \in \bT'$. We say a type $X$ has covering local choice if for all $\bT$-surjections $S \to S'$ and a map $X \to S'$ there exists a catlas of $X$ lifting to $S$. 
 	% %First observe that every $X \in \bT$ has covering local choice:
 	% Now any $X \in \bT'$ satisfies local choice wrt catlasses because it has a catlas and catlasses are stable under composition and Zariski covers are in $\bT$. 
 	% Hence ...
-%		As $\bT'$ is definitely contained in the saturation, it suffices to show, that the class $\bT'$ defined above is saturated.
+	%		As $\bT'$ is definitely contained in the saturation, it suffices to show, that the class $\bT'$ defined above is saturated.
 \end{proof}
 \begin{lemma}
- if $\Spec B \to \Spec A$ is faithfully flat and $\Spec B$ is flat, then $\Spec A$ is flat.
+	if $\Spec B \to \Spec A$ is faithfully flat and $\Spec B$ is flat, then $\Spec A$ is flat.
 \end{lemma}
 \begin{proof}
 	Consider an injection of $R$-modules $M \hookrightarrow N$. We wish to show, that $A \otimes_R M \to A \otimes_R N$ is injective. As $B$ is faithfully flat over $A$ it suffices to show, that $B \otimes_R M \cong B \otimes_A A \otimes_R N \to B \otimes_A A \otimes_R N = B \otimes_R N$ is injective. This follows as $B$ is flat over $R$.
@@ -95,6 +95,30 @@ Note that covering-stack-preserving implies stack-preserving, as $\bT$-covering 
 \begin{proof}
 	Let $\Spec B \to \Spec A$ be unramified + fppf and $\Spec B$ unramified + fppf. We have to show that $\Spec A$ is unramified (fppf is the above example). For this, we may show that identity types $x = y$ are $\lnot \lnot$-stable. So assume $\lnot \lnot (x = y).$\\
 	As $\Spec A$ admits a faithfully flat map with flat affine domain, the identity type $x = y$ admits such a map $\Spec B' \to x = y$ as well. As its fibers are $\lnot \lnot$-inhabited, we can conclude that the flat $\Spec B'$ is $\lnot \lnot $-inhabited, hence fppf. But now $x = y$ is a fppf-covering -1-stack, hence contractible \ref{lemma:covM1Stacks}.
+\end{proof}
+\begin{lemma}
+	The \etale topology is saturated. If The formally \etale replacement preserves \etale stacks, then covering stacks are formally \etale.
+	%	If $\bT=$ \etale, then 
+	
+\end{lemma}
+\begin{proof}
+	%	We use the recursion principle.
+	If $\Spec B \to \Spec A$ is an \etale-cover  and $\Spec B \in \bT$  then we want to show $\Spec A$ is formally \etale + fppf . fppf is clear by saturatedness of the fppf topology. %${\bP_{et}}$-cover (i.e. an \etale faithfully flat map)
+	The square 
+	% https://q.uiver.app/#q=WzAsNCxbMCwwLCJcXFNwZWMgQiJdLFsxLDAsIlxcU3BlYyBBIl0sWzAsMSwiRXQoXFxTcGVjIEIpIl0sWzEsMSwiRXQoXFxTcGVjIEEpIl0sWzEsM10sWzAsMiwiXFxzaW0iXSxbMiwzLCIiLDEseyJzdHlsZSI6eyJoZWFkIjp7Im5hbWUiOiJlcGkifX19XSxbMCwxXSxbMSwzXSxbMCwzLCIiLDEseyJzdHlsZSI6eyJuYW1lIjoiY29ybmVyLWludmVyc2UifX1dXQ==
+	\[\begin{tikzcd}
+		{\Spec B} & {\Spec A} \\
+		{Et(\Spec B)} & {Et(\Spec A)}
+		\arrow[from=1-1, to=1-2]
+		\arrow["\sim", from=1-1, to=2-1]
+		\arrow["\ulcorner"{anchor=center, pos=0.125}, draw=none, from=1-1, to=2-2]
+		\arrow[from=1-2, to=2-2]
+		\arrow[from=1-2, to=2-2]
+		\arrow[from=2-1, to=2-2]
+	\end{tikzcd}\]
+	is a pullback as the formally \etale modality is lex. 
+	We want to show, that every fiber of the right map is contractible. The fiber is a sheaf: As $\Spec A$ is a sheaf and $Et(\Spec A)$ is $\bT$-seperated (because the identity types of Et($\Spec A$) are of the form $\lnot \lnot (x =_{\Spec A} y)$ ).
+	As the lower map is $\bT$-surjective, and the left vertical map is an equivalence, we can conclude.
 \end{proof}
 %
 %\begin{lemma}
