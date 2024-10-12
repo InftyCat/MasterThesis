@@ -210,19 +210,16 @@ We call a stack $P$-seperated, iff its identity types are $P$ stacks.
 \begin{proof}
 	Let $X$ be a $P$ geometric stack. Let $x,y : X$ we want to show that $x =_X y$ has $P$. Choose a geometric atlas $P \ni S \overset{f}{\to} X$ . By assumption $S$ is $P$-seperated. We have a geometric atlas $\fib_f x \times_S \fib_f y \to x = y$. The domain is a $\sum$ of types in $\bT$ and identity types of $S$, which have $P$ by stability under identity types for the affine $S$. Hence $x = y$ has $P$. 
 \end{proof}
-
-\begin{lemma}{\label{lemma:FEtLocal}}
-	formally \etale is an \etale-local property of geometric stacks.
-	%	If $\bT=$ \etale, then 
+\begin{lemma}{\label{lemma:FormEtaleSelfLocal}}
+	If $Y \to X$ is a formally \etale $\bT$-surjective map between stacks and $Y$ is formally \etale, then $X$ is formally \etale.
 \end{lemma}
 \begin{proof}
-	If $\Spec B \to X$ is a geometric cover  and $\Spec B \in \bT$  then we want to show $X$ is formally \etale + fppf . fppf is clear by saturatedness of the fppf topology. %${\bP_{et}}$-cover (i.e. an \etale faithfully flat map)
 	Take $L$ to be the modality which nullafies the propositions $\|\Spec A\|$ for $\Spec A$ \etale + fppf and all close dense propositions.
 	The square 
 	% https://q.uiver.app/#q=WzAsNCxbMCwwLCJcXFNwZWMgQiJdLFsxLDAsIlxcU3BlYyBBIl0sWzAsMSwiRXQoXFxTcGVjIEIpIl0sWzEsMSwiRXQoXFxTcGVjIEEpIl0sWzEsM10sWzAsMiwiXFxzaW0iXSxbMiwzLCIiLDEseyJzdHlsZSI6eyJoZWFkIjp7Im5hbWUiOiJlcGkifX19XSxbMCwxXSxbMSwzXSxbMCwzLCIiLDEseyJzdHlsZSI6eyJuYW1lIjoiY29ybmVyLWludmVyc2UifX1dXQ==
 	\[\begin{tikzcd}
-		{\Spec B} & {X} \\
-		{L(\Spec B)} & {L(X)}
+		{Y} & {X} \\
+		{L(Y)} & {L(X)}
 		\arrow[from=1-1, to=1-2]
 		\arrow["\sim", from=1-1, to=2-1]
 		\arrow["\ulcorner"{anchor=center, pos=0.125}, draw=none, from=1-1, to=2-2]
@@ -234,4 +231,19 @@ We call a stack $P$-seperated, iff its identity types are $P$ stacks.
 	We want to show, the right map is an equivalence. 
 	Every type occuring is an \etale-stack.
 	As the lower map is \etale-surjective, and the left vertical map is an equivalence, we can conclude.
+\end{proof}
+\begin{lemma}{\label{lemma:CSFEt}}
+	Covering stacks are formally \etale.	
+	%	If $\bT=$ \etale, then 
+\end{lemma}
+\begin{proof}
+	We apply the recursion principle. Contractible types are formally \etale.
+	If $\Spec B \to X$ is a formally \etale geometric cover  and $\Spec B \in \bT$  then $X$ is formally \etale by the previous lemma. % 
+	
+\end{proof}
+\begin{lemma}{\label{lemma:FEtLocal}}
+	formally \etale is an \etale-local property of geometric stacks.	
+\end{lemma}
+\begin{proof}
+	geometric covers are formally \etale  by \ref{lemma:CSFEt}, so conclude by \ref{lemma:FormEtaleSelfLocal}
 \end{proof}
