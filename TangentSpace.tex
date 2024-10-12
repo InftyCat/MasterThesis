@@ -4,16 +4,30 @@
 	\begin{itemize}	
 		\item it has choice
 		\item for any $W : D \to \Aff$, $\prod_d W d$ is affine
-		\item $D$ admits a strong boundedness principle (e.g. because its affine)
+		\item $D$ is flat affine % admits a strong boundedness principle (e.g. because its affine)
 	\end{itemize}
 \end{definition}
-\begin{question}
-	Are closed dense propositions tiny?
-\end{question}
-\begin{question}
-	Are pointed tiny types stable under wedge-sum?
-\end{question}
-Fix a saturated topology $\bT$ which is stable under tiny exponentials, i.e. such that for any $D$ tiny, and any $W : D \to \bT$, the affine $\prod_{d:D} W_d$ belongs to $\bT$.
+\begin{rmk}
+	Closed dense propositions are probably not tiny: Put $W	d = \bA^1$, then if $\prod_{d: D} W d = R / \varepsilon$ is affine, it would be an affine finitely copresented module, hence maybe free?
+\end{rmk}
+Fix a topology $\bT$ which is stable under tiny exponentials, i.e. such that for any $D$ tiny, and any $W : D \to \bT$, the affine $\prod_{d:D} W_d$ belongs to $\bT$.
+\begin{lemma}[TODO]{\label{lemma:TinyExp}}
+	The following topologies are stable under tiny exponentials.
+	\begin{itemize}
+		\item 	The fppf topology
+		\item The \etale topology
+		\item The smooth topology				
+	\end{itemize}
+	
+\end{lemma}
+\begin{proof}
+	\begin{itemize}
+		\item TODO
+		\item \etale follows from fppf
+		\item TODO
+	\end{itemize}
+\end{proof}
+
 \begin{theorem}
 	Covering / Geometric stacks are stable under exponentials over tiny types.
 \end{theorem}
@@ -25,7 +39,7 @@ Fix a saturated topology $\bT$ which is stable under tiny exponentials, i.e. suc
 	Claim :  $\prod_{d: D} X(d) \to \prod_{d : D} P d$ is a geometric atlas.
 	Proof : Indeed the fiber over $f$ is $\prod_{d : D} \fib_{p d} (f d)$ which is a dependent product over $W_{n-1}$ types, hence covering by induction. \\
 	Hence $\prod_d P d$ is geometric.
-	If, additionally, all the $P d$ are covering then all the $X d$ are covering affine by saturatedness of $\bT$. By assumption on $\bT$, $\prod_{d: D} X d$ belongs to $\bT$, hence $\prod_{d: D} P d$ is a covering stack.
+	If, additionally, all the $P d$ are covering then we may choose the $X d$ to be covering affine. By assumption on $\bT$, $\prod_{d: D} X d$ belongs to $\bT$, hence $\prod_{d: D} P d$ is a covering stack.
 \end{proof}
 \begin{corollary}{\label{cor:GeomAtlExpStable}}
 		For any $D$ tiny and $W_d \to X_d$ a family of geometric atlasses the map $\prod_{d : D} W_d \to \prod_{d: D} X_d$ is a geometric atlas.
@@ -38,11 +52,13 @@ Fix a saturated topology $\bT$ which is stable under tiny exponentials, i.e. suc
 	\[
 	\forall d:D \|B d\|_\bT \to \| \prod_d B d\|_\bT
 	\]
-	if $D$ satisfies one of the following conditions:
-	\begin{enumerate}
-		\item Let $D$ has choice such that $\bT$ is $\prod$-stable over $D$. 
-		\item $D$ is a proposition
-\end{enumerate}		
+	if $D$ has choice  such that $\bT$ is $\prod$-stable over $D$.  
+%	 satisfies one of the following conditions:
+%	\begin{enumerate}
+%		\item Let $D$ has choice such that $\bT$ is $\prod$-stable over $D$. 
+%		\item $D$ is a proposition
+%		
+%\end{enumerate}		
 \end{lemma}
 \begin{proof}
 	\begin{enumerate}
@@ -141,7 +157,7 @@ Now we need to show that the map is an embedding. Induction over the truncatedne
 For the induction step $n \mapsto n+1$, use function extensionality and observe that the identity types of $X$ are geometric $n$-stacks, so the map $(\star)$ where we replace $X d$ by its appropriate identity type, is an equivalence by induction.
 \end{itemize}
 \end{proof}
-\begin{lemma}
+\begin{lemma}[TODO]
 	Formally \etale and formally smooth are properties stable under quotients along smooth + $\bT$-surjective maps $X \to Y$.
 \end{lemma}
 \begin{proof}
@@ -154,6 +170,8 @@ For the induction step $n \mapsto n+1$, use function extensionality and observe 
 
 	
 \end{proof}
+
+
 
 
 %\begin{lemma}[If closed dense props are tiny]
