@@ -96,29 +96,12 @@ Note that covering-stack-preserving implies stack-preserving, as $\bT$-covering 
 	Let $\Spec B \to \Spec A$ be unramified + fppf and $\Spec B$ unramified + fppf. We have to show that $\Spec A$ is unramified (fppf is the above example). For this, we may show that identity types $x = y$ are $\lnot \lnot$-stable. So assume $\lnot \lnot (x = y).$\\
 	As $\Spec A$ admits a faithfully flat map with flat affine domain, the identity type $x = y$ admits such a map $\Spec B' \to x = y$ as well. As its fibers are $\lnot \lnot$-inhabited, we can conclude that the flat $\Spec B'$ is $\lnot \lnot $-inhabited, hence fppf. But now $x = y$ is a fppf-covering -1-stack, hence contractible \ref{lemma:covM1Stacks}.
 \end{proof}
+
 \begin{lemma}
-	The \etale topology is saturated. If The formally \etale replacement preserves \etale stacks, then covering stacks are formally \etale.
-	%	If $\bT=$ \etale, then 
-	
+	The \etale topology is saturated
 \end{lemma}
 \begin{proof}
-	%	We use the recursion principle.
-	If $\Spec B \to \Spec A$ is an \etale-cover  and $\Spec B \in \bT$  then we want to show $\Spec A$ is formally \etale + fppf . fppf is clear by saturatedness of the fppf topology. %${\bP_{et}}$-cover (i.e. an \etale faithfully flat map)
-	The square 
-	% https://q.uiver.app/#q=WzAsNCxbMCwwLCJcXFNwZWMgQiJdLFsxLDAsIlxcU3BlYyBBIl0sWzAsMSwiRXQoXFxTcGVjIEIpIl0sWzEsMSwiRXQoXFxTcGVjIEEpIl0sWzEsM10sWzAsMiwiXFxzaW0iXSxbMiwzLCIiLDEseyJzdHlsZSI6eyJoZWFkIjp7Im5hbWUiOiJlcGkifX19XSxbMCwxXSxbMSwzXSxbMCwzLCIiLDEseyJzdHlsZSI6eyJuYW1lIjoiY29ybmVyLWludmVyc2UifX1dXQ==
-	\[\begin{tikzcd}
-		{\Spec B} & {\Spec A} \\
-		{Et(\Spec B)} & {Et(\Spec A)}
-		\arrow[from=1-1, to=1-2]
-		\arrow["\sim", from=1-1, to=2-1]
-		\arrow["\ulcorner"{anchor=center, pos=0.125}, draw=none, from=1-1, to=2-2]
-		\arrow[from=1-2, to=2-2]
-		\arrow[from=1-2, to=2-2]
-		\arrow[from=2-1, to=2-2]
-	\end{tikzcd}\]
-	is a pullback as the formally \etale modality is lex. 
-	We want to show, that every fiber of the right map is contractible. The fiber is a sheaf: As $\Spec A$ is a sheaf and $Et(\Spec A)$ is $\bT$-seperated (because the identity types of Et($\Spec A$) are of the form $\lnot \lnot (x =_{\Spec A} y)$ ).
-	As the lower map is $\bT$-surjective, and the left vertical map is an equivalence, we can conclude.
+	By \ref{lemma:FEtLocal}
 \end{proof}
 %
 %\begin{lemma}
