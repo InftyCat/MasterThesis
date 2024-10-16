@@ -99,7 +99,30 @@ This follows from the observation, that the equivalence relation determined by $
 \begin{question}
 	Is every algebraic space for the zariski topology a scheme?
 \end{question}
+\begin{rmk}
+	The following example does not work: Let $p \neq 0$ be a prime. You can let $\mu_p := \Spec(R[X] / (X^p - 1))$ act on $\bA^\times$ via multiplication. Set $\bT= fppf$. Then the $p$.th power map
 
+	\[
+	pow : \| \bA^\times / \mu_p \|_0^\bT \to \bA^\times
+	\]
+	is an equivalence.
+	\begin{itemize}
+		\item 	 It is an embedding: 
+		First note, that $\|\bA^\times / \mu_p \|_0$ is $\bT$-seperated:
+		as $\mu_p$ act freely on $\bA^\times$, meaning that the identity types of the quotient are $\sum_{g: \mu_p g x =_{\bA^\times} y}$ , hence sheaves. \\
+		On the other hand the map $\|\bA^\times / \mu_p \|_0 \to \bA^\times$ is an embedding, as for any $x , y : \bA^\times$ the map $(\sum_{g : \mu_p} g x = y) \to (x^p = y^p$ is an equivalence. 
+		\item 	It is $\bT$-surjective, as for any $\lambda : \bA^\times$, we find $S = \Spec R [X] / (X^p - \lambda) \in \bT$ with 
+		\[
+		S \to \fib_{\bA^\times / \mu_p \to \bA^\times}(\lambda)
+		\]
+		hence 
+		\[
+		1 = \|S\|_\bT \to \|\fib_{pow}\|_0^\bT
+		\]
+	\end{itemize}
+
+
+\end{rmk}
 
 \begin{lemma}
 	If $X$ is an algebraic space, then the global sections embed via a $R$-algebra homomorphisms into a finitely presented $R$-algebra.
