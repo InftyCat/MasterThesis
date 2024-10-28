@@ -1,0 +1,280 @@
+\section{Tangent Spaces}
+\begin{definition}
+	A pointed type $(D,0)$ is tiny if
+	\begin{itemize}	
+		\item it has choice
+		\item for any $W : D \to \Aff$, $\prod_d W d$ is affine
+		\item $D$ is flat affine % admits a strong boundedness principle (e.g. because its affine)
+	\end{itemize}
+\end{definition}
+\begin{rmk}
+	Closed dense propositions are probably not tiny: Put $W	d = \bA^1$, then if $\prod_{d: D} W d = R / \varepsilon$ is affine, it would be an affine finitely copresented module, hence maybe free?
+\end{rmk}
+Fix a topology $\bT$ which is stable under tiny exponentials, i.e. such that for any $D$ tiny, and any $W : D \to \bT$, the affine $\prod_{d:D} W_d$ belongs to $\bT$.
+\begin{lemma}[TODO]{\label{lemma:TinyExp}}
+	The following topologies are stable under tiny exponentials.
+	\begin{itemize}
+
+		\item The \etale topology
+		\item The smooth topology				
+	\end{itemize}
+	
+\end{lemma}
+\begin{proof}
+	\begin{itemize}
+		\item TODO
+		\item TODO
+	\end{itemize}
+\end{proof}
+\begin{warning}
+	The fppf topology is not stable under tiny exponentials! \ref{warning:TangentSpacesNotFlat}
+\end{warning}
+
+\begin{theorem}
+	Covering / Geometric stacks are stable under exponentials over tiny types.
+\end{theorem}
+\begin{proof}
+	Let $P : D \to \GS$. 
+%	$\prod_d P d$ has a geometric atlas. 
+	We first prove the covering case by the $W$ induction principle of covering stacks: By choice of $D$ We may assume that $P : D \to W_n$. If $n = 0$ its fine by assumption on $\bT$.
+	by choice of $D$ we can choose $W_{n-1}$ atlasses $p d : X d \to P d$ for $d : D$.
+	Claim :  $\prod_{d: D} X(d) \to \prod_{d : D} P d$ is a geometric atlas.
+	Proof : Indeed the fiber over $f$ is $\prod_{d : D} \fib_{p d} (f d)$ which is a dependent product over $W_{n-1}$ types, hence covering by induction. \\
+	Hence $\prod_d P d$ is geometric.
+	If, additionally, all the $P d$ are covering then we may choose the $X d$ to be covering affine. By assumption on $\bT$, $\prod_{d: D} X d$ belongs to $\bT$, hence $\prod_{d: D} P d$ is a covering stack.
+\end{proof}
+\begin{corollary}{\label{cor:GeomAtlExpStable}}
+		For any $D$ tiny and $W_d \to X_d$ a family of geometric atlasses the map $\prod_{d : D} W_d \to \prod_{d: D} X_d$ is a geometric atlas.
+\end{corollary}
+\begin{corollary}
+	Geometric stacks are stable under taking tangent spaces.
+\end{corollary}
+\begin{lemma}{\label{lemma:TinyStrongLocalChoice}}
+ 	For any $B : D \to \cU$ a type family we have
+	\[
+	\forall d:D \|B d\|_\bT \to \| \prod_d B d\|_\bT
+	\]
+	if $D$ has choice  such that $\bT$ is $\prod$-stable over $D$.  
+%	 satisfies one of the following conditions:
+%	\begin{enumerate}
+%		\item Let $D$ has choice such that $\bT$ is $\prod$-stable over $D$. 
+%		\item $D$ is a proposition
+%		
+%\end{enumerate}		
+\end{lemma}
+\begin{proof}
+	\begin{enumerate}
+		\item 
+	By choice of $D$ we find $S_d \in \bT$ and $S_d \to \|B d\|$. by $\prod$-stability over $D$ on $\bT$ we have $\prod_d S_d \in \bT$,s  in particular $\| \prod_d S_d \|_\bT$. Hence we $\bT$-merely have $\prod_d \| B d\|.$ By choice of $D$ we $\bT$-merely get $\prod_d B d$. 
+	\item 	If $D$ is a proposition just observe, that 
+	\[\| \prod_d B d \|_\bT= \| D \to \sum_d B d \|_\bT = D \to \|\sum_d B d\|_\bT.\]
+		\end{enumerate}
+\end{proof}
+\begin{lemma}
+	Let $D$ be a finite wedge of infinitesimal varieties. Consider a family of smooth maps $f_d : W_d \to X_d$ and an element $w : W_0$.
+	Consider $g : \prod_d X_d$ such that $p : g_0 = f_0 w$. Then we merely find some $h : \prod_{d: D} W_d$ such that $h_0 = w$ with $q_d : g_d = f_d (h_d) $.
+%	and a commutative diagram
+%	% https://q.uiver.app/#q=WzAsNCxbMCwwLCIxIl0sWzAsMSwiRCJdLFsxLDAsIlciXSxbMSwxLCJYIl0sWzAsMl0sWzEsM10sWzIsM10sWzAsMV0sWzEsMiwiIiwxLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV1d
+%	\[\begin{tikzcd}
+%		1 & W \\
+%		D & X
+%		\arrow["w",from=1-1, to=1-2]
+%		\arrow["0",from=1-1, to=2-1]
+%		\arrow[from=1-2, to=2-2]
+%		\arrow[dashed, from=2-1, to=1-2]
+%		\arrow["g",from=2-1, to=2-2]
+%	\end{tikzcd}\]
+%%	
+	%we merely find a dashed lift.  %$\bT$-merely
+	
+\end{lemma}
+\begin{proof}
+	Let us first treat the special case where $D$ is tiny.
+%	Using choice of $
+	For any $d : D$ by smoothness of $W_d \to X_d$ we merely have a lift 
+	% https://q.uiver.app/#q=WzAsMyxbMCwwLCJkPTAiXSxbMCwxLCIxIl0sWzEsMCwiXFxmaWJfZiBnIGQiXSxbMSwyLCJcXGV4aXN0cyIsMix7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFswLDJdLFswLDFdXQ==
+	\[\begin{tikzcd}
+		{d=0} & {\fib_{f_d} g_d} \\
+		1
+		\arrow[from=1-1, to=1-2]
+		\arrow[from=1-1, to=2-1]
+		\arrow["\exists"', dashed, from=2-1, to=1-2]
+	\end{tikzcd}\]
+	where the above map is given by transport of $(w , p) : \fib_{f_0}(g_0)$.
+	By choice of $D$ we can produce a term in 
+	\[
+	\prod_d (h_d : \fib_{f_d} g_d) \times ((r : d = 0) \to  h_d = \mathrm{tp}_r(w,p)) \simeq \left(\prod_d (h_d : \fib_{f_d} g_d) \right) \times h_0 = w 
+	\]
+	Which is the datum of a filler.	This concludes the special case of $D$ beeing tiny. \\
+	If $D = \bigvee_{i=1}^n D^i$ we can produce by the special case sections $h^i : \prod_{d: D_i} W_d$ such that $h^i_0 = w$ with $q_d : g_d = f_d(h^i_d)$. As the $h_i$ agree on the basepoint, we get a dependent section $h : \prod_{d: D} W_d$ with $h_0 = w$and $g_d = f_d (h_d)$.
+%	$\bT$-merely have point in the fiber of $f$ over $g d$ that moreover equals $w$, if $d = 0$.	
+\end{proof}
+\begin{lemma}
+	Let $D$ be a finite wedge of infinitesimal varieties. Given a family of $\bT$-surjective smooth maps $W_d \to X_d$, the map $\prod_{d: D} W_d \to \prod_{d: D} X_d$ is $\bT$-surjective
+\end{lemma}
+\begin{proof}
+	To apply the previous lemma, we just use that $W_0 \to X_0$ is $\bT$-surjective.
+\end{proof}
+\begin{prop}
+	Let $j : D \to D'$ be a map between a finite wedge of infinitesimal varieties $D$ and a tiny type $D'$, that is local wrt to all affine schemes, i.e. $X ^ {D'} \to X ^D$ is an equivalence for any affine $X$. Then its local wrt to all geometric stacks.
+	In particular, geometric stacks are infinitesimally linear, i.e. a geometric stack $X$ is local wrt $j : \bD(n_1) \lor \hdots \lor \bD(n_k) \to \bD(n_1+ \hdots + n_k)$ for any $n_1,\hdots,n_k : \bN$ .
+\end{prop}
+\begin{proof}
+We prove more generally, that for any family $X :D' \to \GS$, the map
+\[
+\prod_{d:D'} X d \to \prod_{d:D} X (j d) \tag{$\star$}
+\]
+is an equivalence. Lets first check the special case where all the $X d$ are affine: We have a pullback
+% https://q.uiver.app/#q=WzAsNCxbMCwxLCJcXGxlZnQgKFxcc3VtX3tkOlxcYkQobittKX1YIGkgZCBcXHJpZ2h0KV57XFxiRChuK20pfSJdLFsxLDEsIlxcbGVmdCAoXFxzdW1fe2Q6XFxiRChuK20pfSBYIGQgXFxyaWdodClee1xcYkQobikgXFxsb3IgXFxiRChtKX0iXSxbMCwwLCJcXHByb2Rfe2Q6IFxcYkQobittKX0gWCBkICJdLFsxLDAsIlxccHJvZF97ZDpcXGJEKG4pIFxcbG9yIFxcYkQobSl9IFggKGkgZCkgIl0sWzAsMV0sWzIsM10sWzMsMV0sWzIsMF0sWzIsMSwiIiwxLHsic3R5bGUiOnsibmFtZSI6ImNvcm5lci1pbnZlcnNlIn19XV0=
+\[\begin{tikzcd}
+	{\prod_{d:D'} X d } & {\prod_{d:D} X (j d) } \\
+	{\left (\sum_{d:D'}X d \right)^{D'}} & {\left (\sum_{d:D} X j d \right)^{D}}
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-1, to=2-1]
+	\arrow["\ulcorner"{anchor=center, pos=0.125, rotate=45}, draw=none, from=1-1, to=2-2]
+	\arrow[from=1-2, to=2-2]
+	\arrow[from=2-1, to=2-2]
+\end{tikzcd}\]
+
+The lower map is an equivalence, as $\sum_{d :D'} X d$ is affine scheme, hence infinitesimally linear. So the above map is an equivalence as well. \\
+We split the prove of equivalence up into $\bT$-surjectivity and beeing an embedding.
+\begin{itemize}
+	\item
+%We need to show, that for any $(d : D) \to X (j d)$ we $\bT$-merely find an extension $(d :D') \to X d$. \\
+%First observe, that the statement is a sheaf, as the $X d$ are stacks. 
+By choice of $D'$ we find geometric atlasses $W d \to X d$ for $d :D'$.
+Then by the special case and \ref{cor:GeomAtlExpStable} we can  the following commutative diagram
+
+% https://q.uiver.app/#q=WzAsNCxbMSwxLCJcXHByb2Rfe2QgOiBcXGJEKG4pIFxcbG9yIFxcYkQobSl9IFgoamQpIl0sWzEsMCwiXFxwcm9kX3tkIDogXFxiRChuKSBcXGxvciBcXGJEKG0pfSBXKGpkKSJdLFswLDEsIlxccHJvZF97ZCA6IFxcYkQobittKX0gWCBkIl0sWzAsMCwiXFxwcm9kX3tkIDogXFxiRChuK20pfVcgZCJdLFszLDEsIlxcc2ltIl0sWzMsMl0sWzIsMF0sWzEsMCwiXFxiVCAtc3VyaiJdXQ==
+\[\begin{tikzcd}
+	{\prod_{d :D'}W d} & {\prod_{d : D} W(jd)} \\
+	{\prod_{d :D'} X d} & {\prod_{d : D} X(jd)}
+	\arrow["\sim", from=1-1, to=1-2]
+	\arrow[from=1-1, to=2-1]
+	\arrow["{\bT -surj}", from=1-2, to=2-2]
+	\arrow[from=2-1, to=2-2]
+\end{tikzcd}\]
+\item
+Now we need to show that the map is an embedding. Induction over the truncatedness of $X$. For $n=-2$ its fine.
+For the induction step $n \mapsto n+1$, use function extensionality and observe that the identity types of $X$ are geometric $n$-stacks, so the map $(\star)$ where we replace $X d$ by its appropriate identity type, is an equivalence by induction.
+\end{itemize}
+\end{proof}
+
+
+
+
+
+%\begin{lemma}[If closed dense props are tiny]
+%	Let $X \to Y$ be a $\bT$-surjective map of stacks, where $X$ is formally smooth. Then $Y$ is formally smooth.
+%\end{lemma}
+%\begin{proof}
+%	Consider a closed dense prop $P$ and a map $f : Y^P$. By \ref{lemma:TinyStrongLocalChoice} we $\bT$-merely have a lift (1.). As the goal $\fib_{Y \to Y^P}(f)$ is a stack, using that $Y$ is a stack, we may pick a lift (1.). As $X$ is formally smooth we obtain (2.). From this we get the required lift of $f$ by composition $1 \to X \to Y$ .
+%	% https://q.uiver.app/#q=WzAsNCxbMCwwLCJQIl0sWzAsMSwiMSJdLFsxLDAsIlkiXSxbMSwxLCJYIl0sWzAsMV0sWzAsMywiMS4iLDEseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbMCwyXSxbMywyXSxbMSwzLCIyLiIsMSx7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dXQ==
+%	\[\begin{tikzcd}
+%		P & Y \\
+%		1 & X
+%		\arrow["f",from=1-1, to=1-2]
+%		\arrow[from=1-1, to=2-1]
+%		\arrow["{1.}"{description}, dashed, from=1-1, to=2-2]
+%		\arrow["{2.}"{description}, dashed, from=2-1, to=2-2]
+%		\arrow[from=2-2, to=1-2]
+%	\end{tikzcd}\]
+%\end{proof}
+\begin{lemma}
+	Let $A = R[X_1,\hdots,X_n] / (f_1,\hdots,f_m)$ be a finitely presented algebra. Let $\fp : \Spec A$ be a point. The tangent space of $\Spec A$ at $\fp : \Spec A \subset \bA^n$ is affine whose algebra is cut out by the polynomials $g_i = \sum_{k} \frac{\partial f_i}{\partial x_k}(\fp) x_k$:
+\end{lemma} 
+\begin{proof}
+	I give two proofs
+	\begin{itemize}
+		\item 
+	Write $V$ to the $A$-module $R$ obtained by $\fp$.
+%	% https://q.uiver.app/#q=WzAsOCxbMCwwLCJcdFxcbWF0aHJte0Rlcn0oUltYXzEsXFxoZG90cyxYX25dLFYpICJdLFswLDEsIlxcbWF0aHJte0Rlcn0oQSxWKSAiXSxbMCwyLCJkICJdLFswLDMsIihoIFxcbWFwc3RvIFxcc3VtX2sgXFxmcmFje1xccGFydGlhbCBofXtcXHBhcnRpYWwgeF9rfShwKSBcXGNkb3Qgdl9rKSJdLFsxLDEsIlYoZ18xLFxcaGRvdHMsZ19uKSBcdCJdLFsxLDIsIihkeF8xLCBcXGhkb3RzLGQgeF9uKSJdLFsxLDMsInYiXSxbMSwwLCJcXFNwZWMgUltkIFhfMSxcXGhkb3RzLGQgWF9uXSAiXSxbNiwzLCIiLDAseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJtYXBzIHRvIn19fV0sWzIsNSwiIiwwLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoibWFwcyB0byJ9fX1dLFsxLDQsIiIsMCx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6ImFycm93aGVhZCJ9LCJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbMSwwLCIiLDIseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJob29rIiwic2lkZSI6InRvcCJ9fX1dLFs0LDcsIiIsMCx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Imhvb2siLCJzaWRlIjoidG9wIn19fV0sWzAsNywiXFxjb25nIiwyXV0=
+%	\[\begin{tikzcd}
+%		{	\mathrm{Der}(R[X_1,\hdots,X_n],V) } & {\Spec R[d X_1,\hdots,d X_n] } \\
+%		{\mathrm{Der}(A,V) } & {V(g_1,\hdots,g_n) 	} \\
+%		{d } & {(dx_1, \hdots,d x_n)} \\
+%		{(h \mapsto \sum_k \frac{\partial h}{\partial x_k}(p) \cdot v_k)} & v
+%		\arrow["\cong"', from=1-1, to=1-2]
+%		\arrow[hook, from=2-1, to=1-1]
+%		\arrow[dashed, tail reversed, from=2-1, to=2-2]
+%		\arrow[hook, from=2-2, to=1-2]
+%		\arrow[maps to, from=3-1, to=3-2]
+%		\arrow[maps to, from=4-2, to=4-1]
+%	\end{tikzcd}\]
+% https://q.uiver.app/#q=WzAsNixbMCwwLCJcdFxcbWF0aHJte0Rlcn0oUltYXzEsXFxoZG90cyxYX25dLFYpICJdLFswLDEsImQgIl0sWzAsMiwiKGggXFxtYXBzdG8gXFxzdW1fayBcXGZyYWN7XFxwYXJ0aWFsIGh9e1xccGFydGlhbCB4X2t9KHApIFxcY2RvdCB2X2spIl0sWzEsMSwiKGR4XzEsIFxcaGRvdHMsZCB4X24pIl0sWzEsMiwidiJdLFsxLDAsIlxcU3BlYyBSW2QgWF8xLFxcaGRvdHMsZCBYX25dICJdLFs0LDIsIiIsMCx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Im1hcHMgdG8ifX19XSxbMSwzLCIiLDAseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJtYXBzIHRvIn19fV0sWzAsNSwiXFxjb25nIiwwLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoiYXJyb3doZWFkIn19fV1d
+We have a bijection
+\[\begin{tikzcd}
+	{	\mathrm{Der}(R[X_1,\hdots,X_n],V) } & {\Spec R[Y_1,\hdots,Y_n] } \\
+	{d } & {(dx_1, \hdots,d x_n)} \\
+	{(h \mapsto \sum_k \frac{\partial h}{\partial x_k}(p) \cdot v_k)} & v
+	\arrow["\cong", tail reversed, from=1-1, to=1-2]
+	\arrow[maps to, from=2-1, to=2-2]
+	\arrow[maps to, from=3-2, to=3-1]
+\end{tikzcd}\]
+This restricts to a bijection
+$\mathrm{Der}(A,V) \cong V(g_1,\hdots,g_n) $
+by construction of the $g_i$.
+% https://q.uiver.app/#q=WzAsNixbMCwwLCJcdFxcbWF0aHJte0Rlcn0oUltYXzEsXFxoZG90cyxYX25dLFYpICJdLFswLDEsImQgIl0sWzAsMiwiKGggXFxtYXBzdG8gXFxzdW1fayBcXGZyYWN7XFxwYXJ0aWFsIGh9e1xccGFydGlhbCB4X2t9KHApIFxcY2RvdCB2X2spIl0sWzEsMSwiKGR4XzEsIFxcaGRvdHMsZCB4X24pIl0sWzEsMiwidiJdLFsxLDAsIlxcU3BlYyBSW2QgWF8xLFxcaGRvdHMsZCBYX25dICJdLFs0LDIsIiIsMCx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Im1hcHMgdG8ifX19XSxbMSwzLCIiLDAseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJtYXBzIHRvIn19fV0sWzAsNSwiXFxjb25nIiwwLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoiYXJyb3doZWFkIn19fV1d
+
+%	Claim: For any derivation $d$ from $A$ to $V$, we have for any polynomial $h$ we have that
+%	\[
+%	d [h] =\sum_{k=1}^n  \frac{\partial h}{\partial x_k}(p) \cdot d x_k
+%	\]
+%	\begin{proof}
+%		Any derivation from $A$ at $\fp$ induces a derivation of $\bA^n$ at $\fp$ and the statement is encoded in the fact, that the tangent space of $\bA^n$ at $\fp$ is $\bA^n$.
+%	\end{proof}
+%	 Let us show that the following maps are well-defined and mutually inverse.
+\item We can write $\Spec A$ as a pullback
+% https://q.uiver.app/#q=WzAsNCxbMCwwLCJcXFNwZWMgQSJdLFsxLDAsIlJebiJdLFsxLDEsIlJebSJdLFswLDEsIjEiXSxbMCwzXSxbMywyLCIwIl0sWzAsMV0sWzEsMl0sWzAsMiwiIiwxLHsic3R5bGUiOnsibmFtZSI6ImNvcm5lci1pbnZlcnNlIn19XV0=
+\[\begin{tikzcd}
+	{\Spec A} & {R^n} \\
+	1 & {R^m}
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-1, to=2-1]
+	\arrow["\ulcorner"{anchor=center, pos=0.125}, draw=none, from=1-1, to=2-2]
+	\arrow["F" , from=1-2, to=2-2]
+	\arrow["0", from=2-1, to=2-2]
+\end{tikzcd}\]
+Now one can apply Tangentspaces to get a pullback again
+% https://q.uiver.app/#q=WzAsNCxbMCwwLCJUX1xcZnAgXFxTcGVjIEEiXSxbMSwwLCJUX1xcZnAgUl5uID0gUl5uIl0sWzEsMSwiVF8wIFJebSA9IFJebSJdLFswLDEsIjEiXSxbMCwzXSxbMywyLCIwIl0sWzAsMV0sWzEsMiwiRCBGX1xcZnAiLDJdLFswLDIsIiIsMSx7InN0eWxlIjp7Im5hbWUiOiJjb3JuZXItaW52ZXJzZSJ9fV1d
+\[\begin{tikzcd}
+	{T_\fp \Spec A} & {T_\fp R^n = R^n} \\
+	1 & {T_0 R^m = R^m}
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-1, to=2-1]
+	\arrow["\ulcorner"{anchor=center, pos=0.125}, draw=none, from=1-1, to=2-2]
+	\arrow["{D F_\fp}"', from=1-2, to=2-2]
+	\arrow["0", from=2-1, to=2-2]
+\end{tikzcd}\]
+	\end{itemize}
+\end{proof}
+\begin{lemma}
+	Let $\varepsilon$ be nilpotent.
+	If $R / \varepsilon$ is flat, then $\varepsilon = 0$.
+\end{lemma}
+\begin{proof}
+	 Claim: $ R/ \varepsilon$ projective.
+	 From $(\varepsilon) \to R \to R / \varepsilon$ we deduce a factorization $R \to G \to R / \varepsilon$ with $G$ free and $(\varepsilon) \to R \to G$ the zero map. From this we see that $G \to R / \varepsilon$ is split surjective.  \qed(Claim)
+ 	 As $R$ is local, $R / \varepsilon$ is free , but as $\lnot \varepsilon \neq 0$, it has to be free of rank 1, thus $\varepsilon = 0$.
+\end{proof}
+\begin{warning}{\label{warning:TangentSpacesNotFlat}}
+	Tangent spaces of faithfully flat affines are not flat in general.
+	Let $p \neq 0$ be prime. $R[X] / X^p$ is a faitfully flat algebra as $X^p$ is a monic polynomial \todocite. Then it is not the case that all tangent spaces are flat. 
+	%This algebra is not flat! 
+\end{warning}
+\begin{proof}
+	Assume this is the case, i.e.  that for any $\varepsilon : R$, such that $\varepsilon^p = 0$, 
+	We have that
+	\[T_\varepsilon \Spec R[X]/ (X^p) = \Spec R[Y] / (p \varepsilon^{p-1} Y) = \Spec R[Y] / (\varepsilon^{p-1} Y) \equiv \Spec A.\]
+	is flat affine.
+	We have an $R$-linear isomorphism
+	\begin{align*}
+		R \oplus R/\varepsilon^{p-1} [Y] &\to R[Y]/ (\varepsilon^{p-1} Y) \\
+		(r , f) &\mapsto r + Y f
+	\end{align*}
+	As the RHS, the second factor of the LHS is flat over $R$. As $R / \varepsilon^{p-1} [Y]$ is a faithfully flat algebra over $R / \varepsilon^{p-1}$, we deduce that $R / \varepsilon^{p-1}$ is flat over $R$. By the lemma We conclude that $\varepsilon^{p-1} =0$ for all $\varepsilon : \Spec A$. But this means $\Spec R[Y] / (Y^{p-1}) = \Spec R[Y] / (Y^{p})$ by duality - a contradiction.
+	
+\end{proof}
+\begin{rmk}
+	Given a pointed geometric stack $(X,x)$, we can look at $Y = T_x X$ and the map $Y \to \|Y\|_0$, the fibers are deloopings of $\Omega Y$. Now there exists a $\Omega Y$-equivariant isomorphism $Y \cong \|Y\|_0 \times B \Omega Y$ over $\|Y\|_0$ iff the map $Y \to \|Y\|_0^\bT$ has a section.
+\end{rmk}

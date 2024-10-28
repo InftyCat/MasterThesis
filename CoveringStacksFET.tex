@@ -1,0 +1,427 @@
+\section{Covering Stacks are formally \etale}
+\subsection{The \etale topology is saturated}
+Let $P$ denote a closed dense proposition.
+\begin{lemma}{\label{lemma:covOfEF}}
+	An \etale-flat DM-stack that is $\lnot \lnot$-inhabited is covering.
+\end{lemma}
+\begin{proof}
+	If $X$ is an \etale-flat geometric stack, we may choose a geometric atlas $W \to X$ with $W$ formally \etale + flat. Using that the fibers $W \to X$ are $\lnot \lnot$-inhabited, we have 
+	\begin{align*}
+		\lnot \lnot X &\to \lnot \lnot W \\
+		&\to W \in \bT  ´\\
+		&\to X \in \CS \\
+	\end{align*}
+\end{proof}
+\begin{lemma}{\label{lemma:wfcover}}
+	For $X \in EF$, $X \to X^P$ is a map fibered in weakly-flat stacks iff for any $x, y : X$, $(x = y)^P$ is \etale-flat.
+\end{lemma}
+\begin{proof}
+	\begin{itemize}
+		
+		\item[$\leftarrow$]
+		By descent for covering stacks we may only show this for the fiber over $\Delta x $ for some $x  : X$ (Indeed let $z : X^P$. Assume $\|\sum_x \Delta x = z \|_\bT$. By descent we may replace $z$ by $\Delta x$ for some $x : X$ ) 
+		But then the fiber is $\sum_y (x = y)^P$, a $\sum$ of \etale-flat geometric stacks which is merely inhabited, hence covering.
+		\item[$\rightarrow$]The fiber-inclusion over $\Delta x$ is $(\sum_{y : X} (x = y)^P) \to X$ as calculated above. By stability under finite limits of $\EF$ the fiber $(x = y)^P$ over $y$ is an \etale-flat geometric stack.
+	\end{itemize}
+\end{proof}
+\begin{lemma}{\label{lemma:ETALE}}
+	Let $X$ be \etale-flat geometric stack and $P$ a closed dense proposition. Then TFAE
+	\begin{enumerate}
+		\item $X^P \in \EF$.
+		\item $X \to X^P$ is an $\EF$-cover, i.e. a map fibered in \etale-flat stacks. % for any cld $P$
+		\item $X \to X^P$ is a geometric cover % for any cld $P$
+		\item $\Delta(X) : X \to X^P$ is an equivalence. 
+		\item For any \etale-flat geometric stack $W$ such that $\Delta(W)$ is an equivalence and for any geometric cover $W \to X$ , $W^P \to X^P$ is fibered in $\EF$-stacks.
+		\item The same as 5 but 'exists $W$' instead of 'for all'.
+		%		\item For any $F : X \to \CS$ such that $\Delta(\sum_{X} F)$ is an equivalence and any $x : X^P$, $\prod_p F(x_p)$ is $\bT$-merely inhabited.
+	\end{enumerate}
+\end{lemma}
+\begin{proof}
+	\	\begin{enumerate}
+		\item [1 $\Rightarrow$ 2] $\EF$ is stable under finite limits
+		\item [2 $\Rightarrow$ 3] \ref{lemma:covOfEF}
+		\item [4 $\Rightarrow$ 3 $\Rightarrow$ 1] obvious
+		\item [1 $\Rightarrow$ 4]  we do induction over the truncation level. Contractible types are okay. Now let $X$ be an \etale-flat geometric stack. It suffices to show that $X \to X^P$ is an embedding by assumption (3) and \ref{lemma:covM1Stacks}. As $X \to X^P$ is in particular a map fibered in weakly flat stacks, for any $x,y : X$, $(x=y)^P \in \EF$ by \ref{lemma:wfcover}. $x = y$ is an \etale-flat geometric stack of one truncation level lower, we may apply the induction hypothesis thus $x = y \to (x = y)^P = (\Delta X =_{X^P} \Delta Y)$ is an equivalence. This map is $\ap_\Delta$.
+		\item [ 6  $\Rightarrow$ 2 $\Rightarrow$ 5 ] Let $W \to X$ be a geometric cover with $\Delta W$ beeing an equivalence. Consider the commutative diagram
+		% https://q.uiver.app/#q=WzAsNCxbMCwwLCJXIl0sWzEsMCwiV15QIl0sWzEsMSwiWF5QIl0sWzAsMSwiWCJdLFszLDJdLFswLDEsIlxcc2ltIl0sWzAsM10sWzEsMl1d
+		\[\begin{tikzcd}
+			W & {W^P} \\
+			X & {X^P}
+			\arrow["\sim", from=1-1, to=1-2]
+			\arrow[from=1-1, to=2-1]
+			\arrow[from=1-2, to=2-2]
+			\arrow[from=2-1, to=2-2]
+		\end{tikzcd}\]
+		As beeing fibered in \etale-flat geometric stacks is a local property of morphisms of geometric stacks, $W^P \to X^P$ is fibered in \etale-flat stacks iff $X \to X^P$ is an $\EF$-cover, which is condition 2.
+		\item [$5 \Rightarrow 6$] just use the definition of $\EF$: $X$ admits an atlas with $\EF$-domain.
+		
+	\end{enumerate}
+\end{proof}
+\begin{corollary}
+	Let $X : \EF$ . Then $\Delta X : X \to X^P$ is fibered in weakly-flat stacks, iff its its an embedding.
+\end{corollary}
+%--------------
+\begin{lemma}{\label{lemma:EFPropFet}}
+	\etale-flat geometric propositions are formally \etale.
+\end{lemma}
+\begin{proof}
+	Let $X$ be such a proposition.
+	We may show, that $X$ is $\lnot \lnot$ stable, as $\lnot \lnot$-stable propositions are formally \etale. If we assume $\lnot \lnot X$, then $X$ is covering by \ref{lemma:covOfEF}, thus by \ref{lemma:covM1Stacks} its contractible.
+\end{proof}
+\begin{corollary}[of \ref{lemma:EFPropFet}.]
+	Covering sheaves are formally unramified.
+\end{corollary}
+%---------
+\begin{lemma}{\label{lemma:OpenIsSmooth}}
+	The type of open propositons $\mathsf{OPEN}$ is smooth. 
+\end{lemma}
+\begin{proof}
+	You can write 
+	\[\mathsf{OPEN} = \bigcup_n \mathsf{OPEN}_n\]
+	where $ \mathsf{OPEN}_n$ consists of open propositions which are merely of the form $\mathrm{isInv} (f_1) \lor \hdots \lor \mathrm{isInv} (f_n)$
+	for some $f_1,\hdots,f_n : R$. \\
+	By \ref{lemma:SeqUnionSmooth} its enough to see that $\mathsf{OPEN}_n$ is formally smoots. But its equipped with a surjection out of $R^n$, which is formally smooth.
+\end{proof}
+
+
+
+%\begin{proof}
+%%	Let $x , y : X \in \CS \cap \Set$. 
+%\end{proof}
+
+
+\begin{lemma}{\label{lemma:schemeEFIsFEt}}
+	Let $X$ be a scheme that is \etale-flat as a GS. Then $X$ is formally \etale.
+\end{lemma}
+\begin{proof}
+	By \ref{lemma:ETALE} we may show, that $X \to X^P$ is an \etale-flat cover. 	As $X$ is unramified by \ref{lemma:EFPropFet}, $x_p = y$ is an open proposition depending on $p : P$. But as the type of open propositions is smooth we find an open proposition $Q$ such that $\forall p, (x_p = y) = Q$. Then, using that $Q$ is formally \etale, % open proposition,
+	\[(\prod_{p} x_p = y) = (P \to Q) = Q\] %= \lnot P \lor Q 
+	But $Q$ is an open proposition, hence a formally \etale + flat scheme, thus an \etale-flat geometric stack.		
+	
+\end{proof}
+
+\begin{corollary}
+	The \etale topology is saturated.
+\end{corollary}
+\begin{proof}
+	Every affine covering stack is a scheme that is \etale-flat as a GS, by \ref{lemma:schemeEFIsFEt} its formally \etale. Its also fppf by saturatedness of fppf.
+\end{proof}
+\subsection{Formally \etale subuniverses}
+\begin{definition}{\label{lemma:FisFet}}
+	A formally \etale subuniverse is a subtype $\bF \subset FET$ such that one of the following equivalent conditions is satisfied
+	\begin{enumerate}
+		\item  $\bF$ is formally \etale.
+		\item $\bF$ is formally smooth
+		\item For any $X : FET$, $X \in \bF$ is smooth.
+	\end{enumerate}
+\end{definition}
+\begin{proof}
+	Use that 	$FET$ is formally unramified.
+	\begin{enumerate}
+		\item [$2 \Leftrightarrow 3$] Study the fibers of $\bF \to FET$ and use that beeing formaly \etale is stable under finite limits.
+		\item [$1 \Leftrightarrow 2$]  The map $\bF \to FET$ is an inclusion, thus $\bF$ is formally unramified.
+	\end{enumerate}
+	
+\end{proof}
+
+
+\begin{lemma}{\label{cor:SubUnivDepProdStable}}
+	Let $S : P \to \bF$, Then $\prod_p S_p \in \mathsf{\bF}$.
+	%	In particular: Let $S : \Aff$, such that  for any closed dense $P \to S \in \mathsf{StdEt}$. Then for any such $P$, $S^P \in \mathsf{StdEt}$.
+\end{lemma}
+
+\begin{proof}
+	note that there exists a unique filler $\tilde Y : 1 \to \bF$, as $\bF$ is formally \etale. On the other hand the filler $1 \to FET$ is given by $\prod_p Y_p$. But $\bF \hookrightarrow FET$ is an embedding.
+	% https://q.uiver.app/#q=WzAsNCxbMCwwLCJQIl0sWzEsMCwiXFxiRiJdLFsyLDAsIkZFVCJdLFswLDEsIjEiXSxbMCwxLCJZIl0sWzEsMiwiIiwwLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoiaG9vayIsInNpZGUiOiJ0b3AifX19XSxbMCwzXSxbMywxLCJcXGV4aXN0cyEiLDEseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbMywyLCJcXHByb2RfcCBZX3AiLDJdXQ==
+	\[\begin{tikzcd}
+		P & \bF & FET \\
+		1
+		\arrow["Y", from=1-1, to=1-2]
+		\arrow[from=1-1, to=2-1]
+		\arrow[hook, from=1-2, to=1-3]
+		\arrow["{\exists!}"{description}, dashed, from=2-1, to=1-2]
+		\arrow["{\prod_p Y_p}"', from=2-1, to=1-3]
+	\end{tikzcd}\]\\
+	
+	
+	
+\end{proof}
+\begin{prop}
+	For any modality $\ci$, there is a formally \etale subuniverse cut out by the $\ci$-modal types $FET \cap \cU_{\ci}$
+\end{prop}
+\begin{proof}
+	We only need to show that $FET \cap \cU_{\ci}$ is formally smooth. Here you use that $\ci$-modal types are stable by depedent products over arbitrary indexing types.
+\end{proof}
+\begin{example}{\label{lemma:FETSt}}
+	The following form formally \etale subuniverses:
+	\begin{itemize}
+		\item 	The class $FET \cap \St$ of formally \etale \etale-stacks
+		\item 	The class of \etale propositions, i.e. propositions that are formally \etale \etale-sheaves.
+	\end{itemize}	
+\end{example}
+
+\subsection{Standart \etale}
+If $A$ is an fp $R$-algebra, $\Alg_A$ denotes fp $A$- algebras.
+\begin{definition}
+	Let $A$ be a f.p. $R$ algebra. The type of standart \etale $A$-algebra $\mathsf{StdEtAlg}_A$ is the type of f.p. flat $A$-algebras which are merely of the form
+	\[
+	\left (A[X_1,\hdots,X_n] / (P_1,\hdots,P_m) \right)_G
+	\]
+	such that $\det (\mathrm{Jac}(P_1,\hdots,P_n))$ divides $G$ in $A[X_1,\hdots,X_n] / (P_1,\hdots,P_m) $. \\
+	We define $\mathsf{StdEt}_R = \sum_{X : \Aff} X^R \in \mathsf{StdEtAlg}_R$.
+\end{definition}
+\begin{question}
+	Is standart \etale stable under finite sums?
+\end{question}
+
+\begin{definition}
+	Let $A : \Alg_R$.
+	 The type of Presentations of f.p. algebras over $R$ is 
+	\[
+	\Pres_A = \sum_{n,m} A[X_1,\hdots,X_n]^m
+	\]
+	We have a presentation forgetting map 
+	\begin{align*}
+		\mathrm{fgt} :\Pres_A &\to \Alg_A \\
+		(n,m, P_1,\hdots,P_m) &\mapsto A[X_1,\hdots,X_n] / (P_1,\hdots,P_m)
+	\end{align*}
+
+	 %, where $\fp_*$ denotes the chance of coefficients $\fp \otimes_R R[X_1,\hdots,X_n] : A[X_1,\hdots,X_n] \to R[X_1,\hdots,X_n]$. \\
+	
+\end{definition}
+\begin{construction}
+	For any map of $R$-algebras $A \to B$ there is an evident pushforward map on type of presentations, which we call by abuse of notation the same as on algebras:
+	% https://q.uiver.app/#q=WzAsNCxbMSwwLCJcXFByZXNfQiJdLFswLDAsIlxcUHJlc19BIl0sWzAsMSwiXFxBbGdfQSJdLFsxLDEsIlxcQWxnX0IiXSxbMCwzXSxbMSwyXSxbMiwzLCJcXF8gXFxvdGltZXNfQSBCIl0sWzEsMCwiIiwwLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV1d
+	\[\begin{tikzcd}
+		{\Pres_A} & {\Pres_B} \\
+		{\Alg_A} & {\Alg_B}
+		\arrow["\_ \otimes_A B",dashed, from=1-1, to=1-2]
+		\arrow[from=1-1, to=2-1]
+		\arrow[from=1-2, to=2-2]
+		\arrow["{\_ \otimes_A B}", from=2-1, to=2-2]
+	\end{tikzcd}\]
+	making the diagram commute. \\
+	It is given 
+	\begin{align*}
+		{\Pres_A} \simeq \sum_{n,m} A[X_1,\hdots,X_n]^m &\to \sum_{n,m} A[X_1,\hdots,X_n]^m \otimes_A B \simeq {\Pres_B} \\
+		(n,m,P) &\mapsto (n,m,P\otimes 1)
+	\end{align*}	
+\end{construction}
+\begin{lemma}
+	The type $\Pres_R$ is smooth.
+\end{lemma}
+
+\begin{proof}
+	As $\bN$ is formally smooth, by $\sum$-stability of formally smooth types. it remains to show that  For any $n$, The type $R[X_1,\hdots,X_n]$ is formally smooth. However we can write it as a sequential union
+	\[
+	R[X_1,\hdots,X_n] = \bigcup_k R[X_1,\hdots,X_n]_{\le k}
+	\]
+	where $ R[X_1,\hdots,X_n]_{\le k}$ is the finite free $R$-submodule generated by monomials with degree $\le k$. In particular it is a smooth type. Conclude by \ref{lemma:SeqUnionSmooth}.
+\end{proof}
+\begin{lemma}
+	Let $R \twoheadrightarrow A$ be a quotient algebra. duality for fp algebras restricts to a bijection
+	\[
+	\mathsf{StdEtAlg}_A \cong (\Spec A \to \mathsf{StdEtAlg}_R)
+	\]
+\end{lemma}
+
+\begin{proof}
+	
+	Duality enhances to a bijection for pointed algebras
+	\[
+	\Alg_{A,*} \to (\Spec A \to \Alg_{R,*})
+	\]
+	Moreover, flatness is preserved under duality by \ref{thm:FlatAffines}.
+	Def: A pointed $A$-algebra $(B,G)$ admits an apropriate presentation, if there exists a presentation $B = R[X_1,\hdots,X_n] / (P_1,\hdots,P_n)$ such that $\det(Jac(P_1,\hdots,P_n))$ divides $G$ in $B$. We need to show, that a pointed $A$-algebra admits an approriate presentation iff it admits that pointwise. \\
+	\begin{itemize}
+		\item 
+	If $B$ admits an appropriate presentation $F$ %$
+	, then for any $\fp: \Spec A$, $F \otimes_A \fp$ %R[X_1,\hdots, X_n] / (\fp_* P_1,\hdots,\fp_* P_n)$ 
+	is an appropriate presentation of $B \otimes_A \fp$. \\
+	%, where $\fp_*$ denotes the chance of coefficients $\fp \otimes_R R[X_1,\hdots,X_n] : A[X_1,\hdots,X_n] \to R[X_1,\hdots,X_n]$. \\
+	\item Let $(B , G) : Alg_{A,*}$, such that for $\fp : \Spec A$ we merely find an appropriate presentation of $B \otimes_A \fp$ as an $R$-algebra. In particular we have a solid arrow commutative diagram
+% https://q.uiver.app/#q=WzAsNixbMSwwLCJcXFByZXNfUiJdLFsyLDAsIlxcQWxnX1IiXSxbMCwwLCJQIl0sWzAsMSwiMSJdLFsyLDEsIlxcQWxnX0EiXSxbMSwxLCJcXFByZXMgQSJdLFswLDFdLFsyLDBdLFsyLDNdLFsxLDQsIlxcXyBcXG90aW1lc19SIEEiXSxbMywwLCIoMSkiLDAseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbMyw0LCJCIiwyLHsiY3VydmUiOjR9XSxbNSw0XSxbMCw1LCJcXF9cXG90aW1lc19SIEEiXSxbMyw1LCIoMikiLDIseyJsYWJlbF9wb3NpdGlvbiI6NDAsInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dXQ==
+\[\begin{tikzcd}
+	P & {\Pres_R} & {\Alg_R} \\
+	1 & {\Pres A} & {\Alg_A}
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-1, to=2-1]
+	\arrow[from=1-2, to=1-3]
+	\arrow["{\_\otimes_R A}", from=1-2, to=2-2]
+	\arrow["{\_ \otimes_R A}", from=1-3, to=2-3]
+	\arrow["{(1)}", dashed, from=2-1, to=1-2]
+	\arrow["{(2)}"'{pos=0.4}, dashed, from=2-1, to=2-2]
+	\arrow["B"', curve={height=24pt}, from=2-1, to=2-3]
+	\arrow[from=2-2, to=2-3]
+\end{tikzcd}\]
+
+	 % we are given a map $P \to \Pres_R$  if $P$ then we merely find an appropriate presentation of $B$ as an $R$-algebra. 
+	 By smoothness of $\Pres_R$ , we find (1) an actual presentation $F : \Pres_R$, which presents $B \fp$ whenever $\fp : P$. 
+	 The other half of the diagram still commutes 	using \todocite
+	 	\[B \equiv \prod_{\fp : P} B_\fp = (\Spec A \to \mathrm{fgt} F) = \mathrm{fgt} F \otimes_R A \]
+	 But then we can just use (2) the presentation $F \otimes_R A : \Pres_{A}$ of $B$ as an $A$ algebra.
+
+	
+%	= \mathrm{fgt} (F \otimes_R A)
+
+	It remains to show, that $F \otimes_R A$ is an appropriate presentation of the $A$-algebra $(B,G)$. However this is encoded by divisibility in $B$ which can be checked pointwise \ref{ex:Divisibility}. % It holds pointwise because $(B_\bullet ; G_\bullet)$ was assumed to be pointwise appropriate.
+		\end{itemize}
+	
+	%	First observe that every $ B : \mathsf{StdEt}_A$  admits some $
+	%	A StdEt presentation is a finitely presented $R[X]$ algebra
+	%	Write $X = \Spec A$.
+	%	Let $B : X \to \mathsf{StdEt}_R$. By ZLC for $X$ we find a Zariski cover $X' \to X$ with
+	%	\[
+	%	\prod_{x: X'}  
+	%	\]
+\end{proof}
+
+
+
+\begin{lemma}{\label{lemma:StdEtSm}}
+	%Let $B : Alg_R$ be smooth. 
+	Then $\mathsf{StdEt}_R$ is a formally \etale subuniverse. %Let $A$ be a finitely presented $R$-algebra. Then '$A$ beeing standart \etale $R$-algebra' is formally smooth. \\
+	%	A Zariski cover of standart \etale is standart \etale.
+\end{lemma}
+\begin{proof}
+	\begin{itemize}
+		\item standart \etale type is in particular formally \etale \todocite
+		\item formally smoothness:
+		Let $I^2 = 0$.
+		%Choose a presentation $A = R[X_1,\hdots,X_n] / (\tilde P_1,\hdots,\tilde P_m)$. Let $P_1,\hdots P_m$ denote the images in $R/I[X_1,\hdots,X_n]$.
+		Let $\Spec  R/ I \to \mathsf{StdEt}_R \simeq \mathsf{StdEtAlg}_{R}$. This corresponds to a unique $\mathsf{StdEtAlg}_{R/I}$, where $B' = R / I \otimes_R B$. choose a presentation
+		\[
+		T = \left (R/I[X_1,\hdots,X_n] / (P_1,\hdots,P_m) \right)_G
+		\]
+		and some $H : R/I[X_1,\hdots,X_n] / (P_1,\hdots,P_m)$ such that  
+		\[\det (\mathrm{Jac}(P_1,\hdots,P_n)) \cdot H = G.\] \\
+		Then choose lifts $\tilde P_1, \hdots, \tilde P_m \in R[X_1,\hdots,X_n]$ of the $P_i$, then a lift 
+		\[\tilde H : R[X_1,\hdots,X_n] / (\tilde P_1 , \hdots, \tilde P_n)\]
+		of $H$. Then define 
+		\[
+		\tilde G :\equiv \det (\mathrm{Jac}(\tilde P_1,\hdots, \tilde P_n)) \cdot \tilde H
+		\]
+		Then 
+		\[\hat T \equiv \left(R[X_1,\hdots,X_n]  / (\tilde P_1,\hdots,\tilde P_n) \right)_{\tilde G} \]
+		is a standart \etale $R$-algebra such that $\hat T \otimes_R R/ I = T$.
+		%	It remains to construct a $R$-algebra homomorphism
+		%	% https://q.uiver.app/#q=WzAsNCxbMCwwLCJCIl0sWzEsMCwiXFx0aWxkZSBUIl0sWzAsMSwiQiciXSxbMSwxLCJUIl0sWzIsM10sWzEsMywiIiwyLHsic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoiZXBpIn19fV0sWzAsMl0sWzAsMSwiIiwyLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV1d
+		%	\[\begin{tikzcd}
+		%		B & {\tilde T} \\
+		%		{B'} & T
+		%		\arrow[dashed, from=1-1, to=1-2]
+		%		\arrow[from=1-1, to=2-1]
+		%		\arrow[two heads, from=1-2, to=2-2]
+		%		\arrow[from=2-1, to=2-2]
+		%	\end{tikzcd}\]
+		%	For this you need the smoothness of $B$. Indeed from the map $\Spec \tilde T \to \Spec B^{\bD 1}$ we merely obtain map $\Spec \tilde T \to \Spec B$.
+		% if $I = 0$ it coincides with the $R / I$-algebra we started with.
+	\end{itemize}
+\end{proof}
+\begin{question}
+	Let $P \to \mathsf{StdEt}_R$ correspond to some $B : \mathsf{StdEt}_{R / I}$. What is $\Spec {}_R B$ where we restricted scalars ?
+\end{question}
+
+\begin{lemma}{\label{lemma:EqRelSmooth}}
+	Let $\bF$ be formally \etale subuniverse. 
+	The Type of $\bF$-fibered  $\mathsf{EtProp}$-valued equivalence relation on a Std\etale 
+	\[\sum_{X: \mathsf{StdEt}} (R : X^2 \to \mathsf{EtProp}) \times (\prod_{x : X} R_x \in \bF) \]
+	is formally \etale.
+\end{lemma}
+\begin{proof}
+	It is formally unramified, as  $\mathsf{StdEt}$ is formally \etale and our equivalence relation is valued in formally \etale propositions. \\
+	So it remains formally smoothness. 
+	Let $Y : \mathsf{StdEt}^P$, $R : \prod_p Y_p^2 \to \mathsf{EtProp}$ such that for all $p$,  $R_p$ is an $\mathsf{EtProp}$-valued equivalence relation fibered in $\bF$. \\
+	As $\mathsf{StdEt}$ is formally \etale, we find a unique $\tilde Y : \mathsf{StdEt}$ such that for all $p$, $\tilde Y = Y_p$. Then our relation transport to a term $\tilde R$ in the LHS
+	\[
+	\prod_p Y_p^2 \to \mathsf{EtProp} = (\prod_p \tilde Y^2 \to \mathsf{EtProp}) = (\tilde Y^2 \to \mathsf{EtProp}^P) = (\tilde Y^2 \to \mathsf{EtProp})
+	\]
+	Using that the type of etale propositions is formally \etale \ref{lemma:FETSt}. \\
+	One  can check, that $\tilde R$ is indeed an equivalence relation on $\tilde Y$. It remains to show, that the relation $\tilde R$ is fibered in $\bF$. for any fiber this holds $P$-merely, which is enough by assumption \ref{lemma:FisFet} on $\bF$, as the fibers are formally \etale .
+	More precisely: For this we calculate $\tilde Y = \prod_p Y_p$ and $\tilde R(y,y') = \prod_p R(y_p,y'_p)$. Let $y : \tilde Y$. 
+	The fiber is
+	\[
+	\sum_{y' : \tilde Y} \tilde R(y , y') = \sum_{y': \tilde Y} \prod_p R(y_p,y'_p) = \prod_p \sum_{y' : Y_p} R(y_p , y')
+	\]
+	which is a dependent product of fibers of $R$. So conclude by \ref{cor:SubUnivDepProdStable}.
+	%, the fiber is $P$-merely in $\bF$. By assumption the fiber is in $\bF$.
+\end{proof}
+\subsection{\etale-flat stacks form a formally \etale subuniverse}
+
+%\begin{lemma}{\label{lemma:FETUniv}}
+%	Let $\bF$ be a formally \etale subuniverse contained in $\EF$. An $\EF$ stack is formally \etale if it merely admits a geometric $\bF$-cover with formally \etale domain.
+%\end{lemma}
+%\begin{proof}
+%
+%\end{proof}
+
+
+\begin{warning}
+	$\EF \hookrightarrow \GS$ is probably not formally \etale.
+\end{warning}
+\begin{lemma}{\label{lemma:FetFromFCover}}
+	An \etale-flat geometric stack is formally \etale , if it admits a geometric $\bF$-cover with formally \etale domain for $\bF$ some formally \etale subuniverse contained in $\EF$.
+\end{lemma}
+\begin{proof}
+	Choose $f: W \to X$ a geometric $\bF$-cover with $W$ a formally \etale geometric stack. By \ref{lemma:ETALE}, we may show that $W \to X^P$ is an $\bF$-cover (thus an $\EF$-cover). The fiber over any $x :X^P$ is $\prod_p \fib_{f_p} x_p$ , a dependent product of things in $\bF$, thus in $\bF$ by \ref{cor:SubUnivDepProdStable}. 
+\end{proof}
+\begin{theorem}
+	The type of $\EF$-stacks is a formally \etale subuniverse.
+\end{theorem}
+\begin{proof}
+	By truncatedness of $\EF$-stacks and \ref{lemma:SeqUnionSmooth}, we may just show, that $\EF$-$n$-stacks form a formally \etale subuniverse for each $n$. 
+	\begin{itemize}
+		\item $n=0$: \\ 
+		%For $\bF$ be a formally \etale subuniverse, we call a sheaf a $\bF$-DM-sheaf if it is merely the quotient of some std\etale by an $\mathsf{EtProp}$-valued equivalence relation fibered in $\bF \cap \CS$.
+		
+		An algebraic space is called 
+		\begin{itemize}
+			\item level 0, if its Zariski-flat, i.e. a finite sum of open propositions: \[
+			\cP_{\Zar} \equiv \bigcup_n \mathsf{Open}^n % \{ X : \cU \ | \ \| \sum_{m : \bN} (Q : \mathsf{Fin} \ m \to \mathsf{Open}) \times X \simeq \sum_i Q i \| \}
+			\]
+			where we use the structure maps $X : \mathsf{Open}^n \mapsto (\bot , X) : \mathsf{Open}^{n+1}$
+			\item level $n+1$, if it is merely the quotient of some std\etale by an $\mathsf{EtProp}$-valued equivalence relation fibered in level $n$ covering algebraic spaces.
+		\end{itemize}
+		Observe that, the respective levels contain in particular
+		\begin{enumerate}
+			\item level algebraic spaces contain the \etale-topology.
+			\item level contains sheaves that merely admit an atlas $\mathsf{StdEt} \ni S' \to F$ fibered in $\bT$ \\
+			\item level algebraic spaces contain already all $\EF$-algebraic spaces by \todocite
+		\end{enumerate}
+		We want to prove by induction, that level $k$ algebraic spaces form a formally \etale subuniverse.
+		\begin{itemize}
+			\item  Zariski-Flat types form a formally \etale subuniverse. 
+			\begin{itemize}
+				\item Every finite sum of opens is formally \etale
+				\item The type $\cP_{\Zar}$ is formally smooth: by \ref{lemma:SeqUnionSmooth} and the observation that each $\mathsf{Open}^m$ is smooth.
+			\end{itemize}
+			\item For the induction step $n \mapsto n+1$ we may just show the following:
+			%For any formally \etale subuniverse $\bF$, the type of $\bF$-DM-sheaves is a formally \etale subuniverse.
+			\begin{itemize}
+				\item 	First we show that the type of level $n+1$ algebraic spaces is formally smooth: We can $P$-merely choose an appropriate atlas. By \ref{lemma:EqRelSmooth} we get an actual stdetale with an equivalence relation. The quotient will give us a filler. \\
+				\item Every level $n+1$ algebraic space admits a geometric cover fibered in level $n$ algebraic spaces with formally \etale domain, thus it is formally \etale by \ref{lemma:FetFromFCover}.
+			\end{itemize}
+		\end{itemize}
+		\item By definition we need to show:
+		\begin{itemize}
+			\item Any \etale-flat geometric $n+1$-stack is formally \etale by \ref{lemma:FetFromFCover} using that \etale-flat geometric $n$-stacks are a formally \etale subuniverse by the induction hypothesis.
+			\item To show smoothness of $\EF_{n+1}$, we may show \todocite that the domain of the surjection
+			% https://q.uiver.app/#q=WzAsMyxbMCwwLCJcXHN1bV97WCA6IFxcU3QgXFxjYXAgRkVUfShYIFxcb3ZlcnNldHtGfXtcXHRvfSBcXENTX3tufSkgXFx0aW1lcyAoXFxzdW1fe1h9IEYgXFxpbiBcXEVGX24pIl0sWzEsMCwiXFxzdW1fe1ggOiBcXFN0IFxcY2FwIEZFVH0gWCBcXGluIFxcRUZfe24rMX0iXSxbMiwwLCJcXEVGX3tuKzF9Il0sWzAsMSwiIiwwLHsic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoiZXBpIn19fV0sWzEsMiwiIiwwLHsibGV2ZWwiOjIsInN0eWxlIjp7ImhlYWQiOnsibmFtZSI6Im5vbmUifX19XV0=
+			\[\begin{tikzcd}
+				{\sum_{X : \St \cap FET}(X \overset{F}{\to} \CS_{n}) \times (\sum_{X} F \in \EF_n)} & {\sum_{X : \St \cap FET} X \in \EF_{n+1}} & {\EF_{n+1}}
+				\arrow[two heads, from=1-1, to=1-2]
+				\arrow[Rightarrow, no head, from=1-2, to=1-3]
+			\end{tikzcd}\]
+			is formally \etale, where the right equality uses the previous paragraph. \\
+			As beeing formaly \etale is a modality, we may only show that the following types are formally \etale
+			\begin{itemize}
+				\item $\St \cap FET$ by \ref{lemma:FETSt}
+				\item $\CS_n$. It embeds into the formally \etale $\EF_n$, so it remains to show that the fibers are smooth. But for some $X : \EF_n$ beeing $\lnot \lnot$ inhabited is formally smooth, so conclude by \ref{lemma:covOfEF}.
+				\item $\sum_X F \in \EF_n$. Here just use that the map $\EF_n \hookrightarrow \St \cap FET \ni \sum_X F$ between formally \etale types has formally \etale fibers.
+			\end{itemize} 
+		\end{itemize}
+	\end{itemize}
+\end{proof}
+%\begin{proof}
+%	Let $X : \GS$. Choose a geometric atlas $S \to X$. We have $S \in \EF$ iff $X \in \EF$. The first statement is formally \etale.
+%\end{proof}
