@@ -13,6 +13,7 @@
 \newcommand{\ap}{\mathsf{ap}}
 \newcommand{\Aff}{\mathsf{Aff}}
 \newcommand{\Sep}{\mathsf{Sep}}
+\newcommand{\Pres}{\mathsf{Pres}}
 \newcommand{\EF}{\mathsf{EF}}
 \include{preamble}
 
@@ -28,9 +29,74 @@
 \maketitle
 \tableofcontents
 \include{Atlas}
+\section{Introduction to SAG}
+
+Example for zariski local choice
+
+\begin{example}{\label{ex:Divisibility}}
+	For some $A$ and $g,g' : A$ define
+	\[
+	g \ |_A \ g' \equiv \| \{ h : A \mid h g =_A g' \} \|
+	\]
+	Claim: For any $g,g' : A$, we have 
+	\[
+	g |_{A} g' \leftrightarrow \forall x : \Spec A , g x |_R g' x
+	\]
+\end{example}
+\begin{proof}
+	$\rightarrow$ is obvious using that the duality map is an algebra isomorphism.\\
+	$\leftarrow$. For any $x : \Spec A$ we merely find some $h : R$ with $h \cdot g(x) = g'(x)$, i.e. we define our family of inhabited types as 
+	\[
+	B x =  \{h  : R \mid  h \cdot g(x) = g'(x) \}
+	\]
+	
+	By zariski local choice we merely find some principal open cover $\Spec A = \bigcup_{i=1}^n D(f_i)$ and local sections
+	\begin{align*}
+		&\prod_{x : D(f_i)} \{h_i  : R \mid h_i \cdot g(x) = g'(x) \} \\
+		&\overset{\ref{prop:TTAC}}{\simeq} \{h_i : D(f_i) \to R \mid (h_i x) \cdot g(x) = g'(x) \}\\
+		&\overset{ \nameref{Duality}}{{\color{green} \simeq}} \left\{h_i : A_{f_i} \mid h_i \cdot \frac{g}{1} =_{A_{f_i}} \frac{g'}{1} \right \}   
+	\end{align*}
+	We can multiply $h_i$ by high enough powers of $f_i$ to obtain some $h_i : A$ with $h_i \cdot g = g' \cdot f_i^{n}$ for some $n : \bN$. we may assume that $n$ does not depend on $i = 1 , \hdots, n$ by taking the maximum and multiplying the $h_i$ again with enough powers of $f_i$. Now use \ref{lemma:powersofUnimod} to write $ 1 = \sum_{i=1}^n \ell_i f_i^n$ for some $\ell_i : A$ and then \[
+	(\sum_i \ell_i h_i) \cdot g = \sum_i \ell_i f_i^n g' = 1 g' = g'
+	\]    
+\end{proof}
 
 \section{Preparation}
 
+\begin{lemma}[Strong boundedness]{\label{lemma:StrongBoundedness}}
+	Consider a sequence of embeddings of types 
+	\[
+	X_0 \overset{\iota_0}{\hookrightarrow} X_1 \overset{\iota_1}{\hookrightarrow} X_2 \hdots
+	\]
+	Then any map $f : \Spec A \to \colim{n} X_n \equiv: \bigcup_n X_n$ factors through some $\kappa_m : X_m \hookrightarrow \colim{n} X_n$.
+\end{lemma}
+\begin{proof}	
+	For every term $x : \Spec A$ consider the subset $S_x$ of natural numbers $n$, such that $f(x) \in \im \kappa_m$. Its a merely inhabited upwards closed subset. By the strong boundedness principle \todocite, the subset $\bigcap_{x : \Spec A} S_x$ is merely inhabited.
+\end{proof}
+\begin{lemma}[Sequential Unions of smooth types]{\label{lemma:SeqUnionSmooth}}
+		Consider a sequence of embeddings of formally smooth types 
+	\[
+	X_0 \overset{\iota_0}{\hookrightarrow} X_1 \overset{\iota_1}{\hookrightarrow} X_2 \hdots
+	\]
+	Then $ \bigcup_n X_n$ is formally smooth.
+\end{lemma}
+\begin{proof}
+	
+	Let $P$ be closed dense with a map $P \to \bigcup_n X_n$. By the strong boundedness principle \ref{lemma:StrongBoundedness} we merely find some $n : \bN$ such that the map factors through $\kappa_n$.
+	By smoothness of $X_n$ there exists some a filler (2.)
+	% https://q.uiver.app/#q=WzAsNCxbMCwwLCJQIl0sWzEsMCwiUl5uIl0sWzEsMSwiXFxtYXRoc2Z7T1BFTn0iXSxbMCwxLCIxIl0sWzAsMl0sWzAsMSwiMS4iLDAseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbMCwzXSxbMSwyXSxbMywxLCIyLiIsMSx7ImxhYmVsX3Bvc2l0aW9uIjozMCwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzMsMiwiMy4iLDEseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XV0=
+	\[\begin{tikzcd}
+		P & {X_n} \\
+		1 & {\bigcup_n X_n}
+		\arrow["{1.}", dashed, from=1-1, to=1-2]
+		\arrow[from=1-1, to=2-1]
+		\arrow[from=1-1, to=2-2]
+		\arrow[from=1-2, to=2-2]
+		\arrow["{2.}"{description, pos=0.3}, dashed, from=2-1, to=1-2]
+		\arrow["{3.}"{description}, dashed, from=2-1, to=2-2]
+	\end{tikzcd}\]
+	By composition we obtain a filler $1 \to \bigcup_n X_n$.
+\end{proof}
 
 \begin{lemma}{\label{lemma:havingAbstractAtlasClosedUnderId}}
 	Let $C$ be a class of types stable under $\sum$. Let $\bP \subset \Aff$ (in most cases $\bP := \Aff$) be any subclass of affines stable under finite limits.  %HOPE WE DONT NEED (because we want to apply it to \cV = covering stacks) finite limits, i.e. containing 1, stable under dependent sums and finite limits
@@ -254,6 +320,9 @@ For any weakly-flat geometric stack $X$, $\|X\|_{-1}^\bT$ is a geometric stack.
 
 \include{Flat}
 \section{Not clear where to put that}
+\begin{theorem}[TODO]{\label{thm:FlatAffines}}
+	The class of flat affines is stable under $\sum$. Moreover flatness can be defined fiberwise.
+\end{theorem}
 \begin{prop}{\label{prop:htpyGroups}}
 	Assume covering stacks are $\Omega$-stable.
 	A truncated stack (e.g. geometric stack) is covering iff $\pi_0^\bT X := \|X\|_0^\bT$ and all higher homotopy groups 
@@ -285,6 +354,9 @@ For any weakly-flat geometric stack $X$, $\|X\|_{-1}^\bT$ is a geometric stack.
 
 
 
+\include{CoveringStacksFET}
+\include{TangentSpace}
+
 \section{Questions}
 \begin{theorem}[TODO]
 	An Artin stack $X$ is Deligne Mumford iff one of the following conditions is satisfied:
@@ -300,8 +372,5 @@ For any weakly-flat geometric stack $X$, $\|X\|_{-1}^\bT$ is a geometric stack.
 		%As a stack beeing $\bP$-seperated is a sheaf and $%
 	\end{enumerate}
 \end{proof}
-
-
-\include{TangentSpace}
 
 \end{document}
