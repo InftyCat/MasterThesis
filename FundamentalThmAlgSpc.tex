@@ -15,7 +15,7 @@ Recall the notion of (covering) geometric 0-stacks, which we call (covering) Alg
 \begin{lemma}{\label{quotient-by-equivalence-relation}}
 	Denote $\bT Set$ for the sets that are $\bT$-sheaves. Assume given a $\bT$set  $X$ then the following maps are mutually inverse
 	\begin{align*}
-		\sum_{R:X\to X\to \bT\Prop} R\ \mathrm{equivalence\ relation} &\simeq \sum_{Y:\bT \mathrm{\Set}} \sum_{p:X\to Y} p\ \bT\mathrm{surjective} \\
+		 \mathrm{EqRel}(X  , \bT \Prop) \equiv \sum_{R:X\to X\to \bT\Prop} R\ \mathrm{equivalence\ relation} &\simeq \sum_{Y:\bT \mathrm{\Set}} \sum_{p:X\to Y} p\ \bT\mathrm{surjective} \\
 		R &\mapsto (L_\bT \| X//R \|_0,[\_]) \\
 		\lambda x,y.  (p(x)=p(y)) &\mapsfrom (Y,p) 
 	\end{align*}
@@ -76,7 +76,7 @@ Recall the notion of (covering) geometric 0-stacks, which we call (covering) Alg
 \begin{proof}
 	 For all $s , t : S$, $R(s,t)$ is a geometric proposition: $R(s,t)$ is the fiber of the projection $\sum_{t : S} R(s,t) \to S$ between geometric stacks, which are stable under finite limits. \\
 \end{proof}
-\begin{lemma}
+\begin{lemma}{\label{lemma:CovRel}}
 	If $S$ is affine, then a modal equivalence relation on $S$ is covering iff every fiber $R_s \equiv \sum_{t: S} R(s,t)$ merely admits a $\bT$-catlas.
 \end{lemma}
 \begin{proof}
