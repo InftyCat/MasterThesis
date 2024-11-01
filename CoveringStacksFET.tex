@@ -286,46 +286,45 @@ If $A$ is an fp $R$-algebra, $\Alg_A$ denotes fp $A$- algebras.
 	%	\]
 \end{proof}
 
-
+	 we call a type $X$ $P$-smooth, if $X \twoheadrightarrow X^P$. $P$-smooth types are stable under $\sum$ by the following diagram
+% https://q.uiver.app/#q=WzAsNSxbMCwyLCIoXFxzdW1fe3ggOkF9IEJ4KV5QIl0sWzEsMiwiQV5QIl0sWzEsMSwiQSJdLFswLDEsIlxcc3VtX3t4IDpBfSAoQngpIF5QIl0sWzAsMCwiXFxzdW1fe3ggOiBBfSBCIHgiXSxbMCwxXSxbMiwxLCIiLDIseyJzdHlsZSI6eyJoZWFkIjp7Im5hbWUiOiJlcGkifX19XSxbNCwzLCIiLDIseyJzdHlsZSI6eyJoZWFkIjp7Im5hbWUiOiJlcGkifX19XSxbMywwLCIiLDEseyJzdHlsZSI6eyJoZWFkIjp7Im5hbWUiOiJlcGkifX19XSxbMywyXSxbMywxLCIiLDEseyJzdHlsZSI6eyJuYW1lIjoiY29ybmVyLWludmVyc2UifX1dLFs2LDgsIiIsMix7InNob3J0ZW4iOnsic291cmNlIjoyMCwidGFyZ2V0IjoyMH19XV0=
+\[\begin{tikzcd}
+	{\sum_{x : A} B x} \\
+	{\sum_{x :A} (Bx) ^P} & A \\
+	{(\sum_{x :A} Bx)^P} & {A^P}
+	\arrow[two heads, from=1-1, to=2-1]
+	\arrow[from=2-1, to=2-2]
+	\arrow[""{name=0, anchor=center, inner sep=0}, two heads, from=2-1, to=3-1]
+	\arrow["\ulcorner"{anchor=center, pos=0.125}, draw=none, from=2-1, to=3-2]
+	\arrow[""{name=1, anchor=center, inner sep=0}, two heads, from=2-2, to=3-2]
+	\arrow[from=3-1, to=3-2]
+	\arrow[shorten <=9pt, shorten >=9pt, Rightarrow, from=1, to=0]
+\end{tikzcd}\]
 \begin{lemma}{\label{lemma:FlatForStdEtAlg}}
 %	Let $\Spec A$ be formally smooth. 
-	Let $P$ be closed dense. If $B : P \to \mathsf{StdEtAlg}_R$, then $A = \prod_{\fp : P} B_\fp$ is a flat $R$-algebra.
+	Let $P$ be closed dense. Let $A$ be a $P$-unramified $R$-algebra. Then $A$ beeing quasi flat is $P$-smooth. % If , then $A = \prod_{\fp : P} B_\fp$ is a flat $R/I$-algebra.
 \end{lemma}
 \begin{proof}
-	 we call a type $X$ $P$-smooth, if $X \twoheadrightarrow X^P$. $P$-smooth types are stable under $\sum$ by the following diagram
-	% https://q.uiver.app/#q=WzAsNSxbMCwyLCIoXFxzdW1fe3ggOkF9IEJ4KV5QIl0sWzEsMiwiQV5QIl0sWzEsMSwiQSJdLFswLDEsIlxcc3VtX3t4IDpBfSAoQngpIF5QIl0sWzAsMCwiXFxzdW1fe3ggOiBBfSBCIHgiXSxbMCwxXSxbMiwxLCIiLDIseyJzdHlsZSI6eyJoZWFkIjp7Im5hbWUiOiJlcGkifX19XSxbNCwzLCIiLDIseyJzdHlsZSI6eyJoZWFkIjp7Im5hbWUiOiJlcGkifX19XSxbMywwLCIiLDEseyJzdHlsZSI6eyJoZWFkIjp7Im5hbWUiOiJlcGkifX19XSxbMywyXSxbMywxLCIiLDEseyJzdHlsZSI6eyJuYW1lIjoiY29ybmVyLWludmVyc2UifX1dLFs2LDgsIiIsMix7InNob3J0ZW4iOnsic291cmNlIjoyMCwidGFyZ2V0IjoyMH19XV0=
-	\[\begin{tikzcd}
-		{\sum_{x : A} B x} \\
-		{\sum_{x :A} (Bx) ^P} & A \\
-		{(\sum_{x :A} Bx)^P} & {A^P}
-		\arrow[two heads, from=1-1, to=2-1]
-		\arrow[from=2-1, to=2-2]
-		\arrow[""{name=0, anchor=center, inner sep=0}, two heads, from=2-1, to=3-1]
-		\arrow["\ulcorner"{anchor=center, pos=0.125}, draw=none, from=2-1, to=3-2]
-		\arrow[""{name=1, anchor=center, inner sep=0}, two heads, from=2-2, to=3-2]
-		\arrow[from=3-1, to=3-2]
-		\arrow[shorten <=9pt, shorten >=9pt, Rightarrow, from=1, to=0]
-	\end{tikzcd}\]
-	Now to the proof:
-	$A$ is flat iff any syzygy is explained in $A$, i.e. if for any $L \in R^{1 \times n} , X \in A^{n \times 1}$ such that $L X = 0$, there merely is a term in
+	$A$ is flat iff any strong syzygy is explained in $A$, i.e. if for any $L \in R^{1 \times n} , X \in A^{n \times 1}$ such that $L \neq 0$ and $L X = 0$, there merely is a term in
 	\[
 	\sum_{Y \in A^{m\times 1}} \{ G \in R^{n \times m} \ | \ (L G = 0) \} \times (G Y = X).\]	
 	%Assume this type is $P$-merely inhabited. %
 	Its enough to see, that this type is $P$-smooth.
 	\begin{itemize}
 		\item 	The type $A^m$ is even formally smooth, as $A$ merely admits a surjection out of a polynomial ring \ref{lemma:PolyRingSmooth}. \\
-		\item The $R$-module $\{ G \in R^{n \times m} \ | \ (L G = 0) \} \simeq (L^\bot)^{\oplus m}$ is finite free thus also formally smooth. Here $L^\bot \subset R^{n \times 1}$ denotes the orthogonal complement of $L$. TODO
-		\item $G Y =_{A^{n \times 1}} X$ is $P$-smooth: $A^{n \times 1}$ is $P$-unramified, as $A \equiv  \prod_{\fp : P} B_\fp$ is $P$-unramified: Indeed given $x , y :  \prod_{\fp : P} B_\fp$ , 
-		\[(x = y)^P = \left(\prod_{\fp : P} x \fp = y \fp \right)^P = \prod_{\fp : P} x \fp = y \fp = (x = y)\]
+		\item The $R$-module $\{ G \in R^{n \times m} \ | \ (L G = 0) \} \simeq (L^\bot)^{\oplus m}$ is finite free, as $L \neq 0$, thus formally smooth. Here we denote the hyperplane  $L^\bot = \{X :  R^{n \times 1} \ | \ L X = 0 \}$.
+		\item $G Y =_{A^{n \times 1}} X$ is $P$-smooth: $A^{n \times 1}$ is $P$-unramified, as $A$ is $P$-unramified .
 	\end{itemize}
-%	Thus we merely can extract $Y , G$ such that $L G = 0$. It remains to show $G Y = X$
-	
-
-	
+%	Thus we merely can extract $Y , G$ such that $L G = 0$. It remains to show $G Y = X$	
 \end{proof}
-\begin{lemma}{\label{lemma:StdEtSm}}
+\begin{example}
+	Let $B : P \to \mathsf{QuasiFlatAlg}_R$. Then $A	\equiv  \prod_{\fp : P} B_\fp$ is quasi-flat as an $R$-algebra. As it is $P$-merely quasiflat, we only have to check $P$-unramifiedness. given $x , y :  \prod_{\fp : P} B_\fp$ , 
+	\[(x = y)^P = \left(\prod_{\fp : P} x \fp = y \fp \right)^P = \prod_{\fp : P} x \fp = y \fp = (x = y)\]
+\end{example}
+\begin{lemma}[TODO FLATNESS]{\label{lemma:StdEtSm}}
 	%Let $B : Alg_R$ be smooth. 
-	Then $\mathsf{StdEt}_R$ is a formally \etale subuniverse. %Let $A$ be a finitely presented $R$-algebra. Then '$A$ beeing standart \etale $R$-algebra' is formally smooth. \\
+	Then $\mathsf{StdEt}_R$ is a formally \etale subuniverse. 
+	 %Let $A$ be a finitely presented $R$-algebra. Then '$A$ beeing standart \etale $R$-algebra' is formally smooth. \\
 	%	A Zariski cover of standart \etale is standart \etale.
 \end{lemma}
 \begin{proof}
@@ -354,7 +353,14 @@ If $A$ is an fp $R$-algebra, $\Alg_A$ denotes fp $A$- algebras.
 		I claim, that
 		\[\hat T \equiv \left(R[X_1,\hdots,X_n]  / (\tilde P_1,\hdots,\tilde P_n) \right)_{\tilde G} \]
 		is a standart \etale $R$-algebra such that $\hat T \otimes_R R/ I = T$. \\
-		For this we only need to see flatness. For this define $\mathsf{StdEtAlg'}_R$ just as $\mathsf{StdEtAlg}_R$ but without the flatness condition. The proof that was given shows that $\mathsf{StdEtAlg'}_R$ is a formally \etale subuniverse. Thus by \ref{cor:SubUnivDepProdStable}, The unique filler $\hat T$ is given by $\prod_p T_p$ which is flat by \ref{lemma:FlatForStdEtAlg}.
+		For this we only need to see flatness. For this define $\mathsf{StdEt'}_R$ just as $\mathsf{StdEt}_R$ but without the flatness condition. The proof that was given shows that $\mathsf{StdEt'}_R$ is a formally \etale subuniverse. Thus by \ref{cor:SubUnivDepProdStable}, The unique filler $\Spec \hat T$ is given by $\prod_p \Spec T_p$, which is not $\sum_p \Spec T_p = \Spec \prod_p T_p$ (you can set $\Spec T_p = 1$).
+%		\[\prod_p \Spec T_p = \prod_p \Hom_R(T_p , R) -WRONG- \Hom_R(\prod_p T_p , R) = \Spec (\prod_p T_p)\] 
+		%using that whenever $p : P$, we have $T_p =_{\Alg_R} (\prod_q T_q).$
+		% \prod_p \Hom_R(T_p , R / I) = \prod_p \Hom_R(T_p , R) = 
+		
+		
+		
+		 which is flat by \ref{lemma:FlatForStdEtAlg} TODO
 		%	It remains to construct a $R$-algebra homomorphism
 		%	% https://q.uiver.app/#q=WzAsNCxbMCwwLCJCIl0sWzEsMCwiXFx0aWxkZSBUIl0sWzAsMSwiQiciXSxbMSwxLCJUIl0sWzIsM10sWzEsMywiIiwyLHsic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoiZXBpIn19fV0sWzAsMl0sWzAsMSwiIiwyLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV1d
 		%	\[\begin{tikzcd}
@@ -459,7 +465,7 @@ If $A$ is an fp $R$-algebra, $\Alg_A$ denotes fp $A$- algebras.
 			\item For the induction step $n \mapsto n+1$:
 			%For any formally \etale subuniverse $\bF$, the type of $\bF$-DM-sheaves is a formally \etale subuniverse.
 			\begin{itemize}
-				\item 	First we show that the type of $n+1$-\etale-flat algebraic spaces is formally \etale. Denote $\bF$ the covering $n$-\etale-flat algebraic spaces, which are a formally \etale subuniverse by the induction hypothesis and \ref{lemma:CSSubUniv}. Then the type of $n+1$-\etale-flat algebraic spaces admits a surjection out of 
+				\item 	First we show that the type of $n+1$-\etale-flat algebraic spaces is formally smooth. Denote $\bF$ the covering $n$-\etale-flat algebraic spaces, which are a formally \etale subuniverse by the induction hypothesis and \ref{lemma:CSSubUniv}. Then the type of $n+1$-\etale-flat algebraic spaces admits a surjection out of 
 				\[\sum_{X: \mathsf{StdEt}} (R : \mathrm{EqRel}(X  , \mathsf{EtProp})) \times (\prod_{x : X} R_x \in \bF) \]
 				So it suffices to see, that this is formally \etale, which is a modality, thus its enough to see
 					\begin{enumerate}
@@ -473,7 +479,7 @@ If $A$ is an fp $R$-algebra, $\Alg_A$ denotes fp $A$- algebras.
 		\item $n \mapsto n+1$. By definition we need to show:
 		\begin{itemize}
 			\item Any \etale-flat geometric $n+1$-stack is formally \etale by \ref{lemma:FetFromFCover} using that \etale-flat geometric $n$-stacks are a formally \etale subuniverse by the induction hypothesis.
-			\item To show $\EF_{n+1}$ beeing formally \etale, we may show \todocite that the domain of the surjection
+			\item To show $\EF_{n+1}$ beeing formally smooth, we may show \todocite that the domain of the surjection
 			% https://q.uiver.app/#q=WzAsMyxbMCwwLCJcXHN1bV97WCA6IFxcU3QgXFxjYXAgRkVUfShYIFxcb3ZlcnNldHtGfXtcXHRvfSBcXENTX3tufSkgXFx0aW1lcyAoXFxzdW1fe1h9IEYgXFxpbiBcXEVGX24pIl0sWzEsMCwiXFxzdW1fe1ggOiBcXFN0IFxcY2FwIEZFVH0gWCBcXGluIFxcRUZfe24rMX0iXSxbMiwwLCJcXEVGX3tuKzF9Il0sWzAsMSwiIiwwLHsic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoiZXBpIn19fV0sWzEsMiwiIiwwLHsibGV2ZWwiOjIsInN0eWxlIjp7ImhlYWQiOnsibmFtZSI6Im5vbmUifX19XV0=
 			\[\begin{tikzcd}
 				{\sum_{X : \St \cap FET}(X \overset{F}{\to} \CS_{n}) \times (\sum_{X} F \in \EF_n)} & {\sum_{X : \St \cap FET} X \in \EF_{n+1}} & {\EF_{n+1}}

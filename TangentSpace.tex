@@ -278,3 +278,13 @@ Now one can apply Tangentspaces to get a pullback again
 \begin{rmk}
 	Given a pointed geometric stack $(X,x)$, we can look at $Y = T_x X$ and the map $Y \to \|Y\|_0$, the fibers are deloopings of $\Omega Y$. Now there exists a $\Omega Y$-equivariant isomorphism $Y \cong \|Y\|_0 \times B \Omega Y$ over $\|Y\|_0$ iff the map $Y \to \|Y\|_0^\bT$ has a section.
 \end{rmk}
+Tangent spaces of Deligne Mumford stacks are somewhat uninteresting.
+\begin{lemma}
+	The tangent spaces of Deligne Mumford stacks are 0-types. Maybe finitely copresented?
+\end{lemma}
+\begin{proof}
+	Let $X$ be a Deligne Mumford Stack. Choose a geometric atlas $f : \Spec A \to X$. Let $x : X$. As the tangent space $T_x X$ is a stack, it beeing a set is a sheaf, so by $\bT$-surjectivity of $f$ we may assume that $x = f(y)$ for some $y : \Spec A$. But then $D_f y : T_y (\Spec A) \to T_x X$ is a bijection, as $f$ is formally \etale \todocite. The next question answers what happens for finitely copresented.
+\end{proof}
+\begin{question}
+	Is for a sheaf $R$-module to be finitely copresented a sheaf?
+\end{question}

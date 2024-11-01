@@ -120,33 +120,9 @@ This follows from the observation, that the equivalence relation determined by $
 %	The first map 
 %\end{proof}
 \subsection{Examples}
-
+The goal of this subsection is to construct algebraic spaces. The first example actually gives us a scheme:
 \begin{example}
-	The sheaf-quotient of $\bA^1$ by the relation which identifies $x$ and $-x$ when $2x \neq 0$ is an algebraic space, that is not an affine scheme if $char \neq 2$.
-\end{example}
-\begin{proof}
-	Lets call this quotient $X$. Define
-	\[
-	E(x,y) = (x = y) + (2x \neq 0 \land x = -y)
-	\]
-	This is a proposition, as $x = y$ and $x = -y$ implies $2x = x + y = 0$. 
-	The relation is covering: 
-	The propositions are affines, hences sheaves
-	\[
-	\sum_{x : X} (x = y) + (2x \neq 0 \and x = -y) \simeq 1 + (2y \neq 0) \in \Zar \subset \bT
-	\]
-	If it were affine, then 
-	\[X^R = (\bA^1 // E \to R) \]
-\end{proof}
-
-
-\begin{question}
-	Is every algebraic space for the zariski topology a scheme?
-\end{question}
-
-
-\begin{rmk}
-	The following example does not work: Let $p \neq 0$ be a prime. You can let $\mu_p := \Spec(R[X] / (X^p - 1))$ act on $\bA^\times$ via multiplication. Set $\bT= fppf$. Then the $p$.th power map
+	Let $p \neq 0$ be a prime. You can let $\mu_p := \Spec(R[X] / (X^p - 1))$ act on $\bA^\times$ via multiplication. Set $\bT= fppf$. Then the $p$.th power map
 	
 	\[
 	pow : \| \bA^\times // \mu_p \|_0^\bT \to \bA^\times
@@ -169,9 +145,157 @@ This follows from the observation, that the equivalence relation determined by $
 	\end{itemize}
 	
 	
-\end{rmk}
+\end{example}
+
+
+\begin{lemma}{\label{lemma:AlmostEverywhere}}
+	Let $p : R[X]$ be reguar. If $f : R[X]$ such that $f(x) = 0$ for all $x \in D(p)$, then $f = 0$ in $R[X]$.
+\end{lemma}
+\begin{proof}
+	$f$ is in the kernel of the diagonal map
+% https://q.uiver.app/#q=WzAsNCxbMSwwLCJSXlIiXSxbMSwxLCJSXntSIFxcc2V0bWludXMgXFx7MFxcfX0iXSxbMCwwLCJSW1hdIl0sWzAsMSwiUltYXntcXHBtIDF9XSJdLFswLDFdLFsyLDMsIiIsMCx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Imhvb2siLCJzaWRlIjoidG9wIn19fV0sWzAsMiwiIiwxLHsibGV2ZWwiOjIsInN0eWxlIjp7ImhlYWQiOnsibmFtZSI6Im5vbmUifX19XSxbMSwzLCIiLDEseyJsZXZlbCI6Miwic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoibm9uZSJ9fX1dXQ==
+\[\begin{tikzcd}
+	{R[X]} & {R^R} \\
+	{R[X]_p} & {R^{D(p)}}
+	\arrow[hook, from=1-1, to=2-1]
+	\arrow[Rightarrow, no head, from=1-2, to=1-1]
+	\arrow[from=1-2, to=2-2]
+	\arrow[Rightarrow, no head, from=2-2, to=2-1]
+\end{tikzcd}\]
+	which is injective, as $p$ is regular. \\
+	Thus $f = 0$ in $R[X]$.
+%	 Thus $f = 0 $ in $(R \setminus \{0\} \to R) = R[X^{\pm 1}]$ hence $f \cdot X^n = 0$ in $R[X]$ for some $n$, thus $f = 0$.
+\end{proof}
+Let $\ell \neq 0$ denote a prime. Consider $\mu_\ell = R[X] / (X^\ell - 1)$.
+%\[\mu_\ell'  = \Spec R[X] / (X^{p-1} + \hdots + 1) = \mu_\ell \setminus\{1\}\]
+ $\mu_\ell$ acts on $R[X]$, via $(g.p)(x) = p(g x)$. 
+\begin{lemma}
+	Let $p(0) \neq 0$. We say some $\phi: R[X]_p$ is $\ell$-even if one of the following equivalent conditions is satisfied:
+	\begin{enumerate}
+
+	\item The function $\phi : D(p) \to R$ is a $\ell$-even function, i.e. $\phi(x) = \phi(g x)$ for all $ x : D(p)$ and each $g : \mu_\ell$.
+	\item The function $\phi|_{D(p) \setminus 0} : D(p) \setminus \{0\} \to R$ is an $\ell$-even function
+	\item[1']  There exists $f : R[X], n : \bN$ such that $\phi= f/ p^n$ and $f (g.p)^n (x) = (g.f) p^n (x)$ for each $x : R , g : \mu_\ell$.
+	\item[2'] The same as 3. but only for $x : D(p) \setminus\{0\}$
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+	For any $x : D(p), g : \mu_\ell$ we have 
+	\[
+	f/p^n (x) = f/p^n(g x)  \leftrightarrow f(x) (g.p)^n (x) = f(gx) p^n x \tag{$\star$}
+	\]
+	\begin{enumerate}
+		\item [1' $\Rightarrow$ 1 , 2' $\Leftrightarrow$ 2] Just ($\star$)
+		\item [1 $\Rightarrow$ 2] Clear
+		\item [1' $\Leftrightarrow$ 2'] We show that for any$ f , n$ $f(x) (g.p)^n (x) = f(gx) p^n x $ holds already everywhere on $R$ if it holds in $D(p) \setminus 0 = D(pX)$. %(we only need on $D(p)$, but we may even show on all of $R$) 
+		We may apply \ref{lemma:AlmostEverywhere}, so we have to check that $p X$  is regular. But $X$ is regular and $p(0)$ is regular, thus By lemma 1.3.6 Foundations \todocite $p$ is regular in $R[X]$. hence $p X$ is regular. % But $D(p)$ is inhabited, this corresponds to some $r : R$ such that $p(r) \neq 0$, i.e. regular. 
+	\end{enumerate}
+\end{proof}
+\begin{lemma}
+	Let $p : R[X]$ be such that $0 \in D(p)$ and $x \in D(p)$ implies $gx \in D(p)$ for all $g : \mu_\ell$.
+	The sheaf-quotient of $D(p)$ by the relation which identifies $x$ and $gx$ when $x \neq 0, g : \mu_\ell \setminus \{1\}$ is an algebraic space, that is not an affine scheme.
+\end{lemma}
+\begin{proof}
+	The conditions on $p$ give $p(0) \neq 0$ and $p(x) \neq 0 \to p(gx) \neq 0$ for all $g : \mu_\ell$.
+
+	\begin{itemize}
+		\item Construction of the algebraic space:
+	
+	Define
+	\[
+	E(x,y) = (x = y) + (x \neq 0 \land \sum_{g : \mu_\ell \setminus \{1\}} gx = y)
+	\]
+	This is a proposition: First note, that both summands are propositiosn because $\mu_\ell$ acts freely on $\bA^1 \setminus \{0\}$. If both summands are inhabited we get a contradiction, as $x = y$ and $gx = y$ implies $(g-1) x = y - x = 0$, but as $g-1$ is invertible $x = 0$. \\
+	The relation is covering: 
+	The propositions are affines, thus sheaves. Furthermore, for any $y : D(p)$ we have
+	\[
+	\sum_{x : D(p)}  (x = y) + (x \neq 0 \times \sum_{g : \mu_\ell \setminus \{1\}} gx = y) = 1 + (y \neq 0 \times \mu_\ell \setminus \{1\}) \in \bT
+	\]
+	as $\mu_\ell \setminus \{1\} = \sum_{g : \mu_\ell} g \neq 1$ is a $\sum$ of formally \etale + flat affines (recall that formally \etale affines have decidable equality).
+
+\item 	Lets call this quotient $X$.
+
+Define 
+\[
+A = \{\phi : R[X]_p \ | \ \phi \text{  is $\ell$-even }\}
+\]
+This is an $R$-subalgebra: for any $r : R$, $r : R[X]_p$ is $\ell$-even. $\ell$-even functions are stable under addition and multiplication . \\
+
+	Claim: The affinization map of $X$ is the induced dashed map $f : X \to \Spec A$ in
+	
+% https://q.uiver.app/#q=WzAsNCxbMCwwLCJEKHApIl0sWzEsMCwiXFxTcGVjIFJbWF1fcCJdLFswLDEsIlgiXSxbMSwxLCJcXFNwZWMgQSJdLFswLDIsInEiXSxbMiwzLCJcXGV4aXN0ISBmIiwwLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzEsM10sWzAsMSwiIiwyLHsibGV2ZWwiOjIsInN0eWxlIjp7ImhlYWQiOnsibmFtZSI6Im5vbmUifX19XV0=
+\[\begin{tikzcd}
+	{D(p)} & {\Spec R[X]_p} \\
+	X & {\Spec A}
+	\arrow[Rightarrow, no head, from=1-1, to=1-2]
+	\arrow["q", from=1-1, to=2-1]
+	\arrow[from=1-2, to=2-2]
+	\arrow["{\exists! f}", dashed, from=2-1, to=2-2]
+\end{tikzcd}\]
+	Proof: A function $\phi : D(p) \to R$ factors through $q$ iff $\phi$ is $\ell$-even as in (2). Thus, the embedding (using that $R$ is a sheaf) $R^X \hookrightarrow R^{D(p)} = R[X]_p$ has image $A$. $\qed$(Claim). 	\\ \\ %respective $\phi : R[X]_p$ satisfies $	\phi (x) = \phi(-x)  $, i.e. (1) if $\phi$ is $\ell$-even. 
+ Proof that $X$ is not an affine:	Assume that $X$ were affine. Then the map $f$ would be in particular an embedding. 
+	As we want to prove a contradiction we may assume a root $g : \Spec R[X] / (\sum_{i=0}^{\ell-1} X^i)$. Using that $\sum_{i=0}^{\ell-1} X^i | X^\ell -1 $ and $\ell \neq 0$, in particular we can view $g$ as a term in $\mu_\ell \setminus \{1\}$. Then for any $\varepsilon : \Spec R[X] / X^\ell \subset D(p)$ (using that invertibility is $\lnot \lnot$ stable) we have
+	\begin{align*}
+	(q\varepsilon =_X q (g \varepsilon)) \overset{\ref{quotient-by-equivalence-relation}}{=} (\varepsilon = g\varepsilon) + (\varepsilon \neq 0 \land \sum_{h \neq 1} \varepsilon = h g \varepsilon) = ((g-1)\varepsilon = 0) = (\varepsilon = 0)
+	\end{align*}
+	But it always holds $\varepsilon =_{\Spec A} g \varepsilon$, as for any $\phi : A$ we have $\phi(\varepsilon) = \phi(g \varepsilon)$ as $\phi$ satisfies the condition (1). \\
+	So we conclude the the embedding $\{0\} \hookrightarrow \Spec R[X] / X^\ell$ is an equivalence. Contradiction to algebra as $R[X] / X^\ell \to R[X] / X$ is not an equivalence.
+\end{itemize}
+\end{proof}
+\begin{lemma}
+	Open subtypes of $\bA^1$ are $\lnot \lnot$ principal open. %If the open is inhabited, $\lnot \lnot$ merely we can $\ell$-even write it as $D(p)$ with $p : R[X]$ regular .
+\end{lemma}
+\begin{proof}
+	\begin{itemize}
+		\item An open affine subscheme of $\bA^1$ is $\lnot \lnot$ principal open: Let $D(f_1,\hdots,f_n) \subset \bA^1$ be an arbitrary open subset. We may assume that each $f_i : R[X]$ is non constant (in particular non zero). By \todocite, $\lnot \lnot$-merely each $D(f_i) \subset R$ is cofinite. Thus $\lnot \lnot$-merely, the finite union $\bigcup_{i=1}^n D(f_i) \subset R$ is cofinite as well, hence principal open. % we find roots $a_{ij}$ of the $f_i$. $\bigcup_i D(f_i) = \bigcup_i R \setminus \{a_{ij}\}_j = R \setminus \bigcap_{i} \{a_{ij}\}$ for some finite subset. This is $\lnot \lnot$ a principal open. %By $\lnot \lnot $ stability 
+	\end{itemize}
+\end{proof}
+\begin{prop}
+	Let $\ell \neq 0$ be prime. The sheaf quotient of $\bA^1$ by the relation that identifies each  $x \neq 0$ with $g x$ if $g^p = 1, g \neq 1$ is an algebraic space that is not a scheme.
+\end{prop}
+\begin{proof}
+	It is an algebraic space by putting $p \equiv 1 : R[X]$ above. \\
+	Assume $0$ has an open affine neighborhood $U$. The preimage along the quotient map obtained from the relation induces a open neigbhorhood of $0$ in´ $\bA^1$. As we want to prove a contradiction, we may assume it is a principal open $D(p) \ni 0$. As it saturated wrt to the equivalence relation we have $x \in D(p) \to g x \in D(p)$ for all $x \neq 0, g \in \mu_\ell \setminus \{1\}$. We are in the following situation:
+	% https://q.uiver.app/#q=WzAsNCxbMCwwLCJEKHApIl0sWzEsMCwiXFxiQcK5Il0sWzEsMSwiWCJdLFswLDEsIlUiXSxbMCwxLCIiLDAseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJob29rIiwic2lkZSI6InRvcCJ9fX1dLFswLDNdLFszLDIsIiIsMix7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Imhvb2siLCJzaWRlIjoidG9wIn19fV0sWzEsMl0sWzAsMiwiIiwxLHsic3R5bGUiOnsibmFtZSI6ImNvcm5lci1pbnZlcnNlIn19XV0=
+	\[\begin{tikzcd}
+		{D(p)} & {\bA^1} \\
+		U & X
+		\arrow[hook, from=1-1, to=1-2]
+		\arrow[from=1-1, to=2-1]
+		\arrow["\ulcorner"{anchor=center, pos=0.125}, draw=none, from=1-1, to=2-2]
+		\arrow[from=1-2, to=2-2]
+		\arrow[hook, from=2-1, to=2-2]
+	\end{tikzcd}\]
+	Then we have $D(p) / \sim' \simeq U$ with restricted equivalence relation. Applying the previous lemma to $D(p)$, we see $U$ cannot be affine. Contradiction.
+\end{proof}
+\begin{example}
+	The scheme 
+	\[
+	\sum_{x , y : R} x y = 0
+	\]
+	sheaf-quotiented by the relation that identifies $(x,0)$ and $(0,x)$ if $x \neq 0$ is an algebraic space.
+\end{example}
+\begin{proof}
+	The equivalence relation is given by
+	\[
+	E((x,y) , (x',y')) = (x = x' \land y = y') + (x \neq 0 \land x = y' \land x' = 0)
+	\]
+	as $x \neq 0$ implies $y = 0$ as $x y =0$. This is a covering relation, as for any $x' y' = 0$ we have
+	\[
+	\sum_{x,y : R} x y = 0 \land E((x,y) , (x' , y')) = 1 + (y' \neq 0) \in \bT \subset \Zar
+	\]		
+\end{proof}
+
+
+
 \section{Group quotients}
 For this section let $G$ denote a group that is a covering 0-stack. Let $X$ be a sheaf equipped with a $G$ action.
+\begin{lemma}
+	 $\mu_p = \Spec R[X] / (X^p - 1)$ is covering for $p \neq 0$ prime.
+\end{lemma}
+\begin{proof}
+	It is fppf + \etale as $X^p - 1$ is monic seperable. TODO
+\end{proof}
 \begin{definition}
 	A $G$ action on $X$ is free, if for all $x , y : X$ the type 
 	\[

@@ -97,10 +97,11 @@ Note that $\bot = (left =_{1+1} right) \in \bP$ is automatic as $\bP$ is lex.
 \begin{proof}
 	If $X$ is a covering stack then $\Omega X$ is a $\bT$-flat geometric stack \ref{lemma:PImpliesPsep} and $\bT$-merely inhabited. Conclude by  \ref{lemma:detectCovering}.
 \end{proof}
-\begin{lemma}
+\begin{lemma}{\label{lemma:TflatIs0-gerbe}}
 	Assume that $\bT$ is lex-flattened. Then any $\bT$-flat geometric stack is a 0-gerbe.
 \end{lemma}
 \begin{proof}
+	I give a second proof of this at \ref{prop:GerbeIffLooping} without using the language of lex-flattened.
 	By descent, we may only show that the fiber $\sum_{y: X} \|x = y\|_{-1}^\bT$ of $\eta_0^\bT$ over $|x|$ is a covering stack. Note that $x = y$ has $\bP$ by id-stability of $\bP$ \ref{lemma:PImpliesPsep}. The $\bT$-truncation of a $\bP$-geometric stack is a $\bP$ geometric stack \ref{lemma:TruncOfP}. by $\sum$-stability of $\bP$ the fiber is $\bP$, but its $\bT$-merely inhabited. by \ref{lemma:detectCovering} its covering.
 \end{proof}
 \begin{corollary}
