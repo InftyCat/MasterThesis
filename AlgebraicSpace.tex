@@ -232,7 +232,7 @@ Let $\ell \neq 0$ denote a prime. Consider $\mu_\ell = R[X] / (X^\ell - 1)$.
 	\[
 	R(x,y) = (x = y) + (x \neq 0) \times \sum_{g : G \setminus \{1\}} g x = y
 	\]
-	Assume the sheaf quotient $D(p) / G$ is not affine for any $p : A^G$. Then $(\Spec A) / G$ is an algebraic space that is not a scheme.
+	Assume the sheaf quotient $D(p) / G$ is not affine for any $p : A^G$. Then $(\Spec A) / G$ is an algebraic space that is not an affine scheme.
 \end{prop}
 \begin{proof}
 	It is an algebraic space by putting $p \equiv 1 : R[X]$ in the previous prop. \\
@@ -251,20 +251,28 @@ Let $\ell \neq 0$ denote a prime. Consider $\mu_\ell = R[X] / (X^\ell - 1)$.
 	where $U$ is an open affine neighborhood of 0. \\
 	Then we have $D(p) / \sim' \simeq U$ with restricted equivalence relation. By assumption we see $U$ cannot be affine. Contradiction.\\		
 \end{proof}
-\begin{corollary}
-	Let $\ell \neq 0$ be prime. The sheaf quotient of $\bA^1$ by the relation that identifies each  $x \neq 0$ with $g x$ if $g^p = 1, g \neq 1$ is an algebraic space that is not a scheme.
-\end{corollary}
+\begin{prop}
+	Let $\ell \neq 0$ be prime. Let $\mu_\ell$ act on $\Spec B$ 
+	\begin{enumerate}
+		\item[infinitesimal neigborhood]
+		Assume 0 admits a non-contractible neighborhood  $V \subset \Spec B$ that is infinitesimal, i.e.  $\lnot \lnot x =0$ for every $x : V$.  \\
+		\item[Strong freeness] $\mu_\ell$ acts free away from zero. And even stronger: We find some $V' \subsetneq V$ for any $\varepsilon : \Spec B, g\neq 1$, $g \varepsilon = \varepsilon$ implies $\varepsilon \in V'$
+
+	\item[checking away from 0] Assume that for any $p : B$ and any $\phi: D(p)$ such that $\phi|_{D(p) \setminus\{0\}} = 0$, we have that $\phi|_V = 0$.
+		\end{enumerate} 
+	The sheaf quotient of $\Spec B$ by the relation as above is an algebraic space but not a scheme.
+\end{prop}
 \begin{proof}
-	Let $p$ be as above.
+	Let $p : B$ be as above. We have to show that the quotient of $D(p)$ is not affine. \\
 	The conditions on $p$ give $p(0) \neq 0$ and $p(x) \neq 0 \to p(gx) \neq 0$ for all $g : \mu_\ell$.
 	
 	Lets call this quotient $X$.
 	
 	Define 
 	\[
-	A = \{\phi : R^{D(p)} \ | \ \phi \text{  is $\mu_{\ell}$-invariant }\}
+	A = \{\phi : R^{D(p)} \ | \ \phi|_{D(p) \setminus \{0\}} \text{  is $\mu_{\ell}$-invariant }\}
 	\]
-	This is an $R$-subalgebra: for any $r : R$, $r : R[X]_p$ is $\mu_{\ell}$-invariant. $\mu_{\ell}$-invariant functions are stable under addition and multiplication . \\
+	This is an $R$-subalgebra: for any $r : R$, $r : B_p$ is $\mu_{\ell}$-invariant. $\mu_{\ell}$-invariant functions are stable under addition and multiplication . \\
 	
 	Claim: The affinization map of $X$ is the induced dashed map $f : X \to \Spec A$ in
 	
@@ -277,36 +285,55 @@ Let $\ell \neq 0$ denote a prime. Consider $\mu_\ell = R[X] / (X^\ell - 1)$.
 		\arrow["q'",from=1-2, to=2-2]
 		\arrow["{\exists! f}", dashed, from=2-1, to=2-2]
 	\end{tikzcd}\]
-	Proof: A function $\phi : D(p) \to R$ factors through $q$ iff $\phi|_{D(p) \setminus\{0\}}$ is $\mu_{\ell}$-invariant away from 0. We have to show, that then $\phi$ is $\mu_{\ell}$ invariant, because then the embedding (using that $R$ is a sheaf) $R^X \hookrightarrow R^{D(p)}$ has image $A$. We can apply  \ref{lemma:AlmostEverywhere}, observing $\phi - g.\phi = 0$ on $D(X / 1) \subset \Spec R[X]_p$, where $X/1 : R[X]_p$ is regular, because $X$ is regular in $R[X]$. $\qed$(Claim). 	\\ \\ %respective $\phi : R[X]_p$ satisfies $	\phi (x) = \phi(-x)  $, i.e. (1) if $\phi$ is $\mu_{\ell}$-invariant. 
+	Proof: A function $\phi : D(p) \to R$ factors through $q$ iff $\phi|_{D(p) \setminus\{0\}}$ is $\mu_{\ell}$-invariant. Thus the embedding (using that $R$ is a sheaf) $R^X \hookrightarrow R^{D(p)}$ has image $A$ $\qed$(Claim). 	\\ \\ %respective $\phi : R[X]_p$ satisfies $	\phi (x) = \phi(-x)  $, i.e. (1) if $\phi$ is $\mu_{\ell}$-invariant. 
 	Proof that $X$ is not an affine:	Assume that $X$ were affine. Then the map $f$ would be in particular an embedding. 
 	We may assume a term $g : \mu_\ell \setminus \{1\}$: Indeed, as we want to prove a contradiction we may assume a term in $g : \Spec R[X] / (\sum_{i=0}^{\ell-1} X^i)$. But this type is equivalent to $\mu_\ell \setminus \{1\}$, using that $\sum_{i=0}^{\ell-1} X^i | X^\ell -1 $ and $\ell \neq 0$. \\
-	Let $V \subset \bA^1$ be a non-contractible neighborhood of 0 that is infinitesimal, i.e.  $\lnot \lnot x =0$ for every $x : V$. (e.g $\Spec R[X] / X^n$ for some $n >1$ is non contractible, because $R[X] / X^n \to R[X] / X$ is not an algebra isomorphism). %$\cN_{\lnot \lnot}(0) = \{x : \bA^1 \ | \ \lnot \lnot x = 0\}$ be be a non-contractible subtype that is $\lnot \lnot$-connected. 
-	Then for any $\varepsilon : V \subset D(p)$ (using that invertibility is $\lnot \lnot$ stable) we have
+	 %$\cN_{\lnot \lnot}(0) = \{x : \bA^1 \ | \ \lnot \lnot x = 0\}$ be be a non-contractible subtype that is $\lnot \lnot$-connected. 
+	Now choose $V$ an infinitesimal neigbhorhood. It holds $ V \subset D(p)$ , using that invertibility is $\lnot \lnot$ stable.
+	Then for any $\varepsilon : V$ we have
 	\begin{align*}
-		(q\varepsilon =_X q (g \varepsilon)) \overset{\ref{quotient-by-equivalence-relation}}{=} (\varepsilon = g\varepsilon) + (\varepsilon \neq 0 \land \sum_{h \neq 1} \varepsilon = h g \varepsilon) = ((g-1)\varepsilon = 0) = (\varepsilon = 0)
+		(q\varepsilon =_X q (g \varepsilon)) \overset{\ref{quotient-by-equivalence-relation}}{=} (\varepsilon = g\varepsilon) + (\varepsilon \neq 0 \land \sum_{h \neq 1} \varepsilon = h g \varepsilon) =(\varepsilon \in V)
 	\end{align*}
+	where in the last step we used strong freeness.
 	But we have 
-	\[(q' \varepsilon =_{\Spec A} q' (g \varepsilon)) = \prod_{\phi : A} \phi(q' \varepsilon) = \phi(q' (g \varepsilon)) = \prod_{\substack{\phi : R^{D(p)} \\ \phi \in A}} \phi (\varepsilon) = \phi(g \varepsilon) ,\] 
+	\[(q' \varepsilon =_{\Spec A} q' (g \varepsilon)) = \prod_{\phi : A} \phi(q' \varepsilon) = \phi(q' (g \varepsilon)) = \prod_{\substack{\phi : R^{D(p)} \\ \phi \in A}} \phi (\varepsilon) = \phi(g \varepsilon),\] 
 	%as for any $\phi : A$ we have $\phi(\varepsilon) = \phi(g \varepsilon)$ 
-	and the right hand side is inhabited as each $\phi$ satisfies the condition (1). \\
-	So we conclude the the embedding $\{0\} \hookrightarrow V$ is an equivalence.  But we asked $V$ to be non contractible.
+	The right hand side is inhabited by 'checking away from 0'. 	So we conclude the the embedding $\{0\} \hookrightarrow V$ is an equivalence.  But we asked $V$ to be non contractible.% I claim that the right hand side is inhabited:
+
 \end{proof}
 \begin{example}
-	The scheme 
-	\[
-	\sum_{x , y : R} x y = 0
-	\]
-	sheaf-quotiented by the relation that identifies $(x,0)$ and $(0,x)$ if $x \neq 0$ is an algebraic space.
+	Let $\mu_\ell$ act on $\Spec B = \bA^1$.
 \end{example}
 \begin{proof}
-	The equivalence relation is given by
+	\begin{enumerate}
+		\item e.g $\Spec R[X] / X^n$ for some $n >1$ is non contractible, because $R[X] / X^n \to R[X] / X$ is not an algebra isomorphism)
+		\item As $(g-1)$ is invertible, $ ((g-1)\varepsilon = 0) $  gives us $\varepsilon \in 0 \equiv \{V'\}$.
+		\item 	We have to show, that then $\phi$ is $\mu_{\ell}$ invariant. We can apply  \ref{lemma:AlmostEverywhere}, observing $\phi - g.\phi = 0$ on $D(X / 1) \subset \Spec B_p$, where $X/1 : B_p$ is regular, because $X$ is regular in $B$. TODO as each $\phi$ satisfies the cond. \qed(Claim)\\
+	
+	\end{enumerate}
+\end{proof}
+\begin{example}
+	Assume $2 \neq 0$. Let $\mu_2$ act on
 	\[
-	E((x,y) , (x',y')) = (x = x' \land y = y') + (x \neq 0 \land x = y' \land x' = 0)
+	\Spec B \equiv \sum_{x , y : R} x y = 0
 	\]
-	as $x \neq 0$ implies $y = 0$ as $x y =0$. This is a covering relation, as for any $x' y' = 0$ we have
-	\[
-	\sum_{x,y : R} x y = 0 \land E((x,y) , (x' , y')) = 1 + (y' \neq 0) \in \Zar \subset \bT
-	\]		
+	via the swap.
+%	sheaf-quotiented by the relation that identifies $(x,0)$ and $(0,x)$ if $x \neq 0$ is an algebraic space.
+\end{example}
+\begin{proof}
+	\begin{enumerate}
+		\item Put $V = \Spec R[X] / X^k \subset \Spec B$, $k > 2$.
+		\item If $(x,y) = (y,x)$ but $x y = 0$ we get $x \in V' \equiv \Spec R[X] / X^2$.
+		\item Let $\phi: D(p) \to R$ be 0 everywhere except near the origin. Then we get a restricted map $\phi' : D(p') \to R$ where $D(p') \subset V(X)$ is given by the intersection $D(p) \cap V(X) $. Here we can apply \ref{lemma:AlmostEverywhere}, getting that $\phi'$ is 0 everywhere in particular in $V \subset V(X)$.
+	\end{enumerate}
+%	The equivalence relation is given by
+%	\[
+%	E((x,y) , (x',y')) = (x = x' \land y = y') + (x \neq 0 \land x = y' \land x' = 0)
+%	\]
+%	as $x \neq 0$ implies $y = 0$ as $x y =0$. This is a covering relation, as for any $x' y' = 0$ we have
+%	\[
+%	\sum_{x,y : R} x y = 0 \land E((x,y) , (x' , y')) = 1 + (y' \neq 0) \in \Zar \subset \bT
+%	\]		
 \end{proof}
 
 
