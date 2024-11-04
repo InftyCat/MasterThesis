@@ -146,116 +146,98 @@ The goal of this subsection is to construct algebraic spaces. The first example 
 	
 	
 \end{example}
-
+\begin{example}[TODO]
+	The sheaf quotient of $\bA^1$ by the $\mu_\ell$ action is probably not an algebraic space.
+\end{example}
 
 \begin{lemma}{\label{lemma:AlmostEverywhere}}
-	Let $p : R[X]$ be reguar. If $f : R[X]$ such that $f(x) = 0$ for all $x \in D(p)$, then $f = 0$ in $R[X]$.
+	Let $p : A$ be reguar. If $f : \Spec A \to R$ such that $f(x) = 0$ for all $x \in D(p)$, then $f(x) = 0$ for all $x : \Spec A$.
 \end{lemma}
 \begin{proof}
 	$f$ is in the kernel of the diagonal map
 % https://q.uiver.app/#q=WzAsNCxbMSwwLCJSXlIiXSxbMSwxLCJSXntSIFxcc2V0bWludXMgXFx7MFxcfX0iXSxbMCwwLCJSW1hdIl0sWzAsMSwiUltYXntcXHBtIDF9XSJdLFswLDFdLFsyLDMsIiIsMCx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Imhvb2siLCJzaWRlIjoidG9wIn19fV0sWzAsMiwiIiwxLHsibGV2ZWwiOjIsInN0eWxlIjp7ImhlYWQiOnsibmFtZSI6Im5vbmUifX19XSxbMSwzLCIiLDEseyJsZXZlbCI6Miwic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoibm9uZSJ9fX1dXQ==
 \[\begin{tikzcd}
-	{R[X]} & {R^R} \\
-	{R[X]_p} & {R^{D(p)}}
+	{A} & {R^{\Spec A}} \\
+	{A_p} & {R^{D(p)}}
 	\arrow[hook, from=1-1, to=2-1]
 	\arrow[Rightarrow, no head, from=1-2, to=1-1]
 	\arrow[from=1-2, to=2-2]
 	\arrow[Rightarrow, no head, from=2-2, to=2-1]
 \end{tikzcd}\]
-	which is injective, as $p$ is regular. \\
-	Thus $f = 0$ in $R[X]$.
+	which is injective, as $p$ is regular in $A$. \\
+	Thus $f = 0$ in $A$.
 %	 Thus $f = 0 $ in $(R \setminus \{0\} \to R) = R[X^{\pm 1}]$ hence $f \cdot X^n = 0$ in $R[X]$ for some $n$, thus $f = 0$.
 \end{proof}
 Let $\ell \neq 0$ denote a prime. Consider $\mu_\ell = R[X] / (X^\ell - 1)$.
 %\[\mu_\ell'  = \Spec R[X] / (X^{p-1} + \hdots + 1) = \mu_\ell \setminus\{1\}\]
- $\mu_\ell$ acts on $R[X]$, via $(g.p)(x) = p(g x)$. 
-\begin{lemma}
-	Let $p(0) \neq 0$. We say some $\phi: R[X]_p$ is $\ell$-even if one of the following equivalent conditions is satisfied:
-	\begin{enumerate}
 
-	\item The function $\phi : D(p) \to R$ is a $\ell$-even function, i.e. $\phi(x) = \phi(g x)$ for all $ x : D(p)$ and each $g : \mu_\ell$.
-	\item The function $\phi|_{D(p) \setminus 0} : D(p) \setminus \{0\} \to R$ is an $\ell$-even function
-	\item[1']  There exists $f : R[X], n : \bN$ such that $\phi= f/ p^n$ and $f (g.p)^n (x) = (g.f) p^n (x)$ for each $x : R , g : \mu_\ell$.
-	\item[2'] The same as 3. but only for $x : D(p) \setminus\{0\}$
-\end{enumerate}
-\end{lemma}
-\begin{proof}
-	For any $x : D(p), g : \mu_\ell$ we have 
+%\begin{lemma}
+%	Let $0 \in D(p)$. For a function $\phi : D(p) \to R$ TFAE % We say some $\phi: R[X]_p$ is $\ell$-even if one of the following equivalent conditions is satisfied:
+%	\begin{enumerate}
+%
+%	\item The function $\phi : D(p) \to R$ is a $\mu_{\ell}$-invariant function, i.e. $\phi(x) = \phi(g x)$ for all $ x : D(p)$ and each $g : \mu_\ell$.
+%	\item The function $\phi|_{D(p) \setminus 0} : D(p) \setminus \{0\} \to R$ is an $\mu_{\ell}$-invariant function
+%%	\item[1']  There exists $f : R[X], n : \bN$ such that $\phi= f/ p^n$ and $f (g.p)^n (x) = (g.f) p^n (x)$ for each $x : R , g : \mu_\ell$.
+%%	\item[2'] The same as 3. but only for $x : D(p) \setminus\{0\}$
+%\end{enumerate}
+%\end{lemma}
+%\begin{proof}
+%	 we can apply  \ref{lemma:AlmostEverywhere}, observing $\phi - g.\phi = 0$ on $D(X / 1) \subset \Spec R[X]_p$, where $X/1 : R[X]_p$ is regular, because $X$ is regular in $R[X]$. %$: 
+%\end{proof}
+\begin{prop}
+	Let $G$ be a formally \etale flat affine group, such that $\lnot \lnot$ its finite with cardinality invertible in $R$. Let it act on an affine scheme $\Spec A$ with a fixpoint 0, such that the group action is free away from 0.
+	Let $p : A^G$. Define $R: D(p)^2 \to \Prop$ as
 	\[
-	f/p^n (x) = f/p^n(g x)  \leftrightarrow f(x) (g.p)^n (x) = f(gx) p^n x \tag{$\star$}
+	R(x,y) = (x = y) + (x \neq 0) \times \sum_{g : G \setminus \{1\}} g x = y
 	\]
-	\begin{enumerate}
-		\item [1' $\Rightarrow$ 1 , 2' $\Leftrightarrow$ 2] Just ($\star$)
-		\item [1 $\Rightarrow$ 2] Clear
-		\item [1' $\Leftrightarrow$ 2'] We show that for any$ f , n$ $f(x) (g.p)^n (x) = f(gx) p^n x $ holds already everywhere on $R$ if it holds in $D(p) \setminus 0 = D(pX)$. %(we only need on $D(p)$, but we may even show on all of $R$) 
-		We may apply \ref{lemma:AlmostEverywhere}, so we have to check that $p X$  is regular. But $X$ is regular and $p(0)$ is regular, thus By lemma 1.3.6 Foundations \todocite $p$ is regular in $R[X]$. hence $p X$ is regular. % But $D(p)$ is inhabited, this corresponds to some $r : R$ such that $p(r) \neq 0$, i.e. regular. 
-	\end{enumerate}
-\end{proof}
-\begin{lemma}
-	Let $p : R[X]$ be such that $0 \in D(p)$ and $x \in D(p)$ implies $gx \in D(p)$ for all $g : \mu_\ell$.
-	The sheaf-quotient of $D(p)$ by the relation which identifies $x$ and $gx$ when $x \neq 0, g : \mu_\ell \setminus \{1\}$ is an algebraic space, that is not an affine scheme.
-\end{lemma}
+	Then the sheaf quotient $D(p) / G$ is an algebraic space.
+\end{prop}
 \begin{proof}
-	The conditions on $p$ give $p(0) \neq 0$ and $p(x) \neq 0 \to p(gx) \neq 0$ for all $g : \mu_\ell$.
-
-	\begin{itemize}
-		\item Construction of the algebraic space:
-	
-	Define
-	\[
-	E(x,y) = (x = y) + (x \neq 0 \land \sum_{g : \mu_\ell \setminus \{1\}} gx = y)
-	\]
-	This is a proposition: First note, that both summands are propositiosn because $\mu_\ell$ acts freely on $\bA^1 \setminus \{0\}$. If both summands are inhabited we get a contradiction, as $x = y$ and $gx = y$ implies $(g-1) x = y - x = 0$, but as $g-1$ is invertible $x = 0$. \\
+%	Define
+%	\[
+%	E(x,y) = (x = y) + (x \neq 0 \land \sum_{g : \mu_\ell \setminus \{1\}} gx = y)
+%	\]
+	This is a proposition: First note, that both summands are propositions because $G$ acts freely on $\bA^1 \setminus \{0\}$. If both summands are inhabited we get a contradiction, as $x = y$ and $gx = y$ implies $(g-1) x = y - x = 0$, but as $g-1$ is invertible $x = 0$. \\
 	The relation is covering: 
 	The propositions are affines, thus sheaves. Furthermore, for any $y : D(p)$ we have
 	\[
-	\sum_{x : D(p)}  (x = y) + (x \neq 0 \times \sum_{g : \mu_\ell \setminus \{1\}} gx = y) = 1 + (y \neq 0 \times \mu_\ell \setminus \{1\}) \in \bT
+	\sum_{x : D(p)}  (x = y) + (x \neq 0 \times \sum_{g : G \setminus \{1\}} gx = y) = 1 + (y \neq 0 \times G \setminus \{1\}) \in \bT
 	\]
-	as $\mu_\ell \setminus \{1\} = \sum_{g : \mu_\ell} g \neq 1$ is a $\sum$ of formally \etale + flat affines (recall that formally \etale affines have decidable equality).
-
-\item 	Lets call this quotient $X$.
-
-Define 
-\[
-A = \{\phi : R[X]_p \ | \ \phi \text{  is $\ell$-even }\}
-\]
-This is an $R$-subalgebra: for any $r : R$, $r : R[X]_p$ is $\ell$-even. $\ell$-even functions are stable under addition and multiplication . \\
-
-	Claim: The affinization map of $X$ is the induced dashed map $f : X \to \Spec A$ in
+	as $G \setminus \{1\} = \sum_{g : G} g \neq 1$ is a $\sum$ of formally \etale + flat affines (recall that formally \etale affines have decidable equality).
 	
-% https://q.uiver.app/#q=WzAsNCxbMCwwLCJEKHApIl0sWzEsMCwiXFxTcGVjIFJbWF1fcCJdLFswLDEsIlgiXSxbMSwxLCJcXFNwZWMgQSJdLFswLDIsInEiXSxbMiwzLCJcXGV4aXN0ISBmIiwwLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzEsM10sWzAsMSwiIiwyLHsibGV2ZWwiOjIsInN0eWxlIjp7ImhlYWQiOnsibmFtZSI6Im5vbmUifX19XV0=
-\[\begin{tikzcd}
-	{D(p)} & {\Spec R[X]_p} \\
-	X & {\Spec A}
-	\arrow[Rightarrow, no head, from=1-1, to=1-2]
-	\arrow["q", from=1-1, to=2-1]
-	\arrow[from=1-2, to=2-2]
-	\arrow["{\exists! f}", dashed, from=2-1, to=2-2]
-\end{tikzcd}\]
-	Proof: A function $\phi : D(p) \to R$ factors through $q$ iff $\phi$ is $\ell$-even as in (2). Thus, the embedding (using that $R$ is a sheaf) $R^X \hookrightarrow R^{D(p)} = R[X]_p$ has image $A$. $\qed$(Claim). 	\\ \\ %respective $\phi : R[X]_p$ satisfies $	\phi (x) = \phi(-x)  $, i.e. (1) if $\phi$ is $\ell$-even. 
- Proof that $X$ is not an affine:	Assume that $X$ were affine. Then the map $f$ would be in particular an embedding. 
-	As we want to prove a contradiction we may assume a root $g : \Spec R[X] / (\sum_{i=0}^{\ell-1} X^i)$. Using that $\sum_{i=0}^{\ell-1} X^i | X^\ell -1 $ and $\ell \neq 0$, in particular we can view $g$ as a term in $\mu_\ell \setminus \{1\}$. Then for any $\varepsilon : \Spec R[X] / X^\ell \subset D(p)$ (using that invertibility is $\lnot \lnot$ stable) we have
-	\begin{align*}
-	(q\varepsilon =_X q (g \varepsilon)) \overset{\ref{quotient-by-equivalence-relation}}{=} (\varepsilon = g\varepsilon) + (\varepsilon \neq 0 \land \sum_{h \neq 1} \varepsilon = h g \varepsilon) = ((g-1)\varepsilon = 0) = (\varepsilon = 0)
-	\end{align*}
-	But it always holds $\varepsilon =_{\Spec A} g \varepsilon$, as for any $\phi : A$ we have $\phi(\varepsilon) = \phi(g \varepsilon)$ as $\phi$ satisfies the condition (1). \\
-	So we conclude the the embedding $\{0\} \hookrightarrow \Spec R[X] / X^\ell$ is an equivalence. Contradiction to algebra as $R[X] / X^\ell \to R[X] / X$ is not an equivalence.
-\end{itemize}
 \end{proof}
+%\begin{prop}
+%	Let $p : R[X]^{\mu_\ell}$ with $0 \in D(p)$ % be such that $0 \in D(p)$ and $x \in D(p)$ implies $gx \in D(p)$ for all $g : \mu_\ell$.
+%	The sheaf-quotient of $D(p)$ by the relation which identifies $x$ and $gx$ when $x \neq 0, g : \mu_\ell \setminus \{1\}$ is not an affine scheme.
+%\end{prop}
+%\begin{proof}
+%
+%\end{proof}
 \begin{lemma}
-	Open subtypes of $\bA^1$ are $\lnot \lnot$ principal open. %If the open is inhabited, $\lnot \lnot$ merely we can $\ell$-even write it as $D(p)$ with $p : R[X]$ regular .
+	Let $G$ be a finite group whose cardinality is invertible in $R$. Let $G$ act on an affine scheme equipped with a fixpoint $0$. Let $V$ be an invariant open neighborhood of 0. Then we find an invariant principal open neigbhorhood contained in $V$. Invariant means here that $g(U) = U$ for all $g : G$.%Let $A$ be a finitely presented algebra and $0 \in \Spec A$ a basepoint. 
 \end{lemma}
 \begin{proof}
-	\begin{itemize}
-		\item An open affine subscheme of $\bA^1$ is $\lnot \lnot$ principal open: Let $D(f_1,\hdots,f_n) \subset \bA^1$ be an arbitrary open subset. We may assume that each $f_i : R[X]$ is non constant (in particular non zero). By \todocite, $\lnot \lnot$-merely each $D(f_i) \subset R$ is cofinite. Thus $\lnot \lnot$-merely, the finite union $\bigcup_{i=1}^n D(f_i) \subset R$ is cofinite as well, hence principal open. % we find roots $a_{ij}$ of the $f_i$. $\bigcup_i D(f_i) = \bigcup_i R \setminus \{a_{ij}\}_j = R \setminus \bigcap_{i} \{a_{ij}\}$ for some finite subset. This is $\lnot \lnot$ a principal open. %By $\lnot \lnot $ stability 
-	\end{itemize}
+	Let $U$ be an invariant open neighborhood. Choose a principal open neighborhood $0 \in D(p) \subset U$. $G$ acts on $R[X]$, via $(g.p)(x) = p(g x)$.Then 
+	\[p' = \sum_{g : G} g . p : R[X]\]
+	is a $G$-invariant polynomial, in particular $D(p)$ is $G$-invariant. Moreover $0 \in D(p')$ as
+	\[
+	p'(0) = \sum_{g : G} p(g(0)) = \sum_{g : G} p (0) = |G| \cdot p(0) 
+	\]
+	is invertible, as $|G|$ and $p(0)$ are both invertible. Furthermore, as $U$ was $G$ invariant and contained $D(p)$ it also has to contain $D(p')$.
 \end{proof}
+
 \begin{prop}
-	Let $\ell \neq 0$ be prime. The sheaf quotient of $\bA^1$ by the relation that identifies each  $x \neq 0$ with $g x$ if $g^p = 1, g \neq 1$ is an algebraic space that is not a scheme.
+	Let $G$ be a group, such that $\lnot \lnot$ its finite with cardinality invertible in $R$. Let it act on an affine scheme $\Spec A$ with a fixpoint 0, such that the group action is free away from 0.
+	For any $p : A^G$ define $R: D(p)^2 \to \Prop$ as
+	\[
+	R(x,y) = (x = y) + (x \neq 0) \times \sum_{g : G \setminus \{1\}} g x = y
+	\]
+	Assume the sheaf quotient $D(p) / G$ is not affine for any $p : A^G$. Then $(\Spec A) / G$ is an algebraic space that is not a scheme.
 \end{prop}
 \begin{proof}
-	It is an algebraic space by putting $p \equiv 1 : R[X]$ above. \\
-	Assume $0$ has an open affine neighborhood $U$. The preimage along the quotient map obtained from the relation induces a open neigbhorhood of $0$ in´ $\bA^1$. As we want to prove a contradiction, we may assume it is a principal open $D(p) \ni 0$. As it saturated wrt to the equivalence relation we have $x \in D(p) \to g x \in D(p)$ for all $x \neq 0, g \in \mu_\ell \setminus \{1\}$. We are in the following situation:
+	It is an algebraic space by putting $p \equiv 1 : R[X]$ in the previous prop. \\
+	Assume the quotient is a scheme. 
+	The preimage along the quotient map obtained from the relation induces a open neigbhorhood $V$ of $0$ in $\bA^1$. As we want to prove a contradiction we may assume that $\mu_\ell$ consists of $\ell$ many elements, where $\ell \neq 0 $ in $R$. We apply the previous lemma to $V$ to obtain an invariant principal open neigborhood $0 \in D(p) \subset V \subset \bA^1$. As its invariant, $p : \bA^1 \to R$ descends to $X \to R$. Restricting to $V$ yields a map $p' : V \to R$, such that setting $U \equiv D(p')$ yields such that $q^{-1}(V) =q^{-1}(D(p')) = D(p)$ . We are now in the following situation
 	% https://q.uiver.app/#q=WzAsNCxbMCwwLCJEKHApIl0sWzEsMCwiXFxiQcK5Il0sWzEsMSwiWCJdLFswLDEsIlUiXSxbMCwxLCIiLDAseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJob29rIiwic2lkZSI6InRvcCJ9fX1dLFswLDNdLFszLDIsIiIsMix7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Imhvb2siLCJzaWRlIjoidG9wIn19fV0sWzEsMl0sWzAsMiwiIiwxLHsic3R5bGUiOnsibmFtZSI6ImNvcm5lci1pbnZlcnNlIn19XV0=
 	\[\begin{tikzcd}
 		{D(p)} & {\bA^1} \\
@@ -266,7 +248,48 @@ This is an $R$-subalgebra: for any $r : R$, $r : R[X]_p$ is $\ell$-even. $\ell$-
 		\arrow[from=1-2, to=2-2]
 		\arrow[hook, from=2-1, to=2-2]
 	\end{tikzcd}\]
-	Then we have $D(p) / \sim' \simeq U$ with restricted equivalence relation. Applying the previous lemma to $D(p)$, we see $U$ cannot be affine. Contradiction.
+	where $U$ is an open affine neighborhood of 0. \\
+	Then we have $D(p) / \sim' \simeq U$ with restricted equivalence relation. By assumption we see $U$ cannot be affine. Contradiction.\\		
+\end{proof}
+\begin{corollary}
+	Let $\ell \neq 0$ be prime. The sheaf quotient of $\bA^1$ by the relation that identifies each  $x \neq 0$ with $g x$ if $g^p = 1, g \neq 1$ is an algebraic space that is not a scheme.
+\end{corollary}
+\begin{proof}
+	Let $p$ be as above.
+	The conditions on $p$ give $p(0) \neq 0$ and $p(x) \neq 0 \to p(gx) \neq 0$ for all $g : \mu_\ell$.
+	
+	Lets call this quotient $X$.
+	
+	Define 
+	\[
+	A = \{\phi : R^{D(p)} \ | \ \phi \text{  is $\mu_{\ell}$-invariant }\}
+	\]
+	This is an $R$-subalgebra: for any $r : R$, $r : R[X]_p$ is $\mu_{\ell}$-invariant. $\mu_{\ell}$-invariant functions are stable under addition and multiplication . \\
+	
+	Claim: The affinization map of $X$ is the induced dashed map $f : X \to \Spec A$ in
+	
+	% https://q.uiver.app/#q=WzAsNCxbMCwwLCJEKHApIl0sWzEsMCwiXFxTcGVjIFJbWF1fcCJdLFswLDEsIlgiXSxbMSwxLCJcXFNwZWMgQSJdLFswLDIsInEiXSxbMiwzLCJcXGV4aXN0ISBmIiwwLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzEsM10sWzAsMSwiIiwyLHsibGV2ZWwiOjIsInN0eWxlIjp7ImhlYWQiOnsibmFtZSI6Im5vbmUifX19XV0=
+	\[\begin{tikzcd}
+		{D(p)} & {\Spec R^{D(p)}} \\
+		X & {\Spec A}
+		\arrow[Rightarrow, no head, from=1-1, to=1-2]
+		\arrow["q", from=1-1, to=2-1]
+		\arrow["q'",from=1-2, to=2-2]
+		\arrow["{\exists! f}", dashed, from=2-1, to=2-2]
+	\end{tikzcd}\]
+	Proof: A function $\phi : D(p) \to R$ factors through $q$ iff $\phi|_{D(p) \setminus\{0\}}$ is $\mu_{\ell}$-invariant away from 0. We have to show, that then $\phi$ is $\mu_{\ell}$ invariant, because then the embedding (using that $R$ is a sheaf) $R^X \hookrightarrow R^{D(p)}$ has image $A$. We can apply  \ref{lemma:AlmostEverywhere}, observing $\phi - g.\phi = 0$ on $D(X / 1) \subset \Spec R[X]_p$, where $X/1 : R[X]_p$ is regular, because $X$ is regular in $R[X]$. $\qed$(Claim). 	\\ \\ %respective $\phi : R[X]_p$ satisfies $	\phi (x) = \phi(-x)  $, i.e. (1) if $\phi$ is $\mu_{\ell}$-invariant. 
+	Proof that $X$ is not an affine:	Assume that $X$ were affine. Then the map $f$ would be in particular an embedding. 
+	We may assume a term $g : \mu_\ell \setminus \{1\}$: Indeed, as we want to prove a contradiction we may assume a term in $g : \Spec R[X] / (\sum_{i=0}^{\ell-1} X^i)$. But this type is equivalent to $\mu_\ell \setminus \{1\}$, using that $\sum_{i=0}^{\ell-1} X^i | X^\ell -1 $ and $\ell \neq 0$. \\
+	Let $V \subset \bA^1$ be a non-contractible neighborhood of 0 that is infinitesimal, i.e.  $\lnot \lnot x =0$ for every $x : V$. (e.g $\Spec R[X] / X^n$ for some $n >1$ is non contractible, because $R[X] / X^n \to R[X] / X$ is not an algebra isomorphism). %$\cN_{\lnot \lnot}(0) = \{x : \bA^1 \ | \ \lnot \lnot x = 0\}$ be be a non-contractible subtype that is $\lnot \lnot$-connected. 
+	Then for any $\varepsilon : V \subset D(p)$ (using that invertibility is $\lnot \lnot$ stable) we have
+	\begin{align*}
+		(q\varepsilon =_X q (g \varepsilon)) \overset{\ref{quotient-by-equivalence-relation}}{=} (\varepsilon = g\varepsilon) + (\varepsilon \neq 0 \land \sum_{h \neq 1} \varepsilon = h g \varepsilon) = ((g-1)\varepsilon = 0) = (\varepsilon = 0)
+	\end{align*}
+	But we have 
+	\[(q' \varepsilon =_{\Spec A} q' (g \varepsilon)) = \prod_{\phi : A} \phi(q' \varepsilon) = \phi(q' (g \varepsilon)) = \prod_{\substack{\phi : R^{D(p)} \\ \phi \in A}} \phi (\varepsilon) = \phi(g \varepsilon) ,\] 
+	%as for any $\phi : A$ we have $\phi(\varepsilon) = \phi(g \varepsilon)$ 
+	and the right hand side is inhabited as each $\phi$ satisfies the condition (1). \\
+	So we conclude the the embedding $\{0\} \hookrightarrow V$ is an equivalence.  But we asked $V$ to be non contractible.
 \end{proof}
 \begin{example}
 	The scheme 
@@ -282,7 +305,7 @@ This is an $R$-subalgebra: for any $r : R$, $r : R[X]_p$ is $\ell$-even. $\ell$-
 	\]
 	as $x \neq 0$ implies $y = 0$ as $x y =0$. This is a covering relation, as for any $x' y' = 0$ we have
 	\[
-	\sum_{x,y : R} x y = 0 \land E((x,y) , (x' , y')) = 1 + (y' \neq 0) \in \bT \subset \Zar
+	\sum_{x,y : R} x y = 0 \land E((x,y) , (x' , y')) = 1 + (y' \neq 0) \in \Zar \subset \bT
 	\]		
 \end{proof}
 

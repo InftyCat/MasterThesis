@@ -344,6 +344,14 @@ We can reprove \ref{lemma:TflatIs0-gerbe} by just observing that $\bT$-flat geom
 
 \include{Flat}
 \section{Not clear where to put that}
+\begin{lemma}[Not needed]
+	Open subtypes of $\bA^1$ are $\lnot \lnot$ principal open. %If the open is inhabited, $\lnot \lnot$ merely we can $\mu_{\ell}$-invariant write it as $D(p)$ with $p : R[X]$ regular .
+\end{lemma}
+\begin{proof}
+	\begin{itemize}
+		\item An open affine subscheme of $\bA^1$ is $\lnot \lnot$ principal open: Let $D(f_1,\hdots,f_n) \subset \bA^1$ be an arbitrary open subset. We may assume that each $f_i : R[X]$ is non constant (in particular non zero). By \todocite, $\lnot \lnot$-merely each $D(f_i) \subset R$ is cofinite. Thus $\lnot \lnot$-merely, the finite union $\bigcup_{i=1}^n D(f_i) \subset R$ is cofinite as well, hence principal open. % we find roots $a_{ij}$ of the $f_i$. $\bigcup_i D(f_i) = \bigcup_i R \setminus \{a_{ij}\}_j = R \setminus \bigcap_{i} \{a_{ij}\}$ for some finite subset. This is $\lnot \lnot$ a principal open. %By $\lnot \lnot $ stability 
+	\end{itemize}
+\end{proof}
 \begin{theorem}[TODO]{\label{thm:FlatAffines}}
 	The class of flat affines is stable under $\sum$. Moreover flatness can be defined fiberwise.
 \end{theorem}
