@@ -119,7 +119,7 @@ This follows from the observation, that the equivalence relation determined by $
 %	\]
 %	The first map 
 %\end{proof}
-\subsection{Examples}
+\section{Examples}
 The goal of this subsection is to construct algebraic spaces. The first example actually gives us a scheme:
 \begin{example}
 	Let $p \neq 0$ be a prime. You can let $\mu_p := \Spec(R[X] / (X^p - 1))$ act on $\bA^\times$ via multiplication. Set $\bT= fppf$. Then the $p$.th power map
@@ -149,7 +149,7 @@ The goal of this subsection is to construct algebraic spaces. The first example 
 \begin{example}[TODO]
 	The sheaf quotient of $\bA^1$ by the $\mu_\ell$ action is probably not an algebraic space.
 \end{example}
-
+\subsection{Non seperated Examples}
 \begin{lemma}{\label{lemma:AlmostEverywhere}}
 	Let $p : A$ be reguar. If $f : \Spec A \to R$ such that $f(x) = 0$ for all $x \in D(p)$, then $f(x) = 0$ for all $x : \Spec A$.
 \end{lemma}
@@ -168,6 +168,9 @@ The goal of this subsection is to construct algebraic spaces. The first example 
 	Thus $f = 0$ in $A$.
 %	 Thus $f = 0 $ in $(R \setminus \{0\} \to R) = R[X^{\pm 1}]$ hence $f \cdot X^n = 0$ in $R[X]$ for some $n$, thus $f = 0$.
 \end{proof}
+\begin{question}
+	What has this todo with separatedness?
+\end{question}
 Let $\ell \neq 0$ denote a prime. Consider $\mu_\ell = R[X] / (X^\ell - 1)$.
 %\[\mu_\ell'  = \Spec R[X] / (X^{p-1} + \hdots + 1) = \mu_\ell \setminus\{1\}\]
 
@@ -225,14 +228,46 @@ Let $\ell \neq 0$ denote a prime. Consider $\mu_\ell = R[X] / (X^\ell - 1)$.
 	\]
 	is invertible, as $|G|$ and $p(0)$ are both invertible. Furthermore, as $U$ was $G$ invariant and contained $D(p)$ it also has to contain $D(p')$.
 \end{proof}
-
+%\begin{prop}
+%	Let $X$ be an algebraic space. Let $R : X^2 \to \Prop$ be a covering equivalence relation, such that $\sum_{x ,y :X} R(x,y) \to X^2$ is not a closed embedding.Then the sheaf quotient $X / R $ is not a scheme.
+%\end{prop}
+%\begin{proof}
+%	Affine schemes are seperated.
+%\end{proof}
+\begin{lemma}
+	Let $(\Spec B, 0)$ be a pointed affine scheme such that $R^{\Spec B} \to R^{\Spec B \setminus \{0\}}$ is injective. %that admits some regular $p : B$ with $p(0) = 0$ %, i.e. $\lnot \prod_x \lnot \lnot x = 0$. 
+	Then the infinitesimal neigbhorhood of $0$ is not an open subtype.
+\end{lemma}
+\begin{proof}
+	If it would, it would be principal open $D(g)$, as 0 admits a principal open neigbhorhood, which however already cotains the whole infinitesimal one. \\
+	Then for any $x \neq 0$, we have $\lnot \lnot g(x) = 0$. As $\Spec B \setminus \{0\}$ is a scheme, it admits a boundedness principle, thus we find some $n$, such that $g^n (x) = 0$ for all $x \neq 0$. \\ %, in particular for all $x : D(p)$. By \ref{lemma:AlmostEverywhere} applied to the givenregular $p$,  
+	By assumption we deduce $g^n =0$, hence $D(g) = D(g^n) = \varnothing$ contradiction.
+%	 Let $I$ correspond to the closed subtype $\{0\} \subset \Spec B$.
+%	 Let us show that $\sum_{x:\Spec B} \lnot \lnot x =0$ is not affine. We have by topology \todocite
+%	\[
+%	\left(\sum_{x:\Spec B} \lnot \lnot x =0 \right)= \bigcup_n \Spec B / I^n 
+%	\]
+%	the global sections of the right hand side are 
+%	\[
+%	\bigcap_n B /  I^n = B 
+%	\]
+%	but $\Spec B$ is not an infinitesimal variety.
+\end{proof}
 \begin{prop}
-	Let $G$ be a group, such that $\lnot \lnot$ its finite with cardinality invertible in $R$. Let it act on an affine scheme $\Spec A$ with a fixpoint 0, such that the group action is free away from 0.
-	For any $p : A^G$ define $R: D(p)^2 \to \Prop$ as
-	\[
-	R(x,y) = (x = y) + (x \neq 0) \times \sum_{g : G \setminus \{1\}} g x = y
-	\]
-	Assume the sheaf quotient $D(p) / G$ is not affine for any $p : A^G$. Then $(\Spec A) / G$ is an algebraic space that is not an affine scheme.
+%	Let $0 : \Spec A$.
+%	Let $Q : \Spec A \to \Prop$ be a predicate such that for all $p : A$, $0 \in D(p)$
+%	\[\lnot \prod_{\substack{x : D(p)}} Q x.\]
+%	Let $R$ be a covering equivalence relation on $\Spec A$ such that for all $x , y : \Spec A$
+%	\[
+%	R(x,y) \text { closed proposition} \to Q x
+%	\]
+	Let $G$ be a formally \etale + flat affine non-trivial group, such that $\lnot \lnot$ its finite, with cardinality invertible in $R$. 
+	Let it act on an affine scheme $\Spec A$ with a fixpoint 0, such that  $R^{\Spec A} \to R^{\Spec A \setminus \{0\}}$ is injective and such that the group action is free away from 0. \\
+Define $R: (\Spec A)^2\to \Prop$ as
+\[
+R_G(x,y) = (x = y) + (x \neq 0) \times \sum_{g : G \setminus \{1\}} g x = y
+\]
+	Then $(\Spec A) / R$ is an algebraic space that is not a scheme.
 \end{prop}
 \begin{proof}
 	It is an algebraic space by putting $p \equiv 1 : R[X]$ in the previous prop. \\
@@ -249,20 +284,51 @@ Let $\ell \neq 0$ denote a prime. Consider $\mu_\ell = R[X] / (X^\ell - 1)$.
 		\arrow[hook, from=2-1, to=2-2]
 	\end{tikzcd}\]
 	where $U$ is an open affine neighborhood of 0. \\
-	Then we have $D(p) / \sim' \simeq U$ with restricted equivalence relation. By assumption we see $U$ cannot be affine. Contradiction.\\		
+	Then we have $D(p) / \sim' \simeq U$ with restricted equivalence relation. \\
+	Let us show that $D(p) / G = U$ is not seperated ( because then it cannot be affine). Assume that for each $x , y : D(p)$, $R(x,y)$ is a closed proposition. As we want to prove a contradiction, we may assume $g : G \setminus \{1\}$, using that $G$ is non trivial.
+	is a closed embedding. Then 
+	\[
+	x\neq 0 \times \{g\} \hookrightarrow x \neq 0 \times \sum_{g \neq 1} g x = g x \hookrightarrow  R(x,gx) 
+	\]
+	is a composition of closed embeddings using that $G \setminus \{1\}$ is seperated, hence $x \neq 0$ is a closed proposition. Thus $\sum_{x: D(p)} \lnot \lnot x = 0$ is an open subtype of $D(p)$, thus of $\Spec A$ .\\
+	Alternative approach: Through decidable subtypes.
+%	But its also an open proposition, hence decidable. 
+%	thus affine. Hence the right hand side \[
+%	\sum_{x: D(p)} \lnot \lnot x = 0  = \sum_{x : \Spec A} \lnot \lnot x = 0\]
+	 %is affine. 
+	 Contradiction to the previous lemma. %, as $\Spec A$ is non-infinitesimal.
 \end{proof}
-\begin{prop}
-	Let $\ell \neq 0$ be prime. Let $\mu_\ell$ act on $\Spec B$ 
+\begin{example}[Not separated examples]
+	Assume $\ell \neq 0$. Let $\mu_\ell$ act on $\Spec B$ in one of the following ways:
 	\begin{enumerate}
-		\item[infinitesimal neigborhood]
-		Assume 0 admits a non-contractible neighborhood  $V \subset \Spec B$ that is infinitesimal, i.e.  $\lnot \lnot x =0$ for every $x : V$.  \\
-		\item[Strong freeness] $\mu_\ell$ acts free away from zero. And even stronger: We find some $V' \subsetneq V$ for any $\varepsilon : \Spec B, g\neq 1$, $g \varepsilon = \varepsilon$ implies $\varepsilon \in V'$
+		\item Let $\mu_\ell$ act on $\Spec B = \bA^1$. 
+		\item Put $\ell= 2$. Let $\mu_2$ act on
+		\[
+		\Spec B \equiv \sum_{x , y : R} x y = 0
+		\]
+		via the swap.
+	\end{enumerate}
+	Then $\Spec B / R_{\mu_\ell}$ is an algebraic space that is not a scheme.
+\end{example}
+\begin{proof}
+	\begin{enumerate}
+		\item Free away from the origin. By \ref{lemma:AlmostEverywhere} %The infinitesimal neighborhood of 0 is not affine.
+		\item  Again free away from the origin. Write $\Spec B = V(X) \cup V(Y)$, both components admit the property \ref{lemma:AlmostEverywhere}.
+%		Moreover if $z : \bA^2$ is $\lnot \lnot z =0$, then $z \in \Spec B$.
+	\end{enumerate}
+\end{proof}
+\subsection{Outdated}
+\begin{prop}[Not needed]
+	Let $\ell \neq 0$ be prime. Let $\mu_\ell$ act on $\Spec B$ . Let $V$ be an infinitesimal neigborhood of $0$, i.e. a subtype   $0 \in V \subset \Spec B$ such that $\lnot \lnot x =0$ for every $x : V$. Assume
+	\begin{enumerate}
+		\item[Strong freeness]  We find some $0 \in V' \subsetneq V$ for any $\varepsilon : \Spec B, g\neq 1$, $g \varepsilon = \varepsilon$ implies $\varepsilon \in V'$
 
-	\item[checking away from 0] Assume that for any $p : B$ and any $\phi: D(p)$ such that $\phi|_{D(p) \setminus\{0\}} = 0$, we have that $\phi|_V = 0$.
+	\item[checking away from 0] For any $p : B$ and any $\phi: R^{D(p)} $ such that $\phi|_{D(p) \setminus\{0\}} = 0$, we have that $\phi|_V = 0$.
 		\end{enumerate} 
-	The sheaf quotient of $\Spec B$ by the relation as above is an algebraic space but not a scheme.
+	The sheaf quotient of $\Spec B$ by the relation as above is an algebraic space but not an affine scheme.
 \end{prop}
 \begin{proof}
+	First note, that strong freeness implies that $\mu_\ell$ acts free away from zero: Indeed TODO. let $x \neq 0$
 	Let $p : B$ be as above. We have to show that the quotient of $D(p)$ is not affine. \\
 	The conditions on $p$ give $p(0) \neq 0$ and $p(x) \neq 0 \to p(gx) \neq 0$ for all $g : \mu_\ell$.
 	
@@ -289,25 +355,26 @@ Let $\ell \neq 0$ denote a prime. Consider $\mu_\ell = R[X] / (X^\ell - 1)$.
 	Proof that $X$ is not an affine:	Assume that $X$ were affine. Then the map $f$ would be in particular an embedding. 
 	We may assume a term $g : \mu_\ell \setminus \{1\}$: Indeed, as we want to prove a contradiction we may assume a term in $g : \Spec R[X] / (\sum_{i=0}^{\ell-1} X^i)$. But this type is equivalent to $\mu_\ell \setminus \{1\}$, using that $\sum_{i=0}^{\ell-1} X^i | X^\ell -1 $ and $\ell \neq 0$. \\
 	 %$\cN_{\lnot \lnot}(0) = \{x : \bA^1 \ | \ \lnot \lnot x = 0\}$ be be a non-contractible subtype that is $\lnot \lnot$-connected. 
-	Now choose $V$ an infinitesimal neigbhorhood. It holds $ V \subset D(p)$ , using that invertibility is $\lnot \lnot$ stable.
+	The given infinitesimal neigbhorhood $V$ satisfies $ V \subset D(p)$ , using that invertibility is $\lnot \lnot$ stable.
 	Then for any $\varepsilon : V$ we have
 	\begin{align*}
-		(q\varepsilon =_X q (g \varepsilon)) \overset{\ref{quotient-by-equivalence-relation}}{=} (\varepsilon = g\varepsilon) + (\varepsilon \neq 0 \land \sum_{h \neq 1} \varepsilon = h g \varepsilon) =(\varepsilon \in V)
+		(q\varepsilon =_X q (g \varepsilon)) \overset{\ref{quotient-by-equivalence-relation}}{=} (\varepsilon = g\varepsilon) + (\varepsilon \neq 0 \land \sum_{h \neq 1} \varepsilon = h g \varepsilon) = (\varepsilon = g\varepsilon) = (\varepsilon \in V')
 	\end{align*}
-	where in the last step we used strong freeness.
+	where the last step comes from strong freeness.
 	But we have 
-	\[(q' \varepsilon =_{\Spec A} q' (g \varepsilon)) = \prod_{\phi : A} \phi(q' \varepsilon) = \phi(q' (g \varepsilon)) = \prod_{\substack{\phi : R^{D(p)} \\ \phi \in A}} \phi (\varepsilon) = \phi(g \varepsilon),\] 
+	\[(q' \varepsilon =_{\Spec A} q' (g \varepsilon)) = \left (\prod_{\phi : A} \phi(q' \varepsilon) = \phi(q' (g \varepsilon)) \right)= \prod_{\substack{\phi : R^{D(p)} \\ \phi \in A}} \phi (\varepsilon) = \phi(g \varepsilon),\] 
 	%as for any $\phi : A$ we have $\phi(\varepsilon) = \phi(g \varepsilon)$ 
-	The right hand side is inhabited by 'checking away from 0'. 	So we conclude the the embedding $\{0\} \hookrightarrow V$ is an equivalence.  But we asked $V$ to be non contractible.% I claim that the right hand side is inhabited:
+	The right hand side is inhabited: For any $\phi: D(p) \to R$ such that $\psi := \phi - g . \phi$ satisfies $\psi|_{D(p) \setminus \{0\}} =0$  we have $\psi|_V =0$ by 'checking away from 0', inparticular $\psi(\varepsilon) =0$ . 	So we conclude the the embedding $V' \hookrightarrow V$ is an equivalence.  But we asked $V' \subsetneq V$ to be a proper subset.% I claim that the right hand side is inhabited:
 
 \end{proof}
+
 \begin{example}
 	Let $\mu_\ell$ act on $\Spec B = \bA^1$.
 \end{example}
 \begin{proof}
 	\begin{enumerate}
-		\item e.g $\Spec R[X] / X^n$ for some $n >1$ is non contractible, because $R[X] / X^n \to R[X] / X$ is not an algebra isomorphism)
-		\item As $(g-1)$ is invertible, $ ((g-1)\varepsilon = 0) $  gives us $\varepsilon \in 0 \equiv \{V'\}$.
+		\item Put $ V:\equiv\Spec R[X] / X^n$ for some $n >1$.
+		\item As $(g-1)$ is invertible, $ ((g-1)\varepsilon = 0) $  gives us $\varepsilon \in \{0\} \equiv V' \subsetneq V$. Note that indeed $V$ is non contractible, because $R[X] / X^n \to R[X] / X$ is not an algebra isomorphism
 		\item 	We have to show, that then $\phi$ is $\mu_{\ell}$ invariant. We can apply  \ref{lemma:AlmostEverywhere}, observing $\phi - g.\phi = 0$ on $D(X / 1) \subset \Spec B_p$, where $X/1 : B_p$ is regular, because $X$ is regular in $B$. TODO as each $\phi$ satisfies the cond. \qed(Claim)\\
 	
 	\end{enumerate}
@@ -317,14 +384,15 @@ Let $\ell \neq 0$ denote a prime. Consider $\mu_\ell = R[X] / (X^\ell - 1)$.
 	\[
 	\Spec B \equiv \sum_{x , y : R} x y = 0
 	\]
-	via the swap.
+	via the swap. Then $\Spec B / R$ is an algebraic space that is not a scheme.
 %	sheaf-quotiented by the relation that identifies $(x,0)$ and $(0,x)$ if $x \neq 0$ is an algebraic space.
 \end{example}
 \begin{proof}
 	\begin{enumerate}
 		\item Put $V = \Spec R[X] / X^k \subset \Spec B$, $k > 2$.
 		\item If $(x,y) = (y,x)$ but $x y = 0$ we get $x \in V' \equiv \Spec R[X] / X^2$.
-		\item Let $\phi: D(p) \to R$ be 0 everywhere except near the origin. Then we get a restricted map $\phi' : D(p') \to R$ where $D(p') \subset V(X)$ is given by the intersection $D(p) \cap V(X) $. Here we can apply \ref{lemma:AlmostEverywhere}, getting that $\phi'$ is 0 everywhere in particular in $V \subset V(X)$.
+		\item Let $\phi: D(p) \to R$ be 0 everywhere except near the origin. Then we get a restricted map $\phi' : D(p') \to R$ where $D(p') \subset V(X)$ is given by the intersection $D(p) \cap V(X) $ . Indeed : Put $p' : R[X]$ the image of $p : R[X,Y] / (XY)$ und the map induced by evaluating $Y$ at 0. \\
+		Here we can apply \ref{lemma:AlmostEverywhere}, getting that $\phi'$ is 0 everywhere in particular in $V \subset V(X)$.
 	\end{enumerate}
 %	The equivalence relation is given by
 %	\[
@@ -335,7 +403,31 @@ Let $\ell \neq 0$ denote a prime. Consider $\mu_\ell = R[X] / (X^\ell - 1)$.
 %	\sum_{x,y : R} x y = 0 \land E((x,y) , (x' , y')) = 1 + (y' \neq 0) \in \Zar \subset \bT
 %	\]		
 \end{proof}
+\begin{lemma}
+	Given a map $P : \Susp(Q) \to \Prop$, such that $P(N)$ and $P(S)$ hold, then $\prod_{t: \Susp(Q)} P(t)$
+\end{lemma}
+\begin{example}
+	Let $L = \sum_{x : \bA^1} \Susp(x \neq 0)$ be the line with two origins. By the evident $\mu_2$ action on any suspension we obtain a $\mu_2$ action on $X$, such that the first projection $L \to \bA^1$ is $\mu_2$-invariant. Then the map $L / \mu_2 \to \bA^1$ is an equivalence
+\end{example}
+\begin{proof}
+	By $\sum$-stability of algebraic spaces we may show, that the fiber of $L / \mu_2 \to \bA^1$ over $x : \bA^1$ is contractible. The fiber is $\Susp(x \neq 0) / \mu_2$ as 
+	\[
+	X / \mu_2 = \sum_{x : \bA^1} \Susp(x \neq 0)/\mu_2
+	\]
+	 But for $X$ a proposition the sheaf quotient $\Susp(X) / \mu_2$ is contractible.	
+\end{proof}
 
+\begin{example}[TODO]
+	Let $L = \sum_{x : \bA^1} \Susp(x \neq 0)$ be the line with two origins. By the evident $\mu_2$ action on any suspension we obtain a $\mu_2$ action on $X$, such that the first projection $L \to \bA^1$ is $\mu_2$-invariant. Then the homotopy quotient $L // \mu_2$ is an algebraic space.	
+\end{example}
+\begin{proof}
+	By $\sum$-stability of algebraic spaces we may show, that the fiber $\Susp(x \neq 0) // \mu_2$ of $L //´ \mu_2 \to \bA^1$ over $x : \bA^1$ is an algebraic space. As $\Susp(x \neq 0)$ is a scheme \todocite, it is an algebraic space, so it remains to show, that the equivalence relation is covering. \\
+	Let us show that all the homotopy orbits of the $\mu_2$-action of some $s : \Susp(x \neq 0)$ are covering. Since this is a proposition depedent on $s : \Susp(x \neq 0)$,by the previous lemma we only have to consider orbits of points $N : \Susp(x\neq0)$ and $S : \Susp(x \neq 0)$ . Lets stick to $N$. The homotopy orbit is equivalent to 
+	\[
+	\sum_{t : \Susp(x \neq 0)}  (t = N) + (t = S) % \simeq \mathrm{im}(2 \overset{(N,S)}{\to} \Susp(x \neq 0)) = \Susp(x \neq 0)
+	\]
+	As $\Susp(x \neq 0)$ is a covering algebraic space, by $\sum$-stability we may show, that for any $t$, $(t = N) + (t = S)$ is covering. Again by the lemma, we may check this for $t \equiv N$ and $t \equiv S$. In either case the type is equivalent to $1 + x \neq 0 \in \Zar \subset \bT$. So we can conclude.
+\end{proof}
 
 
 \section{Group quotients}
