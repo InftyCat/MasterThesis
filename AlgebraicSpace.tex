@@ -119,321 +119,10 @@ This follows from the observation, that the equivalence relation determined by $
 %	\]
 %	The first map 
 %\end{proof}
-\section{Examples}
-The goal of this subsection is to construct algebraic spaces. The first example actually gives us a scheme:
-\begin{example}
-	Let $p \neq 0$ be a prime. You can let $\mu_p := \Spec(R[X] / (X^p - 1))$ act on $\bA^\times$ via multiplication. Set $\bT= fppf$. Then the $p$.th power map
-	
-	\[
-	pow : \| \bA^\times // \mu_p \|_0^\bT \to \bA^\times
-	\]
-	is an equivalence.
-	\begin{itemize}
-		\item 	 It is an embedding: 
-		First note, that $\|\bA^\times // \mu_p \|_0$ is $\bT$-seperated:
-		
-		as $\mu_p$ act freely on $\bA^\times$, $\bA^\times // \mu_p$ is already a set. Meaning that the identity types of the set-quotient are $\sum_{g: \mu_p} g x =_{\bA^\times} y$ , hence sheaves. \\
-		On the other hand the map $\|\bA^\times // \mu_p \|_0 \to \bA^\times$ is an embedding, as for any $x , y : \bA^\times$ the map $(\sum_{g : \mu_p} g x = y) \to (x^p = y^p)$ is an equivalence. 
-		\item 	It is $\bT$-surjective, as for any $\lambda : \bA^\times$, we find $S = \Spec R [X] / (X^p - \lambda) \in \bT$ with 
-		\[
-		S \to \fib_{\bA^\times / \mu_p \to \bA^\times}(\lambda)
-		\]
-		hence 
-		\[
-		1 = \|S\|_\bT \to \|\fib_{pow}\|_0^\bT
-		\]
-	\end{itemize}
-	
-	
-\end{example}
-\begin{example}[TODO]
-	The sheaf quotient of $\bA^1$ by the $\mu_\ell$ action is probably not an algebraic space.
-\end{example}
-\subsection{Non seperated Examples}
-\begin{lemma}{\label{lemma:AlmostEverywhere}}
-	Let $p : A$ be reguar. If $f : \Spec A \to R$ such that $f(x) = 0$ for all $x \in D(p)$, then $f(x) = 0$ for all $x : \Spec A$.
-\end{lemma}
-\begin{proof}
-	$f$ is in the kernel of the diagonal map
-% https://q.uiver.app/#q=WzAsNCxbMSwwLCJSXlIiXSxbMSwxLCJSXntSIFxcc2V0bWludXMgXFx7MFxcfX0iXSxbMCwwLCJSW1hdIl0sWzAsMSwiUltYXntcXHBtIDF9XSJdLFswLDFdLFsyLDMsIiIsMCx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Imhvb2siLCJzaWRlIjoidG9wIn19fV0sWzAsMiwiIiwxLHsibGV2ZWwiOjIsInN0eWxlIjp7ImhlYWQiOnsibmFtZSI6Im5vbmUifX19XSxbMSwzLCIiLDEseyJsZXZlbCI6Miwic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoibm9uZSJ9fX1dXQ==
-\[\begin{tikzcd}
-	{A} & {R^{\Spec A}} \\
-	{A_p} & {R^{D(p)}}
-	\arrow[hook, from=1-1, to=2-1]
-	\arrow[Rightarrow, no head, from=1-2, to=1-1]
-	\arrow[from=1-2, to=2-2]
-	\arrow[Rightarrow, no head, from=2-2, to=2-1]
-\end{tikzcd}\]
-	which is injective, as $p$ is regular in $A$. \\
-	Thus $f = 0$ in $A$.
-%	 Thus $f = 0 $ in $(R \setminus \{0\} \to R) = R[X^{\pm 1}]$ hence $f \cdot X^n = 0$ in $R[X]$ for some $n$, thus $f = 0$.
-\end{proof}
-\begin{question}
-	What has this todo with separatedness?
-\end{question}
-Let $\ell \neq 0$ denote a prime. Consider $\mu_\ell = R[X] / (X^\ell - 1)$.
-%\[\mu_\ell'  = \Spec R[X] / (X^{p-1} + \hdots + 1) = \mu_\ell \setminus\{1\}\]
-
-%\begin{lemma}
-%	Let $0 \in D(p)$. For a function $\phi : D(p) \to R$ TFAE % We say some $\phi: R[X]_p$ is $\ell$-even if one of the following equivalent conditions is satisfied:
-%	\begin{enumerate}
-%
-%	\item The function $\phi : D(p) \to R$ is a $\mu_{\ell}$-invariant function, i.e. $\phi(x) = \phi(g x)$ for all $ x : D(p)$ and each $g : \mu_\ell$.
-%	\item The function $\phi|_{D(p) \setminus 0} : D(p) \setminus \{0\} \to R$ is an $\mu_{\ell}$-invariant function
-%%	\item[1']  There exists $f : R[X], n : \bN$ such that $\phi= f/ p^n$ and $f (g.p)^n (x) = (g.f) p^n (x)$ for each $x : R , g : \mu_\ell$.
-%%	\item[2'] The same as 3. but only for $x : D(p) \setminus\{0\}$
-%\end{enumerate}
-%\end{lemma}
-%\begin{proof}
-%	 we can apply  \ref{lemma:AlmostEverywhere}, observing $\phi - g.\phi = 0$ on $D(X / 1) \subset \Spec R[X]_p$, where $X/1 : R[X]_p$ is regular, because $X$ is regular in $R[X]$. %$: 
-%\end{proof}
-\begin{prop}
-	Let $G$ be a formally \etale flat affine group, such that $\lnot \lnot$ its finite with cardinality invertible in $R$. Let it act on an affine scheme $\Spec A$ with a fixpoint 0, such that the group action is free away from 0.
-	Let $p : A^G$. Define $R: D(p)^2 \to \Prop$ as
-	\[
-	R(x,y) = (x = y) + (x \neq 0) \times \sum_{g : G \setminus \{1\}} g x = y
-	\]
-	Then the sheaf quotient $D(p) / G$ is an algebraic space.
-\end{prop}
-\begin{proof}
-%	Define
-%	\[
-%	E(x,y) = (x = y) + (x \neq 0 \land \sum_{g : \mu_\ell \setminus \{1\}} gx = y)
-%	\]
-	This is a proposition: First note, that both summands are propositions because $G$ acts freely on $\bA^1 \setminus \{0\}$. If both summands are inhabited we get a contradiction, as $x = y$ and $gx = y$ implies $(g-1) x = y - x = 0$, but as $g-1$ is invertible $x = 0$. \\
-	The relation is covering: 
-	The propositions are affines, thus sheaves. Furthermore, for any $y : D(p)$ we have
-	\[
-	\sum_{x : D(p)}  (x = y) + (x \neq 0 \times \sum_{g : G \setminus \{1\}} gx = y) = 1 + (y \neq 0 \times G \setminus \{1\}) \in \bT
-	\]
-	as $G \setminus \{1\} = \sum_{g : G} g \neq 1$ is a $\sum$ of formally \etale + flat affines (recall that formally \etale affines have decidable equality).
-	
-\end{proof}
-%\begin{prop}
-%	Let $p : R[X]^{\mu_\ell}$ with $0 \in D(p)$ % be such that $0 \in D(p)$ and $x \in D(p)$ implies $gx \in D(p)$ for all $g : \mu_\ell$.
-%	The sheaf-quotient of $D(p)$ by the relation which identifies $x$ and $gx$ when $x \neq 0, g : \mu_\ell \setminus \{1\}$ is not an affine scheme.
-%\end{prop}
-%\begin{proof}
-%
-%\end{proof}
-\begin{lemma}
-	Let $G$ be a finite group whose cardinality is invertible in $R$. Let $G$ act on an affine scheme equipped with a fixpoint $0$. Let $V$ be an invariant open neighborhood of 0. Then we find an invariant principal open neigbhorhood contained in $V$. Invariant means here that $g(U) = U$ for all $g : G$.%Let $A$ be a finitely presented algebra and $0 \in \Spec A$ a basepoint. 
-\end{lemma}
-\begin{proof}
-	Let $U$ be an invariant open neighborhood. Choose a principal open neighborhood $0 \in D(p) \subset U$. $G$ acts on $R[X]$, via $(g.p)(x) = p(g x)$.Then 
-	\[p' = \sum_{g : G} g . p : R[X]\]
-	is a $G$-invariant polynomial, in particular $D(p)$ is $G$-invariant. Moreover $0 \in D(p')$ as
-	\[
-	p'(0) = \sum_{g : G} p(g(0)) = \sum_{g : G} p (0) = |G| \cdot p(0) 
-	\]
-	is invertible, as $|G|$ and $p(0)$ are both invertible. Furthermore, as $U$ was $G$ invariant and contained $D(p)$ it also has to contain $D(p')$.
-\end{proof}
-%\begin{prop}
-%	Let $X$ be an algebraic space. Let $R : X^2 \to \Prop$ be a covering equivalence relation, such that $\sum_{x ,y :X} R(x,y) \to X^2$ is not a closed embedding.Then the sheaf quotient $X / R $ is not a scheme.
-%\end{prop}
-%\begin{proof}
-%	Affine schemes are seperated.
-%\end{proof}
-\begin{lemma}
-	Let $(\Spec B, 0)$ be a pointed affine scheme such that $R^{\Spec B} \to R^{\Spec B \setminus \{0\}}$ is injective. %that admits some regular $p : B$ with $p(0) = 0$ %, i.e. $\lnot \prod_x \lnot \lnot x = 0$. 
-	Then the infinitesimal neigbhorhood of $0$ is not an open subtype.
-\end{lemma}
-\begin{proof}
-	If it would, it would be principal open $D(g)$, as 0 admits a principal open neigbhorhood, which however already cotains the whole infinitesimal one. \\
-	Then for any $x \neq 0$, we have $\lnot \lnot g(x) = 0$. As $\Spec B \setminus \{0\}$ is a scheme, it admits a boundedness principle, thus we find some $n$, such that $g^n (x) = 0$ for all $x \neq 0$. \\ %, in particular for all $x : D(p)$. By \ref{lemma:AlmostEverywhere} applied to the givenregular $p$,  
-	By assumption we deduce $g^n =0$, hence $D(g) = D(g^n) = \varnothing$ contradiction.
-%	 Let $I$ correspond to the closed subtype $\{0\} \subset \Spec B$.
-%	 Let us show that $\sum_{x:\Spec B} \lnot \lnot x =0$ is not affine. We have by topology \todocite
-%	\[
-%	\left(\sum_{x:\Spec B} \lnot \lnot x =0 \right)= \bigcup_n \Spec B / I^n 
-%	\]
-%	the global sections of the right hand side are 
-%	\[
-%	\bigcap_n B /  I^n = B 
-%	\]
-%	but $\Spec B$ is not an infinitesimal variety.
-\end{proof}
-\begin{prop}
-%	Let $0 : \Spec A$.
-%	Let $Q : \Spec A \to \Prop$ be a predicate such that for all $p : A$, $0 \in D(p)$
-%	\[\lnot \prod_{\substack{x : D(p)}} Q x.\]
-%	Let $R$ be a covering equivalence relation on $\Spec A$ such that for all $x , y : \Spec A$
-%	\[
-%	R(x,y) \text { closed proposition} \to Q x
-%	\]
-	Let $G$ be a formally \etale + flat affine non-trivial group, such that $\lnot \lnot$ its finite, with cardinality invertible in $R$. 
-	Let it act on an affine scheme $\Spec A$ with a fixpoint 0, such that  $R^{\Spec A} \to R^{\Spec A \setminus \{0\}}$ is injective and such that the group action is free away from 0. \\
-Define $R: (\Spec A)^2\to \Prop$ as
-\[
-R_G(x,y) = (x = y) + (x \neq 0) \times \sum_{g : G \setminus \{1\}} g x = y
-\]
-	Then $(\Spec A) / R$ is an algebraic space that is not a scheme.
-\end{prop}
-\begin{proof}
-	It is an algebraic space by putting $p \equiv 1 : R[X]$ in the previous prop. \\
-	Assume the quotient is a scheme. 
-	The preimage along the quotient map obtained from the relation induces a open neigbhorhood $V$ of $0$ in $\bA^1$. As we want to prove a contradiction we may assume that $\mu_\ell$ consists of $\ell$ many elements, where $\ell \neq 0 $ in $R$. We apply the previous lemma to $V$ to obtain an invariant principal open neigborhood $0 \in D(p) \subset V \subset \bA^1$. As its invariant, $p : \bA^1 \to R$ descends to $X \to R$. Restricting to $V$ yields a map $p' : V \to R$, such that setting $U \equiv D(p')$ yields such that $q^{-1}(V) =q^{-1}(D(p')) = D(p)$ . We are now in the following situation
-	% https://q.uiver.app/#q=WzAsNCxbMCwwLCJEKHApIl0sWzEsMCwiXFxiQcK5Il0sWzEsMSwiWCJdLFswLDEsIlUiXSxbMCwxLCIiLDAseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJob29rIiwic2lkZSI6InRvcCJ9fX1dLFswLDNdLFszLDIsIiIsMix7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Imhvb2siLCJzaWRlIjoidG9wIn19fV0sWzEsMl0sWzAsMiwiIiwxLHsic3R5bGUiOnsibmFtZSI6ImNvcm5lci1pbnZlcnNlIn19XV0=
-	\[\begin{tikzcd}
-		{D(p)} & {\bA^1} \\
-		U & X
-		\arrow[hook, from=1-1, to=1-2]
-		\arrow[from=1-1, to=2-1]
-		\arrow["\ulcorner"{anchor=center, pos=0.125}, draw=none, from=1-1, to=2-2]
-		\arrow[from=1-2, to=2-2]
-		\arrow[hook, from=2-1, to=2-2]
-	\end{tikzcd}\]
-	where $U$ is an open affine neighborhood of 0. \\
-	Then we have $D(p) / \sim' \simeq U$ with restricted equivalence relation. \\
-	Let us show that $D(p) / G = U$ is not seperated ( because then it cannot be affine). Assume that for each $x , y : D(p)$, $R(x,y)$ is a closed proposition. As we want to prove a contradiction, we may assume $g : G \setminus \{1\}$, using that $G$ is non trivial.
-	is a closed embedding. Then 
-	\[
-	x\neq 0 \times \{g\} \hookrightarrow x \neq 0 \times \sum_{g \neq 1} g x = g x \hookrightarrow  R(x,gx) 
-	\]
-	is a composition of closed embeddings using that $G \setminus \{1\}$ is seperated, hence $x \neq 0$ is a closed proposition. Thus $\sum_{x: D(p)} \lnot \lnot x = 0$ is an open subtype of $D(p)$, thus of $\Spec A$ .\\
-	Alternative approach: Through decidable subtypes.
-%	But its also an open proposition, hence decidable. 
-%	thus affine. Hence the right hand side \[
-%	\sum_{x: D(p)} \lnot \lnot x = 0  = \sum_{x : \Spec A} \lnot \lnot x = 0\]
-	 %is affine. 
-	 Contradiction to the previous lemma. %, as $\Spec A$ is non-infinitesimal.
-\end{proof}
-\begin{example}[Not separated examples]
-	Assume $\ell \neq 0$. Let $\mu_\ell$ act on $\Spec B$ in one of the following ways:
-	\begin{enumerate}
-		\item Let $\mu_\ell$ act on $\Spec B = \bA^1$. 
-		\item Put $\ell= 2$. Let $\mu_2$ act on
-		\[
-		\Spec B \equiv \sum_{x , y : R} x y = 0
-		\]
-		via the swap.
-	\end{enumerate}
-	Then $\Spec B / R_{\mu_\ell}$ is an algebraic space that is not a scheme.
-\end{example}
-\begin{proof}
-	\begin{enumerate}
-		\item Free away from the origin. By \ref{lemma:AlmostEverywhere} %The infinitesimal neighborhood of 0 is not affine.
-		\item  Again free away from the origin. Write $\Spec B = V(X) \cup V(Y)$, both components admit the property \ref{lemma:AlmostEverywhere}.
-%		Moreover if $z : \bA^2$ is $\lnot \lnot z =0$, then $z \in \Spec B$.
-	\end{enumerate}
-\end{proof}
-\subsection{Outdated}
-\begin{prop}[Not needed]
-	Let $\ell \neq 0$ be prime. Let $\mu_\ell$ act on $\Spec B$ . Let $V$ be an infinitesimal neigborhood of $0$, i.e. a subtype   $0 \in V \subset \Spec B$ such that $\lnot \lnot x =0$ for every $x : V$. Assume
-	\begin{enumerate}
-		\item[Strong freeness]  We find some $0 \in V' \subsetneq V$ for any $\varepsilon : \Spec B, g\neq 1$, $g \varepsilon = \varepsilon$ implies $\varepsilon \in V'$
-
-	\item[checking away from 0] For any $p : B$ and any $\phi: R^{D(p)} $ such that $\phi|_{D(p) \setminus\{0\}} = 0$, we have that $\phi|_V = 0$.
-		\end{enumerate} 
-	The sheaf quotient of $\Spec B$ by the relation as above is an algebraic space but not an affine scheme.
-\end{prop}
-\begin{proof}
-	First note, that strong freeness implies that $\mu_\ell$ acts free away from zero: Indeed TODO. let $x \neq 0$
-	Let $p : B$ be as above. We have to show that the quotient of $D(p)$ is not affine. \\
-	The conditions on $p$ give $p(0) \neq 0$ and $p(x) \neq 0 \to p(gx) \neq 0$ for all $g : \mu_\ell$.
-	
-	Lets call this quotient $X$.
-	
-	Define 
-	\[
-	A = \{\phi : R^{D(p)} \ | \ \phi|_{D(p) \setminus \{0\}} \text{  is $\mu_{\ell}$-invariant }\}
-	\]
-	This is an $R$-subalgebra: for any $r : R$, $r : B_p$ is $\mu_{\ell}$-invariant. $\mu_{\ell}$-invariant functions are stable under addition and multiplication . \\
-	
-	Claim: The affinization map of $X$ is the induced dashed map $f : X \to \Spec A$ in
-	
-	% https://q.uiver.app/#q=WzAsNCxbMCwwLCJEKHApIl0sWzEsMCwiXFxTcGVjIFJbWF1fcCJdLFswLDEsIlgiXSxbMSwxLCJcXFNwZWMgQSJdLFswLDIsInEiXSxbMiwzLCJcXGV4aXN0ISBmIiwwLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzEsM10sWzAsMSwiIiwyLHsibGV2ZWwiOjIsInN0eWxlIjp7ImhlYWQiOnsibmFtZSI6Im5vbmUifX19XV0=
-	\[\begin{tikzcd}
-		{D(p)} & {\Spec R^{D(p)}} \\
-		X & {\Spec A}
-		\arrow[Rightarrow, no head, from=1-1, to=1-2]
-		\arrow["q", from=1-1, to=2-1]
-		\arrow["q'",from=1-2, to=2-2]
-		\arrow["{\exists! f}", dashed, from=2-1, to=2-2]
-	\end{tikzcd}\]
-	Proof: A function $\phi : D(p) \to R$ factors through $q$ iff $\phi|_{D(p) \setminus\{0\}}$ is $\mu_{\ell}$-invariant. Thus the embedding (using that $R$ is a sheaf) $R^X \hookrightarrow R^{D(p)}$ has image $A$ $\qed$(Claim). 	\\ \\ %respective $\phi : R[X]_p$ satisfies $	\phi (x) = \phi(-x)  $, i.e. (1) if $\phi$ is $\mu_{\ell}$-invariant. 
-	Proof that $X$ is not an affine:	Assume that $X$ were affine. Then the map $f$ would be in particular an embedding. 
-	We may assume a term $g : \mu_\ell \setminus \{1\}$: Indeed, as we want to prove a contradiction we may assume a term in $g : \Spec R[X] / (\sum_{i=0}^{\ell-1} X^i)$. But this type is equivalent to $\mu_\ell \setminus \{1\}$, using that $\sum_{i=0}^{\ell-1} X^i | X^\ell -1 $ and $\ell \neq 0$. \\
-	 %$\cN_{\lnot \lnot}(0) = \{x : \bA^1 \ | \ \lnot \lnot x = 0\}$ be be a non-contractible subtype that is $\lnot \lnot$-connected. 
-	The given infinitesimal neigbhorhood $V$ satisfies $ V \subset D(p)$ , using that invertibility is $\lnot \lnot$ stable.
-	Then for any $\varepsilon : V$ we have
-	\begin{align*}
-		(q\varepsilon =_X q (g \varepsilon)) \overset{\ref{quotient-by-equivalence-relation}}{=} (\varepsilon = g\varepsilon) + (\varepsilon \neq 0 \land \sum_{h \neq 1} \varepsilon = h g \varepsilon) = (\varepsilon = g\varepsilon) = (\varepsilon \in V')
-	\end{align*}
-	where the last step comes from strong freeness.
-	But we have 
-	\[(q' \varepsilon =_{\Spec A} q' (g \varepsilon)) = \left (\prod_{\phi : A} \phi(q' \varepsilon) = \phi(q' (g \varepsilon)) \right)= \prod_{\substack{\phi : R^{D(p)} \\ \phi \in A}} \phi (\varepsilon) = \phi(g \varepsilon),\] 
-	%as for any $\phi : A$ we have $\phi(\varepsilon) = \phi(g \varepsilon)$ 
-	The right hand side is inhabited: For any $\phi: D(p) \to R$ such that $\psi := \phi - g . \phi$ satisfies $\psi|_{D(p) \setminus \{0\}} =0$  we have $\psi|_V =0$ by 'checking away from 0', inparticular $\psi(\varepsilon) =0$ . 	So we conclude the the embedding $V' \hookrightarrow V$ is an equivalence.  But we asked $V' \subsetneq V$ to be a proper subset.% I claim that the right hand side is inhabited:
-
-\end{proof}
-
-\begin{example}
-	Let $\mu_\ell$ act on $\Spec B = \bA^1$.
-\end{example}
-\begin{proof}
-	\begin{enumerate}
-		\item Put $ V:\equiv\Spec R[X] / X^n$ for some $n >1$.
-		\item As $(g-1)$ is invertible, $ ((g-1)\varepsilon = 0) $  gives us $\varepsilon \in \{0\} \equiv V' \subsetneq V$. Note that indeed $V$ is non contractible, because $R[X] / X^n \to R[X] / X$ is not an algebra isomorphism
-		\item 	We have to show, that then $\phi$ is $\mu_{\ell}$ invariant. We can apply  \ref{lemma:AlmostEverywhere}, observing $\phi - g.\phi = 0$ on $D(X / 1) \subset \Spec B_p$, where $X/1 : B_p$ is regular, because $X$ is regular in $B$. TODO as each $\phi$ satisfies the cond. \qed(Claim)\\
-	
-	\end{enumerate}
-\end{proof}
-\begin{example}
-	Assume $2 \neq 0$. Let $\mu_2$ act on
-	\[
-	\Spec B \equiv \sum_{x , y : R} x y = 0
-	\]
-	via the swap. Then $\Spec B / R$ is an algebraic space that is not a scheme.
-%	sheaf-quotiented by the relation that identifies $(x,0)$ and $(0,x)$ if $x \neq 0$ is an algebraic space.
-\end{example}
-\begin{proof}
-	\begin{enumerate}
-		\item Put $V = \Spec R[X] / X^k \subset \Spec B$, $k > 2$.
-		\item If $(x,y) = (y,x)$ but $x y = 0$ we get $x \in V' \equiv \Spec R[X] / X^2$.
-		\item Let $\phi: D(p) \to R$ be 0 everywhere except near the origin. Then we get a restricted map $\phi' : D(p') \to R$ where $D(p') \subset V(X)$ is given by the intersection $D(p) \cap V(X) $ . Indeed : Put $p' : R[X]$ the image of $p : R[X,Y] / (XY)$ und the map induced by evaluating $Y$ at 0. \\
-		Here we can apply \ref{lemma:AlmostEverywhere}, getting that $\phi'$ is 0 everywhere in particular in $V \subset V(X)$.
-	\end{enumerate}
-%	The equivalence relation is given by
-%	\[
-%	E((x,y) , (x',y')) = (x = x' \land y = y') + (x \neq 0 \land x = y' \land x' = 0)
-%	\]
-%	as $x \neq 0$ implies $y = 0$ as $x y =0$. This is a covering relation, as for any $x' y' = 0$ we have
-%	\[
-%	\sum_{x,y : R} x y = 0 \land E((x,y) , (x' , y')) = 1 + (y' \neq 0) \in \Zar \subset \bT
-%	\]		
-\end{proof}
-\begin{lemma}
-	Given a map $P : \Susp(Q) \to \Prop$, such that $P(N)$ and $P(S)$ hold, then $\prod_{t: \Susp(Q)} P(t)$
-\end{lemma}
-\begin{example}
-	Let $L = \sum_{x : \bA^1} \Susp(x \neq 0)$ be the line with two origins. By the evident $\mu_2$ action on any suspension we obtain a $\mu_2$ action on $X$, such that the first projection $L \to \bA^1$ is $\mu_2$-invariant. Then the map $L / \mu_2 \to \bA^1$ is an equivalence
-\end{example}
-\begin{proof}
-	By $\sum$-stability of algebraic spaces we may show, that the fiber of $L / \mu_2 \to \bA^1$ over $x : \bA^1$ is contractible. The fiber is $\Susp(x \neq 0) / \mu_2$ as 
-	\[
-	X / \mu_2 = \sum_{x : \bA^1} \Susp(x \neq 0)/\mu_2
-	\]
-	 But for $X$ a proposition the sheaf quotient $\Susp(X) / \mu_2$ is contractible.	
-\end{proof}
-
-\begin{example}[TODO]
-	Let $L = \sum_{x : \bA^1} \Susp(x \neq 0)$ be the line with two origins. By the evident $\mu_2$ action on any suspension we obtain a $\mu_2$ action on $X$, such that the first projection $L \to \bA^1$ is $\mu_2$-invariant. Then the homotopy quotient $L // \mu_2$ is an algebraic space.	
-\end{example}
-\begin{proof}
-	By $\sum$-stability of algebraic spaces we may show, that the fiber $\Susp(x \neq 0) // \mu_2$ of $L //´ \mu_2 \to \bA^1$ over $x : \bA^1$ is an algebraic space. As $\Susp(x \neq 0)$ is a scheme \todocite, it is an algebraic space, so it remains to show, that the equivalence relation is covering. \\
-	Let us show that all the homotopy orbits of the $\mu_2$-action of some $s : \Susp(x \neq 0)$ are covering. Since this is a proposition depedent on $s : \Susp(x \neq 0)$,by the previous lemma we only have to consider orbits of points $N : \Susp(x\neq0)$ and $S : \Susp(x \neq 0)$ . Lets stick to $N$. The homotopy orbit is equivalent to 
-	\[
-	\sum_{t : \Susp(x \neq 0)}  (t = N) + (t = S) % \simeq \mathrm{im}(2 \overset{(N,S)}{\to} \Susp(x \neq 0)) = \Susp(x \neq 0)
-	\]
-	As $\Susp(x \neq 0)$ is a covering algebraic space, by $\sum$-stability we may show, that for any $t$, $(t = N) + (t = S)$ is covering. Again by the lemma, we may check this for $t \equiv N$ and $t \equiv S$. In either case the type is equivalent to $1 + x \neq 0 \in \Zar \subset \bT$. So we can conclude.
-\end{proof}
-
-
 \section{Group quotients}
 For this section let $G$ denote a group that is a covering 0-stack. Let $X$ be a sheaf equipped with a $G$ action.
 \begin{lemma}
-	 $\mu_p = \Spec R[X] / (X^p - 1)$ is covering for $p \neq 0$ prime.
+	$\mu_p = \Spec R[X] / (X^p - 1)$ is covering for $p \neq 0$ prime.
 \end{lemma}
 \begin{proof}
 	It is fppf + \etale as $X^p - 1$ is monic seperable. TODO
@@ -483,3 +172,448 @@ For this section let $G$ denote a group that is a covering 0-stack. Let $X$ be a
 %	is a geometric cover. But the fibers look like $\sum_{g : G} gx  = y$ which is a finite sum of identity types in $X$, which were assumed to be covering stacks. By \ref{lemma:geomStackPlusStable} the fibers are covering stacks.
 %	
 %\end{proof}
+
+\section{Examples}
+The goal of this subsection is to construct algebraic spaces. The first example actually gives us a scheme:
+\begin{example}
+	Let $p \neq 0$ be a prime. You can let $\mu_p := \Spec(R[X] / (X^p - 1))$ act on $\bA^\times$ via multiplication. Set $\bT= fppf$. Then the $p$.th power map
+	
+	\[
+	pow : \| \bA^\times // \mu_p \|_0^\bT \to \bA^\times
+	\]
+	is an equivalence.
+	\begin{itemize}
+		\item 	 It is an embedding: 
+		First note, that $\|\bA^\times // \mu_p \|_0$ is $\bT$-seperated:
+		
+		as $\mu_p$ act freely on $\bA^\times$, $\bA^\times // \mu_p$ is already a set. Meaning that the identity types of the set-quotient are $\sum_{g: \mu_p} g x =_{\bA^\times} y$ , hence sheaves. \\
+		On the other hand the map $\|\bA^\times // \mu_p \|_0 \to \bA^\times$ is an embedding, as for any $x , y : \bA^\times$ the map $(\sum_{g : \mu_p} g x = y) \to (x^p = y^p)$ is an equivalence. 
+		\item 	It is $\bT$-surjective, as for any $\lambda : \bA^\times$, we find $S = \Spec R [X] / (X^p - \lambda) \in \bT$ with 
+		\[
+		S \to \fib_{\bA^\times / \mu_p \to \bA^\times}(\lambda)
+		\]
+		hence 
+		\[
+		1 = \|S\|_\bT \to \|\fib_{pow}\|_0^\bT
+		\]
+	\end{itemize}
+	
+	
+\end{example}
+\begin{example}
+	Let $P$ be the open proposition $x \neq 0$ for some $x : \bA^1$. Then $H = 1 + P$ is an open subgroup of $\bZ/2$. The sheaf quotient $G / H$ is the scheme $\Susp(x \neq 0)$.
+\end{example}
+\begin{lemma}{\label{lemma:CompOf1}}
+	Let $(G,1)$ be a pointed formally \etale flat affine type. Then $(G \setminus \{1\})$ is formally \etale + flat affine. \\
+	In particular $\mu_\ell \setminus\{1\}$ is a covering stack.
+\end{lemma}
+\begin{proof}
+	$G \setminus \{1\} = \sum_{g : G} g \neq 1$ is a $\sum$ of formally \etale + flat affines (recall that formally \etale affines have decidable equality). \\
+	To show, that $\mu_\ell \setminus \{1\}$ is a covering stack, by \ref{lemma:covOfEF}, we need to show it is $\lnot \lnot$-inhabited. Indeed as we want to prove a contradiction we may assume a term in $g : \Spec R[X] / (\sum_{i=0}^{\ell-1} X^i)$. But this type is equivalent to $\mu_\ell \setminus \{1\}$, using that $\sum_{i=0}^{\ell-1} X^i | X^\ell -1 $ and $\ell \neq 0$. \\
+\end{proof}
+\begin{question}
+		The sheaf quotient of $\bA^1$ by the $\mu_\ell$ action is not an algebraic space?
+\end{question}
+\begin{proof}
+		Assume this it is an algebraic space. Let $q : \bA^1 \to \bA^1 / \mu_\ell$ the projection map.  TODO
+\end{proof}
+\begin{example}[Non-example]
+	The map $q : \bA^1 \to \bA^1 / \mu_\ell$ is not a geometric cover.
+\end{example}
+\begin{proof}
+Let $\lnot \lnot \varepsilon = 0$. Observe that we have a map
+	\begin{align*}
+		f_\varepsilon : \mu_\ell &\to \fib_q \varepsilon \\
+		g &\mapsto g \varepsilon 
+	\end{align*}
+	Now $\fib_f \varepsilon$ is an \etale-flat geometric stack. \\
+	Then, 	As $\mu_\ell$ has decidable equality,
+	\begin{align*}
+		\fib_f(\varepsilon) &= \left (\sum_{g : \mu_\ell} g \varepsilon = \varepsilon \right) \\
+		&=  (\varepsilon = \varepsilon) + \sum_{g : \mu_\ell \setminus \{1\}} (g-1) \varepsilon = 0 \\ &= 1 + \mu_\ell \setminus \{1\} \times (\varepsilon = 0) 
+	\end{align*}
+	Thus $(\varepsilon = 0) \times (\mu_\ell \setminus \{1\})$ is an \etale-flat geometric stack. Moreover $(\mu_\ell \setminus \{1\})$ is a covering stack by \ref{lemma:CompOf1}. Thus $\varepsilon = 0$ is an affine \etale-flat geometric stack, thus formally \etale + flat affine by saturatedness of the \etale topology \ref{cor:EtaleSat}. So as a formally \etale + closed dense proposition, $\varepsilon = 0$ holds for all $\varepsilon$ nilpotent. Contradiction to algebra.
+\end{proof}
+
+\subsection{Non locally-seperated Examples}
+
+%\begin{proof}
+%	%Subgroups always act free, and $\bZ/2$ is an algebraic space, thus by \ref{lemma:algSpacesStabFreeQuots} the sheaf quotient $G / H$ is an algebraic space. \\
+%	%We can calculate it: I Claim that
+%\end{proof}
+\begin{lemma}{\label{lemma:AlmostEverywhere}}
+	Let $p : A$ be reguar. If $f : \Spec A \to R$ such that $f(x) = 0$ for all $x \in D(p)$, then $f(x) = 0$ for all $x : \Spec A$.
+\end{lemma}
+\begin{proof}
+	$f$ is in the kernel of the diagonal map
+% https://q.uiver.app/#q=WzAsNCxbMSwwLCJSXlIiXSxbMSwxLCJSXntSIFxcc2V0bWludXMgXFx7MFxcfX0iXSxbMCwwLCJSW1hdIl0sWzAsMSwiUltYXntcXHBtIDF9XSJdLFswLDFdLFsyLDMsIiIsMCx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Imhvb2siLCJzaWRlIjoidG9wIn19fV0sWzAsMiwiIiwxLHsibGV2ZWwiOjIsInN0eWxlIjp7ImhlYWQiOnsibmFtZSI6Im5vbmUifX19XSxbMSwzLCIiLDEseyJsZXZlbCI6Miwic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoibm9uZSJ9fX1dXQ==
+\[\begin{tikzcd}
+	{A} & {R^{\Spec A}} \\
+	{A_p} & {R^{D(p)}}
+	\arrow[hook, from=1-1, to=2-1]
+	\arrow[Rightarrow, no head, from=1-2, to=1-1]
+	\arrow[from=1-2, to=2-2]
+	\arrow[Rightarrow, no head, from=2-2, to=2-1]
+\end{tikzcd}\]
+	which is injective, as $p$ is regular in $A$. \\
+	Thus $f = 0$ in $A$.
+%	 Thus $f = 0 $ in $(R \setminus \{0\} \to R) = R[X^{\pm 1}]$ hence $f \cdot X^n = 0$ in $R[X]$ for some $n$, thus $f = 0$.
+\end{proof}
+\begin{question}
+	What has this todo with separatedness?
+\end{question}
+Let $\ell \neq 0$ denote a prime. Consider $\mu_\ell = R[X] / (X^\ell - 1)$.
+%\[\mu_\ell'  = \Spec R[X] / (X^{p-1} + \hdots + 1) = \mu_\ell \setminus\{1\}\]
+
+%\begin{lemma}
+%	Let $0 \in D(p)$. For a function $\phi : D(p) \to R$ TFAE % We say some $\phi: R[X]_p$ is $\ell$-even if one of the following equivalent conditions is satisfied:
+%	\begin{enumerate}
+%
+%	\item The function $\phi : D(p) \to R$ is a $\mu_{\ell}$-invariant function, i.e. $\phi(x) = \phi(g x)$ for all $ x : D(p)$ and each $g : \mu_\ell$.
+%	\item The function $\phi|_{D(p) \setminus 0} : D(p) \setminus \{0\} \to R$ is an $\mu_{\ell}$-invariant function
+%%	\item[1']  There exists $f : R[X], n : \bN$ such that $\phi= f/ p^n$ and $f (g.p)^n (x) = (g.f) p^n (x)$ for each $x : R , g : \mu_\ell$.
+%%	\item[2'] The same as 3. but only for $x : D(p) \setminus\{0\}$
+%\end{enumerate}
+%\end{lemma}
+%\begin{proof}
+%	 we can apply  \ref{lemma:AlmostEverywhere}, observing $\phi - g.\phi = 0$ on $D(X / 1) \subset \Spec R[X]_p$, where $X/1 : R[X]_p$ is regular, because $X$ is regular in $R[X]$. %$: 
+%\end{proof}
+\begin{prop}
+	Let $G$ be a formally \etale flat affine group. Let it act on an algebraic space $S$, such that the group action is free away from some $0 : S$. Define a relation on $S$ as
+	%Let $p : A^G$. Define $R: D(p)^2 \to \Prop$ as
+	\[
+	R(x,y) = (x = y) + (x \neq 0) \times \sum_{g : G \setminus \{1\}} g x = y
+	\]
+	Then the sheaf quotient $S / G$ is an algebraic space.
+\end{prop}
+\begin{proof}
+%	Define
+%	\[
+%	E(x,y) = (x = y) + (x \neq 0 \land \sum_{g : \mu_\ell \setminus \{1\}} gx = y)
+%	\]
+	This is a proposition: First note, that both summands are propositions because $G$ acts freely on $S \setminus \{0\}$. If both summands are inhabited we get a contradiction, as $x = y$ and $gx = y$ implies $(g-1) x = y - x = 0$, but as $g-1$ is invertible $x = 0$. \\
+	The relation is covering: 
+	The propositions are affines, thus sheaves. Furthermore, for any $y : S$ we have
+	\[
+	\sum_{x : S}  (x = y) + (x \neq 0 \times \sum_{g : G \setminus \{1\}} gx = y) = 1 + (y \neq 0 \times G \setminus \{1\}) \in \bT
+	\]
+	using \ref{lemma:CompOf1}.
+	
+\end{proof}
+%\begin{prop}
+%	Let $p : R[X]^{\mu_\ell}$ with $0 \in D(p)$ % be such that $0 \in D(p)$ and $x \in D(p)$ implies $gx \in D(p)$ for all $g : \mu_\ell$.
+%	The sheaf-quotient of $D(p)$ by the relation which identifies $x$ and $gx$ when $x \neq 0, g : \mu_\ell \setminus \{1\}$ is not an affine scheme.
+%\end{prop}
+%\begin{proof}
+%
+%\end{proof}
+
+%\begin{prop}
+%	Let $X$ be an algebraic space. Let $R : X^2 \to \Prop$ be a covering equivalence relation, such that $\sum_{x ,y :X} R(x,y) \to X^2$ is not a closed embedding.Then the sheaf quotient $X / R $ is not a scheme.
+%\end{prop}
+%\begin{proof}
+%	Affine schemes are seperated.
+%\end{proof}
+
+%\begin{lemma}
+%	Let $X$ be an algebraic spac presented by $U  / R$ with $R$ valued in locally closed props.
+%	Then we find some formally unramified map of algebraic spaces $U' \to X \to Y$ with $U' \to Y$ seperated.
+%\end{lemma}
+\begin{lemma}
+	Let $Y$ be affine.
+	Let $X \hookrightarrow Y$ be a map fibered in locally closed propositions. Then its factors as the composite of a closed and then an open embedding
+\end{lemma}
+\begin{proof}
+	By zariski local choice we find $Y = \bigcup Y_i$ and factorizations of the basechanges $X_i \to Z_i \to Y_i$. Then $\bigcup X_i \to \bigcup Z_i \to \bigcup Y_i = Y$ is a global factorization.
+\end{proof}
+\begin{lemma}[Not needed]
+	For an algebraic space $X$, we have implications $1 \Rightarrow 2 \Rightarrow 3$
+	\begin{enumerate}
+
+		\item $X$ admits an seperated open cover.
+		\item For any covering equivalence relation $R : U^2 \to \Prop$ on an affine $U$ such that $ X = U / R$, $F$ is valued in locally closed propositions
+		\item We find such a presentation  such that $R$ is valued in locally closed propositions.
+	\end{enumerate}
+\end{lemma}
+\begin{proof}
+	\begin{enumerate}
+		\item [1 $\Rightarrow$ 2]
+		Let $X' \to X$ be a map fibered in merely inhabited finite sums of open propositions with $X'$ a seperated algebraic space. Then any geometric atlas $U \to X'$ will be fibered in closed subtypes of $U$. We need to show, that the fibers of $U \to X' \to X$ are locally closed subtypes of $U$. Let $x : X$. the fiber in $X'$ is of the form $U_1 + \hdots + U_n$. Thus the fiber in $U$ is a finite sums of $\sum$ of $U_i \to (U \to \mathsf{ClosedProp})$, which is enough.
+		\item [3 $\Rightarrow$ 1] Let $x : X$. 
+		
+	\end{enumerate}
+\end{proof}
+
+\begin{rmk}
+	The subtype $\{0\} + D(0) \subset \bA^1$ is not locally closed.
+\end{rmk}
+\begin{proof}
+	Let us show this more generally for $(\Spec A , 0)$ with the infinitesimal neigbhorhood of 0 beeing not open. \\
+	Let $U , C \subset \bA^1$ be an open subset and a closed subset respectively. Then, for any $x : U$ , 
+	\[
+	(x = 0) + (x \neq 0) = x \in C
+	\]
+	is a closed proposition. Thus the decidable subtype $x \neq 0$ is a closed proposition. To contradict the assumption, we may convince ourself that the right vertical map
+	% https://q.uiver.app/#q=WzAsNCxbMSwwLCJcdFxcc3VtX3t4IDogXFxTcGVjIEF9IFxcbG5vdCBcXGxub3QgeCA9IDAiXSxbMSwxLCJcXFNwZWMgQSJdLFswLDAsIlxcc3VtX3t4OiBVfSBcXGxub3QgXFxsbm90IHggPSAwIl0sWzAsMSwiVSJdLFsyLDMsIiIsMix7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Imhvb2siLCJzaWRlIjoidG9wIn19fV0sWzIsMCwiXFxzaW0iLDJdLFswLDFdLFszLDEsIiIsMSx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Imhvb2siLCJzaWRlIjoidG9wIn19fV1d
+	\[\begin{tikzcd}
+		{\sum_{x: U} \lnot \lnot x = 0} & {	\sum_{x : \Spec A} \lnot \lnot x = 0} \\
+		U & {\Spec A}
+		\arrow["\sim"', from=1-1, to=1-2]
+		\arrow[hook, from=1-1, to=2-1]
+		\arrow[from=1-2, to=2-2]
+		\arrow[hook, from=2-1, to=2-2]
+	\end{tikzcd}\]
+	 is an open embedding
+	
+	where the upper horizontal map is indeed an equivalence as for any $x : \Spec A$ , $x \in U'$ is $\lnot \lnot$-stable. 
+\end{proof}
+\begin{lemma}{\label{lemma:StrongFree}}
+	Let $G$ be a group with decidable equality.
+	A strongly free action of $G$ on a pointed type $(X,0)$ is a $G$-action with fixpoint 0, such tha, if $g \varepsilon = \varepsilon$ for some $g \neq 1$, then $\varepsilon = 0$. \\
+ 	In this case $G$ acts free away from zero.
+\end{lemma}
+\begin{proof}
+	let $x , y\neq 0$. We need to show, that $\sum_g g x = y$ is a proposition. Let $g, g' : G$ such that $g x = y$. as $G$ has decidable equality, we may show $\lnot \lnot (g = g')$. If $g^{-1} g' \neq 1$, then by strong freeness applied to $g^{-1} g' x = x$, we have $x = 0$. Contradiction.
+\end{proof}
+\begin{prop}
+%	Let $0 : \Spec A$.
+%	Let $Q : \Spec A \to \Prop$ be a predicate such that for all $p : A$, $0 \in D(p)$
+%	\[\lnot \prod_{\substack{x : D(p)}} Q x.\]
+%	Let $R$ be a covering equivalence relation on $\Spec A$ such that for all $x , y : \Spec A$
+%	\[
+%	R(x,y) \text { closed proposition} \to Q x
+%	\]
+Let $(\Spec A ,0)$ such that the infinitesimal neigbhorhood is not open. %  $R^{\Spec A} \to R^{\Spec A \setminus \{0\}}$ is injective.
+Let $G$ be $\mu_\ell$ for $\ell \neq 0$ prime (more generally, a formally \etale flat affine non trivial group $G$) strongly freely act on the pointed affine $(\Spec A,0)$.
+Define $R_G: (\Spec A)^2\to \Prop$ as
+\[
+R_G(x,y) = (x = y) + (x \neq 0) \times \sum_{g : G \setminus \{1\}} g x = y
+\]
+	Then $(\Spec A) / R_G$ is a non-locally-seperated algebraic space. In particular $\Spec B / R$ is not a scheme.
+\end{prop}
+\begin{proof}
+	It is an algebraic space by a previous prop. %putting $p \equiv 1 : R[X]$ in the previous prop. \\
+
+	We have that every scheme $X$ is locally-seperated, i.e. its identity types are locally closed. Indeed, this follows from the proof of Foundations Prop 5.5.2 . \\
+ 	Let us show that $R$ is not valued in locally closed propositions.  As we want to prove a contradiction, we may assume $g : G \setminus \{1\}$.
+ 	We have
+ 	\[
+ 	R(x,gx) = (x = gx) + (x \neq 0) \times \sum_{g : \mu_\ell \setminus \{1\}} g x = g x \simeq x = 0 + x \neq 0
+ 	\]
+ 	which is not locally closed by the previous remark.
+	 	 	
+	Another approach: 	 Through decidable subtypes. %, as $\Spec A$ is non-infinitesimal.
+\end{proof}
+\begin{lemma}
+	Let $(\Spec B, 0)$ be a pointed affine scheme such that $R^{\Spec B} \to R^{\Spec B \setminus \{0\}}$ is injective. %that admits some regular $p : B$ with $p(0) = 0$ %, i.e. $\lnot \prod_x \lnot \lnot x = 0$. 
+	Then the infinitesimal neigbhorhood of $0$ is not an open subtype.
+\end{lemma}
+\begin{proof}
+	If it would, it would be principal open $D(g)$, as 0 admits a principal open neigbhorhood, which however already cotains the whole infinitesimal one. \\
+	Then for any $x \neq 0$, we have $\lnot \lnot g(x) = 0$. As $\Spec B \setminus \{0\}$ is a scheme, it admits a boundedness principle, thus we find some $n$, such that $g^n (x) = 0$ for all $x \neq 0$. \\ %, in particular for all $x : D(p)$. By \ref{lemma:AlmostEverywhere} applied to the givenregular $p$,  
+	By assumption we deduce $g^n =0$, hence $D(g) = D(g^n) = \varnothing$ contradiction.
+	%	 Let $I$ correspond to the closed subtype $\{0\} \subset \Spec B$.
+	%	 Let us show that $\sum_{x:\Spec B} \lnot \lnot x =0$ is not affine. We have by topology \todocite
+	%	\[
+	%	\left(\sum_{x:\Spec B} \lnot \lnot x =0 \right)= \bigcup_n \Spec B / I^n 
+	%	\]
+	%	the global sections of the right hand side are 
+	%	\[
+	%	\bigcap_n B /  I^n = B 
+	%	\]
+	%	but $\Spec B$ is not an infinitesimal variety.
+\end{proof}
+\begin{example}[Not separated examples]
+	Assume $\ell \neq 0$ prime. Let $\mu_\ell$ act on $\Spec B$ in one of the following ways:
+	\begin{enumerate}
+		\item Let $\mu_\ell$ act on $\Spec B = \bA^1$. 
+		\item Put $\ell= 2$. Let $\mu_2$ act on
+		\[
+		\Spec B \equiv \sum_{x , y : R} x y = 0
+		\]
+		via the swap.
+	\end{enumerate}
+	Then $\Spec B / R_{\mu_\ell}$ is an algebraic space that is not a scheme.
+\end{example}
+\begin{proof}
+	$\lnot \lnot$ merely, $\mu_\ell$ is finite (\todocite) and $\mu_\ell \setminus \{1\}$ is inhabited by \ref{lemma:CompOf1}. 
+	\begin{enumerate}
+		\item Free away from the origin. non-openness: By previous lemma and \ref{lemma:AlmostEverywhere} %The infinitesimal neighborhood of 0 is not affine.
+		\item  Again free away from the origin. For non-openness we appyl previous lemma. To show the injectivity of $R[X,Y]/XY \equiv B \to R^{\Spec B \setminus \{0\}}$, by \ref{lemma:AlmostEverywhere}, we may just show that the $g :\equiv X - Y : B$ is regular and then $D(g) = \Spec B \setminus \{0\}$. So if $(x,y) \neq 0$ in $\Spec B$ with $g(x,y) = x - y = 0$, we deduce $x^2 = y^2 = 0$, hence $\lnot \lnot (x,y) = (0,0)$. Contradiction.  % , let $f : R[X,Y]$, such that $f(x,y) = 0$ for any $(x,y) \in \Spec B \setminus \{0\}$. Then $f(x,0) = 0 $ for all $x$ by applying  \ref{lemma:AlmostEverywhere} to $V(Y)$. Hence $f$ is in the kernel of the map $R[X,Y] \to R[X]$ that evaluates $Y = 0$, i.e $Y | f$. Analogously $X|f$. Thus $f = 0$ in $B$.   % Write $\Spec B = V(X) \cup V(Y)$, both components admit the property
+%		Moreover if $z : \bA^2$ is $\lnot \lnot z =0$, then $z \in \Spec B$.
+	\end{enumerate}
+\end{proof}
+
+\subsection{Outdated}
+\begin{lemma}[Not needed]
+	Let $char \neq 2$.
+	Let $p : R[X]$ be such that $0 \in D(p)$ and $x \in D(p)$ implies $-x \in D(p)$. 
+	If $f : R[X]$ is a polynomial such that $f(x) = f(-x)$ for all $x : D(p) \setminus \{0\}$, then $f$ is even i.e. in the image of $R[X^2] \hookrightarrow R[X]$.
+\end{lemma}
+\begin{proof}
+	We splitting $f$ into $f_1 + X f_2$ for $f_i : R[X^2] \subset R[X]$. I claim, that $f_2 = 0$ in $R[X]$. realizing that $(X f_2)(x) = (X f_2)(-x)$ implies $2 f_2(x) x  = 0$, thus $f_2(x) x = 0$ for all $x : D(p) \setminus 0 = D(pX)$, thus by the previous lemma $X \cdot f_2 =0$ in $R[X]$, hence $f_2 = 0$. 
+\end{proof}
+\begin{lemma}
+	Let $G$ be a finite group whose cardinality is invertible in $R$. Let $G$ act on an affine scheme equipped with a fixpoint $0$. Let $U$ be an open neighborhood of 0, such that $g(U) = V$ for all $g : G$. Then we find some $G$-invariant $p$ such that $0 \in D(p) \subset V$. %Let $A$ be a finitely presented algebra and $0 \in \Spec A$ a basepoint. 
+\end{lemma}
+\begin{proof}
+%	Let $U$ be an invariant open neighborhood. 
+Choose a principal open neighborhood $0 \in D(p) \subset U$. $G$ acts on $R[X]$, via $(g.p)(x) = p(g x)$.Then 
+	\[p' = \sum_{g : G} g . p : R[X]\]
+	is a $G$-invariant polynomial, in particular $D(p)$ is $G$-invariant. Moreover $0 \in D(p')$ as
+	\[
+	p'(0) = \sum_{g : G} p(g(0)) = \sum_{g : G} p (0) = |G| \cdot p(0) 
+	\]
+	is invertible, as $|G|$ and $p(0)$ are both invertible. Furthermore, as $U$ was $G$ invariant and contained $D(p)$ it also has to contain $D(p')$: Indeed
+	\[
+	D(p') \subset \bigcup_g D(g . p) \subset U
+	\]
+\end{proof}
+\begin{lemma}[Not needed]
+	Let $G$ be a formally \etale + flat affine  group, such that $\lnot \lnot$ its finite, with cardinality invertible in $R$ and $G \setminus \{1\}$ inhabited. 
+	Let it act on an affine scheme $\Spec A$ with a fixpoint 0. Let $R$ be a relation on $\Spec A$ such that
+	\begin{itemize}
+		\item $R(x,y)$ implies that there merely is some $g$ with $y = gx$. 
+		\item $\lnot \lnot R(x,gx)$
+	\end{itemize} Assume that for all $p : A^G$ with $0 \in D(p)$, $D(p) / R$ is not an affine scheme. Then $\Spec A / R$ is not a scheme. \\
+	
+\end{lemma}
+
+\begin{proof}
+	Assume $0$ admits a open affine neibhorhood $U$ in $\Spec A / R$.  The preimage along the quotient map obtained from the relation induces a open neigbhorhood $V$ of $0$ in $\Spec A$. As we want to prove a contradiction we may assume that $\mu_\ell$ consists of $\ell$ many elements, where $\ell \neq 0 $ in $R$. Note that $V$ is $G$-invariant: For any $x \in V, g :G$, the goal $g x \in V$ as an open proposition is $\lnot \lnot$-stable , thus we may assume $R(x,gx)$. \\
+	We apply the previous lemma to $V$ to obtain an invariant principal open neigborhood $0 \in D(p) \subset V \subset \Spec A$. As $p$ is $G$-invariant, $p : \Spec A \to R$ descends to $X \to R$. Restricting to $U'$ yields a map $p' : U \to R$, such that setting $U' \equiv D(p')$ yields $q^{-1}(U') =q^{-1}(D(p')) = D(p' \circ q) =  D(p)$ . We are now in the following situation
+% https://q.uiver.app/#q=WzAsNixbMCwwLCJEKHApIl0sWzIsMCwiXFxTcGVjIEEiXSxbMiwxLCJYIl0sWzAsMSwiVSciXSxbMSwwLCJWIl0sWzEsMSwiVSJdLFswLDNdLFsxLDIsInEiXSxbMCwyLCIiLDEseyJzdHlsZSI6eyJuYW1lIjoiY29ybmVyLWludmVyc2UifX1dLFswLDQsIiIsMCx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Imhvb2siLCJzaWRlIjoidG9wIn19fV0sWzQsMSwiIiwwLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoiaG9vayIsInNpZGUiOiJ0b3AifX19XSxbMyw1LCIiLDIseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJob29rIiwic2lkZSI6InRvcCJ9fX1dLFs0LDVdLFs1LDIsIiIsMCx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Imhvb2siLCJzaWRlIjoidG9wIn19fV0sWzQsMiwiIiwwLHsic3R5bGUiOnsibmFtZSI6ImNvcm5lci1pbnZlcnNlIn19XV0=
+\[\begin{tikzcd}
+	{D(p)} & V & {\Spec A} \\
+	{U'} & U & X
+	\arrow[hook, from=1-1, to=1-2]
+	\arrow[from=1-1, to=2-1]
+	\arrow["\ulcorner"{anchor=center, pos=0.125}, draw=none, from=1-1, to=2-3]
+	\arrow[hook, from=1-2, to=1-3]
+	\arrow[from=1-2, to=2-2]
+	\arrow["\ulcorner"{anchor=center, pos=0.125}, draw=none, from=1-2, to=2-3]
+	\arrow["q", from=1-3, to=2-3]
+	\arrow[hook, from=2-1, to=2-2]
+	\arrow[hook, from=2-2, to=2-3]
+\end{tikzcd}\]
+	where $U'$ is an open affine neighborhood of 0. \\
+	By assumption $U = D(p) / \sim'$ cannot be affine. Contradiction. 
+\end{proof}
+\begin{prop}[Not needed]
+	Let $\ell \neq 0$ be prime. Let $\mu_\ell$ act on $\Spec B$ with fixpoint $0$. . Let $V$ be an infinitesimal neigborhood of $0$, i.e. a subtype   $0 \in V \subset \Spec B$ such that $\lnot \lnot x =0$ for every $x : V$. Assume
+	\begin{enumerate}
+		\item[Strong freeness]  We find some $0 \in V' \subsetneq V$ for any $\varepsilon : \Spec B, g\neq 1$, $g \varepsilon = \varepsilon$ implies $\varepsilon \in V'$
+
+	\item[checking away from 0] For any $p : B$ and any $\phi: R^{D(p)} $ such that $\phi|_{D(p) \setminus\{0\}} = 0$, we have that $\phi|_V = 0$.
+		\end{enumerate} 
+	The sheaf quotient of $\Spec B$ by the relation as above is an algebraic space but not an affine scheme.
+\end{prop}
+
+\begin{proof}
+	\begin{itemize}	
+\item 	Let us check the conditions on the relation
+	\begin{itemize}
+		\item If $R(x,y)$ then either $x = y$ putting $g = 1$ or in the second case we get some $g$ such that $g x =y $
+		\item Let $x : X, g : G$. Assume $\lnot R(x,gx)$, i.e. $x \neq g x$ and $\lnot \lnot x=0$.But $0$ was assumed to be a fixpoint, hence $\lnot \lnot g x = x$.
+	\end{itemize}
+\item 	Let $p : B$ be as above. We have to show that the quotient of $D(p)$ is not affine. \\
+	The conditions on $p$ give $p(0) \neq 0$ and $p(x) \neq 0 \to p(gx) \neq 0$ for all $g : \mu_\ell$.
+	
+	Lets call this quotient $X$.
+	
+	Define 
+	\[
+	A = \{\phi : R^{D(p)} \ | \ \phi|_{D(p) \setminus \{0\}} \text{  is $\mu_{\ell}$-invariant }\}
+	\]
+	This is an $R$-subalgebra: for any $r : R$, $r : B_p$ is $\mu_{\ell}$-invariant. $\mu_{\ell}$-invariant functions are stable under addition and multiplication . \\
+	
+	Claim: The affinization map of $X$ is the induced dashed map $f : X \to \Spec A$ in
+	
+	% https://q.uiver.app/#q=WzAsNCxbMCwwLCJEKHApIl0sWzEsMCwiXFxTcGVjIFJbWF1fcCJdLFswLDEsIlgiXSxbMSwxLCJcXFNwZWMgQSJdLFswLDIsInEiXSxbMiwzLCJcXGV4aXN0ISBmIiwwLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzEsM10sWzAsMSwiIiwyLHsibGV2ZWwiOjIsInN0eWxlIjp7ImhlYWQiOnsibmFtZSI6Im5vbmUifX19XV0=
+	\[\begin{tikzcd}
+		{D(p)} & {\Spec R^{D(p)}} \\
+		X & {\Spec A}
+		\arrow[Rightarrow, no head, from=1-1, to=1-2]
+		\arrow["q", from=1-1, to=2-1]
+		\arrow["q'",from=1-2, to=2-2]
+		\arrow["{\exists! f}", dashed, from=2-1, to=2-2]
+	\end{tikzcd}\]
+	Proof: A function $\phi : D(p) \to R$ factors through $q$ iff $\phi|_{D(p) \setminus\{0\}}$ is $\mu_{\ell}$-invariant. Thus the embedding (using that $R$ is a sheaf) $R^X \hookrightarrow R^{D(p)}$ has image $A$ $\qed$(Claim). 	\\ \\ %respective $\phi : R[X]_p$ satisfies $	\phi (x) = \phi(-x)  $, i.e. (1) if $\phi$ is $\mu_{\ell}$-invariant. 
+	Proof that $X$ is not an affine:	Assume that $X$ were affine. Then the map $f$ would be in particular an embedding. 
+	We may assume a term $g : \mu_\ell \setminus \{1\}$: Indeed, as we want to prove a contradiction we may assume a term in $g : \Spec R[X] / (\sum_{i=0}^{\ell-1} X^i)$. But this type is equivalent to $\mu_\ell \setminus \{1\}$, using that $\sum_{i=0}^{\ell-1} X^i | X^\ell -1 $ and $\ell \neq 0$. \\
+	 %$\cN_{\lnot \lnot}(0) = \{x : \bA^1 \ | \ \lnot \lnot x = 0\}$ be be a non-contractible subtype that is $\lnot \lnot$-connected. 
+	The given infinitesimal neigbhorhood $V$ satisfies $ V \subset D(p)$ , using that invertibility is $\lnot \lnot$ stable.
+	Then for any $\varepsilon : V$ we have
+	\begin{align*}
+		(q\varepsilon =_X q (g \varepsilon)) \overset{\ref{quotient-by-equivalence-relation}}{=} (\varepsilon = g\varepsilon) + (\varepsilon \neq 0 \land \sum_{h \neq 1} \varepsilon = h g \varepsilon) = (\varepsilon = g\varepsilon) = (\varepsilon \in V')
+	\end{align*}
+	where the last step comes from strong freeness.
+	But we have 
+	\[(q' \varepsilon =_{\Spec A} q' (g \varepsilon)) = \left (\prod_{\phi : A} \phi(q' \varepsilon) = \phi(q' (g \varepsilon)) \right)= \prod_{\substack{\phi : R^{D(p)} \\ \phi \in A}} \phi (\varepsilon) = \phi(g \varepsilon),\] 
+	%as for any $\phi : A$ we have $\phi(\varepsilon) = \phi(g \varepsilon)$ 
+	The right hand side is inhabited: For any $\phi: D(p) \to R$ such that $\psi := \phi - g . \phi$ satisfies $\psi|_{D(p) \setminus \{0\}} =0$  we have $\psi|_V =0$ by 'checking away from 0', inparticular $\psi(\varepsilon) =0$ . 	So we conclude the the embedding $V' \hookrightarrow V$ is an equivalence.  But we asked $V' \subsetneq V$ to be a proper subset.% I claim that the right hand side is inhabited:
+	\end{itemize}
+\end{proof}
+
+\begin{example}
+	Let $\mu_\ell$ act on $\Spec B = \bA^1$.
+\end{example}
+\begin{proof}
+	\begin{enumerate}
+		\item Put $ V:\equiv\Spec R[X] / X^n$ for some $n >1$.
+		\item As $(g-1)$ is invertible, $ ((g-1)\varepsilon = 0) $  gives us $\varepsilon \in \{0\} \equiv V' \subsetneq V$. Note that indeed $V$ is non contractible, because $R[X] / X^n \to R[X] / X$ is not an algebra isomorphism
+		\item 	We have to show, that then $\phi$ is $\mu_{\ell}$ invariant. We can apply  \ref{lemma:AlmostEverywhere}, observing $\phi - g.\phi = 0$ on $D(X / 1) \subset \Spec B_p$, where $X/1 : B_p$ is regular, because $X$ is regular in $B$. TODO as each $\phi$ satisfies the cond. \qed(Claim)\\
+	
+	\end{enumerate}
+\end{proof}
+\begin{example}
+	Assume $2 \neq 0$. Let $\mu_2$ act on
+	\[
+	\Spec B \equiv \sum_{x , y : R} x y = 0
+	\]
+	via the swap. Then $\Spec B / R$ is an algebraic space but not a scheme.
+%	sheaf-quotiented by the relation that identifies $(x,0)$ and $(0,x)$ if $x \neq 0$ is an algebraic space.
+\end{example}
+\begin{proof}
+	\begin{enumerate}
+		\item Put $V = \Spec R[X] / X^k \subset \Spec B$, $k > 2$.
+		\item If $(x,y) = (y,x)$ but $x y = 0$ we get $x \in V' \equiv \Spec R[X] / X^2$.
+		\item Let $\phi: D(p) \to R$ be 0 everywhere except near the origin. Then we get a restricted map $\phi' : D(p') \to R$ where $D(p') \subset V(X)$ is given by the intersection $D(p) \cap V(X) $ . Indeed : Put $p' : R[X]$ the image of $p : R[X,Y] / (XY)$ und the map induced by evaluating $Y$ at 0. \\
+		Here we can apply \ref{lemma:AlmostEverywhere}, getting that $\phi'$ is 0 everywhere in particular in $V \subset V(X)$.
+	\end{enumerate}
+%	The equivalence relation is given by
+%	\[
+%	E((x,y) , (x',y')) = (x = x' \land y = y') + (x \neq 0 \land x = y' \land x' = 0)
+%	\]
+%	as $x \neq 0$ implies $y = 0$ as $x y =0$. This is a covering relation, as for any $x' y' = 0$ we have
+%	\[
+%	\sum_{x,y : R} x y = 0 \land E((x,y) , (x' , y')) = 1 + (y' \neq 0) \in \Zar \subset \bT
+%	\]		
+\end{proof}
+\begin{lemma}
+	Given a map $P : \Susp(Q) \to \Prop$, such that $P(N)$ and $P(S)$ hold, then $\prod_{t: \Susp(Q)} P(t)$
+\end{lemma}
+\begin{example}
+	Let $L = \sum_{x : \bA^1} \Susp(x \neq 0)$ be the line with two origins. By the evident $\mu_2$ action on any suspension we obtain a $\mu_2$ action on $X$, such that the first projection $L \to \bA^1$ is $\mu_2$-invariant. Then the map $L / \mu_2 \to \bA^1$ is an equivalence
+\end{example}
+\begin{proof}
+	By $\sum$-stability of algebraic spaces we may show, that the fiber of $L / \mu_2 \to \bA^1$ over $x : \bA^1$ is contractible. The fiber is $\Susp(x \neq 0) / \mu_2$ as 
+	\[
+	X / \mu_2 = \sum_{x : \bA^1} \Susp(x \neq 0)/\mu_2
+	\]
+	 But for $X$ a proposition the sheaf quotient $\Susp(X) / \mu_2$ is contractible.	
+\end{proof}
+
+\begin{example}[TODO]
+	Let $L = \sum_{x : \bA^1} \Susp(x \neq 0)$ be the line with two origins. By the evident $\mu_2$ action on any suspension we obtain a $\mu_2$ action on $X$, such that the first projection $L \to \bA^1$ is $\mu_2$-invariant. Then the homotopy quotient $L // \mu_2$ is geometric stack.
+\end{example}
+\begin{proof}
+	By $\sum$-stability of geometric stacks we may show, that the fiber $\Susp(x \neq 0) // \mu_2$ of $L //´ \mu_2 \to \bA^1$ over $x : \bA^1$ is a geometric stack. As $\Susp(x \neq 0)$ is a scheme \todocite, it is an algebraic space, so it remains to show, that the equivalence relation is covering. \\
+	Let us show that all the homotopy orbits of the $\mu_2$-action of some $s : \Susp(x \neq 0)$ are covering. Since this is a proposition depedent on $s : \Susp(x \neq 0)$,by the previous lemma we only have to consider orbits of points $N : \Susp(x\neq0)$ and $S : \Susp(x \neq 0)$ . Lets stick to $N$. The homotopy orbit is equivalent to 
+	\[
+	\sum_{t : \Susp(x \neq 0)}  (t = N) + (t = S) % \simeq \mathrm{im}(2 \overset{(N,S)}{\to} \Susp(x \neq 0)) = \Susp(x \neq 0)
+	\]
+	As $\Susp(x \neq 0)$ is a covering algebraic space, by $\sum$-stability we may show, that for any $t$, $(t = N) + (t = S)$ is covering. Again by the lemma, we may check this for $t \equiv N$ and $t \equiv S$. In either case the type is equivalent to $1 + (x \neq 0) \in \Zar \subset \bT$. So we can conclude.
+\end{proof}
+
+
