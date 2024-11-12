@@ -211,32 +211,94 @@ The goal of this subsection is to construct algebraic spaces. The first example 
 	$G \setminus \{1\} = \sum_{g : G} g \neq 1$ is a $\sum$ of formally \etale + flat affines (recall that formally \etale affines have decidable equality). \\
 	To show, that $\mu_\ell \setminus \{1\}$ is a covering stack, by \ref{lemma:covOfEF}, we need to show it is $\lnot \lnot$-inhabited. Indeed as we want to prove a contradiction we may assume a term in $g : \Spec R[X] / (\sum_{i=0}^{\ell-1} X^i)$. But this type is equivalent to $\mu_\ell \setminus \{1\}$, using that $\sum_{i=0}^{\ell-1} X^i | X^\ell -1 $ and $\ell \neq 0$. \\
 \end{proof}
+\subsection{Remarks about weakly flat affines}
+
+\begin{lemma}
+	The proposition $\|X\|_\bT$ is geometric iff there exists a map from a weakly flat affine $\Spec B \to X$ such that $\|\Spec B\|_\bT \to \|X\|_\bT$ is an equivalence.
+\end{lemma}
+\begin{proof}
+	'$\leftarrow$' is clear. \\
+	'$\rightarrow$'. Choose $\Spec B'$ weakly flat such that $\|X\|_\bT = \|\Spec B'\|_\bT$. As the map $X \to \|X\|_\bT$ is $\bT$-surjective, by $\bT$-local choice we find a $\bT$-cover $\Spec B \to \Spec B'$ and a commutative diagram
+	% https://q.uiver.app/#q=WzAsNCxbMSwwLCJcXFNwZWMgQSJdLFsxLDEsIlxcfFxcU3BlYyBBXFx8X1xcYlQiXSxbMCwxLCJcXFNwZWMgQiciXSxbMCwwLCJcXGV4aXN0cyBcXFNwZWMgQiJdLFszLDAsIiIsMCx7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFszLDIsIiIsMix7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFswLDFdLFsyLDFdXQ==
+	\[\begin{tikzcd}
+		{\exists \Spec B} & {X} \\
+		{\Spec B'} & {\|X\|_\bT}
+		\arrow[dashed, from=1-1, to=1-2]
+		\arrow[dashed, from=1-1, to=2-1]
+		\arrow[from=1-2, to=2-2]
+		\arrow[from=2-1, to=2-2]
+	\end{tikzcd}\]
+	As $\Spec B'$ was weakly flat and the left vertical map is a $\bT$-cover, $\Spec B$ is weakly flat.
+\end{proof}
+\begin{lemma}[DM]
+	If $\Spec A + \Spec B$ is weakly flat affine, then $\Spec A$ is weakly flat. 
+\end{lemma}
+\begin{proof}
+	Indeed
+	\[
+	\|X\|_\bT \to \|X + Y\|_\bT \to X + Y \in \bT \to X \in \bP 
+	\]
+	but $\|X\|_\bT \land X \in \bP \to X \in \bT$. \\
+\end{proof}
+\begin{lemma}{\label{lemma:wfdesTCov}}
+	if the topology is saturated Beeing weakly-flat descends along $\bT$-covers.
+\end{lemma}
+\begin{lemma}[DM]
+	If $\|P + Q \|_\bT$ is a geometric prop, then TODO % $\|P\|_\bT$ and $\|Q\|_\bT$ are geometric props.
+\end{lemma}
+\begin{proof}
+	
+	By the previous two lemma and we find a map out of a weakly flat affine $\Spec B \to P + Q$ that induces an equivalence on $\bT$-truncations, but it splits into two map out of a  weakly affine $\Spec B_1 \to P, \Spec B_2 \to Q$.
+\end{proof}
+\begin{notation}
+	For $P : (\varepsilon : \cN_\infty(0)) \to X \to \Prop$, let $\varepsilon : \cN_\infty(0) \vdash x : X$. We say $x$ is not$_\varepsilon$ $P$, if $\forall \varepsilon$ , $P_\varepsilon x \to \varepsilon = 0$. Observe, if $x$ is not$_\varepsilon$ $P$ for any $\varepsilon^2 = 0$, then $x$ is not $P$.
+\end{notation}
+
+\begin{rmk}
+	If $2 \neq 0$. Let $\varepsilon , \varepsilon' : \cN_\infty(0)$. $\varepsilon = \varepsilon' + \varepsilon = -\varepsilon'$ is not$_\varepsilon$ weakly-flat
+\end{rmk}
+\begin{proof}
+	We prove that once its $\bT$-merely inhabited, then its not$_\varepsilon$ covering, which is enough as $\lnot \lnot (\varepsilon = \varepsilon' + \varepsilon = -\varepsilon')$.% $\varepsilon = 0$.
+	As the goal is a stack we may assume $\varepsilon = \varepsilon' + \varepsilon = -\varepsilon' $. wlog the first case. Then assume $1 + (\varepsilon = - \varepsilon) \simeq 1 + \varepsilon = 0$ is covering. Then $\varepsilon = 0$ is formally \etale, thus inhabited as a formally \etale closed dense proposition. %  for all $\varepsilon$.
+\end{proof}
+\subsection{Weiter gehts}
 \begin{question}
-		The sheaf quotient of $\bA^1$ by the $\mu_\ell$ action is not an algebraic space?
+		The sheaf quotient of $\bA^1$ by the $\mu_2$ action is not an algebraic space?
 \end{question}
 \begin{proof}
-		Assume this it is an algebraic space. Let $q : \bA^1 \to \bA^1 / \mu_\ell$ the projection map.  TODO
+		Assume this it is an algebraic space. Then the identity types $\|x = y + x = -y\|_\bT$ are geometric propositions. Let $\varepsilon, \varepsilon'$ in $\cN_\infty(0)$. We find $f : \Spec A \to \varepsilon = \varepsilon'+ \varepsilon = -\varepsilon' \equiv P$  with weakly flat domain which induces an equivalence on $\bT$-truncations. \\
+		$f$ is not$_\varepsilon$ a $\bT$-cover, indeed: By \ref{lemma:wfdesTCov} and the codomain beeing not$_\varepsilon$ weakly flat . %If its a $\bT$-cover then its codomain is also weakly-flat by a lemma, thus $\varepsilon = 0$. \\
+		%But the fiber of  $f$ over some $p : P$ is not$_\varepsilon$ not in $\bT$. Note that $\Spec A \in \bT$, as by assumption it is weakly flat and $\bT$-inhabited. So if $\fib_f p \hookrightarrow \Spec A$ is not an equivalence, meaning $\varepsilon = \varepsilon'$ and $\varepsilon = -\varepsilon'$. Thus $\varepsilon =0$.   % $\Spec A \to \varepsilon = \varepsilon'$ , $\Spec B \to \varepsilon = -\varepsilon'$ such that the map out of the sum  \\
+%		We have $\lnot \lnot (\Spec A + \Spec B)$. As we want to prove a contradiction, we may assume $\Spec A + \Spec B$. wlog assume a point in $\Spec A$. 
+
+		%If $f$ is not $\bT$-surjective, then $\varepsilon = 0$: 
+		
+		%Let $q : \bA^1 \to \bA^1 / \mu_\ell$ the projection map.  TODO
 \end{proof}
 \begin{example}[Non-example]
 	The map $q : \bA^1 \to \bA^1 / \mu_\ell$ is not a geometric cover.
 \end{example}
 \begin{proof}
-Let $\lnot \lnot \varepsilon = 0$. Observe that we have a map
+The map factors through the geometric cover $\bA^1 \to \bA^1 // \mu_\ell$. Thus its enough to show that $\bA^1 // \mu_\ell$ is not a 0-gerbe, or that not every loop space is covering. 
+Let us show that, $\Omega(\bA^1 // \mu_\ell ,\varepsilon)$ is not$_\varepsilon$ covering. Assume it is covering for some $\varepsilon \in \cN_\infty(0)$.
+%Observe that we have a map
+%	\begin{align*}
+%		f_\varepsilon : \mu_\ell &\to \fib_q \varepsilon \\
+%		g &\mapsto g \varepsilon 
+%	\end{align*}
+%	Now $\fib_f \varepsilon$ is an \etale-flat geometric stack. \\%\bA^1 // \mu_\ell
+	As $\mu_\ell$ has decidable equality,
 	\begin{align*}
-		f_\varepsilon : \mu_\ell &\to \fib_q \varepsilon \\
-		g &\mapsto g \varepsilon 
-	\end{align*}
-	Now $\fib_f \varepsilon$ is an \etale-flat geometric stack. \\
-	Then, 	As $\mu_\ell$ has decidable equality,
-	\begin{align*}
-		\fib_f(\varepsilon) &= \left (\sum_{g : \mu_\ell} g \varepsilon = \varepsilon \right) \\
+		\Omega(\bA^1 // \mu_\ell , \varepsilon) &= \left (\sum_{g : \mu_\ell} g \varepsilon = \varepsilon \right) \\
 		&=  (\varepsilon = \varepsilon) + \sum_{g : \mu_\ell \setminus \{1\}} (g-1) \varepsilon = 0 \\ &= 1 + \mu_\ell \setminus \{1\} \times (\varepsilon = 0) 
 	\end{align*}
-	Thus $(\varepsilon = 0) \times (\mu_\ell \setminus \{1\})$ is an \etale-flat geometric stack. Moreover $(\mu_\ell \setminus \{1\})$ is a covering stack by \ref{lemma:CompOf1}. Thus $\varepsilon = 0$ is an affine \etale-flat geometric stack, thus formally \etale + flat affine by saturatedness of the \etale topology \ref{cor:EtaleSat}. So as a formally \etale + closed dense proposition, $\varepsilon = 0$ holds for all $\varepsilon$ nilpotent. Contradiction to algebra.
+	Thus $(\varepsilon = 0) \times (\mu_\ell \setminus \{1\})$ is an \etale-flat geometric stack. Moreover $(\mu_\ell \setminus \{1\})$ is a covering stack by \ref{lemma:CompOf1}. Thus $\varepsilon = 0$ is an affine \etale-flat geometric stack, thus formally \etale + flat affine by saturatedness of the \etale topology \ref{cor:EtaleSat}. So as a formally \etale + closed dense proposition, $\varepsilon = 0$ holds as desired. % for all $\varepsilon$ nilpotent. Contradiction to algebra.
 \end{proof}
 
 \subsection{Non locally-seperated Examples}
-
+\begin{question}
+	Can one prove from such an example that the type of schemes is not a stack?
+\end{question}
 %\begin{proof}
 %	%Subgroups always act free, and $\bZ/2$ is an algebraic space, thus by \ref{lemma:algSpacesStabFreeQuots} the sheaf quotient $G / H$ is an algebraic space. \\
 %	%We can calculate it: I Claim that
@@ -398,9 +460,9 @@ R_G(x,y) = (x = y) + (x \neq 0) \times \sum_{g : G \setminus \{1\}} g x = y
  	Let us show that $R$ is not valued in locally closed propositions.  As we want to prove a contradiction, we may assume $g : G \setminus \{1\}$.
  	We have
  	\[
- 	R(x,gx) = (x = gx) + (x \neq 0) \times \sum_{g : \mu_\ell \setminus \{1\}} g x = g x \simeq x = 0 + x \neq 0
+ 	R(\varepsilon,g\varepsilon) = (\varepsilon = g\varepsilon) + (\varepsilon \neq 0) \times \sum_{g : \mu_\ell \setminus \{1\}} g \varepsilon = g \varepsilon \simeq \varepsilon = 0 + \varepsilon \neq 0
  	\]
- 	which is not locally closed by the previous remark.
+ 	which is not$_\varepsilon$ locally closed by the previous remark.
 	 	 	
 	Another approach: 	 Through decidable subtypes. %, as $\Spec A$ is non-infinitesimal.
 \end{proof}
@@ -443,7 +505,9 @@ R_G(x,y) = (x = y) + (x \neq 0) \times \sum_{g : G \setminus \{1\}} g x = y
 %		Moreover if $z : \bA^2$ is $\lnot \lnot z =0$, then $z \in \Spec B$.
 	\end{enumerate}
 \end{proof}
-
+\begin{question}
+	If $\mu_\ell$ acts on $Y$ some affine, does every $\mu_\ell$-invariant $\phi : Y \to R$ is invariant on a $\ell$-neigborhood?
+\end{question}
 \subsection{Outdated}
 \begin{lemma}[Not needed]
 	Let $char \neq 2$.
@@ -469,7 +533,7 @@ Choose a principal open neighborhood $0 \in D(p) \subset U$. $G$ acts on $R[X]$,
 	D(p') \subset \bigcup_g D(g . p) \subset U
 	\]
 \end{proof}
-\begin{lemma}[Not needed]
+\begin{lemma}
 	Let $G$ be a formally \etale + flat affine  group, such that $\lnot \lnot$ its finite, with cardinality invertible in $R$ and $G \setminus \{1\}$ inhabited. 
 	Let it act on an affine scheme $\Spec A$ with a fixpoint 0. Let $R$ be a relation on $\Spec A$ such that
 	\begin{itemize}
@@ -499,6 +563,21 @@ Choose a principal open neighborhood $0 \in D(p) \subset U$. $G$ acts on $R[X]$,
 	where $U'$ is an open affine neighborhood of 0. \\
 	By assumption $U = D(p) / \sim'$ cannot be affine. Contradiction. 
 \end{proof}
+\begin{example}
+	Let $\mu_\ell$ act on $\bA^1$ by multiplication with $\ell \neq 0$. Then $\bA^1 / \mu_\ell$ is not a scheme. We dont know whether it is an algebraic space
+\end{example}
+\begin{proof}
+	Let $p : \bA^1 \to R$ be $\mu_\ell$ equivariant. with $0 \in D(p)$. The affinization map would be induced by % https://q.uiver.app/#q=WzAsMyxbMCwwLCJcXGJBXjEiXSxbMSwxLCJcXGJBXjEiXSxbMCwxLCJcXGJBwrkvXFxtdV9cXGVsbCJdLFswLDEsInogXFxtYXBzdG8gel5cXGVsbCJdLFswLDJdLFsyLDEsIiIsMix7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dXQ==
+	\[\begin{tikzcd}
+		{\bA^1} \\
+		{\bA^1/\mu_\ell} & {\bA^1}
+		\arrow[from=1-1, to=2-1]
+		\arrow["{z \mapsto z^\ell}", from=1-1, to=2-2]
+		\arrow[dashed, from=2-1, to=2-2]
+	\end{tikzcd}\]
+	But the map is not an embedding: For any $\varepsilon : \Spec R[X] / X^\ell$, we have $\varepsilon^\ell = 0^\ell$ but $\varepsilon =_{\bA^1/\mu_\ell} 0$ iff there $\bT$-merely exists some $g : \mu_\ell$ with $g \varepsilon = 0$, but as $g$ is invertible this is equivalent to $\varepsilon = 0$.
+\end{proof}
+
 \begin{prop}[Not needed]
 	Let $\ell \neq 0$ be prime. Let $\mu_\ell$ act on $\Spec B$ with fixpoint $0$. . Let $V$ be an infinitesimal neigborhood of $0$, i.e. a subtype   $0 \in V \subset \Spec B$ such that $\lnot \lnot x =0$ for every $x : V$. Assume
 	\begin{enumerate}

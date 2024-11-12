@@ -227,6 +227,9 @@ For any weakly-flat geometric stack $X$, $\|X\|_{-1}^\bT$ is a geometric stack.
 \begin{example}
 	If $G$ is a covering group sheaf, then $BG$ is a 0-gerbe.
 \end{example}
+\begin{example}
+	It may happen, that $\|X\|_n^\bT$ is a geometric $n$-stack for $X$ a geometric stack, although $X$ is not an $n$-gerbe. Indeed: Put $n = 0$ and $X$ any pointed $\bT$-connected geometric stack that is not covering, like $\Susp(1 + x = 0)$ for some 
+\end{example}
 
 \begin{theorem}
 	Assume that Covering stacks are $\Omega$-stable, % either that loop spaces of covering spaces are covering or that .\\
@@ -288,6 +291,33 @@ For any weakly-flat geometric stack $X$, $\|X\|_{-1}^\bT$ is a geometric stack.
 	The LHS is covering by $\Omega$-stability.
 \end{proof}
 We can reprove \ref{lemma:TflatIs0-gerbe} by just observing that $\bT$-flat geometric stacks have covering loop spaces. \\
+
+\begin{rmk}
+	Put $\bT$ the \etale topology. Observe, that we have an analogous statement if we replace covering stack by formally \etale: \\
+	\begin{enumerate}
+		\item $\eta_0^\bT X : X \to \|X\|_0^\bT$ is formally \etale
+		\item $X \to \|X\|_0^\bT$ is formally unramified
+		\item for every $x : X$, $\Omega(X,x)$ is formally \etale.
+	\end{enumerate}
+\end{rmk}
+\begin{proof}
+	\begin{enumerate}
+		\item[ 1 $\Leftrightarrow$ 2] Observe that the map $\eta_0^\bT$ is $\bT$-smooth.
+		\item [2 $\Rightarrow$ 3] okay as the fibers of $\eta_0^\bT$ embed into $X$.
+		\item [3 $\Rightarrow$ 2] Let $x, y : X$ be $\bT$-merely equal. The goal $\mathsf{isFormallyEtale}(x = y)$ is a sheaf, so we may assume that $x = y$. 
+	\end{enumerate}
+\end{proof}
+\begin{corollary}
+	If covering stacks are $\Omega$-stable, then identity types of geometric stacks are 0-gerbes.
+\end{corollary}
+\begin{proof}
+	We need to check, that identity types of a 1-gerbe $X$ are 0-gerbes. So assume $p : x = y$. Then 
+	\[
+	\Omega(x = y, p) = \Omega(x = x, \refl) = \Omega^2(X,x)
+	\]
+	which is covering as $X$ is a 1-gerbe.
+\end{proof}
+
 %\begin{lemma}
 %	Let $\EF: X \to Y$ be a $\lnot \lnot$-surjective map into a type with $\etale$-flat identity types. Then its a geometric cover.
 %\end{lemma}
