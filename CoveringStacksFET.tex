@@ -1,4 +1,5 @@
 \section{Geometric covers are formally \etale}
+TODO rename standart \etale to basic \etale.
 In this section we want to prove, that covering stacks are formally \etale.
 \subsection{The \etale topology is saturated}
 Let $P$ denote a closed dense proposition.
@@ -375,9 +376,17 @@ If $A$ is an fp $R$-algebra, $\Alg_A$ denotes fp $A$- algebras.
 		% if $I = 0$ it coincides with the $R / I$-algebra we started with.
 	\end{itemize}
 \end{proof}
-\begin{question}
-	Let $P \to \mathsf{StdEt}_R$ correspond to some $B : \mathsf{StdEt}_{R / I}$. What is $\Spec {}_R B$ where we restricted scalars ?
-\end{question}
+\begin{rmk}
+	$P = \Spec A$.
+	Let $P \to \mathsf{StdEt}_R$ correspond to some $B : \mathsf{StdEt}_{A}$. The $\sum$ corresponds to $\Spec {}_R B$ where we restricted scalars.
+\end{rmk}
+\begin{proof}
+	Indeed 
+	\[
+	\left(\sum_{\fp : P} \Spec B_\fp \right) \to R = \prod_{\fp :P} B_\fp
+	\]
+	as an $R$-algebra.
+\end{proof}
 
 
 

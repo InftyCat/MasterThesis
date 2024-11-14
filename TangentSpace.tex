@@ -248,33 +248,6 @@ Now one can apply Tangentspaces to get a pullback again
 \end{tikzcd}\]
 	\end{itemize}
 \end{proof}
-\begin{lemma}
-	Let $\varepsilon$ be nilpotent.
-	If $R / \varepsilon$ is flat, then $\varepsilon = 0$.
-\end{lemma}
-\begin{proof}
-	 Claim: $ R/ \varepsilon$ projective.
-	 From $(\varepsilon) \to R \to R / \varepsilon$ we deduce a factorization $R \to G \to R / \varepsilon$ with $G$ free and $(\varepsilon) \to R \to G$ the zero map. From this we see that $G \to R / \varepsilon$ is split surjective.  \qed(Claim)
- 	 As $R$ is local, $R / \varepsilon$ is free , but as $\lnot \varepsilon \neq 0$, it has to be free of rank 1, thus $\varepsilon = 0$.
-\end{proof}
-\begin{warning}{\label{warning:TangentSpacesNotFlat}}
-	Tangent spaces of faithfully flat affines are not flat in general.
-	Let $p \neq 0$ be prime. $R[X] / X^p$ is a faitfully flat algebra as $X^p$ is a monic polynomial \todocite. Then it is not the case that all tangent spaces are flat. 
-	%This algebra is not flat! 
-\end{warning}
-\begin{proof}
-	Assume this is the case, i.e.  that for any $\varepsilon : R$, such that $\varepsilon^p = 0$, 
-	We have that
-	\[T_\varepsilon \Spec R[X]/ (X^p) = \Spec R[Y] / (p \varepsilon^{p-1} Y) = \Spec R[Y] / (\varepsilon^{p-1} Y) \equiv \Spec A.\]
-	is flat affine.
-	We have an $R$-linear isomorphism
-	\begin{align*}
-		R \oplus R/\varepsilon^{p-1} [Y] &\to R[Y]/ (\varepsilon^{p-1} Y) \\
-		(r , f) &\mapsto r + Y f
-	\end{align*}
-	As the RHS, the second factor of the LHS is flat over $R$. As $R / \varepsilon^{p-1} [Y]$ is a faithfully flat algebra over $R / \varepsilon^{p-1}$, we deduce that $R / \varepsilon^{p-1}$ is flat over $R$. By the lemma We conclude that $\varepsilon^{p-1} =0$ for all $\varepsilon : \Spec A$. But this means $\Spec R[Y] / (Y^{p-1}) = \Spec R[Y] / (Y^{p})$ by duality - a contradiction.
-	
-\end{proof}
 \begin{rmk}
 	Given a pointed geometric stack $(X,x)$, we can look at $Y = T_x X$ and the map $Y \to \|Y\|_0$, the fibers are deloopings of $\Omega Y$. Now there exists a $\Omega Y$-equivariant isomorphism $Y \cong \|Y\|_0 \times B \Omega Y$ over $\|Y\|_0$ iff the map $Y \to \|Y\|_0^\bT$ has a section.
 \end{rmk}
@@ -287,4 +260,102 @@ Tangent spaces of Deligne Mumford stacks are somewhat uninteresting.
 \end{proof}
 \begin{question}
 	Is for a sheaf $R$-module to be finitely copresented a sheaf?
+	
+\subsection{Flatness examples}
+\begin{lemma}
+	$I^2 = I$ implies $I = 0$ or $I = R$.
+\end{lemma}
+\begin{proof}
+	By Nakayama we find $r$ such that $r \in I$ but $(1-r) I =0$. Then $(r) = I$ because if $x \in I$ then $(1-r)x = 0$, hence $r | x$. As $R$ is local we can decide either $r = 0$ or $r = 1$.
+\end{proof}
+\begin{lemma}{\label{lemma:isDecidable}}
+	A closed proposition is decidable in each of the following cases
+	\begin{itemize}
+		\item It is $\lnot \lnot$-stable.
+		\item It is flat.
+	\end{itemize}
+\end{lemma}
+\begin{proof}
+	We can write the closed proposition as $I= 0$ for some finitely generated ideal $I$. Let us show, that in each case $I^2 = I$. 
+	\begin{itemize}
+		\item If $I = 0$ is $\lnot \lnot$-stable, this means that $I = I^2$. TODO
+		\item If $R / I$ is a flat $R$-module.
+		The map $I \otimes R / I \to R / I$ is injective by flatness. But its the zero map. Hence $I \otimes R/I = I / I^2 = 0$. \\			
+	\end{itemize} 
+\end{proof}
+\begin{example}
+		Let $\varepsilon$ be nilpotent.
+	If $R / \varepsilon$ is not$_\varepsilon$ flat. %, then $\varepsilon = 0$.
+\end{example}
+%
+%\begin{proof}
+%	
+%     Assume it is flat.
+%	 Claim: $ R/ \varepsilon$ projective.
+%	 From $(\varepsilon) \to R \to R / \varepsilon$ we deduce a factorization $R \to G \to R / \varepsilon$ with $G$ free and $(\varepsilon) \to R \to G$ the zero map. From this we see that $G \to R / \varepsilon$ is split surjective.  \qed(Claim)
+% 	 As $R$ is local, $R / \varepsilon$ is free , but as $\lnot \varepsilon \neq 0$, it has to be free of rank 1, thus $\varepsilon = 0$.
+%\end{proof}
+From now on we try to only argue geometrically instead of algebraically. For example $\Spec R[Z,T] / TZ \to \Spec R[T]$ is not flat by the following lemma.
+\begin{lemma}
+	If $\varepsilon$ is nilpotent, then $R[z] / \varepsilon z$ is not$_\varepsilon$ flat .%over $R$.
+\end{lemma}
+\begin{proof}
+	We have an $R$-linear isomorphism
+	\begin{align*}
+		R \oplus R/\varepsilon [Y] &\to R[Y]/ (\varepsilon Y) \\
+		(r , f) &\mapsto r + Y f
+	\end{align*}
+	As the RHS, the second factor of the LHS is flat over $R$. As $R / \varepsilon [Y]$ is a faithfully flat algebra over $R / \varepsilon$, we deduce that $R / \varepsilon$ is flat over $R$. By the lemma We conclude that $\varepsilon =0$ as desired.
+\end{proof}
+\begin{example}
+	$\Spec R[X,Y,T] / (T - XY) \to \Spec R [T]$ is flat, but $\Spec R[X,Y,T] / (T - TXY) \to \Spec R[T]$ is not flat.
+\end{example}
+\begin{proof}
+	The first example is flat todo, but in the second example the fiber $Spec R[X,Y] / (\varepsilon (XY - 1))$ is not$_\varepsilon$ flat:
+	% https://q.uiver.app/#q=WzAsNCxbMCwwLCJcXFNwZWMgUltYLFldIC8gKFxcdmFyZXBzaWxvbiAoWFkgLSAxKSkgIl0sWzAsMSwiXFxTcGVjIFJbWl0gLyBcXHZhcmVwc2lsb24gWiJdLFsxLDAsIlxcU3BlYyBSW1gsWV0iXSxbMSwxLCJcXFNwZWMgUltaXSJdLFsyLDNdLFsxLDNdLFswLDFdLFswLDJdLFswLDMsIiIsMSx7InN0eWxlIjp7Im5hbWUiOiJjb3JuZXItaW52ZXJzZSJ9fV0sWzQsNiwiZnBwZiIsMCx7InNob3J0ZW4iOnsic291cmNlIjoyMCwidGFyZ2V0IjoyMH19XV0=
+	\[\begin{tikzcd}
+		{\Spec R[X,Y] / (\varepsilon (XY - 1)) } & {\Spec R[X,Y]} \\
+		{\Spec R[Z] / \varepsilon Z} & {\Spec R[Z]}
+		\arrow[from=1-1, to=1-2]
+		\arrow[""{name=0, anchor=center, inner sep=0}, from=1-1, to=2-1]
+		\arrow["\ulcorner"{anchor=center, pos=0.125, rotate=45}, draw=none, from=1-1, to=2-2]
+		\arrow[""{name=1, anchor=center, inner sep=0}, from=1-2, to=2-2]
+		\arrow[from=2-1, to=2-2]
+		\arrow["fppf", shorten <=17pt, shorten >=17pt, Rightarrow, from=1, to=0]
+	\end{tikzcd}\]
+	$\Spec R[X,Y] \to \Spec R[Z]$ on algebras sending $Z \mapsto XY - 1$, which is fppf by the first part of the example.
+%	Indeed, we have a faithfullyflat morphism with non-flat codomain, given as the basechange of 
+\end{proof}
+\begin{example}[TODO]
+	The affine veronese map (not an embedding)
+	\begin{align*}
+		v_2 : \Spec R[X,Y] &\to \Spec [X_1,X_2,X_3] / ( X_1 X_3 - X_2^2) \\
+		(x,y) &\mapsto (x^2 , x y , y^2)
+	\end{align*}
+	is not flat.
+\end{example}
+\begin{proof}
+	Let us show that the fiber over $(x_1,\varepsilon,x_3) $ is not$_\varepsilon$ flat. \\
+	We have an embedding into a flat scheme
+	\[
+	\fib_{v_2}(x_1,\varepsilon,x_3) \hookrightarrow \Spec R[X] / (X^2 - X_1) \times \Spec R[Y] / (Y^2 - X_3)
+	\]
+	
+\end{proof}
+\begin{warning}{\label{warning:TangentSpacesNotFlat}}
+	Tangent spaces of faithfully flat affines are not flat in general.
+	Let $p \neq 0$ be prime. $R[X] / X^p$ is a faitfully flat algebra as $X^p$ is a monic polynomial \todocite. Then it is not the case that all tangent spaces are flat. 
+	%This algebra is not flat! 
+\end{warning}
+\begin{proof}
+	\[T_\varepsilon \Spec R[X]/ (X^p) = \Spec R[Y] / (p \varepsilon^{p-1} Y) = \Spec R[Y] / (\varepsilon^{p-1} Y)\]
+	By the lemma For any $\varepsilon$ nilpotent, $T_\varepsilon \Spec R[X]/ (X^p)$ is not$_{\varepsilon^{p-1}}$ flat .
+	Thats enough by duality because the composite $\Spec R[Y] / (Y^{p-1}) \hookrightarrow \Spec R[Y] / (Y^{p}) \hookrightarrow \cN_\infty(0)$ is not an equivalence
+%	Let $\varepsilon$ be nilpotent such that
+%	By the lemma the following is %Assume this is the case, i.e.%  that for any $\varepsilon : R$, such that $\varepsilon^p = 0$, 
+	
+	 % for all $\varepsilon : \Spec A$. 
+%
+\end{proof}
+
 \end{question}

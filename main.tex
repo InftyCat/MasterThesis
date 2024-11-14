@@ -375,6 +375,34 @@ We can reprove \ref{lemma:TflatIs0-gerbe} by just observing that $\bT$-flat geom
 %is a geometric catlas. \\
 
 \include{Flat}
+
+\include{CoveringStacksFET}
+\include{TangentSpace}
+
+\section{Questions // TODO}
+\begin{theorem}[TODO]
+	An Artin stack $X$ is Deligne Mumford iff one of the following conditions is satisfied:
+	\begin{enumerate}
+		\item There exists a geometric atlas $W \to X$
+		\item The identity types of $X$ are $\bP$-seperated
+	\end{enumerate}
+\end{theorem}
+\begin{proof}
+	\begin{enumerate}
+		\item [1. $\Rightarrow $2.] \ref{lemma:DMUnrIdTypes}
+		\item [2. $\Rightarrow$ 1] Residual ??? [06MF]
+		%As a stack beeing $\bP$-seperated is a sheaf and $%
+	\end{enumerate}
+\end{proof}
+Prove \ref{lemma:StdEtSm}!!!
+\begin{question}
+	if $\bT \subset \bT'$ do we have that for each $X : \GS_\bT$ $L_{\bT'} X \in \GS_{\bT'}$?
+\end{question}
+\begin{theorem}[TODO]{\label{thm:FlatAffines}}
+	The class of flat affines is stable under $\sum$. Moreover flatness can be defined fiberwise.
+\end{theorem}
+%\section{Todo}
+
 \section{Not clear where to put that}
 \begin{lemma}[Not needed]
 	Open subtypes of $\bA^1$ are $\lnot \lnot$ principal open. %If the open is inhabited, $\lnot \lnot$ merely we can $\mu_{\ell}$-invariant write it as $D(p)$ with $p : R[X]$ regular .
@@ -384,9 +412,7 @@ We can reprove \ref{lemma:TflatIs0-gerbe} by just observing that $\bT$-flat geom
 		\item An open affine subscheme of $\bA^1$ is $\lnot \lnot$ principal open: Let $D(f_1,\hdots,f_n) \subset \bA^1$ be an arbitrary open subset. We may assume that each $f_i : R[X]$ is non constant (in particular non zero). By \todocite, $\lnot \lnot$-merely each $D(f_i) \subset R$ is cofinite. Thus $\lnot \lnot$-merely, the finite union $\bigcup_{i=1}^n D(f_i) \subset R$ is cofinite as well, hence principal open. % we find roots $a_{ij}$ of the $f_i$. $\bigcup_i D(f_i) = \bigcup_i R \setminus \{a_{ij}\}_j = R \setminus \bigcap_{i} \{a_{ij}\}$ for some finite subset. This is $\lnot \lnot$ a principal open. %By $\lnot \lnot $ stability 
 	\end{itemize}
 \end{proof}
-\begin{theorem}[TODO]{\label{thm:FlatAffines}}
-	The class of flat affines is stable under $\sum$. Moreover flatness can be defined fiberwise.
-\end{theorem}
+
 \begin{prop}{\label{prop:htpyGroups}}
 	Assume covering stacks are $\Omega$-stable.
 	A truncated stack (e.g. geometric stack) is covering iff $\pi_0^\bT X := \|X\|_0^\bT$ and all higher homotopy groups 
@@ -412,37 +438,79 @@ We can reprove \ref{lemma:TflatIs0-gerbe} by just observing that $\bT$-flat geom
 	\pi_k^\bT(X,x) \equiv \|\Omega^k X \|_0^\bT \simeq \Omega^k(\|X\|_k^\bT) \to \Omega^k \|X\|_{k-1}^\bT \simeq 1
 	\]
 	So it suffices to show by induction over $k$, that for all pointed stacks $(X,x)$, $\fib(f_k^X) |x|$ is $\bT$-$k$-connected.
-
+	
 	This is definitely $\bT$-connected by using that any term $(y, p) : \fib(f_k^X) |x| = \sum_{y : \|X\|_n^\bT} \|x = y\|_{n-1}^\bT$ yields a witness of $\|x - y\|^\bT$. Then $\Omega (\fib(f_k^X) |x| = \fib (\Omega (f_k^X , x)) = \fib (f_{k-1}^{\Omega (X , x)})$ which is $\bT$-$k-1$-connected by induction.
 \end{proof}
 
+\subsection{Remarks about weakly flat affines}
 
-
-\include{CoveringStacksFET}
-\include{TangentSpace}
-
-\section{Questions}
-\begin{theorem}[TODO]
-	An Artin stack $X$ is Deligne Mumford iff one of the following conditions is satisfied:
-	\begin{enumerate}
-		\item There exists a geometric atlas $W \to X$
-		\item The identity types of $X$ are $\bP$-seperated
-	\end{enumerate}
-\end{theorem}
+\begin{lemma}
+	The proposition $\|X\|_\bT$ is geometric iff there exists a map from a weakly flat affine $\Spec B \to X$ such that $\|\Spec B\|_\bT \to \|X\|_\bT$ is an equivalence.
+\end{lemma}
 \begin{proof}
-	\begin{enumerate}
-		\item [1. $\Rightarrow $2.] \ref{lemma:DMUnrIdTypes}
-		\item [2. $\Rightarrow$ 1] Residual ??? [06MF]
-		%As a stack beeing $\bP$-seperated is a sheaf and $%
-	\end{enumerate}
+	'$\leftarrow$' is clear. \\
+	'$\rightarrow$'. Choose $\Spec B'$ weakly flat such that $\|X\|_\bT = \|\Spec B'\|_\bT$. As the map $X \to \|X\|_\bT$ is $\bT$-surjective, by $\bT$-local choice we find a $\bT$-cover $\Spec B \to \Spec B'$ and a commutative diagram
+	% https://q.uiver.app/#q=WzAsNCxbMSwwLCJcXFNwZWMgQSJdLFsxLDEsIlxcfFxcU3BlYyBBXFx8X1xcYlQiXSxbMCwxLCJcXFNwZWMgQiciXSxbMCwwLCJcXGV4aXN0cyBcXFNwZWMgQiJdLFszLDAsIiIsMCx7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFszLDIsIiIsMix7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFswLDFdLFsyLDFdXQ==
+	\[\begin{tikzcd}
+		{\exists \Spec B} & {X} \\
+		{\Spec B'} & {\|X\|_\bT}
+		\arrow[dashed, from=1-1, to=1-2]
+		\arrow[dashed, from=1-1, to=2-1]
+		\arrow[from=1-2, to=2-2]
+		\arrow[from=2-1, to=2-2]
+	\end{tikzcd}\]
+	As $\Spec B'$ was weakly flat and the left vertical map is a $\bT$-cover, $\Spec B$ is weakly flat.
 \end{proof}
-\section{Todo}
-
-\begin{question}
-	if $\bT \subset \bT'$ do we have that for each $X : \GS_\bT$ $L_{\bT'} X \in \GS_{\bT'}$?
-\end{question}
-
-\begin{question}
+\begin{lemma}[DM]
+	If $\Spec A + \Spec B$ is weakly flat affine, then $\Spec A$ is weakly flat. 
+\end{lemma}
+\begin{proof}
+	Indeed
+	\[
+	\|X\|_\bT \to \|X + Y\|_\bT \to X + Y \in \bT \to X \in \bP 
+	\]
+	but $\|X\|_\bT \land X \in \bP \to X \in \bT$. \\
+\end{proof}
+\begin{lemma}{\label{lemma:wfdesTCov}}
+	if the topology is saturated Beeing weakly-flat descends along $\bT$-covers.
+\end{lemma}
+\begin{lemma}[DM]
+	If $\|P + Q \|_\bT$ is a geometric prop, then TODO % $\|P\|_\bT$ and $\|Q\|_\bT$ are geometric props.
+\end{lemma}
+\begin{proof}
 	
-\end{question}
+	By the previous two lemma and we find a map out of a weakly flat affine $\Spec B \to P + Q$ that induces an equivalence on $\bT$-truncations, but it splits into two map out of a  weakly affine $\Spec B_1 \to P, \Spec B_2 \to Q$.
+\end{proof}
+\begin{notation}
+	For $P : (\varepsilon : \cN_\infty(0)) \to X \to \Prop$, let $\varepsilon : \cN_\infty(0) \vdash x : X$. We say $x$ is not$_\varepsilon$ $P$, if $\forall \varepsilon$ , $P_\varepsilon x \to \varepsilon = 0$. Observe, if $x$ is not$_\varepsilon$ $P$ for any $\varepsilon^2 = 0$, then $x$ is not $P$.
+\end{notation}
+
+\begin{rmk}
+	If $2 \neq 0$. Let $\varepsilon , \varepsilon' : \cN_\infty(0)$. $\varepsilon = \varepsilon' + \varepsilon = -\varepsilon'$ is not$_\varepsilon$ weakly-flat
+\end{rmk}
+\begin{proof}
+	We prove that once its $\bT$-merely inhabited, then its not$_\varepsilon$ covering, which is enough as $\lnot \lnot (\varepsilon = \varepsilon' + \varepsilon = -\varepsilon')$.% $\varepsilon = 0$.
+	As the goal is a stack we may assume $\varepsilon = \varepsilon' + \varepsilon = -\varepsilon' $. wlog the first case. Then assume $1 + (\varepsilon = - \varepsilon) \simeq 1 + \varepsilon = 0$ is covering. Then $\varepsilon = 0$ is formally \etale, thus inhabited as a formally \etale closed dense proposition. %  for all $\varepsilon$.
+\end{proof}
+\begin{example}[Obsolete]
+	The map $q : \bA^1 \to \bA^1 / \mu_\ell$ is not a geometric cover.
+\end{example}
+\begin{proof}
+	The map factors through the geometric cover $\bA^1 \to \bA^1 // \mu_\ell$. Thus its enough to show that $\bA^1 // \mu_\ell$ is not a 0-gerbe, or that not every loop space is covering. 
+	Let us show that, $\Omega(\bA^1 // \mu_\ell ,\varepsilon)$ is not$_\varepsilon$ covering. Assume it is covering for some $\varepsilon \in \cN_\infty(0)$.
+	%Observe that we have a map
+	%	\begin{align*}
+	%		f_\varepsilon : \mu_\ell &\to \fib_q \varepsilon \\
+	%		g &\mapsto g \varepsilon 
+	%	\end{align*}
+	%	Now $\fib_f \varepsilon$ is an \etale-flat geometric stack. \\%\bA^1 // \mu_\ell
+	As $\mu_\ell$ has decidable equality,
+	\begin{align*}
+		\Omega(\bA^1 // \mu_\ell , \varepsilon) &= \left (\sum_{g : \mu_\ell} g \varepsilon = \varepsilon \right) \\
+		&=  (\varepsilon = \varepsilon) + \sum_{g : \mu_\ell \setminus \{1\}} (g-1) \varepsilon = 0 \\ &= 1 + \mu_\ell \setminus \{1\} \times (\varepsilon = 0) 
+	\end{align*}
+	Thus $(\varepsilon = 0) \times (\mu_\ell \setminus \{1\})$ is an \etale-flat geometric stack. Moreover $(\mu_\ell \setminus \{1\})$ is a covering stack by \ref{lemma:CompOf1}. Thus $\varepsilon = 0$ is an affine \etale-flat geometric stack, thus formally \etale + flat affine by saturatedness of the \etale topology \ref{cor:EtaleSat}. So as a formally \etale + closed dense proposition, $\varepsilon = 0$ holds as desired. % for all $\varepsilon$ nilpotent. Contradiction to algebra.
+\end{proof}
+
+
 \end{document}

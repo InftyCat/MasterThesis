@@ -211,88 +211,81 @@ The goal of this subsection is to construct algebraic spaces. The first example 
 	$G \setminus \{1\} = \sum_{g : G} g \neq 1$ is a $\sum$ of formally \etale + flat affines (recall that formally \etale affines have decidable equality). \\
 	To show, that $\mu_\ell \setminus \{1\}$ is a covering stack, by \ref{lemma:covOfEF}, we need to show it is $\lnot \lnot$-inhabited. Indeed as we want to prove a contradiction we may assume a term in $g : \Spec R[X] / (\sum_{i=0}^{\ell-1} X^i)$. But this type is equivalent to $\mu_\ell \setminus \{1\}$, using that $\sum_{i=0}^{\ell-1} X^i | X^\ell -1 $ and $\ell \neq 0$. \\
 \end{proof}
-\subsection{Remarks about weakly flat affines}
-
 \begin{lemma}
-	The proposition $\|X\|_\bT$ is geometric iff there exists a map from a weakly flat affine $\Spec B \to X$ such that $\|\Spec B\|_\bT \to \|X\|_\bT$ is an equivalence.
+	Given a modal equivalence relation $R$ on a sheaf $X$ and a 1-stack $T$ and a map $f : X \to T$ and term $p : \prod_{x , y : X} R(x,y) \to f x = f y$ such that $p (x , y) \cdot p (y , z) = p (x,z)$, where the witnesses for $R$ are left implicit. Then $f$ factors through the quotient.
+\end{lemma}
+\begin{lemma}
+	Put $\ell = 2$
+		If $\ell \neq 0$, the sheaf quotient of $\bA^1$ by the $\mu_2$ action is not an algebraic space.
 \end{lemma}
 \begin{proof}
-	'$\leftarrow$' is clear. \\
-	'$\rightarrow$'. Choose $\Spec B'$ weakly flat such that $\|X\|_\bT = \|\Spec B'\|_\bT$. As the map $X \to \|X\|_\bT$ is $\bT$-surjective, by $\bT$-local choice we find a $\bT$-cover $\Spec B \to \Spec B'$ and a commutative diagram
-	% https://q.uiver.app/#q=WzAsNCxbMSwwLCJcXFNwZWMgQSJdLFsxLDEsIlxcfFxcU3BlYyBBXFx8X1xcYlQiXSxbMCwxLCJcXFNwZWMgQiciXSxbMCwwLCJcXGV4aXN0cyBcXFNwZWMgQiJdLFszLDAsIiIsMCx7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFszLDIsIiIsMix7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFswLDFdLFsyLDFdXQ==
-	\[\begin{tikzcd}
-		{\exists \Spec B} & {X} \\
-		{\Spec B'} & {\|X\|_\bT}
-		\arrow[dashed, from=1-1, to=1-2]
-		\arrow[dashed, from=1-1, to=2-1]
-		\arrow[from=1-2, to=2-2]
-		\arrow[from=2-1, to=2-2]
-	\end{tikzcd}\]
-	As $\Spec B'$ was weakly flat and the left vertical map is a $\bT$-cover, $\Spec B$ is weakly flat.
-\end{proof}
-\begin{lemma}[DM]
-	If $\Spec A + \Spec B$ is weakly flat affine, then $\Spec A$ is weakly flat. 
-\end{lemma}
-\begin{proof}
-	Indeed
-	\[
-	\|X\|_\bT \to \|X + Y\|_\bT \to X + Y \in \bT \to X \in \bP 
-	\]
-	but $\|X\|_\bT \land X \in \bP \to X \in \bT$. \\
-\end{proof}
-\begin{lemma}{\label{lemma:wfdesTCov}}
-	if the topology is saturated Beeing weakly-flat descends along $\bT$-covers.
-\end{lemma}
-\begin{lemma}[DM]
-	If $\|P + Q \|_\bT$ is a geometric prop, then TODO % $\|P\|_\bT$ and $\|Q\|_\bT$ are geometric props.
-\end{lemma}
-\begin{proof}
-	
-	By the previous two lemma and we find a map out of a weakly flat affine $\Spec B \to P + Q$ that induces an equivalence on $\bT$-truncations, but it splits into two map out of a  weakly affine $\Spec B_1 \to P, \Spec B_2 \to Q$.
-\end{proof}
-\begin{notation}
-	For $P : (\varepsilon : \cN_\infty(0)) \to X \to \Prop$, let $\varepsilon : \cN_\infty(0) \vdash x : X$. We say $x$ is not$_\varepsilon$ $P$, if $\forall \varepsilon$ , $P_\varepsilon x \to \varepsilon = 0$. Observe, if $x$ is not$_\varepsilon$ $P$ for any $\varepsilon^2 = 0$, then $x$ is not $P$.
-\end{notation}
+		Assume this it is an algebraic space. \\
+		Set $\bD(1) = \Spec R[X] / X^\ell$.
+		Then $\sum_{x : \bA^1 / \mu_\ell } x^\ell =_{\bA^1} 0 \simeq \bD(1)/\mu_\ell$ is an algebraic space by $\sum$-stability. \\
+		Then we can choose a geometric atlas $p : \Spec A \to \bD(1) / \mu_\ell$. 
+		We proceed in the following steps
+		\begin{enumerate}
+		
+			\item %The bundle of fibers $\bD(1) / \mu_\ell \to \CS$ is constant. More precisely 
+			There is an equivalence $\Spec A \simeq \fib_p 0 \times \bD(1) / \mu_\ell$.
+			\item The fiber over 0 is affine
+			\item $\bD(1) / \mu_\ell$ is $\lnot \lnot$ affine
+			\item $\bD(1) / \mu_\ell$ is $\lnot$ affine%The quotient of the $\mu_\ell$ action on $\Spec B$ does not give us an affine scheme for $\ell \neq 0$.
+		\end{enumerate}
+		Proofs
+		\begin{enumerate}
+			\item Let us denote $F : \bD(1) / \mu_2 \to \CS_0$ the bundle of fibers of $f$, where we note that the fibers are indeed sets. As $\CS_0$ is formally \etale (\todocite), we have terms
+			\[
+			\phi : \prod_{x: \bD(1)} F[x] = F[0]		, \phi^- : \prod_{x: \bD(1)} F[-x] = F(0)	
+			\]
+			that both evaluate at $x = 0$ to $\refl_{F[0]}$. \\
+			The goal is to produce a term in 
+			\[
+			\prod_{x: \bD(1) / \mu_2} F x = F [0]
+			\]
+			By the previous lemma, using that $\CS_0$ is a 1-stack, we need to show, that under the path $p_x : [x] = [-x]$ in the quotient we have
+			\[
+			\ap_{p_x} F \cdot \phi^- x = \phi x
+			\]                                     
+			This proposition is formally \etale as $\CS_0$ is formally \etale. Thus we may assume the closed dense proposition $x = 0$. Then $p_x = \refl_{[0]}$ and $\phi^- 0 = \refl = \phi 0$ by assumption. 
+			
+%			 if we precompose with the $\bT$-surjection the map  is constant, i.e. $\prod_{x : \bD(1)} \fib_f{[x]} \simeq F$. As covering stacks have descent, the type $\CS$ is in particular $\bT$-seperated, thus $\bD(1) / \mu_\ell \to \CS$ is constant. 
+			\item 
+			Let us first show, that We may assume that our geometric cover factors through the $\bT$-surjection $\Spec A \overset{f}{\to} \bD(1) \to \bD(1) / \mu_\ell$. 
+			Proof: By $\bT$-local choice applied to the $\bT$-surjection $\bD(1) \to \bD(1) / \mu_\ell$, we find a $\bT$-cover $\Spec B \to \Spec A$ and a factorization % https://q.uiver.app/#q=WzAsNCxbMCwwLCJcXGV4aXN0cyBcXFNwZWMgQiJdLFswLDEsIlxcU3BlYyBBIl0sWzEsMSwiXFxiQV4xIC8gXFxtdV9cXGVsbCJdLFsxLDAsIlxcYkFeMSJdLFswLDEsIiIsMCx7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFswLDMsIiIsMix7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFsxLDJdLFszLDIsIiIsMix7InN0eWxlIjp7ImhlYWQiOnsibmFtZSI6ImVwaSJ9fX1dXQ==
+			\[\begin{tikzcd}
+				{\exists \Spec B} & {\bD(1)} \\
+				{\Spec A} & {\bD(1) / \mu_\ell}
+				\arrow[dashed, from=1-1, to=1-2]
+				\arrow[dashed, from=1-1, to=2-1]
+				\arrow[two heads, from=1-2, to=2-2]
+				\arrow[from=2-1, to=2-2]
+			\end{tikzcd}\]
+			\qed(Claim)  \\
+			Its enough to see that the map $\fib_f 0 \to F$ is an equivalence. That follows because $0$ is a fix point of the $\mu_\ell$ action on $\bD(1)$. %if $x : \bD(1)$ such that $\|\sum_g g x = 0 \|_\bT$, then $x = 0$.
+			\item $F$ is a covering stack, hence $\lnot \lnot$-inhabited. As the goal is $\lnot \lnot$-modal, we may pick a map $1 \to F$. Then, by step 1			\[\bD(1) / \mu_\ell = 1 \times_F (F \times \bD(1) / \mu_\ell) = 1 \times_F \Spec A\]
+			is a fiber product of affines, hence affine. 
+			\item Here we need that $\ell = 2$ . The affinization map would be induced by % https://q.uiver.app/#q=WzAsMyxbMCwwLCJcXGJBXjEiXSxbMSwxLCJcXGJBXjEiXSxbMCwxLCJcXGJBwrkvXFxtdV9cXGVsbCJdLFswLDEsInogXFxtYXBzdG8gel5cXGVsbCJdLFswLDJdLFsyLDEsIiIsMix7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dXQ==
+			\[\begin{tikzcd}
+				{\bD(1)} \\
+				{\bD(1)/\mu_\ell} & {\bD(1)}
+				\arrow[from=1-1, to=2-1]
+				\arrow["{z \mapsto z^\ell}", from=1-1, to=2-2]
+				\arrow[dashed, from=2-1, to=2-2]
+			\end{tikzcd}\]
+			But the map is not an embedding: For any $\varepsilon : \Spec R[X] / X^\ell$, we have $\varepsilon^\ell = 0^\ell$ but $\varepsilon =_{\bD(1)/\mu_\ell} 0$ iff there $\bT$-merely exists some $g : \mu_\ell$ with $g \varepsilon = 0$, but as $g$ is invertible this is equivalent to $\varepsilon = 0$.
+		\end{enumerate}
 
-\begin{rmk}
-	If $2 \neq 0$. Let $\varepsilon , \varepsilon' : \cN_\infty(0)$. $\varepsilon = \varepsilon' + \varepsilon = -\varepsilon'$ is not$_\varepsilon$ weakly-flat
-\end{rmk}
-\begin{proof}
-	We prove that once its $\bT$-merely inhabited, then its not$_\varepsilon$ covering, which is enough as $\lnot \lnot (\varepsilon = \varepsilon' + \varepsilon = -\varepsilon')$.% $\varepsilon = 0$.
-	As the goal is a stack we may assume $\varepsilon = \varepsilon' + \varepsilon = -\varepsilon' $. wlog the first case. Then assume $1 + (\varepsilon = - \varepsilon) \simeq 1 + \varepsilon = 0$ is covering. Then $\varepsilon = 0$ is formally \etale, thus inhabited as a formally \etale closed dense proposition. %  for all $\varepsilon$.
-\end{proof}
-\subsection{Weiter gehts}
-\begin{question}
-		The sheaf quotient of $\bA^1$ by the $\mu_2$ action is not an algebraic space?
-\end{question}
-\begin{proof}
-		Assume this it is an algebraic space. Then the identity types $\|x = y + x = -y\|_\bT$ are geometric propositions. Let $\varepsilon, \varepsilon'$ in $\cN_\infty(0)$. We find $f : \Spec A \to \varepsilon = \varepsilon'+ \varepsilon = -\varepsilon' \equiv P$  with weakly flat domain which induces an equivalence on $\bT$-truncations. \\
-		$f$ is not$_\varepsilon$ a $\bT$-cover, indeed: By \ref{lemma:wfdesTCov} and the codomain beeing not$_\varepsilon$ weakly flat . %If its a $\bT$-cover then its codomain is also weakly-flat by a lemma, thus $\varepsilon = 0$. \\
+		
+		
+%		Then the identity types $\|x = y + x = -y\|_\bT$ are geometric propositions. Let $\varepsilon, \varepsilon'$ in $\cN_\infty(0)$. We find $f : \Spec A \to \varepsilon = \varepsilon'+ \varepsilon = -\varepsilon' \equiv P$  with weakly flat domain which induces an equivalence on $\bT$-truncations. \\
+%		$f$ is not$_\varepsilon$ a $\bT$-cover, indeed: By \ref{lemma:wfdesTCov} and the codomain beeing not$_\varepsilon$ weakly flat . %If its a $\bT$-cover then its codomain is also weakly-flat by a lemma, thus $\varepsilon = 0$. \\
 		%But the fiber of  $f$ over some $p : P$ is not$_\varepsilon$ not in $\bT$. Note that $\Spec A \in \bT$, as by assumption it is weakly flat and $\bT$-inhabited. So if $\fib_f p \hookrightarrow \Spec A$ is not an equivalence, meaning $\varepsilon = \varepsilon'$ and $\varepsilon = -\varepsilon'$. Thus $\varepsilon =0$.   % $\Spec A \to \varepsilon = \varepsilon'$ , $\Spec B \to \varepsilon = -\varepsilon'$ such that the map out of the sum  \\
 %		We have $\lnot \lnot (\Spec A + \Spec B)$. As we want to prove a contradiction, we may assume $\Spec A + \Spec B$. wlog assume a point in $\Spec A$. 
 
 		%If $f$ is not $\bT$-surjective, then $\varepsilon = 0$: 
 		
 		%Let $q : \bA^1 \to \bA^1 / \mu_\ell$ the projection map.  TODO
-\end{proof}
-\begin{example}[Non-example]
-	The map $q : \bA^1 \to \bA^1 / \mu_\ell$ is not a geometric cover.
-\end{example}
-\begin{proof}
-The map factors through the geometric cover $\bA^1 \to \bA^1 // \mu_\ell$. Thus its enough to show that $\bA^1 // \mu_\ell$ is not a 0-gerbe, or that not every loop space is covering. 
-Let us show that, $\Omega(\bA^1 // \mu_\ell ,\varepsilon)$ is not$_\varepsilon$ covering. Assume it is covering for some $\varepsilon \in \cN_\infty(0)$.
-%Observe that we have a map
-%	\begin{align*}
-%		f_\varepsilon : \mu_\ell &\to \fib_q \varepsilon \\
-%		g &\mapsto g \varepsilon 
-%	\end{align*}
-%	Now $\fib_f \varepsilon$ is an \etale-flat geometric stack. \\%\bA^1 // \mu_\ell
-	As $\mu_\ell$ has decidable equality,
-	\begin{align*}
-		\Omega(\bA^1 // \mu_\ell , \varepsilon) &= \left (\sum_{g : \mu_\ell} g \varepsilon = \varepsilon \right) \\
-		&=  (\varepsilon = \varepsilon) + \sum_{g : \mu_\ell \setminus \{1\}} (g-1) \varepsilon = 0 \\ &= 1 + \mu_\ell \setminus \{1\} \times (\varepsilon = 0) 
-	\end{align*}
-	Thus $(\varepsilon = 0) \times (\mu_\ell \setminus \{1\})$ is an \etale-flat geometric stack. Moreover $(\mu_\ell \setminus \{1\})$ is a covering stack by \ref{lemma:CompOf1}. Thus $\varepsilon = 0$ is an affine \etale-flat geometric stack, thus formally \etale + flat affine by saturatedness of the \etale topology \ref{cor:EtaleSat}. So as a formally \etale + closed dense proposition, $\varepsilon = 0$ holds as desired. % for all $\varepsilon$ nilpotent. Contradiction to algebra.
 \end{proof}
 
 \subsection{Non locally-seperated Examples}
@@ -434,6 +427,12 @@ Let $\ell \neq 0$ denote a prime. Consider $\mu_\ell = R[X] / (X^\ell - 1)$.
 	A strongly free action of $G$ on a pointed type $(X,0)$ is a $G$-action with fixpoint 0, such tha, if $g \varepsilon = \varepsilon$ for some $g \neq 1$, then $\varepsilon = 0$. \\
  	In this case $G$ acts free away from zero.
 \end{lemma}
+\begin{lemma}
+	If $char \neq 2$, then $x^2 = 1$ implies $x = 1$ or $x = -1$
+\end{lemma}
+\begin{proof}
+	Indeed, By locality, $x / 2 - 1 /2$ or $x / 2 + 1 /2 $is invertible.
+\end{proof}
 \begin{proof}
 	let $x , y\neq 0$. We need to show, that $\sum_g g x = y$ is a proposition. Let $g, g' : G$ such that $g x = y$. as $G$ has decidable equality, we may show $\lnot \lnot (g = g')$. If $g^{-1} g' \neq 1$, then by strong freeness applied to $g^{-1} g' x = x$, we have $x = 0$. Contradiction.
 \end{proof}
@@ -508,7 +507,7 @@ R_G(x,y) = (x = y) + (x \neq 0) \times \sum_{g : G \setminus \{1\}} g x = y
 \begin{question}
 	If $\mu_\ell$ acts on $Y$ some affine, does every $\mu_\ell$-invariant $\phi : Y \to R$ is invariant on a $\ell$-neigborhood?
 \end{question}
-\subsection{Outdated}
+\subsection{Obsolete}
 \begin{lemma}[Not needed]
 	Let $char \neq 2$.
 	Let $p : R[X]$ be such that $0 \in D(p)$ and $x \in D(p)$ implies $-x \in D(p)$. 
@@ -563,20 +562,12 @@ Choose a principal open neighborhood $0 \in D(p) \subset U$. $G$ acts on $R[X]$,
 	where $U'$ is an open affine neighborhood of 0. \\
 	By assumption $U = D(p) / \sim'$ cannot be affine. Contradiction. 
 \end{proof}
-\begin{example}
-	Let $\mu_\ell$ act on $\bA^1$ by multiplication with $\ell \neq 0$. Then $\bA^1 / \mu_\ell$ is not a scheme. We dont know whether it is an algebraic space
-\end{example}
-\begin{proof}
-	Let $p : \bA^1 \to R$ be $\mu_\ell$ equivariant. with $0 \in D(p)$. The affinization map would be induced by % https://q.uiver.app/#q=WzAsMyxbMCwwLCJcXGJBXjEiXSxbMSwxLCJcXGJBXjEiXSxbMCwxLCJcXGJBwrkvXFxtdV9cXGVsbCJdLFswLDEsInogXFxtYXBzdG8gel5cXGVsbCJdLFswLDJdLFsyLDEsIiIsMix7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dXQ==
-	\[\begin{tikzcd}
-		{\bA^1} \\
-		{\bA^1/\mu_\ell} & {\bA^1}
-		\arrow[from=1-1, to=2-1]
-		\arrow["{z \mapsto z^\ell}", from=1-1, to=2-2]
-		\arrow[dashed, from=2-1, to=2-2]
-	\end{tikzcd}\]
-	But the map is not an embedding: For any $\varepsilon : \Spec R[X] / X^\ell$, we have $\varepsilon^\ell = 0^\ell$ but $\varepsilon =_{\bA^1/\mu_\ell} 0$ iff there $\bT$-merely exists some $g : \mu_\ell$ with $g \varepsilon = 0$, but as $g$ is invertible this is equivalent to $\varepsilon = 0$.
-\end{proof}
+%\begin{example}
+%	Let $\mu_\ell$ act on $\bA^1$ by multiplication with $\ell \neq 0$. Then $\bA^1 / \mu_\ell$ is not a scheme. We dont know whether it is an algebraic space
+%\end{example}
+%\begin{proof}
+%
+%\end{proof}
 
 \begin{prop}[Not needed]
 	Let $\ell \neq 0$ be prime. Let $\mu_\ell$ act on $\Spec B$ with fixpoint $0$. . Let $V$ be an infinitesimal neigborhood of $0$, i.e. a subtype   $0 \in V \subset \Spec B$ such that $\lnot \lnot x =0$ for every $x : V$. Assume
@@ -672,21 +663,90 @@ Choose a principal open neighborhood $0 \in D(p) \subset U$. $G$ acts on $R[X]$,
 \begin{lemma}
 	Given a map $P : \Susp(Q) \to \Prop$, such that $P(N)$ and $P(S)$ hold, then $\prod_{t: \Susp(Q)} P(t)$
 \end{lemma}
-\begin{example}
-	Let $L = \sum_{x : \bA^1} \Susp(x \neq 0)$ be the line with two origins. By the evident $\mu_2$ action on any suspension we obtain a $\mu_2$ action on $X$, such that the first projection $L \to \bA^1$ is $\mu_2$-invariant. Then the map $L / \mu_2 \to \bA^1$ is an equivalence
-\end{example}
+\begin{lemma}
+	Assume $2 \neq 0$. For any $x : R$, the map
+	\begin{align*}
+		\Susp(x \neq 0) &\to  \sum_{y: R / x} y^2 = 1  \\
+		N &\mapsto 1 & \\
+		S &\mapsto -1 & 
+	\end{align*}
+	is well-defined and an equivalence.
+\end{lemma}
 \begin{proof}
-	By $\sum$-stability of algebraic spaces we may show, that the fiber of $L / \mu_2 \to \bA^1$ over $x : \bA^1$ is contractible. The fiber is $\Susp(x \neq 0) / \mu_2$ as 
-	\[
-	X / \mu_2 = \sum_{x : \bA^1} \Susp(x \neq 0)/\mu_2
-	\]
-	 But for $X$ a proposition the sheaf quotient $\Susp(X) / \mu_2$ is contractible.	
+	The following maps are mutually inverse
+	\begin{align*}
+		\sum_{y: R / x} y^2 = 1 &\simeq \sum_{e : R / x} e^2 = e \\
+		y &\mapsto (y-1) / 2  \\
+		2e - 1 &\mapsfrom e
+	\end{align*}
+	
+	So it remains to show  that the map
+	\begin{align*}
+		f : \Susp(x \neq 0) &\to \sum_{e : R / x} e^2 = e \\
+		N &\mapsto 1 & \\
+		S &\mapsto 0 & 
+	\end{align*}
+	is a bijection. \\
+	\begin{itemize}
+		\item It is injective, i.e. for all $p , q : \Susp(x \neq 0)$, if $f(p) = f q$, then $ p =q$. As the latter is a proposition, we may assume $p , q$ beeing combinations of north and south poles. The interesting case is if wlog $p = N, q = S$. Then assuming $0 =_{R/x} 1$ means $R / x = 0$, i.e. $x \neq 0$, thus $N = S$ in $\Susp(x \neq 0)$.
+		\item It is surjective: Choose $e : R$, such that $e^2 = e$ in $R / x$.  By locality in $R$,  $e$ or $1 - e$ is invertible in $R$, thus in $R / x$. By $e^2 = e$ we deduce $e = 0$ or $e = 1$ in $R / x$, both lie in the image of $f$.
+	\end{itemize}
 \end{proof}
-
+\begin{example}
+	Let $L = \sum_{x : \bA^1} \Susp(x \neq 0) = \sum_{x : \bA^1} \sum_{y : R / x} y^2 =_{R/x} 1$ be the line with two origins. 	
+\end{example}
+\begin{lemma}
+	Let $2 \neq 0$. Let $y , y' : A$ be two elements of an fp-algebra, whose squares coincide and such that $y$ is invertible. Then $y =_A y'$ is formally \etale
+\end{lemma}
+\begin{proof}
+	We may assume that $A = R$, as equality in $A$ can be checked pointwise and formally \etale is a modality.
+	We may show its $\lnot \lnot$-stable. Assume $\lnot \lnot (y =_{R} y')$, i.e. $y - y'$ beeing nilpotent in $A$. So pick $n$, such that $(y-y')^{2^n} =0$. Proof by induction over $n$\\
+	If $n =0$, then its fine. 
+	Induction step $n \mapsto n+1$. %Assume now, that for any such $y,y'$ we have that $(y-y')^{2^n} =0$ implies $y = y'$.
+	Let $(y-y')^{2^{n+1}} =_{R} 0$, then $(2y^2 - 2yy')^{2^n} = 0$, or $(y(y - y'))^{2^n} = 0$, as $y$ is invertible, $(y - y')^{2^n} = 0$, so by induction hypothesis $y = y'$. \\
+\end{proof}
 \begin{example}[TODO]
-	Let $L = \sum_{x : \bA^1} \Susp(x \neq 0)$ be the line with two origins. By the evident $\mu_2$ action on any suspension we obtain a $\mu_2$ action on $X$, such that the first projection $L \to \bA^1$ is $\mu_2$-invariant. Then the homotopy quotient $L // \mu_2$ is geometric stack.
+	Let $2 \neq 0$. Let $X = \sum_{x : \bA^1} \sum_{y : R / x} y^2 =_{R/x} -1$ be the twisted line with two origins. This is an algebraic space. If it would be a scheme, then $X^2 + 1$ has a root.
 \end{example}
 \begin{proof}
+	Write $R[i]  = R[X] / (X^2 + 1)$
+	Try to show that 
+	\begin{align*}
+		\bA^1 \times \Spec R[i] &\to X \\
+		(x , y ) &\mapsto (x , [y])
+	\end{align*}
+	is a geometric cover. \\
+	Claim: the fibers are formally \etale.  \\
+	Let $x : R$.
+	Let $y' : R$, such that $[y'] =_{R/x} -1$. The fiber over $(x , [y'])$ is equivalent to 
+	\[
+	\sum_{y : \Spec R[i]} y =_{R /x} y'
+	\]
+	As $\Spec R[i]$ is formally \etale, We may show that for any $y : \Spec R[i]$, $y =_{R/x} y'$ is formally \etale. This follows by the previous lemma. $\qed$(Claim). \\
+
+%	 As this is a proposition, it is formally unramified. For formally smoothness, let us show, that $\sum_{t : R} y' - y = tx$ is formally smooth. Choose $s : R$ such that $y'^2 = -1 + sx$. Rmk: This type implies $\Spec R[t] / x^2 t^2 + 2yx t - s x$ , that is not$_\varepsilon$ formally smooth for $x = \varepsilon$. Indeed, the implication:
+%	\[
+%	(tx)(tx + 2y) = (y' - y)(y' + y) = y'^2 + 1 = s x
+%	\]
+%	Thus $x^2 t^2 + 2yx t - s x = 0$.  \\
+%	
+%	Let $P$ be closed dense, and assume $P$ merely we find $t$ such that $y' - y = tx$. Then $P \to $. 
+\end{proof}
+\begin{example}
+	What happens for\[\sum_{x: R} \sum_{y: R / x^2} y (x-y) =_{R/x^2} 0 \]
+	where we apparently glue in $\bD(1)$ at the origin and leave the line invariant away from the origin?
+\end{example}
+\subsection{Boring results about line with two origins}
+By the evident $\mu_2$ action on any suspension we obtain a $\mu_2$ action on $X$, such that the first projection $L \to \bA^1$ is $\mu_2$-invariant. Then the map $L / \mu_2 \to \bA^1$ is an equivalence
+\begin{proof}
+By $\sum$-stability of algebraic spaces we may show, that the fiber of $L / \mu_2 \to \bA^1$ over $x : \bA^1$ is contractible. The fiber is $\Susp(x \neq 0) / \mu_2$ as 
+\[
+X / \mu_2 = \sum_{x : \bA^1} \Susp(x \neq 0)/\mu_2
+\]
+But for $X$ a proposition the sheaf quotient $\Susp(X) / \mu_2$ is contractible. \\
+\end{proof}
+\begin{proof}
+	 By the evident $\mu_2$ action on any suspension we obtain a $\mu_2$ action on $X$, such that the first projection $L \to \bA^1$ is $\mu_2$-invariant. Then the homotopy quotient $L // \mu_2$ is geometric stack. %\begin{proof}
 	By $\sum$-stability of geometric stacks we may show, that the fiber $\Susp(x \neq 0) // \mu_2$ of $L //´ \mu_2 \to \bA^1$ over $x : \bA^1$ is a geometric stack. As $\Susp(x \neq 0)$ is a scheme \todocite, it is an algebraic space, so it remains to show, that the equivalence relation is covering. \\
 	Let us show that all the homotopy orbits of the $\mu_2$-action of some $s : \Susp(x \neq 0)$ are covering. Since this is a proposition depedent on $s : \Susp(x \neq 0)$,by the previous lemma we only have to consider orbits of points $N : \Susp(x\neq0)$ and $S : \Susp(x \neq 0)$ . Lets stick to $N$. The homotopy orbit is equivalent to 
 	\[
