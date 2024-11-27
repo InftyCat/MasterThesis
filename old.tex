@@ -1,0 +1,1266 @@
+\section{Does not fit yet}
+Algebraic space $=$ Classical algebraic space.
+Let $\bT$ be a saturated topology.
+Let $U$ be an affine in $\bT$, $R : U^2 \to \Prop$ be a covering equivalence relation, meaning that the fibers $R_x$ are covering algebraic spaces for $x : U$. I have shown previously that the identity types then are algebraic spaces. Let $U / R$ denote the sheafifaction of the set truncation of the homotopy quotient. We want to show, that  As $U$ is projective we can choose $\tilde R : U^2 \to \bT$ such that $\| \tilde R x y \|_\bT= R x y$. Consider the sheafification of the homotopy quotient $U // \tilde R$, this will be a 1-stack whose identity types are in $\bT$. Hence it suffices to show that the map $f : U // \tilde R \to U / R$ is fibered in covering 0-stacks. Consider a term in $U / R$. By descent we may assume its of the form $[x]$ for some $x : U$. I claim that the map \[\tilde R_x \to \fib_f [x] = \sum_{t: U // \tilde R} f t =_{U/R} [x]\]
+is an equivalence, this is en
+
+\begin{example}
+	There are open affine subschemes $U$ of affine schemes $\Spec A$, which are not (disjoints unions of) principal open
+\end{example}
+\begin{proof}
+	Consider $A = R[x,y,u,v]/(xy + ux^2 + vy^2), X= \Spec A$ and consider the open $U = D(x,y)$. \\
+	We cant expect $U$ to be a disjoint union of principal opens (todo). However, $D(x,y)$ is affine: We have maps $U \to R$ given by
+	$f = -v/x = (y+ux)/y^2 , g= -u/y = (x+vy)/x^2$. 
+	Then $D(f) \cup D(g) = \Spec R^X$ , as $yf + xg = 1$ in $R^U$.
+	Taking preimages under the affinization map, $U_f \cup U_g = X$ and one checks this defines an open affine cover (for example : $U_f \simeq \Spec R[x,u,f^{\pm 1}, g] / (xy + ux^2 + uy^2)$ with $y := (1-gx)/f$.)
+	But on both of this open subsets the affinization map is an isomorphism
+	hence the affinization of $X$ is an isomorphism.
+	%\[R^X \simeq R^{D(f) \cup D(g)} \simeq R^{D(f)} \times_{R^{D(fg}} D(g) \]
+	compare (Hartshorne II.2.17)
+\end{proof}
+\begin{lemma}
+	Let $f : X \to Y$ be surjective. There exists a Zariski Cover $X' \to X$ such that $X' \to Y$ is a Zariski cover iff there exists a Zariski Cover $X' \to X$, some $n : \bN$ and an open affine embedding $X' \hookrightarrow Y^n$ over $Y$.
+\end{lemma}
+\section{ $n$-stacks}
+
+% \begin{rmk}
+% A  (-1)-stack should not be defined as an affine scheme: Because otherwise schemes $\subset$ algebraic spaces would not be  0-stacks, because in general their identity types are not affine.
+% \end{rmk}
+% \begin{definition}
+% Let $\bT$ be a subcanonical topology finer than the Zariski topology. A type $X$ 
+%     \begin{itemize}
+
+
+%         \item is a  1-stack if
+%         \begin{itemize}
+%             \item $X$ is a $\bT$-sheaf
+%             \item There exists a $\bT$-cover $\Spec A \to X$
+%             \item Coinductively, identity types of $X$ are atomar stacks.
+%         \end{itemize}        
+
+%         \item a  $n$-stack for $-2 \le n \le 0$ iff is an $n$-type and a  1-stack
+%         \item a covering $n$-stack for $-2 \le n \le 0$ iff its  and there is a $\bT$-cover $\bT \ni \Spec A \to X$
+
+%         \item is A  $(n+1)$-stack for $n \ge 1$, if 
+%         \begin{itemize}
+%             \item $X$ is a $\bT$-sheaf
+%             \item For any $x , y : X$ $x =_X y$ is a  $n$-stack
+%             \item There exists an $n$-atlas, i.e. a $\bT$-surjective map $\Spec A \to X$ fibered in covering $n$-stacks
+%         \end{itemize}
+%         \item $X$ is a covering $n+1$-stack if
+%         \begin{itemize}
+%             \item $X$ is a  $(n+1)$-stack
+%             \item There exists a $n$-atlas $\Spec A \to X$ with $\Spec A \in \bT$
+%         \end{itemize}
+%     \end{itemize}
+
+% \end{definition}
+%\begin{corollary}
+%	Assume $\bT$ satisfies descent for propositions and for sets.
+%	A type is a  0-stack iff its merely the $\bT$-quotient of an affine scheme by a covering equivalence relation.
+%\end{corollary}
+%\begin{theorem}{\label{thm:QuotientOfAlgebraicSpace}}
+%	Assume $\bT$ satisfies descent for propositions. 
+%	The quotient of a  $0$-stack $X \in \bT \Set$ by an $0$-covering equivalence relation $R$ is a  $0$-stack. TODO
+%\end{theorem}
+%
+%\begin{proof}
+%	The identity types in $X / R$ are propositional  0-stacks, hence $(-1)$-\truncation s of  -1-stacks by \ref{lemma:prop0stacks} as desired. \\
+%	How to find an atlas: todo. How to proceed, if we could choose all atlasses we want at the same time?
+% Motivation why the choice of atlasse should work: Let $T = X / R$. 
+%  If we could choose -1-atlasses $\tilde X_t$ for the covering 0-stacks $\fib_{[]}(t)$ for all $t : T$ at the same time, then $\sum_{t : T} \tilde X_t \to \sum_{t : T} \fib_{[]}(t) \to T$ has as domain a is fibered in covering $-1$-stacks, as the fiber over $t$ would be $\tilde X_t$ which is an affine scheme in the topology. Moreover, This is enough as \\ %, hence by definition a covering -1 stack. \\
+
+%     Given $p_1 , p_2 : R \rightrightarrows X$ fibered in covering $0$-stacks, hence the fibers merely have $-1$-atlasses.
+%     %Claim: There exists a $-1$-atlas $R' \to R$
+%     As $X$ has Local choice with respect to $-1$-atlasses, we find a $-1$ atlas $f : X' \to X$ with 
+%     \[
+%     \prod_{x' : X'} \text{-1-atlas}(\sum_{x : X} R(x,f(x'))
+%     \]
+
+%\end{proof}
+%\begin{rmk}
+%	This is equivalent to saying that  $1$-stacks that are $0$-types are geomeric $0$-stacks: One direction we prove later. If $R$ is a 0-covering equivalence relation on a  0-stack $X$, then $ X/ R$ is a  1-stack by observing that any -1-atlas $X' \to X$ gives a 0-atlas $X' \to X \to X/ R$. Moreover, $ X/ R$ is a 0-type, hence by assumption a  0-stack.
+%\end{rmk}
+
+
+% \begin{example}
+%     The Zariski topology does not descent along $\bT$-covers between affines
+% \end{example}
+% \begin{proof}
+% Assume it would hold.
+% By the previous example pick such an open affine subset $U \subset \Spec A$ and pick a Zariski atlas $V \to U$ such that $V$ is mereley of the form $D(a_1) + \hdots + D(a_n)$ for some $a_i \in A$. Let $x : \Spec A$. Then pulling pack the Zariski atlas along $U(x) \to U$ gives us a Zariski atlas of the open proposition $V' \to U(x)$. Now $V' + 1 \to U(x) + 1$ is a Zariski atlas with total space in the Zariski topology. By assumption, $U(x) + 1$ is in the topology, hence $U(x)$ would be a sum of principal opens. As it is a propososition, it would be a principal open subset of $1$. 
+% This is not a contradiction, because an open subset can be non principal although all the fibers are principal open props...
+% This is a contradiction by the assumption on $U \subset \Spec A$ beeing not principal open.
+
+% \end{proof}
+
+
+% \begin{lemma}
+%     A morphism $f : X \to Y$ of  $n$-stacks is fibered in covering $n$-stacks if there exists a covering $n$-atlas of $f$.
+% \end{lemma}
+
+\begin{definition}
+	Let $\bT$ be a subcanonical topology finer than the Zariski topology. Let $n \ge -2$. A type $X$ 
+	\begin{itemize}    
+		\item is a  (covering) -2-stack if it is contractible 
+		\item is A  $(n+1)$-stack, if 
+		\begin{itemize}
+			\item $X$ is a $\bT$-sheaf
+			\item For any $x , y : X$ $x =_X y$ is a  $n$-stack
+			\item There exists an $n$-atlas, i.e. a $\bT$-surjective map $\Spec A \to X$ fibered in 
+			\begin{itemize}
+				\item $\bT$, if $n \le 0$
+				\item covering $n$-stacks, if $ n > 0$. 
+			\end{itemize}
+		\end{itemize}
+		\item $X$ is a covering $n+1$-stack if
+		\begin{itemize}
+			\item $X$ is a  $(n+1)$-stack
+			\item There exists a $n$-atlas $\Spec A \to X$ with $\Spec A \in \bT$
+		\end{itemize}
+	\end{itemize}
+	
+\end{definition}
+\begin{lemma}
+	One could only alternatively talk about  (covering) $n$-stacks for $n \ge 1$, define them by induction as above. Then later define:
+	\begin{itemize}
+		\item A  (covering) -1-stack is a  (covering) 1- stack is a proposition. \\
+		\item A  (covering) 0-stack is a  (covering) 1-  that is a 0-type. \\    
+	\end{itemize}    
+\end{lemma}
+\begin{proof}
+	%Every atomar stack is a  1-stack by \todocite. Conversely, todo
+\end{proof}
+
+% \begin{rmk}
+%     \red{The red truncation plays only a role in case $n=-1 \mapsto 0 = n+1$.
+%     }
+%     It was invented because we want that a  1-stack that is a set is a  0-stack. For this to hold, one needs, that propositions that are  0-stacks are  -1-stacks. In \ref{lemma:prop0stacks} we will see that this is indeed the correct form.
+% \end{rmk}
+%In the definition of an atlas, we need a notion of surjectivity (stable under basechange) which plays well with the topology: We need if $\bT \ni \Spec A \to Y$ is such a strong surjection with $Y$ affine, then $Y \in \bT$. (*) %, then $Y \in \bT$. (*) (TODO, maybe sheaf prop?) If  allows us to 
+\begin{lemma}{\label{lemma:succStab}}
+	A  (covering) $n$-stack is a  (covering) $n+1$-stack.
+\end{lemma}
+
+\begin{proof}
+	
+	Induction. 	Be aware of the induction start, where maybe no atlas is assumed!
+	We need, that $\bT$ is subcanonical to conclude that affines are $\bT$-sheaves.
+\end{proof}
+\begin{rmk}
+	If one changes the definition of atlas to be a map out of a scheme, then covering -1 atlas will be scheme in $\bT$. Otherwise propositional -1-stack are not 0-stacks.
+\end{rmk}
+
+\section{Stability results}
+\begin{theorem}{\label{thm:stabSums}}
+	Let $n \ge -2$. covering /  $n$-stacks are stable by dependent sums.
+\end{theorem}
+% \begin{notation}
+%     A \emph{ cover $U \to X$ of Something} is a map $U \to X$ such that the fibers are Something.
+% \end{notation}
+\begin{proof}
+	Induction.
+	For $n = -2$ its okay.    
+	Let $B : X \to \cU$ be a family of  $n+1$-stacks indexed over a  $n+1$-stack $X$, then surely the total space $\sum_{x : X} B x$ is a $\bT$-sheaf as $\bT$-sheaves are stable under depentend sum. 
+	The identity types in a $\sum$ type are $\sum$ of identity types.\\ 
+	Admitting an $n$-atlas is stable under dependent sum: We apply \ref{thm:atlasStableSum} to the class of (covering) $n$-atlasses, which is stable under depent sum by induction.
+	\\ % and $B x$ is a fibers are  $n$-stacks by induction. \\
+	%    It remains to construct some $n$-atlas $\Spec A \to \sum_{x : X} B_x$ %fibered in covering $n$-stacks.
+	%    For any $x : X$ we merely have an $n$-atlas $V_x \to B_x$, i.e. with $V_x$ affine. %fibered in covering $n$-stacks . \\
+	%    Claim: $X$ has local choice for $X$ wrt  $n$-atlasses.\\
+	%    Proof:
+	%        $n$-atlasses contain zariski-atlasses, because $\bT$ is finer than the Zariski topology.
+	%         $n$-stacks are stable under dependent sum by induction, thus $n$-atlasses are stable under composition.         
+	%    \qed(Claim)\\
+	%    By (\ref{prop:LocalChoice}) for $X$, we merely find $U$ affine, an $n$-atlas $p : U \to X$ % fibered in covering $n$-stacks 
+	%    with
+	%    \[
+	%    \prod_{u : U} \sum_{V_{p(u)} \in T} (q : V_{p(u)} \to B_{p(u)}) \times (q \ \text{fibered in covering } n \text{ stacks } )
+	%    \]
+	%    Now the desired map is $\sum_{u : U} V_{p u} \to \sum_{x : X} B_x$, because it is  an $n$-atlas %fibered in covering $(n)$-stacks 
+	%    by \ref{lemma:AtlasSum} \\
+	
+	
+\end{proof}
+\begin{corollary}{\label{cor:atlascomp}}
+	$n$-atlasses are stable under composition.
+\end{corollary}
+\begin{lemma}
+	$n+1$-stacks are closed under taking closed (open) subtypes.
+	%The Class of Types which have a Zariski atlas is closed  %and closed under dependent sums.
+\end{lemma}
+\begin{proof}
+	First we show:if $X$ has an $n$-atlas and $Y$ is a closed (open) subtype of $X$, then $Y$ has an $n$-atlas. %In the presheaf model, moreover if $B : X \to \mathsf{Sch}$ is a dependent scheme such that each $B x$ has a zariski atlas, then $\sum_{x : X} Y x$ has a zariski atlas.
+	Choose an $n$-atlas $\Spec A \to X$. The pullback to $Y$ has have the same fibers.
+	
+	If $Y$ is closed,  and the total space is a closed subtype of $\Spec A$, hence it will be affine. \\
+	if $Y$ is an open subtype of $X$, then the pullback is an open subtype of $\Spec A$, hence by zariski local choice merely of the form $\bigcup_{i=1}^n D(a_i) \subset A$. 
+	As $n$-atlasses are stable under composition \ref{cor:atlascomp}, it suffices to show, that the map $f : \bigsqcup_i D(a_i) \to \bigcup_{i=1}^n D(a_i)$ is a Zariski-atlas, because then it will be an $n$-atlas as well. Let $x : \bigcup_{i=1}^n D(a_i)$, i.e. there merely exists an $i$, such that $a_i(x)$ is invertible. The fiber is exactly $D(a_1(x)) + \hdots + D(a_n(x))$. thus we are done. (MAYBE OUTSOURCE THIS and say open subschemes of affines have zariski atlas)\\
+	% For the $\sum$-stability: %choose 
+	% First notice, that types which have a Zariski-Cover have Zariski-Local-Choice in the sense of \ref{prop:LocalChoice}: Zariski-atlasses are stable under composition. 
+	% Hence using Zariski-local choice for $X$, there exists a a zariski atlas $f : \Spec A \to X$, such that
+	% \[
+	% \prod_{x : \Spec A} \sum_{B_x} \sum_{f_x : \Spec B_x \to Y (f x)} \mathrm{isZariskiCover}(f_x)
+	% \]
+	% Now $\sum_{x : \Spec A} \Spec B_x \to \sum_{x : X} Y x$ is a Zariski cover \ref{lemma:AtlasSum}, because the zariski topology is stable under dependent sums.    
+\end{proof}
+\begin{corollary}
+	Let $X$ be a quasi-projective scheme that is a sheaf. Then $X$ is a  0-stack. 
+\end{corollary}   
+\begin{proof}
+	It suffices to see that $X$ has a zariski atlas. Use \label{ex:PnIsStack}.
+\end{proof}
+
+
+\begin{definition}
+	A property of morphisms between  $n$-stacks is local, if it is satisfied by identities, stable under composition and basechange/descent along \Cov-maps, precomposition/right cancellability with \Cov-maps.
+\end{definition}
+\begin{lemma}
+	Given a local property of types $P$. Then beeing fibered in $P$ is a local property of morphisms.
+\end{lemma}
+\begin{lemma}
+	Given a local property $P$ of morphisms of modal $n$-types, a morphism $f : X \to Y$ has $P$ if there exists an $n$-atlas of $f$ having $P$.
+\end{lemma}
+The previous lemma tells us that we have the correct notion of covering morphisms between  $n$-stacks for $n = 0,1$.
+%\section{Descent}
+% \begin{theorem}{\label{thm:descent}}
+%     Let $T$ be a modal $n$-type. The Proposition, that $P$ is a  (covering) $n$-stack, is modal.
+% \end{theorem}
+
+
+\section{Saturated Topologies revisited}
+
+\begin{lemma}[1.1]{\label{lemma:coveringatlas}}
+	We want that every $n-1$-atlas of a covering $n$-atlas has the additional requirement in the definition of covering $n$-atlas. It turns out, that for this topology needs to be saturated:
+	The following are equivalent
+	\begin{enumerate}
+		
+		\item Beeing in the topology descents along $\bT$-covers between affines, i.e. $\bT$ is saturated.
+		\item A covering $n$ -stack $X$ that is an affine scheme lies in the Topology $\bT$.  
+		\item Let $n \ge 0$. If $T$ is a covering $n$-stack, then any $n-1$-atlas $U \to T$ satisfies $U \in \bT$.
+		\item If $U \overset{f}{\to} V \overset{g}{\to} W$ are maps between affines and $f$ and $gf$ are $\bT$ covers, then $g$ is a $\bT$ Cover
+	\end{enumerate}
+\end{lemma}
+\begin{proof}
+	1 $\Rightarrow$ 2 \\
+	Induction.
+	This holds for $n=-1$. Assume it holds for $n-1$. Choose a $n-1$-atlas with $T$ source, i.e. $T \ni \Spec A \to X$ fibered in covering $n-1$-stacks.  As it is affine, all the fibers of the atlas are affine covering $n-1$-stacks, hence by induction they lie in $\bT$, thus the atlas is a $\bT$-cover between affines, hence $X \in \bT$. \\
+	2 $\Rightarrow$ 3 \\
+	As $U \to T$ is fibered in covering $n-1$ stacks, all the fibers are in particular covering $n$-stacks by \ref{lemma:succStab}. By stability under dependent sum $U = \sum_{t : T} U_t$ is a covering $n$-stack that is affine, hence by assumption (2) it lies in the topology.\\
+	3 $\Rightarrow$ 1 \\
+	Let $X \to Y$ be a $\bT$-cover with $X$ affine in $\bT$ and $Y$ affine. Then $Y$ is a covering $0$-stack, But $Y \to Y$ is a $-1$-atlas, hence by assumption $Y \in T$. 
+	\\
+	4 $\Rightarrow$ 1 \\
+	Obvious
+	\\
+	1 $\Rightarrow$ 4 \\
+	Check fiberwise
+\end{proof}
+
+If $n \ge $, replacing $\bT$ by its saturation $\bT'$ does change the notion of  (covering) $n$-stack, but we have the following statement, that tells us, that if we start with  0-$\bT$-stacks then the notion of coveringness does not see the difference between $\bT$ and its saturation. 
+\begin{prop}
+	Let $X$ be a  0-stack that is a weak covering 0-stack, i.e. there exists a $\bT'$-atlas $\bT' \ni X' \to X$ (i.e. fibered in $\bT'$). Then $X$ is a covering $0$-stack. 
+\end{prop}
+\begin{proof}
+	Wlog $X' \in \bT$. Choose a $-1$-atlas $\Spec A \to X$ (i.e. fibered in $\bT$). As the fibers of $X' \to X$ merely have covering atlasses $\tilde X_x' \to X'_x$, we can use Local choice to obtain a commutative diagram $Y = \sum_{x' : X'} \tilde X_x'$
+	% https://q.uiver.app/#q=WzAsNCxbMCwwLCJcXHRpbGRlIFgiXSxbMCwxLCJYJyJdLFsxLDEsIlgiXSxbMSwwLCJcXFNwZWMgQSJdLFszLDJdLFsxLDIsIlxcYlQnIiwyXSxbMCwxXSxbMCwzLCJcXGJUIl1d
+	% https://q.uiver.app/#q=WzAsNCxbMCwwLCJcXHRpbGRlIFgiXSxbMCwxLCJYJyJdLFsxLDEsIlgiXSxbMSwwLCJcXFNwZWMgQSJdLFszLDJdLFsxLDIsIlxcYlQnIiwyXSxbMCwxLCJcXGJUIiwyXSxbMCwzLCJcXGJUIl1d
+	\[\begin{tikzcd}
+		{\tilde X} & {\Spec A} \\
+		{X'} & X
+		\arrow["\bT", from=1-1, to=1-2]
+		\arrow["\bT"', from=1-1, to=2-1]
+		\arrow[from=1-2, to=2-2]
+		\arrow["{\bT'}"', from=2-1, to=2-2]
+	\end{tikzcd}\]
+	As $Y \to X'$ is a$\bT$-cover and $X' \in \bT$ we conclude $Y \in \bT$. Hence we found a covering $\bT$-atlas of $X$. 
+\end{proof}
+% \begin{prop}
+%     Let $n \ge 0$. Replacing $\bT$ by its saturation $\bT'$ does change the notion of  (covering) $n$-stack
+% \end{prop}
+% \begin{proof}
+%     Induction. For $n = 0$ it is not clear, that if $X$ has an atlas fibered in $\bT'$, why it has an atlas fibered in $\bT$. TODO \\ REST IS CLEAR.
+% \end{proof}
+\subsection{Zariski Topology is not saturated}
+\begin{example}[Weird Zariski Atlasses]{\label{ex:weirdZarAtlasses}}
+	Assume those equivalent conditions on the Zariski topology.
+	There exist Zariski atlasses of affines $\Spec A = X$ which are not of the form $D(a_1) + \hdots + D(a_n) \to \Spec A$ for $(a_1,\hdots,a_n) \in Um(A)$
+\end{example}
+\begin{proof}
+	Indeed, using the first example, choose $U \subset \Spec A$ affine not principal open, then choosing a Zariski atlas $V \to U$ gives $V + X \to U + X \to X$ where $V + X \to X$ is a Zariski cover and $V + X \to U + X $ is a Zariski cover.
+	From (4), we deduce that $U +X \to X$ is a Zariski cover, but $U$ is not a disjoint union of principal opens in $\Spec A$. 
+\end{proof}
+\begin{example}
+	Assume those equivalent conditions on the Zariski topology. Every affine open proposition $U$ is principal open !
+\end{example}
+\begin{proof}
+	Let $V \to U$ be a Zariski atlas. Then $V +1  \to U + 1$ is a Zariski atlas with $V+1 \in \bT$ and $U + 1$ affine, hence by (1) $U+ 1 \in \bT$, hence $U$ is a disjoint union of principal opens hence, as it is a proposition, its principal open.
+\end{proof}
+
+
+% \begin{proof}
+%     For the induction start, 
+%     if this is true, choose an $n$-atlas $X \to T$ such that $X \in \bT$. Take $R = U \times_T X$ which is in $\bT$ (check!). Then $R \to U$ is a $\bT$-cover with $R \in \bT$, hence $U \in \bT$ by ($\star$). \\
+%     Assume it holds for $(n-1)$. Choose an $n-1$-atlas $\bT \ni X \to T$. Then $R = U \times_T X$ is an $n-1$-stack, so we can choose a $n-2$-atlas $W \to R$. 
+%     Claim: $W \to X$ and $W \to U$ are fibered in covering $n-1$-stacks.
+%     From there we conclude $W \in \bT$, hence $W \to U$ witnesses that $U$ is a covering $n$-stack. Hence it lies in the topology by \ref{lemma:affinestack}.
+%     %For any $x : X$ the basechange $W_x \to R_x$ is an $n-2$ atlas of a covering $n-1$-stack, hence by induction $W_x \in \bT$. So $W = \sum_{x : X} W_x \in \bT$. By ($\star$)   
+
+% \end{proof}
+\section{ beeing a stack is indepent of the truncation level}
+
+
+\begin{lemma}
+	Let $n \ge 0$. A  $n$-stack is an modal $n$-type.
+\end{lemma}
+\begin{proof}
+	The $n$-\truncation is an $n$-type. Now conclude by induction.
+\end{proof}
+We want to show that the notion of  stack makes sense, i.e. beeing a stack should not depend on the truncation level. 
+
+\begin{lemma}{\label{lemma:prop0stacks}}
+	Assume $\bT$ is saturated and satisfies descent for propositions. Let $P$ be a modal proposition. Then TFAE 
+	\begin{enumerate}
+		\item For some $m \ge 0$, $P$ is a  $m$ stack 
+		
+		\item There exists some fp algebra $A$ such that $\Spec A \to P$ and $P$ is logically equivalent to $(\Spec A \in \bT)$.
+		%		\item There exists some flat algebra $A$ such that $P \simeq \|\Spec A\|_T$
+		\item $P$ is equivalent to $\| \Spec A \|_\bT$ for some fp $A$, i.e. $P$ is a  -1-stack.
+	\end{enumerate}
+	
+	
+\end{lemma}
+\begin{proof}
+	\
+	\begin{itemize}
+		\item[$1.\Rightarrow 2.$]
+		
+		Let $\Spec A \to P$ be a $m-1$ atlas. Assume $\Spec A \in \bT$. Then $\|\Spec A\| \to P$ so as $P$ is a sheaf, we have $P$. Conversely, if $x : P$, then the fiber over $x$ is $\Spec A$ and a covering $m-1$ stack, hence belongs to the topology by \ref{lemma:coveringatlas}. 
+		\item[$2. \Rightarrow 3.$]
+		\red{We have to show: There exists some flat algebra such that $P$ is logically equivalent to $\|\Spec A\|_\bT$. }        
+		By assumption we have $\Spec A \to P \to (\Spec A \in \bT)$, so we deduce 
+		$\| \Spec A\|_\bT \to P \to (\Spec A \in \bT)$, as $P$ is a modal proposition. In particular $A$ is flat. Conversely $P \to (\Spec A \in \bT) \to \|\Spec A\|_\bT$ , where the first arrow is by assumption.
+		\item [$3. \Rightarrow 1.$] \ref{lemma:succStab}
+		%        \item [$2. \Rightarrow 3.$] 
+	\end{itemize}
+\end{proof}
+\begin{lemma}
+	A covering $-1$-stack $P$ is contractible.
+\end{lemma}
+\begin{proof}
+	Choose a $\bT$-cover $\bT \ni \Spec A \to P$. As $P$ is a proposition we have $\| \Spec A\| \to P$. As $P$ is a sheaf we have $P$.
+\end{proof}
+\begin{example}
+	A  0-stack is a $\bT$-sheaf whose identity types are \red{(-1)-\truncation s of} (\affineA) schemes and there exists a $\bT$-atlas $\Spec A \to X$. \\
+	Why are schemes  0-stacks? This holds in special case, for example if the scheme is quasi projective. 
+\end{example}
+\begin{theorem}{\label{thm:stack}}
+	Let $\bT$ be saturated. Assume the topology satisfies descent Let $m , n \ge -2$. Given an $n$-type $T$ that is a  (covering) $m$-stack then $T$ is a  (covering) $n$-stack.
+\end{theorem}
+
+
+\begin{proof}
+	
+	By \ref{lemma:succStab} we may assume $m \ge n \ge -2$. \\
+	If $m \le 1$ this is clear. Now assume $m \ge 2$. 
+	Induction. 
+	Inductionstart $m = 2$. Let us prove the case of $m = 2,n=1$, the cases $-2 \le n<1$ are immediate from this. \\
+	Choose a 1-atlas $X' \to T$, i.e. its fibered in covering $1$-stacks. As $T$ is a groupoid and $X'$ is a set, the fibers are actually sets, i.e. covering 0-stacks. 
+	
+	Now consider $R := X' \times_T X'$. As $X'$ is in particular a  0-stack and  0-stacks are stable under dependent sums, $R$ will be a  0-stack. Choose a  a $\bT$-cover $R' \to R$ with $R'$ affine. Now $R' \to R \to X'$ is a map between affine schemes i.e it is fibered in covering 0-stacks that are affine. As $\bT$ is saturated, the fibers of $R' \to X'$ are in $\bT$. As $X' // R'$ is a  1-stack by \ref{lemma:coeq}, it suffices to show that $X' // R' \to X' // R$ is a $\bT$-cover. Pick a term in $X' // R$. As the fiber beeing in $\bT$ is sheaf 
+	If additionally $T$ is assumed to be a covering $2$-stack, then we can assume $X'$ to be in the topology. This will force $R$ to be a covering $0$-stack, so we may choose $R'$
+	Assume $m > 2$ and the statement is proven for all $(n',m') < (n,m)$ in lexicographical ordering. As the identity types of $T$ are $n-1$-types and  $m-1$ stacks by induction they are  $n-1$ stacks. Let $X \to T$ be an $m-1$-atlas, i.e. fibered in covering $m-1$-stacks with $X$ affine. The fibers are in particular $n-1$-types, so by induction they are covering $n-1$-stacks. Hence $X \to T$ is an $n-1$-atlas. If, additionally $T$ is assumed to be a covering $m$-stack, we can choose $X \in \bT$, hence $X \to T$ witnesses that $T$ is a covering $n$-stack.
+	
+\end{proof}
+
+
+\section{Stability under Quotients}
+\begin{definition}
+	A morphism between $n$-stacks is covering if it is fibered in 
+	\begin{itemize}
+		\item $\bT$ if $n \le 0$
+		\item covering $n$-stacks if $n > 0$.
+	\end{itemize}
+\end{definition}
+
+\begin{theorem}{\label{thm:quotients}}
+	Let $f : X \to Y$ be a $\bT$-surjective covering morphism between modal $n$-types. If $X$ is a (covering) stack , then $Y$ a  (covering) stack.
+\end{theorem}
+(*) This can only hold if we define -1-stacks to be  modal propositions with a $-2$-atlas $\Spec A \to P$, i.e. algebraic propositions \ref{def:algprop} %\begin{lemma}[have to force this]{\label{lemma:missing}}
+%	To check wether a modal proposition $P$ is a $-1$-stack its enough to find a $-2$-atlas $\Spec A \to P$.
+%\end{lemma}
+\begin{proof}
+	Induction.
+	For $n = -2$ its clear.
+	Let $X$ be a  $n$-stack. Lets first construct the $n-1$-atlas of $Y$.
+	We merely find a $V \twoheadrightarrow X$ which is an $n-1$-atlas.  Then $V \to X \to Y$ is an $n$-atlas because it is $\bT$-surjective and is fibered in the correct $\sum$-stable class of types, i.e. $\bT$ if $n \le 1$ and  covering $n-1$-stacks for $n > 1$. Hence $Y$ is an $n+1$-stack. As $Y$ is an $n$-type, $Y$ is an $n$-stack \ref{thm:stack}. \\
+	If additionally $X$ is assumed to be covering, then $V$ can be assumed to lie in $\bT$ which directly gives us that $Y$ has a covering atlas. \\
+	It remains to show that the identity types of $Y$ are  $n-1$-stacks. As $Y$ has an $n-1$-atlas, by \ref{lemma:havingAbstractAtlasClosedUnderId} we  find some $n-1$-atlas $p : W \to y=y'$. The map is covering. %, because the fiRbers of $p$ are covering. % because for $n \le 0$ $\bT$ and for $n > 0$ covering $n-1$-stacks are stable under finite products. 
+	If $n=0$, $y = y'$ is a $-1$-stack by (*). If $n > 0$, $W$ is an $n-1$-stack and $p$ is covering, so by induction $y = y'$ is an $n-1$-stack. \\
+	
+	
+	
+	%This is enough because choosing an $n$-atlas of the stack $(\fib_p y) \times_Y (\fib_p y')$ gives us by composition an $n$-atlas of $y = y'$. By induction ? $y = y'$ is an $n+1$-stack. By \ref{thm:stack} its an $n-1$-stack as desired.
+\end{proof}
+\begin{rmk}[Using descent but not induction]
+	Hugo suggested an alternative argument proving that the identity types of $Y$ are $n-1$-stacks, which presumable avoids \ref{thm:stack} but uses descent for $n$-stacks: 
+	For $x : X, y: Y$ we have that 
+	\[
+	(f(x) = y) \simeq (1 \times_X \fib_f y)
+	\]
+	is an $n$-stack by stability under $\sum$. Because it is an $n-1$-type, it is a $n-1$-stack by \ref{thm:stack}. Now conclude that every identity type of $Y$ is an $n-1$-stack by using descent for $n-1$-stacks and $\bT$-surjectivity of $f$.
+\end{rmk}
+
+\section{Local prop}
+Let \Cov be the property of morphisms of  $n$-stacks defined by asking that the morphism is $\bT$-surjective and fibered in covering $n$-stacks. Its stable under basechange. A property of  $n$-stacks is local if $P(1)$ holds, $P$ is stable by dependent sums and given a \Cover  $X \to Y$ we have $P X$ iff $P Y$.
+\end{definition}
+\begin{example}    
+beeing covering $n$-stack is a local property of stacks.
+\end{example}
+\begin{proof}
+We have to show: If $f : X \to Y$ is a $\bT$-surjective map fibered in covering $n$-stacks between  $n$-stacks, then $X$ is a covering $n$-stack iff $Y$ is a covering $n$-stack.
+The only if is clear by stability under dependent sums. The other direction is \ref{thm:quotients}.
+
+\end{proof}
+
+\begin{definition}
+A property of morphisms between $n$-stacks is local, if it is satisfied by identities, stable under composition and basechange/descent along \Cov-maps, precomposition/right cancellability with \Cov-maps.
+\end{definition}
+\begin{lemma}
+Given a local property of types $P$. Then beeing fibered in $P$ is a local property of morphisms.
+\end{lemma}
+\begin{example}
+	A morphism of $n$-stacks is covering iff there exists an $n$-atlas of $f$ 
+	% https://q.uiver.app/#q=WzAsNCxbMCwwLCJcXFNwZWMgQSJdLFsxLDAsIlxcU3BlYyBCIl0sWzAsMSwiWCJdLFsxLDEsIlkiXSxbMiwzLCJmIl0sWzAsMl0sWzEsM10sWzAsMSwiXFx0aWxkZSBmIiwyXV0=
+	\[\begin{tikzcd}
+		{\Spec A} & {\Spec B} \\
+		X & Y
+		\arrow["{\tilde f}"', from=1-1, to=1-2]
+		\arrow[from=1-1, to=2-1]
+		\arrow[from=1-2, to=2-2]
+		\arrow["f", from=2-1, to=2-2]
+	\end{tikzcd}\]
+	such that $\tilde f$ is a $\bT$-cover.
+\end{example}
+The previous lemma tells us that we have the correct notion of covering morphisms between  $n$-stacks for $n = 0,1$.
+
+
+%\begin{corollary}
+%	Assume $\bT$ satisfies descent for propositions and for sets.
+%	A type is a  0-stack iff its merely the $\bT$-quotient of an affine scheme by a covering equivalence relation.
+%\end{corollary}
+%\begin{theorem}{\label{thm:QuotientOfAlgebraicSpace}}
+%	Assume $\bT$ satisfies descent for propositions. 
+%	The quotient of a  $0$-stack $X \in \bT \Set$ by an $0$-covering equivalence relation $R$ is a  $0$-stack. TODO
+%\end{theorem}
+%
+%\begin{proof}
+%	The identity types in $X / R$ are propositional  0-stacks, hence $(-1)$-\truncation s of  -1-stacks by \ref{lemma:prop0stacks} as desired. \\
+%	How to find an atlas: todo. How to proceed, if we could choose all atlasses we want at the same time?
+% Motivation why the choice of atlasse should work: Let $T = X / R$. 
+%  If we could choose -1-atlasses $\tilde X_t$ for the covering 0-stacks $\fib_{[]}(t)$ for all $t : T$ at the same time, then $\sum_{t : T} \tilde X_t \to \sum_{t : T} \fib_{[]}(t) \to T$ has as domain a is fibered in covering $-1$-stacks, as the fiber over $t$ would be $\tilde X_t$ which is an affine scheme in the topology. Moreover, This is enough as \\ %, hence by definition a covering -1 stack. \\
+
+%     Given $p_1 , p_2 : R \rightrightarrows X$ fibered in covering $0$-stacks, hence the fibers merely have $-1$-atlasses.
+%     %Claim: There exists a $-1$-atlas $R' \to R$
+%     As $X$ has Local choice with respect to $-1$-atlasses, we find a $-1$ atlas $f : X' \to X$ with 
+%     \[
+%     \prod_{x' : X'} \text{-1-atlas}(\sum_{x : X} R(x,f(x'))
+%     \]
+
+%\end{proof}
+%\begin{rmk}
+%	This is equivalent to saying that  $1$-stacks that are $0$-types are geomeric $0$-stacks: One direction we prove later. If $R$ is a 0-covering equivalence relation on a  0-stack $X$, then $ X/ R$ is a  1-stack by observing that any -1-atlas $X' \to X$ gives a 0-atlas $X' \to X \to X/ R$. Moreover, $ X/ R$ is a 0-type, hence by assumption a  0-stack.
+%\end{rmk}
+
+
+% \begin{example}
+%     The Zariski topology does not descent along $\bT$-covers between affines
+% \end{example}
+% \begin{proof}
+% Assume it would hold.
+% By the previous example pick such an open affine subset $U \subset \Spec A$ and pick a Zariski atlas $V \to U$ such that $V$ is mereley of the form $D(a_1) + \hdots + D(a_n)$ for some $a_i \in A$. Let $x : \Spec A$. Then pulling pack the Zariski atlas along $U(x) \to U$ gives us a Zariski atlas of the open proposition $V' \to U(x)$. Now $V' + 1 \to U(x) + 1$ is a Zariski atlas with total space in the Zariski topology. By assumption, $U(x) + 1$ is in the topology, hence $U(x)$ would be a sum of principal opens. As it is a propososition, it would be a principal open subset of $1$. 
+% This is not a contradiction, because an open subset can be non principal although all the fibers are principal open props...
+% This is a contradiction by the assumption on $U \subset \Spec A$ beeing not principal open.
+
+% \end{proof}
+
+
+% \begin{lemma}
+%     A morphism $f : X \to Y$ of  $n$-stacks is fibered in covering $n$-stacks if there exists a covering $n$-atlas of $f$.
+% \end{lemma}
+
+%
+%\subsection{Stability under covers TODO}
+%In this subsection we want to prove the following:
+%\begin{theorem}[TODO]
+%	The class of covering $\cV$-stacks is the smallest intermediate class $\bT \subset \tilde T \subset \cV$ such that whenever $X \in \tilde \bT, Y \in \cV$ and $X \to Y$ is fibered in $\tilde \bT$, then $Y \in \tilde \bT$.
+%\end{theorem}
+%
+%\begin{lemma}
+%	Covering stacks are stable by dependent sums: If $X \in \CS_\cV$, $Y : X \to \CS_\cV$, then $\sum_{x: X} Y x \in CS$.
+%\end{lemma}
+%\begin{proof}
+%	Lets first prove the special case where $X \in \bT$. By choice of $X$ we can choose a $C$-atlas $Q x \to Y x$ for every $x$. Now $\sum_{x : X} Q x \to \sum_{x: X} Y x$ is fibered in $C$ by \ref{lemma:AtlasSum} and the domain is in $\bT$ by $\sum$-stability of $\bT$. \\
+%	For the general case, choose a $C$-atlas $p : T \to X$ with $T \in \bT$. Then we have a map
+%	\[
+%	\sum_{t : T} Y (p t) \to \sum_{x : X} Y x
+%	\]
+%	where every fiber is equivalent to a fiber of $p$, i.e. its a covering $C$-stack. As its domain is a covering $C$-stack by the previous case, we can choose an atlas .
+%\end{proof}
+%\begin{proof}
+%	The first class is definitely contained in the second class. To show that they coincide we need to show, that the first class is stable under $\sum$ and under quotients. For the first point we use choice of affines. The second point 
+%\end{proof}
+%
+%
+%The first point is the minimal definition which is good mapping out of the class of coverings stacks and the second one is useful to keep in mind the stability results.
+%The closedness under covers assumption is the conjunction of closed under $\sum$ (as $C$ $\sum$-stable) and closed under quotients. \\
+%\begin{lemma}
+%	covering $C$-stacks contain $1$ and are closed under $\sum$.
+%\end{lemma}
+%
+%
+%THIS IS UNUSUAL, but surprisingly useful.
+%Let $n \ge 0$.
+%%\begin{lemma}[TODO]
+%%	If $D \subset C$, then the cover-closure of (covering $C$-stacks $\cap D$) inside $D$ are  covering $D$-stacks. 
+%%\end{lemma}
+%\begin{example}
+%	Affine covering $0$-stacks are the saturation of $\bT$.
+%\end{example}
+%%\begin{corollary}[Indepedence of the truncation level]
+%%	(covering) $n+1$-type-stacks that are $n$-types $=$ (covering) $n$-type stacks.
+%%\end{corollary}
+%%\begin{proof}
+%%	Only need to show $\subset$. First the covering part. For this just show the LHS is closed under covers between $n$-types by the previos lemma. \\
+%%	For the non covering part, let $\Spec A \to X$ be fibered in covering $n+1$-type-stacks where $X$ is a $n$-type. Then the fibers are $n$-types, hence by the covering case, they are covering $n$-type stacks.
+%%\end{proof}
+%\begin{definition}
+%	$X$ is a (covering) 0-stack, if its a (covering) 0-type-stack.
+%\end{definition}
+%\begin{theorem}[TODO]
+%	Let $X$ be a type. TFAE for all $n$ :
+%	\begin{enumerate}
+%		\item $X$ is a covering $n$-type-stack.
+%		
+%		\item Inductively, There merely exists some $U \in \bT$ with a map $U \to X$ fibered in covering $n-1$-stacks.
+%		\item[2'] Inductively, as the previous one but additionally the $\id$-types of $X$ are $n-1$-stacks.
+%		\item Inductively, There merely exists some covering $n-1$-stack $U$ with a map $U \to X$ fibered in covering $n-1$-stacks.		
+%		\item[3'] Inductively, as the previous one but additionally the $\id$-types of $X$ are $n-1$-stacks.
+%	\end{enumerate}
+%	If one of the conditions is satisfied we call $X$ a covering $n$-stack.
+%\end{theorem}
+%\begin{proof}
+%	Induction $n-1 \mapsto n$ , $n \ge 1$.
+%	\begin{enumerate}
+%		\item[1. $\Rightarrow$ 2] We have to show, that the class in 2. is closed under $\sum$ and closed under quotients between $n$-types. This was already done.
+%		\item [2. $\Rightarrow$ 3] Clear
+%		\item [3. $\Rightarrow$ 3'] By  \ref{lemma:geometricStacksClosedUnderId} and independence of the truncation level (TODO).
+%		\item [3'. $\Rightarrow$ 3 , 2' $\Rightarrow$ 2] Clear
+%		
+%		\item [3'. $\Rightarrow$ 1.]  by induction, covering $n-1$-stacks $=$ covering $n-1$-type-stacks $\subset$ covering $n$-type-stacks. Now use stability under covers between $n$-types.
+%		\item [3' $\Rightarrow$ 2'] Use 3 $\Rightarrow 1 \Rightarrow 2$.
+%		%	\item [2. $\Rightarrow$ 3] By some argument of Hugo, an $X$ as in $2.$ is an $n$-type.
+%	\end{enumerate}
+%\end{proof}
+%%We want: = covering $n$-stacks. The $\subset$-direction is clear, as covering $n$-stacks should be stable under covers between $n$-types. for $\supset$, make sure that covering $n$-stacks for $n$ small can be constructed as a quotient by a $\bT$-cover
+
+\begin{lemma}{\label{old}}
+	Assume that $\bP$ is stable under $\id$-types. Any geometric stack $X$ has $\bP$-seperated identity types. \\
+\end{lemma}
+\begin{proof}
+	We need to show that $X \to X \times X$ is $\bP$-seperated. As $\bP$-seperated is a local property of stacks \ref{lemma:SeperationIsLocal} it suffices to show that the map $W \times_X W \to W \times W$ as a basechange along the covering $W \times W \to X \times X$ is $\bP$-seperated. But postcomposing with the first projection $W \times_X W \to W \times W \to W$ is $\bP$ hence $\bP$-seperated by \ref{lemma:PImpliesPsep} so by \ref{lemma:SetUnramfied} we conclude. \\
+\end{proof}
+\subsection{Implications for the Etale Topology WRONG}
+
+\begin{prop}
+	Beeing formally \etale is an \etale-local property of geometric stacks. %\etale-flat geometric stacks $X$ are formally \etale.
+\end{prop}
+\begin{proof}
+	Lets us first prove this for the special case that $X$ is formally unramified. 
+	By assumption we find some geometric atlas $p : W \to X$ with $W$ formally \etale.
+	Let $P$ be a closed dense proposition.
+	Consider the following commutative diagram
+	% https://q.uiver.app/#q=WzAsNCxbMCwxLCJYIl0sWzEsMSwiWF5EIl0sWzEsMCwiV15EIl0sWzAsMCwiVyJdLFswLDEsIlxcRGVsdGEiXSxbMywyLCJcXHNpbSJdLFsyLDEsInBeRCJdLFszLDAsInAiLDJdXQ==
+	\[\begin{tikzcd}
+		W & {W^P} \\
+		X & {X^P}
+		\arrow["\sim", from=1-1, to=1-2]
+		\arrow["p"', from=1-1, to=2-1]
+		\arrow["{p^P}", from=1-2, to=2-2]
+		\arrow["\Delta", from=2-1, to=2-2]
+	\end{tikzcd}\]
+	The above map is an equivalence as $W$ is formally \etale.  $p$ is a geometric cover. As the \etale topology is stable under tiny exponentials \ref{lemma:TinyExp}, $p^P$ is a geometric cover by \ref{cor:GeomAtlExpStable} TODO $P$ is not tiny. As beeing a geometric cover is \etale-local, we conclude that $\Delta$ is a geometric cover. But it is also an embedding, thus by \ref{lemma:covM1Stacks} an equivalence. \qed (Special case)\\
+	The general statement follows by induction over the truncation level $n$ of $X$.
+	
+	If $n = -2$, its clear. For $n > -2$, we only need to show, that $X$ is formally unramified by the special case.
+	For the induction step, observe beeing a formally \etale geometric stack is stable under identity types \todocite and so we may apply the induction hypothesis to the identity types.
+\end{proof}
+
+\\
+ %monotone map $j : \Prop \to \Prop$ (e.g. ) and a 
+%\begin{itemize}
+%	\item $\cT^j_{\bP}$ is finer than Zariski 
+%	\item \[
+%			\cT^j_{\bP} = \{ X \in \bP \ | \ \| X \|_{\bP_{j}} \}
+%			\]
+%\end{itemize}
+
+%	First observe that $j \|X\|$ is indeed a ${\cT^j_{\bP}}$-sheaf: Let $Y \in {\cT^j_{\bP}}$ such that $\|Y\| \to j \|X\|$. Then as $j$ is a modality there exists a unique filler 
+%	% https://q.uiver.app/#q=WzAsMyxbMCwwLCJcXHxZXFx8Il0sWzEsMCwiTFxcfFhcXHwiXSxbMCwxLCJMXFx8WVxcfCJdLFswLDEsIlxcZm9yYWxsIl0sWzAsMl0sWzIsMSwiXFxleGlzdHMhIiwyLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV1d
+%	\[\begin{tikzcd}
+%		{\|Y\|} & {j\|X\|} \\
+%		{j\|Y\|}
+%		\arrow["\forall", from=1-1, to=1-2]
+%		\arrow[from=1-1, to=2-1]
+%		\arrow["{\exists!}"', dashed, from=2-1, to=1-2]
+%	\end{tikzcd}\]
+%	But $j\|Y\| = 1$ by construction. This is what we wanted to show. \\
+%	It remains to show that for any ${\cT^j_{\bP}}$-sheaf $\cF$
+%	% https://q.uiver.app/#q=WzAsMyxbMCwwLCJcXHxYXFx8Il0sWzEsMCwiXFxjRiJdLFswLDEsIkxcXHxYXFx8Il0sWzAsMSwiXFxmb3JhbGwiXSxbMCwyXSxbMiwxLCJcXGV4aXN0cyEiLDIseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XV0=
+%	\[\begin{tikzcd}
+%		{\|X\|} & \cF \\
+%		{j\|X\|}
+%		\arrow["\forall t", from=1-1, to=1-2]
+%		\arrow[from=1-1, to=2-1]
+%		\arrow["{\exists!}"', dashed, from=2-1, to=1-2]
+%	\end{tikzcd}\]
+%	Assume $j\|X\|$. We have to show 
+%	\[
+%	\isContr(\sum_{t': \cF} \prod_{* : \|X\|} t(*) = t' )
+%	\]
+%	Then by construction $X \in {\cT^j_{\bP}}$. As $\cF$ is $\|X\|$ local, there exists a unique term $t' : \cF$ with $ \prod_{* : \|X\|} t(*) = t' $. This is what we wanted to show.
+
+
+
+\begin{lemma}[TODO]
+	Let $X$ be a type. The following data is equivalent
+	\begin{itemize}
+		\item An automorphism $X \times \bD(1)$ over $\bD(1)$ that pulls back along $1 \to \bD(1)$ to the identity on $X$.
+		\item A nowhere vanishing vector field, i.e. a section of the tangent bundle $X^{\bD(1)} \to X$.
+	\end{itemize}
+\end{lemma}
+\begin{proof}
+	TODO
+	the map
+	\[
+	\Aut_{\bD(1)}(X \times \bD(1)) \hookrightarrow \Hom(X \times \bD(1) , X) = \Hom(X , X^{\bD(1)})
+	\]
+	factors through 
+	\[
+	Inf(X) \to \mathsf{Sections} (T X \to X)
+	\]
+\end{proof}
+
+\begin{definition}
+	An infinitesimal automorphism of $X$ at $x$ is the Tangent space of $x = x$ at $\refl$.
+\end{definition}
+
+\begin{proof}
+	Let $X$ be covering affine. %We want to show, that $X \to X^P$ is $\bT$-surjective. 
+	
+	
+	%	
+	%	We want to show its formally \etale. Apply \ref{lemma:ETALE}. So let $F : X \to \CS$ such that $\sum_x F x$ is formally \etale. To show $\prod_p F(x_p)$ beeing $\bT$-merely inhabited, we can just apply \ref{lemma:CLDExpStability}, because covering affines are unramified schemes. 
+	%Then just use the the previous prop. or just \etale local choice applied to the witnesss $X$.
+	%	Choose $\bT \ni S \to X$ a $\bT$-catlas. Then 
+	%% https://q.uiver.app/#q=WzAsNCxbMCwwLCJTIl0sWzAsMSwiWCJdLFsxLDAsIlNeUCJdLFsxLDEsIlheUCJdLFswLDIsIlxcc2ltIl0sWzEsMywiIiwwLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoiaG9vayIsInNpZGUiOiJ0b3AifX19XSxbMCwxXSxbMiwzXV0=
+	%\[\begin{tikzcd}
+	%	S & {S^P} \\
+	%	X & {X^P}
+	%	\arrow["\sim", from=1-1, to=1-2]
+	%	\arrow[from=1-1, to=2-1]
+	%	\arrow[from=1-2, to=2-2]
+	%	\arrow[hook, from=2-1, to=2-2]
+	%\end{tikzcd}\]
+	%	We may just show that $S^P \to X^P$ is $\bT$-surjective. This follows by \etale-local choice.
+	%(its easier, because covering affines are unramified) . % Its formally unramified. For smoothness, observe, that by the last prop any geometric catlas $W \to X$ induces a geometric cover $W^P \to X^P$.
+\end{proof}
+
+%	We can express $(x=y)^P = (\Delta x =_{X^P} \Delta Y)$ is an identity type of $X^P$. By \todocite we have a map
+%	\[
+%	\fib_\Delta(\Delta x) \times_X \fib_\Delta(\Delta y) \to (x = y)^P
+%	\]
+%	fibered in types equivalent to $\fib_{\Delta}{\Delta x}$ which is a weakly-flat stack, that is merely inhabited, hence covering. The domain is an \etale flat geometric stack, as those are stable under finite limits. By quotient stability of \etale-flat geometric stacks we conclude.
+\begin{enumerate}
+	\item 
+	\item 
+	We apply \ref{lemma:covOfEF}.
+	\begin{itemize}
+		\item 	$\prod_{p : P} W (x_p)$ is $\lnot \lnot$-inhabited
+		\item  its an \etale-flat geometric stack: Apply \ref{lemma:CLDExpStabilityGen}. Apply step 1
+		
+		%The fiber  of $(y,w)$ is $\prod_{p :P} y= x_p$ which is a product of formally \etale types, hence formally \etale. \\
+		% and a scheme. It suffices to show, its a formally \etale + flat scheme. % Formally \etale is clear as all the $W (x_p)$ are formally \etale. %Let us show, that there exists a Zariski atlas $\Spec A \to \prod_p W(x_p)$ with $\Spec A$ formally \etale + flat.  and formally \etale, so it belongs to $\mathsf{EtFlatGS}$ if its a flat scheme. 
+		
+		%The codomain is flat (affine) scheme (as flat is fppf-local) so by $\sum$-stability of flat schemes it suffices to show that the fibers, $\prod_p x_p = y$ is flat schemes for all $y : X$. \\
+		
+	\end{itemize}
+\end{enumerate}
+\begin{lemma}{\label{lemma:CLDExpStabilityGen}}
+	Let  $X$ \etale-flat GS with $x : X^P$, such that $\fib_{\Delta X} x$ is \etale-flat GS. i.e. for any $y : X$, $\prod_p (y = x_p)$ is etale flat GS.
+	%		Let $S: P \to \bT$ be partial-etale. 
+	Let \[P \overset{x}{\to} X \overset{W}{\to} \mathsf{EtFlatGS}\]
+	Then 
+	\[ \sum_x W_x \text{ is formally \etale } \Rightarrow \prod_p W(x_p) \text {  is etale-flat GS.}\]
+	%Then
+	%	$\prod_{p : P} S_p \in \CS \cap \mathsf{Sch}$ .
+\end{lemma}
+\begin{proof}
+	
+	%	By construction $W (x_p) = S_p$.
+	Consider the map 
+	\[
+	\prod_{p: P} W(x_p) = (\sum_{p : P} W(x_p))^P \to (\sum_y W_y)^P \simeq \sum_y W_y
+	\]
+	where we used first that $P$ is a proposition and in the last equality that the sigma type is formally \etale.
+	As $\mathsf{EtFlatGS}$ is $\sum$-stable, and the codomain is in $\mathsf{EtFlatGS}$, it suffices to show, that every fiber is in $\mathsf{EtFlatGS}$. The fiber is $\prod_p (y = x_p)$, so conclude by assumption
+\end{proof}
+
+
+\begin{lemma}
+	Let $X : \CS^P$ be partial-\etale. Then $\prod_p X_p \in \CS$.
+\end{lemma}
+\begin{proof}
+	By the boundedness principle for $P$, we find an $n : \bN$ such that $X : W_{n}^P$.
+	We do induction over $n$. If $n = 0$, then $\prod_p X_p = P \to 1 = 1 \in CS$.
+	For the induction step, say $X : W_{n+1}^P$.
+	Applying \ref{lemma:partialEtaleLifting} to $\cV' = \sum_{X} W_n\mathsf{Atlas}(X)$. We obtain a partial-\etale $W_n$atlas.
+	\[
+	P \to W_n\mathsf{Atlas}
+	\]
+	Lets call it $f_p : S_p \to X_p$. Claim:
+	\[
+	\prod f_p : \prod_{p :P } S_p  \to \prod_{p: P} X_p
+	\]
+	is a geometric cover with covering stack domain. First as , the $W_n$-atlas was partially \etale, $S : \bT^P$ is partially \etale, hence $\prod_{p : P} S_p \in \CS$. Then the fiber over some $x : \prod_{p: P} X_p$ is $\prod_{p : P} \fib_(f_p) (x_p)$ belongs to $\CS$ by induction because , $(p \mapsto \fib_(f_p) (x_p)): {W_{n-1}}^P$ is partial \etale.	
+\end{proof}
+
+\begin{prop}
+	Let $X$ be a covering affine. Let $F : X \to \CS$. for any $x : X^P$, $\prod_p (Fx_p) \in \CS$.
+\end{prop}
+\begin{proof}
+	By strong boundedness of $X$ we may assume $F : X \to W_n$. By making $n$ larger, we furter may assume $X : W_n$. So we may prove the statement by induction. $n=0$ is fine. \\
+	Induction step $n \mapsto n+1$. By Zariski local choice of the affine $X$ there exist a Zariski cover $\cM \ni S \to X$. with 
+	\[\prod_{s: S} \sum_{W_s \in \bT} W_s \overset{f_s}{\to} F_s \ W_{n}-\text {atlas}\]
+	By surjectivity, we can lift the map $P \to X$ to some $s : P \to S$.
+	Claim: $\prod_p W_{s_p} \to \prod_{p} F(s_p)$ is a geometric cover with covering stack domain.
+	%	Indeed $P \to S \overset{W}{\to} \bT$ witnesses that we can apply \ref{lemma:CLDExpStability} to show that the domain belongs to $\CS$. The fiber \prod_{p} F(s_p)$ is given by $\prod_{p : P} \fib_{f_s}(x_{s_p})$ which is a product over $W_{n}$-covering stacks, hence covering by induction.
+	
+\end{proof}
+
+
+\subsection{$FET \cap \Aff$ is formally \etale}
+
+\begin{lemma}{\label{lemma:AffSmooth}}
+	$\Alg_R$ is formally smooth!
+\end{lemma}
+\begin{proof}
+	Let $P = (I = 0)$ be a closed dense proposition. Let $B : \Spec R / I \to \Alg_R$. By duality for finitely presented algebras this corresponds to a finitely presented $R / I$-algebra $B$. Claim: there merely exists a finitely presented $R$-algebra $\hat B$, such that $\hat B \otimes_R R / I= B$ as $R / I$-algebras.
+	Proof: Indeed, choose a presentation $B = R/I [X_1,\hdots,X_n] /( f_1,\hdots,f_m)$. Then we can lift the $f_i$ to some $\hat f_i : R[X_1,\hdots,X_n].$ Then set $\hat B = R[X_1,\hdots,X_n] / (\hat f_1,\hdots,\hat f_m)$. \qed(Claim) \\´
+	So we can use $\hat B$ as a filler, because if $I = 0$, then we have $\hat B = B$ because we extended scalars along the identity.
+	%By the claim we have $P \times \Spec \hat B = \Spec \pi^* B$, where we view $B$ now as an $R$-algebra by restricting scalars along $\pi :R \to R/ I$.
+\end{proof}
+
+
+\begin{lemma}
+	Let $X : \Aff$. Then $X \in \Zar$ is smooth.
+\end{lemma}%\begin{lemma}{\label{lemma:PBC}}
+%	Let $Q$ be a property of Affines such that 
+%	\begin{itemize}
+%		\item $Q$ is smooth, i.e. If $P \to Q X$ then $Q X$.
+%		\item 	if $X' \to X$ is Zariski cover, then $Q X \Rightarrow Q \tilde X$.
+%	\end{itemize}
+%
+%	Let $X : \Aff$. Assume that $P$ merely there is some $Y : Q$ with $Y \to X$. Then we merely find some Zariski cover $X'$ of$X$ with a map $Q \ni Y' \to X'$, such that whenever $P$, we have that the map $Y' \to Y \times_X X'$ is an equivalence.
+%\end{lemma}
+%\begin{proof}
+%	Lets view this a map $P \to X \to \Aff$, i.e. $X \to \Aff^P$. By surjectivity of $\Aff \to \Aff^P$ and Zariski local choice of $X$, there exists a Zariski cover $X' \to X$ with a map $X' \to \Aff$ % FPAlg_R$, i.e. $X \to FPAlg_{R/I}$.
+%	% https://q.uiver.app/#q=WzAsNCxbMCwwLCJcXGV4aXN0cyBYJyJdLFsxLDAsIlxcQWZmIl0sWzEsMSwiXFxBZmZeUCJdLFswLDEsIlgiXSxbMCwzLCIiLDAseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbMywyXSxbMCwxLCIiLDIseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbMSwyXV0=
+%	\[\begin{tikzcd}
+%		{\exists X'} & \Aff \\
+%		X & {\Aff^P}
+%		\arrow[dashed, from=1-1, to=1-2]
+%		\arrow[dashed, from=1-1, to=2-1]
+%		\arrow[from=1-2, to=2-2]
+%		\arrow[from=2-1, to=2-2]
+%	\end{tikzcd}\]
+%	This corresponds to a map $\Aff \ni Y' \to X'$, such that for all $p : P$ $Y' = Y_p \times_X X'$. $P$-merely we have that $Y'$ is  in $Q$ , as $Y' \to Y \ni Q$ is $P$-merely a Zariski cover. By smoothness of $Q$ we deduce that $Y'$ has $Q$.R^m}
+
+%	%	By choice of $P$ we find some $Y : \Aff^P$ with $(p : P) \to X \to Y p$. By \ref{lemma:AffSmooth} we find some $\tilde Y$ such that if $\prod_p Y_p = \tilde Y$., i.e. $X \to \prod_p Y_p$
+%\end{proof}
+\begin{warning}
+	The map $FEt \cap \Aff \to \Aff$ is not smooth: Assume there exists a lift in 
+	% https://q.uiver.app/#q=WzAsNCxbMCwwLCIxIl0sWzAsMSwiXFxiRCgxKSJdLFsxLDAsIkZFdCBcXGNhcCBcXEFmZiJdLFsxLDEsIlxcQWZmIl0sWzIsM10sWzEsMywiXFx2YXJlcHNpbG9uIFxcbWFwc3RvIFxcdmFyZXBzaWxvbiA9IDAiLDJdLFswLDJdLFswLDFdLFsxLDIsIiIsMSx7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dXQ==
+	\[\begin{tikzcd}
+		1 & {FEt \cap \Aff} \\
+		{\bD(1)} & \Aff
+		\arrow[from=1-1, to=1-2]
+		\arrow[from=1-1, to=2-1]
+		\arrow[from=1-2, to=2-2]
+		\arrow[dashed, from=2-1, to=1-2]
+		\arrow["{\varepsilon \mapsto \varepsilon = 0}"', from=2-1, to=2-2]
+	\end{tikzcd}\]
+	Then $\bD(1)$ would be formally unramified (as $(\varepsilon = \varepsilon') \simeq (\varepsilon - \varepsilon' =_{R} 0)$ would be formally \etale). But this is wrong, as it admits two pointed endomorphisms $\id , -\id$.	
+\end{warning}
+\begin{question}
+	Is the map $FEt \cap \Aff \to \mathsf{FlatAff}$ is smooth? 
+\end{question}
+\begin{prop}
+	The type of formally \etale affines is formally \etale!
+\end{prop}
+\begin{proof}
+	%By \ref{lemma:AffSmooth} it suffices to show, that for any  $X : \Aff$,  $X \in FET$ is formally \etale. So assume $P \to X \in FET$.
+	%By \todocite $P$-merely, there exists a Zariski Cover $U \to X$ with the $U$ standart \etale affine schemes. 
+	%By smoothness, we find a map $\mathsf{StdEt} \ni U' \to X$ which $P$-merely coincides with $U \to X$. In particular it is $P$-merely a Zariski cover, thus a zariski cover.
+	%%\coprod U_i
+	% %By \ref{lemma:PBC} there exists some Zariski Cover $X' \to X$ with a map $U' \to X'$ with standart \etale domain, in particular formally \etale. % which is $P$-merely the basechange of $\coprod U_i \to X$. In particular every fiber is $P$-merely in the Zariski topology, thus by the previous lemma its a Zariski cover. Now $P$-merely $\coprod V_i$ , as a Zariski cover of a , is standart etale thus by \ref{lemma:StdEtSm} its standart \etale, in particular formally \etale.
+	%As formally \etale descends along Zariski cover $U' \to X$, $X$ is formally \etale. 
+\end{proof}
+%\begin{lemma}
+%	The type of Smooth affines is smooth.
+%\end{lemma}
+%\begin{proof}
+%	Let $P$ be closed dense and consider $P \to \mathsf{SmAff}$. This corresponds to a a map $\Spec B \to P$. By the previous lemma we can find some $\Spec \hat B$, such that $\Spec B = \Spec \hat B \times P$. We may show, that $\Spec \hat B$ is smooth. So let $Q$ be any closed dense proposition with a map $Q \to \Spec \hat b$. Then $Q \land P \to \Spec \hat b \times P = \Spec B$
+%\end{proof}
+%\begin{lemma}
+%	For any modality we have $P \to isModal(X)$ implies $(P \to X) isModal$.
+%\end{lemma}
+\begin{lemma}
+	$FET \cap Aff$ is formally \etale iff for any $X : \Aff$ such that $P \to (X \in FET)$ we have that $X^P \in \Aff$. 
+	
+\end{lemma}
+\begin{proof}
+	\begin{enumerate}
+		\item 	First $FET \cap Aff$ is formally unramified. \\
+		\item 	Then, use that $P \to (X \in FET)$ implies
+		\[
+		(P \to X) \in FET
+		\]
+		as FET is lex. \\
+		% https://q.uiver.app/#q=WzAsMyxbMSwwLCJGRVQiXSxbMCwwLCJQIl0sWzAsMSwiMSJdLFsyLDAsIlheUCIsMix7ImxhYmVsX3Bvc2l0aW9uIjozMCwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzEsMl0sWzEsMCwiWCJdXQ==
+		\[\begin{tikzcd}
+			P & FET \\
+			1
+			\arrow["X", from=1-1, to=1-2]
+			\arrow[from=1-1, to=2-1]
+			\arrow["{X^P}"'{pos=0.3}, dashed, from=2-1, to=1-2]
+		\end{tikzcd}\]
+	\end{enumerate}
+	\begin{enumerate}
+		\item[$'\rightarrow'$] $X$ induces a map $ P \to FET \cap Aff$, which extends to the type $X^P : 1 \to FET $. If $FET \cap Aff$ is formally \etale, we deduce $X^P \in FET \cap Aff$ \\
+		% https://q.uiver.app/#q=WzAsNCxbMSwwLCJGRVQgXFxjYXAgQWZmIl0sWzIsMCwiRkVUIl0sWzAsMCwiUCJdLFswLDEsIjEiXSxbMCwxXSxbMiwwLCJYIl0sWzMsMSwiWF5QIiwxLHsibGFiZWxfcG9zaXRpb24iOjMwLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbMiwzXSxbMywwLCJcXGV4aXN0cyEiLDAseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XV0=
+		\[\begin{tikzcd}
+			P & {FET \cap Aff} & FET \\
+			1
+			\arrow["X", from=1-1, to=1-2]
+			\arrow[from=1-1, to=2-1]
+			\arrow[from=1-2, to=1-3]
+			\arrow["{\exists!}", dashed, from=2-1, to=1-2]
+			\arrow["{X^P}"{description, pos=0.3}, dashed, from=2-1, to=1-3]
+		\end{tikzcd}\]
+		
+		\item[$\leftarrow$] By 1. we only need to show, that its formally smooth. Let $B : P \to FET \cap Aff$. We can Choose $X$ by prev lemma. Then conclude by assumption.
+		% https://q.uiver.app/#q=WzAsNSxbMiwwLCJGRVQgXFxjYXAgQWZmIl0sWzIsMiwiRkVUIl0sWzAsMCwiUCJdLFswLDEsIjEiXSxbMSwxLCJcXEFmZiJdLFswLDFdLFsyLDAsIkIiXSxbMywxLCJcXGhhdCBCXlAiLDEseyJsYWJlbF9wb3NpdGlvbiI6MzAsInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFsyLDNdLFswLDRdLFszLDQsIlxcZm9yYWxsIFxcaGF0IEIiLDAseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XV0=
+		\[\begin{tikzcd}
+			P && {FET \cap Aff} \\
+			1 & \Aff \\
+			&& FET
+			\arrow["B", from=1-1, to=1-3]
+			\arrow[from=1-1, to=2-1]
+			\arrow[from=1-3, to=2-2]
+			\arrow[from=1-3, to=3-3]
+			\arrow["{\forall X}", dashed, from=2-1, to=2-2]
+			\arrow["{X^P}"{description, pos=0.3}, dashed, from=2-1, to=3-3]
+		\end{tikzcd}\]\\
+	\end{enumerate}
+\end{proof}
+\begin{lemma}
+	closed dense propositions are connected:
+	
+\end{lemma}
+\begin{proof}
+	Let $a : R$, s.th. 
+	\[a^2 - a \in I \tag{$\star$}\]
+	for $I^2 = 0$. Then $a^2 (a-1)^2 =0$. By locality $a$ is invertible or $a-1$ is invertible. By $(*)$ We conclude $a = 0 \mod I$ or $a = 1 \mod I$ . \\\\
+	
+\end{proof}
+\begin{lemma}
+	$X^P$ has decidable equality.
+\end{lemma}
+\begin{proof}
+	Let $x , y : X^P$. We have
+	\[
+	\prod_p (x_p = y_p) + (x_p \neq y_p)
+	\]
+	as $P$ implies that $X$ is formally \etale affine. But as $P$ is connected, we have
+	\[
+	(\prod_p x_p = y_p) + \prod_p (x_p \neq y_p)
+	\]
+	We want to show that the first summand is decidable, so we may assume the latter.
+	But then we have a term in 
+	\begin{align*}
+		\left(\prod_p x_p = y_p \right) \to P \to \bot 
+	\end{align*}
+	Using that $P$ is $\lnot \lnot$-inhabited, we get $\prod_p x_p = y_p$ beeing decidable.
+\end{proof}
+\begin{question}
+	Is such a $X$ formally unramified?
+\end{question}
+\subsection{Covering stacks are formally \etale}
+\begin{lemma}{\label{lemma:CLDExpStabilityGen}}
+	Let  $X : \EF$ be formally \etale.
+	%		Let $S: P \to \bT$ be partial-etale. 
+	Let \[P \overset{x}{\to} X \overset{W}{\to} \mathsf{FET \cap \EF}\]
+	Then 
+	\[ \prod_p W(x_p) \in FET \cap \EF \]
+	%Then
+	%	$\prod_{p : P} S_p \in \CS \cap \mathsf{Sch}$ .
+\end{lemma}
+\begin{proof}
+	Obviously the $\prod$ is formally \etale.
+	Note that  $\sum_x W_x \text{ is formally \etale }$.
+	Reformulation of condition 5. in \ref{lemma:ETALE}.
+\end{proof}
+\begin{definition}
+	An $X : \EF$ satisfies the KEY condition, if for any $S : P \to X \to \EF \cap \Aff$, $\prod_p S_{x_p} \in \EF$.
+\end{definition}
+\begin{definition}
+	%Let $Y \subset \cU$. 
+	Let $\cV$ be a (possibly large ) type.
+	Let $\cM := \EF \cap \mathsf{FUnr}$. %\{ X : \EF \ | \ X is KEY\} $. 
+	We need, that it is $\sum$-stable and $Zar \subset \cM$.
+	A partial term in $\cV$, i.e. a function $X : P \to \cV$ is partial-etale if there $\bT$-merely exists some $X' \in \cM$ and a factorization of $S$ 
+	\[P \overset{x}{\to} X' \overset{W}{\to} \cV\]
+	%such that $\sum_{x : X'} W x$ is formally \etale. 
+	$X'$ is called the witness. We call $X$ strongly partial-etale if we can choose $X'$ to be formally \etale.
+\end{definition}
+Problem: Requiring the witness to be formally \etale is nonsense, because $x : X^P = X$. \\
+But we need a property that garantues etale local choice. Unfortunately onla Zariski covers are surjective, not geometri covers. So either we require the witness to be affine.
+\begin{lemma}
+	Let $X : \cV^P$ be partial \etale. If $X'$ is a witness for this, any geometric atlas of $X$ is also a witness
+\end{lemma}
+\begin{proof}
+	Choose $P \to X' \overset{\cX}{\to} \cV$ as in the def of partial-\etale. Let $X'' \to X'$ ge a geometric atlas. %and a $\prod_{x: X''} \cX(x'')$. 
+	$X'' \in \cM$.  %and $\sum_{x : X''} \cX(x'')$ is formally \etale.
+	% https://q.uiver.app/#q=WzAsNCxbMCwxLCJQIl0sWzEsMSwiWCciXSxbMiwxLCJcXGNWIl0sWzEsMCwiWCcnIl0sWzAsMV0sWzEsMl0sWzMsMV0sWzMsMl0sWzAsMywiXFxleGlzdHMiLDAseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XV0=
+	\[\begin{tikzcd}
+		& {X''} \\
+		P & {X'} & \cV
+		\arrow[from=1-2, to=2-2]
+		\arrow[from=1-2, to=2-3]
+		\arrow["\exists", dashed, from=2-1, to=1-2]
+		\arrow[from=2-1, to=2-2]
+		\arrow[from=2-2, to=2-3]
+	\end{tikzcd}\]
+	Moreover, as $X'' \to X'$ is a geometric cover by the proof of \ref{lemma:ETALE}, $X''^P \to X'^P$ is $\bT$-surjective we $\bT$-merely find a lift $P \to X''$. This shows the result.
+\end{proof}
+\begin{lemma}{\label{lemma:partialEtaleLifting}}
+	Consider a $\bT$-surjection $\cV' \twoheadrightarrow \cV$. Then any strongly partial \etale  $X : \cV^P$ $\bT$- merely lifts to a strongly partially \etale $\cV'^P$
+	% https://q.uiver.app/#q=WzAsMyxbMCwxLCJQIl0sWzEsMSwiXFxjViJdLFsxLDAsIlxcY1YnIl0sWzAsMV0sWzIsMSwiIiwyLHsic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoiZXBpIn19fV0sWzAsMiwiXFxleGlzdCIsMCx7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dXQ==
+	\[\begin{tikzcd}
+		& {\cV'} \\
+		P & \cV
+		\arrow[two heads, from=1-2, to=2-2]
+		\arrow["\exists", dashed, from=2-1, to=1-2]
+		\arrow[from=2-1, to=2-2]
+	\end{tikzcd}\]
+	%	If $\cV' \to \cV$ is formally \etale, then the lift can be choosen to partially \etale.
+	%
+	%	Let $\cA: \cV \to \cU$ be a family of merely inhabited types. Letbe partial-\etale. Then we merely have a partial-\etale \[
+	%	P \to \sum_{X: \cV} \cA(X)
+	%	\]
+\end{lemma}
+\begin{proof}
+	Choose a witness $X'$. By $\bT$- local choice we find some geometric atlas  $X'' \to X'$  and a lift $X'' \to \cV'$.
+	
+	% https://q.uiver.app/#q=WzAsNSxbMSwxLCJYJyJdLFsyLDEsIlxcY1YiXSxbMiwwLCJcXGNWJyJdLFswLDEsIlAiXSxbMSwwLCJYJyciXSxbMCwxXSxbMiwxLCIiLDIseyJzdHlsZSI6eyJoZWFkIjp7Im5hbWUiOiJlcGkifX19XSxbNCwyLCJcXGV4aXN0IiwwLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzQsMCwiIiwxLHsic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoiZXBpIn19fV0sWzMsMF0sWzMsNCwiIiwxLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV1d
+	\[\begin{tikzcd}
+		& {X''} & {\cV'} \\
+		P & {X'} & \cV
+		\arrow["\exists", dashed, from=1-2, to=1-3]
+		\arrow[two heads, from=1-2, to=2-2]
+		\arrow[two heads, from=1-3, to=2-3]
+		\arrow[dashed, from=2-1, to=1-2]
+		\arrow[from=2-1, to=2-2]
+		\arrow[from=2-2, to=2-3]
+	\end{tikzcd}\]
+	Then 
+	\begin{align*}
+		P \to X'' &\to \cV' \\
+	\end{align*}
+	%If $\cV' \to \cV$ is formally \etale, then $\sum_{x : X''} 
+	exhibits the composite as a partially \etale type in $\cV'$.
+\end{proof}
+
+\begin{lemma}[ETALE LOCAL CHOICE]
+	Let $X : P \to \cU_{\|\cdot\|_{et}}$ be a strongly partial-\etale \etale-merely inhabited type. %, whose witness satisfies the KEY condition.
+	Then we have 
+	\[
+	\|\prod_p X p\|_{et}
+	\]
+\end{lemma}
+\begin{proof}
+	%	We prove this more generally for the non strong case, but assume the KEY condition for $X$.
+	we have a surjection $\cV' \to \cU_{\|\cdot\|_{et}}$ given by $\cV' = \sum_{X: \cU} \sum_{S: \bT} S \to \|X\|$.
+	\ref{lemma:partialEtaleLifting} provides maps $P \to X' \to \cV'$. Lets call the latter map
+	\[\prod_{x : X'} \sum_{S_x: \bT} S_x \to \|X x\| \]
+	$\prod_p S_p$ is $\bT$-merely inhabited: We get a a partial \etale $P \to X' \overset{S}{\to} \bT$ with $X'$ beeing formally \etale, thus having the KEY condition, hence $\prod_p S_p \in \EF$ . Using that its $\lnot \lnot$-inhabited we conclude. \\
+	Moreover $\prod_p S_p \to \prod_p \|X p\| = \|\prod_p X_p \|$ by choice of $P$. Hence we have the result.
+\end{proof}
+
+\begin{lemma}[TODO]
+	TFAE
+	\begin{enumerate}
+		\item 	Every $X : \EF$ is formally \etale
+		\item Any $X : \EF$ satisfies the key condition.
+	\end{enumerate}
+\end{lemma}
+\begin{proof}
+	\begin{enumerate}
+		\item [1. $\Rightarrow$ 2] \ref{lemma:CLDExpStabilityGen}
+		\item [2 . $\Rightarrow$ 1] By \ref{lemma:ETALE}, We may show that for any $X : \EF$ and any $\EF \cap \Aff \ni W \to X$ geometric cover, $W^P \to X^P$ is $\bT$-surjective. This holds by ETALE local choc. % an $\EF$-cover. 
+		%Induction over truncation level of $X$. $n = -2$ is ok. \\
+		%Lets call the fiber $F x$ over $x$. Then by 
+		
+	\end{enumerate}
+\end{proof}
+%\subsubsection{Through 0-gerbes}
+\begin{lemma}
+	Let $(X, x)$ be a pointed $\bT$-connected EF. Then $X$ is formally \etale iff its  formally unramified and for any $y : X^P , \|\prod_p x = y_p \|_\bT$. %, then $X$ is formally \etale.
+\end{lemma}
+\begin{proof}
+	As $1 \to X$ is $\bT$-surjective, $X \to X^P$ is $\bT$-surjective iff the map $1 \to X \to X^P$ is $\bT$-surjective.
+\end{proof}
+
+\begin{lemma}
+	Let $B$ be an $A$-algebra. Let $B / \mathsf{StdEt}_A$ denote the type of $A$-algebra homomorphisms $B \to T$ for $T : \mathsf{StdEt}$. \\
+	duality for fp algebras restricts to a bijection
+	\begin{align*}
+		B / \mathsf{StdEt}_A \cong \prod_{\fp : \Spec A} (B \otimes_A \fp )  / \mathsf{StdEt}_R \\
+		(B \to T) &\mapsto B \otimes_A \fp \to T \otimes_A \fp
+	\end{align*}
+\end{lemma}
+
+
+
+\begin{example}
+	The sheaf-quotient of $\bA^1$ by the relation which identifies $x$ and $-x$ when $2x \neq 0$ is an algebraic space, that is not an affine scheme if $char \neq 2$.
+\end{example}
+\begin{proof}
+	Lets call this quotient $X$. Define
+	\[
+	E(x,y) = (x = y) + (2x \neq 0 \land x = -y)
+	\]
+	This is a proposition, as $x = y$ and $x = -y$ implies $2x = x + y = 0$. 
+	The relation is covering: 
+	The propositions are affines, hences sheaves
+	\[
+	\sum_{x : X} (x = y) + (2x \neq 0 \land x = -y) \simeq 1 + (2y \neq 0) \in \Zar \subset \bT
+	\]
+	Claim: The affinization map of $X$ is the induced dashed map $f : X \to \bA^1$ in
+	
+	% https://q.uiver.app/#q=WzAsMyxbMCwwLCJcXGJBXjEiXSxbMSwxLCJcXGJBXjEiXSxbMCwxLCJYIl0sWzAsMl0sWzIsMSwiIiwwLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzAsMSwieiBcXG1hcHN0byB6XjIiXV0=
+	\[\begin{tikzcd}
+		{\bA^1} \\
+		X & {\bA^1}
+		\arrow["q",from=1-1, to=2-1]
+		\arrow["{z \mapsto z^2}", from=1-1, to=2-2] %
+		\arrow["f",dashed, from=2-1, to=2-2]
+	\end{tikzcd}\]
+	Indeed the adjoint diagram is given by
+	% https://q.uiver.app/#q=WzAsNCxbMSwwLCJSW1hdIl0sWzIsMSwiUltYXjJdIl0sWzEsMSwiXFx7ZiA6IFJbWF0gXFwgfCBcXCAgZiAoeCkgPSBmKC14KSBcXCBpZiBcXCB4IFxcbmVxIDBcXH0iXSxbMCwxLCJSXntcXFNwZWMgUltYXSAvLyBFfSJdLFsyLDBdLFsxLDIsIlxcc2ltIl0sWzEsMF0sWzMsMiwiIiwwLHsibGV2ZWwiOjIsInN0eWxlIjp7ImhlYWQiOnsibmFtZSI6Im5vbmUifX19XV0=
+	\[\begin{tikzcd}
+		& {R[X]} \\
+		{R^{\Spec R[X] // E}} & {\{f : R[X] \ | \  f (x) = f(-x) \ if \ x \neq 0\}} & {R[X^2]}
+		\arrow[Rightarrow, no head, from=2-1, to=2-2]
+		\arrow[from=2-2, to=1-2]
+		\arrow[from=2-3, to=1-2]
+		\arrow["\sim", from=2-3, to=2-2]
+	\end{tikzcd}\]
+	
+	%\[X^R = (\Spec R[X] // E \to R) = \{f : R[X] \ | \ f (x) = f(-x) \ if \ x \neq 0 \} \overset{\sim }{\leftarrow} R[X^2] \]
+	Assume that $X$ were affine. Then the map would be in particular an embedding. %, then We deduce that $\bA^1 \to X$ 	would be square map $\bA^1 \to \bA^1$, but this is not okay, 
+	%	is not an embedding:
+	However, for any $x, y : \bA^1$ The map $\mathsf{ap_f}(q x, q y) $ is given by the implication
+	\[
+	(x =_R y) + (x \neq 0 \land x = - y) \overset{\sim}{\to} x^2 =_R y^2
+	\]
+	so specializing $y = 0$ gives us that 
+	\[
+	(x = 0) = (x = 0) + (x \neq 0 \land x = -0) \overset{\simeq}{\to} (x^2 = 0^2)
+	\]
+	is an equivalence for all $x : R$, by duality we get an equivalence of $R$-algebras $R[X] / X^2 = R[X] / X$, which is a contradiction.	
+\end{proof}
+
+
+\begin{lemma}{\label{lemma:AlmostEverywhere}}
+	Let $p : R[X]$ be reguar. If $f : R[X]$ such that $f(x) = 0$ for all $x \in D(p)$, then $f = 0$ in $R[X]$.
+\end{lemma}
+\begin{proof}
+	$f$ is in the kernel of the diagonal map
+	% https://q.uiver.app/#q=WzAsNCxbMSwwLCJSXlIiXSxbMSwxLCJSXntSIFxcc2V0bWludXMgXFx7MFxcfX0iXSxbMCwwLCJSW1hdIl0sWzAsMSwiUltYXntcXHBtIDF9XSJdLFswLDFdLFsyLDMsIiIsMCx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Imhvb2siLCJzaWRlIjoidG9wIn19fV0sWzAsMiwiIiwxLHsibGV2ZWwiOjIsInN0eWxlIjp7ImhlYWQiOnsibmFtZSI6Im5vbmUifX19XSxbMSwzLCIiLDEseyJsZXZlbCI6Miwic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoibm9uZSJ9fX1dXQ==
+	\[\begin{tikzcd}
+		{R[X]} & {R^R} \\
+		{R[X]_p} & {R^{D(p)}}
+		\arrow[hook, from=1-1, to=2-1]
+		\arrow[Rightarrow, no head, from=1-2, to=1-1]
+		\arrow[from=1-2, to=2-2]
+		\arrow[Rightarrow, no head, from=2-2, to=2-1]
+	\end{tikzcd}\]
+	which is injective, as $p$ is regular. \\
+	Thus $f = 0$ in $R[X]$.
+	%	 Thus $f = 0 $ in $(R \setminus \{0\} \to R) = R[X^{\pm 1}]$ hence $f \cdot X^n = 0$ in $R[X]$ for some $n$, thus $f = 0$.
+\end{proof}
+\begin{lemma}
+	Let $p(0) \neq 0$. We say some $\phi: R[X]_p$ is even if one of the following equivalent conditions is satisfied:
+	\begin{enumerate}
+		
+		\item The function $\phi : D(p) \to R$ is an even function, i.e. $\phi(x) = \phi(-x)$ for all $ x : D(p)$.
+		\item The function $\phi|_{D(p) \setminus 0} : D(p) \setminus \{0\} \to R$ is an even function
+		\item  There exists $f : R[X], n : \bN$ such that $\phi= f/ p^n$ and $f p_-^n : D(p) \to R$ is an even function. 
+	\end{enumerate}
+\end{lemma}
+\begin{proof}
+	For any $x : D(p)$ we have 
+	\[
+	f/p^n (x) = f/p^n(-x)  \leftrightarrow f p_-^n (x) = f p_-^n (-x) \tag{$\star$}
+	\]
+	\begin{enumerate}
+		\item [3 $\Leftrightarrow$ 1] Just ($\star$)
+		\item [2 $\Leftrightarrow$ 3] By transporting also the 2. statement via $(\star)$, we may just that for any$ f / p^n$ such that $f p_-^n : D(p X) = D(p) \setminus \{0\} \to R$ is an even function, $f p_-^n : R \to R$ is even. As evenness can be expressed as the vanishing of a certain function, we may apply \ref{lemma:AlmostEverywhere}, so we have to check that $p X$  is regular. But $X$ is regular and $p(0)$ is regular, thus By lemma 1.3.6 Foundations \todocite $p$ is regular in $R[X]$. hence $p X$ is regular. % But $D(p)$ is inhabited, this corresponds to some $r : R$ such that $p(r) \neq 0$, i.e. regular. 
+	\end{enumerate}
+\end{proof}
+\begin{lemma}
+	Let $p : R[X]$ be such that $0 \in D(p)$ and $x \in D(p)$ implies $-x \in D(p)$. 
+	The sheaf-quotient of $D(p)$ by the relation which identifies $x$ and $-x$ when $2x \neq 0$ is an algebraic space, that is not an affine scheme if $char \neq 2$.
+\end{lemma}
+\begin{proof}
+	The conditions on $p$ give $p(0) \neq 0$ and $p(x) \neq 0 \to p(-x) \neq 0$.
+	Lets call this quotient $X$. Define
+	\[
+	E(x,y) = (x = y) + (2x \neq 0 \land x = -y)
+	\]
+	This is a proposition, as $x = y$ and $x = -y$ implies $2x = x + y = 0$. 
+	The relation is covering: 
+	The propositions are affines, hences sheaves. Furthermore, for any $y : D(p)$ we have
+	\[
+	\sum_{x : D(p)} (x = y) + (2x \neq 0 \land x = -y) \simeq 1 + (2y \neq 0) \in \Zar \subset \bT
+	\]
+	Notate $p_- : R[X]$ to be the polynomial $p_-(x) = p(-x)$. 
+	
+	
+	Define 
+	\[
+	A = \{\phi : R[X]_p \ | \ \phi \text{  is even }\}
+	\]
+	This is an $R$-algebra: for any $r : R$, $r : R[X]_p$ is even. Even functions are stable under addition and multiplication . \\
+	
+	Claim: The affinization map of $X$ is the induced dashed map $f : X \to \Spec A$ in
+	
+	% https://q.uiver.app/#q=WzAsNCxbMCwwLCJEKHApIl0sWzEsMCwiXFxTcGVjIFJbWF1fcCJdLFswLDEsIlgiXSxbMSwxLCJcXFNwZWMgQSJdLFswLDIsInEiXSxbMiwzLCJcXGV4aXN0ISBmIiwwLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzEsM10sWzAsMSwiIiwyLHsibGV2ZWwiOjIsInN0eWxlIjp7ImhlYWQiOnsibmFtZSI6Im5vbmUifX19XV0=
+	\[\begin{tikzcd}
+		{D(p)} & {\Spec R[X]_p} \\
+		X & {\Spec A}
+		\arrow[Rightarrow, no head, from=1-1, to=1-2]
+		\arrow["q", from=1-1, to=2-1]
+		\arrow[from=1-2, to=2-2]
+		\arrow["{\exists! f}", dashed, from=2-1, to=2-2]
+	\end{tikzcd}\]
+	A function $\phi : D(p) \to R$ factors through $q$ iff $\phi$ is even as in (1). Thus, the embedding (using that $R$ is a sheaf) $R^X \hookrightarrow R^{D(p)} = R[X]_p$ has image $A$. $\qed$(Claim). 	\\ %respective $\phi : R[X]_p$ satisfies $	\phi (x) = \phi(-x)  $, i.e. (1) if $\phi$ is even. 
+	Assume that $X$ were affine. Then the map $f$ would be in particular an embedding. 
+	Let $\varepsilon : \bD(1) \subset D(p)$ (using that invertibility is $\lnot \lnot$ stable). Then
+	\begin{align*}
+		(q\varepsilon =_X q (-\varepsilon)) \overset{\ref{quotient-by-equivalence-relation}}{=} (\varepsilon = -\varepsilon) + (\varepsilon \neq 0 \land \varepsilon = \varepsilon) = (2\varepsilon = 0) = (\varepsilon = 0)
+	\end{align*}
+	But it always holds $\varepsilon =_{\Spec A} - \varepsilon$, as for any $\phi : A$ we have $\phi(\varepsilon) = \phi(-\varepsilon)$ as $\phi$ satisfies the condition (1). \\
+	So we conclude the the embedding $\{0\} \hookrightarrow \bD(1)$ is an equivalence. Contradiction to algebra as $R[X] / X^2 \to R[X] / X$ is not an equivalence.
+\end{proof}
+\begin{lemma}
+	Open subschemes of $\bA^1$ are $\lnot \lnot$ principal open. %If the open is inhabited, $\lnot \lnot$ merely we can even write it as $D(p)$ with $p : R[X]$ regular .
+\end{lemma}
+\begin{proof}
+	\begin{itemize}
+		\item An open affine subscheme of $\bA^1$ is $\lnot \lnot$ principal open: Let $D(f_1,\hdots,f_n) \subset \bA^1$ be an arbitrary open subset. We may assume that each $f_i$ is non constant (in particular non zero). By \todocite, $\lnot \lnot$-merely each $D(f_i) \subset R$ is cofinite. Thus $\lnot \lnot$-merely, the finite union $\bigcup_{i=1}^n D(f_i)$ is cofinite as well, hence principal open. % we find roots $a_{ij}$ of the $f_i$. $\bigcup_i D(f_i) = \bigcup_i R \setminus \{a_{ij}\}_j = R \setminus \bigcap_{i} \{a_{ij}\}$ for some finite subset. This is $\lnot \lnot$ a principal open. %By $\lnot \lnot $ stability 
+	\end{itemize}
+\end{proof}
+\begin{prop}
+	If $char \neq 2$,
+	\[\bA^1 / (x \sim -x \ if \ x \neq 0)\]
+	is an algebraic space that is not a scheme.
+\end{prop}
+\begin{proof}
+	It is an algebraic space by the space case $p = 1 : R[X]$ above. \\
+	Assume $0$ has an open affine neighborhood $U$. The preimage along the Zariski cover obtained from the relation induces a pointed open affine subscheme of $\bA^1$. As we want to prove a contradiction, we may assume it is a principal open $D(p) \ni 0$. As it saturated wrt to the equivalence relation we have $x \in D(p) \to -x \in D(p)$ for all $x \neq 0$. We are in the following situation:
+	% https://q.uiver.app/#q=WzAsNCxbMCwwLCJEKHApIl0sWzEsMCwiXFxiQcK5Il0sWzEsMSwiWCJdLFswLDEsIlUiXSxbMCwxLCIiLDAseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJob29rIiwic2lkZSI6InRvcCJ9fX1dLFswLDNdLFszLDIsIiIsMix7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Imhvb2siLCJzaWRlIjoidG9wIn19fV0sWzEsMl0sWzAsMiwiIiwxLHsic3R5bGUiOnsibmFtZSI6ImNvcm5lci1pbnZlcnNlIn19XV0=
+	\[\begin{tikzcd}
+		{D(p)} & {\bA^1} \\
+		U & X
+		\arrow[hook, from=1-1, to=1-2]
+		\arrow[from=1-1, to=2-1]
+		\arrow["\ulcorner"{anchor=center, pos=0.125}, draw=none, from=1-1, to=2-2]
+		\arrow[from=1-2, to=2-2]
+		\arrow[hook, from=2-1, to=2-2]
+	\end{tikzcd}\]
+	Then we have $D(p) / \sim' \simeq U$ with restricted equivalence relation. Applying the previous lemma to $D(p)$, we see it cannot be affine. Contradiction.
+\end{proof}
+
+Indeed $X$ is regular and $p(0)$ is regular, thus By lemma 1.3.6 Foundations \todocite $p$ is regular in $R[X]$. \\
+%	So.  %Thus again by \ref{lemma:AlmostEverywhere}, $ 
+%	For any $x : D(p), g : \mu_\ell$ we have 
+%	\[
+%	f/p^n (x) = f/p^n(g x)  \leftrightarrow f(x) (g.p)^n (x) = f(gx) p^n x \tag{$\star$}
+%	\]
+%	\begin{enumerate}
+%		\item [1' $\Rightarrow$ 1 , 2' $\Leftrightarrow$ 2] Just ($\star$)
+%		\item [1 $\Rightarrow$ 2] Clear
+%		\item [1' $\Leftrightarrow$ 2'] We show that for any$ f , n$ $f(x) (g.p)^n (x) = f(gx) p^n x $ holds already everywhere on $R$ if it holds in $D(p) \setminus 0 = D(pX)$. %(we only need on $D(p)$, but we may even show on all of $R$) 
+%		We may apply \ref{lemma:AlmostEverywhere}, so we have to check that $p X$  is regular. But $X$ is regular and $p(0)$ is regular, thus By lemma 1.3.6 Foundations \todocite $p$ is regular in $R[X]$. hence $p X$ is regular. % But $D(p)$ is inhabited, this corresponds to some $r : R$ such that $p(r) \neq 0$, i.e. regular. 
+%	\end{enumerate}
+
+\begin{prop}
+	Let $\ell \neq 0$ be prime. The sheaf quotient of $\bA^1$ by the relation that identifies each  $x \neq 0$ with $g x$ if $g^p = 1, g \neq 1$ is an algebraic space that is not a scheme.
+\end{prop}
+\begin{proof}
+	It is an algebraic space by putting $p \equiv 1 : R[X]$ above. \\
+	Assume the quotient is a scheme. Let us show that we can reduce to the following situation
+	% https://q.uiver.app/#q=WzAsNCxbMCwwLCJEKHApIl0sWzEsMCwiXFxiQcK5Il0sWzEsMSwiWCJdLFswLDEsIlUiXSxbMCwxLCIiLDAseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJob29rIiwic2lkZSI6InRvcCJ9fX1dLFswLDNdLFszLDIsIiIsMix7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Imhvb2siLCJzaWRlIjoidG9wIn19fV0sWzEsMl0sWzAsMiwiIiwxLHsic3R5bGUiOnsibmFtZSI6ImNvcm5lci1pbnZlcnNlIn19XV0=
+	\[\begin{tikzcd}
+		{D(p)} & {\bA^1} \\
+		U & X
+		\arrow[hook, from=1-1, to=1-2]
+		\arrow[from=1-1, to=2-1]
+		\arrow["\ulcorner"{anchor=center, pos=0.125}, draw=none, from=1-1, to=2-2]
+		\arrow[from=1-2, to=2-2]
+		\arrow[hook, from=2-1, to=2-2]
+	\end{tikzcd}\]
+	where $U$ is an open affine neighborhood of 0. \\
+	We give two indepedent reduction arguments:
+	\begin{enumerate}
+		\item The preimage along the quotient map obtained from the relation induces a open neigbhorhood of $0$ in $\bA^1$. As we want to prove a contradiction, we may assume it is a principal open $D(p) \ni 0$. As it saturated wrt to the equivalence relation we have $x \in D(p) \to g x \in D(p)$ for all $x \neq 0, g \in \mu_\ell \setminus \{1\}$. 
+		%We are in the following situation:
+		\item As above, The preimage along the quotient map obtained from the relation induces a open neigbhorhood $V$ of $0$ in $\bA^1$. As we want to prove a contradiction we may assume that $\mu_\ell$ consists of $\ell$ many elements, where $\ell \neq 0 $ in $R$. We apply the previous lemma to $V$ to obtain an invariant principal open neigborhood $0 \in D(p) \subset V \subset \bA^1$. As its invariant, $p : \bA^1 \to R$ descends to $X \to R$. Restricting to $V$ yields a map $p' : V \to R$, such that setting $U \equiv D(p')$ yields such that $q^{-1}(V) =q^{-1}(D(p')) = D(p)$ as desired.
+	\end{enumerate}
+	
+	Then we have $D(p) / \sim' \simeq U$ with restricted equivalence relation. Applying the previous lemma to $D(p)$, we see $U$ cannot be affine. Contradiction.
+\end{proof}
+
+
+	I give two proofes that its not locally seperated
+\begin{itemize}
+	\item
+	Let us show that 0 does not admit a seperated neighborhood.
+	Consider any neighborhood $U$ of 0. Take $U' \equiv q^{-1}U \subset \Spec A$.
+	%		Then we have $U' / \sim' \simeq U$ with restricted equivalence relation. \\
+	Let us show that $U' / G = U$ is not seperated. Assume that for each $x , y : U'$, $R(x,y)$ is a closed proposition. As we want to prove a contradiction, we may assume $g : G \setminus \{1\}$.
+	Then 
+	\[
+	x\neq 0 \times \{g\} \hookrightarrow x \neq 0 \times \sum_{g \neq 1} g x = g x \hookrightarrow  R(x,gx) 
+	\]
+	is a composition of closed embeddings using that $G \setminus \{1\}$ is separated, hence $x \neq 0$ is a closed proposition. Thus $\sum_{x: U'} \lnot \lnot x = 0$ is an open subtype of $U'$, thus the equivalent type $\sum_{x : \Spec A} \lnot \lnot x =0$ is open in $\Spec A$ .
+	
+	%	But its also an open proposition, hence decidable. 
+	%	thus affine. Hence the right hand side \[
+	%	\sum_{x: D(p)} \lnot \lnot x = 0  = \sum_{x : \Spec A} \lnot \lnot x = 0\]
+	%is affine. 
+	Contradiction to the previous lemma. \\
+	\item
