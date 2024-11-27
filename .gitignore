@@ -1,0 +1,7 @@
+*.log
+*.pdf
+*.synctex.gz
+*.aux
+*.out
+
+MasterThesisSummary.pdf

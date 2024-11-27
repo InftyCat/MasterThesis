@@ -700,29 +700,55 @@ Choose a principal open neighborhood $0 \in D(p) \subset U$. $G$ acts on $R[X]$,
 \end{lemma}
 \begin{proof}
 	We may assume that $A = R$, as equality in $A$ can be checked pointwise and formally \etale is a modality.
-	We may show its $\lnot \lnot$-stable. Assume $\lnot \lnot (y =_{R} y')$, i.e. $y - y'$ beeing nilpotent in $A$. So pick $n$, such that $(y-y')^{2^n} =0$. Proof by induction over $n$\\
+	We may show its $\lnot \lnot$-stable. Assume $\lnot \lnot (y =_{R} y')$, i.e. $y - y'$ beeing nilpotent in $A$. So pick $n$ large enough, such that $(y-y')^{2^n} =0$. Proof by induction over $n$\\
 	If $n =0$, then its fine. 
 	Induction step $n \mapsto n+1$. %Assume now, that for any such $y,y'$ we have that $(y-y')^{2^n} =0$ implies $y = y'$.
 	Let $(y-y')^{2^{n+1}} =_{R} 0$, then $(2y^2 - 2yy')^{2^n} = 0$, or $(y(y - y'))^{2^n} = 0$, as $y$ is invertible, $(y - y')^{2^n} = 0$, so by induction hypothesis $y = y'$. \\
 \end{proof}
 \begin{example}[TODO]
+	Assume $\Spec R[i] = \Spec  R[X] / (X^2 + 1)$ is covering.
 	Let $2 \neq 0$. Let $X = \sum_{x : \bA^1} \sum_{y : R / x} y^2 =_{R/x} -1$ be the twisted line with two origins. This is an algebraic space. If it would be a scheme, then $X^2 + 1$ has a root.
 \end{example}
 \begin{proof}
-	Write $R[i]  = R[X] / (X^2 + 1)$
+	Write $R[i]  = R[X] / (X^2 + 1)$ viewing $\Spec R[i]$ as a subtype of $R$.
 	Try to show that 
 	\begin{align*}
 		\bA^1 \times \Spec R[i] &\to X \\
 		(x , y ) &\mapsto (x , [y])
 	\end{align*}
 	is a geometric cover. \\
-	Claim: the fibers are formally \etale.  \\
+
 	Let $x : R$.
-	Let $y' : R$, such that $[y'] =_{R/x} -1$. The fiber over $(x , [y'])$ is equivalent to 
+	Let $y' : R$, such that $[y']^2 =_{R/x} -1$. The fiber over $(x , [y'])$ is equivalent to 
 	\[
-	\sum_{y : \Spec R[i]} y =_{R /x} y'
+	F :\equiv \sum_{y : \Spec R[i]} y =_{R /x} y'
 	\]
-	As $\Spec R[i]$ is formally \etale, We may show that for any $y : \Spec R[i]$, $y =_{R/x} y'$ is formally \etale. This follows by the previous lemma. $\qed$(Claim). \\
+
+	As $\Spec R[i]$ is covering, We may show that for any $y : \Spec R[i]$, $y =_{R/x} y'$ is an $\bT$-flat geometric stack. \\
+	As covering stacks have descent, we may show, that this type $\bT$-merely is covering. 	Thus we may assume $i : \Spec R[i]$.\\
+	\begin{itemize}
+		\item Then $F$ is $\bT$-merely inhabited:
+			Choose $t$ such that $y'^2 = -1 + tx$.
+			Then
+			\[
+			(i-y')(i+y') = tx
+			\]
+			Its enough to show, that one of the factors is invertible.
+			$i  + y'$ is invertible or $y'$ is invertible.
+			We may assume the latter. Then $i - y'$ or $i + y'$ is invertible. \\
+	\end{itemize}
+	Hence we may replace $y'$ by an actual lift in $\Spec R[i]$, which we may also denote $y' : R$. \\
+	Then
+	\[
+	F = (i =_{R/x} y') + (-i =_{R/x} y')
+	\]
+	As $\Spec R[i]$ has decidable equality, we either have $y' = i$, or $y' = -i$.
+	In each case we have
+	\[
+	F \simeq 1 + (y' =_{R/x} -y') \simeq 1 + (1 =_{R/x} 0) \simeq 1 + (x \neq 0)
+	\]
+	As $2$ and $y'$ are both invertible. This is covering.
+%	It is formally \etale by the previous lemma. $\qed$(Claim). \\
 
 %	 As this is a proposition, it is formally unramified. For formally smoothness, let us show, that $\sum_{t : R} y' - y = tx$ is formally smooth. Choose $s : R$ such that $y'^2 = -1 + sx$. Rmk: This type implies $\Spec R[t] / x^2 t^2 + 2yx t - s x$ , that is not$_\varepsilon$ formally smooth for $x = \varepsilon$. Indeed, the implication:
 %	\[
