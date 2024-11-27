@@ -1,1 +1,1 @@
-This is my Master Thesis, under the supervision of Floris van Doorn and Hugo Moneclay. Have a look at a [short summary] (MasterThesisSummary.pdf) from October 2024.
+This is my Master Thesis, under the supervision of Floris van Doorn and Hugo Moneclay. Have a look at a short summary from October 2024: (https://raw.githubusercontent.com/InftyCat/MasterThesis/Zariski/MasterThesisSummary.pdf)
