@@ -2,19 +2,19 @@
 \section{Covering stacks}
 Fix $\bT$ a topology, which we call the covering-affines.
 \begin{definition}
-	Covering geometric stacks are the smallest class containing contractible Types such that: If $Y$ is a stack and $\bT \ni S \to Y$ is fibered in covering geometric stacks, then $Y$ is a covering geometric stack.	
+	covering stacks are the smallest class containing contractible Types such that: If $Y$ is a stack and $\bT \ni S \to Y$ is fibered in covering stacks, then $Y$ is a covering stack.	
 \end{definition}
 We call such map $X \to Y$ whose fibers are covering stacks a geometric cover. If $X$ is affine we call it a geometric atlas. If $X$ is in $\bT$ we call it a geometric catlas. 
 \begin{definition}
-	We call $X$ a geometric stack if it merely has a geometric atlas, i.e some $\Spec A \to X$ fibered in covering geometric stacks.
+	We call $X$ a geometric stack if it merely has a geometric atlas, i.e some $\Spec A \to X$ fibered in covering stacks.
 \end{definition}
-\begin{prop}[Recursion principle for (covering) geometric stacks]
-	Let $P$ be a property of (covering) geometric stacks. Assume
+\begin{prop}[Recursion principle for covering / geometric stacks]
+	Let $P$ be a property of covering / geometric stacks. Assume
 	\begin{itemize}
 		\item contractibles have $P$
 		\item If $S$ is (covering) affine and $S \to Y$ is fibered in covering stacks having $P$ then $Y$ has $P$
 	\end{itemize}
-	Then every (covering) geometric stack has $P$.
+	Then every covering / geometric stack has $P$.
 \end{prop}
 %\begin{proof}
 %	Replace $P$ by $P \land \mathsf{is-covering-stack}$. Then usual induction
@@ -26,11 +26,11 @@ We call such map $X \to Y$ whose fibers are covering stacks a geometric cover. I
 %	If $P$ is defined only for covering stacks, do we need to talk about $P$-covers between covering stacks without knowing that the fibers are covering stacks as well?
 \end{why}
 \begin{prop}{\label{prop:csHasAtlas}}
-Every covering geometric stack $X$ merely admits a geometric catlas. %, i.e. a geometric cover $Y \to X$ with $Y \in \bT$. 
+Every covering stack $X$ merely admits a geometric catlas. %, i.e. a geometric cover $Y \to X$ with $Y \in \bT$. 
 \end{prop}
 
 \begin{proof}
-%We apply the recursion principle of (covering) geometric stacks 
+%We apply the recursion principle of covering / geometric stacks 
 \begin{itemize}
 	\item If 	$X$ is covering affine, then $X \to X$ is a geometric catlas. 
 	\item If $X$ is obtained as a quotient then it already is equipped with a catlas. %, i.e. if its equipped with a cover $Y \to X$ with $Y$ a covering stack, then by induction $Y$ admits a $\cV$-catlas $S \to Y$. Then $S \to Y \to X$ is a $\cV$-catlas by  \ref{lemma:coversstableundercomp}. \\
@@ -81,7 +81,7 @@ In this subsection we want to prove that one could equivalently define covering 
 		\item Assume $Y$ is equipped with a geometric atlas $f : S \to Y$, such that every fiber has $W_n$ for some $n$. Apply \ref{prop:FindCommonN} to $M y n = W_n (\fib_f y)$ to find some $n$ such that $W_n (\fib_f y)$ for all $y : Y$.
 		Then we can conclude by applying the assumption.
 	
-		%	\item Let $X$ be an $n$-truncated covering geometric stack. By \ref{prop:csHasAtlas} we find a geometric catlas $S \to X$. All the fibers are (at most) $n$-truncated. 	
+		%	\item Let $X$ be an $n$-truncated covering stack. By \ref{prop:csHasAtlas} we find a geometric catlas $S \to X$. All the fibers are (at most) $n$-truncated. 	
 	\end{itemize}
 \end{proof}
 
@@ -110,7 +110,7 @@ In this subsection we want to prove that one could equivalently define covering 
 	If we wish to prove the statement for $n+1$, we may assume that $W_n$ covering stacks are $\sum$-stable. We have $\Zar \subset \bT \subset W_n$. So we can apply \ref{thm:atlasStableSum}. \\
 \end{proof}	
 \begin{prop}{\label{prop:WTrunc}}
-	Every covering geometric stack has $W_n$ for some $n$.
+	Every covering stack has $W_n$ for some $n$.
 \end{prop}
 \begin{proof}
 	The idea is to apply \ref{prop:OneToRuleThemAll}.
@@ -123,10 +123,10 @@ In this subsection we want to prove that one could equivalently define covering 
 
 \subsection{Stability}
 \begin{theorem}{\label{thm:CSSum}}
-	The class of (covering) geometric stacks is $\sum$-stable.
+	The class of covering / geometric stacks is $\sum$-stable.
 \end{theorem}
 \begin{proof}
-	The geometric case follows from the covering geometric case by \ref{thm:atlasStableSum}.
+	The geometric case follows from the covering case by \ref{thm:atlasStableSum}.
 	Let $X$ be a covering stack and $B : X \to \CS$ a family of covering stacks.
 	We apply \ref{prop:FindCommonN} to the predicate ' $X$ belongs to $W n$ for some $n$', which holds definitely for some $n$ by \ref{prop:WTrunc}.
 	So we merely find an $n : \bN$ such that $B x \in W_n $ for all $x : X$. By making $n$ larger, we may assume $X$ has $W n$ for some $n$. Conclude by \ref{prop:WnSigma}\\
@@ -142,7 +142,7 @@ In this subsection we want to prove that one could equivalently define covering 
 
 
 \begin{prop}{\label{prop:stackQuot}}
-	The class of (covering) geometric stacks is stable under quotients: If $X \to Y$ is fibered in covering stacks and $X$ is a (covering) stack and $Y$ is a stack then $Y$ is a (covering) geometric stack.
+	The class of covering / geometric stacks is stable under quotients: If $X \to Y$ is fibered in covering stacks and $X$ is a (covering) stack and $Y$ is a stack then $Y$ is a covering / geometric stack.
 \end{prop}
 \begin{proof}
 	Choose a geometric (c)atlas of $X$. Then the composition with the map $X \to Y$ is a cover by \ref{lemma:coversstableundercomp}. As the domain is (covering) affine, its a geometric (c)atlas.
@@ -165,7 +165,7 @@ Now we want to show that the clash of terminology regarding 'covering' is reason
 \end{proof}	
 \begin{lemma}{\label{lemma:geomStackPlusStable}}
 	geometric stacks are stable under finite sums.
-	If $\bT$ is finer than the zariski topology, then this holds for covering geometric stacks as well
+	If $\bT$ is finer than the zariski topology, then this holds for covering stacks as well
 \end{lemma}
 \begin{proof}
 	We have to show that finite sums of geometric (c)atlasses are geometric (c)atlasses.
@@ -187,10 +187,10 @@ Now we want to show that the clash of terminology regarding 'covering' is reason
 
 \subsection{About the covering stacks in a subuniverse}
 \begin{definition}
-	Let $\cV \supset \mathsf{Aff}$ be a superclass stable under $\sum$. covering geometric $\cV$ stacks are the smallest intermediate class $\bT \subset \CS_\cV \subset \cV$ such that: If $X : \bT$ ,  $Y : \cV$ and $X \to Y$ is fibered in $\CS_\cV$, then $Y \in \CS_\cV$. \\
+	Let $\cV \supset \mathsf{Aff}$ be a superclass stable under $\sum$. covering $\cV$ stacks are the smallest intermediate class $\bT \subset \CS_\cV \subset \cV$ such that: If $X : \bT$ ,  $Y : \cV$ and $X \to Y$ is fibered in $\CS_\cV$, then $Y \in \CS_\cV$. \\
 	$X$ is a geometric $\cV$-stack if its in $\cV$ and it merely admits a map $\Spec A \to X$ fibered in $\CS_\cV$.
 \end{definition}
-%We call such map $X \to Y$ whose fibers are covering geometric $\cV$-stacks a geometric-$\cV$-cover. If $X$ is affine we call it an geometric-$\cV$ atlas. If $X$ is in $\bT$ we call it a geometric-$\cV$-catlas. 
+%We call such map $X \to Y$ whose fibers are covering $\cV$-stacks a geometric-$\cV$-cover. If $X$ is affine we call it an geometric-$\cV$ atlas. If $X$ is in $\bT$ we call it a geometric-$\cV$-catlas. 
 \begin{definition}
 	We define the saturation of $\bT$ as the class of covering Aff-stacks. We call a topology $\bT$ saturated if it coincides with its saturation, or more concretely: Every affine schemes that has a catlas lies itself in $\bT$. \\ 
 \end{definition}
@@ -199,11 +199,11 @@ In a further chapter we will develop this theory further.
 
 
 \begin{prop}{\label{prop:coveringVstackDescr}}
-	Let $\cV$ be stable under finite limits and containing (covering) affines. $X$ is a (covering) $\cV$-stack iff it is in $\cV$ and a (covering) geometric stack.
+	Let $\cV$ be stable under finite limits and containing (covering) affines. $X$ is a (covering) $\cV$-stack iff it is in $\cV$ and a covering / geometric stack.
 \end{prop}
 \begin{proof} 	
 	The direct direction is clear. For the converse we apply the recursion principle to the property '$X \in \cV$ implies $X$ is a (covering) $\cV$-stack'. If $X$ is contractible, its clear. Otherwise its equipped with a geometric (c)atlas. The fibers are in $\cV$, as they can be written as a fiberproduct of $S, X, 1 \in \cV$.  By induction all fibers are covering $\cV$-stacks (we may show the covering part of the proposition first). %We are left to show that $F$ is a covering $\cV$-stack. \\
-	%	We can choose $S \to F$ a $\cV$-atlas, so in particular a geometric atlas of $F$, which was assumed to be a covering geometric stack. Then $S \in \bT$ by \ref{lemma:atlasIsCatlas}. So we actually have a $\cV$-catlas.
+	%	We can choose $S \to F$ a $\cV$-atlas, so in particular a geometric atlas of $F$, which was assumed to be a covering stack. Then $S \in \bT$ by \ref{lemma:atlasIsCatlas}. So we actually have a $\cV$-catlas.
 \end{proof}
 \begin{prop}{\label{prop:CSVSum}}
 	(covering) $\cV$-stacks are stable under dependent sums. In particular the saturation of a topology defines a topology.
@@ -213,35 +213,35 @@ In a further chapter we will develop this theory further.
 	The saturation is a class of affines, that in particular contains $1 \in \bT$. We have argued its stable under $\sum$.
 \end{proof}
 \begin{prop}{\label{prop:V'stacks}}
-	A stack $X$ merely admits some map $S \to X$ out of a (covering) affine fibered in covering $\cV$-stacks, iff its a (covering) geometric stack whose identity types are in $\cV$. 
+	A stack $X$ merely admits some map $S \to X$ out of a (covering) affine fibered in covering $\cV$-stacks, iff its a covering / geometric stack whose identity types are in $\cV$. 
 \end{prop}
 \begin{proof}
 	The direct direction: By \ref{lemma:havingAbstractAtlasClosedUnderId} the identity types are geometric $\cV$-stacks. \\
 	The converse direction: Choose a geometric (c)atlas $f : S \to X$. As each fiber $\sum_{s : S} f s =_X x$ is in $V$ by $\sum$-stability of $\cV$ and is a covering stack, its a covering $\cV$-stack by \ref{prop:coveringVstackDescr}.
 \end{proof}
 \begin{definition}
-	Let $n \ge -2$. A (covering) geometric $n$-stack is a (covering) geometric stack that is an $n$-type.
+	Let $n \ge -2$. A covering / geometric $n$-stack is a covering / geometric stack that is an $n$-type.
 \end{definition}
 \begin{prop}{\label{prop:nstack}}
 	Let $X$ be a stack. For all $n \ge 0$, the following are equivalent:
 	\begin{enumerate}
-		\item $X$ is a (covering) geometric $n+1$-stack
+		\item $X$ is a covering / geometric $n+1$-stack
 		\item $X$ merely admits some map $S \to X$ out of a (covering) affine fibered in covering $n$-stacks
-		\item $X$ merely admits some (covering) geometric $n$-stack $Y$ and a map $Y \to X$ fibered in covering $n$-stacks.
+		\item $X$ merely admits some covering / geometric $n$-stack $Y$ and a map $Y \to X$ fibered in covering $n$-stacks.
 	\end{enumerate}
 \end{prop}
 \begin{proof}
 	\
 	\begin{enumerate}
 		\item[1 . $\Leftrightarrow$ 2.]
-		$X$ is a (covering) geometric $n+1$ stack iff its a (covering) geometric stack whose identity types are $n$-types. But this is equivalent to 2. by \ref{prop:V'stacks}.
+		$X$ is a covering / geometric $n+1$ stack iff its a covering / geometric stack whose identity types are $n$-types. But this is equivalent to 2. by \ref{prop:V'stacks}.
 %		\begin{align*}
-%			& \text{$X$ is a (covering) geometric $n+1$ stack} \\
-%			&\overset{ \ref{lemma:geometricStacksClosedUnderId}} {\Leftrightarrow} \text{$X$ is a (covering) geometric stack whose identity types are $n$-types} \\
+%			& \text{$X$ is a covering / geometric $n+1$ stack} \\
+%			&\overset{ \ref{lemma:geometricStacksClosedUnderId}} {\Leftrightarrow} \text{$X$ is a covering / geometric stack whose identity types are $n$-types} \\
 %			&\overset{\ref{prop:V'stacks}} {\Leftrightarrow} \text{2.}
 %		\end{align*}
 		\item[2 . $\Rightarrow$ 3.]
-		$S$ is a (covering) geometric $n$-stack
+		$S$ is a covering / geometric $n$-stack
 		\item [3. $\Rightarrow$ 2]
 		$Y$ admits a map $S \to Y$  fibered in covering $n$-stacks with $S$ (covering) affine, so the composition $S \to X$ will have the same property by \ref{lemma:coversstableundercomp}.
 	\end{enumerate}
