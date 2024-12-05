@@ -1,0 +1,194 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+
+\include{preamble}
+\title{Geometric stacks in Synthetic Algebraic Geometry }
+\newcommand{\ignore}[1]{}
+\usepackage[style=alphabetic]{biblatex}
+\addbibresource{form.bib}
+\author{Tim Lichtnau, Hugo Moeneclay}
+\date{Oktober 2024}
+
+\begin{document}
+	\maketitle
+	\begin{abstract}
+		\noindent This is meant as a short summary of the progress of the Master Thesis of Tim Lichtnau so far. We work in Synthetic Algebraic Geometry, i.e. Homotopy Type Theory + 3 Axioms. A type gets interpreted as a Zariski-sheaf on the site given by the opposite category of finitely presented algebras over a fixed ring \cite{cherubini2023foundationsyntheticalgebraicgeometry}. Affine types get interpreted as the representable sheaves.
+	\end{abstract}
+	\begin{definition}
+		A Grothendieck topology $\bT$ is a subclass of affine schemes, such that 
+		\begin{itemize}
+			\item $1 \in \bT$
+			\item $\bT$ is $\sum$-stable, i.e. if $X : \bT, B : X \to \bT$, then $\sum_{x :X} B x$ belongs to $\bT$.
+		\end{itemize}
+	\end{definition}
+	A map is a $\bT$-cover iff its fibered in $\bT$.
+	Relating to the classical definition, we could call a family of maps of affines $\{U_i \to U\}_{i=1}^n$ covering iff 
+	\[
+	\sum_{i=1}^n U_i \to U
+	\]
+	is a $\bT$-cover. \\
+	We fix a topology $\bT$, for which we want to define the notion of (geometric) stack. \\
+	\begin{definition}
+		A type $X$ is a (higher) stack iff its $\| \Spec A \|$-local for any $\Spec A \in \bT$. \\
+		An $n$-stack is a stack that is an $n$-type.
+	\end{definition}
+	This exactly captures the expected classical notion of a stack for a Grothendieck topology \cite{SAGsheaves}, e.g. a 0-type $X$ is a stack, if for any $\bT$-cover $A \to B$, 
+	\[X^B \to X^A \rightrightarrows X^{A \times_B A}\]
+	is an equalizer diagram.
+	%Stacks are stable under $\sum$ and identity types. \\
+	%We may assume on our Topology, that $\bT$ is subcanonical, i.e. affine schemes are stacks. \\
+	% \begin{itemize}
+	%     \item 
+	%     \ignore{\item WLOG (*) $Zar \subset \bT$ with
+	%     \[
+	%     Zar \equiv \left \{ \sum_{i=1}^n D(f_i) \ \mid \ (f_1,\hdots,f_n) = R \right\} 
+	%     \]}
+	%     %\item ... Later WLOG (*) $\bT$ saturated
+	% \end{itemize}
+	\begin{example}[\cite{SAGmoeneclay}]
+		\ \begin{itemize}
+			\item 
+			The fppf topology is given by the faithfully flat affine schemes. 
+			\item The \etale topology is given by formaly-\etale + faithfully flat affine schemes. \\
+			\item The smooth topology is given by smooth + faithfully flat affine schemes.
+		\end{itemize}
+	\end{example}
+	
+	\newpage
+	We start by defining the relative setting (this corresponds to fibers of smooth morphism of geometric stacks in \cite{simpson1996algebraicgeometricnstacks}). There is a short inductive definition:
+	\begin{definition}
+		A stack $X$ is covering, whenever inductively
+		\begin{itemize}
+			\item $X \in \bT$ or
+			\item $X$ is equipped with a map $\bT \ni \Spec A \to X$ fibered in covering stacks.
+		\end{itemize}
+		
+	\end{definition}
+	We call a map $X \to Y$ fibered in covering stacks a geometric cover (That corresponds to smooth morphisms in \cite{simpson1996algebraicgeometricnstacks}) 
+	%If $X$ is affine we call it a geometric atlas.
+	\begin{definition}
+		A stack $X$ is geometric iff it merely admits a geometric cover $\Spec A \to X$.
+	\end{definition}
+	We have the following classical labels associated to geometric stacks depending on the topologies:
+	\begin{tabular}{c|c}
+		$\bT$ & Geometric stacks for $\bT$ \\
+		\hline 
+		\etale & (Higher) Deligne Mumford Stacks  \\
+		smooth & (Higher) Artin stacks \\    
+		fppf & Something similar to Artin stacks ?     
+	\end{tabular}
+	
+	%Observe that every covering stack is geometric.
+	\begin{example}
+		Every stack that is a scheme is geometric. 
+		%Every affine in the topology is covering.
+	\end{example}
+	
+	\begin{theorem}[Stability Results]
+		\ \begin{itemize}
+			\item The class of covering / geometric stacks is $\sum$-stable. %In particular geometric covers are stable under composition
+			\item The class of covering / geometric stacks is closed under quotients: If $X \to Y$ is a geometric cover with $X$ covering / geometric stack, then $Y$ is covering / geometric
+			\item   Geometric stacks are closed under taking identity types.
+			\item Every geometric stack is a geometric $n$-stack for some $n$
+			\item Covering / Geometric stacks have descent: Both types $\mathsf{GeometricStack}$ and $\mathsf{CoveringStack}$ are a stack.
+		\end{itemize}
+	\end{theorem}
+	It is maybe worth mentioning, that proving descent was surprisingly easy. \\ \\
+	%A $\bT$-atlas is a $\bT$-cover with affine domain.
+	Under some very mild condition on the topology \footnote{We can always enforce this condition without changing the notion of (covering / geometric) stack}  (e.g. satisfied by \etale or fppf), which is equivalent to saying that every geometric cover between affines is a $\bT$-cover we have the following explicit description depending on the truncation level $n$:
+	\begin{theorem}
+		An $n$-stack $X$ is geometric if and only if 
+		\begin{itemize}
+			\item [$(n=0)$:]
+			there merely exists a map $\Spec A \to X$ whose fibers $F$ merely admit a $\bT$-cover $\bT \ni \Spec B \to F$. \footnote{One can reformulate also as taking a quotient of $\Spec A$ by an equivalence relation satisfying a certain property.}
+			\item [$(n \ge 1)$:]
+			there merely exist a map $\Spec A \to X$ whose fibers are covering $(n-1)$-stacks. Additionally $X$ is covering iff we can choose $\Spec A$ to lie in $\bT$.
+		\end{itemize}
+	\end{theorem}
+	
+	For the \etale topology we have the following notable results 
+	\begin{theorem}
+		\
+		\begin{itemize}
+			\item Every Deligne-Mumford stack is a 1-gerbe, i.e. $X \to \|X\|_1^\bT$ is a geometric cover, where the latter means the $\bT$-sheafification of the $1$-truncation of $X$.
+			\item 
+			A Deligne-Mumford stack $X$ is covering iff $\pi_0^\bT X := \|X\|_0^\bT$ and all higher homotopy groups 
+			\[
+			\pi_i^\bT(X,x) = \|\Omega^i (X , x)\|_0^\bT , i \ge 1
+			\]
+			are covering algebraic spaces for the \etale topology.  
+		\end{itemize}
+	\end{theorem}
+	\section{Examples}
+	We can reproduce examples from Stacks project:
+	Let $\mu_\ell = \Spec R[T] / (T^\ell - 1)$ denote the group of $\ell$.th roots of unity.
+	\begin{example}[Non-example]
+		If $2 \neq 0$, the sheaf quotient of $\bA^1$ by the $\mu_2$ action is not an algebraic space.    
+	\end{example}
+	
+	
+	\begin{example}[Not locally-separated examples]
+		Assume $\ell \neq 0$ prime. Let $\mu_\ell$ act on $\Spec B$ in one of the following ways:
+		\begin{enumerate}
+			\item Let $\mu_\ell$ act on $\Spec B = \bA^1$. 
+			\item Put $\ell= 2$. Let $\mu_2$ act on the cross
+			\[
+			\Spec B \equiv \sum_{x , y : R} x y = 0
+			\]
+			via the swap.
+		\end{enumerate}
+		Then $\Spec B / R_{\mu_\ell}$ is an algebraic space that is not a scheme.
+	\end{example}
+	There is a general way to produce examples of algebraic spaces:
+	\begin{lemma}
+		Quotients of geometric stacks $X$ by groups that are covering stacks are geometric stacks, if the isotropy stacks are covering. This happens for example if $X$ has $\bT$-flat identity types or if the group action is free.    
+	\end{lemma}
+	\begin{theorem}
+		Schemes do not have descent, i.e. even if Schemes are stacks, the type of Schemes is not a stack!
+	\end{theorem}
+	\begin{proof}
+	Given $a : R$, e.g. $a = 1$, the idea is to consider the twisted line with double origin:
+		\[\sum_{x : R} \left(\Spec R[T]/(T^2+a)\right)^{x = 0},\]
+		which is etale-merely a scheme, namely the line with double origin. Then one needs to show, that if it would be a scheme then $T^2 + a$ has a root.		
+	\end{proof}	
+	\begin{theorem}
+		geometric covers for the etale topology are formally \etale
+	\end{theorem}
+	\begin{proof}
+		Surprisingly involved. Here is some detail missing ala formally \etale implies flat
+	\end{proof}
+	\begin{prop}
+		For the etale or the smooth topology, geometric stacks are stable under taking tangent spaces.
+	\end{prop}
+	\section{A notion of flat for any topology}
+	
+	\begin{definition}
+		Denote $\Top$ the topologies containing $\mathsf{Bool}$, e.g. finer than the Zariski-topology.
+		Let $\mathsf{FLAT}$ consists of all the classes of affines $\bP$ containing $1, \bot$ stable under $\sum$. \\
+		Given $\bP: \mathsf{FLAT} , \bT: \Top$ we say $\bP$ flattens $\bT$ iff ($\bT \subset \bP$ and)
+		\[
+		\bT= \{X : \bP\ | \ \|X\|_\bT \}
+		\]
+	\end{definition}
+	\begin{theorem}{\label{thm:Flat}}
+		\
+		\begin{enumerate}
+			\item There is at most one $\bP$ that flattens a topology. Then we say, the topology is flatten.
+			\item A topology can be idempotently flattened without changing the stacks
+			\item For any $\bP: \mathsf{FLAT}$ and any Lavwere Tierney Operator $j$, $\{ X: \bP \ | \ \|X\|_j \}$ is flattened by $\bP$.
+		\end{enumerate}
+	\end{theorem}
+	\begin{tabular}{c|c}
+		Topology $\bT$ & $\bT$-flat \\
+		\hline
+		fppf & flat affines \\
+		\etale & formally \etale + flat affines \\
+		Zariski & finite sum of principal opens	
+	\end{tabular}
+	\\ The notion of $\bT$-flat turns out to be incredibly useful in the case of the \etale-topology (because there $\bT$-flat affines are stable under identity types), for example for showing that Deligne-Mumford stacks are 1-gerbes or that geometric covers are formally \etale.
+	
+	Question:
+	When is an Artin stack Deligne Mumford?
+	
+	\printbibliography
+\end{document}

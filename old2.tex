@@ -1,0 +1,150 @@
+\subsection{Boring results about line with two origins}
+By the evident $\mu_2$ action on any suspension we obtain a $\mu_2$ action on $X$, such that the first projection $L \to \bA^1$ is $\mu_2$-invariant. Then the map $L / \mu_2 \to \bA^1$ is an equivalence
+\begin{proof}
+	By $\sum$-stability of algebraic spaces we may show, that the fiber of $L / \mu_2 \to \bA^1$ over $x : \bA^1$ is contractible. The fiber is $\Susp(x \neq 0) / \mu_2$ as 
+	\[
+	X / \mu_2 = \sum_{x : \bA^1} \Susp(x \neq 0)/\mu_2
+	\]
+	But for $X$ a proposition the sheaf quotient $\Susp(X) / \mu_2$ is contractible. \\
+\end{proof}
+\begin{proof}
+	By the evident $\mu_2$ action on any suspension we obtain a $\mu_2$ action on $X$, such that the first projection $L \to \bA^1$ is $\mu_2$-invariant. Then the homotopy quotient $L // \mu_2$ is geometric stack. %\begin{proof}
+	By $\sum$-stability of geometric stacks we may show, that the fiber $\Susp(x \neq 0) // \mu_2$ of $L //´ \mu_2 \to \bA^1$ over $x : \bA^1$ is a geometric stack. As $\Susp(x \neq 0)$ is a scheme \todocite, it is an algebraic space, so it remains to show, that the equivalence relation is covering. \\
+	Let us show that all the homotopy orbits of the $\mu_2$-action of some $s : \Susp(x \neq 0)$ are covering. Since this is a proposition depedent on $s : \Susp(x \neq 0)$,by the previous lemma we only have to consider orbits of points $N : \Susp(x\neq0)$ and $S : \Susp(x \neq 0)$ . Lets stick to $N$. The homotopy orbit is equivalent to 
+	\[
+	\sum_{t : \Susp(x \neq 0)}  (t = N) + (t = S) % \simeq \mathrm{im}(2 \overset{(N,S)}{\to} \Susp(x \neq 0)) = \Susp(x \neq 0)
+	\]
+	As $\Susp(x \neq 0)$ is a covering algebraic space, by $\sum$-stability we may show, that for any $t$, $(t = N) + (t = S)$ is covering. Again by the lemma, we may check this for $t \equiv N$ and $t \equiv S$. In either case the type is equivalent to $1 + (x \neq 0) \in \Zar \subset \bT$. So we can conclude.
+\end{proof}
+
+
+\begin{lemma}
+	Set $C = R[T] / T^2 + 1$ . We have an equivalence 
+	\[
+	(\Spec C \to 2) \simeq 1 + 1 + \Spec C
+	\]
+\end{lemma}
+\begin{proof}
+	Assume $(a+bT)^2 =_C (a+bT)$. Then
+	\[
+	a^2 - b^2 + 2abT = a + bT
+	\]
+	Hence $b(2a - 1) = 0$ so
+	\[
+	0 = b^2 (2a-1)^2 = a (a - 1) (2a-1)^2 
+	\]
+	Claim: two of the three factors are invertible.
+	We have $a$ or $a-1$ beeing invertible. Moreover $(2a - 1) = a + (a-1) = 2 (a-1) + 1$ so $a$ or $(2a-1)$ is invertible and $a-1$ or $2a-1$ is invertible. \\
+	We conclude $a = 0$ or $a = 1$ or $a = 1/2$. Then $b = 0$ (in the first two cases) or $(2b)^2 = -1$ in the third case.
+\end{proof}
+
+\begin{lemma}[TODO]
+	Assume $\Spec R[i] = \Spec  R[X] / (X^2 + \rho)$ is covering.
+	Let $2 \neq 0$. Let $X = \sum_{x : \bA^1} \sum_{y : R / x} y^2 =_{R/x} -1$ be the twisted line with two origins. This is a locally closed algebraic space. If it would be a scheme, then $X^2 + \rho$ has a root. \\
+	If Schemes have descent, then $X^2 + \rho$ has a root.
+\end{lemma}
+\begin{proof}
+	Note, that $R / x$ is an f.p. algebra, thus a sheaf, as $\bT$ is subcanonical. For this you can use duality.
+	%	First a little remark about the sheafification $L_\bT(R/x)$: We have to sheafify, such that $X$ becomes a sheaf as well. 
+	%	But then the sheafification still has the following property
+	%	\[
+	%	1 =_{R/x} 0 \Leftrightarrow x \neq 0
+	%	\]
+	%	Proof: We use that $\bT$ is subcanonical (i.e. $R$ is a sheaf)
+	%	\[
+	%	\Spec(L_\bT(R/x)) = \Hom_R(L_\bT(R/x), R) = \Hom_R(R/x,R) = (x = 0)
+	%	\]
+	%	and then we apply the weak Nullstellensatz.
+	%	\qed(Remark) \\
+	We view $\Spec R[i]$ as a subtype of $R$.
+	\begin{itemize}
+		\item If $\Spec R[i]$ has a point $i$, then $X$ is a scheme. 
+		Indeed, we find an equivalence
+		\begin{align*}
+			X &\to L \\
+			(x,[y]) &\mapsto (x,[iy])
+		\end{align*}
+		with the line with two origins, which is a scheme.
+		\item It is $\bT$-merely a scheme, which is enough As algebraic spaces have descent %, we may just show, that it is $\bT$-merely an algebraic spaces.
+		%	We will show that 
+		%	\begin{align*}
+		%		p : \bA^1 \times \Spec R[i] &\to X \\
+		%		(x , y ) &\mapsto (x , [y])
+		%	\end{align*}
+		%	is a geometric cover. \\
+		%	
+		%	The fiber over some term $(x , [y']) : X$ is equivalent to 
+		%	\[
+		%	\sum_{y : \Spec R[i]} y =_{R /x} y' \tag{$\star$}
+		%	\]
+		%	Claim: If $\Spec R[i]$ is merely inhabited, then $p$ is $\bT$-surjective.  \\
+		%	Say $i : \Spec R[i]$.
+		%	Proof : As $y'^2 =_{R/x} -1$, $\bT$-merely we can choose $t$ such that $y'^2 = -1 + tx$.
+		%	Then
+		%	\[
+		%	(i-y')(i+y') = tx
+		%	\]
+		%	Its enough to show, that one of the factors is invertible.
+		%	$i  + y'$ is invertible or $y'$ is invertible.
+		%	We may assume the latter. Then $i - y'$ or $i + y'$ is invertible. \qed(Claim) \\
+		%	As covering stacks have descent, we may show, that all the fibers $\bT$-merely are covering. 
+		%	As the goal is a modal proposition, we may assume a term $i : \Spec R[i]$.\\
+		%	By the claim and descent for covering stacks, we may show that for any $(x , z) : \bA^1 \times \Spec R[i]$ the fiber over $f(x,z)$ is covering. 
+		%	%As $\Spec R[i]$ is covering, We may show that for any $y : \Spec R[i]$, $y =_{R/x} z$ is an $\bT$-flat geometric stack. \\
+		%
+		%	\[
+		%	\fib_f(f (x,z)) = (i =_{R/x} z) + (-i =_{R/x} z)
+		%	\]
+		%	As $\Spec R[i]$ has decidable equality, we either have $z = i$, or $z = -i$.
+		%	In each case we have
+		%	\[
+		%	\fib_f(f(x,z)) \simeq 1 + (z =_{R/x} -z) \simeq 1 + (1 =_{R/x} 0) \simeq 1 + (x \neq 0)
+		%	\]
+		%	As $2$ and $z$ are both invertible. \\
+		%	This is covering. \\
+		%	\item $X$ is locally seperated: For this we show, that the equivalence relation on $R \times \Spec R[i]$ defines as 
+		%	\[
+		%	(x,y) \sim (x',y') := (x = x') \times ( y =_{R/x} y' )
+		%	\]
+		%	is valued in locally closed propositions. Indeed as $\Spec R[i]$ has decidable equality
+		%	\begin{align*}
+		%	 \left \|\sum_{t : R} y - y' = t x \right\| &\simeq \|(y = y') \times \sum_{t} t x = 0 + (y \neq y') \times (x \neq 0)\| \\
+		%	 &\simeq \|(y = y') + (y \neq y') \times (x \neq 0)\| \simeq (y = y') + (y \neq y') \times (x \neq 0)
+		%	\end{align*}
+		%	which is an open proposition (again, $y = y'$ is decidable). \\
+		%	\item If the fiber of $X \to R$ over some $x \in \cN_\infty(0)$ is merely inhabited, then the map $\Spec R[i] \to \sum_{y : R/x} y^2 =_{R/x} - 1$ is a bijection:
+		%	Its is injective: We may assume that we are in the case $[i] =_{R/x} [-i]$ but $2i$ is invertible, thus $1 = 0$, hence $x \neq 0$. Contradiction. \\
+		%	Surjective:
+		%	 %, then $\Spec R[i]$ has a point. 
+		%	Choose $n$ such that $x^{2^n}  = 0$. Let us show by induction over $n$ that if we find $y$ with $y^2 =_{R/x} -1$ then $\Spec R[i]$ is merely inhabited. $n=0$ is fine. If it holds for $n$, write $\varepsilon := y^2 + 1$, 
+		%	put $y' := y - \varepsilon / (2y)$, then $y'^2 + 1 = y^2 - \varepsilon + \varepsilon^2 / (2y)^2 + 1 =  \varepsilon^2 / (2y)^2$, thus $(y'^2 + 1)^{2^n} = 0$. By induction $\Spec R[i]$ has a point. 
+		\item $X$ is not affine: Let us show, that the map $R[T] = R^R \to R^X$ is a bijection. It is injective, as $R[T] \to R^X \to R[i][T]$ is injective. % R^{R \setminus \{0\}}$ is injective by \ref{lemma:AlmostEverywhere}. \\
+		It is surjective: Given a map $X \to R$, we may precompose with $\Spec R[i][T] \to X$ to obtain a polynomial $p : R[i][T]$. But the structure map $X \to \Spec R[T]$ becomes an equivalence after pulling back to the open $D(0)$, in other words $p / 1 : R[i][T^{\pm 1}]$ belongs to the subset $R[T^{\pm 1}] \subset R[i][T^{\pm 1}]$. Thus $p \in R[T] \subset R[i][T]$. In other words we found a filler 
+		% https://q.uiver.app/#q=WzAsNCxbMCwxLCJYIl0sWzEsMSwiUiJdLFswLDAsIlxcU3BlYyBSW2ldW1RdIl0sWzAsMiwiXFxTcGVjIFJbVF0iXSxbMiwwXSxbMCwzXSxbMCwxXSxbMiwxLCJwIl0sWzMsMSwiIiwxLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV1d
+		\[\begin{tikzcd}
+			{\Spec R[i][T]} \\
+			X & R \\
+			{\Spec R[T]}
+			\arrow[from=1-1, to=2-1]
+			\arrow["p", from=1-1, to=2-2]
+			\arrow[from=2-1, to=2-2]
+			\arrow[from=2-1, to=3-1]
+			\arrow[dashed, from=3-1, to=2-2]
+		\end{tikzcd}\]
+		
+		\item If $X$ is a scheme, then $\Spec R[i]$ has a point. TODO
+		\item If Schemes have descent, then $X \in \mathsf{Sch}$ is a sheaf. Together with the previous point and the fact that $X$ is $\bT$-merely a scheme, we conclude. \\
+	\end{itemize}
+	
+	
+	
+	%	It is formally \etale by the previous lemma. $\qed$(Claim). \\
+	
+	%	 As this is a proposition, it is formally unramified. For formally smoothness, let us show, that $\sum_{t : R} y' - y = tx$ is formally smooth. Choose $s : R$ such that $y'^2 = -1 + sx$. Rmk: This type implies $\Spec R[t] / x^2 t^2 + 2yx t - s x$ , that is not$_\varepsilon$ formally smooth for $x = \varepsilon$. Indeed, the implication:
+	%	\[
+	%	(tx)(tx + 2y) = (y' - y)(y' + y) = y'^2 + 1 = s x
+	%	\]
+	%	Thus $x^2 t^2 + 2yx t - s x = 0$.  \\
+	%	
+	%	Let $P$ be closed dense, and assume $P$ merely we find $t$ such that $y' - y = tx$. Then $P \to $. 
+\end{proof}

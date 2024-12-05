@@ -707,116 +707,8 @@ Choose a principal open neighborhood $0 \in D(p) \subset U$. $G$ acts on $R[X]$,
 	Let $(y-y')^{2^{n+1}} =_{R} 0$, then $(2y^2 - 2yy')^{2^n} = 0$, or $(y(y - y'))^{2^n} = 0$, as $y$ is invertible, $(y - y')^{2^n} = 0$, so by induction hypothesis $y = y'$. \\
 \end{proof}
 
-\begin{lemma}[TODO]
-	Assume $\Spec R[i] = \Spec  R[X] / (X^2 + 1)$ is covering.
-	Let $2 \neq 0$. Let $X = \sum_{x : \bA^1} \sum_{y : R / x} y^2 =_{R/x} -1$ be the twisted line with two origins. This is a locally closed algebraic space. If it would be a scheme, then $X^2 + 1$ has a root. \\
-	If Schemes have descent, then $X^2 + 1$ has a root.
-\end{lemma}
-\begin{proof}
-	Note, that $R / x$ is an f.p. algebra, thus a sheaf, as $\bT$ is subcanonical. For this you can use duality.
-%	First a little remark about the sheafification $L_\bT(R/x)$: We have to sheafify, such that $X$ becomes a sheaf as well. 
-%	But then the sheafification still has the following property
-%	\[
-%	1 =_{R/x} 0 \Leftrightarrow x \neq 0
-%	\]
-%	Proof: We use that $\bT$ is subcanonical (i.e. $R$ is a sheaf)
-%	\[
-%	\Spec(L_\bT(R/x)) = \Hom_R(L_\bT(R/x), R) = \Hom_R(R/x,R) = (x = 0)
-%	\]
-%	and then we apply the weak Nullstellensatz.
-%	\qed(Remark) \\
-	We view $\Spec R[i]$ as a subtype of $R$.
-	\begin{itemize}
-		\item If $\Spec R[i]$ has a point $i$, then $X$ is a scheme. 
-		Indeed, we find an equivalence
-		\begin{align*}
-			X &\to L \\
-			(x,[y]) &\mapsto (x,[iy])
-		\end{align*}
-		with the line with two origins, which is a scheme.
-		\item It is $\bT$-merely a scheme, which is enough As algebraic spaces have descent %, we may just show, that it is $\bT$-merely an algebraic spaces.
-%	We will show that 
-%	\begin{align*}
-%		p : \bA^1 \times \Spec R[i] &\to X \\
-%		(x , y ) &\mapsto (x , [y])
-%	\end{align*}
-%	is a geometric cover. \\
-%	
-%	The fiber over some term $(x , [y']) : X$ is equivalent to 
-%	\[
-%	\sum_{y : \Spec R[i]} y =_{R /x} y' \tag{$\star$}
-%	\]
-%	Claim: If $\Spec R[i]$ is merely inhabited, then $p$ is $\bT$-surjective.  \\
-%	Say $i : \Spec R[i]$.
-%	Proof : As $y'^2 =_{R/x} -1$, $\bT$-merely we can choose $t$ such that $y'^2 = -1 + tx$.
-%	Then
-%	\[
-%	(i-y')(i+y') = tx
-%	\]
-%	Its enough to show, that one of the factors is invertible.
-%	$i  + y'$ is invertible or $y'$ is invertible.
-%	We may assume the latter. Then $i - y'$ or $i + y'$ is invertible. \qed(Claim) \\
-%	As covering stacks have descent, we may show, that all the fibers $\bT$-merely are covering. 
-%	As the goal is a modal proposition, we may assume a term $i : \Spec R[i]$.\\
-%	By the claim and descent for covering stacks, we may show that for any $(x , z) : \bA^1 \times \Spec R[i]$ the fiber over $f(x,z)$ is covering. 
-%	%As $\Spec R[i]$ is covering, We may show that for any $y : \Spec R[i]$, $y =_{R/x} z$ is an $\bT$-flat geometric stack. \\
-%
-%	\[
-%	\fib_f(f (x,z)) = (i =_{R/x} z) + (-i =_{R/x} z)
-%	\]
-%	As $\Spec R[i]$ has decidable equality, we either have $z = i$, or $z = -i$.
-%	In each case we have
-%	\[
-%	\fib_f(f(x,z)) \simeq 1 + (z =_{R/x} -z) \simeq 1 + (1 =_{R/x} 0) \simeq 1 + (x \neq 0)
-%	\]
-%	As $2$ and $z$ are both invertible. \\
-%	This is covering. \\
-%	\item $X$ is locally seperated: For this we show, that the equivalence relation on $R \times \Spec R[i]$ defines as 
-%	\[
-%	(x,y) \sim (x',y') := (x = x') \times ( y =_{R/x} y' )
-%	\]
-%	is valued in locally closed propositions. Indeed as $\Spec R[i]$ has decidable equality
-%	\begin{align*}
-%	 \left \|\sum_{t : R} y - y' = t x \right\| &\simeq \|(y = y') \times \sum_{t} t x = 0 + (y \neq y') \times (x \neq 0)\| \\
-%	 &\simeq \|(y = y') + (y \neq y') \times (x \neq 0)\| \simeq (y = y') + (y \neq y') \times (x \neq 0)
-%	\end{align*}
-%	which is an open proposition (again, $y = y'$ is decidable). \\
-%	\item If the fiber of $X \to R$ over some $x \in \cN_\infty(0)$ is merely inhabited, then the map $\Spec R[i] \to \sum_{y : R/x} y^2 =_{R/x} - 1$ is a bijection:
-%	Its is injective: We may assume that we are in the case $[i] =_{R/x} [-i]$ but $2i$ is invertible, thus $1 = 0$, hence $x \neq 0$. Contradiction. \\
-%	Surjective:
-%	 %, then $\Spec R[i]$ has a point. 
-%	Choose $n$ such that $x^{2^n}  = 0$. Let us show by induction over $n$ that if we find $y$ with $y^2 =_{R/x} -1$ then $\Spec R[i]$ is merely inhabited. $n=0$ is fine. If it holds for $n$, write $\varepsilon := y^2 + 1$, 
-%	put $y' := y - \varepsilon / (2y)$, then $y'^2 + 1 = y^2 - \varepsilon + \varepsilon^2 / (2y)^2 + 1 =  \varepsilon^2 / (2y)^2$, thus $(y'^2 + 1)^{2^n} = 0$. By induction $\Spec R[i]$ has a point. 
-	\item $X$ is not affine: Let us show, that the map $R[T] = R^R \to R^X$ is a bijection. It is injective, as $R[T] \to R^X \to R[i][T]$ is injective. % R^{R \setminus \{0\}}$ is injective by \ref{lemma:AlmostEverywhere}. \\
-	It is surjective: Given a map $X \to R$, we may precompose with $\Spec R[i][T] \to X$ to obtain a polynomial $p : R[i][T]$. But $p / 1$ belongs to $R[T] \subset R[i][T]$, thus $p \in R[T] \subset R[i][T]$. In other words we found a filler 
-	% https://q.uiver.app/#q=WzAsNCxbMCwxLCJYIl0sWzEsMSwiUiJdLFswLDAsIlxcU3BlYyBSW2ldW1RdIl0sWzAsMiwiXFxTcGVjIFJbVF0iXSxbMiwwXSxbMCwzXSxbMCwxXSxbMiwxLCJwIl0sWzMsMSwiIiwxLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV1d
-	\[\begin{tikzcd}
-		{\Spec R[i][T]} \\
-		X & R \\
-		{\Spec R[T]}
-		\arrow[from=1-1, to=2-1]
-		\arrow["p", from=1-1, to=2-2]
-		\arrow[from=2-1, to=2-2]
-		\arrow[from=2-1, to=3-1]
-		\arrow[dashed, from=3-1, to=2-2]
-	\end{tikzcd}\]
-	\item If $X$ is a scheme, then $\Spec R[i]$ has a point. TODO
-	\item If Schemes have descent, then $X \in \mathsf{Sch}$ is a sheaf. Together with the previous point and the fact that $X$ is $\bT$-merely a scheme, we conclude. \\
-	\end{itemize}
-	
-	
-	
-%	It is formally \etale by the previous lemma. $\qed$(Claim). \\
-
-%	 As this is a proposition, it is formally unramified. For formally smoothness, let us show, that $\sum_{t : R} y' - y = tx$ is formally smooth. Choose $s : R$ such that $y'^2 = -1 + sx$. Rmk: This type implies $\Spec R[t] / x^2 t^2 + 2yx t - s x$ , that is not$_\varepsilon$ formally smooth for $x = \varepsilon$. Indeed, the implication:
-%	\[
-%	(tx)(tx + 2y) = (y' - y)(y' + y) = y'^2 + 1 = s x
-%	\]
-%	Thus $x^2 t^2 + 2yx t - s x = 0$.  \\
-%	
-%	Let $P$ be closed dense, and assume $P$ merely we find $t$ such that $y' - y = tx$. Then $P \to $. 
-\end{proof}
 \subsection{Gluing in an affine on the line}
+For this section, let $\rho : R$ denote a term, e.g. $\rho = 1$. Set $C = R[T] / (T^2 + \rho)$.
 \begin{definition}
 	Let $Y$ be an affine. The $n$.th order gluing of $Y$ on the line is given by the sheaf\[
 	L_n(X) = \sum_{x : R} Y^{x^n = 0}
@@ -858,10 +750,10 @@ Choose a principal open neighborhood $0 \in D(p) \subset U$. $G$ acts on $R[X]$,
 	\[
 	(x,y) =_{L_n(Y)} (x',y') \simeq (x = x') \times (x^n = 0 \to Q)
 	\]
-	where $Q$ is an open proposition such that for any $p : x^n = 0$ we have $Q \equiv  y p = y' p$. Indeed by the proof of \ref{lemma:OpenIsSmooth} we can find a filler of $y_\bullet = y'_\bullet : P \to \mathsf{Open}$. By Foundations, 4.2.11 this proposition is locally closed.	
+	where $Q$ is an open proposition such that for any $p : x^n = 0$ we have $Q \equiv  y p = y' p$. Indeed by the proof of \ref{lemma:OpenIsSmooth} we can find a filler of $y_\bullet = y'_\bullet : P \to \mathsf{Open}$. By \cite{cherubini2023foundationsyntheticalgebraicgeometry}(4.2.11) this proposition is locally closed.	
 \end{proof}
 \begin{question}
-	Is the map $\sum_{y : R / x^3} y^2 = 0 \to \sum_{y : R / x^2} y^2 =_0$ surjetive? This is how i understand \href{http://www.madore.org/~david/weblog/d.2013-09-21.2160.definition-schema.html#d.2013-09-21.2160.droite-origine-doublee}{David Madore}.
+	Is the map $\sum_{y : R / x^3} y^2 = 0 \to \sum_{y : R / x^2} y^2 =_0$ surjective? This is how i understand \href{http://www.madore.org/~david/weblog/d.2013-09-21.2160.definition-schema.html#d.2013-09-21.2160.droite-origine-doublee}{David Madore}.
 \end{question}
 \begin{lemma}
 	For $\varepsilon : \cN_\infty(0)$, the affine $Ann(\varepsilon) = \{x : R \ | \  x \varepsilon = 0 \}$ is not$_\varepsilon$ formally smooth. In particular $R \to R / \varepsilon$ is not$_\varepsilon$ a geometric cover.
@@ -873,50 +765,99 @@ Choose a principal open neighborhood $0 \in D(p) \subset U$. $G$ acts on $R[X]$,
 	\]
 	as desired.
 \end{proof}
+\begin{definition}
+	A rational map $X \rightsquigarrow Y$ is a term in $\prod_{x : X} Y^{Q x}$ for some $Q : X \to \mathsf{Open}$ % an open proposition.
+\end{definition}
+\begin{lemma}{\label{lemma:RatMapsCoincide}}
+	Given two rational maps $R \rightsquigarrow R$ defined at 0 are already equal, if they coincide everywhere except possibly at 0.
+\end{lemma}
+\begin{proof}
+	We may assume that the maps are defined on the same open $U \subset R$. So we need to show, that $R^U \to R^{U \setminus \{0\}}$ is injective. Choose a Zariski cover $\Spec A = \Spec R[X]_{f_1} \times \hdots R[X]_{f_n} \twoheadrightarrow U \subset R$, and denote the composite as $f : \Spec A \to R$ corresponding to $(X,\hdots,X) : A$, which is a regular element of the algebra $A$, as one of the $f_i$ does not vanish at 0.  we obtain a commutative diagram
+	% https://q.uiver.app/#q=WzAsNCxbMCwwLCJSXlUiXSxbMCwxLCJSXntcXFNwZWMgQX0iXSxbMSwxLCJSXntEKGYpfSJdLFsxLDAsIlJee1UgXFxzZXRtaW51cyBcXHswXFx9fSJdLFswLDEsIiIsMCx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Imhvb2siLCJzaWRlIjoidG9wIn19fV0sWzAsM10sWzEsMl0sWzMsMl1d
+	\[\begin{tikzcd}
+		{R^U} & {R^{U \setminus \{0\}}} \\
+		{R^{\Spec A}} & {R^{D(f)}}
+		\arrow[from=1-1, to=1-2]
+		\arrow[hook, from=1-1, to=2-1]
+		\arrow[from=1-2, to=2-2]
+		\arrow[from=2-1, to=2-2]
+	\end{tikzcd}\]
+	where the left vertical map is injective by surjectivity of the Zariski cover. The lower horizontal map is injective by \ref{lemma:AlmostEverywhere}.
+\end{proof}
+\begin{prop}
+	If $L_1(\Spec C)$ is a scheme, then $X^2 + \rho$ has a root.
+\end{prop}
+\begin{proof}
+	Let $p : L_1(\Spec C) \to R$ be the first projection.
+	We proceed as follows
+	\begin{enumerate}
+		\item  There is no open affine subset of $L_1(\Spec C)$ containing $\fib_p(0)$.
+		\item Any cover of $\Spec C$ by open subsets strictly smaller than $\Spec C$ yields a root.
+	\end{enumerate}
+Proves:
+\begin{enumerate}
+	\item Because we want to show a sheaf, we may assume $L_1(\Spec C) = L_1(2)$. Assume there is an open affine subset $\fib_p(0) \subset U \subset L_1 (2)$. Then $p(U) \subset R$ is an open neigbhorhood of 0, as 
+	\[
+	x \in p(U) \leftrightarrow (x,N) \in U \lor (x,S) \in U
+	\]
+	Claim: the map $R^{p(U)} \to R^U$ is an equivalence. If we have shown that: As $U$ is affine we conclude that the map
+	\begin{align*}
+		U &\to \Spec (R^{p(U)}) \\
+		x &\mapsto \phi \mapsto (\phi(px))		
+	\end{align*}
+	is an equivalence, which is a contradiction to the assumption, that $U$ contains both origins. \\
+	Proof of claim:
+	Injectivity: If two maps $f , g : p(U) \to R$ coincide after precomposing with $U \to p(U)$, then they coincide away from $0$
+	so conclude by \ref{lemma:RatMapsCoincide}. \\
+	Surjectivity: Given a map $U \to R$, by pulling back along $p : R + R \to L_1(2)$ we can view it as a rational map $R + R \rightsquigarrow R$ defined at both origins, so in particular as a pair of rational maps $R \rightsquigarrow R$ defined at 0. They coincide away from 0 so by \ref{lemma:RatMapsCoincide} they are equal.
+	%$U \setminus \fib_p(0)$ is an open subset of $L_1(2) \setminus \fib_p(0) \simeq R^{\times}$. 
+	\item As $\Spec C$ is an \etale sheaf, its enough to show to construct a function $\|\Spec C\| \to \Spec C$. \\
+	Assume $\|\Spec C\|$.
+	Lets try to construct a term of the following type
+	\[
+	\sum_{x : \Spec C} \forall x' : \Spec C , j , j' : \mathsf{Fin}(n) : x \in U_j \cap x' \in U_j' \to j \le j' 
+	\]
+	For this we may assume $i, -i : \Spec C$, as this type is a proposition: If we have given two such minimal $x_1, x_2$, we can set first $x' \equiv x_2$ and then $x' \equiv x_1$ respectively and then choosing $j,j'$ such that $x_1 \in U_j, x_2 \in U_{j'}$ gives $j \le j' \le j$ so that $\{x_1,x_2\} \subset U_j$ such that $x_1 = x_2$ by the previous point. \\
+	I will explain an algorithm to do the following:
+	Given $n \ge 2$, a bipointed set $(X,i,-i)$ and a cover $X = \bigcup_{j=1}^n U_j$ such that $\lnot (\{i,-i\} \subset U_j)$ for all $j$, return the basepoint that lies in some $U_j$ with a smaller index $j$. \\
+	Induction over $n$. If $n = 2$, then $i \in U_1$ or $i \in U_2$. In the first case return $i$, in the latter $-i$. \\
+	If $X = \bigcup_{j=1}^{n+1} U_i$, then if $i \in U_{n+1}$ return $-i$. If $-i \in U_{n+1}$, return $i$. Otherwise $\{i,-i\} \subset \bigcup_{j=1}^n U_i$, so conclude by induction.  
+%	Lets first check this for the case $U \cup V = \Spec C$ with $U$ and $V$ open subsets strictly smaller than $\Spec C$. Observe, that the types $U$ and $V$ are propositions: If $x, y : U$, then $\lnot \lnot (x = y)$ (which is enough by decidability of $x = y$), as $x \neq y$ implies $\Spec C = \{x , y\} \subset U$. \\
+%
+%	But then $U$ is an \etale-sheaf and a proposition, so we may construct a term in $\Spec C \to U$. But $\Spec C \to \Spec C \simeq 2$ so, then $U \cup V = 2$. No both elements of the RHS lie in $U$ or they lie in $V$. If both lie in $V$, we have a contradiction to the assumption. %As we have $\lnot \lnot U$, we can construct a term 
+%	But if $\lnot U$, then $V = U \cup V = \Spec C$ contradicting the assumption.)
+\end{enumerate}
+\end{proof}
+\begin{corollary}
+	Schemes do not have descent.
+\end{corollary}
+\begin{proof}
+	 If Schemes have descent, then $L_1(\Spec R[T]/(T^2 + \rho)) \in \mathsf{Sch}$ is a sheaf. As $L_1(\Spec R[T]/(T^2 + \rho))$ is $\bT$-merely a scheme, it is a scheme, so by the previous lemma $T^2 + \rho$ has a root. Contradiction to \cite{cherubini2023foundationsyntheticalgebraicgeometry} A . 0.3. \\
+\end{proof}
+\begin{lemma}
+	If $Y$ is formally \etale + flat affine, then $L_1(Y)$ is an algebraic space.
+\end{lemma}
+\begin{proof}
+	For $P$ a proposition, consider the following higher inductive type $L'_Y(P):$
+	\begin{itemize}
+		\item $Y \to L'_Y(P)$
+		\item $P \to \mathrm{isContr}(L'_Y(P))$
+	\end{itemize}
+	We can define a map
+	\begin{align*}
+		L'_Y(x \neq 0) &\to Y^{x = 0} \\
+		y &\mapsto \Delta (y) \\
+	\end{align*}
+	where we check, that if $x \neq 0$ holds, then indeed $Y^{x = 0}$ is contractible.
+	One can check, that this map is a bijection.TODO \\
+	Furthermore $Y \to L'_Y(x \neq 0)$ is a geometric cover:
+	The fiber over $\Delta(y)$ is $1 + (Y - y) \times (x \neq 0)$ which is formally \etale + flat and inhabited affine.	
+\end{proof}
 \begin{question}
 	Is $L_2(\bD(1))$ an algebraic space?
 \end{question}
 
-\begin{lemma}
-	Set $C = R[T] / T^2 + 1$ . We have an equivalence 
-	\[
-	(\Spec C \to 2) \simeq 1 + 1 + \Spec C
-	\]
-\end{lemma}
-\begin{proof}
-	Assume $(a+bT)^2 =_C (a+bT)$. Then
-	\[
-	a^2 - b^2 + 2abT = a + bT
-	\]
-	Hence $b(2a - 1) = 0$ so
-	\[
-	0 = b^2 (2a-1)^2 = a (a - 1) (2a-1)^2 
-	\]
-	Claim: two of the three factors are invertible.
-	We have $a$ or $a-1$ beeing invertible. Moreover $(2a - 1) = a + (a-1) = 2 (a-1) + 1$ so $a$ or $(2a-1)$ is invertible and $a-1$ or $2a-1$ is invertible. \\
-	We conclude $a = 0$ or $a = 1$ or $a = 1/2$. Then $b = 0$ (in the first two cases) or $(2b)^2 = -1$ in the third case.
-\end{proof}
 %\begin{example}
 %	What happens for\[\sum_{x: R} \sum_{y: R / x^2} y (x-y) =_{R/x^2} 0 \]
 %	where we apparently glue in $\bD(1)$ at the origin and leave the line invariant away from the origin?
 %\end{example}
-\subsection{Boring results about line with two origins}
-By the evident $\mu_2$ action on any suspension we obtain a $\mu_2$ action on $X$, such that the first projection $L \to \bA^1$ is $\mu_2$-invariant. Then the map $L / \mu_2 \to \bA^1$ is an equivalence
-\begin{proof}
-By $\sum$-stability of algebraic spaces we may show, that the fiber of $L / \mu_2 \to \bA^1$ over $x : \bA^1$ is contractible. The fiber is $\Susp(x \neq 0) / \mu_2$ as 
-\[
-X / \mu_2 = \sum_{x : \bA^1} \Susp(x \neq 0)/\mu_2
-\]
-But for $X$ a proposition the sheaf quotient $\Susp(X) / \mu_2$ is contractible. \\
-\end{proof}
-\begin{proof}
-	 By the evident $\mu_2$ action on any suspension we obtain a $\mu_2$ action on $X$, such that the first projection $L \to \bA^1$ is $\mu_2$-invariant. Then the homotopy quotient $L // \mu_2$ is geometric stack. %\begin{proof}
-	By $\sum$-stability of geometric stacks we may show, that the fiber $\Susp(x \neq 0) // \mu_2$ of $L //´ \mu_2 \to \bA^1$ over $x : \bA^1$ is a geometric stack. As $\Susp(x \neq 0)$ is a scheme \todocite, it is an algebraic space, so it remains to show, that the equivalence relation is covering. \\
-	Let us show that all the homotopy orbits of the $\mu_2$-action of some $s : \Susp(x \neq 0)$ are covering. Since this is a proposition depedent on $s : \Susp(x \neq 0)$,by the previous lemma we only have to consider orbits of points $N : \Susp(x\neq0)$ and $S : \Susp(x \neq 0)$ . Lets stick to $N$. The homotopy orbit is equivalent to 
-	\[
-	\sum_{t : \Susp(x \neq 0)}  (t = N) + (t = S) % \simeq \mathrm{im}(2 \overset{(N,S)}{\to} \Susp(x \neq 0)) = \Susp(x \neq 0)
-	\]
-	As $\Susp(x \neq 0)$ is a covering algebraic space, by $\sum$-stability we may show, that for any $t$, $(t = N) + (t = S)$ is covering. Again by the lemma, we may check this for $t \equiv N$ and $t \equiv S$. In either case the type is equivalent to $1 + (x \neq 0) \in \Zar \subset \bT$. So we can conclude.
-\end{proof}
-
-
