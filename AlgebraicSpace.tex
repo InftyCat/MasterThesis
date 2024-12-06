@@ -835,16 +835,22 @@ Proves:
 	 If Schemes have descent, then $L_1(\Spec R[T]/(T^2 + \rho)) \in \mathsf{Sch}$ is a sheaf. As $L_1(\Spec R[T]/(T^2 + \rho))$ is $\bT$-merely a scheme, it is a scheme, so by the previous lemma $T^2 + \rho$ has a root. Contradiction to \cite{cherubini2023foundationsyntheticalgebraicgeometry} A . 0.3. \\
 \end{proof}
 \begin{lemma}
-	If $Y$ is A $\bT$-flat geometric 0-stack and formally unramified, then $Y \to (x \neq 0) \star Y$ is a geometric cover.
+	Let $x : R$. Let $Y : \Aff$ such that $x \neq 0$ implies that $Y$ is formally \etale + flat. Then $Y \to (x \neq 0) \star Y$ is a geometric cover.
 \end{lemma}
 \begin{proof}
 	 It suffices to check this for fibers coming from $Y$: Indeed, then the fibers determine a map $Y \to \sum_{F: \CS} (F = Y)^{x \neq 0}$ where the codomain is contractible if $x \neq 0$. \\
-	 The fiber over $inl(y)$ is 
-	 \[
-	 \sum_{y' : Y} inl(y') = inl(y) \simeq \sum_{y': Y} (x \neq 0) \star (y = y') = \sum_{y': Y} (x \neq 0) \lor (y = y')
-	 \]
- 	 using that the closed modality is lex (\cite{Modalities} Example 3.1.4).
-	 As $y = y'$ is open by assumption the fiber is merely inhabited and a $\sum$ of $\bT$-flat geometric stacks, thus covering. 
+	 Given $y,y' : Y$, we have
+	 \begin{align*}
+	inl(y') = inl(y) &\simeq (x \neq 0) \star (y = y')&& \ | \  \text{ closed modality is lex (\cite{Modalities} Example 3.1.4).} \\
+	&\simeq (y = y') \lor (x \neq 0)  && \ | \ (x \neq 0) \to \mathsf{HasDecEq}(Y) \\
+	&\simeq (y = y') + (x \neq 0) \times y \neq y'¸
+	 \end{align*}
+ 	 Hence the fiber over $y$ is 
+ 	 \[
+ 	 1 + (x \neq 0) \times Y \setminus \{y\} = 1 + \sum_{p : x \neq 0}Y \setminus \{y\}
+ 	 \]
+ 	 which is inhabited affine and formally \etale + flat. %, because the right summand is a $\sum$ of formally \etale + flat affines: Indeed, whenever $x \neq 0$ then $Y \setminus \{y\}$ is formally \etale + flat.
+%	 As $y = y'$ is open by assumption the fiber is merely inhabited and a $\sum$ of $\bT$-flat geometric stacks, thus covering. 
 %	Let us show, that the fiber over $\Delta(y)$ is $1 + (Y - y) \times (x \neq 0)$ which is formally \etale + flat and inhabited affine.	Here we use, that $Y$ has decidable equality and if $y \neq y'$, then % we have $inl(y) = inl(y') \simeq (x \neq 0) \star (y = y') = (x \neq 0)$. \\
 \end{proof}
 \begin{lemma}[TODO]
