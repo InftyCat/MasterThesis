@@ -44,7 +44,11 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {11.3}Locally seperated examples}{29}{subsection.11.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {11.4}Gluing in an affine on the line}{30}{subsection.11.4}%
+\contentsline {subsection}{\numberline {11.4}FiberCollaps away from the origin}{30}{subsection.11.4}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {11.5}Schemes do not have descent}{30}{subsection.11.5}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {11.6}Gluing in an affine on the line}{32}{subsection.11.6}%
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {12}Deloopings and Truncations}{34}{section.12}%
 \defcounter {refsection}{0}\relax 

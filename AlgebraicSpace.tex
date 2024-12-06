@@ -706,7 +706,112 @@ Choose a principal open neighborhood $0 \in D(p) \subset U$. $G$ acts on $R[X]$,
 	Induction step $n \mapsto n+1$. %Assume now, that for any such $y,y'$ we have that $(y-y')^{2^n} =0$ implies $y = y'$.
 	Let $(y-y')^{2^{n+1}} =_{R} 0$, then $(2y^2 - 2yy')^{2^n} = 0$, or $(y(y - y'))^{2^n} = 0$, as $y$ is invertible, $(y - y')^{2^n} = 0$, so by induction hypothesis $y = y'$. \\
 \end{proof}
-
+\subsection{FiberCollaps away from the origin}
+\begin{definition}
+	Let $Y : R \to \Aff$ be a dependent family of affines, such that $(Y \in \EF)^{x \neq 0}$ . 
+	The fiber collapse of $Y$ away from the origin $\emdash Y \emdash $ is the space over $R$
+	\[
+	\sum_{x : R} (x \neq 0) \star Y_x \to R %\sum_{x : R} Y_x \to 
+	\]
+%	: \prod_{x : R} \sum_{Y:\Aff} (Y \in \EF)^{x \neq 0}$ %
+\end{definition}
+This space over $R$ looks exactly like the line away from the origin and over an infinitesimal $\varepsilon$ the fiber is $Y_\varepsilon$.
+\begin{lemma}
+	$\emdash Y \emdash$ is an algebraic space.
+\end{lemma}
+\begin{proof}
+	Let $x : R$. Let $Y : \Aff$ such that $x \neq 0$ implies that $Y$ is formally \etale + flat. We will show that $Y \to (x \neq 0) \star Y$ is a geometric cover.
+	It suffices to check this for fibers coming from $Y$: Indeed, then the fibers determine a map $Y \to \sum_{F: \CS} (F = Y)^{x \neq 0}$ where the codomain is contractible if $x \neq 0$. \\
+	Given $y,y' : Y$, we have
+	\begin{align*}
+		inl(y') = inl(y) &\simeq (x \neq 0) \star (y = y')&& \ | \  \text{ closed modality is lex (\cite{Modalities} Example 3.1.4).} \\
+		&\simeq (y = y') \lor (x \neq 0)  && \ | \ (x \neq 0) \to \mathsf{HasDecEq}(Y) \\
+		&\simeq (y = y') + (x \neq 0) \times y \neq y'¸
+	\end{align*}
+	Hence the fiber over $y$ is 
+	\[
+	1 + (x \neq 0) \times Y \setminus \{y\} = 1 + \sum_{p : x \neq 0}Y \setminus \{y\}
+	\]
+	which is inhabited affine and formally \etale + flat. %, because the right summand is a $\sum$ of formally \etale + flat affines: Indeed, whenever $x \neq 0$ then $Y \setminus \{y\}$ is formally \etale + flat.
+	%	 As $y = y'$ is open by assumption the fiber is merely inhabited and a $\sum$ of $\bT$-flat geometric stacks, thus covering. 
+	%	Let us show, that the fiber over $\Delta(y)$ is $1 + (Y - y) \times (x \neq 0)$ which is formally \etale + flat and inhabited affine.	Here we use, that $Y$ has decidable equality and if $y \neq y'$, then % we have $inl(y) = inl(y') \simeq (x \neq 0) \star (y = y') = (x \neq 0)$. \\
+\end{proof}
+\begin{example}
+	$\emdash Bool \emdash$ is the line with two origins. \\
+	---$\Spec R[X] / (X^2 + 1))$--- is the twisted line with two origins, i.e. over the origin we have the roots of $-1$. \\
+	---$\Spec R[Y] / (Y^2 - \bullet^2)$--- is an algebraic space that looks like $\bD(1)$ over the origin. \\\
+	---$\Spec R[Y] / (\bullet Y)$--- is the affine cross.
+\end{example}
+\subsection{Schemes do not have descent}
+\begin{definition}
+	A rational map $X \rightsquigarrow Y$ is a term in $\prod_{x : X} Y^{Q x}$ for some $Q : X \to \mathsf{Open}$ % an open proposition.
+\end{definition}
+\begin{lemma}{\label{lemma:RatMapsCoincide}}
+	Given two rational maps $R \rightsquigarrow R$ defined at 0 are already equal, if they coincide everywhere except possibly at 0.
+\end{lemma}
+\begin{proof}
+	We may assume that the maps are defined on the same open $U \subset R$. So we need to show, that $R^U \to R^{U \setminus \{0\}}$ is injective. Choose a Zariski cover $\Spec A = \Spec R[X]_{f_1} \times \hdots R[X]_{f_n} \twoheadrightarrow U \subset R$, and denote the composite as $f : \Spec A \to R$ corresponding to $(X,\hdots,X) : A$, which is a regular element of the algebra $A$, as one of the $f_i$ does not vanish at 0.  we obtain a commutative diagram
+	% https://q.uiver.app/#q=WzAsNCxbMCwwLCJSXlUiXSxbMCwxLCJSXntcXFNwZWMgQX0iXSxbMSwxLCJSXntEKGYpfSJdLFsxLDAsIlJee1UgXFxzZXRtaW51cyBcXHswXFx9fSJdLFswLDEsIiIsMCx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Imhvb2siLCJzaWRlIjoidG9wIn19fV0sWzAsM10sWzEsMl0sWzMsMl1d
+	\[\begin{tikzcd}
+		{R^U} & {R^{U \setminus \{0\}}} \\
+		{R^{\Spec A}} & {R^{D(f)}}
+		\arrow[from=1-1, to=1-2]
+		\arrow[hook, from=1-1, to=2-1]
+		\arrow[from=1-2, to=2-2]
+		\arrow[from=2-1, to=2-2]
+	\end{tikzcd}\]
+	where the left vertical map is injective by surjectivity of the Zariski cover. The lower horizontal map is injective by \ref{lemma:AlmostEverywhere}.
+\end{proof}
+\begin{prop}
+	If $L(\Spec C)$ is a scheme, then $X^2 + \rho$ has a root.
+\end{prop}
+\begin{proof}
+	Let $p : L(\Spec C) \to R$ be the first projection.
+	We proceed as follows
+	\begin{enumerate}
+		\item  There is no open affine subset of $L(\Spec C)$ containing $\fib_p(0)$.
+		\item Any cover of $\Spec C$ by open subsets strictly smaller than $\Spec C$ yields a root.
+	\end{enumerate}
+	Proves:
+	\begin{enumerate}
+		\item Because we want to show a sheaf, we may assume $L(\Spec C) = L(2)$. Assume there is an open affine subset $\fib_p(0) \subset U \subset L (2)$. Then $p(U) \subset R$ is an open neigbhorhood of 0, as 
+		\[
+		x \in p(U) \leftrightarrow (x,N) \in U \lor (x,S) \in U
+		\]
+		Claim: the map $R^{p(U)} \to R^U$ is an equivalence. If we have shown that: As $U$ is affine we conclude that the map
+		\begin{align*}
+			U &\to \Spec (R^{p(U)}) \\
+			x &\mapsto \phi \mapsto (\phi(px))		
+		\end{align*}
+		is an equivalence, which is a contradiction to the assumption, that $U$ contains both origins. \\
+		Proof of claim:
+		Injectivity: If two maps $f , g : p(U) \to R$ coincide after precomposing with $U \to p(U)$, then they coincide away from $0$
+		so conclude by \ref{lemma:RatMapsCoincide}. \\
+		Surjectivity: Given a map $U \to R$, by pulling back along $p : R + R \to L(2)$ we can view it as a rational map $R + R \rightsquigarrow R$ defined at both origins, so in particular as a pair of rational maps $R \rightsquigarrow R$ defined at 0. They coincide away from 0 so by \ref{lemma:RatMapsCoincide} they are equal.
+		%$U \setminus \fib_p(0)$ is an open subset of $L(2) \setminus \fib_p(0) \simeq R^{\times}$. 
+		\item As $\Spec C$ is an \etale sheaf, its enough to show to construct a function $\|\Spec C\| \to \Spec C$. \\
+		Assume $\|\Spec C\|$.
+		Lets try to construct a term of the following type
+		\[
+		\sum_{x : \Spec C} \forall x' : \Spec C , j , j' : \mathsf{Fin}(n) : x \in U_j \cap x' \in U_j' \to j \le j' 
+		\]
+		For this we may assume $i, -i : \Spec C$, as this type is a proposition: If we have given two such minimal $x_1, x_2$, we can set first $x' \equiv x_2$ and then $x' \equiv x_1$ respectively and then choosing $j,j'$ such that $x_1 \in U_j, x_2 \in U_{j'}$ gives $j \le j' \le j$ so that $\{x_1,x_2\} \subset U_j$ such that $x_1 = x_2$ by the previous point. \\
+		I will explain an algorithm to do the following:
+		Given $n \ge 2$, a bipointed set $(X,i,-i)$ and a cover $X = \bigcup_{j=1}^n U_j$ such that $\lnot (\{i,-i\} \subset U_j)$ for all $j$, return the basepoint that lies in some $U_j$ with a smaller index $j$. \\
+		Induction over $n$. If $n = 2$, then $i \in U_1$ or $i \in U_2$. In the first case return $i$, in the latter $-i$. \\
+		If $X = \bigcup_{j=1}^{n+1} U_i$, then if $i \in U_{n+1}$ return $-i$. If $-i \in U_{n+1}$, return $i$. Otherwise $\{i,-i\} \subset \bigcup_{j=1}^n U_i$, so conclude by induction.  
+		%	Lets first check this for the case $U \cup V = \Spec C$ with $U$ and $V$ open subsets strictly smaller than $\Spec C$. Observe, that the types $U$ and $V$ are propositions: If $x, y : U$, then $\lnot \lnot (x = y)$ (which is enough by decidability of $x = y$), as $x \neq y$ implies $\Spec C = \{x , y\} \subset U$. \\
+		%
+		%	But then $U$ is an \etale-sheaf and a proposition, so we may construct a term in $\Spec C \to U$. But $\Spec C \to \Spec C \simeq 2$ so, then $U \cup V = 2$. No both elements of the RHS lie in $U$ or they lie in $V$. If both lie in $V$, we have a contradiction to the assumption. %As we have $\lnot \lnot U$, we can construct a term 
+		%	But if $\lnot U$, then $V = U \cup V = \Spec C$ contradicting the assumption.)
+	\end{enumerate}
+\end{proof}
+\begin{corollary}
+	Schemes do not have descent.
+\end{corollary}
+\begin{proof}
+	If Schemes have descent, then $L(\lambda \_ . \Spec R[T]/(T^2 + \rho)) \in \mathsf{Sch}$ is a sheaf. As $L_1(\Spec R[T]/(T^2 + \rho))$ is $\bT$-merely a scheme, it is a scheme, so by the previous lemma $T^2 + \rho$ has a root. Contradiction to \cite{cherubini2023foundationsyntheticalgebraicgeometry} A . 0.3. \\
+\end{proof}
 \subsection{Gluing in an affine on the line}
 For this section, let $\rho : R \setminus \{0\}$ denote a term, e.g. $\rho = 1$. Set $C = R[T] / (T^2 + \rho)$.
 \begin{definition}
@@ -765,94 +870,8 @@ For this section, let $\rho : R \setminus \{0\}$ denote a term, e.g. $\rho = 1$.
 	\]
 	as desired.
 \end{proof}
-\begin{definition}
-	A rational map $X \rightsquigarrow Y$ is a term in $\prod_{x : X} Y^{Q x}$ for some $Q : X \to \mathsf{Open}$ % an open proposition.
-\end{definition}
-\begin{lemma}{\label{lemma:RatMapsCoincide}}
-	Given two rational maps $R \rightsquigarrow R$ defined at 0 are already equal, if they coincide everywhere except possibly at 0.
-\end{lemma}
-\begin{proof}
-	We may assume that the maps are defined on the same open $U \subset R$. So we need to show, that $R^U \to R^{U \setminus \{0\}}$ is injective. Choose a Zariski cover $\Spec A = \Spec R[X]_{f_1} \times \hdots R[X]_{f_n} \twoheadrightarrow U \subset R$, and denote the composite as $f : \Spec A \to R$ corresponding to $(X,\hdots,X) : A$, which is a regular element of the algebra $A$, as one of the $f_i$ does not vanish at 0.  we obtain a commutative diagram
-	% https://q.uiver.app/#q=WzAsNCxbMCwwLCJSXlUiXSxbMCwxLCJSXntcXFNwZWMgQX0iXSxbMSwxLCJSXntEKGYpfSJdLFsxLDAsIlJee1UgXFxzZXRtaW51cyBcXHswXFx9fSJdLFswLDEsIiIsMCx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Imhvb2siLCJzaWRlIjoidG9wIn19fV0sWzAsM10sWzEsMl0sWzMsMl1d
-	\[\begin{tikzcd}
-		{R^U} & {R^{U \setminus \{0\}}} \\
-		{R^{\Spec A}} & {R^{D(f)}}
-		\arrow[from=1-1, to=1-2]
-		\arrow[hook, from=1-1, to=2-1]
-		\arrow[from=1-2, to=2-2]
-		\arrow[from=2-1, to=2-2]
-	\end{tikzcd}\]
-	where the left vertical map is injective by surjectivity of the Zariski cover. The lower horizontal map is injective by \ref{lemma:AlmostEverywhere}.
-\end{proof}
-\begin{prop}
-	If $L_1(\Spec C)$ is a scheme, then $X^2 + \rho$ has a root.
-\end{prop}
-\begin{proof}
-	Let $p : L_1(\Spec C) \to R$ be the first projection.
-	We proceed as follows
-	\begin{enumerate}
-		\item  There is no open affine subset of $L_1(\Spec C)$ containing $\fib_p(0)$.
-		\item Any cover of $\Spec C$ by open subsets strictly smaller than $\Spec C$ yields a root.
-	\end{enumerate}
-Proves:
-\begin{enumerate}
-	\item Because we want to show a sheaf, we may assume $L_1(\Spec C) = L_1(2)$. Assume there is an open affine subset $\fib_p(0) \subset U \subset L_1 (2)$. Then $p(U) \subset R$ is an open neigbhorhood of 0, as 
-	\[
-	x \in p(U) \leftrightarrow (x,N) \in U \lor (x,S) \in U
-	\]
-	Claim: the map $R^{p(U)} \to R^U$ is an equivalence. If we have shown that: As $U$ is affine we conclude that the map
-	\begin{align*}
-		U &\to \Spec (R^{p(U)}) \\
-		x &\mapsto \phi \mapsto (\phi(px))		
-	\end{align*}
-	is an equivalence, which is a contradiction to the assumption, that $U$ contains both origins. \\
-	Proof of claim:
-	Injectivity: If two maps $f , g : p(U) \to R$ coincide after precomposing with $U \to p(U)$, then they coincide away from $0$
-	so conclude by \ref{lemma:RatMapsCoincide}. \\
-	Surjectivity: Given a map $U \to R$, by pulling back along $p : R + R \to L_1(2)$ we can view it as a rational map $R + R \rightsquigarrow R$ defined at both origins, so in particular as a pair of rational maps $R \rightsquigarrow R$ defined at 0. They coincide away from 0 so by \ref{lemma:RatMapsCoincide} they are equal.
-	%$U \setminus \fib_p(0)$ is an open subset of $L_1(2) \setminus \fib_p(0) \simeq R^{\times}$. 
-	\item As $\Spec C$ is an \etale sheaf, its enough to show to construct a function $\|\Spec C\| \to \Spec C$. \\
-	Assume $\|\Spec C\|$.
-	Lets try to construct a term of the following type
-	\[
-	\sum_{x : \Spec C} \forall x' : \Spec C , j , j' : \mathsf{Fin}(n) : x \in U_j \cap x' \in U_j' \to j \le j' 
-	\]
-	For this we may assume $i, -i : \Spec C$, as this type is a proposition: If we have given two such minimal $x_1, x_2$, we can set first $x' \equiv x_2$ and then $x' \equiv x_1$ respectively and then choosing $j,j'$ such that $x_1 \in U_j, x_2 \in U_{j'}$ gives $j \le j' \le j$ so that $\{x_1,x_2\} \subset U_j$ such that $x_1 = x_2$ by the previous point. \\
-	I will explain an algorithm to do the following:
-	Given $n \ge 2$, a bipointed set $(X,i,-i)$ and a cover $X = \bigcup_{j=1}^n U_j$ such that $\lnot (\{i,-i\} \subset U_j)$ for all $j$, return the basepoint that lies in some $U_j$ with a smaller index $j$. \\
-	Induction over $n$. If $n = 2$, then $i \in U_1$ or $i \in U_2$. In the first case return $i$, in the latter $-i$. \\
-	If $X = \bigcup_{j=1}^{n+1} U_i$, then if $i \in U_{n+1}$ return $-i$. If $-i \in U_{n+1}$, return $i$. Otherwise $\{i,-i\} \subset \bigcup_{j=1}^n U_i$, so conclude by induction.  
-%	Lets first check this for the case $U \cup V = \Spec C$ with $U$ and $V$ open subsets strictly smaller than $\Spec C$. Observe, that the types $U$ and $V$ are propositions: If $x, y : U$, then $\lnot \lnot (x = y)$ (which is enough by decidability of $x = y$), as $x \neq y$ implies $\Spec C = \{x , y\} \subset U$. \\
-%
-%	But then $U$ is an \etale-sheaf and a proposition, so we may construct a term in $\Spec C \to U$. But $\Spec C \to \Spec C \simeq 2$ so, then $U \cup V = 2$. No both elements of the RHS lie in $U$ or they lie in $V$. If both lie in $V$, we have a contradiction to the assumption. %As we have $\lnot \lnot U$, we can construct a term 
-%	But if $\lnot U$, then $V = U \cup V = \Spec C$ contradicting the assumption.)
-\end{enumerate}
-\end{proof}
-\begin{corollary}
-	Schemes do not have descent.
-\end{corollary}
-\begin{proof}
-	 If Schemes have descent, then $L_1(\Spec R[T]/(T^2 + \rho)) \in \mathsf{Sch}$ is a sheaf. As $L_1(\Spec R[T]/(T^2 + \rho))$ is $\bT$-merely a scheme, it is a scheme, so by the previous lemma $T^2 + \rho$ has a root. Contradiction to \cite{cherubini2023foundationsyntheticalgebraicgeometry} A . 0.3. \\
-\end{proof}
-\begin{lemma}
-	Let $x : R$. Let $Y : \Aff$ such that $x \neq 0$ implies that $Y$ is formally \etale + flat. Then $Y \to (x \neq 0) \star Y$ is a geometric cover.
-\end{lemma}
-\begin{proof}
-	 It suffices to check this for fibers coming from $Y$: Indeed, then the fibers determine a map $Y \to \sum_{F: \CS} (F = Y)^{x \neq 0}$ where the codomain is contractible if $x \neq 0$. \\
-	 Given $y,y' : Y$, we have
-	 \begin{align*}
-	inl(y') = inl(y) &\simeq (x \neq 0) \star (y = y')&& \ | \  \text{ closed modality is lex (\cite{Modalities} Example 3.1.4).} \\
-	&\simeq (y = y') \lor (x \neq 0)  && \ | \ (x \neq 0) \to \mathsf{HasDecEq}(Y) \\
-	&\simeq (y = y') + (x \neq 0) \times y \neq y'¸
-	 \end{align*}
- 	 Hence the fiber over $y$ is 
- 	 \[
- 	 1 + (x \neq 0) \times Y \setminus \{y\} = 1 + \sum_{p : x \neq 0}Y \setminus \{y\}
- 	 \]
- 	 which is inhabited affine and formally \etale + flat. %, because the right summand is a $\sum$ of formally \etale + flat affines: Indeed, whenever $x \neq 0$ then $Y \setminus \{y\}$ is formally \etale + flat.
-%	 As $y = y'$ is open by assumption the fiber is merely inhabited and a $\sum$ of $\bT$-flat geometric stacks, thus covering. 
-%	Let us show, that the fiber over $\Delta(y)$ is $1 + (Y - y) \times (x \neq 0)$ which is formally \etale + flat and inhabited affine.	Here we use, that $Y$ has decidable equality and if $y \neq y'$, then % we have $inl(y) = inl(y') \simeq (x \neq 0) \star (y = y') = (x \neq 0)$. \\
-\end{proof}
+
+
 \begin{lemma}[TODO]
 	If $Y$ is formally \etale + flat affine, then $L_1(Y)$ is an algebraic space.
 \end{lemma}
