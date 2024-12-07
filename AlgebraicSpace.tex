@@ -404,7 +404,7 @@ Let $\ell \neq 0$ denote a prime. Consider $\mu_\ell = R[X] / (X^\ell - 1)$.
 \end{rmk}
 \begin{proof}
 	Let us show this more generally for $(\Spec A , 0)$ with the infinitesimal neigbhorhood of 0 beeing not open. \\
-	Let $U , C \subset \bA^1$ be an open subset and a closed subset respectively. Then, for any $x : U$ , 
+	Let $U , C \subset \bA^1$ be an open subset and a closed subset respectively, such that $(x \neq 0) + (x \neq 0) \leftrightarrow x \in U \land x \in C$. Then, for any $x : U$ , 
 	\[
 	(x = 0) + (x \neq 0) = x \in C
 	\]
@@ -420,23 +420,24 @@ Let $\ell \neq 0$ denote a prime. Consider $\mu_\ell = R[X] / (X^\ell - 1)$.
 	\end{tikzcd}\]
 	 is an open embedding
 	
-	where the upper horizontal map is indeed an equivalence as for any $x : \Spec A$ , $x \in U'$ is $\lnot \lnot$-stable. 
+	where the upper horizontal map is indeed an equivalence as for any $x : \Spec A$ , $x \in U$ is $\lnot \lnot$-stable, but $\lnot \lnot x = 0$ and $0 \in U$, thus $x \in U$.
 \end{proof}
-\begin{lemma}{\label{lemma:StrongFree}}
-	Let $G$ be a group with decidable equality.
-	A strongly free action of $G$ on a pointed type $(X,0)$ is a $G$-action with fixpoint 0, such tha, if $g \varepsilon = \varepsilon$ for some $g \neq 1$, then $\varepsilon = 0$. \\
- 	In this case $G$ acts free away from zero.
-\end{lemma}
 \begin{lemma}
 	If $char \neq 2$, then $x^2 = 1$ implies $x = 1$ or $x = -1$
 \end{lemma}
 \begin{proof}
 	Indeed, By locality, $x / 2 - 1 /2$ or $x / 2 + 1 /2 $is invertible.
 \end{proof}
+\begin{lemma}{\label{lemma:StrongFree}}
+	Let $G$ be a group with decidable equality.
+	A pointed-free action of $G$ on a pointed type $(X,0)$ is a $G$-action with fixpoint 0, such that if $g \varepsilon = \varepsilon$ for some $g \neq 1$, then $\varepsilon = 0$. \\
+ 	In this case $G$ acts free away from zero.
+\end{lemma}
+
 \begin{proof}
-	let $x , y\neq 0$. We need to show, that $\sum_g g x = y$ is a proposition. Let $g, g' : G$ such that $g x = y$. as $G$ has decidable equality, we may show $\lnot \lnot (g = g')$. If $g^{-1} g' \neq 1$, then by strong freeness applied to $g^{-1} g' x = x$, we have $x = 0$. Contradiction.
+	let $x , y\neq 0$. We need to show, that $\sum_g g x = y$ is a proposition. Let $g, g' : G$ such that $g x = y$. as $G$ has decidable equality, we may show $\lnot \lnot (g = g')$. If $g^{-1} g' \neq 1$, then by pointed-freeness applied to $g^{-1} g' x = x$, we have $x = 0$. Contradiction.
 \end{proof}
-\begin{prop}
+\begin{prop}[THis does not necessarily need the group!]
 %	Let $0 : \Spec A$.
 %	Let $Q : \Spec A \to \Prop$ be a predicate such that for all $p : A$, $0 \in D(p)$
 %	\[\lnot \prod_{\substack{x : D(p)}} Q x.\]
@@ -461,7 +462,7 @@ R_G(x,y) = (x = y) + (x \neq 0) \times \sum_{g : G \setminus \{1\}} g x = y
  	\[
  	R(\varepsilon,g\varepsilon) = (\varepsilon = g\varepsilon) + (\varepsilon \neq 0) \times \sum_{g : \mu_\ell \setminus \{1\}} g \varepsilon = g \varepsilon \simeq \varepsilon = 0 + \varepsilon \neq 0
  	\]
- 	which is not$_\varepsilon$ locally closed by the previous remark.
+ 	but if this is locally closed for all $\varepsilon : R$, we have a contradiction to the previous remark.
 	 	 	
 	Another approach: 	 Through decidable subtypes. %, as $\Spec A$ is non-infinitesimal.
 \end{proof}
@@ -617,7 +618,7 @@ Choose a principal open neighborhood $0 \in D(p) \subset U$. $G$ acts on $R[X]$,
 	\begin{align*}
 		(q\varepsilon =_X q (g \varepsilon)) \overset{\ref{quotient-by-equivalence-relation}}{=} (\varepsilon = g\varepsilon) + (\varepsilon \neq 0 \land \sum_{h \neq 1} \varepsilon = h g \varepsilon) = (\varepsilon = g\varepsilon) = (\varepsilon \in V')
 	\end{align*}
-	where the last step comes from strong freeness.
+	where the last step comes from pointed-freeness.
 	But we have 
 	\[(q' \varepsilon =_{\Spec A} q' (g \varepsilon)) = \left (\prod_{\phi : A} \phi(q' \varepsilon) = \phi(q' (g \varepsilon)) \right)= \prod_{\substack{\phi : R^{D(p)} \\ \phi \in A}} \phi (\varepsilon) = \phi(g \varepsilon),\] 
 	%as for any $\phi : A$ we have $\phi(\varepsilon) = \phi(g \varepsilon)$ 
