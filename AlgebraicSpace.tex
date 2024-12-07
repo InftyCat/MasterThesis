@@ -743,6 +743,7 @@ This space over $R$ looks exactly like the line away from the origin and over an
 	---$\Spec R[Y] / (\bullet Y)$--- is the affine cross.
 \end{example}
 \subsection{Schemes do not have descent}
+For this section, let $\rho : R \setminus \{0\}$ denote a term, e.g. $\rho = 1$. Set $C = R[T] / (T^2 + \rho)$.
 \begin{definition}
 	A rational map $X \rightsquigarrow Y$ is a term in $\prod_{x : X} Y^{Q x}$ for some $Q : X \to \mathsf{Open}$ % an open proposition.
 \end{definition}
@@ -763,10 +764,10 @@ This space over $R$ looks exactly like the line away from the origin and over an
 	where the left vertical map is injective by surjectivity of the Zariski cover. The lower horizontal map is injective by \ref{lemma:AlmostEverywhere}.
 \end{proof}
 \begin{prop}
-	If $L(\Spec C)$ is a scheme, then $X^2 + \rho$ has a root.
+	If ---$\Spec C$--- is a scheme, then $X^2 + \rho$ has a root.
 \end{prop}
 \begin{proof}
-	Let $p : L(\Spec C) \to R$ be the first projection.
+	Let $p : ---\Spec C \emdash \to R$ be the first projection.
 	We proceed as follows
 	\begin{enumerate}
 		\item  There is no open affine subset of $L(\Spec C)$ containing $\fib_p(0)$.
@@ -813,7 +814,7 @@ This space over $R$ looks exactly like the line away from the origin and over an
 	If Schemes have descent, then $L(\lambda \_ . \Spec R[T]/(T^2 + \rho)) \in \mathsf{Sch}$ is a sheaf. As $L_1(\Spec R[T]/(T^2 + \rho))$ is $\bT$-merely a scheme, it is a scheme, so by the previous lemma $T^2 + \rho$ has a root. Contradiction to \cite{cherubini2023foundationsyntheticalgebraicgeometry} A . 0.3. \\
 \end{proof}
 \subsection{Gluing in an affine on the line}
-For this section, let $\rho : R \setminus \{0\}$ denote a term, e.g. $\rho = 1$. Set $C = R[T] / (T^2 + \rho)$.
+
 \begin{definition}
 	Let $Y$ be an affine. The $n$.th order gluing of $Y$ on the line is given by the sheaf\[
 	L_n(X) = \sum_{x : R} Y^{x^n = 0}
