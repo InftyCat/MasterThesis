@@ -17,6 +17,7 @@
 \newcommand{\EF}{\mathsf{EF}}
 \newcommand{\Susp}{\mathsf{Susp}}
 \newcommand{\Ann}{\mathsf{Ann}}
+\newcommand{\Fin}{\mathsf{Fin}}
 \usepackage{biblatex}
 \addbibresource{form.bib}
 \include{preamble}
@@ -33,8 +34,18 @@
 \newtheorem*{think}{Think about}
 \maketitle
 \tableofcontents
-\include{Atlas}
+%\include{Atlas}
 \section{Introduction to SAG}
+\begin{lemma}{\label{lemma:Locality}}
+	$R$ is local, i.e. if $x, y : R$ and $x \neq y$, then $x$ is invertible or $y$ is invertible.
+\end{lemma}
+\begin{lemma}
+	If $char \neq 2$, Let $\rho \neq 0$, then $x^2 = \rho^2$ implies $x = \rho$ or $x = -\rho$
+\end{lemma}
+\begin{proof}
+	Indeed, as $\rho \neq - \rho$ , one of them is invertible by \ref{lemma:Locality} %By locality, $x / 2 - \rho /2$ or $x / 2 + \rho /2 $is invertible.
+\end{proof}
+
 
 Example for zariski local choice
 
@@ -153,19 +164,19 @@ Then $Y$ is formally smooth.
 	where $y' : Y_{p(u)}$ (depending on $u$) is the transport of $y : Y_x$ along $x = p(u)$. As $\cU'$ is stable under dependent sum %(\ref{lemma:LexSumStable}, \ref{lemma:LexStability}), 
 	those fibers are again in $\cU'$. This shows the result.
 \end{proof}
-\include{LexModalities}
-\include{LocalChoice}
-\include{Stacks}
-\include{Descent}
-\include{SaturatedTopology}
-
-
-\include{GeomPropositions}
-\include{FundamentalThmAlgSpc}
+%\include{LexModalities}
+%\include{LocalChoice}
+%\include{Stacks}
+%\include{Descent}
+%\include{SaturatedTopology}
+%
+%
+%\include{GeomPropositions}
+%\include{FundamentalThmAlgSpc}
 \include{AlgebraicSpace}
-
-\include{DeloopingsAndTruncations}
-\include{LocalProperties}
+%
+%\include{DeloopingsAndTruncations}
+%\include{LocalProperties}
 
 
 
@@ -376,11 +387,11 @@ We can reprove \ref{lemma:TflatIs0-gerbe} by just observing that $\bT$-flat geom
 %\bT \ni 1 \simeq \sum_{y : X} x = y \to \sum_{y : X} \| y = x\|^\bT
 %\]
 %is a geometric catlas. \\
-
-\include{Flat}
-
-\include{CoveringStacksFET}
-\include{TangentSpace}
+%
+%\include{Flat}
+%
+%\include{CoveringStacksFET}
+%\include{TangentSpace}
 
 \section{Questions // TODO}
 \begin{theorem}[TODO]

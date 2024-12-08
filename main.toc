@@ -1,91 +1,45 @@
 \boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {1}Atlas}{3}{section.1}%
+\contentsline {section}{\numberline {1}Introduction to SAG}{1}{section.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2}Introduction to SAG}{4}{section.2}%
+\contentsline {section}{\numberline {2}Preparation}{2}{section.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3}Preparation}{4}{section.3}%
+\contentsline {section}{\numberline {3}Talk: Algebraic Spaces: (Counter-)examples}{4}{section.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4}(Lex) Modalities}{6}{section.4}%
+\contentsline {subsection}{\numberline {3.1}Quotients by Group actions}{4}{subsection.3.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5}Local Choice}{7}{section.5}%
+\contentsline {subsection}{\numberline {3.2}Not a scheme?}{5}{subsection.3.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6}Covering stacks}{9}{section.6}%
+\contentsline {subsection}{\numberline {3.3}Fiber Collapse!}{6}{subsection.3.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.1}Needing finitely many steps}{9}{subsection.6.1}%
+\contentsline {subsection}{\numberline {3.4}Schemes do not have descent}{7}{subsection.3.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.2}Stability}{11}{subsection.6.2}%
+\contentsline {subsection}{\numberline {3.5}Algebraic spaces}{8}{subsection.3.5}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.3}About the covering stacks in a subuniverse}{11}{subsection.6.3}%
+\contentsline {subsection}{\numberline {3.6}Schemes are algebraic Spaces for the Zariski Topology}{9}{subsection.3.6}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.4}Truncatedness}{13}{subsection.6.4}%
+\contentsline {section}{\numberline {4}Examples}{10}{section.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.5}Descent}{14}{subsection.6.5}%
+\contentsline {subsection}{\numberline {4.1}Non locally-seperated Examples}{12}{subsection.4.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {7}Saturated Topologies}{15}{section.7}%
+\contentsline {subsection}{\numberline {4.2}Group quotients}{13}{subsection.4.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {8}Geometric propositions}{17}{section.8}%
+\contentsline {subsection}{\numberline {4.3}Obsolete}{16}{subsection.4.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {9}Algebraic Space}{18}{section.9}%
+\contentsline {subsection}{\numberline {4.4}Locally seperated examples}{19}{subsection.4.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {9.1}Equivalence relations vs Surjections}{18}{subsection.9.1}%
+\contentsline {subsection}{\numberline {4.5}FiberCollaps away from the origin}{20}{subsection.4.5}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {9.2}Algebraic spaces}{20}{subsection.9.2}%
+\contentsline {subsection}{\numberline {4.6}Schemes do not have descent}{21}{subsection.4.6}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {9.3}Schemes are algebraic Spaces for the Zariski Topology}{20}{subsection.9.3}%
+\contentsline {subsection}{\numberline {4.7}Gluing in an affine on the line}{22}{subsection.4.7}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {10}Group quotients}{21}{section.10}%
+\contentsline {subsection}{\numberline {4.8}Weakly-flat stacks}{25}{subsection.4.8}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {11}Examples}{22}{section.11}%
+\contentsline {section}{\numberline {5}Omega-stability and gerbes}{25}{section.5}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {11.1}Non locally-seperated Examples}{24}{subsection.11.1}%
+\contentsline {section}{\numberline {6}Questions // TODO}{27}{section.6}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {11.2}Obsolete}{26}{subsection.11.2}%
+\contentsline {section}{\numberline {7}Not clear where to put that}{27}{section.7}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {11.3}Locally seperated examples}{29}{subsection.11.3}%
-\defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {11.4}FiberCollaps away from the origin}{30}{subsection.11.4}%
-\defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {11.5}Schemes do not have descent}{30}{subsection.11.5}%
-\defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {11.6}Gluing in an affine on the line}{32}{subsection.11.6}%
-\defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {12}Deloopings and Truncations}{34}{section.12}%
-\defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {13}Local properties}{37}{section.13}%
-\defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {13.1}Local properties of stacks}{39}{subsection.13.1}%
-\defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {13.2}Seperatedness}{39}{subsection.13.2}%
-\defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {13.3}Formally \' etale TODO}{39}{subsection.13.3}%
-\defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {13.4}Weakly-flat stacks}{41}{subsection.13.4}%
-\defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {14}Omega-stability and gerbes}{41}{section.14}%
-\defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {15}Flat}{44}{section.15}%
-\defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {15.1}Lex flatten Topologies}{45}{subsection.15.1}%
-\defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {15.2}Proof of the theorem}{45}{subsection.15.2}%
-\defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {16}Geometric covers are formally \' etale }{48}{section.16}%
-\defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {16.1}The \' etale topology is saturated}{48}{subsection.16.1}%
-\defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {16.2}Formally \' etale subuniverses}{50}{subsection.16.2}%
-\defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {16.3}Standart \' etale }{50}{subsection.16.3}%
-\defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {16.4}\' etale -flat stacks form a formally \' etale subuniverse}{54}{subsection.16.4}%
-\defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {17}Tangent Spaces}{56}{section.17}%
-\defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {17.1}Flatness examples}{59}{subsection.17.1}%
-\defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {18}Questions // TODO}{61}{section.18}%
-\defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {19}Not clear where to put that}{61}{section.19}%
-\defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {19.1}Remarks about weakly flat affines}{62}{subsection.19.1}%
+\contentsline {subsection}{\numberline {7.1}Remarks about weakly flat affines}{28}{subsection.7.1}%

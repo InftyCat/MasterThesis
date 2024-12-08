@@ -1,7 +1,267 @@
 
+\section{Talk: Algebraic Spaces: (Counter-)examples}
+We assume today, that schemes are \etale sheaves.
+\begin{notation}
+	\[\bT = \{X : \Aff \ | \ X \text{ formally \etale + flat + $\lnot \lnot$-inhabited }\}\]
+\end{notation}
+\begin{definition}
+	A naive algebraic space is an \etale-sheaf $X$, that merely
+	admits a $\bT$-cover $\Spec B \to F$. \\
+	We call it covering, if we can choose $\Spec B \in \bT$.
+\end{definition}
+This is not good enough, because we can NOT prove the following
+\begin{itemize}
+	\item all schemes are naive algebraic spaces
+	\item naive algebraic spaces having descent, i.e. the type of them is an \etale-stack. \\
+\end{itemize}
+Instead we have to do asking for an atlas twice. 
+\begin{definition}
+	An algebraic space is an \etale-sheaf $X$, such that one of the following equivalent conditions holds:
+	\begin{itemize}
+		\item 	 merely we find a map $\Spec A \to X$ such that each fiber is a covering naive algebraic space. 
+		\item We merely can express it as the sheaf-quotient of an affine $\Spec A$ by an equivalence relation $R$ that is covering, i.e. for each $x : \Spec A$, $[x] :\equiv \sum_{y : \Spec A} R(x,y)$ is a covering naive algebraic space.  \\	
+	\end{itemize}
+	We call $X$ covering, if we can choose $\Spec A$ to lie in $\bT$.
+\end{definition}
+\begin{theorem}[DESCENT]
+	The type of (covering) algebraic spaces is an \etale-stack.
+\end{theorem}
+\begin{example}
+	Schemes are algebraic spaces!
+\end{example}
+\begin{question}
+	Can we find algebraic spaces that are not schemes? \\
+	Can we prove with them, that Schemes do not have descent? \\	
+\end{question}
+\subsection{Quotients by Group actions}
+Let $\ell \neq 0$ denote a prime. Consider $\mu_\ell = R[X] / (X^\ell - 1)$.
+\begin{example}[Non-free action]
+	If $2 \neq 0$, the sheaf-quotient of $\bA^1$ by the non-free $\mu_2$ action is not an algebraic space!
+\end{example}
+This suggests that we need a free action. However
+\begin{example}
+	The quotient of $\bA^{\times}$ by the free $\mu_\ell$ action gives a scheme.
+\end{example}
+Having a free action on the whole space might be not good enough to cook up examples of algebraic spaces that are not schemes.
+\begin{construction}
+	Given a formally \etale + flat affine (e.g. $\mu_\ell$ or finite) group that acts on an affine $\Spec A$. Assume $G$ acts free on some open subset $U \subset \Spec A$.  % that belongs to $\bT$ (more generally a covering algebraic space)
+	
+	Then we construct a covering equivalence relation $R_{G,U}$ on $\Spec A$, such that
+	\begin{itemize}
+		\item  for any $x : U$  and $y : \Spec A$
+		\[R(x,y) \leftrightarrow \sum_{g : G} g x  = y. \]
+		\item for some $y : \Spec A \setminus U$, we have $R(x,y) \leftrightarrow x = y$.
+	\end{itemize}
+	We write $\Spec A / G|_U \equiv \Spec A / R_{G,U}$ and call it the quotient of $\Spec A$ by the $G$-action on $U$ .
 
+\end{construction}
+\begin{proof}
+	\[R_{G}(x,y) \equiv (x = y) + (x \in U) \times \sum_{g : G \setminus \{1\}} g x = y\]
+	This is covering: For any $x : \Spec A$ we have
+	\[\sum_{y : X} x = y + (x \neq 0) \times \sum_{g : G \setminus \{1\}} g x = y \simeq 1 + (x \in U) \times G \setminus \{1\}\]
+	$G \setminus \{1\} = \sum_{g : G} g \neq 1$ is a $\sum$ of formally \etale + flat affines (recall that formally \etale affines have decidable equality). \\
+	Indeed, the two conditions hold, using that $G$ has decidable equality.
+\end{proof}
 
+\begin{example}[Free action]
+	Set $U = \Spec A$. Then this construction yields the actual group quotient: $\Spec A  / G|_{\Spec A} = \Spec A / G$.
 
+\end{example}
+\begin{proof}
+	Indeed, the equivalence relation is the same, using that $G$ has decidable equality.
+\end{proof}
+\begin{notation}
+	If $U = \Spec A \setminus Z$ the complement of a closed subset we write \[U \equiv Z^c\]
+\end{notation}
+
+\begin{example}[Quotient of the Line]
+	If $\ell \neq 0$ is prime, we have $R / \mu_\ell|_{R^\times}$ is an algebraic spaces
+\end{example}
+\begin{example}[Quotient of the Cross]
+	Let $2 \neq 0$. Let $\mu_2$ act on $X = \Spec R[X,Y] / X^2 - Y^2$ via $-(x,y) \equiv (x,-y)$. Then
+	\[
+	X / \mu_2|_{X \setminus \{0,0\}}
+	\]
+	is an algebraic space.
+\end{example}
+Are those schemes?
+\subsection{Not a scheme?}
+\begin{definition}
+	A pointed-free action of $G$ on a pointed type $(X,0)$ is a $G$-action that has 0 as a fixpoint such that  if $g x = x$ for some $g \neq 1$, then $\varepsilon = 0$. \\
+\end{definition}
+%\begin{lemma}
+%	Let $G$ be a group with decidable equality acting pointed free on a pointed type $(X,0)$.
+%	Then $G$ acts free away from zero.
+%\end{lemma}
+%
+%\begin{proof}
+%	let $x , y\neq 0$. We need to show, that $\sum_g g x = y$ is a proposition. Let $g, g' : G$ such that $g x = y$. as $G$ has decidable equality, we may show $\lnot \lnot (g = g')$. If $g^{-1} g' \neq 1$, then by pointed-freeness applied to $g^{-1} g' x = x$, we have $x = 0$. Contradiction.
+%\end{proof}
+\begin{theorem}
+	
+	Let $0 : \Spec A$ be a good point. % such that $\Spec A \setminus \{0\} = D(g)$ for some regular $g : B$. %the infinitesimal neigbhorhood is not open. %  $R^{\Spec A} \to R^{\Spec A \setminus \{0\}}$ is injective.
+	Let $G$ be a non-trivial formally \etale flat affine group  pointed- freely acting on the pointed affine $(\Spec A,0)$.
+	Then $\Spec A / G|_{0^c}$ from \ref{ex:GAction} is non-locally-seperated, In particular not a scheme.
+\end{theorem}
+
+\begin{example}[Non locally-separated examples]
+	Assume $\ell \neq 0$ prime. Let $n\mu_\ell$ act on $\Spec B$ in one of the following ways:
+	\begin{enumerate}
+		\item Let $\mu_\ell$ act on $\Spec B = \bA^1$. 
+		\item Let $\mu_\ell$ act on
+		\[
+		\Spec B \equiv \sum_{x , y : R} x^\ell = y^\ell
+		\]
+		via $g (x,y) = (x,g y)$
+	\end{enumerate}
+	Then $\Spec B / \mu_\ell|_0^c$ is an algebraic space that is not a scheme.
+\end{example}
+\begin{proof}
+	$\lnot \lnot$ merely, $\mu_\ell$ is finite (\todocite) and $\mu_\ell \setminus \{1\}$ is inhabited by \ref{lemma:CompOf1}. 
+	\begin{enumerate}
+		\item Pointed-Free action is clear. $0 : \bA^1$ is a good point by first projection.
+		\item  Pointed-Free action is clear. The cross is good pointed, witnessed by  the first projection: It is regular vanishing at $(0,0)$ And for any point $(0,y) : \Spec B$ we deduce $y^\ell = -0^\ell = 0$, hence $\lnot \lnot (x,y) = (0,0)$.
+	\end{enumerate}
+\end{proof}
+\subsection{Fiber Collapse!}
+An alternative approach to construct algebraic spaces is the fiber collapse away from the origin.
+\begin{definition}
+	Let $Y : R \to \Aff$ be a dependent family of affines, such that $(Y \in \EF)^{x \neq 0}$ . 
+	The fiber collapse of $Y$ away from the origin $\emdash Y \emdash $ is the space over $R$
+	\[
+	\sum_{x : R} (x \neq 0) \star Y_x \to R %\sum_{x : R} Y_x \to 
+	\]
+	%	: \prod_{x : R} \sum_{Y:\Aff} (Y \in \EF)^{x \neq 0}$ %
+\end{definition}
+This space over $R$ looks exactly like the line away from the origin and over an infinitesimal $\varepsilon$ the fiber is $Y_\varepsilon$.
+\begin{lemma}
+	$\emdash Y \emdash$ is an algebraic space.
+\end{lemma}
+\begin{proof}
+	Let $x : R$. Let $Y : \Aff$ such that $x \neq 0$ implies that $Y$ is formally \etale + flat. We will show that $\eta : Y \to (x \neq 0) \star Y$ is the sheaf-quotient map of the relation on $Y$ given by $y \sim y' \equiv (y = y') + (x \neq 0) \times y \neq y'¸$, which is enough by \ref{ex:MapOverR}. We apply  \ref{lemma:quotient-by-equivalence-relation} \\
+	\begin{itemize}
+		\item The map is $\bT$-surjective: We have a term in 
+		\begin{align*}
+			\prod_{y : Y} \|\fib_\eta (\eta y) \|_\bT
+		\end{align*}
+		and each $\|\fib_\eta \eta y \|_\bT$ is modal, i.e. contractible if $x \neq 0$. Hence we get a (unique term in)filler in 
+		\[
+		\prod_{y : (x \neq0) \star Y} \| \fib_\eta y\|_\bT
+		\]
+		\\
+		\item Given $y,y' : Y$, we have
+		\begin{align*}
+			\eta(y') = \eta(y) &\simeq (x \neq 0) \star (y = y')&& \ | \  \text{ closed modality is lex (\cite{Modalities} Example 3.1.4).} \\
+			&\simeq (y = y') \lor (x \neq 0)  && \ | \ (x \neq 0) \to \mathsf{HasDecEq}(Y) \\
+			&\simeq (y = y') + (x \neq 0) \times y \neq y'¸
+		\end{align*}
+	\end{itemize}
+\end{proof}
+\begin{example}
+	$\emdash Bool \emdash$ is the line with two origins. \\
+	---$\Spec R[X] / (X^2 + 1))$--- is the twisted line with two origins, i.e. over the origin we have the roots of $-1$. \\
+	---$\Spec R[Y] / (Y^2 - \bullet)$--- is an algebraic space that looks like $\bD(1)$ over $0$. \\
+	---$\Spec R[Y] / (Y^2 - \bullet^2)$--- is an algebraic space that looks like $\bD(1)$ over every $\varepsilon : \bD(1)$. \\
+
+	
+	---$\Spec R[Y] / (\bullet Y)$--- is the affine cross.
+\end{example}
+\begin{prop}
+	Let $G$ be a formally + flat affine group.
+	Let $p : \tilde Y \to R$ such that the pullback to $R^\times$ can be enhanced to a $G$ torsor. Write $Y_x \equiv \fib_p x$. Then there is a canonical equivalence
+	% https://q.uiver.app/#q=WzAsMyxbMSwwLCJcXHRpbGRlIFkiXSxbMCwxLCJcXHRpbGRlIFkgLyBHfF97KFxcZmliX3AgMCleY30iXSxbMiwxLCJcXGVtZGFzaCBZIFxcZW1kYXNoIl0sWzAsMV0sWzAsMl0sWzEsMiwiXFxzaW1lcSJdXQ==
+	\[\begin{tikzcd}
+		& {\tilde Y} \\
+		{\tilde Y / G|_{(Y_0)^c}} && {\emdash Y \emdash}
+		\arrow[from=1-2, to=2-1]
+		\arrow[from=1-2, to=2-3]
+		\arrow["\simeq", from=2-1, to=2-3]
+	\end{tikzcd}\]
+\end{prop}
+\begin{proof}
+	As every non-base fiber is merely equivalent to $G$, its formally \etale + flat.
+	In between you can put
+	$\sum_{x : R} Y_x /G|_{x \neq 0 \times Y_x}$
+\end{proof}
+\subsection{Schemes do not have descent}
+For this section, let $\rho : R \setminus \{0\}$ denote a term, e.g. $\rho = 1$. Set $C = R[T] / (T^2 + \rho)$.
+\begin{definition}
+	A rational map $X \rightsquigarrow Y$ is a term in $\prod_{x : X} Y^{Q x}$ for some $Q : X \to \mathsf{Open}$ % an open proposition.
+\end{definition}
+\begin{lemma}{\label{lemma:RatMapsCoincide}}
+	Given two rational maps $R \rightsquigarrow R$ defined at 0 are already equal, if they coincide everywhere except possibly at 0.
+\end{lemma}
+\begin{proof}
+	We may assume that the maps are defined on the same open $U \subset R$. So we need to show, that $R^U \to R^{U \setminus \{0\}}$ is injective. Choose a Zariski cover $\Spec A = \Spec R[X]_{f_1} \times \hdots R[X]_{f_n} \twoheadrightarrow U \subset R$, and denote the composite as $f : \Spec A \to R$ corresponding to $(X,\hdots,X) : A$, which is a regular element of the algebra $A$, as one of the $f_i$ does not vanish at 0.  we obtain a commutative diagram
+	% https://q.uiver.app/#q=WzAsNCxbMCwwLCJSXlUiXSxbMCwxLCJSXntcXFNwZWMgQX0iXSxbMSwxLCJSXntEKGYpfSJdLFsxLDAsIlJee1UgXFxzZXRtaW51cyBcXHswXFx9fSJdLFswLDEsIiIsMCx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Imhvb2siLCJzaWRlIjoidG9wIn19fV0sWzAsM10sWzEsMl0sWzMsMl1d
+	\[\begin{tikzcd}
+		{R^U} & {R^{U \setminus \{0\}}} \\
+		{R^{\Spec A}} & {R^{D(f)}}
+		\arrow[from=1-1, to=1-2]
+		\arrow[hook, from=1-1, to=2-1]
+		\arrow[from=1-2, to=2-2]
+		\arrow[from=2-1, to=2-2]
+	\end{tikzcd}\]
+	where the left vertical map is injective by surjectivity of the Zariski cover. The lower horizontal map is injective by \ref{lemma:AlmostEverywhere}.
+\end{proof}
+\begin{prop}
+	If ---$\Spec C$--- is a scheme, then $X^2 + \rho$ has a root.
+\end{prop}
+\begin{proof}
+	Let $p : \emdash \Spec C \emdash \to R$ be the first projection.
+	We proceed as follows
+	\begin{enumerate}
+		\item  There is no open affine subset of $L(\Spec C)$ containing $\fib_p(0)$.
+		\item Any cover of $\Spec C$ by open subsets strictly smaller than $\Spec C$ yields a root.
+	\end{enumerate}
+	Proves:
+	\begin{enumerate}
+		\item Because we want to show a sheaf, we may assume $L(\Spec C) = L(2)$. Assume there is an open affine subset $\fib_p(0) \subset U \subset L (2)$. Then $p(U) \subset R$ is an open neigbhorhood of 0, as 
+		\[
+		x \in p(U) \leftrightarrow (x,N) \in U \lor (x,S) \in U
+		\]
+		Claim: the map $R^{p(U)} \to R^U$ is an equivalence. If we have shown that: As $U$ is affine we conclude that the map
+		\begin{align*}
+			U &\to \Spec (R^{p(U)}) \\
+			x &\mapsto \phi \mapsto (\phi(px))		
+		\end{align*}
+		is an equivalence, which is a contradiction to the assumption, that $U$ contains both origins. \\
+		Proof of claim:
+		Injectivity: If two maps $f , g : p(U) \to R$ coincide after precomposing with $U \to p(U)$, then they coincide away from $0$
+		so conclude by \ref{lemma:RatMapsCoincide}. \\
+		Surjectivity: Given a map $U \to R$, by pulling back along $p : R + R \to L(2)$ we can view it as a rational map $R + R \rightsquigarrow R$ defined at both origins, so in particular as a pair of rational maps $R \rightsquigarrow R$ defined at 0. They coincide away from 0 so by \ref{lemma:RatMapsCoincide} they are equal.
+		%$U \setminus \fib_p(0)$ is an open subset of $L(2) \setminus \fib_p(0) \simeq R^{\times}$. 
+		\item As $\Spec C$ is an \etale sheaf, its enough to show to construct a function $\|\Spec C\| \to \Spec C$. \\
+		Define 
+		\begin{align*}
+			A : \Spec C &\to \Prop^{\Fin(n)}  \\
+			x &\mapsto \{ j : x \in U_j\}
+		\end{align*}
+		where we transport $x : \Spec C$ along $\Spec C \overset{\simeq}{\to} \fib_p 0$.
+		Observe 
+		\begin{enumerate}
+			\item for any $x,x' : \Spec C$, 
+			\[\| A x \cap  A x' \| \to \lnot \lnot (x = x') \overset{\mathsf{DecEq}}{\to} x = x'\] where the first implication follows like this : if $x \neq x'$ and $\fib_p 0 = \{x , x'\} \subset U_j$ then we have a contradiction to the first point 
+			\item For any $x : \Spec C$ , $\| A x\|$.
+		\end{enumerate}
+		Assume $\|\Spec C\|$.
+		Lets try to construct a term of the following type
+		\[
+		\sum_{x : \Spec C} \forall x' : \Spec C , j : A x, j' : A x' \to j \le j' 
+		\]
+		For this we may assume $\Spec C = Bool = \{N,S\}$, as the above type is a proposition: If we have given two such minimal $x_1, x_2$, we can set first $x' \equiv x_2$ and then $x' \equiv x_1$ respectively and then (by (b)) choosing $j : A_{x_1},j' : A_{x_2}$ gives $j \le j' \le j$ so that $j : A_{x_1} \cap A_{x_2}$ such that $x_1 = x_2$ by (a). \\
+		I will explain an algorithm to do the following:
+		Given $n \ge 2$, and a pair of  merely inhabited disjoints subsets $A_N$ and $A_S$ of $\Fin(n)$, we can decide in which of the two we find the smaller number of $\Fin(n)$. \\
+		Induction over $n$. If $n = 2$, then $\|A_N\|$, so we find a term in the proposition $(0 \in A_N) + (1 \in A_N)$ . In the left case return $S$, in the right case $N$. \\
+		For $n \mapsto n+1$, if $n \in A_N$ return $S$. If $n \in A_S$, return $N$. Otherwise both $A_N$ and $A_S$ are subset of $\Fin(n)$, so conclude by induction.  
+	\end{enumerate}
+\end{proof}
+\begin{corollary}
+	Schemes do not have descent.
+\end{corollary}
+\begin{proof}
+	If Schemes have descent, then ---$\Spec R[T]/(T^2 + \rho) \emdash \in \mathsf{Sch}$ is a sheaf. As ---$\Spec R[T]/(T^2 + \rho) \emdash$ is $\bT$-merely a scheme, it is a scheme, so by the previous lemma $T^2 + \rho$ has a root. Contradiction to \cite{cherubini2023foundationsyntheticalgebraicgeometry} A . 0.3. \\
+\end{proof}
 \subsection{Algebraic spaces}
 
 
@@ -119,42 +379,6 @@ This follows from the observation, that the equivalence relation determined by $
 %	\]
 %	The first map 
 %\end{proof}
-\section{Group quotients}
-For this section let $G$ denote a group that is a covering 0-stack. Let $X$ be a sheaf equipped with a $G$ action.
-\begin{lemma}
-	$\mu_p = \Spec R[X] / (X^p - 1)$ is covering for $p \neq 0$ prime.
-\end{lemma}
-\begin{proof}
-	It is fppf + \etale as $X^p - 1$ is monic seperable. TODO
-\end{proof}
-\begin{definition}
-	A $G$ action on $X$ is free, if for all $x , y : X$ the type 
-	\[
-	\sum_{g: G} g x = y
-	\]
-	is a proposition. 
-\end{definition}
-\begin{lemma}
-	Let $G$ act freely on a sheaf $X$. Then the relation
-	\[
-	x , y\mapsto \sum_{g : G} g x = y
-	\]
-	is a covering equivalence relation on $X$
-\end{lemma}
-\begin{proof}
-	All those propositions are modal as $X$ and $G$ are sheaves. For all $x : X$ , the fiber
-	\[
-	\sum_{y : X} \sum_{g : G} g x = y \simeq \sum_{g : G} \sum_{y: X} g x = y \simeq G
-	\]
-	is a covering 0-stack by assumption.
-\end{proof}
-\begin{lemma}{\label{lemma:algSpacesStabFreeQuots}}
-	%For $n \ge 0$, geometric $(n)$-stacks 
-	Algebraic spaces are stable by free quotients of covering group 0-stacks.
-\end{lemma}
-\begin{proof}
-	The map $ X \to L_T (X / G)$ is fibered in covering 0-stacks, so in particular covering $0$-stacks. As $X$ is a geometric $0$-stack, the quotient is a geometric $0$-stack as well, This follows by the description in \label{prop:nstack}, choosing a geometric atlas of $X$ and postcomposing this to get a geometric atlas of the quotient.
-\end{proof}
 
 %\begin{lemma}
 %	Let $X$ be a geometric stack, whose identity types are covering stacks. Let $G$ be a finite group acting on $X$. Then $L_\bT (X / G)$ is a geometric stack.
@@ -203,6 +427,7 @@ The goal of this subsection is to construct algebraic spaces. The first example 
 \begin{example}
 	Let $P$ be the open proposition $x \neq 0$ for some $x : \bA^1$. Then $H = 1 + P$ is an open subgroup of $\bZ/2$. The sheaf quotient $G / H$ is the scheme $\Susp(x \neq 0)$.
 \end{example}
+Let $\ell \neq 0$ denote a prime. Consider $\mu_\ell = R[X] / (X^\ell - 1)$.
 \begin{lemma}{\label{lemma:CompOf1}}
 	Let $(G,1)$ be a pointed formally \etale flat affine type. Then $(G \setminus \{1\})$ is formally \etale + flat affine. \\
 	In particular $\mu_\ell \setminus\{1\}$ is a covering stack.
@@ -289,9 +514,7 @@ The goal of this subsection is to construct algebraic spaces. The first example 
 \end{proof}
 
 \subsection{Non locally-seperated Examples}
-\begin{question}
-	Can one prove from such an example that the type of schemes is not a stack?
-\end{question}
+
 %\begin{proof}
 %	%Subgroups always act free, and $\bZ/2$ is an algebraic space, thus by \ref{lemma:algSpacesStabFreeQuots} the sheaf quotient $G / H$ is an algebraic space. \\
 %	%We can calculate it: I Claim that
@@ -317,7 +540,7 @@ The goal of this subsection is to construct algebraic spaces. The first example 
 \begin{question}
 	What has this todo with separatedness?
 \end{question}
-Let $\ell \neq 0$ denote a prime. Consider $\mu_\ell = R[X] / (X^\ell - 1)$.
+
 %\[\mu_\ell'  = \Spec R[X] / (X^{p-1} + \hdots + 1) = \mu_\ell \setminus\{1\}\]
 
 %\begin{lemma}
@@ -333,27 +556,117 @@ Let $\ell \neq 0$ denote a prime. Consider $\mu_\ell = R[X] / (X^\ell - 1)$.
 %\begin{proof}
 %	 we can apply  \ref{lemma:AlmostEverywhere}, observing $\phi - g.\phi = 0$ on $D(X / 1) \subset \Spec R[X]_p$, where $X/1 : R[X]_p$ is regular, because $X$ is regular in $R[X]$. %$: 
 %\end{proof}
-\begin{prop}
-	Let $G$ be a formally \etale flat affine group. Let it act on an algebraic space $S$, such that the group action is free away from some $0 : S$. Define a relation on $S$ as
+\begin{prop}{\label{prop:QuotientByIrrefAndP}}
+	Consider an affine $S$ and an open subset $U \subset S$. Consider a $\bT$-flat irreflexive relation $\sharp$ on $U$ , i.e.
+	\begin{enumerate}
+	%	\item  its valued in propositional sheaves,	 	$\lnot (x \sharp y)$ 
+		\item Irreflexivity:  $\lnot (x \sharp x)$
+
+		\item $\bT$-flatness. For all $x : U$ , the fiber $\sum_{y : S} x \sharp y$ is $\bT$-flat. 
+\end{enumerate}
+ Define a relation on $S$ as
 	%Let $p : A^G$. Define $R: D(p)^2 \to \Prop$ as
 	\[
-	R(x,y) = (x = y) + (x \neq 0) \times \sum_{g : G \setminus \{1\}} g x = y
+	R_{\sharp}(x,y) = (x = y) + (x \in U \land y \in U) \times (x \sharp y) %\sum_{g : G \setminus \{1\}} g x = y
 	\]
-	Then the sheaf quotient $S / G$ is an algebraic space.
+	(Abuse of notation: where the $\times$ is secretly a $\sum$)
+	Then the sheaf quotient $S / R_{\sharp}$ is an algebraic space. \\
 \end{prop}
 \begin{proof}
 %	Define
 %	\[
 %	E(x,y) = (x = y) + (x \neq 0 \land \sum_{g : \mu_\ell \setminus \{1\}} gx = y)
 %	\]
-	This is a proposition: First note, that both summands are propositions because $G$ acts freely on $S \setminus \{0\}$. If both summands are inhabited we get a contradiction, as $x = y$ and $gx = y$ implies $(g-1) x = y - x = 0$, but as $g-1$ is invertible $x = 0$. \\
-	The relation is covering: 
-	The propositions are affines, thus sheaves. Furthermore, for any $y : S$ we have
+\begin{itemize}
+	\item 	This is a proposition: First note, that both summands are propositions and if both summands are inhabited we get a contradiction. 
+%	\item 	The propositions are sheaves.
+%	\item Its an equivalence relation valued in modal propositions: By assumption on $\sharp$ and the compatbility with $P$.
+	\item The relation is covering: 
+	 Furthermore, for any $x : S$ we have
 	\[
-	\sum_{x : S}  (x = y) + (x \neq 0 \times \sum_{g : G \setminus \{1\}} gx = y) = 1 + (y \neq 0 \times G \setminus \{1\}) \in \bT
+	\sum_{y : S}  (x = y) + (x,y \in U \times x \sharp y) = 1 + (x,y \in U \times \sum_{y} x \sharp y) \in \bT
 	\]
-	using \ref{lemma:CompOf1}.
+	as $\sharp$ was assumed to be $\bT$-flat on $U$: we can write the binary product as $\sum_{p: x \in U} \sum_{y} x \sharp y$, a $\sum$ of of $\bT$-flat geometric stacks.
+\end{itemize}
+\end{proof}
+
+
+\subsection{Group quotients}
+For this section let $G$ denote a group that is a covering 0-stack. Let $X$ be a sheaf equipped with a $G$ action.
+\begin{lemma}
+	$\mu_p = \Spec R[X] / (X^p - 1)$ is covering for $p \neq 0$ prime.
+\end{lemma}
+\begin{proof}
+	It is fppf + \etale as $X^p - 1$ is monic seperable. TODO
+\end{proof}
+
+%\begin{lemma}
+%	Let $G$ act freely on a sheaf $X$. Then the relation
+%	\[
+%	x , y\mapsto \sum_{g : G} g x = y
+%	\]
+%	is a covering equivalence relation on $X$
+%\end{lemma}
+%\begin{proof}
+%	For all $x : X$ , the fiber
+%	\[
+%	\sum_{y : X} \sum_{g : G} g x = y \simeq \sum_{g : G} \sum_{y: X} g x = y \simeq G
+%	\]
+%	is a covering 0-stack by assumption.
+%\end{proof}
+
+\begin{definition}
+	A $G$ action on $X$ is free, if for all $x , y : X$ the type 
+	\[
+	\sum_{g: G} g x = y
+	\]
+	is a proposition. 
+\end{definition}
+\begin{example}{\label{ex:GAction}}
+	Given a formally \etale + flat affine (e.g. $\mu_\ell$ or finite) group that acts on an affine $\Spec A$. Assume $G$ acts free on some open subset $U$.  % that belongs to $\bT$ (more generally a covering algebraic space)
 	
+	Then put $x \sharp y = \sum_{g : G \setminus \{1\}} gx = y$. \\	
+	This provides a covering equivalence relation $R_{G,U}$ on $\Spec A$, such that
+	\begin{itemize}
+		\item  for any $x : U$ 
+		\[[x] = \sum_{y : \Spec A} \sum_{g : G} g y  = x. \]
+		\item for some $y \not \in U$, we have $R(x,y) \leftrightarrow x = y$.
+	\end{itemize}
+	By abuse of notation we write $\Spec A / G|_U \equiv \Spec A / R_{G}$ and call it the quotient of $\Spec A$ by the $G$-action .
+	
+\end{example}
+	\begin{proof}
+	\begin{itemize}
+		%		\item $x \sharp y$ is a modal proposition. 
+		\item It is irreflexive: If $x : U$ then $g x \neq x$ , by freeness. % $x = 0$. %as $x = y$ and $gx = y$ implies $(g-1) x = y - x = 0$, but as $g-1$ is invertible $x = 0$. 
+		
+		\item We have $G \setminus \{1\}$ is flat affine using \ref{lemma:CompOf1}. \\
+	\end{itemize}
+\end{proof}
+\begin{notation}
+	If $U = \Spec A \setminus Z$ the complement of a closed subset we write \[U \equiv Z^c\]
+\end{notation}
+
+\begin{example}[Free action]
+	Set $U = \Spec A$. Then this construction yields the actual group quotient.
+	The quotient of $\bA^{\times}$ by the free $\mu_\ell$ action gives a scheme.
+\end{example}
+\begin{lemma}{\label{lemma:algSpacesStabFreeQuots}}
+	%For $n \ge 0$, geometric $(n)$-stacks 
+	Algebraic spaces are stable by free quotients of covering group 0-stacks.
+\end{lemma}
+\begin{proof}
+	The map $ X \to L_T (X / G)$ is fibered in covering 0-stacks, so in particular covering $0$-stacks. As $X$ is a geometric $0$-stack, the quotient is a geometric $0$-stack as well, This follows by the description in \label{prop:nstack}, choosing a geometric atlas of $X$ and postcomposing this to get a geometric atlas of the quotient.
+\end{proof}
+
+\begin{example}{\label{ex:MapOverR}}
+ If $p : \sum_{r : R} S_r \to R$ be a map between formally \etale + flat affine into $R$ whose fibers, except possibly the fiber over $0$, are formally \etale + flat. Define $U = (x \neq 0) \times S_x \subset S_x$. %Then for any $x : R$, 
+ $y \sharp y' \equiv y \neq y'$ is an irreflexive $\bT$-flat relation on $S_x$. From this we obtain the algebraic space 
+ \[\sum_{x : R} Y_x / R_{\sharp} \]
+ which we will later recognize as a fiber collapse.
+\end{example}
+\begin{proof}
+	$\sharp$ is a modal irreflexive relation. By assumption we have given $\bT$-flatness of $S_x$ if $x \neq 0$.
 \end{proof}
 %\begin{prop}
 %	Let $p : R[X]^{\mu_\ell}$ with $0 \in D(p)$ % be such that $0 \in D(p)$ and $x \in D(p)$ implies $gx \in D(p)$ for all $g : \mu_\ell$.
@@ -374,17 +687,191 @@ Let $\ell \neq 0$ denote a prime. Consider $\mu_\ell = R[X] / (X^\ell - 1)$.
 %	Let $X$ be an algebraic spac presented by $U  / R$ with $R$ valued in locally closed props.
 %	Then we find some formally unramified map of algebraic spaces $U' \to X \to Y$ with $U' \to Y$ seperated.
 %\end{lemma}
-\begin{lemma}
+\begin{lemma}[Not needed]
 	Let $Y$ be affine.
 	Let $X \hookrightarrow Y$ be a map fibered in locally closed propositions. Then its factors as the composite of a closed and then an open embedding
 \end{lemma}
 \begin{proof}
 	By zariski local choice we find $Y = \bigcup Y_i$ and factorizations of the basechanges $X_i \to Z_i \to Y_i$. Then $\bigcup X_i \to \bigcup Z_i \to \bigcup Y_i = Y$ is a global factorization.
 \end{proof}
+
+\begin{definition}
+	A point $0 : \Spec B$ is good, if the subtype $\{0\} + D(0) \subset \Spec B$ is not locally closed.
+\end{definition}
+\begin{prop}{\label{prop:NotLocClosed}}
+	$0 : \Spec B$ is good, whenever it is a bridge point, i.e. there merely is a regular $g : \Spec B \to R$ vanishing at 0, such that $\fib_g(0)$ is infinitesimal  (i.e. each two points are $\lnot \lnot$-equal). 
+%	Then the subtype $\{0\} + D(0) \subset \Spec B$ is not locally closed.
+\end{prop}
+\begin{proof}
+We have	$x \neq 0 \leftrightarrow g (x) \neq 0$ %(and by the previous assumption also the converse)
+%	Let us show this more generally for $(\Spec B , 0)$ with the infinitesimal neigbhorhood of 0 beeing not open. \\
+We proceed by proving $1 \rightarrow 2 \rightarrow 3$.
+		\begin{enumerate}
+			\item $R^{\Spec B} \to R^{\Spec B \setminus \{0\}}$ is injective: by \ref{lemma:AlmostEverywhere}.
+			\item The infinitesimal neigbhorhood of $0$ is not an open subtype:
+			If it would, it would be principal open $D(g)$, as 0 admits a principal open neigbhorhood, which however already cotains the whole infinitesimal one. \\
+			Then for any $x \neq 0$, we have $\lnot \lnot g(x) = 0$. As $\Spec B \setminus \{0\}$ is a scheme, it admits a boundedness principle, thus we find some $n$, such that $g^n (x) = 0$ for all $x \neq 0$. \\ %, in particular for all $x : D(p)$. By \ref{lemma:AlmostEverywhere} applied to the givenregular $p$,  
+			By the first point we deduce $g^n =0$, hence $D(g) = D(g^n) = \varnothing$ contradiction.
+			%	 Let $I$ correspond to the closed subtype $\{0\} \subset \Spec B$.
+			%	 Let us show that $\sum_{x:\Spec B} \lnot \lnot x =0$ is not affine. We have by topology \todocite
+			%	\[
+			%	\left(\sum_{x:\Spec B} \lnot \lnot x =0 \right)= \bigcup_n \Spec B / I^n 
+			%	\]
+			%	the global sections of the right hand side are 
+			%	\[
+			%	\bigcap_n B /  I^n = B 
+			%	\]
+			%	but $\Spec B$ is not an infinitesimal variety.
+			\item 	The subtype $\{0\} + D(0) \subset \Spec B$ is not locally closed.	Let $U , C \subset \Spec B$ be an open subset and a closed subset respectively, such that $(x \neq 0) + (x \neq 0) \leftrightarrow x \in U \land x \in C$. Then, for any $x : U$ , 
+			\[
+			(x = 0) + (x \neq 0) = x \in C
+			\]
+			is a closed proposition. Thus the decidable subtype $x \neq 0$ is a closed proposition. To contradict the assumption, we may convince ourself that the right vertical map
+			% https://q.uiver.app/#q=WzAsNCxbMSwwLCJcdFxcc3VtX3t4IDogXFxTcGVjIEF9IFxcbG5vdCBcXGxub3QgeCA9IDAiXSxbMSwxLCJcXFNwZWMgQSJdLFswLDAsIlxcc3VtX3t4OiBVfSBcXGxub3QgXFxsbm90IHggPSAwIl0sWzAsMSwiVSJdLFsyLDMsIiIsMix7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Imhvb2siLCJzaWRlIjoidG9wIn19fV0sWzIsMCwiXFxzaW0iLDJdLFswLDFdLFszLDEsIiIsMSx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Imhvb2siLCJzaWRlIjoidG9wIn19fV1d
+			\[\begin{tikzcd}
+				{\sum_{x: U} \lnot \lnot x = 0} & {	\sum_{x : \Spec B} \lnot \lnot x = 0} \\
+				U & {\Spec B}
+				\arrow["\sim"', from=1-1, to=1-2]
+				\arrow[hook, from=1-1, to=2-1]
+				\arrow[from=1-2, to=2-2]
+				\arrow[hook, from=2-1, to=2-2]
+			\end{tikzcd}\]
+			is an open embedding
+			
+			where the upper horizontal map is indeed an equivalence as for any $x : \Spec B$ , $x \in U$ is $\lnot \lnot$-stable, but $\lnot \lnot x = 0$ and $0 \in U$, thus $x \in U$.
+		\end{enumerate}
+
+
+\end{proof}
+
+\begin{prop}
+   Let $S$ be affine with a good point $*$.
+  Assume we have function $g : S \to S$ such that $*$ is the unique fixpoint $*$ (e.g. if $(S,*)$ admits a pointed-free action of a nontrivial group) 
+%	 \begin{itemize}
+%	 	\item  it has a unique fixpoint $*$, that is a good point. 
+%%	 	\item forall $y : S$, we have 	\[
+%%	 	y \neq * \to g y \neq *
+%%	 	\]	 	 	
+%	 \end{itemize}
+ 	Let $\sharp$ be an irreflexive $\bT$-flat relation on $U \equiv \sum_{x : S}  x \neq *$, such that for all $y : U$, we have $gy : U$ and $y \sharp g y$.
+%	 \begin{enumerate}^
+%%	 	\item $x = gx \leftrightarrow x = *$
+%	 	\item 
+%	 \end{enumerate}
+ Then the algebraic space $S / R_{\sharp}$ is non locally seperated, in particular not a scheme.
+\end{prop}
+\begin{proof}
+	It is an algebraic space by the previous prop. \\
+		
+	A pointed-free action of a non-trivial group yields such a map $g$: If $\lnot (G = \{1\})$, then $\lnot \lnot (G \setminus \{1\})$ by decidable equality of $G$. As we want to prove a contradiction, we may assume $g : G \setminus \{1\}$, this yields a map $S \to S$ such that
+	\begin{itemize}
+		\item $*$ is the unique fixpoint by the pointed-freeness
+		\item If $y \neq *$, then $gy \neq *$ and $y \sharp gy$ 
+	\end{itemize} 
+
+	
+	%putting $p \equiv 1 : R[X]$ in the previous prop. \\
+	
+	We have that every scheme $X$ is locally-seperated, i.e. its identity types are locally closed. Indeed, this follows from the proof of Foundations Prop 5.5.2 . \\
+	Let us show that $R$ is not valued in locally closed propositions.
+%	Note from $y \in U  = y \neq g y$ we deduce
+	Recall
+	\begin{align}
+		y \in U \to y \sharp g y \\
+		y \in U \leftrightarrow y \neq *
+	\end{align}
+	We have for any $y : S$
+	\[
+	 R_{\sharp}(y,gy) \simeq (y = gy) + (y \in U) \land y \sharp g y  \overset{(1)}{\simeq} (y = *) + (y \in U) \overset{(2)}{\simeq} (y = *) + (y \neq *)
+	\]	
+	
+	But if this is locally closed for all $y : S$, we have a contradiction to \ref{prop:NotLocClosed}.
+	
+	%Another approach: 	 Through decidable subtypes. %, as $\Spec A$ is non-infinitesimal.
+\end{proof}
+
+
+\begin{corollary}
+	Let $Y : R \to \Aff$ be formally \etale + flat affine away from the origin , such that $p : \tilde Y = \sum_{x : R} Y_x \to R$ is regular and $Y_0$ is infinitesimal.
+	% such that $\Spec A \setminus \{0\} = D(g)$ for some regular $g : B$. %the infinitesimal neigbhorhood is not open. %  $R^{\Spec A} \to R^{\Spec A \setminus \{0\}}$ is injective.
+	If you find a map $g : \tilde Y \to \tilde Y$ over $p$ with a unique fixpoint, which lies over $0$, then  the algebraic space---$Y_\bullet$--- is non-locally-seperated, In particular not a scheme.
+\end{corollary}
+\begin{proof}
+	Lets call the unique fix point $*$, i.e. we have
+	\[g y = y  \leftrightarrow y = *\]
+	Note that $*  : \tilde Y$ is a good point , as $p : \tilde Y \to R$ is a regular section with $Y_0$ infinitesimal.
+\end{proof}
+\begin{definition}
+	A pointed-free action of $G$ on a pointed type $(X,0)$ is a $G$-action with fixpoint 0, such that if $g \varepsilon = \varepsilon$ for some $g \neq 1$, then $\varepsilon = 0$. \\
+\end{definition}
+\begin{lemma}{\label{lemma:StrongFree}}
+	Let $G$ be a group with decidable equality acting pointed free on a pointed type $(X,0)$.
+	Then $G$ acts free away from zero.
+\end{lemma}
+
+\begin{proof}
+	let $x , y\neq 0$. We need to show, that $\sum_g g x = y$ is a proposition. Let $g, g' : G$ such that $g x = y$. as $G$ has decidable equality, we may show $\lnot \lnot (g = g')$. If $g^{-1} g' \neq 1$, then by pointed-freeness applied to $g^{-1} g' x = x$, we have $x = 0$. Contradiction.
+\end{proof}
+\begin{corollary}
+
+	Let $0 : \Spec A$ be a good point. % such that $\Spec A \setminus \{0\} = D(g)$ for some regular $g : B$. %the infinitesimal neigbhorhood is not open. %  $R^{\Spec A} \to R^{\Spec A \setminus \{0\}}$ is injective.
+	Let $G$ be a nontrivial formally \etale flat affine group acting pointed- freely on the pointed affine $(\Spec A,0)$.
+	Then the pointed-free quotient of $\Spec A$ by $G$ from \ref{ex:GAction} is non-locally-seperated, In particular not a scheme.
+\end{corollary}
+
+%\begin{proof}
+%		
+%		
+%		%Another approach: 	 Through decidable subtypes. %, as $\Spec A$ is non-infinitesimal.
+%
+%\end{proof}
+\begin{example}[Non locally-separated examples]
+	Assume $\ell \neq 0$ prime. Let $\mu_\ell$ act on $(\Spec B,0)$ in one of the following ways:
+	\begin{enumerate}
+		\item Let $\mu_\ell$ act on $\Spec B = \bA^1$
+		\item Let $\mu_\ell$ act on
+		\[
+		\Spec B \equiv \sum_{x , y : R} x^\ell = y^\ell
+		\]
+		via $g (x,y) = (x,g y)$
+	\end{enumerate}
+	Then $\Spec B / \mu_\ell|_{0^c}$ is an algebraic space that is not a scheme.
+\end{example}
+\begin{proof}
+	$\lnot \lnot$ merely, $\mu_\ell$ is finite (\todocite) and $\mu_\ell \setminus \{1\}$ is inhabited by \ref{lemma:CompOf1}. 
+	\begin{enumerate}
+		\item Pointed-Free action is clear. $0 : \bA^1$ is a good point by first projection.
+		\item  Pointed-Free action is clear. The cross is good pointed, witnessed by  the first projection: It is regular vanishing at $(0,0)$ And for any point $(0,y) : \Spec B$ we deduce $y^\ell = -0^\ell = 0$, hence $\lnot \lnot (x,y) = (0,0)$.
+	\end{enumerate}
+\end{proof}
+\begin{question}
+	If $\mu_\ell$ acts on $Y$ some affine, does every $\mu_\ell$-invariant $\phi : Y \to R$ is invariant on a $\ell$-neigborhood?
+\end{question}
+\subsection{Obsolete}
+\begin{prop}
+	Let $Y : R \to \Aff$ be formally \etale + flat affine away from the origin %, such that $p : \tilde Y = \sum_{x : R} Y_x \to R$ is regular and  (i.e. each two points are $\lnot \lnot$-equal). 
+	% such that $\Spec A \setminus \{0\} = D(g)$ for some regular $g : B$. %the infinitesimal neigbhorhood is not open. %  $R^{\Spec A} \to R^{\Spec A \setminus \{0\}}$ is injective.
+	If you find two sections $y,y' : \prod_{x: R} Y_x$ such that $y_x = y'_x \leftrightarrow x = 0$, then then the algebraic space---$Y_\bullet$--- is non-locally-seperated, In particular not a scheme.
+\end{prop}
+\begin{proof}
+	It is an algebraic space by the previous prop. \\
+	
+	%putting $p \equiv 1 : R[X]$ in the previous prop. \\
+	
+	We have that every scheme $X$ is locally-seperated, i.e. its identity types are locally closed. Indeed, this follows from the proof of Foundations Prop 5.5.2 . \\
+	Let us show that $R$ is not valued in locally closed propositions.
+	We have 
+	\[
+	\prod_{x : R} \eta y_x = \eta y'_x \simeq \prod_{x : R} y_x = y_x' + (x \neq 0) \times y_x \neq y'_x \simeq (x = 0) + (x \neq 0)
+	\]	
+	but if this is locally closed for all $x : R$, we have a contradiction to \ref{prop:NotLocClosed}.
+	
+	%Another approach: 	 Through decidable subtypes. %, as $\Spec A$ is non-infinitesimal.
+\end{proof}
 \begin{lemma}[Not needed]
 	For an algebraic space $X$, we have implications $1 \Rightarrow 2 \Rightarrow 3$
 	\begin{enumerate}
-
+		
 		\item $X$ admits an seperated open cover.
 		\item For any covering equivalence relation $R : U^2 \to \Prop$ on an affine $U$ such that $ X = U / R$, $F$ is valued in locally closed propositions
 		\item We find such a presentation  such that $R$ is valued in locally closed propositions.
@@ -398,117 +885,6 @@ Let $\ell \neq 0$ denote a prime. Consider $\mu_\ell = R[X] / (X^\ell - 1)$.
 		
 	\end{enumerate}
 \end{proof}
-
-\begin{rmk}
-	The subtype $\{0\} + D(0) \subset \bA^1$ is not locally closed.
-\end{rmk}
-\begin{proof}
-	Let us show this more generally for $(\Spec A , 0)$ with the infinitesimal neigbhorhood of 0 beeing not open. \\
-	Let $U , C \subset \bA^1$ be an open subset and a closed subset respectively, such that $(x \neq 0) + (x \neq 0) \leftrightarrow x \in U \land x \in C$. Then, for any $x : U$ , 
-	\[
-	(x = 0) + (x \neq 0) = x \in C
-	\]
-	is a closed proposition. Thus the decidable subtype $x \neq 0$ is a closed proposition. To contradict the assumption, we may convince ourself that the right vertical map
-	% https://q.uiver.app/#q=WzAsNCxbMSwwLCJcdFxcc3VtX3t4IDogXFxTcGVjIEF9IFxcbG5vdCBcXGxub3QgeCA9IDAiXSxbMSwxLCJcXFNwZWMgQSJdLFswLDAsIlxcc3VtX3t4OiBVfSBcXGxub3QgXFxsbm90IHggPSAwIl0sWzAsMSwiVSJdLFsyLDMsIiIsMix7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Imhvb2siLCJzaWRlIjoidG9wIn19fV0sWzIsMCwiXFxzaW0iLDJdLFswLDFdLFszLDEsIiIsMSx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Imhvb2siLCJzaWRlIjoidG9wIn19fV1d
-	\[\begin{tikzcd}
-		{\sum_{x: U} \lnot \lnot x = 0} & {	\sum_{x : \Spec A} \lnot \lnot x = 0} \\
-		U & {\Spec A}
-		\arrow["\sim"', from=1-1, to=1-2]
-		\arrow[hook, from=1-1, to=2-1]
-		\arrow[from=1-2, to=2-2]
-		\arrow[hook, from=2-1, to=2-2]
-	\end{tikzcd}\]
-	 is an open embedding
-	
-	where the upper horizontal map is indeed an equivalence as for any $x : \Spec A$ , $x \in U$ is $\lnot \lnot$-stable, but $\lnot \lnot x = 0$ and $0 \in U$, thus $x \in U$.
-\end{proof}
-\begin{lemma}
-	If $char \neq 2$, then $x^2 = 1$ implies $x = 1$ or $x = -1$
-\end{lemma}
-\begin{proof}
-	Indeed, By locality, $x / 2 - 1 /2$ or $x / 2 + 1 /2 $is invertible.
-\end{proof}
-\begin{lemma}{\label{lemma:StrongFree}}
-	Let $G$ be a group with decidable equality.
-	A pointed-free action of $G$ on a pointed type $(X,0)$ is a $G$-action with fixpoint 0, such that if $g \varepsilon = \varepsilon$ for some $g \neq 1$, then $\varepsilon = 0$. \\
- 	In this case $G$ acts free away from zero.
-\end{lemma}
-
-\begin{proof}
-	let $x , y\neq 0$. We need to show, that $\sum_g g x = y$ is a proposition. Let $g, g' : G$ such that $g x = y$. as $G$ has decidable equality, we may show $\lnot \lnot (g = g')$. If $g^{-1} g' \neq 1$, then by pointed-freeness applied to $g^{-1} g' x = x$, we have $x = 0$. Contradiction.
-\end{proof}
-\begin{prop}[THis does not necessarily need the group!]
-%	Let $0 : \Spec A$.
-%	Let $Q : \Spec A \to \Prop$ be a predicate such that for all $p : A$, $0 \in D(p)$
-%	\[\lnot \prod_{\substack{x : D(p)}} Q x.\]
-%	Let $R$ be a covering equivalence relation on $\Spec A$ such that for all $x , y : \Spec A$
-%	\[
-%	R(x,y) \text { closed proposition} \to Q x
-%	\]
-Let $(\Spec A ,0)$ such that the infinitesimal neigbhorhood is not open. %  $R^{\Spec A} \to R^{\Spec A \setminus \{0\}}$ is injective.
-Let $G$ be $\mu_\ell$ for $\ell \neq 0$ prime (more generally, a formally \etale flat affine non trivial group $G$) strongly freely act on the pointed affine $(\Spec A,0)$.
-Define $R_G: (\Spec A)^2\to \Prop$ as
-\[
-R_G(x,y) = (x = y) + (x \neq 0) \times \sum_{g : G \setminus \{1\}} g x = y
-\]
-	Then $(\Spec A) / R_G$ is a non-locally-seperated algebraic space. In particular $\Spec B / R$ is not a scheme.
-\end{prop}
-\begin{proof}
-	It is an algebraic space by a previous prop. %putting $p \equiv 1 : R[X]$ in the previous prop. \\
-
-	We have that every scheme $X$ is locally-seperated, i.e. its identity types are locally closed. Indeed, this follows from the proof of Foundations Prop 5.5.2 . \\
- 	Let us show that $R$ is not valued in locally closed propositions.  As we want to prove a contradiction, we may assume $g : G \setminus \{1\}$.
- 	We have
- 	\[
- 	R(\varepsilon,g\varepsilon) = (\varepsilon = g\varepsilon) + (\varepsilon \neq 0) \times \sum_{g : \mu_\ell \setminus \{1\}} g \varepsilon = g \varepsilon \simeq \varepsilon = 0 + \varepsilon \neq 0
- 	\]
- 	but if this is locally closed for all $\varepsilon : R$, we have a contradiction to the previous remark.
-	 	 	
-	Another approach: 	 Through decidable subtypes. %, as $\Spec A$ is non-infinitesimal.
-\end{proof}
-\begin{lemma}
-	Let $(\Spec B, 0)$ be a pointed affine scheme such that $R^{\Spec B} \to R^{\Spec B \setminus \{0\}}$ is injective. %that admits some regular $p : B$ with $p(0) = 0$ %, i.e. $\lnot \prod_x \lnot \lnot x = 0$. 
-	Then the infinitesimal neigbhorhood of $0$ is not an open subtype.
-\end{lemma}
-\begin{proof}
-	If it would, it would be principal open $D(g)$, as 0 admits a principal open neigbhorhood, which however already cotains the whole infinitesimal one. \\
-	Then for any $x \neq 0$, we have $\lnot \lnot g(x) = 0$. As $\Spec B \setminus \{0\}$ is a scheme, it admits a boundedness principle, thus we find some $n$, such that $g^n (x) = 0$ for all $x \neq 0$. \\ %, in particular for all $x : D(p)$. By \ref{lemma:AlmostEverywhere} applied to the givenregular $p$,  
-	By assumption we deduce $g^n =0$, hence $D(g) = D(g^n) = \varnothing$ contradiction.
-	%	 Let $I$ correspond to the closed subtype $\{0\} \subset \Spec B$.
-	%	 Let us show that $\sum_{x:\Spec B} \lnot \lnot x =0$ is not affine. We have by topology \todocite
-	%	\[
-	%	\left(\sum_{x:\Spec B} \lnot \lnot x =0 \right)= \bigcup_n \Spec B / I^n 
-	%	\]
-	%	the global sections of the right hand side are 
-	%	\[
-	%	\bigcap_n B /  I^n = B 
-	%	\]
-	%	but $\Spec B$ is not an infinitesimal variety.
-\end{proof}
-\begin{example}[Not separated examples]
-	Assume $\ell \neq 0$ prime. Let $\mu_\ell$ act on $\Spec B$ in one of the following ways:
-	\begin{enumerate}
-		\item Let $\mu_\ell$ act on $\Spec B = \bA^1$. 
-		\item Put $\ell= 2$. Let $\mu_2$ act on
-		\[
-		\Spec B \equiv \sum_{x , y : R} x y = 0
-		\]
-		via the swap.
-	\end{enumerate}
-	Then $\Spec B / R_{\mu_\ell}$ is an algebraic space that is not a scheme.
-\end{example}
-\begin{proof}
-	$\lnot \lnot$ merely, $\mu_\ell$ is finite (\todocite) and $\mu_\ell \setminus \{1\}$ is inhabited by \ref{lemma:CompOf1}. 
-	\begin{enumerate}
-		\item Free away from the origin. non-openness: By previous lemma and \ref{lemma:AlmostEverywhere} %The infinitesimal neighborhood of 0 is not affine.
-		\item  Again free away from the origin. For non-openness we appyl previous lemma. To show the injectivity of $R[X,Y]/XY \equiv B \to R^{\Spec B \setminus \{0\}}$, by \ref{lemma:AlmostEverywhere}, we may just show that the $g :\equiv X - Y : B$ is regular and then $D(g) = \Spec B \setminus \{0\}$. So if $(x,y) \neq 0$ in $\Spec B$ with $g(x,y) = x - y = 0$, we deduce $x^2 = y^2 = 0$, hence $\lnot \lnot (x,y) = (0,0)$. Contradiction.  % , let $f : R[X,Y]$, such that $f(x,y) = 0$ for any $(x,y) \in \Spec B \setminus \{0\}$. Then $f(x,0) = 0 $ for all $x$ by applying  \ref{lemma:AlmostEverywhere} to $V(Y)$. Hence $f$ is in the kernel of the map $R[X,Y] \to R[X]$ that evaluates $Y = 0$, i.e $Y | f$. Analogously $X|f$. Thus $f = 0$ in $B$.   % Write $\Spec B = V(X) \cup V(Y)$, both components admit the property
-%		Moreover if $z : \bA^2$ is $\lnot \lnot z =0$, then $z \in \Spec B$.
-	\end{enumerate}
-\end{proof}
-\begin{question}
-	If $\mu_\ell$ acts on $Y$ some affine, does every $\mu_\ell$-invariant $\phi : Y \to R$ is invariant on a $\ell$-neigborhood?
-\end{question}
-\subsection{Obsolete}
 \begin{lemma}[Not needed]
 	Let $char \neq 2$.
 	Let $p : R[X]$ be such that $0 \in D(p)$ and $x \in D(p)$ implies $-x \in D(p)$. 
@@ -721,19 +1097,30 @@ This space over $R$ looks exactly like the line away from the origin and over an
 	$\emdash Y \emdash$ is an algebraic space.
 \end{lemma}
 \begin{proof}
-	Let $x : R$. Let $Y : \Aff$ such that $x \neq 0$ implies that $Y$ is formally \etale + flat. We will show that $Y \to (x \neq 0) \star Y$ is a geometric cover.
-	It suffices to check this for fibers coming from $Y$: Indeed, then the fibers determine a map $Y \to \sum_{F: \CS} (F = Y)^{x \neq 0}$ where the codomain is contractible if $x \neq 0$. \\
-	Given $y,y' : Y$, we have
+	Let $x : R$. Let $Y : \Aff$ such that $x \neq 0$ implies that $Y$ is formally \etale + flat. We will show that $\eta : Y \to (x \neq 0) \star Y$ is the sheaf-quotient map of the relation on $Y$ given by $y \sim y' \equiv (y = y') + (x \neq 0) \times y \neq y'¸$, which is enough by \ref{ex:MapOverR}. We apply  \ref{lemma:quotient-by-equivalence-relation} \\
+	\begin{itemize}
+		\item The map is $\bT$-surjective: We have a term in 
+		\begin{align*}
+			\prod_{y : Y} \|\fib_\eta (\eta y) \|_\bT
+		\end{align*}
+		and each $\|\fib_\eta \eta y \|_\bT$ is modal, i.e. contractible if $x \neq 0$. Hence we get a (unique term in)filler in 
+		\[
+		\prod_{y : (x \neq0) \star Y} \| \fib_\eta y\|_\bT
+		\]
+		 \\
+	\item Given $y,y' : Y$, we have
 	\begin{align*}
-		inl(y') = inl(y) &\simeq (x \neq 0) \star (y = y')&& \ | \  \text{ closed modality is lex (\cite{Modalities} Example 3.1.4).} \\
+		\eta(y') = \eta(y) &\simeq (x \neq 0) \star (y = y')&& \ | \  \text{ closed modality is lex (\cite{Modalities} Example 3.1.4).} \\
 		&\simeq (y = y') \lor (x \neq 0)  && \ | \ (x \neq 0) \to \mathsf{HasDecEq}(Y) \\
 		&\simeq (y = y') + (x \neq 0) \times y \neq y'¸
 	\end{align*}
-	Hence the fiber over $y$ is 
-	\[
-	1 + (x \neq 0) \times Y \setminus \{y\} = 1 + \sum_{p : x \neq 0}Y \setminus \{y\}
-	\]
-	which is inhabited affine and formally \etale + flat. %, because the right summand is a $\sum$ of formally \etale + flat affines: Indeed, whenever $x \neq 0$ then $Y \setminus \{y\}$ is formally \etale + flat.
+	\end{itemize}
+%JUMP
+%	Hence the fiber over $y$ is 
+%	\[
+%	1 + (x \neq 0) \times Y \setminus \{y\} = 1 + \sum_{p : x \neq 0}Y \setminus \{y\}
+%	\]
+%	which is inhabited affine and formally \etale + flat. %, because the right summand is a $\sum$ of formally \etale + flat affines: Indeed, whenever $x \neq 0$ then $Y \setminus \{y\}$ is formally \etale + flat.
 	%	 As $y = y'$ is open by assumption the fiber is merely inhabited and a $\sum$ of $\bT$-flat geometric stacks, thus covering. 
 	%	Let us show, that the fiber over $\Delta(y)$ is $1 + (Y - y) \times (x \neq 0)$ which is formally \etale + flat and inhabited affine.	Here we use, that $Y$ has decidable equality and if $y \neq y'$, then % we have $inl(y) = inl(y') \simeq (x \neq 0) \star (y = y') = (x \neq 0)$. \\
 \end{proof}
@@ -741,7 +1128,7 @@ This space over $R$ looks exactly like the line away from the origin and over an
 	$\emdash Bool \emdash$ is the line with two origins. \\
 	---$\Spec R[X] / (X^2 + 1))$--- is the twisted line with two origins, i.e. over the origin we have the roots of $-1$. \\
 	---$\Spec R[Y] / (Y^2 - \bullet^2)$--- is an algebraic space that looks like $\bD(1)$ over the origin. \\\
-	---$\Spec R[Y] / (\bullet Y)$--- is the affine cross.
+	---$\Spec R[Y] / (\bullet Y)$--- is the affine Plus.
 \end{example}
 \subsection{Schemes do not have descent}
 For this section, let $\rho : R \setminus \{0\}$ denote a term, e.g. $\rho = 1$. Set $C = R[T] / (T^2 + \rho)$.
@@ -768,7 +1155,7 @@ For this section, let $\rho : R \setminus \{0\}$ denote a term, e.g. $\rho = 1$.
 	If ---$\Spec C$--- is a scheme, then $X^2 + \rho$ has a root.
 \end{prop}
 \begin{proof}
-	Let $p : ---\Spec C \emdash \to R$ be the first projection.
+	Let $p : \emdash \Spec C \emdash \to R$ be the first projection.
 	We proceed as follows
 	\begin{enumerate}
 		\item  There is no open affine subset of $L(\Spec C)$ containing $\fib_p(0)$.
@@ -792,27 +1179,35 @@ For this section, let $\rho : R \setminus \{0\}$ denote a term, e.g. $\rho = 1$.
 		Surjectivity: Given a map $U \to R$, by pulling back along $p : R + R \to L(2)$ we can view it as a rational map $R + R \rightsquigarrow R$ defined at both origins, so in particular as a pair of rational maps $R \rightsquigarrow R$ defined at 0. They coincide away from 0 so by \ref{lemma:RatMapsCoincide} they are equal.
 		%$U \setminus \fib_p(0)$ is an open subset of $L(2) \setminus \fib_p(0) \simeq R^{\times}$. 
 		\item As $\Spec C$ is an \etale sheaf, its enough to show to construct a function $\|\Spec C\| \to \Spec C$. \\
+		Define 
+		\begin{align*}
+			A : \Spec C &\to \Prop^{\Fin(n)}  \\
+			x &\mapsto \{ j : x \in U_j\}
+		\end{align*}
+		where we transport $x : \Spec C$ along $\Spec C \overset{\simeq}{\to} \fib_p 0$.
+		Observe 
+		\begin{enumerate}
+			\item for any $x,x' : \Spec C$, 
+			\[\| A x \cap  A x' \| \to \lnot \lnot (x = x') \overset{DecEq(\Spec C)}{\to} x = x'\] where the first implication follows like this : if $x \neq x'$ and $\fib_p 0 = \{x , x'\} \in U_j$ then we have a contradiction to the first point 
+			\item For any $x : \Spec C$ , $\| A x\|$.
+		\end{enumerate}
 		Assume $\|\Spec C\|$.
 		Lets try to construct a term of the following type
 		\[
-		\sum_{x : \Spec C} \forall x' : \Spec C , j , j' : \mathsf{Fin}(n) : x \in U_j \cap x' \in U_j' \to j \le j' 
+		\sum_{x : \Spec C} \forall x' : \Spec C , j : A x, j' : A x' \to j \le j' 
 		\]
-		For this we may assume $i, -i : \Spec C$, as this type is a proposition: If we have given two such minimal $x_1, x_2$, we can set first $x' \equiv x_2$ and then $x' \equiv x_1$ respectively and then choosing $j,j'$ such that $x_1 \in U_j, x_2 \in U_{j'}$ gives $j \le j' \le j$ so that $\{x_1,x_2\} \subset U_j$ such that $x_1 = x_2$ by the previous point. \\
+		For this we may assume $\Spec C = Bool \equiv \{N,S\}$, as the above type is a proposition: If we have given two such minimal $x_1, x_2$, we can set first $x' \equiv x_2$ and then $x' \equiv x_1$ respectively and then (by (b)) choosing $j : A_{x_1},j' : A_{x_2}$ gives $j \le j' \le j$ so that $j : A_{x_1} \cap A_{x_2}$ such that $x_1 = x_2$ by (a). \\
 		I will explain an algorithm to do the following:
-		Given $n \ge 2$, a bipointed set $(X,i,-i)$ and a cover $X = \bigcup_{j=1}^n U_j$ such that $\lnot (\{i,-i\} \subset U_j)$ for all $j$, return the basepoint that lies in some $U_j$ with a smaller index $j$. \\
-		Induction over $n$. If $n = 2$, then $i \in U_1$ or $i \in U_2$. In the first case return $i$, in the latter $-i$. \\
-		If $X = \bigcup_{j=1}^{n+1} U_i$, then if $i \in U_{n+1}$ return $-i$. If $-i \in U_{n+1}$, return $i$. Otherwise $\{i,-i\} \subset \bigcup_{j=1}^n U_i$, so conclude by induction.  
-		%	Lets first check this for the case $U \cup V = \Spec C$ with $U$ and $V$ open subsets strictly smaller than $\Spec C$. Observe, that the types $U$ and $V$ are propositions: If $x, y : U$, then $\lnot \lnot (x = y)$ (which is enough by decidability of $x = y$), as $x \neq y$ implies $\Spec C = \{x , y\} \subset U$. \\
-		%
-		%	But then $U$ is an \etale-sheaf and a proposition, so we may construct a term in $\Spec C \to U$. But $\Spec C \to \Spec C \simeq 2$ so, then $U \cup V = 2$. No both elements of the RHS lie in $U$ or they lie in $V$. If both lie in $V$, we have a contradiction to the assumption. %As we have $\lnot \lnot U$, we can construct a term 
-		%	But if $\lnot U$, then $V = U \cup V = \Spec C$ contradicting the assumption.)
+		Given $n \ge 2$, and a pair of  merely inhabited disjoints subsets $A_N$ and $A_S$ of $\Fin(n)$, we can decide in which of the two we find the smaller number of $\Fin(n)$. \\
+		Induction over $n$. If $n = 2$, then $\|A_N\|$, so we find a term in the proposition $(0 \in A_N) + (1 \in A_N)$ . In the left case return $S$, in the right case $N$. \\
+		For $n \mapsto n+1$, if $n \in A_N$ return $S$. If $n \in A_S$, return $N$. Otherwise both $A_N$ and $A_S$ are subset of $\Fin(n)$, so conclude by induction.  
 	\end{enumerate}
 \end{proof}
 \begin{corollary}
 	Schemes do not have descent.
 \end{corollary}
 \begin{proof}
-	If Schemes have descent, then $L(\lambda \_ . \Spec R[T]/(T^2 + \rho)) \in \mathsf{Sch}$ is a sheaf. As $L_1(\Spec R[T]/(T^2 + \rho))$ is $\bT$-merely a scheme, it is a scheme, so by the previous lemma $T^2 + \rho$ has a root. Contradiction to \cite{cherubini2023foundationsyntheticalgebraicgeometry} A . 0.3. \\
+	If Schemes have descent, then ---$\Spec R[T]/(T^2 + \rho) \emdash \in \mathsf{Sch}$ is a sheaf. As ---$\Spec R[T]/(T^2 + \rho) \emdash$ is $\bT$-merely a scheme, it is a scheme, so by the previous lemma $T^2 + \rho$ has a root. Contradiction to \cite{cherubini2023foundationsyntheticalgebraicgeometry} A . 0.3. \\
 \end{proof}
 \subsection{Gluing in an affine on the line}
 
