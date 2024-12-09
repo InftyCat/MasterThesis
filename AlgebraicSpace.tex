@@ -58,7 +58,7 @@ Having a free action on the whole space might be not good enough to cook up exam
 		\[R(x,y) \leftrightarrow \sum_{g : G} g x  = y. \]
 		\item for some $y : \Spec A \setminus U$, we have $R(x,y) \leftrightarrow x = y$.
 	\end{itemize}
-	We write $\Spec A / G|_U \equiv \Spec A / R$ and call it the quotient of $\Spec A$ by the $G$-action on $U$ .
+	We write $\Spec A /_U G \equiv \Spec A / R$ and call it the quotient of $\Spec A$ by the $G$-action on $U$ .
 
 \end{construction}
 \begin{proof}
@@ -70,7 +70,7 @@ Having a free action on the whole space might be not good enough to cook up exam
 \end{proof}
 
 \begin{example}[Free action]
-	Set $U = \Spec A$. Then this construction yields the actual group quotient: $\Spec A  / G|_{\Spec A} = \Spec A / G$.
+	Set $U = \Spec A$. Then this construction yields the actual group quotient: $\Spec A  /_{\Spec A} G = \Spec A / G$.
 
 \end{example}
 \begin{proof}
@@ -81,12 +81,12 @@ Having a free action on the whole space might be not good enough to cook up exam
 \end{notation}
 
 \begin{example}[Quotient of the Line]
-	If $\ell \neq 0$ is prime, we have $R / \mu_\ell|_{0^c}$ is an algebraic space
+	If $\ell \neq 0$ is prime, we have $R /_{0^c} \mu_\ell$ is an algebraic space
 \end{example}
 \begin{example}[Quotient of the Cross]
 	Let $\mu_\ell$ act on $X = \Spec R[X,Y] / X^\ell - Y^\ell$ via multiplication on the second component. Then
 	\[
-	X / \mu_\ell|_{\{0,0\}^c}
+	X /_{\{0,0\}^c} \mu_\ell
 	\]
 	is an algebraic space.
 \end{example}
@@ -117,7 +117,7 @@ Are those schemes?
 	
 	Let $0 : \Spec A$ be a regular point. % such that $\Spec A \setminus \{0\} = D(g)$ for some regular $g : B$. %the infinitesimal neigbhorhood is not open. %  $R^{\Spec A} \to R^{\Spec A \setminus \{0\}}$ is injective.
 	Let $G$ be a non-trivial formally \etale flat affine group  pointed- freely acting on the pointed affine $(\Spec A,0)$.
-	Then $\Spec A / G|_{0^c}$ from \ref{ex:GAction} is non-locally-seperated, In particular not a scheme.
+	Then $\Spec A /_{0^c} G$ from \ref{ex:GAction} is non-locally-seperated, In particular not a scheme.
 \end{theorem}
 
 \begin{example}[Non locally-separated examples]
@@ -130,7 +130,7 @@ Are those schemes?
 		\]
 		via $g (x,y) = (x,g y)$
 	\end{enumerate}
-	Then $\Spec B / \mu_\ell|_{0^c}$ is an algebraic space that is not a scheme.
+	Then $\Spec B /_{0^c} \mu_\ell$ is an algebraic space that is not a scheme.
 \end{example}
 \begin{proof}
 	$\lnot \lnot$ merely, $\mu_\ell$ is finite (\todocite) and $\mu_\ell \setminus \{1\}$ is inhabited by \ref{lemma:CompOf1}. 
@@ -143,12 +143,13 @@ Are those schemes?
 An alternative approach to construct algebraic spaces is the fiber collapse away from the origin.
 
 \begin{definition}
-	Given a sheaf proposition $P$, the closed modality in the sheaf topos associated to $P$ is given by
-	\[
+	Given a sheaf proposition $P$, there is a closed modality $\mathsf{Cl}_P$ where a type $X$ is modal, if it is a sheaf and $P \to \isContr(X)$.
+	We have to sheafify to belong to the sheaf topos:
+	\begin{align*}
 	\cU &\to \cU \\
 	X &\mapsto P \star X :\equiv L_\bT(P \sqcup_{P \times X} X)
-	\]
-	where we need to sheafify the pushout. A type $X$ is modal, if it is a sheaf and $P \to \isContr(X)$.
+\end{align*}
+	where we need to sheafify the pushout. This determines a lex modality.
 \end{definition}
 \begin{definition}
 	Let $Y_\bullet : R \to \Aff$ be a dependent family of affines %$(Y \in \EF)^{x \neq 0}$ . 
@@ -160,32 +161,25 @@ An alternative approach to construct algebraic spaces is the fiber collapse away
 \end{definition}
 This space over $R$ looks exactly like the line away from the origin and over an infinitesimal $\varepsilon$ the fiber is $Y_\varepsilon$.
 \begin{lemma}{\label{lemma:FiberCollapsAS}}
-	Assume that if $x \neq 0$, then $Y_x$ is formally \etale + flat. Then $\emdash Y \emdash$ is an algebraic space.
+	Assume that if $x \neq 0$, then $Y_x \in \bT$. Then $\emdash Y \emdash$ is an algebraic space.
 \end{lemma}
 \begin{proof}
 	Let $x : R$. Let $Y : \Aff$ such that $x \neq 0$ implies that $Y$ is formally \etale + flat. We will show that $\eta : Y \to (x \neq 0) \star Y$ is the sheaf-quotient map of the relation on $Y$ given by $y \sim y' \equiv (y = y') + (x \neq 0) \times y \neq y'¸$, which is enough by \ref{ex:MapOverR}. We apply  \ref{lemma:quotient-by-equivalence-relation} \\
 	\begin{itemize}
-		\item The map is $\bT$-surjective: We have a term in 
-		\begin{align*}
-			\prod_{y : Y} \|\fib_\eta (\eta y) \|_\bT
-		\end{align*}
-		and each $\|\fib_\eta \eta y \|_\bT$ is modal, i.e. contractible if $x \neq 0$. Hence we get 
-		\[
-		\prod_{y : (x \neq0) \star Y} \| \fib_\eta y\|_\bT
-		\]
-		\\
+
+			\item The map is $\bT$-surjective: We have a $\bT$-surjection $(x \neq 0) + Y \to (x \neq 0) \star Y$. In case $x \neq 0$, the map of interest is $Y \to 1$, which is $\bT$-surjective, as then $Y \in \bT$. 
 		\item Given $y,y' : Y$, we have
 		\begin{align*}
 			\eta(y') = \eta(y) &\simeq (x \neq 0) \star (y = y')&& \ | \  \text{ closed modality is lex (\cite{Modalities} Example 3.1.4).} \\
-			&\simeq (y = y') \lor (x \neq 0)  && \ | \ (x \neq 0) \to \mathsf{HasDecEq}(Y) \\
+			&\simeq L_\bT\left((y = y') \lor (x \neq 0) \right) && \ | \ (x \neq 0) \to \mathsf{HasDecEq}(Y) \\
 			&\simeq (y = y') + (x \neq 0) \times y \neq y'¸
 		\end{align*}
-	\end{itemize}
+		\end{itemize}
 \end{proof}
 \begin{example}
 	$\emdash Bool \emdash$ is the line with two origins. \\
 	---$\Spec R[X] / (X^2 + 1))$--- is the twisted line with two origins, i.e. over the origin we have the roots of $-1$. \\
-	---$\Spec R[Y] / (Y^2 - \bullet)$--- is $\bA^1 / \mu_2|_{0^c}$ which looks like $\bD(1)$ over $0$. \\
+	---$\Spec R[Y] / (Y^2 - \bullet)$--- is $\bA^1 /_{0^c} \mu_2$ which looks like $\bD(1)$ over $0$. \\
 	---$\Spec R[Y] / (Y^2 - \bullet^2)$--- is the quotient of the cross that looks like $\bD(1)$ over every $\varepsilon : \bD(1)$. \\
 
 	
@@ -197,7 +191,7 @@ This space over $R$ looks exactly like the line away from the origin and over an
 	% https://q.uiver.app/#q=WzAsMyxbMSwwLCJcXHRpbGRlIFkiXSxbMCwxLCJcXHRpbGRlIFkgLyBHfF97KFxcZmliX3AgMCleY30iXSxbMiwxLCJcXGVtZGFzaCBZIFxcZW1kYXNoIl0sWzAsMV0sWzAsMl0sWzEsMiwiXFxzaW1lcSJdXQ==
 	\[\begin{tikzcd}
 		& {\tilde Y} \\
-		{\tilde Y / G|_{(Y_0)^c}} && {\emdash Y \emdash}
+		{\tilde Y /_{(Y_0)^c} G} && {\emdash Y \emdash}
 		\arrow[from=1-2, to=2-1]
 		\arrow[from=1-2, to=2-3]
 		\arrow["\simeq", from=2-1, to=2-3]
@@ -205,8 +199,8 @@ This space over $R$ looks exactly like the line away from the origin and over an
 \end{prop}
 \begin{proof}
 	As every non-base fiber is merely equivalent to $G$, its formally \etale + flat.
-	In between you can put
-	$\sum_{x : R} Y_x /G|_{x \neq 0 \times Y_x}$
+	In between you can put for $U_x \equiv x \neq 0 \times Y_x$
+	\[\sum_{x : R} Y_x /_{U_x} G\]
 	As all three maps defined on $\tilde Y$ are $\bT$-surjective, by \ref{lemma:quotiquotient-by-equivalence-relation} we may only check that the identity types coincide. For any $y,y' : \tilde Y$. Using that if $py \neq 0$ then the $G$ action on $Y_{py}$ is a $G$-torsor, We have an equivalence
 	
 	\begin{align*}
@@ -228,10 +222,10 @@ For this section, let $\rho : R \setminus \{0\}$ denote a term, e.g. $\rho = 1$.
 	Let $p : \emdash \Spec C \emdash \to R$ be the first projection.
 	We proceed as follows
 	\begin{enumerate}
-		\item  There is no open affine subset of $L(\Spec C)$ containing $\fib_p(0)$.
+		\item  There is no open affine subset of $\emdash \Spec C \emdash$ containing $\fib_p(0)$.
 		\item Any inhabited cover of $\Spec C$ by open subsets strictly smaller than $\Spec C$ yields a root.
 	\end{enumerate}
-	Proves:
+	Proofs:
 	\begin{enumerate}
 		\item Because we want to show $\bot$, we may assume ---$\Spec C \emdash = \emdash Bool \emdash$. Assume there is an open affine subset $\fib_p(0) \subset U \subset \emdash Bool \emdash$. Then $p(U) \subset R$ is an open neigbhorhood of 0, as 
 		\[
@@ -245,38 +239,39 @@ For this section, let $\rho : R \setminus \{0\}$ denote a term, e.g. $\rho = 1$.
 		is an equivalence, which is a contradiction to the assumption, that $U$ contains both origins. \\
 		Proof of claim:
 		Injectivity: If two maps $f , g : p(U) \to R$ coincide after precomposing with $U \to p(U)$, then they coincide away from $0$
-		so conclude by \ref{lemma:RatMapsCoincide}. \\
+		so conclude by \ref{lemma:AlmostEverywhere}. \\
 		Surjectivity: Given a map $U \to R$, by pulling back along $p : R + R \to \emdash Bool \emdash$  we can view it as a map $R + R \supset U' \to R$ defined at both origins, so in particular as a pair of maps to $R$ defined on some open neigbhorhood of 0 of $R$. They coincide away from 0 so by \ref{lemma:AlmostEverywhere} they are equal.
-		\item As $\Spec C$ is an \etale sheaf, its enough to show to construct a function $\|\Spec C\| \to \Spec C$. \\
+		\item Let $\Spec C = \bigcup_{j=1}^n U_j$ be an open cover of strictly smaller subsets of $\Spec C$. \\
 		Define 
 		\begin{align*}
 			A : \Spec C &\to \Prop^{\Fin(n)}  \\
 			x &\mapsto \{ j : x \in U_j\}
 		\end{align*}
-		where we transport $x : \Spec C$ along $\Spec C \overset{\simeq}{\to} \fib_p 0$.
+
 		Observe 
 		\begin{enumerate}
 			\item for any $x,x' : \Spec C$, 
-			\[\| A x \cap  A x' \| \to \lnot \lnot (x = x') \overset{\mathsf{DecEq}}{\to} x = x'\] where the first implication follows like this : if $x \neq x'$ and $\fib_p 0 = \{x , x'\} \subset U_j$ then we have a contradiction to the first point 
+			\[\| A x \cap  A x' \| \to \lnot \lnot (x = x') \overset{\mathsf{DecEq}}{\to} x = x'\] where the first implication follows like this : if $x \neq x'$ $j \in A_x \cap A_{x'}$, then using that any embedding $Bool \to \Spec C$ is an equivalence, $\Spec C \overset{\sim}{\hookleftarrow} \{x , x'\} \subset U_j$, . Then we have a contradiction to the first point, 
 			\item For any $x : \Spec C$ , $\| A x\|$.
 		\end{enumerate}
-		Assume $\|\Spec C\|$.
+		As $\Spec C$ is an \etale sheaf, its enough to show to construct a function $\|\Spec C\| \to \Spec C$. 
+		Assume $\|\Spec C\|$. \\
 		Lets try to construct a term of the following type
 		\[
 		\sum_{x : \Spec C} \forall x' : \Spec C , j : A x, j' : A x' \to j \le j' 
 		\]
-		For this we may assume $\Spec C = Bool = \{N,S\}$, as the above type is a proposition: If we have given two such minimal $x_1, x_2$, we can set first $x' \equiv x_2$ and then $x' \equiv x_1$ respectively and then (by (b)) choosing $j : A_{x_1},j' : A_{x_2}$ gives $j \le j' \le j$ so that $j : A_{x_1} \cap A_{x_2}$ such that $x_1 = x_2$ by (a). \\
+		For this we may assume $\Spec C = Bool = \{+,-\}$, as the above type is a proposition: If we have given two such maximal $x_1, x_2$, we can set first $x' \equiv x_2$ and then $x' \equiv x_1$ respectively and then (by (b)) choosing $j : A_{x_1},j' : A_{x_2}$ gives $j \le j' \le j$ so that $j : A_{x_1} \cap A_{x_2}$ such that $x_1 = x_2$ by (a). \\
 		I will explain an algorithm to do the following:
-		Given $n \ge 2$, and a pair of  merely inhabited disjoints subsets $A_N$ and $A_S$ of $\Fin(n)$, we can decide in which of the two we find the smaller number of $\Fin(n)$. \\
-		Induction over $n$. If $n = 2$, then $\|A_N\|$, so we find a term in the proposition $(0 \in A_N) + (1 \in A_N)$ . In the left case return $S$, in the right case $N$. \\
-		For $n \mapsto n+1$, if $n \in A_N$ return $S$. If $n \in A_S$, return $N$. Otherwise both $A_N$ and $A_S$ are subset of $\Fin(n)$, so conclude by induction.  
+		Given $n \ge 2$, and a pair of disjoint (a) and merely inhabited (b) subsets $A_+$ and $A_-$ of $\Fin(n)$, we can decide in which of the two we find the smaller number of $\Fin(n)$. \\
+		Induction over $n$. If $n = 2$, then $\|A_+\|$, so we find a term in the proposition $(0 \in A_+) + (1 \in A_+)$ . In the left case return $-$, in the right case $+$. \\
+		For $n \mapsto n+1$, by (b) we may choose $k_+, k_- : \Fin n$ such that $k_+ \in A_+$ and $k_- \in A_-$. Now, exploiting decidable equality in $\Fin n$: If $n = k_+$, return $-$. If $n = k_-$, return $+$. Otherwise, the subsets $A_+ \cap \Fin (n)$ and $A_- \cap \Fin (n)$ of $\Fin n$ still satisfy both conditions (a) (b), so conclude by induction.  
 	\end{enumerate}
 \end{proof}
 \begin{corollary}
 	Schemes do not have descent.
 \end{corollary}
 \begin{proof}
-	If Schemes have descent, then ---$\Spec R[T]/(T^2 + \rho) \emdash \in \mathsf{Sch}$ is a sheaf. As ---$\Spec R[T]/(T^2 + \rho) \emdash$ is $\bT$-merely a scheme, it is a scheme, so by the previous lemma $T^2 + \rho$ has a root. Contradiction to \cite{cherubini2023foundationsyntheticalgebraicgeometry} A . 0.3. \\
+	If Schemes have descent, then ---$\Spec R[T]/(T^2 + \rho) \emdash \in \mathsf{Sch}$ is a sheaf. As ---$\Spec R[T]/(T^2 + \rho) \emdash$ is $\bT$-merely a scheme, it is a scheme, so by the previous lemma $T^2 + \rho$ has a root. As $\rho : R \setminus \{0\}$ was arbitrary, we get a contradiction to \cite{cherubini2023foundationsyntheticalgebraicgeometry} A . 0.3. \\
 \end{proof}
 \section{Algebraic spaces}
 
@@ -687,7 +682,7 @@ For this section let $G$ denote a group that is a covering 0-stack. Let $X$ be a
 		\[[x] = \sum_{y : \Spec A} \sum_{g : G} g y  = x. \]
 		\item for some $y \not \in U$, we have $R(x,y) \leftrightarrow x = y$.
 	\end{itemize}
-	By abuse of notation we write $\Spec A / G|_U \equiv \Spec A / R_{G}$ and call it the quotient of $\Spec A$ by the $G$-action .
+	By abuse of notation we write $\Spec A /_U G \equiv \Spec A / R_{G}$ and call it the quotient of $\Spec A$ by the $G$-action .
 	
 \end{example}
 	\begin{proof}
@@ -888,7 +883,7 @@ We proceed by proving $1 \rightarrow 2 \rightarrow 3$.
 		\]
 		via $g (x,y) = (x,g y)$
 	\end{enumerate}
-	Then $\Spec B / \mu_\ell|_{0^c}$ is an algebraic space that is not a scheme.
+	Then $\Spec B /_{0^c} \mu_\ell$ is an algebraic space that is not a scheme.
 \end{example}
 \begin{proof}
 	$\lnot \lnot$ merely, $\mu_\ell$ is finite (\todocite) and $\mu_\ell \setminus \{1\}$ is inhabited by \ref{lemma:CompOf1}. 
@@ -1137,54 +1132,47 @@ Choose a principal open neighborhood $0 \in D(p) \subset U$. $G$ acts on $R[X]$,
 	Let $(y-y')^{2^{n+1}} =_{R} 0$, then $(2y^2 - 2yy')^{2^n} = 0$, or $(y(y - y'))^{2^n} = 0$, as $y$ is invertible, $(y - y')^{2^n} = 0$, so by induction hypothesis $y = y'$. \\
 \end{proof}
 \subsection{FiberCollaps away from the origin}
-\begin{definition}
-	Given a sheaf proposition $P$, the closed modality in the sheaf topos associated to $P$ is given by
-	\[
-	\cU &\to \cU \\
-	X &\mapsto P \star X :\equiv L_\bT(P \sqcup_{P \times X} X)
-	\]
-	where we need to sheafify the pushout. A type $X$ is modal, if it is a sheaf and $P \to \isContr(X)$.
-\end{definition}
-\begin{definition}
-	Let $Y : R \to \Aff$ be a dependent family of affines, such that $(Y \in \EF)^{x \neq 0}$ . 
-	The fiber collapse of $Y$ away from the origin $\emdash Y \emdash $ is the space over $R$
-	\[
-	\sum_{x : R} (x \neq 0) \star Y_x \to R %\sum_{x : R} Y_x \to 
-	\]
-%	: \prod_{x : R} \sum_{Y:\Aff} (Y \in \EF)^{x \neq 0}$ %
-\end{definition}
-This space over $R$ looks exactly like the line away from the origin and over an infinitesimal $\varepsilon$ the fiber is $Y_\varepsilon$.
-\begin{lemma}
-	$\emdash Y \emdash$ is an algebraic space.
-\end{lemma}
-\begin{proof}
-	Let $x : R$. Let $Y : \Aff$ such that $x \neq 0$ implies that $Y$ is formally \etale + flat. We will show that $\eta : Y \to (x \neq 0) \star Y$ is the sheaf-quotient map of the relation on $Y$ given by $y \sim y' \equiv (y = y') + (x \neq 0) \times y \neq y'¸$, which is enough by \ref{ex:MapOverR}. We apply  \ref{lemma:quotient-by-equivalence-relation} \\
-	\begin{itemize}
-		\item The map is $\bT$-surjective: We have a term in 
-		\begin{align*}
-			\prod_{y : Y} \|\fib_\eta (\eta y) \|_\bT
-		\end{align*}
-		and each $\|\fib_\eta \eta y \|_\bT$ is modal, i.e. contractible if $x \neq 0$. Hence we get a (unique term in)filler in 
-		\[
-		\prod_{y : (x \neq0) \star Y} \| \fib_\eta y\|_\bT
-		\]
-		 \\
-	\item Given $y,y' : Y$, we have
-	\begin{align*}
-		\eta(y') = \eta(y) &\simeq (x \neq 0) \star (y = y')&& \ | \  \text{ closed modality is lex (\cite{Modalities} Example 3.1.4).} \\
-		&\simeq L_\bT\left((y = y') \lor (x \neq 0) \right) && \ | \ (x \neq 0) \to \mathsf{HasDecEq}(Y) \\
-		&\simeq (y = y') + (x \neq 0) \times y \neq y'¸
-	\end{align*}
-	\end{itemize}
-%JUMP
-%	Hence the fiber over $y$ is 
+OUTDATED!
+%\begin{definition}
+%	Given a sheaf proposition $P$, the closed modality in the sheaf topos associated to $P$ is given by
+%	\begin{align*}
+%		\cU &\to \cU \\
+%		X &\mapsto P \star X :\equiv L_\bT(P \sqcup_{P \times X} X)
+%	\end{align*}
+%	where we need to sheafify the pushout. A type $X$ is modal, if it is a sheaf and $P \to \isContr(X)$.
+%\end{definition}
+%\begin{definition}
+%	Let $Y : R \to \Aff$ be a dependent family of affines, such that $(Y \in \bT)^{x \neq 0}$ . 
+%	The fiber collapse of $Y$ away from the origin $\emdash Y \emdash $ is the space over $R$
 %	\[
-%	1 + (x \neq 0) \times Y \setminus \{y\} = 1 + \sum_{p : x \neq 0}Y \setminus \{y\}
+%	\sum_{x : R} (x \neq 0) \star Y_x \to R %\sum_{x : R} Y_x \to 
 %	\]
-%	which is inhabited affine and formally \etale + flat. %, because the right summand is a $\sum$ of formally \etale + flat affines: Indeed, whenever $x \neq 0$ then $Y \setminus \{y\}$ is formally \etale + flat.
-	%	 As $y = y'$ is open by assumption the fiber is merely inhabited and a $\sum$ of $\bT$-flat geometric stacks, thus covering. 
-	%	Let us show, that the fiber over $\Delta(y)$ is $1 + (Y - y) \times (x \neq 0)$ which is formally \etale + flat and inhabited affine.	Here we use, that $Y$ has decidable equality and if $y \neq y'$, then % we have $inl(y) = inl(y') \simeq (x \neq 0) \star (y = y') = (x \neq 0)$. \\
-\end{proof}
+%%	: \prod_{x : R} \sum_{Y:\Aff} (Y \in \EF)^{x \neq 0}$ %
+%\end{definition}
+%This space over $R$ looks exactly like the line away from the origin and over an infinitesimal $\varepsilon$ the fiber is $Y_\varepsilon$.
+%\begin{lemma}
+%	$\emdash Y \emdash$ is an algebraic space.
+%\end{lemma}
+%\begin{proof}
+%	Let $x : R$. Let $Y : \Aff$ such that $x \neq 0$ implies that $Y$ is formally \etale + flat. We will show that $\eta : Y \to (x \neq 0) \star Y$ is the sheaf-quotient map of the relation on $Y$ given by $y \sim y' \equiv (y = y') + (x \neq 0) \times y \neq y'¸$, which is enough by \ref{ex:MapOverR}. We apply  \ref{lemma:quotient-by-equivalence-relation} \\
+%	\begin{itemize}
+%		\item The map is $\bT$-surjective: We have a $\bT$-surjection $(x \neq 0) + Y \to (x \neq 0) \star Y$. In case $x \neq 0$, the map of interest is $Y \to 1$, which is $\bT$-surjective, as then $Y \in \bT$. 
+%	\item Given $y,y' : Y$, we have
+%	\begin{align*}
+%		\eta(y') = \eta(y) &\simeq (x \neq 0) \star (y = y')&& \ | \  \text{ closed modality is lex (\cite{Modalities} Example 3.1.4).} \\
+%		&\simeq L_\bT\left((y = y') \lor (x \neq 0) \right) && \ | \ (x \neq 0) \to \mathsf{HasDecEq}(Y) \\
+%		&\simeq (y = y') + (x \neq 0) \times y \neq y'¸
+%	\end{align*}
+%	\end{itemize}
+%%JUMP
+%%	Hence the fiber over $y$ is 
+%%	\[
+%%	1 + (x \neq 0) \times Y \setminus \{y\} = 1 + \sum_{p : x \neq 0}Y \setminus \{y\}
+%%	\]
+%%	which is inhabited affine and formally \etale + flat. %, because the right summand is a $\sum$ of formally \etale + flat affines: Indeed, whenever $x \neq 0$ then $Y \setminus \{y\}$ is formally \etale + flat.
+%	%	 As $y = y'$ is open by assumption the fiber is merely inhabited and a $\sum$ of $\bT$-flat geometric stacks, thus covering. 
+%	%	Let us show, that the fiber over $\Delta(y)$ is $1 + (Y - y) \times (x \neq 0)$ which is formally \etale + flat and inhabited affine.	Here we use, that $Y$ has decidable equality and if $y \neq y'$, then % we have $inl(y) = inl(y') \simeq (x \neq 0) \star (y = y') = (x \neq 0)$. \\
+%\end{proof}
 \begin{example}
 	$\emdash Bool \emdash$ is the line with two origins. \\
 	---$\Spec R[X] / (X^2 + 1))$--- is the twisted line with two origins, i.e. over the origin we have the roots of $-1$. \\
@@ -1194,58 +1182,58 @@ This space over $R$ looks exactly like the line away from the origin and over an
 \subsection{Schemes do not have descent}
 For this section, let $\rho : R \setminus \{0\}$ denote a term, e.g. $\rho = 1$. Set $C = R[T] / (T^2 + \rho)$.
 
-\begin{prop}
+\begin{prop}[OUTDATED! Copy from talk!]
 	If ---$\Spec C$--- is a scheme, then $X^2 + \rho$ has a root.
 \end{prop}
-\begin{proof}
-	Let $p : \emdash \Spec C \emdash \to R$ be the first projection.
-	We proceed as follows
-	\begin{enumerate}
-		\item  There is no open affine subset of $L(\Spec C)$ containing $\fib_p(0)$.
-		\item Any cover of $\Spec C$ by open subsets strictly smaller than $\Spec C$ yields a root.
-	\end{enumerate}
-	Proves:
-	\begin{enumerate}
-		\item Because we want to show a sheaf, we may assume $L(\Spec C) = L(2)$. Assume there is an open affine subset $\fib_p(0) \subset U \subset L (2)$. Then $p(U) \subset R$ is an open neigbhorhood of 0, as 
-		\[
-		x \in p(U) \leftrightarrow (x,N) \in U \lor (x,S) \in U
-		\]
-		Claim: the map $R^{p(U)} \to R^U$ is an equivalence. If we have shown that: As $U$ is affine we conclude that the map
-		\begin{align*}
-			U &\to \Spec (R^{p(U)}) \\
-			x &\mapsto \phi \mapsto (\phi(px))		
-		\end{align*}
-		is an equivalence, which is a contradiction to the assumption, that $U$ contains both origins. \\
-		Proof of claim:
-		Injectivity: If two maps $f , g : p(U) \to R$ coincide after precomposing with $U \to p(U)$, then they coincide away from $0$
-		so conclude by \ref{lemma:AlmostEverywhere}. \\
-		Surjectivity: Given a map $U \to R$, by pulling back along $p : R + R \to L(2)$ we can view it as a map $R + R \supset U' \rightsquigarrow R$ defined at both origins, so in particular as a pair of maps to $R$ defined on some open neigbhorhood of 0 of $R$. They coincide away from 0 so by \ref{lemma:AlmostEverywhere} they are equal.
-		%$U \setminus \fib_p(0)$ is an open subset of $L(2) \setminus \fib_p(0) \simeq R^{\times}$. 
-		\item As $\Spec C$ is an \etale sheaf, its enough to show to construct a function $\|\Spec C\| \to \Spec C$. \\
-		Define 
-		\begin{align*}
-			A : \Spec C &\to \Prop^{\Fin(n)}  \\
-			x &\mapsto \{ j : x \in U_j\}
-		\end{align*}
-		where we transport $x : \Spec C$ along $\Spec C \overset{\simeq}{\to} \fib_p 0$.
-		Observe 
-		\begin{enumerate}
-			\item for any $x,x' : \Spec C$, 
-			\[\| A x \cap  A x' \| \to \lnot \lnot (x = x') \overset{DecEq(\Spec C)}{\to} x = x'\] where the first implication follows like this : if $x \neq x'$ and $\fib_p 0 = \{x , x'\} \in U_j$ then we have a contradiction to the first point 
-			\item For any $x : \Spec C$ , $\| A x\|$.
-		\end{enumerate}
-		Assume $\|\Spec C\|$.
-		Lets try to construct a term of the following type
-		\[
-		\sum_{x : \Spec C} \forall x' : \Spec C , j : A x, j' : A x' \to j \le j' 
-		\]
-		For this we may assume $\Spec C = Bool \equiv \{N,S\}$, as the above type is a proposition: If we have given two such minimal $x_1, x_2$, we can set first $x' \equiv x_2$ and then $x' \equiv x_1$ respectively and then (by (b)) choosing $j : A_{x_1},j' : A_{x_2}$ gives $j \le j' \le j$ so that $j : A_{x_1} \cap A_{x_2}$ such that $x_1 = x_2$ by (a). \\
-		I will explain an algorithm to do the following:
-		Given $n \ge 2$, and a pair of  merely inhabited disjoints subsets $A_N$ and $A_S$ of $\Fin(n)$, we can decide in which of the two we find the smaller number of $\Fin(n)$. \\
-		Induction over $n$. If $n = 2$, then $\|A_N\|$, so we find a term in the proposition $(0 \in A_N) + (1 \in A_N)$ . In the left case return $S$, in the right case $N$. \\
-		For $n \mapsto n+1$, if $n \in A_N$ return $S$. If $n \in A_S$, return $N$. Otherwise both $A_N$ and $A_S$ are subset of $\Fin(n)$, so conclude by induction.  
-	\end{enumerate}
-\end{proof}
+%\begin{proof}
+%	Let $p : \emdash \Spec C \emdash \to R$ be the first projection.
+%	We proceed as follows
+%	\begin{enumerate}
+%		\item  There is no open affine subset of $L(\Spec C)$ containing $\fib_p(0)$.
+%		\item Any cover of $\Spec C$ by open subsets strictly smaller than $\Spec C$ yields a root.
+%	\end{enumerate}
+%	Proves:
+%	\begin{enumerate}
+%		\item Because we want to show a sheaf, we may assume $L(\Spec C) = L(2)$. Assume there is an open affine subset $\fib_p(0) \subset U \subset L (2)$. Then $p(U) \subset R$ is an open neigbhorhood of 0, as 
+%		\[
+%		x \in p(U) \leftrightarrow (x,N) \in U \lor (x,S) \in U
+%		\]
+%		Claim: the map $R^{p(U)} \to R^U$ is an equivalence. If we have shown that: As $U$ is affine we conclude that the map
+%		\begin{align*}
+%			U &\to \Spec (R^{p(U)}) \\
+%			x &\mapsto \phi \mapsto (\phi(px))		
+%		\end{align*}
+%		is an equivalence, which is a contradiction to the assumption, that $U$ contains both origins. \\
+%		Proof of claim:
+%		Injectivity: If two maps $f , g : p(U) \to R$ coincide after precomposing with $U \to p(U)$, then they coincide away from $0$
+%		so conclude by \ref{lemma:AlmostEverywhere}. \\
+%		Surjectivity: Given a map $U \to R$, by pulling back along $p : R + R \to L(2)$ we can view it as a map $R + R \supset U' \rightsquigarrow R$ defined at both origins, so in particular as a pair of maps to $R$ defined on some open neigbhorhood of 0 of $R$. They coincide away from 0 so by \ref{lemma:AlmostEverywhere} they are equal.
+%		%$U \setminus \fib_p(0)$ is an open subset of $L(2) \setminus \fib_p(0) \simeq R^{\times}$. 
+%		\item As $\Spec C$ is an \etale sheaf, its enough to show to construct a function $\|\Spec C\| \to \Spec C$. \\
+%		Define 
+%		\begin{align*}
+%			A : \Spec C &\to \Prop^{\Fin(n)}  \\
+%			x &\mapsto \{ j : x \in U_j\}
+%		\end{align*}
+%		where we transport $x : \Spec C$ along $\Spec C \overset{\simeq}{\to} \fib_p 0$.
+%		Observe 
+%		\begin{enumerate}
+%			\item for any $x,x' : \Spec C$, 
+%			\[\| A x \cap  A x' \| \to \lnot \lnot (x = x') \overset{DecEq(\Spec C)}{\to} x = x'\] where the first implication follows like this : if $x \neq x'$ and $\fib_p 0 = \{x , x'\} \in U_j$ then we have a contradiction to the first point 
+%			\item For any $x : \Spec C$ , $\| A x\|$.
+%		\end{enumerate}
+%		Assume $\|\Spec C\|$.
+%		Lets try to construct a term of the following type
+%		\[
+%		\sum_{x : \Spec C} \forall x' : \Spec C , j : A x, j' : A x' \to j \le j' 
+%		\]
+%		For this we may assume $\Spec C = Bool \equiv \{N,S\}$, as the above type is a proposition: If we have given two such maximal $x_1, x_2$, we can set first $x' \equiv x_2$ and then $x' \equiv x_1$ respectively and then (by (b)) choosing $j : A_{x_1},j' : A_{x_2}$ gives $j \le j' \le j$ so that $j : A_{x_1} \cap A_{x_2}$ such that $x_1 = x_2$ by (a). \\
+%		I will explain an algorithm to do the following:
+%		Given $n \ge 2$, and a pair of  merely inhabited disjoints subsets $A_N$ and $A_S$ of $\Fin(n)$, we can decide in which of the two we find the smaller number of $\Fin(n)$. \\
+%		Induction over $n$. If $n = 2$, then $\|A_N\|$, so we find a term in the proposition $(0 \in A_N) + (1 \in A_N)$ . In the left case return $S$, in the right case $N$. \\
+%		For $n \mapsto n+1$, if $n \in A_N$ return $S$. If $n \in A_S$, return $N$. Otherwise both $A_N$ and $A_S$ are subset of $\Fin(n)$, so conclude by induction.  
+%	\end{enumerate}
+%\end{proof}
 \begin{corollary}
 	Schemes do not have descent.
 \end{corollary}
