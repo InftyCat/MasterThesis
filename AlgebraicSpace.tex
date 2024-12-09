@@ -2,8 +2,10 @@
 \section{Talk: Algebraic Spaces: (Counter-)examples}
 We assume today, that schemes are \etale sheaves.
 \begin{notation}
-	\[\bT = \{X : \Aff \ | \ X \text{ formally \etale + flat + $\lnot \lnot$-inhabited }\}\]
+	\[\bT = \{X : \Aff \ | \ X \text{ formally \etale } + \underbrace{\text{faithfully flat}}_{=\text{ flat }+ \lnot \lnot \text{ inhabited } }\}\]
 \end{notation}
+$\bT$ contains $1$ and is stable under $\sum$.
+A $\bT$-cover is a map fibered in $\bT$.
 \begin{definition}
 	A naive algebraic space is an \etale-sheaf $X$, that merely
 	admits a $\bT$-cover $\Spec B \to F$. \\
@@ -23,12 +25,16 @@ Instead we have to do asking for an atlas twice.
 	\end{itemize}
 	We call $X$ covering, if we can choose $\Spec A$ to lie in $\bT$.
 \end{definition}
+This class is stable under $\sum$ and under quotients by covering equivalence relations
 \begin{theorem}[DESCENT]
 	The type of (covering) algebraic spaces is an \etale-stack.
 \end{theorem}
 \begin{example}
 	Schemes are algebraic spaces!
 \end{example}
+\begin{proof}
+	Open propositions are naive algebraic spaces. A merely inhabited finite sum of open propositions is covering.
+\end{proof}
 \begin{question}
 	Can we find algebraic spaces that are not schemes? \\
 	Can we prove with them, that Schemes do not have descent? \\	
@@ -44,15 +50,15 @@ This suggests that we need a free action. However
 \end{example}
 Having a free action on the whole space might be not good enough to cook up examples of algebraic spaces that are not schemes.
 \begin{construction}
-	Given a formally \etale + flat affine (e.g. $\mu_\ell$ or finite) group that acts on an affine $\Spec A$. Assume $G$ acts free on some open subset $U \subset \Spec A$.  % that belongs to $\bT$ (more generally a covering algebraic space)
+	Given a formally \etale + flat affine (e.g. $\mu_\ell$ or finite) group $G$ that acts on an affine $\Spec A$. Assume $G$ acts free on some open subset $U \subset \Spec A$.  % that belongs to $\bT$ (more generally a covering algebraic space)
 	
-	Then we construct a covering equivalence relation $R_{G,U}$ on $\Spec A$, such that
+	Then we construct a covering equivalence relation $R$ on $\Spec A$, such that
 	\begin{itemize}
 		\item  for any $x : U$  and $y : \Spec A$
 		\[R(x,y) \leftrightarrow \sum_{g : G} g x  = y. \]
 		\item for some $y : \Spec A \setminus U$, we have $R(x,y) \leftrightarrow x = y$.
 	\end{itemize}
-	We write $\Spec A / G|_U \equiv \Spec A / R_{G,U}$ and call it the quotient of $\Spec A$ by the $G$-action on $U$ .
+	We write $\Spec A / G|_U \equiv \Spec A / R$ and call it the quotient of $\Spec A$ by the $G$-action on $U$ .
 
 \end{construction}
 \begin{proof}
@@ -75,19 +81,19 @@ Having a free action on the whole space might be not good enough to cook up exam
 \end{notation}
 
 \begin{example}[Quotient of the Line]
-	If $\ell \neq 0$ is prime, we have $R / \mu_\ell|_{R^\times}$ is an algebraic spaces
+	If $\ell \neq 0$ is prime, we have $R / \mu_\ell|_{0^c}$ is an algebraic space
 \end{example}
 \begin{example}[Quotient of the Cross]
-	Let $2 \neq 0$. Let $\mu_2$ act on $X = \Spec R[X,Y] / X^2 - Y^2$ via $-(x,y) \equiv (x,-y)$. Then
+	Let $\mu_\ell$ act on $X = \Spec R[X,Y] / X^\ell - Y^\ell$ via multiplication on the second component. Then
 	\[
-	X / \mu_2|_{X \setminus \{0,0\}}
+	X / \mu_\ell|_{\{0,0\}^c}
 	\]
 	is an algebraic space.
 \end{example}
 Are those schemes?
 \subsection{Not a scheme?}
 \begin{definition}
-	A pointed-free action of $G$ on a pointed type $(X,0)$ is a $G$-action that has 0 as a fixpoint such that  if $g x = x$ for some $g \neq 1$, then $\varepsilon = 0$. \\
+	A pointed-free action of $G$ on a pointed type $(X,0)$ is a $G$-action that has 0 as a fixpoint such that  if $g x = x$ for some $g \neq 1$, then $x = 0$. \\
 \end{definition}
 %\begin{lemma}
 %	Let $G$ be a group with decidable equality acting pointed free on a pointed type $(X,0)$.
@@ -97,15 +103,25 @@ Are those schemes?
 %\begin{proof}
 %	let $x , y\neq 0$. We need to show, that $\sum_g g x = y$ is a proposition. Let $g, g' : G$ such that $g x = y$. as $G$ has decidable equality, we may show $\lnot \lnot (g = g')$. If $g^{-1} g' \neq 1$, then by pointed-freeness applied to $g^{-1} g' x = x$, we have $x = 0$. Contradiction.
 %\end{proof}
+
+
+\begin{definition}
+	A point $0 : \Spec B$ is regular, if $\Spec B \setminus \{0\} = D(p_1,\hdots,p_n)$ for some $p_1,\hdots,p_n : B$ jointly-reguar, i.e. if $p_i^m \cdot b = 0$ for all $i=1,\hdots,n$ then $b = 0$. \\
+	If $0 : X$ is a point of a scheme, we call it regular, if one of the following equivalent conditions is satisfied 
+	\begin{enumerate}
+		\item it admits some open affine neigbhorhood $U$ such that $0 : U$ is regular.\\
+		\item It is a regular point of any open affine neigbhorhood.
+	\end{enumerate}
+\end{definition}
 \begin{theorem}
 	
-	Let $0 : \Spec A$ be a good point. % such that $\Spec A \setminus \{0\} = D(g)$ for some regular $g : B$. %the infinitesimal neigbhorhood is not open. %  $R^{\Spec A} \to R^{\Spec A \setminus \{0\}}$ is injective.
+	Let $0 : \Spec A$ be a regular point. % such that $\Spec A \setminus \{0\} = D(g)$ for some regular $g : B$. %the infinitesimal neigbhorhood is not open. %  $R^{\Spec A} \to R^{\Spec A \setminus \{0\}}$ is injective.
 	Let $G$ be a non-trivial formally \etale flat affine group  pointed- freely acting on the pointed affine $(\Spec A,0)$.
 	Then $\Spec A / G|_{0^c}$ from \ref{ex:GAction} is non-locally-seperated, In particular not a scheme.
 \end{theorem}
 
 \begin{example}[Non locally-separated examples]
-	Assume $\ell \neq 0$ prime. Let $n\mu_\ell$ act on $\Spec B$ in one of the following ways:
+	Assume $\ell \neq 0$ prime. Let $\mu_\ell$ act on $\Spec B$ in one of the following ways:
 	\begin{enumerate}
 		\item Let $\mu_\ell$ act on $\Spec B = \bA^1$. 
 		\item Let $\mu_\ell$ act on
@@ -114,28 +130,37 @@ Are those schemes?
 		\]
 		via $g (x,y) = (x,g y)$
 	\end{enumerate}
-	Then $\Spec B / \mu_\ell|_0^c$ is an algebraic space that is not a scheme.
+	Then $\Spec B / \mu_\ell|_{0^c}$ is an algebraic space that is not a scheme.
 \end{example}
 \begin{proof}
 	$\lnot \lnot$ merely, $\mu_\ell$ is finite (\todocite) and $\mu_\ell \setminus \{1\}$ is inhabited by \ref{lemma:CompOf1}. 
 	\begin{enumerate}
-		\item Pointed-Free action is clear. $0 : \bA^1$ is a good point by first projection.
-		\item  Pointed-Free action is clear. The cross is good pointed, witnessed by  the first projection: It is regular vanishing at $(0,0)$ And for any point $(0,y) : \Spec B$ we deduce $y^\ell = -0^\ell = 0$, hence $\lnot \lnot (x,y) = (0,0)$.
+		\item Pointed-Free action is clear. $0 : \bA^1$ is a regular point by first projection.
+		\item  Pointed-Free action is clear. The cross is regular pointed, witnessed by  the first projection: It is regular vanishing at $(0,0)$ And for any point $(0,y) : \Spec B$ we deduce $y^\ell = -0^\ell = 0$, hence $\lnot \lnot (x,y) = (0,0)$.
 	\end{enumerate}
 \end{proof}
 \subsection{Fiber Collapse!}
 An alternative approach to construct algebraic spaces is the fiber collapse away from the origin.
+
 \begin{definition}
-	Let $Y : R \to \Aff$ be a dependent family of affines, such that $(Y \in \EF)^{x \neq 0}$ . 
-	The fiber collapse of $Y$ away from the origin $\emdash Y \emdash $ is the space over $R$
+	Given a sheaf proposition $P$, the closed modality in the sheaf topos associated to $P$ is given by
+	\[
+	\cU &\to \cU \\
+	X &\mapsto P \star X :\equiv L_\bT(P \sqcup_{P \times X} X)
+	\]
+	where we need to sheafify the pushout. A type $X$ is modal, if it is a sheaf and $P \to \isContr(X)$.
+\end{definition}
+\begin{definition}
+	Let $Y_\bullet : R \to \Aff$ be a dependent family of affines %$(Y \in \EF)^{x \neq 0}$ . 
+	The fiber collapse of $Y_\bullet$ away from the origin $\emdash Y_\bullet \emdash $ is the following type over $R$
 	\[
 	\sum_{x : R} (x \neq 0) \star Y_x \to R %\sum_{x : R} Y_x \to 
 	\]
 	%	: \prod_{x : R} \sum_{Y:\Aff} (Y \in \EF)^{x \neq 0}$ %
 \end{definition}
 This space over $R$ looks exactly like the line away from the origin and over an infinitesimal $\varepsilon$ the fiber is $Y_\varepsilon$.
-\begin{lemma}
-	$\emdash Y \emdash$ is an algebraic space.
+\begin{lemma}{\label{lemma:FiberCollapsAS}}
+	Assume that if $x \neq 0$, then $Y_x$ is formally \etale + flat. Then $\emdash Y \emdash$ is an algebraic space.
 \end{lemma}
 \begin{proof}
 	Let $x : R$. Let $Y : \Aff$ such that $x \neq 0$ implies that $Y$ is formally \etale + flat. We will show that $\eta : Y \to (x \neq 0) \star Y$ is the sheaf-quotient map of the relation on $Y$ given by $y \sim y' \equiv (y = y') + (x \neq 0) \times y \neq y'¸$, which is enough by \ref{ex:MapOverR}. We apply  \ref{lemma:quotient-by-equivalence-relation} \\
@@ -144,7 +169,7 @@ This space over $R$ looks exactly like the line away from the origin and over an
 		\begin{align*}
 			\prod_{y : Y} \|\fib_\eta (\eta y) \|_\bT
 		\end{align*}
-		and each $\|\fib_\eta \eta y \|_\bT$ is modal, i.e. contractible if $x \neq 0$. Hence we get a (unique term in)filler in 
+		and each $\|\fib_\eta \eta y \|_\bT$ is modal, i.e. contractible if $x \neq 0$. Hence we get 
 		\[
 		\prod_{y : (x \neq0) \star Y} \| \fib_\eta y\|_\bT
 		\]
@@ -160,15 +185,15 @@ This space over $R$ looks exactly like the line away from the origin and over an
 \begin{example}
 	$\emdash Bool \emdash$ is the line with two origins. \\
 	---$\Spec R[X] / (X^2 + 1))$--- is the twisted line with two origins, i.e. over the origin we have the roots of $-1$. \\
-	---$\Spec R[Y] / (Y^2 - \bullet)$--- is an algebraic space that looks like $\bD(1)$ over $0$. \\
-	---$\Spec R[Y] / (Y^2 - \bullet^2)$--- is an algebraic space that looks like $\bD(1)$ over every $\varepsilon : \bD(1)$. \\
+	---$\Spec R[Y] / (Y^2 - \bullet)$--- is $\bA^1 / \mu_2|_{0^c}$ which looks like $\bD(1)$ over $0$. \\
+	---$\Spec R[Y] / (Y^2 - \bullet^2)$--- is the quotient of the cross that looks like $\bD(1)$ over every $\varepsilon : \bD(1)$. \\
 
 	
-	---$\Spec R[Y] / (\bullet Y)$--- is the affine cross.
+	---$\Spec R[Y] / (\bullet Y)$--- is the affine plus.
 \end{example}
 \begin{prop}
 	Let $G$ be a formally + flat affine group.
-	Let $p : \tilde Y \to R$ such that the pullback to $R^\times$ can be enhanced to a $G$ torsor. Write $Y_x \equiv \fib_p x$. Then there is a canonical equivalence
+	Let $p : \tilde Y \to R$ such that the pullback to $R^\times$ can be enhanced to a $G$ torsor over $R^\times$. Write $Y_x \equiv \fib_p x$. Then there is a canonical equivalence
 	% https://q.uiver.app/#q=WzAsMyxbMSwwLCJcXHRpbGRlIFkiXSxbMCwxLCJcXHRpbGRlIFkgLyBHfF97KFxcZmliX3AgMCleY30iXSxbMiwxLCJcXGVtZGFzaCBZIFxcZW1kYXNoIl0sWzAsMV0sWzAsMl0sWzEsMiwiXFxzaW1lcSJdXQ==
 	\[\begin{tikzcd}
 		& {\tilde Y} \\
@@ -182,28 +207,20 @@ This space over $R$ looks exactly like the line away from the origin and over an
 	As every non-base fiber is merely equivalent to $G$, its formally \etale + flat.
 	In between you can put
 	$\sum_{x : R} Y_x /G|_{x \neq 0 \times Y_x}$
+	As all three maps defined on $\tilde Y$ are $\bT$-surjective, by \ref{lemma:quotiquotient-by-equivalence-relation} we may only check that the identity types coincide. For any $y,y' : \tilde Y$. Using that if $py \neq 0$ then the $G$ action on $Y_{py}$ is a $G$-torsor, We have an equivalence
+	
+	\begin{align*}
+		(y = y') + y \not \in Y_0 \land \underbrace{\sum_{g \neq 1} g y = y' }_{\simeq (py = py') \land y \neq y'} &\simeq  (py = py') \land ((y = y') + py \neq 0 \land y \neq y' ) \\
+	\end{align*}
+	If we fix $x : R$ and put $y,y' : Y_x$ we have, writing $\eta : Y_x \to (x \neq 0) \star Y_x$
+	\[
+	(y = y') + py \neq 0 \land y \neq y'  \simeq \eta y = \eta y'
+	\]
+	by the proof of \ref{lemma:FiberCollapsAS}.
 \end{proof}
 \subsection{Schemes do not have descent}
 For this section, let $\rho : R \setminus \{0\}$ denote a term, e.g. $\rho = 1$. Set $C = R[T] / (T^2 + \rho)$.
-\begin{definition}
-	A rational map $X \rightsquigarrow Y$ is a term in $\prod_{x : X} Y^{Q x}$ for some $Q : X \to \mathsf{Open}$ % an open proposition.
-\end{definition}
-\begin{lemma}{\label{lemma:RatMapsCoincide}}
-	Given two rational maps $R \rightsquigarrow R$ defined at 0 are already equal, if they coincide everywhere except possibly at 0.
-\end{lemma}
-\begin{proof}
-	We may assume that the maps are defined on the same open $U \subset R$. So we need to show, that $R^U \to R^{U \setminus \{0\}}$ is injective. Choose a Zariski cover $\Spec A = \Spec R[X]_{f_1} \times \hdots R[X]_{f_n} \twoheadrightarrow U \subset R$, and denote the composite as $f : \Spec A \to R$ corresponding to $(X,\hdots,X) : A$, which is a regular element of the algebra $A$, as one of the $f_i$ does not vanish at 0.  we obtain a commutative diagram
-	% https://q.uiver.app/#q=WzAsNCxbMCwwLCJSXlUiXSxbMCwxLCJSXntcXFNwZWMgQX0iXSxbMSwxLCJSXntEKGYpfSJdLFsxLDAsIlJee1UgXFxzZXRtaW51cyBcXHswXFx9fSJdLFswLDEsIiIsMCx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Imhvb2siLCJzaWRlIjoidG9wIn19fV0sWzAsM10sWzEsMl0sWzMsMl1d
-	\[\begin{tikzcd}
-		{R^U} & {R^{U \setminus \{0\}}} \\
-		{R^{\Spec A}} & {R^{D(f)}}
-		\arrow[from=1-1, to=1-2]
-		\arrow[hook, from=1-1, to=2-1]
-		\arrow[from=1-2, to=2-2]
-		\arrow[from=2-1, to=2-2]
-	\end{tikzcd}\]
-	where the left vertical map is injective by surjectivity of the Zariski cover. The lower horizontal map is injective by \ref{lemma:AlmostEverywhere}.
-\end{proof}
+
 \begin{prop}
 	If ---$\Spec C$--- is a scheme, then $X^2 + \rho$ has a root.
 \end{prop}
@@ -212,11 +229,11 @@ For this section, let $\rho : R \setminus \{0\}$ denote a term, e.g. $\rho = 1$.
 	We proceed as follows
 	\begin{enumerate}
 		\item  There is no open affine subset of $L(\Spec C)$ containing $\fib_p(0)$.
-		\item Any cover of $\Spec C$ by open subsets strictly smaller than $\Spec C$ yields a root.
+		\item Any inhabited cover of $\Spec C$ by open subsets strictly smaller than $\Spec C$ yields a root.
 	\end{enumerate}
 	Proves:
 	\begin{enumerate}
-		\item Because we want to show a sheaf, we may assume $L(\Spec C) = L(2)$. Assume there is an open affine subset $\fib_p(0) \subset U \subset L (2)$. Then $p(U) \subset R$ is an open neigbhorhood of 0, as 
+		\item Because we want to show $\bot$, we may assume ---$\Spec C \emdash = \emdash Bool \emdash$. Assume there is an open affine subset $\fib_p(0) \subset U \subset \emdash Bool \emdash$. Then $p(U) \subset R$ is an open neigbhorhood of 0, as 
 		\[
 		x \in p(U) \leftrightarrow (x,N) \in U \lor (x,S) \in U
 		\]
@@ -229,8 +246,7 @@ For this section, let $\rho : R \setminus \{0\}$ denote a term, e.g. $\rho = 1$.
 		Proof of claim:
 		Injectivity: If two maps $f , g : p(U) \to R$ coincide after precomposing with $U \to p(U)$, then they coincide away from $0$
 		so conclude by \ref{lemma:RatMapsCoincide}. \\
-		Surjectivity: Given a map $U \to R$, by pulling back along $p : R + R \to L(2)$ we can view it as a rational map $R + R \rightsquigarrow R$ defined at both origins, so in particular as a pair of rational maps $R \rightsquigarrow R$ defined at 0. They coincide away from 0 so by \ref{lemma:RatMapsCoincide} they are equal.
-		%$U \setminus \fib_p(0)$ is an open subset of $L(2) \setminus \fib_p(0) \simeq R^{\times}$. 
+		Surjectivity: Given a map $U \to R$, by pulling back along $p : R + R \to \emdash Bool \emdash$  we can view it as a map $R + R \supset U' \to R$ defined at both origins, so in particular as a pair of maps to $R$ defined on some open neigbhorhood of 0 of $R$. They coincide away from 0 so by \ref{lemma:AlmostEverywhere} they are equal.
 		\item As $\Spec C$ is an \etale sheaf, its enough to show to construct a function $\|\Spec C\| \to \Spec C$. \\
 		Define 
 		\begin{align*}
@@ -262,7 +278,7 @@ For this section, let $\rho : R \setminus \{0\}$ denote a term, e.g. $\rho = 1$.
 \begin{proof}
 	If Schemes have descent, then ---$\Spec R[T]/(T^2 + \rho) \emdash \in \mathsf{Sch}$ is a sheaf. As ---$\Spec R[T]/(T^2 + \rho) \emdash$ is $\bT$-merely a scheme, it is a scheme, so by the previous lemma $T^2 + \rho$ has a root. Contradiction to \cite{cherubini2023foundationsyntheticalgebraicgeometry} A . 0.3. \\
 \end{proof}
-\subsection{Algebraic spaces}
+\section{Algebraic spaces}
 
 
 %Let us also mention what we learned in the proof:
@@ -397,7 +413,7 @@ This follows from the observation, that the equivalence relation determined by $
 %	
 %\end{proof}
 
-\section{Examples}
+%\section{Examples}
 The goal of this subsection is to construct algebraic spaces. The first example actually gives us a scheme:
 \begin{example}
 	Let $p \neq 0$ be a prime. You can let $\mu_p := \Spec(R[X] / (X^p - 1))$ act on $\bA^\times$ via multiplication. Set $\bT= fppf$. Then the $p$.th power map
@@ -519,24 +535,63 @@ Let $\ell \neq 0$ denote a prime. Consider $\mu_\ell = R[X] / (X^\ell - 1)$.
 %	%Subgroups always act free, and $\bZ/2$ is an algebraic space, thus by \ref{lemma:algSpacesStabFreeQuots} the sheaf quotient $G / H$ is an algebraic space. \\
 %	%We can calculate it: I Claim that
 %\end{proof}
-\begin{lemma}{\label{lemma:AlmostEverywhere}}
-	Let $p : A$ be reguar. If $f : \Spec A \to R$ such that $f(x) = 0$ for all $x \in D(p)$, then $f(x) = 0$ for all $x : \Spec A$.
-\end{lemma}
+\begin{definition}
+	A point $0 : \Spec B$ is regular, if $\Spec B \setminus \{0\} = D(p_1,\hdots,p_n)$ for some $p_1,\hdots,p_n : B$ jointly-reguar, i.e. if $p_i^m \cdot b = 0$ for all $i=1,\hdots,n$ then $b = 0$. \\
+	If $0 : X$ is a point of a scheme, we call it regular, if one of the following equivalent conditions is satisfied 
+	\begin{enumerate}
+		\item it admits some open affine neigbhorhood $U$ such that $0 : U$ is regular.\\
+		\item It is a regular point of any open affine neigbhorhood.
+	\end{enumerate}
+\end{definition}
 \begin{proof}
+	Consider an open affine neigbhorhood $0 : D(f) \subset U = \Spec B$.
+	We will show
+	\begin{enumerate}
+		\item If $0$ is regular in $D(f)$, then it is regular in $\Spec B$:
+		Consider $g_1, \hdots, g_n : B$ such that 
+		\[
+		B_f \to \prod_i B_{f g_i}
+		\]
+		is injective. Define $g_0 := f - f(0)$, where $0 \not \in D(g_0)$.
+		Let us show, that $g_0,\hdots,g_n$ are jointly surjective in $B$.
+		Let $b : B$ such that $g_i^n b = 0$ for all $0 \le i \le n$. Then in particular $b / 1 =_{B_f} 0$. Thus $b$ is in the kernel of $B \to B_{g_0} \times B_f$. But $D(g_0) \cup D(f)$ forms an open cover of $\Spec B$ as $(f,g_0)$ generate the unit ideals. Thus $b : \Spec B \to R$ equals 0 on an open cover, thus its 0.
+		\item If $0$ is regular in $\Spec B$, then it is regular in $D(f)$:
+		Assume $B \to \prod B_{g_i}$ is injective. Let $f : B$. Let us show that $B_f \to \prod B_{g_i f}$ is injective. If $(g_i f)^n b = 0$, then $(g_i)^n (f^n b) = 0$, thus $f^n b = 0$ by assumption. Thus $b / 1 =_{B /f} 0$ as desired.
+	\end{enumerate}
+\end{proof}
+\begin{lemma}{\label{lemma:AlmostEverywhere}}
+	If $0 : X$ is a regular point in a scheme, then $R^X \to R^{X \setminus \{0\}}$ is injective. %Probably the converse also holds.
+\end{lemma}
+
+\begin{proof}
+	Lets first reduce to the affine case. Choose an open affine neibhorhood $U$ of $0$ such that $0 : U$ is regular. Then the surjection $U + X \setminus \{0\} \twoheadrightarrow X$ induces a vertical left injection 
+	% https://q.uiver.app/#q=WzAsNCxbMCwwLCJSXntVICsgWCBcXHNldG1pbnVzIFxcezBcXH19Il0sWzAsMSwiUl5YIl0sWzEsMCwiUl57VSBcXHNldG1pbnVzIFxcezBcXH0gKyBYIFxcc2V0bWludXMgXFx7MFxcfX0iXSxbMSwxLCJSXntYIFxcc2V0bWludXMgXFx7MFxcfX0iXSxbMSwwLCIiLDAseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJob29rIiwic2lkZSI6InRvcCJ9fX1dLFszLDJdLFswLDIsIiIsMSx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Imhvb2siLCJzaWRlIjoidG9wIn19fV0sWzEsM11d
+	\[\begin{tikzcd}
+		{R^{U + X \setminus \{0\}}} & {R^{U \setminus \{0\} + X \setminus \{0\}}} \\
+		{R^X} & {R^{X \setminus \{0\}}}
+		\arrow[hook, from=1-1, to=1-2]
+		\arrow[hook, from=2-1, to=1-1]
+		\arrow[from=2-1, to=2-2]
+		\arrow[from=2-2, to=1-2]
+	\end{tikzcd}\]
+	So we may assume that $X = \Spec A$ is affine. \\
+	Let $p_1,\hdots,p_n : A$ be jointly-reguar, i.e. if $p_i^m \cdot a = 0$ for all $i=1,\hdots,n$ then $a = 0$. If $f : \Spec A \to R$ such that $f(x) = 0$ for all $x \in D(p_1,\hdots,p_n)$, then $f(x) = 0$ for all $x : \Spec A$.
 	$f$ is in the kernel of the diagonal map
-% https://q.uiver.app/#q=WzAsNCxbMSwwLCJSXlIiXSxbMSwxLCJSXntSIFxcc2V0bWludXMgXFx7MFxcfX0iXSxbMCwwLCJSW1hdIl0sWzAsMSwiUltYXntcXHBtIDF9XSJdLFswLDFdLFsyLDMsIiIsMCx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Imhvb2siLCJzaWRlIjoidG9wIn19fV0sWzAsMiwiIiwxLHsibGV2ZWwiOjIsInN0eWxlIjp7ImhlYWQiOnsibmFtZSI6Im5vbmUifX19XSxbMSwzLCIiLDEseyJsZXZlbCI6Miwic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoibm9uZSJ9fX1dXQ==
+% https://q.uiver.app/#q=WzAsNSxbMSwwLCJSXntcXFNwZWMgQX0iXSxbMSwxLCJ7Ul57XFxjb3Byb2RfaSBEKHBfaSl9fSJdLFswLDAsIlxcQSJdLFswLDEsIlx0e1xccHJvZF97aT0xfV5uIEFfe3BfaX19ICJdLFsyLDEsIlJee1xcY3VwIEQocF9pKX0iXSxbMCwxXSxbMiwzLCIiLDAseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJob29rIiwic2lkZSI6InRvcCJ9fX1dLFswLDIsIiIsMSx7ImxldmVsIjoyLCJzdHlsZSI6eyJoZWFkIjp7Im5hbWUiOiJub25lIn19fV0sWzEsMywiIiwxLHsibGV2ZWwiOjIsInN0eWxlIjp7ImhlYWQiOnsibmFtZSI6Im5vbmUifX19XSxbMSw0LCIiLDAseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJob29rIiwic2lkZSI6InRvcCJ9fX1dXQ==
 \[\begin{tikzcd}
-	{A} & {R^{\Spec A}} \\
-	{A_p} & {R^{D(p)}}
+	A & {R^{\Spec A}} \\
+	{	{\prod_{i=1}^n A_{p_i}} } & {{R^{\coprod_i D(p_i)}}} & {R^{\cup D(p_i)}}
 	\arrow[hook, from=1-1, to=2-1]
 	\arrow[Rightarrow, no head, from=1-2, to=1-1]
 	\arrow[from=1-2, to=2-2]
 	\arrow[Rightarrow, no head, from=2-2, to=2-1]
+	\arrow[hook, from=2-2, to=2-3]
 \end{tikzcd}\]
-	which is injective, as $p$ is regular in $A$. \\
+	which is injective, as $p_1,\hdots,p_n$ are jointly-regular in $A$. \\
 	Thus $f = 0$ in $A$.
 %	 Thus $f = 0 $ in $(R \setminus \{0\} \to R) = R[X^{\pm 1}]$ hence $f \cdot X^n = 0$ in $R[X]$ for some $n$, thus $f = 0$.
 \end{proof}
+
 \begin{question}
 	What has this todo with separatedness?
 \end{question}
@@ -695,12 +750,10 @@ For this section let $G$ denote a group that is a covering 0-stack. Let $X$ be a
 	By zariski local choice we find $Y = \bigcup Y_i$ and factorizations of the basechanges $X_i \to Z_i \to Y_i$. Then $\bigcup X_i \to \bigcup Z_i \to \bigcup Y_i = Y$ is a global factorization.
 \end{proof}
 
-\begin{definition}
-	A point $0 : \Spec B$ is good, if the subtype $\{0\} + D(0) \subset \Spec B$ is not locally closed.
-\end{definition}
+
 \begin{prop}{\label{prop:NotLocClosed}}
-	$0 : \Spec B$ is good, whenever it is a bridge point, i.e. there merely is a regular $g : \Spec B \to R$ vanishing at 0, such that $\fib_g(0)$ is infinitesimal  (i.e. each two points are $\lnot \lnot$-equal). 
-%	Then the subtype $\{0\} + D(0) \subset \Spec B$ is not locally closed.
+	If $0 : \Spec B$ is regular, Then the subtype $\{0\} + D(0) \subset \Spec B$ is not locally closed. %whenever it is a bridge point, i.e. there merely is a regular $g : \Spec B \to R$ vanishing at 0, such that $\fib_g(0)$ is infinitesimal  (i.e. each two points are $\lnot \lnot$-equal). 
+%	
 \end{prop}
 \begin{proof}
 We have	$x \neq 0 \leftrightarrow g (x) \neq 0$ %(and by the previous assumption also the converse)
@@ -745,7 +798,7 @@ We proceed by proving $1 \rightarrow 2 \rightarrow 3$.
 \end{proof}
 
 \begin{prop}
-   Let $S$ be affine with a good point $*$.
+   Let $S$ be affine with a regular point $*$.
   Assume we have function $g : S \to S$ such that $*$ is the unique fixpoint $*$ (e.g. if $(S,*)$ admits a pointed-free action of a nontrivial group) 
 %	 \begin{itemize}
 %	 	\item  it has a unique fixpoint $*$, that is a good point. 
@@ -799,7 +852,7 @@ We proceed by proving $1 \rightarrow 2 \rightarrow 3$.
 \begin{proof}
 	Lets call the unique fix point $*$, i.e. we have
 	\[g y = y  \leftrightarrow y = *\]
-	Note that $*  : \tilde Y$ is a good point , as $p : \tilde Y \to R$ is a regular section with $Y_0$ infinitesimal.
+	Note that $*  : \tilde Y$ is a regular point , as $p : \tilde Y \to R$ is a regular section with $Y_0$ infinitesimal.
 \end{proof}
 \begin{definition}
 	A pointed-free action of $G$ on a pointed type $(X,0)$ is a $G$-action with fixpoint 0, such that if $g \varepsilon = \varepsilon$ for some $g \neq 1$, then $\varepsilon = 0$. \\
@@ -814,7 +867,7 @@ We proceed by proving $1 \rightarrow 2 \rightarrow 3$.
 \end{proof}
 \begin{corollary}
 
-	Let $0 : \Spec A$ be a good point. % such that $\Spec A \setminus \{0\} = D(g)$ for some regular $g : B$. %the infinitesimal neigbhorhood is not open. %  $R^{\Spec A} \to R^{\Spec A \setminus \{0\}}$ is injective.
+	Let $0 : \Spec A$ be a regular point. % such that $\Spec A \setminus \{0\} = D(g)$ for some regular $g : B$. %the infinitesimal neigbhorhood is not open. %  $R^{\Spec A} \to R^{\Spec A \setminus \{0\}}$ is injective.
 	Let $G$ be a nontrivial formally \etale flat affine group acting pointed- freely on the pointed affine $(\Spec A,0)$.
 	Then the pointed-free quotient of $\Spec A$ by $G$ from \ref{ex:GAction} is non-locally-seperated, In particular not a scheme.
 \end{corollary}
@@ -840,8 +893,8 @@ We proceed by proving $1 \rightarrow 2 \rightarrow 3$.
 \begin{proof}
 	$\lnot \lnot$ merely, $\mu_\ell$ is finite (\todocite) and $\mu_\ell \setminus \{1\}$ is inhabited by \ref{lemma:CompOf1}. 
 	\begin{enumerate}
-		\item Pointed-Free action is clear. $0 : \bA^1$ is a good point by first projection.
-		\item  Pointed-Free action is clear. The cross is good pointed, witnessed by  the first projection: It is regular vanishing at $(0,0)$ And for any point $(0,y) : \Spec B$ we deduce $y^\ell = -0^\ell = 0$, hence $\lnot \lnot (x,y) = (0,0)$.
+		\item Pointed-Free action is clear. $0 : \bA^1$ is regular by first projection.
+		\item  Pointed-Free action is clear. The cross middlepoint  regular, witnessed by  the first projection: It is regular vanishing at $(0,0)$ And for any point $(0,y) : \Spec B$ we deduce $y^\ell = -0^\ell = 0$, hence $\lnot \lnot (x,y) = (0,0)$.
 	\end{enumerate}
 \end{proof}
 \begin{question}
@@ -1085,6 +1138,14 @@ Choose a principal open neighborhood $0 \in D(p) \subset U$. $G$ acts on $R[X]$,
 \end{proof}
 \subsection{FiberCollaps away from the origin}
 \begin{definition}
+	Given a sheaf proposition $P$, the closed modality in the sheaf topos associated to $P$ is given by
+	\[
+	\cU &\to \cU \\
+	X &\mapsto P \star X :\equiv L_\bT(P \sqcup_{P \times X} X)
+	\]
+	where we need to sheafify the pushout. A type $X$ is modal, if it is a sheaf and $P \to \isContr(X)$.
+\end{definition}
+\begin{definition}
 	Let $Y : R \to \Aff$ be a dependent family of affines, such that $(Y \in \EF)^{x \neq 0}$ . 
 	The fiber collapse of $Y$ away from the origin $\emdash Y \emdash $ is the space over $R$
 	\[
@@ -1111,7 +1172,7 @@ This space over $R$ looks exactly like the line away from the origin and over an
 	\item Given $y,y' : Y$, we have
 	\begin{align*}
 		\eta(y') = \eta(y) &\simeq (x \neq 0) \star (y = y')&& \ | \  \text{ closed modality is lex (\cite{Modalities} Example 3.1.4).} \\
-		&\simeq (y = y') \lor (x \neq 0)  && \ | \ (x \neq 0) \to \mathsf{HasDecEq}(Y) \\
+		&\simeq L_\bT\left((y = y') \lor (x \neq 0) \right) && \ | \ (x \neq 0) \to \mathsf{HasDecEq}(Y) \\
 		&\simeq (y = y') + (x \neq 0) \times y \neq y'¸
 	\end{align*}
 	\end{itemize}
@@ -1127,30 +1188,12 @@ This space over $R$ looks exactly like the line away from the origin and over an
 \begin{example}
 	$\emdash Bool \emdash$ is the line with two origins. \\
 	---$\Spec R[X] / (X^2 + 1))$--- is the twisted line with two origins, i.e. over the origin we have the roots of $-1$. \\
-	---$\Spec R[Y] / (Y^2 - \bullet^2)$--- is an algebraic space that looks like $\bD(1)$ over the origin. \\\
+	---$\Spec R[Y] / (Y^2 - \bullet^2)$--- is the quotient of the cross,  that looks like $\bD(1)$ over the origin. \\\
 	---$\Spec R[Y] / (\bullet Y)$--- is the affine Plus.
 \end{example}
 \subsection{Schemes do not have descent}
 For this section, let $\rho : R \setminus \{0\}$ denote a term, e.g. $\rho = 1$. Set $C = R[T] / (T^2 + \rho)$.
-\begin{definition}
-	A rational map $X \rightsquigarrow Y$ is a term in $\prod_{x : X} Y^{Q x}$ for some $Q : X \to \mathsf{Open}$ % an open proposition.
-\end{definition}
-\begin{lemma}{\label{lemma:RatMapsCoincide}}
-	Given two rational maps $R \rightsquigarrow R$ defined at 0 are already equal, if they coincide everywhere except possibly at 0.
-\end{lemma}
-\begin{proof}
-	We may assume that the maps are defined on the same open $U \subset R$. So we need to show, that $R^U \to R^{U \setminus \{0\}}$ is injective. Choose a Zariski cover $\Spec A = \Spec R[X]_{f_1} \times \hdots R[X]_{f_n} \twoheadrightarrow U \subset R$, and denote the composite as $f : \Spec A \to R$ corresponding to $(X,\hdots,X) : A$, which is a regular element of the algebra $A$, as one of the $f_i$ does not vanish at 0.  we obtain a commutative diagram
-	% https://q.uiver.app/#q=WzAsNCxbMCwwLCJSXlUiXSxbMCwxLCJSXntcXFNwZWMgQX0iXSxbMSwxLCJSXntEKGYpfSJdLFsxLDAsIlJee1UgXFxzZXRtaW51cyBcXHswXFx9fSJdLFswLDEsIiIsMCx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Imhvb2siLCJzaWRlIjoidG9wIn19fV0sWzAsM10sWzEsMl0sWzMsMl1d
-	\[\begin{tikzcd}
-		{R^U} & {R^{U \setminus \{0\}}} \\
-		{R^{\Spec A}} & {R^{D(f)}}
-		\arrow[from=1-1, to=1-2]
-		\arrow[hook, from=1-1, to=2-1]
-		\arrow[from=1-2, to=2-2]
-		\arrow[from=2-1, to=2-2]
-	\end{tikzcd}\]
-	where the left vertical map is injective by surjectivity of the Zariski cover. The lower horizontal map is injective by \ref{lemma:AlmostEverywhere}.
-\end{proof}
+
 \begin{prop}
 	If ---$\Spec C$--- is a scheme, then $X^2 + \rho$ has a root.
 \end{prop}
@@ -1175,8 +1218,8 @@ For this section, let $\rho : R \setminus \{0\}$ denote a term, e.g. $\rho = 1$.
 		is an equivalence, which is a contradiction to the assumption, that $U$ contains both origins. \\
 		Proof of claim:
 		Injectivity: If two maps $f , g : p(U) \to R$ coincide after precomposing with $U \to p(U)$, then they coincide away from $0$
-		so conclude by \ref{lemma:RatMapsCoincide}. \\
-		Surjectivity: Given a map $U \to R$, by pulling back along $p : R + R \to L(2)$ we can view it as a rational map $R + R \rightsquigarrow R$ defined at both origins, so in particular as a pair of rational maps $R \rightsquigarrow R$ defined at 0. They coincide away from 0 so by \ref{lemma:RatMapsCoincide} they are equal.
+		so conclude by \ref{lemma:AlmostEverywhere}. \\
+		Surjectivity: Given a map $U \to R$, by pulling back along $p : R + R \to L(2)$ we can view it as a map $R + R \supset U' \rightsquigarrow R$ defined at both origins, so in particular as a pair of maps to $R$ defined on some open neigbhorhood of 0 of $R$. They coincide away from 0 so by \ref{lemma:AlmostEverywhere} they are equal.
 		%$U \setminus \fib_p(0)$ is an open subset of $L(2) \setminus \fib_p(0) \simeq R^{\times}$. 
 		\item As $\Spec C$ is an \etale sheaf, its enough to show to construct a function $\|\Spec C\| \to \Spec C$. \\
 		Define 
