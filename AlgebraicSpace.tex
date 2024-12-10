@@ -5,6 +5,7 @@
 \begin{notation}
 	\[\bT = \sum_{X : \Aff} X \text{ formally \etale } \land \underbrace{\text{faithfully flat}}_{=\text{ flat }+ \lnot \lnot \text{ inhabited } }\]
 \end{notation}
+Any $X: \bT$ has decidable equality!
 $\bT$ contains $1$ and is stable under $\sum$.
 A $\bT$-cover is a map fibered in $\bT$.
 \begin{definition}
@@ -115,7 +116,7 @@ This suggests that we need a free action. On the other hand, classically, the qu
 	is an algebraic space.
 \end{example}
 Are those schemes?
-\subsection{Not a scheme?}
+%\subsection{Not a scheme?}
 
 \begin{prop}	
 	Let $0 : \Spec A$ be a regular point, i.e. we can write $\Spec B \setminus \{0\} = D(p_1,\hdots,p_n)$ for some $p_1,\hdots,p_n : B$ jointly-reguar, i.e. $B \to \prod_{j=1}^n B_{p_j}$ is injective. \\
@@ -238,8 +239,33 @@ This space over $R$ looks exactly like the line away from the origin. % and over
 \end{proof}
 \subsection{Schemes do not have descent}
 \begin{rmk}
-	Whenever we want to show a proposition that is an \etale-sheaf, we may assume a term in $\Spec C$, thus an equivalence $\Spec C = Bool$.
+	Whenever we want to show a proposition that is an \etale-sheaf, we may assume a term in $i : \Spec C \subset R$. Because $i \neq -i$, this determines an embedding 
+	\begin{align*}
+		Bool &\to \Spec C \\
+		+ &\mapsto i \\
+		- &\mapsto -i
+	\end{align*}
+	But any embedding $Bool \hookrightarrow \Spec C$ is already an equivalence (*), as for any $x : R$, $x-i$ or $x+i$ is invertible, so if $(x-i)(x+i) = 0$ we know that one of the factors is zero.
 \end{rmk}
+\begin{lemma}
+	Let $\rho \neq 0$.
+	$\Spec R[T] / (T^2 + 1)$  is compact.
+\end{lemma}
+\begin{proof}
+	Let $U \subset \Spec C$ be open. Then we find $f_1,\hdots,f_n :C$, such that
+	$U = D(f_1,\hdots,f_n)$.
+	Choose representatives $f_i = a_i + b_iT \mod T^2 + \rho$.
+	Then consider the following numbers 
+	\[
+	r_{ij} = \begin{cases} a_i b_j - a_j b_i  &, i \neq j \\ a_i^2 + \rho b_j^2 &, i = j \end{cases}
+	\]
+	We will show that $D((r_{ij})_{i,j}) \leftrightarrow (\Spec C \subset U)$. \\
+	'$\rightarrow$' \\
+	Assume $r_{ij} \neq 0$. If $i = j$, then $\Spec C \subset D(f_i) \subset U$. \\
+	If $i \neq j$, then $\Spec C \subset D(f_i,f_j) \subset U$. \\
+	'$\leftarrow$' \\
+	Because this statement is a propositional sheaf, we may assume a term $x : \Spec C$. Choose $i,j$, s.th. $x \in D(f_i), -x \in D(f_j)$. In both cases $i = j$ and $i \neq j$, then $r_{ij} \neq 0$. 
+\end{proof}
 \begin{prop}
 	let $\rho : R \setminus \{0\}$ (e.g. $\rho = 1$). Set $C = R[T] / (T^2 + \rho)$. If ---$\Spec C$--- is a scheme, then $X^2 + \rho$ merely has a root.
 \end{prop}
@@ -263,35 +289,31 @@ This space over $R$ looks exactly like the line away from the origin. % and over
 			x &\mapsto \phi \mapsto (\phi(px))		
 		\end{align*}
 		is an equivalence, which is a contradiction to the assumption, that $U$ contains both origins. \\
-		Proof of claim:
+		Proof of claim: 
+		In words: As $U$ is a subset of a quotient of $R + R$, the function $U \to R$ determines two (partially defined on open domain) functions to $R$ that coincide away from the origin, which is a regular point. Thus by \ref{lemma:AlmostEverywhere} they coincide everywhere.
 		Injectivity: If two maps $f , g : p(U) \to R$ coincide after precomposing with $U \to p(U)$, then they coincide away from $0$
 		so conclude by \ref{lemma:AlmostEverywhere}. \\
 		Surjectivity: Given a map $U \to R$, by pulling back along $p : R + R \to \emdash Bool \emdash$  we can view it as a map $R + R \supset U' \to R$ defined at both origins, so in particular as a pair of maps to $R$ defined on some open neigbhorhood of 0 of $R$. They coincide away from 0 so by \ref{lemma:AlmostEverywhere} they are equal.
 		\item Let $\Spec C = \bigcup_{j=1}^n U_j$ be an open cover of strictly smaller subsets of $\Spec C$. \\
-		Define 
-		\begin{align*}
-			A : \Spec C &\to \Prop^{\Fin(n)}  \\
-			x &\mapsto \{ j : x \in U_j\}
-		\end{align*}
-
-		Observe 
-		\begin{enumerate}
-			\item for any $x,x' : \Spec C$, 
-			\[\| A x \cap  A x' \| \to \lnot \lnot (x = x') \overset{\mathsf{DecEq}}{\to} x = x'\] where the first implication follows like this : if $x \neq x'$ $j \in A_x \cap A_{x'}$, then using that any embedding $Bool \to \Spec C$ is an equivalence, $\Spec C \overset{\sim}{\hookleftarrow} \{x , x'\} \subset U_j$, . Then we have a contradiction to the first point, 
-			\item For any $x : \Spec C$ , $\| A x\|$.
-		\end{enumerate}
-		As $\Spec C$ is an \etale sheaf, its enough to show to construct a function $\|\Spec C\| \to \Spec C$. 
-		Assume $\|\Spec C\|$. \\
-		Lets try to construct a term that maximizes the composite
+		Claim: Any open subset $U \subset \Spec C$ that is a proposition, is an open proposition.
+		Proof: By \cite{cherubini2023foundationsyntheticalgebraicgeometry} we find $f_1,\hdots,f_n : C$ such that $U = D(f_1,\hdots,f_n)$. As the left hand side is a proposition we have
 		\[
-	 	\sum_{x : \Spec C} A x \hookrightarrow \Spec C \times \Fin(n) \to \Fin(n) \\
+		U \leftrightarrow \bigvee D(f_i)
 		\]
-		For this we may assume $\Spec C = Bool = \{+,-\}$, as there is at most one maximum:  Let $(x_1,j), (x_2,j')$ be maximizing, then as $\Fin n $ is totally ordered, $j = j'$ so  $j : A_{x_1} \cap A_{x_2}$ , thus $x_1 = x_2$ by (a). \\
-%		, we can set first $x' \equiv x_2$ and then $x' \equiv x_1$ respectively and then (by (b)) choosing $j : A_{x_1},j' : A_{x_2}$ gives $j \le j' \le j$ so that
-		I will explain an algorithm to do the following:
-		Given $n \ge 2$, and a pair of disjoint (a) and merely inhabited (b) subsets $A_+$ and $A_-$ of $\Fin(n)$, we can decide in which of the two we find the bigger number of $\Fin(n)$ and which number it is. \\
-		Induction over $n$. If $n = 2$, then $\|A_+\|$, so we find a term in the proposition $(0 \in A_+) + (1 \in A_+)$ . In the left case return $(-,1)$, in the right case $(+,1)$. \\
-		For $n \mapsto n+1$, by (b) we may choose $k_+, k_- : \Fin n$ such that $k_+ \in A_+$ and $k_- \in A_-$. Now, exploiting decidable equality in $\Fin n$: If $n = k_+$, return $(+,n)$. If $n = k_-$, return $(-,n)$. Otherwise, the subsets $A_+ \cap \Fin (n)$ and $A_- \cap \Fin (n)$ of $\Fin n$ still satisfy both conditions (a) (b), so conclude by induction.  
+		so we may show, that each $D(f_i)$ is open. \\
+		Let $f : C$ such that $D(f)$ is a proposition. Choose a representative $a + bT : R[T]$.
+		Then for any $x : \Spec C$, $(a+bx)(a-bx) = a^2 + b^2$ is not not zero. Then,
+		for any $x : \Spec C$, $a \neq 0 \leftrightarrow (a+bx \neq 0) \lor (a-bx \neq 0) = D(f)$. But $(a \neq 0) \leftrightarrow D(f)$ is an \etale-sheaf and a proposition, so conclude. 		\qed(Claim) \\
+
+		For $0 \le k \le n$, let us prove
+		\[
+		\left(\Spec C \subset \bigcup_{j=0}^{k+1} U_j \right) \to U_{k+1} \lor		\left(\Spec C \subset \bigcup_{j=0}^k U_j \right)
+		\]
+		The right hand side is an open proposition:  $U_{k+1}$ is open by the claim and the right hand side is open by compactness of $\Spec C$. 
+		Thus it is an \etale -sheaf. Thus we may assume $\Spec C = Bool$. Proof by induction over $k$
+		 If $k = 0$, then the right summand is empty, so we have to show $U_1$. But this is clear \\		 
+		For $k \mapsto k+1$, we merely find $j,j'$ such that $i \in U_j, -i \in U_{j'}$. 
+		Now, exploiting decidable equality in $\Fin (n+1)$: If $k = j$ return $i$. If $k = j'$, return $-i$. Otherwise, $\Spec C \hookleftarrow \{i,-i\} \subset U_j \cup U_{j'} \subset \bigcup_{j=0}^k U_j$ .
 	\end{enumerate}
 \end{proof}
 \begin{corollary}

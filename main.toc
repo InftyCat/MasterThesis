@@ -14,36 +14,34 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {4.3}Quotients by Group actions}{7}{subsection.4.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.4}Not a scheme?}{8}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.4}Fiber Collapse!}{9}{subsection.4.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.5}Fiber Collapse!}{9}{subsection.4.5}%
-\defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.6}Schemes do not have descent}{10}{subsection.4.6}%
+\contentsline {subsection}{\numberline {4.5}Schemes do not have descent}{10}{subsection.4.5}%
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {5}Algebraic spaces}{12}{section.5}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.1}Schemes are algebraic Spaces for the Zariski Topology}{12}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.1}Schemes are algebraic Spaces for the Zariski Topology}{13}{subsection.5.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.2}Non locally-seperated Examples}{15}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.2}Non locally-seperated Examples}{16}{subsection.5.2}%
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {5.3}Group quotients}{16}{subsection.5.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.4}Obsolete}{18}{subsection.5.4}%
+\contentsline {subsection}{\numberline {5.4}Obsolete}{19}{subsection.5.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.5}Locally seperated examples}{21}{subsection.5.5}%
+\contentsline {subsection}{\numberline {5.5}Locally seperated examples}{22}{subsection.5.5}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.6}FiberCollaps away from the origin}{22}{subsection.5.6}%
+\contentsline {subsection}{\numberline {5.6}FiberCollaps away from the origin}{23}{subsection.5.6}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.7}Schemes do not have descent}{22}{subsection.5.7}%
+\contentsline {subsection}{\numberline {5.7}Schemes do not have descent}{23}{subsection.5.7}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.8}Gluing in an affine on the line}{22}{subsection.5.8}%
+\contentsline {subsection}{\numberline {5.8}Gluing in an affine on the line}{23}{subsection.5.8}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.9}Weakly-flat stacks}{25}{subsection.5.9}%
+\contentsline {subsection}{\numberline {5.9}Weakly-flat stacks}{26}{subsection.5.9}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6}Omega-stability and gerbes}{25}{section.6}%
+\contentsline {section}{\numberline {6}Omega-stability and gerbes}{26}{section.6}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {7}Questions // TODO}{27}{section.7}%
+\contentsline {section}{\numberline {7}Questions // TODO}{28}{section.7}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {8}Not clear where to put that}{27}{section.8}%
+\contentsline {section}{\numberline {8}Not clear where to put that}{28}{section.8}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {8.1}Remarks about weakly flat affines}{28}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.1}Remarks about weakly flat affines}{29}{subsection.8.1}%
