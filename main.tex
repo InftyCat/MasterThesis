@@ -76,7 +76,131 @@ Example for zariski local choice
 	(\sum_i \ell_i h_i) \cdot g = \sum_i \ell_i f_i^n g' = 1 g' = g'
 	\]    
 \end{proof}
+\section{Topology}
+\begin{lemma}{\label{lemma:Equalizer}}
+	Let $f, g : X \to Y$ be two functions into a seperated scheme where $X = \Spec A$ for $A$ a reduced ring. If $f$ and $g$ coincide on a dense subset, then $f = g$.
+\end{lemma}
+\begin{proof}
+	The equalizer 
+	\[
+	Z \equiv \sum_{x : X} f x =_Y g x
+	\]
+	is a closed subset of $X$, as $Y$ is seperated. As its open complement does not intersect the given dense subset, its empty. In other words $\lnot \lnot Z = X$. Writing $I \subset A$ as the ideal of functions that vanish on $Z$, By \cite{SAGtopology}, we have
+	\[
+	\Spec A = \lnot \lnot Z = \bigcup_{n} \Spec A / I^n
+	\]
+	But by the strong boundedness principle, we find some $n$ such that $\Spec A = \Spec A / I^n$, in other words, $I^n = 0$. As $A$ is a reduced ring, we conclude $I = 0$, so $Z = \Spec A / I = \Spec A$.
+\end{proof}
 
+
+\begin{definition}
+	A point $0 : \Spec B$ is regular, if $\Spec B \setminus \{0\} = D(p_1,\hdots,p_n)$ for some $p_1,\hdots,p_n : B$ jointly-reguar, i.e. if $p_i^m \cdot b = 0$ for all $i=1,\hdots,n$ then $b = 0$. \\
+	If $0 : X$ is a point of a scheme, we call it regular, if one of the following equivalent conditions is satisfied 
+	\begin{enumerate}
+		\item it admits some open affine neigbhorhood $U$ such that $0 : U$ is regular.\\
+		\item It is a regular point of any open affine neigbhorhood.
+	\end{enumerate}
+\end{definition}
+\begin{proof}
+	Consider an open affine neigbhorhood $0 : D(f) \subset U = \Spec B$.
+	We will show
+	\begin{enumerate}
+		\item If $0$ is regular in $D(f)$, then it is regular in $\Spec B$:
+		Consider $g_1, \hdots, g_n : B$ such that 
+		\[
+		B_f \to \prod_i B_{f g_i}
+		\]
+		is injective. Define $g_0 := f - f(0)$, where $0 \not \in D(g_0)$.
+		Let us show, that $g_0,\hdots,g_n$ are jointly surjective in $B$.
+		Let $b : B$ such that $g_i^n b = 0$ for all $0 \le i \le n$. Then in particular $b / 1 =_{B_f} 0$. Thus $b$ is in the kernel of $B \to B_{g_0} \times B_f$. But $D(g_0) \cup D(f)$ forms an open cover of $\Spec B$ as $(f,g_0)$ generate the unit ideals. Thus $b : \Spec B \to R$ equals 0 on an open cover, thus its 0.
+		\item If $0$ is regular in $\Spec B$, then it is regular in $D(f)$:
+		Assume $B \to \prod B_{g_i}$ is injective. Let $f : B$. Let us show that $B_f \to \prod B_{g_i f}$ is injective. If $(g_i f)^n b = 0$, then $(g_i)^n (f^n b) = 0$, thus $f^n b = 0$ by assumption. Thus $b / 1 =_{B /f} 0$ as desired.
+	\end{enumerate}
+\end{proof}
+\begin{lemma}{\label{lemma:AlmostEverywhere}}
+	If $0 : X$ is a regular point in a scheme, then both holds:
+	\begin{enumerate}
+		\item $X \setminus \{0\}$ is dense
+		\item $R^X \to R^{X \setminus \{0\}}$ is injective. %Probably the converse also holds.
+	\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+	\begin{enumerate}
+		\item We write $A \perp B$ for $A \cap B = \varnothing$. We reduce to affine case: Let $0 \in \Spec B \subset X$. Let $U \subset X$ be open such that $U \perp X \setminus \{0\}$. Then $U \perp X \setminus \{0\} \Rightarrow U \perp \Spec B \setminus \{0\} \Rightarrow U \perp \Spec B$ so $U \perp (\Spec B \cup X \setminus \{0\}) = X$, thus $U = \varnothing$. \\
+		So we may assume that $X = \Spec B$ is affine: Then by \cite{SAGtopology}, an open subset of $\Spec B$ is dense iff it is of the form $D(g_1,\hdots,g_n)$ for nilregular functions $g_i : B$. Conclude, as regular implies nilregular \cite{SAGtopology}.
+		\item Lets first reduce to the affine case. Choose an open affine neibhorhood $U$ of $0$ such that $0 : U$ is regular. Then the surjection $U + X \setminus \{0\} \twoheadrightarrow X$ induces a vertical left injection 
+	% https://q.uiver.app/#q=WzAsNCxbMCwwLCJSXntVICsgWCBcXHNldG1pbnVzIFxcezBcXH19Il0sWzAsMSwiUl5YIl0sWzEsMCwiUl57VSBcXHNldG1pbnVzIFxcezBcXH0gKyBYIFxcc2V0bWludXMgXFx7MFxcfX0iXSxbMSwxLCJSXntYIFxcc2V0bWludXMgXFx7MFxcfX0iXSxbMSwwLCIiLDAseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJob29rIiwic2lkZSI6InRvcCJ9fX1dLFszLDJdLFswLDIsIiIsMSx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Imhvb2siLCJzaWRlIjoidG9wIn19fV0sWzEsM11d
+	\[\begin{tikzcd}
+		{R^{U + X \setminus \{0\}}} & {R^{U \setminus \{0\} + X \setminus \{0\}}} \\
+		{R^X} & {R^{X \setminus \{0\}}}
+		\arrow[hook, from=1-1, to=1-2]
+		\arrow[hook, from=2-1, to=1-1]
+		\arrow[from=2-1, to=2-2]
+		\arrow[from=2-2, to=1-2]
+	\end{tikzcd}\]
+	So we may assume that $X = \Spec A$ is affine. \\
+	Let $p_1,\hdots,p_n : A$ be jointly-reguar, i.e. if $p_i^m \cdot a = 0$ for all $i=1,\hdots,n$ then $a = 0$. If $f : \Spec A \to R$ such that $f(x) = 0$ for all $x \in D(p_1,\hdots,p_n)$, then $f(x) = 0$ for all $x : \Spec A$.
+	$f$ is in the kernel of the diagonal map
+	% https://q.uiver.app/#q=WzAsNSxbMSwwLCJSXntcXFNwZWMgQX0iXSxbMSwxLCJ7Ul57XFxjb3Byb2RfaSBEKHBfaSl9fSJdLFswLDAsIlxcQSJdLFswLDEsIlx0e1xccHJvZF97aT0xfV5uIEFfe3BfaX19ICJdLFsyLDEsIlJee1xcY3VwIEQocF9pKX0iXSxbMCwxXSxbMiwzLCIiLDAseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJob29rIiwic2lkZSI6InRvcCJ9fX1dLFswLDIsIiIsMSx7ImxldmVsIjoyLCJzdHlsZSI6eyJoZWFkIjp7Im5hbWUiOiJub25lIn19fV0sWzEsMywiIiwxLHsibGV2ZWwiOjIsInN0eWxlIjp7ImhlYWQiOnsibmFtZSI6Im5vbmUifX19XSxbMSw0LCIiLDAseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJob29rIiwic2lkZSI6InRvcCJ9fX1dXQ==
+	\[\begin{tikzcd}
+		A & {R^{\Spec A}} \\
+		{	{\prod_{i=1}^n A_{p_i}} } & {{R^{\coprod_i D(p_i)}}} & {R^{\cup D(p_i)}}
+		\arrow[hook, from=1-1, to=2-1]
+		\arrow[Rightarrow, no head, from=1-2, to=1-1]
+		\arrow[from=1-2, to=2-2]
+		\arrow[Rightarrow, no head, from=2-2, to=2-1]
+		\arrow[hook, from=2-2, to=2-3]
+	\end{tikzcd}\]
+	which is injective, as $p_1,\hdots,p_n$ are jointly-regular in $A$. \\
+	Thus $f = 0$ in $A$.
+		\end{enumerate}
+	%	 Thus $f = 0 $ in $(R \setminus \{0\} \to R) = R[X^{\pm 1}]$ hence $f \cdot X^n = 0$ in $R[X]$ for some $n$, thus $f = 0$.
+\end{proof}
+\begin{rmk}
+	If $A$ is an algebra that is reduced as a ring, then for $X = \Spec A$, 1. implies 2. by \ref{lemma:Equalizer}
+\end{rmk}
+\begin{prop}{\label{prop:NotLocClosed}}
+the subtype $\{0\} + 0^c \subset \Spec B$ is not locally closed whenever one of the following conditions is satisfied:
+	\begin{enumerate}
+		\item 	$\Spec B \setminus \{0\}$ is dense 
+		\item $R^{\Spec B} \to R^{\Spec B \setminus \{0\}}$ is injective
+	\end{enumerate}
+%or  (e.g. both satisfied if $0 : \Spec B$ is a regular point) , Then . %whenever it is a bridge point, i.e. there merely is a regular $g : \Spec B \to R$ vanishing at 0, such that $\fib_g(0)$ is infinitesimal  (i.e. each two points are $\lnot \lnot$-equal). 
+	%	
+\end{prop}
+\begin{proof}
+	%We have	$x \neq 0 \leftrightarrow g (x) \neq 0$ %(and by the previous assumption also the converse)
+	%	Let us show this more generally for $(\Spec B , 0)$ with the infinitesimal neigbhorhood of 0 beeing not open. \\
+	Let us first show, that the infinitesimal neigbhorhood of $0$ is not open. 
+	\begin{enumerate}
+		\item If $0^c \subset \Spec A$ is dense) :
+		The non-empty open $\cN_\infty$  does not intersect the dense subset $0^c$.
+		
+		\item If $R^{\Spec B} \to R^{\Spec B \setminus \{0\}}$ is injective:
+		If it would, we find a principal open smaller neighborhood$0 \in D(g) \subset \cN_\infty(0)$, which however already cotains the whole infinitesimal one, thus $\cN_\infty(0) = D(g)$ \\
+		Then for any $x \neq 0$, we have $\lnot \lnot g(x) = 0$. As $\Spec B \setminus \{0\}$ is a scheme, it admits a boundedness principle, thus we find some $n$, such that $g^n (x) = 0$ for all $x \neq 0$. \\ %, in particular for all $x : D(p)$. By \ref{lemma:AlmostEverywhere} applied to the givenregular $p$,  
+		by \ref{lemma:AlmostEverywhere} we have that $R^{\Spec B} \to R^{\Spec B \setminus \{0\}}$ is injective, so we deduce $g^n =0$, hence $D(g) = D(g^n) = \varnothing$ contradiction.
+	\end{enumerate}
+	Just assumg that the infinitesimal neighborhood is not open,	The subtype $\{0\} + 0^c \subset \Spec B$ is not locally closed.	Let $U , C \subset \Spec B$ be an open subset and a closed subset respectively, such that $(x \neq 0) + (x \neq 0) \leftrightarrow x \in U \land x \in C$. Then, for any $x : U$ , 
+	\[
+	(x = 0) + (x \neq 0) = x \in C
+	\]
+	is a closed proposition. Thus the decidable subtype $x \neq 0$ is a closed proposition. To contradict the assumption, we may convince ourself that the right vertical map
+	% https://q.uiver.app/#q=WzAsNCxbMSwwLCJcdFxcc3VtX3t4IDogXFxTcGVjIEF9IFxcbG5vdCBcXGxub3QgeCA9IDAiXSxbMSwxLCJcXFNwZWMgQSJdLFswLDAsIlxcc3VtX3t4OiBVfSBcXGxub3QgXFxsbm90IHggPSAwIl0sWzAsMSwiVSJdLFsyLDMsIiIsMix7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Imhvb2siLCJzaWRlIjoidG9wIn19fV0sWzIsMCwiXFxzaW0iLDJdLFswLDFdLFszLDEsIiIsMSx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Imhvb2siLCJzaWRlIjoidG9wIn19fV1d
+	\[\begin{tikzcd}
+		{\sum_{x: U} \lnot \lnot x = 0} & {	\sum_{x : \Spec B} \lnot \lnot x = 0} \\
+		U & {\Spec B}
+		\arrow["\sim"', from=1-1, to=1-2]
+		\arrow[hook, from=1-1, to=2-1]
+		\arrow[from=1-2, to=2-2]
+		\arrow[hook, from=2-1, to=2-2]
+	\end{tikzcd}\]
+	is an open embedding
+	
+	where the upper horizontal map is indeed an equivalence as for any $x : \Spec B$ , $x \in U$ is $\lnot \lnot$-stable, but $\lnot \lnot x = 0$ and $0 \in U$, thus $x \in U$.
+	
+\end{proof}
 \section{Preparation}
 
 \begin{lemma}[Strong boundedness, NEEDED?]{\label{lemma:StrongBoundedness}}

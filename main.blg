@@ -1,17 +1,17 @@
 [0] Config.pm:311> INFO - This is Biber 2.16
 [0] Config.pm:314> INFO - Logfile is 'main.blg'
-[70] biber:340> INFO - === Fr Dez  6, 2024, 18:20:54
-[84] Biber.pm:415> INFO - Reading 'main.bcf'
-[150] Biber.pm:952> INFO - Found 2 citekeys in bib section 0
-[163] Biber.pm:4340> INFO - Processing section 0
-[174] Biber.pm:4531> INFO - Looking for bibtex format file 'form.bib' for section 0
-[176] bibtex.pm:1689> INFO - LaTeX decoding ...
+[69] biber:340> INFO - === Di Dez 10, 2024, 13:50:03
+[82] Biber.pm:415> INFO - Reading 'main.bcf'
+[155] Biber.pm:952> INFO - Found 3 citekeys in bib section 0
+[167] Biber.pm:4340> INFO - Processing section 0
+[176] Biber.pm:4531> INFO - Looking for bibtex format file 'form.bib' for section 0
+[178] bibtex.pm:1689> INFO - LaTeX decoding ...
 [210] bibtex.pm:1494> INFO - Found BibTeX data source 'form.bib'
-[256] Utils.pm:384> WARN - legacy month field 'Jan' in entry 'Modalities' is not an integer - this will probably not sort properly.
-[265] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[265] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[265] Biber.pm:4168> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'en-US'
-[265] Biber.pm:4174> INFO - No sort tailoring available for locale 'en-US'
-[271] bbl.pm:654> INFO - Writing 'main.bbl' with encoding 'UTF-8'
-[272] bbl.pm:757> INFO - Output to main.bbl
-[272] Biber.pm:128> INFO - WARNINGS: 1
+[241] Utils.pm:384> WARN - legacy month field 'Jan' in entry 'Modalities' is not an integer - this will probably not sort properly.
+[260] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[260] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[260] Biber.pm:4168> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'en-US'
+[260] Biber.pm:4174> INFO - No sort tailoring available for locale 'en-US'
+[267] bbl.pm:654> INFO - Writing 'main.bbl' with encoding 'UTF-8'
+[269] bbl.pm:757> INFO - Output to main.bbl
+[269] Biber.pm:128> INFO - WARNINGS: 1

@@ -61,6 +61,32 @@
       \verb https://arxiv.org/abs/2307.00073
       \endverb
     \endentry
+    \entry{SAGtopology}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=a5fdc5f2e3350b66bc07b00cd08fd011}{%
+           family={Moeneclay},
+           familyi={M\bibinitperiod},
+           given={Hugo\bibnamedelimb ;\bibnamedelimb Felix\bibnamedelima Wellen},
+           giveni={H\bibinitperiod\bibinitdelim ;\bibinitperiod\bibinitdelim F\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+      }
+      \strng{namehash}{a5fdc5f2e3350b66bc07b00cd08fd011}
+      \strng{fullhash}{a5fdc5f2e3350b66bc07b00cd08fd011}
+      \strng{bibnamehash}{a5fdc5f2e3350b66bc07b00cd08fd011}
+      \strng{authorbibnamehash}{a5fdc5f2e3350b66bc07b00cd08fd011}
+      \strng{authornamehash}{a5fdc5f2e3350b66bc07b00cd08fd011}
+      \strng{authorfullhash}{a5fdc5f2e3350b66bc07b00cd08fd011}
+      \field{sortinit}{M}
+      \field{sortinithash}{2e5c2f51f7fa2d957f3206819bf86dc3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Topology in SAG}
+      \verb{urlraw}
+      \verb felix-cherubini.de/topology.pdf
+      \endverb
+      \verb{url}
+      \verb felix-cherubini.de/topology.pdf
+      \endverb
+    \endentry
     \entry{Modalities}{article}{}
       \name{author}{3}{}{%
         {{hash=b1bb80d57e903f657e4b411a28823e28}{%
