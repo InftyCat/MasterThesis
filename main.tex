@@ -34,7 +34,7 @@
 \newtheorem*{think}{Think about}
 \maketitle
 \tableofcontents
-%\include{Atlas}
+\include{Atlas}
 \section{Introduction to SAG}
 \begin{lemma}{\label{lemma:Locality}}
 	$R$ is local, i.e. if $x, y : R$ and $x \neq y$, then $x$ is invertible or $y$ is invertible.
@@ -288,19 +288,19 @@ Then $Y$ is formally smooth.
 	where $y' : Y_{p(u)}$ (depending on $u$) is the transport of $y : Y_x$ along $x = p(u)$. As $\cU'$ is stable under dependent sum %(\ref{lemma:LexSumStable}, \ref{lemma:LexStability}), 
 	those fibers are again in $\cU'$. This shows the result.
 \end{proof}
-%\include{LexModalities}
-%\include{LocalChoice}
-%\include{Stacks}
-%\include{Descent}
-%\include{SaturatedTopology}
-%
-%
-%\include{GeomPropositions}
-%\include{FundamentalThmAlgSpc}
+\include{LexModalities}
+\include{LocalChoice}
+\include{Stacks}
+\include{Descent}
+\include{SaturatedTopology}
+
+
+\include{GeomPropositions}
+\include{FundamentalThmAlgSpc}
 \include{AlgebraicSpace}
-%
-%\include{DeloopingsAndTruncations}
-%\include{LocalProperties}
+
+\include{DeloopingsAndTruncations}
+\include{LocalProperties}
 
 
 
@@ -512,10 +512,10 @@ We can reprove \ref{lemma:TflatIs0-gerbe} by just observing that $\bT$-flat geom
 %\]
 %is a geometric catlas. \\
 %
-%\include{Flat}
-%
-%\include{CoveringStacksFET}
-%\include{TangentSpace}
+\include{Flat}
+
+\include{CoveringStacksFET}
+\include{TangentSpace}
 
 \section{Questions // TODO}
 \begin{theorem}[TODO]
@@ -542,6 +542,25 @@ Prove \ref{lemma:StdEtSm}!!!
 %\section{Todo}
 
 \section{Not clear where to put that}
+\begin{lemma}
+	Let $\rho \neq 0$.
+	$\Spec R[T] / (T^2 + 1)$  is compact.
+\end{lemma}
+\begin{proof}
+	Let $U \subset \Spec C$ be open. Then we find $f_1,\hdots,f_n :C$, such that
+	$U = D(f_1,\hdots,f_n)$.
+	Choose representatives $f_i = a_i + b_iT \mod T^2 + \rho$.
+	Then consider the following numbers 
+	\[
+	r_{ij} = \begin{cases} a_i b_j - a_j b_i  &, i \neq j \\ a_i^2 + \rho b_j^2 &, i = j \end{cases}
+	\]
+	We will show that $D((r_{ij})_{i,j}) \leftrightarrow (\Spec C \subset U)$. \\
+	'$\rightarrow$' \\
+	Assume $r_{ij} \neq 0$. If $i = j$, then $\Spec C \subset D(f_i) \subset U$. \\
+	If $i \neq j$, then $\Spec C \subset D(f_i,f_j) \subset U$. \\
+	'$\leftarrow$' \\
+	Because this statement is a propositional sheaf, we may assume a term $x : \Spec C$. Choose $i,j$, s.th. $x \in D(f_i), -x \in D(f_j)$. In both cases $i = j$ and $i \neq j$, then $r_{ij} \neq 0$. 
+\end{proof}
 \begin{lemma}[Not needed]
 	Open subtypes of $\bA^1$ are $\lnot \lnot$ principal open. %If the open is inhabited, $\lnot \lnot$ merely we can $\mu_{\ell}$-invariant write it as $D(p)$ with $p : R[X]$ regular .
 \end{lemma}

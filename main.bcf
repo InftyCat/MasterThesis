@@ -2357,8 +2357,9 @@
     <bcf:citekey order="11">Modalities</bcf:citekey>
     <bcf:citekey order="12">cherubini2023foundationsyntheticalgebraicgeometry</bcf:citekey>
     <bcf:citekey order="13">cherubini2023foundationsyntheticalgebraicgeometry</bcf:citekey>
-    <bcf:citekey order="14">cherubini2023foundationsyntheticalgebraicgeometry</bcf:citekey>
+    <bcf:citekey order="14">SAGsheaves</bcf:citekey>
     <bcf:citekey order="15">cherubini2023foundationsyntheticalgebraicgeometry</bcf:citekey>
+    <bcf:citekey order="16">cherubini2023foundationsyntheticalgebraicgeometry</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nty">

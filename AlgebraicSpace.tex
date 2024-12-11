@@ -1,5 +1,5 @@
 
-\section{Talk: Algebraic Spaces: (Counter-)examples}
+\section{Talk: Algebraic Spaces vs Schemes}
 
 \subsection{Recap: Sheaftheory}
 \begin{notation}
@@ -25,10 +25,19 @@ Beeing an \etale-stack determines a lex-modality, that we write $L_\bT$. \\
 Given an equivalence relation $R$ on a sheaf $X$ valued in propositional sheaves, we can form the sheaf-quotient $p : X \to X / R :\equiv L_\bT \| X // R \|_0$ that is uniquely characterized by the following properties
 \begin{itemize}
 	\item for any $x, y : X$, $p(x) =_{X/R} p(y) \leftrightarrow R(x,y)$
-	\item The map $p$ is $\bT$-surjective, i.e. for any $z : X / R$, $\|\fib_p (0)\|_\bT$ ('$\bT$-merely the proposition $\|\fib_p (0)\|$ holds').
+	\item The map $p$ is $\bT$-surjective, i.e. for any $z : X / R$, $\|\fib_p (z)\|_\bT$ ('$\bT$-merely the proposition $\|\fib_p (0)\|$ holds').
 \end{itemize}
+\begin{lemma}
+	Given a subtype $\cC$ of stacks the following are equivalent
+	\begin{itemize}
+		\item the type $\cC$ is a stack.
+		\item If $X$ is a stack, then the proposition $X \in \cC$ is a sheaf. 
+	\end{itemize}
+	 In this case we say that $\cC$ has descent.
+\end{lemma}
 \subsection{Algebraic Spaces}
 We assume today, that schemes are \etale sheaves.
+Algebraic Spaces are meant as a generalization of schemes that satisfy descent.
 \begin{definition}
 	A naive algebraic space is an \etale-sheaf $X$, that merely
 	admits a $\bT$-cover $\Spec B \to F$. \\
@@ -49,8 +58,8 @@ Instead we have to repeat the process asking for an atlas twice.
 	We call $X$ covering, if we can choose $\Spec A$ to lie in $\bT$.
 \end{definition}
 This class is stable under $\sum$ and under quotients by covering equivalence relations
-\begin{theorem}[DESCENT]
-	The type of (covering) algebraic spaces is an \etale-stack.
+\begin{theorem}
+	(Covering) Algebraic spaces have descent.
 \end{theorem}
 \begin{example}
 	Schemes are algebraic spaces!
@@ -59,7 +68,7 @@ This class is stable under $\sum$ and under quotients by covering equivalence re
 	\begin{enumerate}
 		\item 	Merely inhabited finite sums of principal open propositions belong to $\bT$. 
 		\item open propositions are naive algebraic spaces. 
-		\item	If $X$ is a scheme, merely we find a map $\coprod_i \Spec A_i \to X$ whose fibers are merely inhabited finite sums of open propositions, which are covering.
+		\item	If $X$ is a scheme, merely we find a map $\coprod_i \Spec A_i \to X$ whose fibers are merely inhabited finite sums of open propositions, so the fibers are covering.
 	\end{enumerate}
 \end{proof}
 \begin{question}
@@ -88,10 +97,11 @@ This suggests that we need a free action. On the other hand, classically, the qu
 	We write $\Spec A /_U G \equiv \Spec A / R$ and call it the quotient of $\Spec A$ by the $G$-action on $U$ .
 \end{construction}
 \begin{proof}
+	To show, that its an algebraic space, one checks, that $G$ acts free on $0^c$.
 	\[R_{G}(x,y) \equiv (x = y) + (x \in U) \times \sum_{g : G \setminus \{1\}} g x = y\]
 	This is covering: For any $x : \Spec A$ we have
 	\[\sum_{y : X} x = y + (x \neq 0) \times \sum_{g : G \setminus \{1\}} g x = y \simeq 1 + (x \in U) \times G \setminus \{1\}\]
-	$G \setminus \{1\} = \sum_{g : G} g \neq 1$ is a $\sum$ of formally \etale + flat affines (recall that formally \etale affines have decidable equality). \\
+	which is a covering naive algebraic space: For that use, that $G \setminus \{1\} = \sum_{g : G} g \neq 1$ is a $\sum$ of formally \etale + flat affines (recall that formally \etale affines have decidable equality). \\
 	Indeed, the two conditions hold, using that $G$ has decidable equality.
 \end{proof}
 
@@ -180,7 +190,7 @@ An alternative approach to construct algebraic spaces is the fiber collapse away
 	\item In particular the \emph{basefiber} $\fib_p (0)$ is equivalent to $Y_0$, 
 	\item The \emph{other} fibers $\fib_p (x)$, $x \neq 0$, are contractible. 
 \end{itemize}
-So ---$Y_\bullet$--- is obtained by keeping only the infinitesimal fibers and collapsing all the other fibers.
+So ---$Y_\bullet$--- is obtained from $\sum_{x : R} Y_x \to R$ by keeping only the infinitesimal fibers and collapsing all the other fibers.
 This space over $R$ looks exactly like the line away from the origin. % and over an infinitesimal 
 \begin{lemma}{\label{lemma:FiberCollapsAS}}
 	Assume that if $x \neq 0$, then $Y_x \in \bT$. Then $\emdash Y \emdash$ is an algebraic space.
@@ -241,31 +251,13 @@ This space over $R$ looks exactly like the line away from the origin. % and over
 \begin{rmk}
 	Whenever we want to show a proposition that is an \etale-sheaf, we may assume a term in $i : \Spec C \subset R$. Because $i \neq -i$, this determines an embedding 
 	\begin{align*}
-		Bool &\to \Spec C \\
-		+ &\mapsto i \\
-		- &\mapsto -i
+		\mathsf{Bool} &\to \Spec C \\
+		true &\mapsto i \\
+		false &\mapsto -i
 	\end{align*}
 	But any embedding $Bool \hookrightarrow \Spec C$ is already an equivalence (*), as for any $x : R$, $x-i$ or $x+i$ is invertible, so if $(x-i)(x+i) = 0$ we know that one of the factors is zero.
 \end{rmk}
-\begin{lemma}
-	Let $\rho \neq 0$.
-	$\Spec R[T] / (T^2 + 1)$  is compact.
-\end{lemma}
-\begin{proof}
-	Let $U \subset \Spec C$ be open. Then we find $f_1,\hdots,f_n :C$, such that
-	$U = D(f_1,\hdots,f_n)$.
-	Choose representatives $f_i = a_i + b_iT \mod T^2 + \rho$.
-	Then consider the following numbers 
-	\[
-	r_{ij} = \begin{cases} a_i b_j - a_j b_i  &, i \neq j \\ a_i^2 + \rho b_j^2 &, i = j \end{cases}
-	\]
-	We will show that $D((r_{ij})_{i,j}) \leftrightarrow (\Spec C \subset U)$. \\
-	'$\rightarrow$' \\
-	Assume $r_{ij} \neq 0$. If $i = j$, then $\Spec C \subset D(f_i) \subset U$. \\
-	If $i \neq j$, then $\Spec C \subset D(f_i,f_j) \subset U$. \\
-	'$\leftarrow$' \\
-	Because this statement is a propositional sheaf, we may assume a term $x : \Spec C$. Choose $i,j$, s.th. $x \in D(f_i), -x \in D(f_j)$. In both cases $i = j$ and $i \neq j$, then $r_{ij} \neq 0$. 
-\end{proof}
+
 \begin{prop}
 	let $\rho : R \setminus \{0\}$ (e.g. $\rho = 1$). Set $C = R[T] / (T^2 + \rho)$. If ---$\Spec C$--- is a scheme, then $X^2 + \rho$ merely has a root.
 \end{prop}
@@ -274,9 +266,14 @@ This space over $R$ looks exactly like the line away from the origin. % and over
 	We proceed as follows
 	\begin{enumerate}
 		\item  There is no open affine subset of $\emdash \Spec C \emdash$ containing $\fib_p(0)$.
-		\item Any inhabited cover of $\Spec C$ by open subsets strictly smaller than $\Spec C$ yields a root.
+		\item Any open subset of $\Spec C$, that is strictly smaller than $\Spec C$, is an open proposition
 	\end{enumerate}
-	Any finite open affine cover of ---$\Spec C$--- can be restricted to a finite open affine cover of the basefiber $\Spec C$, that satisfies the condition in 2.
+	Any finite open affine cover of ---$\Spec C$--- can be restricted to a finite open affine cover $\Spec C = \bigcup_{j=0}^{n} U_j$ of the basefiber $\Spec C$ consisting of strictly smaller open subsets by point 1.
+	Then the goal is
+	\[
+	\| \Spec C \| = \| \bigcup_{j=0}^{n} U_j \| = \bigvee_j  U_j
+	\]
+	an open propoosition by point 2., thus an \etale sheaf, as open propositions are $\lnot \lnot$-stable. So we can conclude.
 	Proofs:
 	\begin{enumerate}
 		\item Because we want to show $\bot$, we may assume ---$\Spec C \emdash = \emdash Bool \emdash$. Assume there is an open affine subset $\fib_p(0) \subset U \subset \emdash Bool \emdash$. Then $p(U) \subset R$ is an open neigbhorhood of 0, as 
@@ -294,26 +291,34 @@ This space over $R$ looks exactly like the line away from the origin. % and over
 		Injectivity: If two maps $f , g : p(U) \to R$ coincide after precomposing with $U \to p(U)$, then they coincide away from $0$
 		so conclude by \ref{lemma:AlmostEverywhere}. \\
 		Surjectivity: Given a map $U \to R$, by pulling back along $p : R + R \to \emdash Bool \emdash$  we can view it as a map $R + R \supset U' \to R$ defined at both origins, so in particular as a pair of maps to $R$ defined on some open neigbhorhood of 0 of $R$. They coincide away from 0 so by \ref{lemma:AlmostEverywhere} they are equal.
-		\item Let $\Spec C = \bigcup_{j=1}^n U_j$ be an open cover of strictly smaller subsets of $\Spec C$. \\
-		Claim: Any open subset $U \subset \Spec C$ that is a proposition, is an open proposition.
-		Proof: By \cite{cherubini2023foundationsyntheticalgebraicgeometry} we find $f_1,\hdots,f_n : C$ such that $U = D(f_1,\hdots,f_n)$. As the left hand side is a proposition we have
+		\item 
+		Any strictly smaller open subset $U \subset \Spec C$ is an open proposition:
+		Note, that $U$ is a proposition: If $x,x' : U$, then $x = x' \simeq \lnot \lnot (x = x')$ by decidable equality of $U$, but if $x \neq x'$, then $\{x,x'\} \hookrightarrow \Spec C$ is an embedding, so by (*) an equivalence. But then $U = \Spec C$, contradiction. \\
+		We first reduce to the case where $U$ is a principal open of $\Spec C$. By \cite{cherubini2023foundationsyntheticalgebraicgeometry} we find $f_1,\hdots,f_n : C$ such that $U = D(f_1,\hdots,f_n)$. As the left hand side is a proposition we have
 		\[
 		U \leftrightarrow \bigvee D(f_i)
 		\]
-		so we may show, that each $D(f_i)$ is open. \\
+		so we may show, that each $D(f_i)$ is an open proposition. \\
 		Let $f : C$ such that $D(f)$ is a proposition. Choose a representative $a + bT : R[T]$.
-		Then for any $x : \Spec C$, $(a+bx)(a-bx) = a^2 + b^2$ is not not zero. Then,
-		for any $x : \Spec C$, $a \neq 0 \leftrightarrow (a+bx \neq 0) \lor (a-bx \neq 0) = D(f)$. But $(a \neq 0) \leftrightarrow D(f)$ is an \etale-sheaf and a proposition, so conclude. 		\qed(Claim) \\
-
-		For $0 \le k \le n$, let us prove
+		
+		Let us show $(2a \neq 0) \leftrightarrow D(f)$, which is an \etale-sheaf and a proposition, so we may assume $x : \Spec C$.
+		Using that $D(f)$ is a proposition we have
 		\[
-		\left(\Spec C \subset \bigcup_{j=0}^{k+1} U_j \right) \to U_{k+1} \lor		\left(\Spec C \subset \bigcup_{j=0}^k U_j \right)
+		D(f) =  (a+bx \neq 0) + (a-bx \neq 0) \overset{\sim}{\to} (a+bx \neq 0) \lor (a-bx \neq 0)
 		\]
-		The right hand side is an open proposition:  $U_{k+1}$ is open by the claim and the right hand side is open by compactness of $\Spec C$. 
-		Thus it is an \etale -sheaf. Thus we may assume $\Spec C = Bool$. Proof by induction over $k$
-		 If $k = 0$, then the right summand is empty, so we have to show $U_1$. But this is clear \\		 
-		For $k \mapsto k+1$, we merely find $j,j'$ such that $i \in U_j, -i \in U_{j'}$. 
-		Now, exploiting decidable equality in $\Fin (n+1)$: If $k = j$ return $i$. If $k = j'$, return $-i$. Otherwise, $\Spec C \hookleftarrow \{i,-i\} \subset U_j \cup U_{j'} \subset \bigcup_{j=0}^k U_j$ .
+		We may show both implications $2a \neq 0 \leftrightarrow (a+bx \neq 0) \lor (a-bx \neq 0) $. \\
+		$'\rightarrow'$ $(a+bx) + (a-bx)$ is invertible, so by locality one of the summands is invertible. \\
+		$'\leftarrow'$ by symmetry wlog $a + bx \neq 0$. Then as $D(f)$ is a prop, $\lnot \lnot (a - bx = 0)$. Thus $\lnot \lnot (a + a = a + bx \neq 0)$, hence $2 a \neq 0$. 
+	
+%		For $1 \le k \le n$, let us prove
+%		\[
+%		\left(\Spec C \subset \bigcup_{j=0}^{k} U_j \right) \to U_{k} \lor		\left(\Spec C \subset \bigcup_{j=0}^{k-1} U_j \right)
+%		\]
+%		The right hand side is an open proposition:  $U_{k}$ is an open proposition by the claim and the right hand side is open by compactness of $\Spec C$. 
+%		Thus it is an \etale -sheaf. Thus we may assume $\Spec C = Bool$. Proof by induction over $k$. \\
+%	 	If $k = 1$, then the right summand is empty, so we have to show $U_1$, which is $\lnot \lnot $ stable. But it can be empty, as otherwise $\Spec C = U_0 \cup U_1 = U_0$. \\
+%		For $k \mapsto k+1$, we merely find $j,j'$ such that $i \in U_j, -i \in U_{j'}$. 
+%		Now, exploiting decidable equality in $\Fin (k+1)$: If $k = j$ return $i$. If $k = j'$, return $-i$. Otherwise, $\Spec C \hookleftarrow \{i,-i\} \subset U_j \cup U_{j'} \subset \bigcup_{j=0}^k U_j$ .
 	\end{enumerate}
 \end{proof}
 \begin{corollary}
@@ -456,8 +461,13 @@ This follows from the observation, that the equivalence relation determined by $
 %	is a geometric cover. But the fibers look like $\sum_{g : G} gx  = y$ which is a finite sum of identity types in $X$, which were assumed to be covering stacks. By \ref{lemma:geomStackPlusStable} the fibers are covering stacks.
 %	
 %\end{proof}
-
-%\section{Examples}
+\begin{example}
+	Using descent for Affines (compare to \cite{SAGsheaves}), not every scheme admits a $\bT$-cover out of an affine: Let us show that for any open proposition $P$: If $\Susp(P)$ admits a $\bT$-cover $\Spec S \to \Susp(P)$ then $P$ is affine. \\
+	Then by Zariski Local choice, we may assume that it factors through $Bool \to \Susp(P)$, so then we may call the two fibers of the map $\Spec S \to Bool$, $\Spec A$ and $\Spec B$. Then the two fibers are $F_1 \equiv \Spec A + P \times \Spec B$ and $F_2 \equiv\Spec B + P \times \Spec A$, which by assumption are in $\bT$.
+	$P$ beeing affine is a sheaf, thus we may show $F_2 \to \mathsf{isAff}(P)$ %ets argue why $\lnot \lnot \Spec B$. If $\Spec B = \varnothing$, then $\lnot \lnot (P \times \Spec A)$, thus as $P$ is open, we have $P$, but $P$ was said to be non-affine. \\
+	So pick a point of $F_2$. If it comes from $P \times \Spec A$, then $P$ so $P$ is affine. If we have $t : \Spec B$, $P$ is a fiber of $P \times \Spec B \to \Spec B$, but the domain is affine using that $F_2 \in \bT$. So $P$ is affine.
+\end{example}
+\subsection{Examples}
 The goal of this subsection is to construct algebraic spaces. The first example actually gives us a scheme:
 \begin{example}
 	Let $p \neq 0$ be a prime. You can let $\mu_p := \Spec(R[X] / (X^p - 1))$ act on $\bA^\times$ via multiplication. Set $\bT= fppf$. Then the $p$.th power map
@@ -487,7 +497,7 @@ The goal of this subsection is to construct algebraic spaces. The first example 
 \begin{example}
 	Let $P$ be the open proposition $x \neq 0$ for some $x : \bA^1$. Then $H = 1 + P$ is an open subgroup of $\bZ/2$. The sheaf quotient $G / H$ is the scheme $\Susp(x \neq 0)$.
 \end{example}
-Let $\ell \neq 0$ denote a prime. Consider $\mu_\ell = R[X] / (X^\ell - 1)$.
+Let $\ell \neq 0$ denote a prime. Consider $\mu_\ell = R[X] / (X^\ell - 1)$ acting on $\bA^1$ by multiplication.
 \begin{lemma}{\label{lemma:CompOf1}}
 	Let $(G,1)$ be a pointed formally \etale flat affine type. Then $(G \setminus \{1\})$ is formally \etale + flat affine. \\
 	In particular $\mu_\ell \setminus\{1\}$ is a covering stack.
@@ -662,7 +672,7 @@ For this section let $G$ denote a group that is a covering 0-stack. Let $X$ be a
 	is a proposition. 
 \end{definition}
 \begin{example}{\label{ex:GAction}}
-	Given a formally \etale + flat affine (e.g. $\mu_\ell$ or finite) group that acts on an affine $\Spec A$. Assume $G$ acts free on some open subset $U$.  % that belongs to $\bT$ (more generally a covering algebraic space)
+	Given a formally \etale + flat affine (e.g. $\mu_\ell$ or finite) group that acts free on some open subset $U \subset \Spec A$ of some affine.  % that belongs to $\bT$ (more generally a covering algebraic space)
 	
 	Then put $x \sharp y = \sum_{g : G \setminus \{1\}} gx = y$. \\	
 	This provides a covering equivalence relation $R_{G,U}$ on $\Spec A$, such that
@@ -802,7 +812,7 @@ For this section let $G$ denote a group that is a covering 0-stack. Let $X$ be a
 \end{lemma}
 
 \begin{proof}
-	let $x , y\neq 0$. We need to show, that $\sum_g g x = y$ is a proposition. Let $g, g' : G$ such that $g x = y$. as $G$ has decidable equality, we may show $\lnot \lnot (g = g')$. If $g^{-1} g' \neq 1$, then by pointed-freeness applied to $g^{-1} g' x = x$, we have $x = 0$. Contradiction.
+	let $x , y\neq 0$. We need to show, that $\sum_g g x = y$ is a proposition. Let $g, g' : G$ such that $g x = y = g' x$. as $G$ has decidable equality, we may show $\lnot \lnot (g = g')$. If $g^{-1} g' \neq 1$, then by pointed-freeness applied to $g^{-1} g' x = x$, we have $x = 0$. Contradiction.
 \end{proof}
 \begin{corollary}
 

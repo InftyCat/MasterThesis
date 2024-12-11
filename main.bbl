@@ -87,6 +87,34 @@
       \verb felix-cherubini.de/topology.pdf
       \endverb
     \endentry
+    \entry{SAGsheaves}{article}{}
+      \name{author}{1}{}{%
+        {{hash=440c266465efa871e1b236709d0e4de6}{%
+           family={{Moeneclay, Hugo}},
+           familyi={M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{440c266465efa871e1b236709d0e4de6}
+      \strng{fullhash}{440c266465efa871e1b236709d0e4de6}
+      \strng{bibnamehash}{440c266465efa871e1b236709d0e4de6}
+      \strng{authorbibnamehash}{440c266465efa871e1b236709d0e4de6}
+      \strng{authornamehash}{440c266465efa871e1b236709d0e4de6}
+      \strng{authorfullhash}{440c266465efa871e1b236709d0e4de6}
+      \field{sortinit}{M}
+      \field{sortinithash}{2e5c2f51f7fa2d957f3206819bf86dc3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Sheaves}
+      \field{year}{2024}
+      \verb{urlraw}
+      \verb www.felix-cherubini.de/sheaves.pdf
+      \endverb
+      \verb{url}
+      \verb www.felix-cherubini.de/sheaves.pdf
+      \endverb
+    \endentry
     \entry{Modalities}{article}{}
       \name{author}{3}{}{%
         {{hash=b1bb80d57e903f657e4b411a28823e28}{%
