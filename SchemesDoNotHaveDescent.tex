@@ -43,41 +43,53 @@
 \end{enumerate}
 The key ingredient to prove that $\Sch$ is not modal, is the following:
 \begin{prop}{\label{prop}}
-	Let $2 \neq 0$. Let $r : R^\times$. Denote $C_r = R[X] / (X^2 - r)$. The following types (referred as (1.) (2.) (3.) )are logically equivalent
-% https://q.uiver.app/#q=WzAsMyxbMCwxLCJcXG1hdGhybXtpc1NjaGVtZX1cXGxlZnQgKCBcXHVuZGVyYnJhY2V7XFxzdW1fe3ggOiBSfSAoXFxTcGVjIENfcilee3ggPSAwfX1fe1xcZXF1aXY6IFhfcn0gXFxyaWdodCkiXSxbMCwyLCJcXHN1bV97WSA6IFIgXFx0byBcXFNjaH0gWV8wID1fe1xcU2NofSBcXFNwZWMgQ19yXFx0aW1lcyAoXFxub3QgXFxleGlzdHMgXFx0ZXh0eyBhbiBvcGVuIGFmZmluZSBuZWlnYmhvcmhvb2Qgb2YgfSBZXzAgXFwgaW4gXFwgXFxzdW1fe3ggOiBYfSBZX3gpIl0sWzAsMCwiXFx8XFxTcGVjIENcXHwiXSxbMCwxLCIiLDAseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJhcnJvd2hlYWQifX19XSxbMiwwLCIiLDAseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJhcnJvd2hlYWQifX19XV0=
+	Let $2 \neq 0$. Let $r : R^\times$. Denote 
+	\begin{align*}
+		C_r &= R[X] / (X^2 - r) \\
+		X_r &= \sum_{x : R} (\Spec C_r)^{x = 0}
+	\end{align*}
+	The following types (referred as $\cA$ $\cB$ $\cC$ )are logically equivalent:
+% https://q.uiver.app/#q=WzAsMyxbMCwxLCJcXG1hdGhybXtpc1NjaGVtZX1cXGxlZnQgKCBYX3IgXFxyaWdodCkiXSxbMCwyLCJcXHN1bV97WSA6IFIgXFx0byBcXFNjaH0gWV8wID1fe1xcU2NofSBcXFNwZWMgQ19yXFx0aW1lcyAoXFxub3QgXFxleGlzdHMgXFx0ZXh0eyBhbiBvcGVuIGFmZmluZSBuZWlnYmhvcmhvb2Qgb2YgfSBZXzAgXFwgaW4gXFwgXFxzdW1fe3ggOiBSfSBZX3gpIl0sWzAsMCwiXFx8XFxTcGVjIENfclxcfCJdLFswLDEsIiIsMCx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6ImFycm93aGVhZCJ9fX1dLFsyLDAsIiIsMCx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6ImFycm93aGVhZCJ9fX1dXQ==
 \[\begin{tikzcd}
-	{\|\Spec C\|} \\
-	{\mathrm{isScheme}\left ( \underbrace{\sum_{x : R} (\Spec C_r)^{x = 0}}_{\equiv: X_r} \right)} \\
-	{\sum_{Y : R \to \Sch} Y_0 =_{\Sch} \Spec C_r\times (\not \exists \text{ an open affine neigbhorhood of } Y_0 \ in \ \sum_{x : X} Y_x)}
+	{\|\Spec C_r\|} \\
+	{\mathrm{isScheme}\left ( X_r \right)} \\
+	{\sum_{Y : R \to \Sch} Y_0 =_{\Sch} \Spec C_r\times (\not \exists \text{ an open affine neigbhorhood of } Y_0 \ in \ \sum_{x : R} Y_x)}
 	\arrow[tail reversed, from=1-1, to=2-1]
 	\arrow[tail reversed, from=2-1, to=3-1]
 \end{tikzcd}\]
 \end{prop}
+\begin{rmk}
+	If $\Sch$ is a modal type, the advantage of $\cC$ is that it is modal, even if schemes are not assumed to be sheaves.
+\end{rmk}
+
 \begin{corollary}
 	The type of Schemes $\Sch$ is not modal
 \end{corollary}
 \begin{proof}
 	Assume $\Sch$ is modal. Lets call $C_r = R[X] / (X^2 - r)$.  By \cite{cherubini2023foundationsyntheticalgebraicgeometry} A . 0.3. its enough to show $\|\Spec C_r\|$ for all $r : R^\times$. \\
 	Let $r : R^\times$. %In other words by the prop $T^2 - r$ merely has a root for $r : R \setminus \{0\}$ arbitrary, so we get a contradiction to \\ \\
-	
-	First I give a more conceptual proof in the case where every scheme is modal only needing $(1.) \leftrightarrow (2.)$:
+%	
+	First I give a more conceptual proof in the case where every scheme is modal only needing $\cA \leftrightarrow \cB$:
 	\begin{align*}
 	L1 &\rightarrow L \| \Spec C_r\| \\
-	&\overset{1 \rightarrow 2}{\rightarrow} L (X_r \in \Sch) \\
+	&\overset{\cA \rightarrow \cB}{\rightarrow} L (X_r \in \Sch) \\
 	& \overset{*}{\leftrightarrow} (X_r \in \Sch ) \\
-	&\overset{2 \rightarrow 1}{\rightarrow} \|\Spec C_r\| \\
+	&\overset{\cB \rightarrow \cA}{\rightarrow} \|\Spec C_r\| \\
 	\end{align*}
-where at $(*)$ we used that $(X_r \in \Sch) \simeq \sum_{X: \Sch} X =_{U_\circ} X_r$ is modal because both $X$ and $X_r$ are modal \\
+where at $(*)$ we used that $(X_r \in \Sch) \simeq \sum_{X: \Sch} (X = X_r)$ is modal because both $X$ and $X_r$ are modal, so rewriting by univalence, the types of equivalences $X \simeq X_r$ is modal as well. \\
 	
-	No we give a proof for the general case, only using $(1.) \leftrightarrow (3.)$
-	If $\Sch$ is a modal type, then the type $(3.)$ is modal:
+	No we give a proof for the general case, only using $\cA \leftrightarrow \cC$
+	If $\Sch$ is a modal type, then the type $\cC$ is modal:
 	\begin{itemize}
 		\item identity types in $\Sch$ are modal, 
 %		\item $R$ is modal (L0) , 
 		\item $\bot$ is modal (L2).
 	\end{itemize}
-	
-	We have a map $\|\Spec C_r\|  \to (3.)$ from \ref{prop}. As $(3.)$ is modal we find a map $Y : L \|\Spec C_r\| \to (3.)$, By (L1) a term in (3.). Conclude by $(3.) \rightarrow (1.)$
+	Then conclude by
+	\begin{align*}
+		(L1) \to L \|\Spec C_r\| \overset{\cA \to \cC}{\to} L \cC \simeq \cC \to \cA
+	\end{align*}
+%	We have a map $\|\Spec C_r\|  \to \cC$ from \ref{prop}. As $\cC$ is modal we find a map $L \|\Spec C_r\| \to \cC$, By (L1) a term in $\cC$. Conclude by $\cC \rightarrow \cA$
 \end{proof}
 
 \section{Line with two origins}
@@ -173,13 +185,13 @@ where at $(*)$ we used that $(X_r \in \Sch) \simeq \sum_{X: \Sch} X =_{U_\circ} 
 The rest of this section is devoted for the proof of \ref{prop}.
 %$X_r$ is modal, as all affines are sheaves, using L0. \\
 \begin{enumerate}
-	\item [$(2.) \rightarrow (3.)$]
+	\item [$\cB \rightarrow \cC$]
 	we use $p : X_r \to R$ the first projection and the evident equivalence $\fib_p(0) \simeq \Spec C_r$.
 	There is no open affine subset of $X_r$ containing $\fib_p(0)$: Indeed as the goal is $\lnot \lnot$-stable we may assume $X_r$ beeing the line with two origins, using (L2). So we can conclude by \ref{lemma:noAffNbhd}.
-	\item [$(1.) \rightarrow (2.)$]
+	\item [$\cA \rightarrow \cB$]
 	if $\|\Spec C_r\|$, then $X_r$ is a scheme: \\
 	$\sum_{x : R} \Bool^{x = 0}$ is the line with two origins by \ref{lemma:X1}, which is known to be a scheme. So by \ref{lemma:BoolSpecC} $X_r$ is a scheme as well. 
-	\item [$(3.) \rightarrow (1.)$]
+	\item [$\cC \rightarrow \cA$]
  Let $p : X \to R$ be a map out of a scheme, such that $X$ does not admit an open affine neigbhorhood of $\fib_p(0)$, that moreover comes with an equivalence $\fib_p(0) \simeq \Spec C_r$. We wish to show $\|\Spec C\|$. Any finite open affine cover of $X$ can be restricted to a finite open affine cover $\Spec C_r= \bigcup_{j=0}^{n} U_j$ of the basefiber $\Spec C$ consisting of strictly smaller open subsets by point 1.
 	Then the goal is
 	\[
