@@ -2344,13 +2344,9 @@
     <bcf:datasource type="file" datatype="bibtex" glob="false">form.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="0">
-    <bcf:citekey order="1">SAGtopology</bcf:citekey>
-    <bcf:citekey order="2">SAGtopology</bcf:citekey>
-    <bcf:citekey order="3">SAGtopology</bcf:citekey>
-    <bcf:citekey order="4">SAGsheaves</bcf:citekey>
-    <bcf:citekey order="5">cherubini2023foundationsyntheticalgebraicgeometry</bcf:citekey>
-    <bcf:citekey order="6">cherubini2023foundationsyntheticalgebraicgeometry</bcf:citekey>
-    <bcf:citekey order="7">cherubini2023foundationsyntheticalgebraicgeometry</bcf:citekey>
+    <bcf:citekey order="1">cherubini2023foundationsyntheticalgebraicgeometry</bcf:citekey>
+    <bcf:citekey order="2">geomstacks</bcf:citekey>
+    <bcf:citekey order="3">cherubini2023foundationsyntheticalgebraicgeometry</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nty">

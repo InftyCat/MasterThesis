@@ -1,0 +1,92 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.1 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nty/global//global/global}
+    \entry{cherubini2023foundationsyntheticalgebraicgeometry}{misc}{}
+      \name{author}{3}{}{%
+        {{hash=0d5c393259c865f31cde5e48fc94160c}{%
+           family={Cherubini},
+           familyi={C\bibinitperiod},
+           given={Felix},
+           giveni={F\bibinitperiod}}}%
+        {{hash=9a0915de15d028e82e7de497c09fe93c}{%
+           family={Coquand},
+           familyi={C\bibinitperiod},
+           given={Thierry},
+           giveni={T\bibinitperiod}}}%
+        {{hash=c493d0f9ca1e7c303801645753b172db}{%
+           family={Hutzler},
+           familyi={H\bibinitperiod},
+           given={Matthias},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{6822427a8dd2ff18816f2a3bd91c4639}
+      \strng{fullhash}{6822427a8dd2ff18816f2a3bd91c4639}
+      \strng{bibnamehash}{6822427a8dd2ff18816f2a3bd91c4639}
+      \strng{authorbibnamehash}{6822427a8dd2ff18816f2a3bd91c4639}
+      \strng{authornamehash}{6822427a8dd2ff18816f2a3bd91c4639}
+      \strng{authorfullhash}{6822427a8dd2ff18816f2a3bd91c4639}
+      \field{sortinit}{C}
+      \field{sortinithash}{4c244ceae61406cdc0cc2ce1cb1ff703}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{math.AG}
+      \field{eprinttype}{arXiv}
+      \field{title}{A Foundation for Synthetic Algebraic Geometry}
+      \field{year}{2023}
+      \verb{eprint}
+      \verb 2307.00073
+      \endverb
+      \verb{urlraw}
+      \verb https://arxiv.org/abs/2307.00073
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/abs/2307.00073
+      \endverb
+    \endentry
+    \entry{geomstacks}{article}{}
+      \name{author}{1}{}{%
+        {{hash=9a234e87425b7ed710494613f7af52c6}{%
+           family={{Tim Lichtnau}},
+           familyi={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{9a234e87425b7ed710494613f7af52c6}
+      \strng{fullhash}{9a234e87425b7ed710494613f7af52c6}
+      \strng{bibnamehash}{9a234e87425b7ed710494613f7af52c6}
+      \strng{authorbibnamehash}{9a234e87425b7ed710494613f7af52c6}
+      \strng{authornamehash}{9a234e87425b7ed710494613f7af52c6}
+      \strng{authorfullhash}{9a234e87425b7ed710494613f7af52c6}
+      \field{sortinit}{T}
+      \field{sortinithash}{51f9faf24c60c62ca764a77f78cf5666}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Higher Geometric Stacks in SAG}
+      \field{year}{2024}
+      \verb{urlraw}
+      \verb https://raw.githubusercontent.com/timlichtnau/MasterThesis/Main/main.pdf
+      \endverb
+      \verb{url}
+      \verb https://raw.githubusercontent.com/timlichtnau/MasterThesis/Main/main.pdf
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

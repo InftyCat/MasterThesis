@@ -1,332 +1,5 @@
 
-\section{Talk: Algebraic Spaces vs Schemes}
 
-\subsection{Recap: Sheaftheory}
-\begin{notation}
-	\[\bT = \sum_{X : \Aff} X \text{ formally \etale } \land \underbrace{\text{faithfully flat}}_{=\text{ flat }+ \lnot \lnot \text{ inhabited } }\]
-\end{notation}
-Any $X: \bT$ has decidable equality!
-$\bT$ contains $1$ and is stable under $\sum$.
-A $\bT$-cover is a map fibered in $\bT$.
-\begin{definition}
-	A type $X$ is an etale-stack, if for any $\Spec A : \bT$ and any map $\|\Spec A \| \to X$, there exists a unique filler
-	% https://q.uiver.app/#q=WzAsMyxbMCwwLCJcXHxcXFNwZWNBIFxcfCJdLFsxLDAsIlgiXSxbMCwxLCIxIl0sWzAsMSwiXFxmb3JhbGwiXSxbMCwyXSxbMiwxLCJcXGV4aXN0cyEiLDIseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XV0=
-	\[\begin{tikzcd}
-		{\|\Spec A \|} & X \\
-		1
-		\arrow["\forall", from=1-1, to=1-2]
-		\arrow[from=1-1, to=2-1]
-		\arrow["{\exists!}"', dashed, from=2-1, to=1-2]
-	\end{tikzcd}\]
-	An \etale-sheaf is a 0-type that is an \etale-stack.
-\end{definition}
-
-Beeing an \etale-stack determines a lex-modality, that we write $L_\bT$. \\
-Given an equivalence relation $R$ on a sheaf $X$ valued in propositional sheaves, we can form the sheaf-quotient $p : X \to X / R :\equiv L_\bT \| X // R \|_0$ that is uniquely characterized by the following properties
-\begin{itemize}
-	\item for any $x, y : X$, $p(x) =_{X/R} p(y) \leftrightarrow R(x,y)$
-	\item The map $p$ is $\bT$-surjective, i.e. for any $z : X / R$, $\|\fib_p (z)\|_\bT$ ('$\bT$-merely the proposition $\|\fib_p (0)\|$ holds').
-\end{itemize}
-\begin{lemma}
-	Given a subtype $\cC$ of stacks the following are equivalent
-	\begin{itemize}
-		\item the type $\cC$ is a stack.
-		\item If $X$ is a stack, then the proposition $X \in \cC$ is a sheaf. 
-	\end{itemize}
-	 In this case we say that $\cC$ has descent.
-\end{lemma}
-\subsection{Algebraic Spaces}
-We assume today, that schemes are \etale sheaves.
-Algebraic Spaces are meant as a generalization of schemes that satisfy descent.
-\begin{definition}
-	A naive algebraic space is an \etale-sheaf $X$, that merely
-	admits a $\bT$-cover $\Spec B \to F$. \\
-	We call it covering, if we can choose $\Spec B \in \bT$.
-\end{definition}
-This is not good enough, because we can NOT prove the following
-\begin{itemize}
-	\item all schemes are naive algebraic spaces
-	\item naive algebraic spaces having descent, i.e. the type of them is an \etale-stack. \\
-\end{itemize}
-Instead we have to repeat the process asking for an atlas twice. 
-\begin{definition}
-	An algebraic space is an \etale-sheaf $X$, such that one of the following equivalent conditions holds:
-	\begin{itemize}
-		\item 	 merely we find a map $\Spec A \to X$ such that each fiber is a covering naive algebraic space. 
-		\item We merely can express it as the sheaf-quotient of an affine $\Spec A$ by an equivalence relation $R$ that is covering, i.e. for each $x : \Spec A$, $\sum_{y : \Spec A} R(x,y)$ is a covering naive algebraic space.  \\	
-	\end{itemize}
-	We call $X$ covering, if we can choose $\Spec A$ to lie in $\bT$.
-\end{definition}
-This class is stable under $\sum$ and under quotients by covering equivalence relations
-\begin{theorem}
-	(Covering) Algebraic spaces have descent.
-\end{theorem}
-\begin{example}
-	Schemes are algebraic spaces!
-\end{example}
-\begin{proof}
-	\begin{enumerate}
-		\item 	Merely inhabited finite sums of principal open propositions belong to $\bT$. 
-		\item open propositions are naive algebraic spaces. 
-		\item	If $X$ is a scheme, merely we find a map $\coprod_i \Spec A_i \to X$ whose fibers are merely inhabited finite sums of open propositions, so the fibers are covering.
-	\end{enumerate}
-\end{proof}
-\begin{question}
-	Can we find algebraic spaces that are not schemes? \\
-	Can we prove with them, that Schemes do not have descent? \\	
-\end{question}
-\subsection{Quotients by Group actions}
-Let $\ell \neq 0$ denote a prime. Consider $\mu_\ell = R[X] / (X^\ell - 1)$.
-\begin{example}[Non-free action]
-	If $2 \neq 0$, the sheaf-quotient of $\bA^1$ by the non-free $\mu_2$ action is not an algebraic space!
-\end{example}
-This suggests that we need a free action. On the other hand, classically, the quotient of a quasi-projective scheme by a finite free group action is a scheme.
-%\begin{example}
-%	The quotient of $\bA^{\times}$ by the free $\mu_\ell$ action gives a scheme.
-%\end{example}
-%Having a free action on the whole space might be not good enough to cook up examples of algebraic spaces that are not schemes.
-\begin{construction}
-	Given a formally \etale + flat affine (e.g. $\mu_\ell$ or finite) group $G$ that acts on an affine $\Spec A$. Assume $G$ acts free on some open subset $U \subset \Spec A$.  % that belongs to $\bT$ (more generally a covering algebraic space)
-	
-	Then we construct a covering equivalence relation $R$ on $\Spec A$, such that
-	\begin{itemize}
-		\item On $U$ we are just taking the quotient by the $G$-action: for any $x : U$  and $y : \Spec A$
-		\[R(x,y) \leftrightarrow \sum_{g : G} g x  = y. \]
-		\item On the complement $U^c \equiv \Spec A \setminus U$ we do nothing: for some $x : U^c , y : \Spec A $, we have $R(x,y) \leftrightarrow x = y$.
-	\end{itemize}
-	We write $\Spec A /_U G \equiv \Spec A / R$ and call it the quotient of $\Spec A$ by the $G$-action on $U$ .
-\end{construction}
-\begin{proof}
-	To show, that its an algebraic space, one checks, that $G$ acts free on $0^c$.
-	\[R_{G}(x,y) \equiv (x = y) + (x \in U) \times \sum_{g : G \setminus \{1\}} g x = y\]
-	This is covering: For any $x : \Spec A$ we have
-	\[\sum_{y : X} x = y + (x \neq 0) \times \sum_{g : G \setminus \{1\}} g x = y \simeq 1 + (x \in U) \times G \setminus \{1\}\]
-	which is a covering naive algebraic space: For that use, that $G \setminus \{1\} = \sum_{g : G} g \neq 1$ is a $\sum$ of formally \etale + flat affines (recall that formally \etale affines have decidable equality). \\
-	Indeed, the two conditions hold, using that $G$ has decidable equality.
-\end{proof}
-
-\begin{example}[Free action]
-	Let $G$ act freely on the whole space $U \equiv \Spec A$. Then this construction yields the actual group quotient: $\Spec A  /_{\Spec A} G = \Spec A / G$.
-\end{example}
-\begin{proof}
-	Indeed, the equivalence relation is the same, using that $G$ has decidable equality.
-\end{proof}
-%\begin{notation}
-%	If $U = \Spec A \setminus Z$ the complement of a closed subset we write \[U \equiv Z^c\]
-%\end{notation}
-
-\begin{example}[Quotient of the Line]
-	If $\ell \neq 0$ is prime, we have $R /_{0^c} \mu_\ell$ is an algebraic space
-\end{example}
-\begin{example}[Quotient of the Cross]
-	Let $\mu_\ell$ act on $X = \Spec R[X,Y] / X^\ell - Y^\ell$ via multiplication on the second component. Then
-	\[
-	X /_{\{0,0\}^c} \mu_\ell
-	\]
-	is an algebraic space.
-\end{example}
-Are those schemes?
-%\subsection{Not a scheme?}
-
-\begin{prop}	
-	Let $0 : \Spec A$ be a regular point, i.e. we can write $\Spec B \setminus \{0\} = D(p_1,\hdots,p_n)$ for some $p_1,\hdots,p_n : B$ jointly-reguar, i.e. $B \to \prod_{j=1}^n B_{p_j}$ is injective. \\
-	Let $G$ be a non-trivial formally \etale flat affine group acting on $\Spec A$, such that 
-	\begin{itemize}
-		\item 0 is a fixpoint
-		\item if $g x = x$ for some $g \neq 1$, then $x = 0$. \\
-	\end{itemize}
-	Then $\Spec A /_{0^c} G$ from \ref{ex:GAction} is an algebraic spaces that is not a scheme.
-\end{prop}
-\begin{proof}
-	As $\lnot \lnot (G \setminus \{1\})$ and our goal is $\lnot \lnot$-stable, we may choose some $g : G \setminus \{1\}$. Then for all $y : \Spec A$
-		\[
-	R_{\sharp}(y,gy) \simeq (y = gy) + (y \neq 0) \land \sum_{h \neq 1} h y = g y  {\simeq} (y = 0) + (y \neq 0) \simeq (y = 0) + (y \neq 0)
-	\]	
-	Regularity of $0$ gives us that $\{0\} + D(0) \subset \Spec A$ is not a locally closed subtype, i.e a closed subset of an open subset.
-	But the identity types of a scheme are locally closed propositions (subsets of the point).
-\end{proof}
-
-\begin{example}
-	Assume $\ell \neq 0$ prime. Let $\mu_\ell$ act on $\Spec B$ in one of the following ways:
-	\begin{enumerate}
-		\item Let $\mu_\ell$ act on $\Spec B = \bA^1$. 
-		\item Let $\mu_\ell$ act on
-		\[
-		\Spec B \equiv \sum_{x , y : R} x^\ell = y^\ell
-		\]
-		via $g (x,y) = (x,g y)$
-	\end{enumerate}
-	Then $\Spec B /_{0^c} \mu_\ell$ is an algebraic space that is not a scheme.
-\end{example}
-\begin{proof}
-	$\lnot \lnot$ merely, $\mu_\ell$ is finite (\todocite) and $\mu_\ell \setminus \{1\}$ is inhabited by \ref{lemma:CompOf1}. 
-	\begin{enumerate}
-		\item Pointed-Free action is clear. $0 : \bA^1$ is a regular point by first projection.
-		\item  Pointed-Free action is clear. The cross is regular pointed, witnessed by  the first projection: It is regular vanishing at $(0,0)$ And for any point $(0,y) : \Spec B$ we deduce $y^\ell = -0^\ell = 0$, hence $\lnot \lnot (x,y) = (0,0)$.
-	\end{enumerate}
-\end{proof}
-\subsection{Fiber Collapse!}
-An alternative approach to construct algebraic spaces is the fiber collapse away from the origin.
-
-\begin{definition}
-	Given a sheaf proposition $P$, there is a closed modality $\mathsf{Cl}_P$ where a type $X$ is modal, if it is a sheaf and $P \to \isContr(X)$.
-	We have to stackify to belong to the sheaf topos:
-	\begin{align*}
-	\cU &\to \cU \\
-	X &\mapsto P \star X :\equiv L_\bT(P \sqcup_{P \times X} X)
-\end{align*}
-	where we need to stackify the pushout. This determines a lex modality.
-\end{definition}
-\begin{definition}
-	Let $Y_\bullet : R \to \Aff$ be a dependent family of affines %$(Y \in \EF)^{x \neq 0}$ . 
-	The fiber collapse of $Y_\bullet$ away from the origin $\emdash Y_\bullet \emdash $ is the following type over $R$
-	\[
-	\sum_{x : R} (x \neq 0) \star Y_x \to R %\sum_{x : R} Y_x \to 
-	\]
-	%	: \prod_{x : R} \sum_{Y:\Aff} (Y \in \EF)^{x \neq 0}$ %
-\end{definition}
-\begin{itemize}
-	\item The \emph{infinitesimal fibers} over $\varepsilon : \cN_\infty$ are $\fib_p(\varepsilon) = Y_\varepsilon$. 
-	\item In particular the \emph{basefiber} $\fib_p (0)$ is equivalent to $Y_0$, 
-	\item The \emph{other} fibers $\fib_p (x)$, $x \neq 0$, are contractible. 
-\end{itemize}
-So ---$Y_\bullet$--- is obtained from $\sum_{x : R} Y_x \to R$ by keeping only the infinitesimal fibers and collapsing all the other fibers.
-This space over $R$ looks exactly like the line away from the origin. % and over an infinitesimal 
-\begin{lemma}{\label{lemma:FiberCollapsAS}}
-	Assume that if $x \neq 0$, then $Y_x \in \bT$. Then $\emdash Y \emdash$ is an algebraic space.
-\end{lemma}
-\begin{proof}
-	Let $x : R$. Let $Y : \Aff$ such that $x \neq 0$ implies that $Y$ is formally \etale + flat. We will show that $\eta : Y \to (x \neq 0) \star Y$ is the sheaf-quotient map of the relation on $Y$ given by $y \sim y' \equiv (y = y') + (x \neq 0) \times y \neq y'¸$, which is enough by \ref{ex:MapOverR}. We apply  \ref{lemma:quotient-by-equivalence-relation} \\
-	\begin{itemize}
-
-			\item The map is $\bT$-surjective: We have a $\bT$-surjection $(x \neq 0) + Y \to (x \neq 0) \star Y$. In case $x \neq 0$, the map of interest is $Y \to 1$, which is $\bT$-surjective, as then $Y \in \bT$. 
-		\item Given $y,y' : Y$, we have
-		\begin{align*}
-			\eta(y') = \eta(y) &\simeq (x \neq 0) \star (y = y')&& \ | \  \text{ closed modality is lex (\cite{Modalities} Example 3.1.4).} \\
-			&\simeq L_\bT\left((y = y') \lor (x \neq 0) \right) && \ | \ (x \neq 0) \to \mathsf{HasDecEq}(Y) \\
-			&\simeq (y = y') + (x \neq 0) \times y \neq y'¸
-		\end{align*}
-		\end{itemize}
-\end{proof}
-\begin{example}
-	$\emdash Bool \emdash$ is the line with two origins. \\
-	---$\Spec R[X] / (X^2 + 1)$--- is the twisted line with two origins, i.e. over the origin we have the roots of $-1$. \\
-	---$\Spec R[Y] / (Y^2 - \bullet)$--- is $\bA^1 /_{0^c} \mu_2$ which looks like $\bD(1)$ over $0$. \\
-	---$\Spec R[Y] / (Y^2 - \bullet^2)$--- is the quotient of the cross that looks like $\bD(1)$ over every $\varepsilon : \bD(1)$. \\
-
-	
-	---$\Spec R[Y] / (\bullet Y)$--- is the affine plus.
-\end{example}
-\begin{prop}
-	Let $G$ be a formally + flat affine group.
-	Let $p : \tilde Y \to R$ such that the pullback to $R^\times$ can be enhanced to a $G$ torsor over $R^\times$. Write $Y_x \equiv \fib_p x$. Then there is a canonical equivalence
-	% https://q.uiver.app/#q=WzAsNCxbMSwwLCJcXHRpbGRlIFkiXSxbMCwxLCJcXHRpbGRlIFkgLyBHfF97KFxcZmliX3AgMCleY30iXSxbMiwxLCJcXGVtZGFzaCBZIFxcZW1kYXNoIl0sWzEsMiwiUiJdLFswLDFdLFswLDJdLFsxLDIsIlxcc2ltZXEiXSxbMSwzXSxbMiwzXV0=
-	\[\begin{tikzcd}
-		& {\tilde Y} \\
-		{\tilde Y /_{Y_0^c}} G && {\emdash Y \emdash} \\
-		& R
-		\arrow[from=1-2, to=2-1]
-		\arrow[from=1-2, to=2-3]
-		\arrow["\simeq", from=2-1, to=2-3]
-		\arrow[from=2-1, to=3-2]
-		\arrow[from=2-3, to=3-2]
-	\end{tikzcd}\]
-\end{prop}
-\begin{proof}
-	As every \emph{other} fiber is merely equivalent to $G$, its formally \etale + flat.
-	In between you can put for $U_x \equiv x \neq 0 \times Y_x$
-	\[\tilde Y \to \sum_{x : R} Y_x /_{U_x} G\]
-	As all three maps defined on $\tilde Y$ are $\bT$-surjective, by \ref{lemma:quotiquotient-by-equivalence-relation} we may only check that the identity types coincide. For any $y,y' : \tilde Y$. Using that if $py \neq 0$ then the $G$ action on $Y_{py}$ is a $G$-torsor, We have an equivalence
-	
-	\begin{align*}
-		(y = y') + y \not \in Y_0 \land \underbrace{\sum_{g \neq 1} g y = y' }_{\simeq (py = py') \land y \neq y'} &\simeq  (py = py') \land ((y = y') + py \neq 0 \land y \neq y' ) \\
-	\end{align*}
-	If we fix $x : R$ and put $y,y' : Y_x$ we have, writing $\eta : Y_x \to (x \neq 0) \star Y_x$
-	\[
-	(y = y') + py \neq 0 \land y \neq y'  \simeq \eta y = \eta y'
-	\]
-	by the proof of \ref{lemma:FiberCollapsAS}.
-\end{proof}
-\subsection{Schemes do not have descent}
-\begin{rmk}
-	Whenever we want to show a proposition that is an \etale-sheaf, we may assume a term in $i : \Spec C \subset R$. Because $i \neq -i$, this determines an embedding 
-	\begin{align*}
-		\mathsf{Bool} &\to \Spec C \\
-		true &\mapsto i \\
-		false &\mapsto -i
-	\end{align*}
-	But any embedding $Bool \hookrightarrow \Spec C$ is already an equivalence (*), as for any $x : R$, $x-i$ or $x+i$ is invertible, so if $(x-i)(x+i) = 0$ we know that one of the factors is zero.
-\end{rmk}
-
-\begin{prop}
-	let $\rho : R \setminus \{0\}$ (e.g. $\rho = 1$). Set $C = R[T] / (T^2 + \rho)$. If ---$\Spec C$--- is a scheme, then $X^2 + \rho$ merely has a root.
-\end{prop}
-\begin{proof}
-	Let $p : \emdash \Spec C \emdash \to R$ be the first projection.
-	We proceed as follows
-	\begin{enumerate}
-		\item  There is no open affine subset of $\emdash \Spec C \emdash$ containing $\fib_p(0)$.
-		\item Any open subset of $\Spec C$, that is strictly smaller than $\Spec C$, is an open proposition
-	\end{enumerate}
-	Any finite open affine cover of ---$\Spec C$--- can be restricted to a finite open affine cover $\Spec C = \bigcup_{j=0}^{n} U_j$ of the basefiber $\Spec C$ consisting of strictly smaller open subsets by point 1.
-	Then the goal is
-	\[
-	\| \Spec C \| = \| \bigcup_{j=0}^{n} U_j \| = \bigvee_j  U_j
-	\]
-	an open propoosition by point 2., thus an \etale sheaf, as open propositions are $\lnot \lnot$-stable. So we can conclude.
-	Proofs:
-	\begin{enumerate}
-		\item Because we want to show $\bot$, we may assume ---$\Spec C \emdash = \emdash Bool \emdash$. Assume there is an open affine subset $\fib_p(0) \subset U \subset \emdash Bool \emdash$. Then $p(U) \subset R$ is an open neigbhorhood of 0, as 
-		\[
-		x \in p(U) \leftrightarrow (x,N) \in U \lor (x,S) \in U
-		\]
-		Claim: the map $R^{p(U)} \to R^U$ is an equivalence. If we have shown that: As $U$ is affine we conclude that the map
-		\begin{align*}
-			U &\to \Spec (R^{p(U)}) \\
-			x &\mapsto \phi \mapsto (\phi(px))		
-		\end{align*}
-		is an equivalence, which is a contradiction to the assumption, that $U$ contains both origins. \\
-		Proof of claim: 
-		In words: As $U$ is a subset of a quotient of $R + R$, the function $U \to R$ determines two (partially defined on open domain) functions to $R$ that coincide away from the origin, which is a regular point. Thus by \ref{lemma:AlmostEverywhere} they coincide everywhere.
-		Injectivity: If two maps $f , g : p(U) \to R$ coincide after precomposing with $U \to p(U)$, then they coincide away from $0$
-		so conclude by \ref{lemma:AlmostEverywhere}. \\
-		Surjectivity: Given a map $U \to R$, by pulling back along $p : R + R \to \emdash Bool \emdash$  we can view it as a map $R + R \supset U' \to R$ defined at both origins, so in particular as a pair of maps to $R$ defined on some open neigbhorhood of 0 of $R$. They coincide away from 0 so by \ref{lemma:AlmostEverywhere} they are equal.
-		\item 
-		Any strictly smaller open subset $U \subset \Spec C$ is an open proposition:
-		Note, that $U$ is a proposition: If $x,x' : U$, then $x = x' \simeq \lnot \lnot (x = x')$ by decidable equality of $U$, but if $x \neq x'$, then $\{x,x'\} \hookrightarrow \Spec C$ is an embedding, so by (*) an equivalence. But then $U = \Spec C$, contradiction. \\
-		We first reduce to the case where $U$ is a principal open of $\Spec C$. By \cite{cherubini2023foundationsyntheticalgebraicgeometry} we find $f_1,\hdots,f_n : C$ such that $U = D(f_1,\hdots,f_n)$. As the left hand side is a proposition we have
-		\[
-		U \leftrightarrow \bigvee D(f_i)
-		\]
-		so we may show, that each $D(f_i)$ is an open proposition. \\
-		Let $f : C$ such that $D(f)$ is a proposition. Choose a representative $a + bT : R[T]$.
-		
-		Let us show $(2a \neq 0) \leftrightarrow D(f)$, which is an \etale-sheaf and a proposition, so we may assume $x : \Spec C$.
-		Using that $D(f)$ is a proposition we have
-		\[
-		D(f) =  (a+bx \neq 0) + (a-bx \neq 0) \overset{\sim}{\to} (a+bx \neq 0) \lor (a-bx \neq 0)
-		\]
-		We may show both implications $2a \neq 0 \leftrightarrow (a+bx \neq 0) \lor (a-bx \neq 0) $. \\
-		$'\rightarrow'$ $(a+bx) + (a-bx)$ is invertible, so by locality one of the summands is invertible. \\
-		$'\leftarrow'$ by symmetry wlog $a + bx \neq 0$. Then as $D(f)$ is a prop, $\lnot \lnot (a - bx = 0)$. Thus $\lnot \lnot (a + a = a + bx \neq 0)$, hence $2 a \neq 0$. 
-	
-%		For $1 \le k \le n$, let us prove
-%		\[
-%		\left(\Spec C \subset \bigcup_{j=0}^{k} U_j \right) \to U_{k} \lor		\left(\Spec C \subset \bigcup_{j=0}^{k-1} U_j \right)
-%		\]
-%		The right hand side is an open proposition:  $U_{k}$ is an open proposition by the claim and the right hand side is open by compactness of $\Spec C$. 
-%		Thus it is an \etale -sheaf. Thus we may assume $\Spec C = Bool$. Proof by induction over $k$. \\
-%	 	If $k = 1$, then the right summand is empty, so we have to show $U_1$, which is $\lnot \lnot $ stable. But it can be empty, as otherwise $\Spec C = U_0 \cup U_1 = U_0$. \\
-%		For $k \mapsto k+1$, we merely find $j,j'$ such that $i \in U_j, -i \in U_{j'}$. 
-%		Now, exploiting decidable equality in $\Fin (k+1)$: If $k = j$ return $i$. If $k = j'$, return $-i$. Otherwise, $\Spec C \hookleftarrow \{i,-i\} \subset U_j \cup U_{j'} \subset \bigcup_{j=0}^k U_j$ .
-	\end{enumerate}
-\end{proof}
-\begin{corollary}
-	Schemes do not have descent.
-\end{corollary}
-\begin{proof}
-	If Schemes have descent, then ---$\Spec R[T]/(T^2 + \rho) \emdash \in \mathsf{Sch}$ is a sheaf. As ---$\Spec R[T]/(T^2 + \rho) \emdash$ is $\bT$-merely a scheme, it is a scheme, so by the previous lemma $T^2 + \rho$ has a root. As $\rho : R \setminus \{0\}$ was arbitrary, we get a contradiction to \cite{cherubini2023foundationsyntheticalgebraicgeometry} A . 0.3. \\
-\end{proof}
 \section{Algebraic spaces}
 
 
@@ -796,7 +469,7 @@ For this section let $G$ denote a group that is a covering 0-stack. Let $X$ be a
 \begin{corollary}
 	Let $Y : R \to \Aff$ be formally \etale + flat affine away from the origin , such that $p : \tilde Y = \sum_{x : R} Y_x \to R$ is regular and $Y_0$ is infinitesimal.
 	% such that $\Spec A \setminus \{0\} = D(g)$ for some regular $g : B$. %the infinitesimal neigbhorhood is not open. %  $R^{\Spec A} \to R^{\Spec A \setminus \{0\}}$ is injective.
-	If you find a map $g : \tilde Y \to \tilde Y$ over $p$ with a unique fixpoint, which lies over $0$, then  the algebraic space---$Y_\bullet$--- is non-locally-seperated, In particular not a scheme.
+	If you find a map $g : \tilde Y \to \tilde Y$ over $p$ with a unique fixpoint, which lies over $0$, then  the algebraic space---$Y$--- is non-locally-seperated, In particular not a scheme.
 \end{corollary}
 \begin{proof}
 	Lets call the unique fix point $*$, i.e. we have
@@ -853,7 +526,7 @@ For this section let $G$ denote a group that is a covering 0-stack. Let $X$ be a
 \begin{prop}
 	Let $Y : R \to \Aff$ be formally \etale + flat affine away from the origin %, such that $p : \tilde Y = \sum_{x : R} Y_x \to R$ is regular and  (i.e. each two points are $\lnot \lnot$-equal). 
 	% such that $\Spec A \setminus \{0\} = D(g)$ for some regular $g : B$. %the infinitesimal neigbhorhood is not open. %  $R^{\Spec A} \to R^{\Spec A \setminus \{0\}}$ is injective.
-	If you find two sections $y,y' : \prod_{x: R} Y_x$ such that $y_x = y'_x \leftrightarrow x = 0$, then then the algebraic space---$Y_\bullet$--- is non-locally-seperated, In particular not a scheme.
+	If you find two sections $y,y' : \prod_{x: R} Y_x$ such that $y_x = y'_x \leftrightarrow x = 0$, then then the algebraic space---$Y$--- is non-locally-seperated, In particular not a scheme.
 \end{prop}
 \begin{proof}
 	It is an algebraic space by the previous prop. \\
@@ -1136,63 +809,74 @@ OUTDATED!
 \subsection{Schemes do not have descent}
 For this section, let $\rho : R \setminus \{0\}$ denote a term, e.g. $\rho = 1$. Set $C = R[T] / (T^2 + \rho)$.
 
-\begin{prop}[OUTDATED! Copy from talk!]
-	If ---$\Spec C$--- is a scheme, then $X^2 + \rho$ has a root.
+\begin{prop}
+	let $\rho : R \setminus \{0\}$ (e.g. $\rho = 1$). Set $C = R[T] / (T^2 + \rho)$. If ---$\Spec C$--- is a scheme, then $X^2 + \rho$ merely has a root.
 \end{prop}
-%\begin{proof}
-%	Let $p : \emdash \Spec C \emdash \to R$ be the first projection.
-%	We proceed as follows
-%	\begin{enumerate}
-%		\item  There is no open affine subset of $L(\Spec C)$ containing $\fib_p(0)$.
-%		\item Any cover of $\Spec C$ by open subsets strictly smaller than $\Spec C$ yields a root.
-%	\end{enumerate}
-%	Proves:
-%	\begin{enumerate}
-%		\item Because we want to show a sheaf, we may assume $L(\Spec C) = L(2)$. Assume there is an open affine subset $\fib_p(0) \subset U \subset L (2)$. Then $p(U) \subset R$ is an open neigbhorhood of 0, as 
-%		\[
-%		x \in p(U) \leftrightarrow (x,N) \in U \lor (x,S) \in U
-%		\]
-%		Claim: the map $R^{p(U)} \to R^U$ is an equivalence. If we have shown that: As $U$ is affine we conclude that the map
-%		\begin{align*}
-%			U &\to \Spec (R^{p(U)}) \\
-%			x &\mapsto \phi \mapsto (\phi(px))		
-%		\end{align*}
-%		is an equivalence, which is a contradiction to the assumption, that $U$ contains both origins. \\
-%		Proof of claim:
-%		Injectivity: If two maps $f , g : p(U) \to R$ coincide after precomposing with $U \to p(U)$, then they coincide away from $0$
-%		so conclude by \ref{lemma:AlmostEverywhere}. \\
-%		Surjectivity: Given a map $U \to R$, by pulling back along $p : R + R \to L(2)$ we can view it as a map $R + R \supset U' \rightsquigarrow R$ defined at both origins, so in particular as a pair of maps to $R$ defined on some open neigbhorhood of 0 of $R$. They coincide away from 0 so by \ref{lemma:AlmostEverywhere} they are equal.
-%		%$U \setminus \fib_p(0)$ is an open subset of $L(2) \setminus \fib_p(0) \simeq R^{\times}$. 
-%		\item As $\Spec C$ is an \etale sheaf, its enough to show to construct a function $\|\Spec C\| \to \Spec C$. \\
-%		Define 
-%		\begin{align*}
-%			A : \Spec C &\to \Prop^{\Fin(n)}  \\
-%			x &\mapsto \{ j : x \in U_j\}
-%		\end{align*}
-%		where we transport $x : \Spec C$ along $\Spec C \overset{\simeq}{\to} \fib_p 0$.
-%		Observe 
-%		\begin{enumerate}
-%			\item for any $x,x' : \Spec C$, 
-%			\[\| A x \cap  A x' \| \to \lnot \lnot (x = x') \overset{DecEq(\Spec C)}{\to} x = x'\] where the first implication follows like this : if $x \neq x'$ and $\fib_p 0 = \{x , x'\} \in U_j$ then we have a contradiction to the first point 
-%			\item For any $x : \Spec C$ , $\| A x\|$.
-%		\end{enumerate}
-%		Assume $\|\Spec C\|$.
-%		Lets try to construct a term of the following type
-%		\[
-%		\sum_{x : \Spec C} \forall x' : \Spec C , j : A x, j' : A x' \to j \le j' 
-%		\]
-%		For this we may assume $\Spec C = Bool \equiv \{N,S\}$, as the above type is a proposition: If we have given two such maximal $x_1, x_2$, we can set first $x' \equiv x_2$ and then $x' \equiv x_1$ respectively and then (by (b)) choosing $j : A_{x_1},j' : A_{x_2}$ gives $j \le j' \le j$ so that $j : A_{x_1} \cap A_{x_2}$ such that $x_1 = x_2$ by (a). \\
-%		I will explain an algorithm to do the following:
-%		Given $n \ge 2$, and a pair of  merely inhabited disjoints subsets $A_N$ and $A_S$ of $\Fin(n)$, we can decide in which of the two we find the smaller number of $\Fin(n)$. \\
-%		Induction over $n$. If $n = 2$, then $\|A_N\|$, so we find a term in the proposition $(0 \in A_N) + (1 \in A_N)$ . In the left case return $S$, in the right case $N$. \\
-%		For $n \mapsto n+1$, if $n \in A_N$ return $S$. If $n \in A_S$, return $N$. Otherwise both $A_N$ and $A_S$ are subset of $\Fin(n)$, so conclude by induction.  
-%	\end{enumerate}
-%\end{proof}
+\begin{proof}
+	Let $p : \emdash \Spec C \emdash \to R$ be the first projection.
+	We proceed as follows
+	\begin{enumerate}
+		\item  There is no open affine subset of $\emdash \Spec C \emdash$ containing $\fib_p(0)$.
+		\item Any open subset of $\Spec C$, that is strictly smaller than $\Spec C$, is an open proposition
+	\end{enumerate}
+	Any finite open affine cover of ---$\Spec C$--- can be restricted to a finite open affine cover $\Spec C = \bigcup_{j=0}^{n} U_j$ of the basefiber $\Spec C$ consisting of strictly smaller open subsets by point 1.
+	Then the goal is
+	\[
+	\| \Spec C \| = \| \bigcup_{j=0}^{n} U_j \| = \bigvee_j  U_j
+	\]
+	an open propoosition by point 2., thus an \etale sheaf, as open propositions are $\lnot \lnot$-stable. So we can conclude.
+	Proofs:
+	\begin{enumerate}
+		\item Because we want to show $\bot$, we may assume ---$\Spec C \emdash = \emdash Bool \emdash$. Assume there is an open affine subset $\fib_p(0) \subset U \subset \emdash Bool \emdash$. Then $p(U) \subset R$ is an open neigbhorhood of 0, as 
+		\[
+		x \in p(U) \leftrightarrow (x,N) \in U \lor (x,S) \in U
+		\]
+		Claim: the map $R^{p(U)} \to R^U$ is an equivalence. If we have shown that: As $U$ is affine we conclude that the map
+		\begin{align*}
+			U &\to \Spec (R^{p(U)}) \\
+			x &\mapsto \phi \mapsto (\phi(px))		
+		\end{align*}
+		is an equivalence, which is a contradiction to the assumption, that $U$ contains both origins. \\
+		Proof of claim: 
+		In words: As $U$ is a subset of a quotient of $R + R$, the function $U \to R$ determines two (partially defined on open domain) functions to $R$ that coincide away from the origin, which is a regular point. Thus by \ref{lemma:AlmostEverywhere} they coincide everywhere.
+		Injectivity: If two maps $f , g : p(U) \to R$ coincide after precomposing with $U \to p(U)$, then they coincide away from $0$
+		so conclude by \ref{lemma:AlmostEverywhere}. \\
+		Surjectivity: Given a map $U \to R$, by pulling back along $p : R + R \to \emdash Bool \emdash$  we can view it as a map $R + R \supset U' \to R$ defined at both origins, so in particular as a pair of maps to $R$ defined on some open neigbhorhood of 0 of $R$. They coincide away from 0 so by \ref{lemma:AlmostEverywhere} they are equal.
+		\item 
+		Any strictly smaller open subset $U \subset \Spec C$ is an open proposition:
+		Note, that $U$ is a proposition: If $x,x' : U$, then $x = x' \simeq \lnot \lnot (x = x')$ by decidable equality of $U$, but if $x \neq x'$, then $\{x,x'\} \hookrightarrow \Spec C$ is an embedding, so by (*) an equivalence. But then $U = \Spec C$, contradiction. \\
+		We first reduce to the case where $U$ is a principal open of $\Spec C$. By \cite{cherubini2023foundationsyntheticalgebraicgeometry} we find $f_1,\hdots,f_n : C$ such that $U = D(f_1,\hdots,f_n)$. As the left hand side is a proposition we have
+		\[
+		U \leftrightarrow \bigvee D(f_i)
+		\]
+		so we may show, that each $D(f_i)$ is an open proposition. \\
+		Let $f : C$ such that $D(f)$ is a proposition. Choose a representative $a + bT : R[T]$.
+		
+		Let us show $(2a \neq 0) \leftrightarrow D(f)$, which is an \etale-sheaf and a proposition, so we may assume $x : \Spec C$.
+		Using that $D(f)$ is a proposition we have
+		\[
+		D(f) =  (a+bx \neq 0) + (a-bx \neq 0) \overset{\sim}{\to} (a+bx \neq 0) \lor (a-bx \neq 0)
+		\]
+		We may show both implications $2a \neq 0 \leftrightarrow (a+bx \neq 0) \lor (a-bx \neq 0) $. \\
+		$'\rightarrow'$ $(a+bx) + (a-bx)$ is invertible, so by locality one of the summands is invertible. \\
+		$'\leftarrow'$ by symmetry wlog $a + bx \neq 0$. Then as $D(f)$ is a prop, $\lnot \lnot (a - bx = 0)$. Thus $\lnot \lnot (a + a = a + bx \neq 0)$, hence $2 a \neq 0$. 
+		
+		%		For $1 \le k \le n$, let us prove
+		%		\[
+		%		\left(\Spec C \subset \bigcup_{j=0}^{k} U_j \right) \to U_{k} \lor		\left(\Spec C \subset \bigcup_{j=0}^{k-1} U_j \right)
+		%		\]
+		%		The right hand side is an open proposition:  $U_{k}$ is an open proposition by the claim and the right hand side is open by compactness of $\Spec C$. 
+		%		Thus it is an \etale -sheaf. Thus we may assume $\Spec C = Bool$. Proof by induction over $k$. \\
+		%	 	If $k = 1$, then the right summand is empty, so we have to show $U_1$, which is $\lnot \lnot $ stable. But it can be empty, as otherwise $\Spec C = U_0 \cup U_1 = U_0$. \\
+		%		For $k \mapsto k+1$, we merely find $j,j'$ such that $i \in U_j, -i \in U_{j'}$. 
+		%		Now, exploiting decidable equality in $\Fin (k+1)$: If $k = j$ return $i$. If $k = j'$, return $-i$. Otherwise, $\Spec C \hookleftarrow \{i,-i\} \subset U_j \cup U_{j'} \subset \bigcup_{j=0}^k U_j$ .
+	\end{enumerate}
+\end{proof}
 \begin{corollary}
 	Schemes do not have descent.
 \end{corollary}
 \begin{proof}
-	If Schemes have descent, then ---$\Spec R[T]/(T^2 + \rho) \emdash \in \mathsf{Sch}$ is a sheaf. As ---$\Spec R[T]/(T^2 + \rho) \emdash$ is $\bT$-merely a scheme, it is a scheme, so by the previous lemma $T^2 + \rho$ has a root. Contradiction to \cite{cherubini2023foundationsyntheticalgebraicgeometry} A . 0.3. \\
+	If Schemes have descent, then ---$\Spec R[T]/(T^2 + \rho) \emdash \in \mathsf{Sch}$ is a sheaf. As ---$\Spec R[T]/(T^2 + \rho) \emdash$ is $\bT$-merely a scheme, it is a scheme, so by the previous lemma $T^2 + \rho$ has a root. As $\rho : R \setminus \{0\}$ was arbitrary, we get a contradiction to \cite{cherubini2023foundationsyntheticalgebraicgeometry} A . 0.3. \\
 \end{proof}
 \subsection{Gluing in an affine on the line}
 
@@ -1237,7 +921,7 @@ For this section, let $\rho : R \setminus \{0\}$ denote a term, e.g. $\rho = 1$.
 	\[
 	(x,y) =_{L_n(Y)} (x',y') \simeq (x = x') \times (x^n = 0 \to Q)
 	\]
-	where $Q$ is an open proposition such that for any $p : x^n = 0$ we have $Q \equiv  y p = y' p$. Indeed by the proof of \ref{lemma:OpenIsSmooth} we can find a filler of $y_\bullet = y'_\bullet : P \to \mathsf{Open}$. By \cite{cherubini2023foundationsyntheticalgebraicgeometry}(4.2.11) this proposition is locally closed.	
+	where $Q$ is an open proposition such that for any $p : x^n = 0$ we have $Q \equiv  y p = y' p$. Indeed by the proof of \ref{lemma:OpenIsSmooth} we can find a filler of $y = y' : P \to \mathsf{Open}$. By \cite{cherubini2023foundationsyntheticalgebraicgeometry}(4.2.11) this proposition is locally closed.	
 \end{proof}
 \begin{question}
 	Is the map $\sum_{y : R / x^3} y^2 = 0 \to \sum_{y : R / x^2} y^2 =_0$ surjective? This is how i understand \href{http://www.madore.org/~david/weblog/d.2013-09-21.2160.definition-schema.html#d.2013-09-21.2160.droite-origine-doublee}{David Madore}.
