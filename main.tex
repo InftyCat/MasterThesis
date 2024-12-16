@@ -18,10 +18,13 @@
 \newcommand{\Susp}{\mathsf{Susp}}
 \newcommand{\Ann}{\mathsf{Ann}}
 \newcommand{\Fin}{\mathsf{Fin} \  }
+\newcommand{\Sch}{\mathsf{Sch}}
 \usepackage{biblatex}
 \addbibresource{form.bib}
 \include{preamble}
-
+\newcommand{\Bool}{\mathsf{Bool}}
+\newif\ifsc
+\scfalse
 
 \renewcommand{\GS}{\mathsf{GS}}
 \title{Thesis}
@@ -34,7 +37,7 @@
 \newtheorem*{think}{Think about}
 \maketitle
 \tableofcontents
-\include{Atlas}
+
 \section{HoTT}
 \subsection{Subtypes}
 \section{Introduction to SAG}
@@ -79,6 +82,12 @@ Example for zariski local choice
 	\]    
 \end{proof}
 \section{Topology}
+\begin{lemma}{\label{lemma:clPropIsCnct}} %double defined is okay
+	Closed propositions are connected.
+\end{lemma}
+\begin{proof}
+	Let $P = (I = 0)$ be a closed proposition, for $I \subset R$ an ideal. We wish to show, that the map $\Bool \to \Bool^{P}$ is surjective. Maps $\Spec A \to \Bool = \Spec (R \times R)$ biject with idempotents of $\Spec A$ (Indeed the image of $R \times R$ classifies idempotents by the image of $(1,0)$ in $A$). In our case $A = R/I$ has only the two trivial idempotents 0 and 1: Indeed: any idempotent of $A$ can be lifted to an idempotent of $A$, using locality of $R$. But then, using locality of $R$ again, we conclude. \\
+\end{proof}
 \begin{lemma}{\label{lemma:Equalizer}}
 	Let $f, g : X \to Y$ be two functions into a seperated scheme where $X = \Spec A$ for $A$ a reduced ring. If $f$ and $g$ coincide on a dense subset, then $f = g$.
 \end{lemma}
@@ -176,7 +185,7 @@ the subtype $\{0\} + 0^c \subset \Spec B$ is not locally closed whenever one of 
 	%	Let us show this more generally for $(\Spec B , 0)$ with the infinitesimal neigbhorhood of 0 beeing not open. \\
 	Let us first show, that the infinitesimal neigbhorhood of $0$ is not open. 
 	\begin{enumerate}
-		\item If $0^c \subset \Spec A$ is dense) :
+		\item If $0^c \subset \Spec A$ is dense:
 		The non-empty open $\cN_\infty$  does not intersect the dense subset $0^c$.
 		
 		\item If $R^{\Spec B} \to R^{\Spec B \setminus \{0\}}$ is injective:
@@ -291,6 +300,7 @@ Then $Y$ is formally smooth.
 	those fibers are again in $\cU'$. This shows the result.
 \end{proof}
 \include{LexModalities}
+\include{Atlas}
 \include{LocalChoice}
 \include{Stacks}
 \include{Descent}
@@ -300,7 +310,9 @@ Then $Y$ is formally smooth.
 \include{GeomPropositions}
 \include{FundamentalThmAlgSpc}
 \include{AlgebraicSpace}
+\section{Schemes do not have descent}
 
+\input{BodySchemesDoNotHaveDescent}
 \include{DeloopingsAndTruncations}
 \include{LocalProperties}
 
@@ -542,8 +554,112 @@ Prove \ref{lemma:StdEtSm}!!!
 	The class of flat affines is stable under $\sum$. Moreover flatness can be defined fiberwise.
 \end{theorem}
 %\section{Todo}
+\section{Unnecessary}
 
-\section{Not clear where to put that}
+
+\subsection{Gluing in an affine on the line}
+
+\begin{definition}
+	Let $Y$ be an affine. The $n$.th order gluing of $Y$ on the line is given by the sheaf\[
+	L_n(X) = \sum_{x : R} Y^{x^n = 0}
+	\]
+\end{definition}
+\begin{lemma}
+	If $Y = \Spec R[T]/f$, we have
+	\[
+	L_n(X) = \sum_{x : R} \sum_{y : R / x^n} f(y) =_{R/x^n} 0
+	\]
+	
+\end{lemma}
+\begin{proof}
+	For any $R$-algebra $A$ (e.g. $R / x^n$) we have by the universal property of $R[T] / f$
+	\[
+	\sum_{y : A} f(y) =_A 0 = \Hom_R(R[T] / f , A) = Y^{\Spec A} %  \Hom_A(A \otimes R[T] / f , A) =
+	\]
+\end{proof}
+\begin{lemma}
+	If $Y$ is formally \etale, then the map over $R$
+	% https://q.uiver.app/#q=WzAsMyxbMCwwLCJSIFxcdGltZXMgWSJdLFsyLDAsIkxfbihZKSJdLFsxLDEsIlIiXSxbMCwyXSxbMCwxXSxbMSwyXV0=
+	\[\begin{tikzcd}
+		{R \times Y} && {L_n(Y)} \\
+		& R
+		\arrow[from=1-1, to=1-3]
+		\arrow[from=1-1, to=2-2]
+		\arrow[from=1-3, to=2-2]
+	\end{tikzcd}\]
+	pulls back to an equivalence over $\cN_\infty(0)$. \\
+	If $Y$ is formally unramified, then $L_n(x)$ is locally seperated.
+\end{lemma}
+\begin{proof}
+	Indeed, the diagonal map 
+	\[
+	Y \to Y^{x^n = 0}
+	\]
+	is an equivalence, as for any $\lnot \lnot x = 0$, $x^n = 0$ is a closed dense proposition and $Y$ is formally \etale. \\
+	If $Y$ is formally unramified, then the identity types look like
+	\[
+	(x,y) =_{L_n(Y)} (x',y') \simeq (x = x') \times (x^n = 0 \to Q)
+	\]
+	where $Q$ is an open proposition such that for any $p : x^n = 0$ we have $Q \equiv  y p = y' p$. Indeed by the proof of \ref{lemma:OpenIsSmooth} we can find a filler of $y = y' : P \to \mathsf{Open}$. By \cite{cherubini2023foundationsyntheticalgebraicgeometry}(4.2.11) this proposition is locally closed.	
+\end{proof}
+\begin{question}
+	Is the map $\sum_{y : R / x^3} y^2 = 0 \to \sum_{y : R / x^2} y^2 =_0$ surjective? This is how i understand \href{http://www.madore.org/~david/weblog/d.2013-09-21.2160.definition-schema.html#d.2013-09-21.2160.droite-origine-doublee}{David Madore}.
+\end{question}
+\begin{lemma}
+	For $\varepsilon : \cN_\infty(0)$, the affine $Ann(\varepsilon) = \{x : R \ | \  x \varepsilon = 0 \}$ is not$_\varepsilon$ formally smooth. In particular $R \to R / \varepsilon$ is not$_\varepsilon$ a geometric cover.
+\end{lemma}
+\begin{proof}
+	We have the map $1 : (\varepsilon = 0) \to \Ann(\varepsilon)$. Assume there is a filler $x : \Ann(\varepsilon)$, i.e. $(\varepsilon = 0) \to x = 1$. Then not not, $x = 1$, i.e. $(x-1)^n = 0$ for $n$ large enough. Hence
+	\[
+	0 = \varepsilon (x-1)^n = \varepsilon x (\hdots) + (-1)^n \varepsilon = (-1)^n \varepsilon
+	\]
+	as desired.
+\end{proof}
+
+
+\begin{lemma}[TODO]
+	If $Y$ is formally \etale + flat affine, then $L_1(Y)$ is an algebraic space.
+\end{lemma}
+\begin{proof}
+	Recall the closed modality associated to a proposition $P$, given by $P \star \_$.
+	We can define a map
+	\begin{align*}
+		f : (x \neq 0) \star Y &\to Y^{x = 0} \\
+		y &\mapsto \Delta (y) \\
+	\end{align*}
+	where we check, that if $x \neq 0$ holds, then indeed $Y^{x = 0}$ is contractible. \\
+	
+	$f$ is a bijection: \\
+	\begin{itemize}
+		\item injectivity: Given two terms of the domain, as the map out of $Y$ is $\bT$-surjective (and the goal is a sheaf), we may assume that they are of the form $inl(y) , inl(y')$ for $y,y' : Y$. Then if $\Delta(y) = \Delta(y')$ we have $(x = 0) \to (y = y')$. As $y = y'$ is open, we have $(x \neq 0) \lor (y = y')$. If $x \neq 0$, then $inl(y) = inl(y')$ by the construction of the join.
+		\item surjectivity: TODO
+	\end{itemize}
+	
+\end{proof}
+\begin{question}
+	Is $L_2(\bD(1))$ an algebraic space or fppf-geometric 0-stack? For this:
+	Is 
+	\begin{align*}
+		(\Spec R[X,Y] / X^2 - Y^2)/\sim &\to L_2(\bD(1)) = \sum_{x : R} \sum_{y : R /x^2} y^2 = 0 \\
+		(x,y) &\mapsto (x , [y])
+	\end{align*}
+	an equivalence? Here we mod out the relation generated by $(x,-x) \sim (x,x) \forall x \neq 0$. \\
+	
+	This is equivalent to : For any $x : R$, is the map
+	\[
+	(x \neq 0) \star \Spec R[Y] / (Y^2 - x^2) \to \bD(1)^{x^2 = 0}
+	\]
+	an equivalence?
+\end{question}
+\begin{example}
+	I suggest a new definition of fppf topology: We take the topology generated by the Zariski topology and algebras of the form $R[X] / f$ where one of coefficients of $f$ is invertible (non necessarily the leading coefficient). This is still a free module hence fppf. \\
+	%then one can show, that every solution $e^2 -e
+\end{example}
+%\begin{example}
+%	What happens for\[\sum_{x: R} \sum_{y: R / x^2} y (x-y) =_{R/x^2} 0 \]
+%	where we apparently glue in $\bD(1)$ at the origin and leave the line invariant away from the origin?
+%\end{example}
+\subsection{Topology}
 \begin{lemma}
 	Let $\rho \neq 0$.
 	$\Spec R[T] / (T^2 + 1)$  is compact.
@@ -570,35 +686,6 @@ Prove \ref{lemma:StdEtSm}!!!
 	\begin{itemize}
 		\item An open affine subscheme of $\bA^1$ is $\lnot \lnot$ principal open: Let $D(f_1,\hdots,f_n) \subset \bA^1$ be an arbitrary open subset. We may assume that each $f_i : R[X]$ is non constant (in particular non zero). By \todocite, $\lnot \lnot$-merely each $D(f_i) \subset R$ is cofinite. Thus $\lnot \lnot$-merely, the finite union $\bigcup_{i=1}^n D(f_i) \subset R$ is cofinite as well, hence principal open. % we find roots $a_{ij}$ of the $f_i$. $\bigcup_i D(f_i) = \bigcup_i R \setminus \{a_{ij}\}_j = R \setminus \bigcap_{i} \{a_{ij}\}$ for some finite subset. This is $\lnot \lnot$ a principal open. %By $\lnot \lnot $ stability 
 	\end{itemize}
-\end{proof}
-
-\begin{prop}{\label{prop:htpyGroups}}
-	Assume covering stacks are $\Omega$-stable.
-	A truncated stack (e.g. geometric stack) is covering iff $\pi_0^\bT X := \|X\|_0^\bT$ and all higher homotopy groups 
-	\[
-	\pi_i^\bT(X,x) = \|\Omega^i (X , x)\|_0^\bT , i \ge 1
-	\]
-	are covering algebraic spaces.
-\end{prop}
-\begin{proof}
-	Let $X$ be an $n$-stack.
-	If $X$ is covering, then by $\Omega$-stability all the $\pi_i^\bT$ are covering \ref{prop:GerbeIffLooping} Now the converse.
-	Consider the postnikov tower
-	\[
-	X = \|X\|_n^\bT \to \|X\|_{n-1}^\bT \to \hdots \to \|X\|_1^\bT \to \|X\|_0^\bT 
-	\]
-	As $\|X\|_0^\bT$ is covering, by quotient stability of covering stacks we may show that all the maps are geometric covers. 
-	Let $1 \le k \le n$ and consider the map $f_k^X : \|X\|_{k}^\bT \to \|X\|_{k-1}^\bT$. By descent for covering stacks, we may only consider the fiber over $|x|$, as the $\eta_{k-1}^\bT$ is $\bT$-surjective. 
-	It suffices to show, that the fiber is given by $B_\bT^k \pi^\bT_k(X,x)$ as deloopings of covering stacks are covering \ref{lemma:deloopingCS}.\\	
-	We apply \ref{lemma:detectDelooping}.
-	First observe that $\Omega^k (\fib(f_k^X) |x| = \fib (\Omega^k (f_k^X , x))$ is equivalent to the basefiber of
-	
-	\[
-	\pi_k^\bT(X,x) \equiv \|\Omega^k X \|_0^\bT \simeq \Omega^k(\|X\|_k^\bT) \to \Omega^k \|X\|_{k-1}^\bT \simeq 1
-	\]
-	So it suffices to show by induction over $k$, that for all pointed stacks $(X,x)$, $\fib(f_k^X) |x|$ is $\bT$-$k$-connected.
-	
-	This is definitely $\bT$-connected by using that any term $(y, p) : \fib(f_k^X) |x| = \sum_{y : \|X\|_n^\bT} \|x = y\|_{n-1}^\bT$ yields a witness of $\|x - y\|^\bT$. Then $\Omega (\fib(f_k^X) |x| = \fib (\Omega (f_k^X , x)) = \fib (f_{k-1}^{\Omega (X , x)})$ which is $\bT$-$k-1$-connected by induction.
 \end{proof}
 
 \subsection{Remarks about weakly flat affines}
@@ -670,6 +757,36 @@ Prove \ref{lemma:StdEtSm}!!!
 	\end{align*}
 	Thus $(\varepsilon = 0) \times (\mu_\ell \setminus \{1\})$ is an \etale-flat geometric stack. Moreover $(\mu_\ell \setminus \{1\})$ is a covering stack by \ref{lemma:CompOf1}. Thus $\varepsilon = 0$ is an affine \etale-flat geometric stack, thus formally \etale + flat affine by saturatedness of the \etale topology \ref{cor:EtaleSat}. So as a formally \etale + closed dense proposition, $\varepsilon = 0$ holds as desired. % for all $\varepsilon$ nilpotent. Contradiction to algebra.
 \end{proof}
+\section{Not clear where to put that}
+\begin{prop}{\label{prop:htpyGroups}}
+	Assume covering stacks are $\Omega$-stable.
+	A truncated stack (e.g. geometric stack) is covering iff $\pi_0^\bT X := \|X\|_0^\bT$ and all higher homotopy groups 
+	\[
+	\pi_i^\bT(X,x) = \|\Omega^i (X , x)\|_0^\bT , i \ge 1
+	\]
+	are covering algebraic spaces.
+\end{prop}
+\begin{proof}
+	Let $X$ be an $n$-stack.
+	If $X$ is covering, then by $\Omega$-stability all the $\pi_i^\bT$ are covering \ref{prop:GerbeIffLooping} Now the converse.
+	Consider the postnikov tower
+	\[
+	X = \|X\|_n^\bT \to \|X\|_{n-1}^\bT \to \hdots \to \|X\|_1^\bT \to \|X\|_0^\bT 
+	\]
+	As $\|X\|_0^\bT$ is covering, by quotient stability of covering stacks we may show that all the maps are geometric covers. 
+	Let $1 \le k \le n$ and consider the map $f_k^X : \|X\|_{k}^\bT \to \|X\|_{k-1}^\bT$. By descent for covering stacks, we may only consider the fiber over $|x|$, as the $\eta_{k-1}^\bT$ is $\bT$-surjective. 
+	It suffices to show, that the fiber is given by $B_\bT^k \pi^\bT_k(X,x)$ as deloopings of covering stacks are covering \ref{lemma:deloopingCS}.\\	
+	We apply \ref{lemma:detectDelooping}.
+	First observe that $\Omega^k (\fib(f_k^X) |x| = \fib (\Omega^k (f_k^X , x))$ is equivalent to the basefiber of
+	
+	\[
+	\pi_k^\bT(X,x) \equiv \|\Omega^k X \|_0^\bT \simeq \Omega^k(\|X\|_k^\bT) \to \Omega^k \|X\|_{k-1}^\bT \simeq 1
+	\]
+	So it suffices to show by induction over $k$, that for all pointed stacks $(X,x)$, $\fib(f_k^X) |x|$ is $\bT$-$k$-connected.
+	
+	This is definitely $\bT$-connected by using that any term $(y, p) : \fib(f_k^X) |x| = \sum_{y : \|X\|_n^\bT} \|x = y\|_{n-1}^\bT$ yields a witness of $\|x - y\|^\bT$. Then $\Omega (\fib(f_k^X) |x| = \fib (\Omega (f_k^X , x)) = \fib (f_{k-1}^{\Omega (X , x)})$ which is $\bT$-$k-1$-connected by induction.
+\end{proof}
+
 \printbibliography
 
 \end{document}

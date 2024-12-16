@@ -1,6 +1,6 @@
 
 
-\section{Algebraic spaces}
+%\section{Algebraic spaces}
 
 
 %Let us also mention what we learned in the proof:
@@ -759,224 +759,85 @@ Choose a principal open neighborhood $0 \in D(p) \subset U$. $G$ acts on $R[X]$,
 	Let $(y-y')^{2^{n+1}} =_{R} 0$, then $(2y^2 - 2yy')^{2^n} = 0$, or $(y(y - y'))^{2^n} = 0$, as $y$ is invertible, $(y - y')^{2^n} = 0$, so by induction hypothesis $y = y'$. \\
 \end{proof}
 \subsection{FiberCollaps away from the origin}
-OUTDATED!
-%\begin{definition}
-%	Given a sheaf proposition $P$, the closed modality in the sheaf topos associated to $P$ is given by
-%	\begin{align*}
-%		\cU &\to \cU \\
-%		X &\mapsto P \star X :\equiv L_\bT(P \sqcup_{P \times X} X)
-%	\end{align*}
-%	where we need to stackify the pushout. A type $X$ is modal, if it is a sheaf and $P \to \isContr(X)$.
-%\end{definition}
-%\begin{definition}
-%	Let $Y : R \to \Aff$ be a dependent family of affines, such that $(Y \in \bT)^{x \neq 0}$ . 
-%	The fiber collapse of $Y$ away from the origin $\emdash Y \emdash $ is the space over $R$
-%	\[
-%	\sum_{x : R} (x \neq 0) \star Y_x \to R %\sum_{x : R} Y_x \to 
-%	\]
-%%	: \prod_{x : R} \sum_{Y:\Aff} (Y \in \EF)^{x \neq 0}$ %
-%\end{definition}
-%This space over $R$ looks exactly like the line away from the origin and over an infinitesimal $\varepsilon$ the fiber is $Y_\varepsilon$.
-%\begin{lemma}
-%	$\emdash Y \emdash$ is an algebraic space.
-%\end{lemma}
-%\begin{proof}
-%	Let $x : R$. Let $Y : \Aff$ such that $x \neq 0$ implies that $Y$ is formally \etale + flat. We will show that $\eta : Y \to (x \neq 0) \star Y$ is the sheaf-quotient map of the relation on $Y$ given by $y \sim y' \equiv (y = y') + (x \neq 0) \times y \neq y'¸$, which is enough by \ref{ex:MapOverR}. We apply  \ref{lemma:quotient-by-equivalence-relation} \\
-%	\begin{itemize}
-%		\item The map is $\bT$-surjective: We have a $\bT$-surjection $(x \neq 0) + Y \to (x \neq 0) \star Y$. In case $x \neq 0$, the map of interest is $Y \to 1$, which is $\bT$-surjective, as then $Y \in \bT$. 
-%	\item Given $y,y' : Y$, we have
-%	\begin{align*}
-%		\eta(y') = \eta(y) &\simeq (x \neq 0) \star (y = y')&& \ | \  \text{ closed modality is lex (\cite{Modalities} Example 3.1.4).} \\
-%		&\simeq L_\bT\left((y = y') \lor (x \neq 0) \right) && \ | \ (x \neq 0) \to \mathsf{HasDecEq}(Y) \\
-%		&\simeq (y = y') + (x \neq 0) \times y \neq y'¸
-%	\end{align*}
-%	\end{itemize}
-%%JUMP
-%%	Hence the fiber over $y$ is 
-%%	\[
-%%	1 + (x \neq 0) \times Y \setminus \{y\} = 1 + \sum_{p : x \neq 0}Y \setminus \{y\}
-%%	\]
-%%	which is inhabited affine and formally \etale + flat. %, because the right summand is a $\sum$ of formally \etale + flat affines: Indeed, whenever $x \neq 0$ then $Y \setminus \{y\}$ is formally \etale + flat.
-%	%	 As $y = y'$ is open by assumption the fiber is merely inhabited and a $\sum$ of $\bT$-flat geometric stacks, thus covering. 
-%	%	Let us show, that the fiber over $\Delta(y)$ is $1 + (Y - y) \times (x \neq 0)$ which is formally \etale + flat and inhabited affine.	Here we use, that $Y$ has decidable equality and if $y \neq y'$, then % we have $inl(y) = inl(y') \simeq (x \neq 0) \star (y = y') = (x \neq 0)$. \\
-%\end{proof}
-\begin{example}
-	$\emdash Bool \emdash$ is the line with two origins. \\
-	---$\Spec R[X] / (X^2 + 1))$--- is the twisted line with two origins, i.e. over the origin we have the roots of $-1$. \\
-	---$\Spec R[Y] / (Y^2 - \bullet^2)$--- is the quotient of the cross,  that looks like $\bD(1)$ over the origin. \\\
-	---$\Spec R[Y] / (\bullet Y)$--- is the affine Plus.
-\end{example}
-\subsection{Schemes do not have descent}
-For this section, let $\rho : R \setminus \{0\}$ denote a term, e.g. $\rho = 1$. Set $C = R[T] / (T^2 + \rho)$.
-
-\begin{prop}
-	let $\rho : R \setminus \{0\}$ (e.g. $\rho = 1$). Set $C = R[T] / (T^2 + \rho)$. If ---$\Spec C$--- is a scheme, then $X^2 + \rho$ merely has a root.
-\end{prop}
-\begin{proof}
-	Let $p : \emdash \Spec C \emdash \to R$ be the first projection.
-	We proceed as follows
-	\begin{enumerate}
-		\item  There is no open affine subset of $\emdash \Spec C \emdash$ containing $\fib_p(0)$.
-		\item Any open subset of $\Spec C$, that is strictly smaller than $\Spec C$, is an open proposition
-	\end{enumerate}
-	Any finite open affine cover of ---$\Spec C$--- can be restricted to a finite open affine cover $\Spec C = \bigcup_{j=0}^{n} U_j$ of the basefiber $\Spec C$ consisting of strictly smaller open subsets by point 1.
-	Then the goal is
-	\[
-	\| \Spec C \| = \| \bigcup_{j=0}^{n} U_j \| = \bigvee_j  U_j
-	\]
-	an open propoosition by point 2., thus an \etale sheaf, as open propositions are $\lnot \lnot$-stable. So we can conclude.
-	Proofs:
-	\begin{enumerate}
-		\item Because we want to show $\bot$, we may assume ---$\Spec C \emdash = \emdash Bool \emdash$. Assume there is an open affine subset $\fib_p(0) \subset U \subset \emdash Bool \emdash$. Then $p(U) \subset R$ is an open neigbhorhood of 0, as 
-		\[
-		x \in p(U) \leftrightarrow (x,N) \in U \lor (x,S) \in U
-		\]
-		Claim: the map $R^{p(U)} \to R^U$ is an equivalence. If we have shown that: As $U$ is affine we conclude that the map
-		\begin{align*}
-			U &\to \Spec (R^{p(U)}) \\
-			x &\mapsto \phi \mapsto (\phi(px))		
-		\end{align*}
-		is an equivalence, which is a contradiction to the assumption, that $U$ contains both origins. \\
-		Proof of claim: 
-		In words: As $U$ is a subset of a quotient of $R + R$, the function $U \to R$ determines two (partially defined on open domain) functions to $R$ that coincide away from the origin, which is a regular point. Thus by \ref{lemma:AlmostEverywhere} they coincide everywhere.
-		Injectivity: If two maps $f , g : p(U) \to R$ coincide after precomposing with $U \to p(U)$, then they coincide away from $0$
-		so conclude by \ref{lemma:AlmostEverywhere}. \\
-		Surjectivity: Given a map $U \to R$, by pulling back along $p : R + R \to \emdash Bool \emdash$  we can view it as a map $R + R \supset U' \to R$ defined at both origins, so in particular as a pair of maps to $R$ defined on some open neigbhorhood of 0 of $R$. They coincide away from 0 so by \ref{lemma:AlmostEverywhere} they are equal.
-		\item 
-		Any strictly smaller open subset $U \subset \Spec C$ is an open proposition:
-		Note, that $U$ is a proposition: If $x,x' : U$, then $x = x' \simeq \lnot \lnot (x = x')$ by decidable equality of $U$, but if $x \neq x'$, then $\{x,x'\} \hookrightarrow \Spec C$ is an embedding, so by (*) an equivalence. But then $U = \Spec C$, contradiction. \\
-		We first reduce to the case where $U$ is a principal open of $\Spec C$. By \cite{cherubini2023foundationsyntheticalgebraicgeometry} we find $f_1,\hdots,f_n : C$ such that $U = D(f_1,\hdots,f_n)$. As the left hand side is a proposition we have
-		\[
-		U \leftrightarrow \bigvee D(f_i)
-		\]
-		so we may show, that each $D(f_i)$ is an open proposition. \\
-		Let $f : C$ such that $D(f)$ is a proposition. Choose a representative $a + bT : R[T]$.
-		
-		Let us show $(2a \neq 0) \leftrightarrow D(f)$, which is an \etale-sheaf and a proposition, so we may assume $x : \Spec C$.
-		Using that $D(f)$ is a proposition we have
-		\[
-		D(f) =  (a+bx \neq 0) + (a-bx \neq 0) \overset{\sim}{\to} (a+bx \neq 0) \lor (a-bx \neq 0)
-		\]
-		We may show both implications $2a \neq 0 \leftrightarrow (a+bx \neq 0) \lor (a-bx \neq 0) $. \\
-		$'\rightarrow'$ $(a+bx) + (a-bx)$ is invertible, so by locality one of the summands is invertible. \\
-		$'\leftarrow'$ by symmetry wlog $a + bx \neq 0$. Then as $D(f)$ is a prop, $\lnot \lnot (a - bx = 0)$. Thus $\lnot \lnot (a + a = a + bx \neq 0)$, hence $2 a \neq 0$. 
-		
-		%		For $1 \le k \le n$, let us prove
-		%		\[
-		%		\left(\Spec C \subset \bigcup_{j=0}^{k} U_j \right) \to U_{k} \lor		\left(\Spec C \subset \bigcup_{j=0}^{k-1} U_j \right)
-		%		\]
-		%		The right hand side is an open proposition:  $U_{k}$ is an open proposition by the claim and the right hand side is open by compactness of $\Spec C$. 
-		%		Thus it is an \etale -sheaf. Thus we may assume $\Spec C = Bool$. Proof by induction over $k$. \\
-		%	 	If $k = 1$, then the right summand is empty, so we have to show $U_1$, which is $\lnot \lnot $ stable. But it can be empty, as otherwise $\Spec C = U_0 \cup U_1 = U_0$. \\
-		%		For $k \mapsto k+1$, we merely find $j,j'$ such that $i \in U_j, -i \in U_{j'}$. 
-		%		Now, exploiting decidable equality in $\Fin (k+1)$: If $k = j$ return $i$. If $k = j'$, return $-i$. Otherwise, $\Spec C \hookleftarrow \{i,-i\} \subset U_j \cup U_{j'} \subset \bigcup_{j=0}^k U_j$ .
-	\end{enumerate}
-\end{proof}
-\begin{corollary}
-	Schemes do not have descent.
-\end{corollary}
-\begin{proof}
-	If Schemes have descent, then ---$\Spec R[T]/(T^2 + \rho) \emdash \in \mathsf{Sch}$ is a sheaf. As ---$\Spec R[T]/(T^2 + \rho) \emdash$ is $\bT$-merely a scheme, it is a scheme, so by the previous lemma $T^2 + \rho$ has a root. As $\rho : R \setminus \{0\}$ was arbitrary, we get a contradiction to \cite{cherubini2023foundationsyntheticalgebraicgeometry} A . 0.3. \\
-\end{proof}
-\subsection{Gluing in an affine on the line}
+An alternative approach to construct algebraic spaces is the fiber collapse away from the origin.
 
 \begin{definition}
-	Let $Y$ be an affine. The $n$.th order gluing of $Y$ on the line is given by the sheaf\[
-	L_n(X) = \sum_{x : R} Y^{x^n = 0}
-	\]
+	Given a sheaf proposition $P$, there is a closed modality $\mathsf{Cl}_P$ where a type $X$ is modal, if it is a sheaf and $P \to \isContr(X)$.
+	We have to stackify to belong to the sheaf topos:
+	\begin{align*}
+		\cU &\to \cU \\
+		X &\mapsto P \star X :\equiv L_\bT(P \sqcup_{P \times X} X)
+	\end{align*}
+	where we need to stackify the pushout. This determines a lex modality.
 \end{definition}
-\begin{lemma}
-	If $Y = \Spec R[T]/f$, we have
+\begin{definition}
+	Let $Y : R \to \Aff$ be a dependent family of affines %$(Y \in \EF)^{x \neq 0}$ . 
+	The fiber collapse of $Y$ away from the origin is the following type over $R$
 	\[
-	L_n(X) = \sum_{x : R} \sum_{y : R / x^n} f(y) =_{R/x^n} 0
+	\sum_{x : R} (x \neq 0) \star Y_x \to R %\sum_{x : R} Y_x \to 
 	\]
-	
+	%	: \prod_{x : R} \sum_{Y:\Aff} (Y \in \EF)^{x \neq 0}$ %
+\end{definition}
+\begin{notation}
+	If $Y_x : R \to \Aff$ is a type family, we abbreviate by $\emdash Y_\bullet \emdash $ for the fiber collapse.
+\end{notation}
+%\begin{itemize}
+%	\item The \emph{infinitesimal fibers} over $\varepsilon : \cN_\infty$ are $\fib_p(\varepsilon) = Y_\varepsilon$. 
+%	\item In particular the \emph{basefiber} $\fib_p (0)$ is equivalent to $Y_0$, 
+%	\item The \emph{other} fibers $\fib_p (x)$, $x \neq 0$, are contractible. 
+%\end{itemize}
+So ---$Y_\bullet$--- is obtained from $\sum_{x : R} Y_x \to R$ by keeping only the infinitesimal fibers and collapsing all the other fibers.
+This space over $R$ looks exactly like the line away from the origin. % and over an infinitesimal 
+\begin{lemma}{\label{lemma:FiberCollapsAS}}
+	Assume that if $x \neq 0$, then $Y_x \in \bT$. Then $\emdash Y \emdash$ is an algebraic space.
 \end{lemma}
 \begin{proof}
-	For any $R$-algebra $A$ (e.g. $R / x^n$) we have by the universal property of $R[T] / f$
-	\[
-	\sum_{y : A} f(y) =_A 0 = \Hom_R(R[T] / f , A) = Y^{\Spec A} %  \Hom_A(A \otimes R[T] / f , A) =
-	\]
-\end{proof}
-\begin{lemma}
-	If $Y$ is formally \etale, then the map over $R$
-	% https://q.uiver.app/#q=WzAsMyxbMCwwLCJSIFxcdGltZXMgWSJdLFsyLDAsIkxfbihZKSJdLFsxLDEsIlIiXSxbMCwyXSxbMCwxXSxbMSwyXV0=
-	\[\begin{tikzcd}
-		{R \times Y} && {L_n(Y)} \\
-		& R
-		\arrow[from=1-1, to=1-3]
-		\arrow[from=1-1, to=2-2]
-		\arrow[from=1-3, to=2-2]
-	\end{tikzcd}\]
-	pulls back to an equivalence over $\cN_\infty(0)$. \\
-	If $Y$ is formally unramified, then $L_n(x)$ is locally seperated.
-\end{lemma}
-\begin{proof}
-	Indeed, the diagonal map 
-	\[
-	Y \to Y^{x^n = 0}
-	\]
-	is an equivalence, as for any $\lnot \lnot x = 0$, $x^n = 0$ is a closed dense proposition and $Y$ is formally \etale. \\
-	If $Y$ is formally unramified, then the identity types look like
-	\[
-	(x,y) =_{L_n(Y)} (x',y') \simeq (x = x') \times (x^n = 0 \to Q)
-	\]
-	where $Q$ is an open proposition such that for any $p : x^n = 0$ we have $Q \equiv  y p = y' p$. Indeed by the proof of \ref{lemma:OpenIsSmooth} we can find a filler of $y = y' : P \to \mathsf{Open}$. By \cite{cherubini2023foundationsyntheticalgebraicgeometry}(4.2.11) this proposition is locally closed.	
-\end{proof}
-\begin{question}
-	Is the map $\sum_{y : R / x^3} y^2 = 0 \to \sum_{y : R / x^2} y^2 =_0$ surjective? This is how i understand \href{http://www.madore.org/~david/weblog/d.2013-09-21.2160.definition-schema.html#d.2013-09-21.2160.droite-origine-doublee}{David Madore}.
-\end{question}
-\begin{lemma}
-	For $\varepsilon : \cN_\infty(0)$, the affine $Ann(\varepsilon) = \{x : R \ | \  x \varepsilon = 0 \}$ is not$_\varepsilon$ formally smooth. In particular $R \to R / \varepsilon$ is not$_\varepsilon$ a geometric cover.
-\end{lemma}
-\begin{proof}
-	We have the map $1 : (\varepsilon = 0) \to \Ann(\varepsilon)$. Assume there is a filler $x : \Ann(\varepsilon)$, i.e. $(\varepsilon = 0) \to x = 1$. Then not not, $x = 1$, i.e. $(x-1)^n = 0$ for $n$ large enough. Hence
-	\[
-	0 = \varepsilon (x-1)^n = \varepsilon x (\hdots) + (-1)^n \varepsilon = (-1)^n \varepsilon
-	\]
-	as desired.
-\end{proof}
-
-
-\begin{lemma}[TODO]
-	If $Y$ is formally \etale + flat affine, then $L_1(Y)$ is an algebraic space.
-\end{lemma}
-\begin{proof}
-	Recall the closed modality associated to a proposition $P$, given by $P \star \_$.
-	We can define a map
-	\begin{align*}
-		f : (x \neq 0) \star Y &\to Y^{x = 0} \\
-		y &\mapsto \Delta (y) \\
-	\end{align*}
-	where we check, that if $x \neq 0$ holds, then indeed $Y^{x = 0}$ is contractible. \\
-
-	$f$ is a bijection: \\
+	Let $x : R$. Let $Y : \Aff$ such that $x \neq 0$ implies that $Y$ is formally \etale + flat. We will show that $\eta : Y \to (x \neq 0) \star Y$ is the sheaf-quotient map of the relation on $Y$ given by $y \sim y' \equiv (y = y') + (x \neq 0) \times y \neq y'¸$, which is enough by \ref{ex:MapOverR}. We apply  \ref{lemma:quotient-by-equivalence-relation} \\
 	\begin{itemize}
-		\item injectivity: Given two terms of the domain, as the map out of $Y$ is $\bT$-surjective (and the goal is a sheaf), we may assume that they are of the form $inl(y) , inl(y')$ for $y,y' : Y$. Then if $\Delta(y) = \Delta(y')$ we have $(x = 0) \to (y = y')$. As $y = y'$ is open, we have $(x \neq 0) \lor (y = y')$. If $x \neq 0$, then $inl(y) = inl(y')$ by the construction of the join.
-		\item surjectivity: TODO
+		
+		\item The map is $\bT$-surjective: We have a $\bT$-surjection $(x \neq 0) + Y \to (x \neq 0) \star Y$. In case $x \neq 0$, the map of interest is $Y \to 1$, which is $\bT$-surjective, as then $Y \in \bT$. 
+		\item Given $y,y' : Y$, we have
+		\begin{align*}
+			\eta(y') = \eta(y) &\simeq (x \neq 0) \star (y = y')&& \ | \  \text{ closed modality is lex (\cite{Modalities} Example 3.1.4).} \\
+			&\simeq L_\bT\left((y = y') \lor (x \neq 0) \right) && \ | \ (x \neq 0) \to \mathsf{HasDecEq}(Y) \\
+			&\simeq (y = y') + (x \neq 0) \times y \neq y'¸
+		\end{align*}
 	\end{itemize}
-
 \end{proof}
-\begin{question}
-	Is $L_2(\bD(1))$ an algebraic space or fppf-geometric 0-stack? For this:
-	Is 
-	\begin{align*}
-		(\Spec R[X,Y] / X^2 - Y^2)/\sim &\to L_2(\bD(1)) = \sum_{x : R} \sum_{y : R /x^2} y^2 = 0 \\
-		(x,y) &\mapsto (x , [y])
-	\end{align*}
-	an equivalence? Here we mod out the relation generated by $(x,-x) \sim (x,x) \forall x \neq 0$. \\
-	
-	This is equivalent to : For any $x : R$, is the map
-	\[
-	(x \neq 0) \star \Spec R[Y] / (Y^2 - x^2) \to \bD(1)^{x^2 = 0}
-	\]
-	an equivalence?
-\end{question}
 \begin{example}
-	I suggest a new definition of fppf topology: We take the topology generated by the Zariski topology and algebras of the form $R[X] / f$ where one of coefficients of $f$ is invertible (non necessarily the leading coefficient). This is still a free module hence fppf. \\
-	%then one can show, that every solution $e^2 -e
+	$\emdash Bool \emdash$ is the line with two origins. \\
+	---$\Spec R[X] / (X^2 + 1)$--- is the twisted line with two origins, i.e. over the origin we have the roots of $-1$. \\
+	---$\Spec R[Y] / (Y^2 - \bullet)$--- is $\bA^1 /_{0^c} \mu_2$ which looks like $\bD(1)$ over $0$. \\
+	---$\Spec R[Y] / (Y^2 - \bullet^2)$--- is the quotient of the cross that looks like $\bD(1)$ over every $\varepsilon : \bD(1)$. \\	
+	---$\Spec R[Y] / (\bullet Y)$--- is the affine plus.
 \end{example}
-%\begin{example}
-%	What happens for\[\sum_{x: R} \sum_{y: R / x^2} y (x-y) =_{R/x^2} 0 \]
-%	where we apparently glue in $\bD(1)$ at the origin and leave the line invariant away from the origin?
-%\end{example}
+\begin{prop}
+	Let $G$ be a formally + flat affine group.
+	Let $p : \tilde Y \to R$ such that the pullback to $R^\times$ can be enhanced to a $G$ torsor over $R^\times$. Write $Y_x \equiv \fib_p x$. Then there is a canonical equivalence
+	% https://q.uiver.app/#q=WzAsNCxbMSwwLCJcXHRpbGRlIFkiXSxbMCwxLCJcXHRpbGRlIFkgLyBHfF97KFxcZmliX3AgMCleY30iXSxbMiwxLCJcXGVtZGFzaCBZIFxcZW1kYXNoIl0sWzEsMiwiUiJdLFswLDFdLFswLDJdLFsxLDIsIlxcc2ltZXEiXSxbMSwzXSxbMiwzXV0=
+	\[\begin{tikzcd}
+		& {\tilde Y} \\
+		{\tilde Y /_{Y_0^c}} G && {\emdash Y \emdash} \\
+		& R
+		\arrow[from=1-2, to=2-1]
+		\arrow[from=1-2, to=2-3]
+		\arrow["\simeq", from=2-1, to=2-3]
+		\arrow[from=2-1, to=3-2]
+		\arrow[from=2-3, to=3-2]
+	\end{tikzcd}\]
+\end{prop}
+\begin{proof}
+	As every \emph{other} fiber is merely equivalent to $G$, its formally \etale + flat.
+	In between you can put for $U_x \equiv x \neq 0 \times Y_x$
+	\[\tilde Y \to \sum_{x : R} Y_x /_{U_x} G\]
+	As all three maps defined on $\tilde Y$ are $\bT$-surjective, by \ref{lemma:quotiquotient-by-equivalence-relation} we may only check that the identity types coincide. For any $y,y' : \tilde Y$. Using that if $py \neq 0$ then the $G$ action on $Y_{py}$ is a $G$-torsor, We have an equivalence
+	
+	\begin{align*}
+		(y = y') + y \not \in Y_0 \land \underbrace{\sum_{g \neq 1} g y = y' }_{\simeq (py = py') \land y \neq y'} &\simeq  (py = py') \land ((y = y') + py \neq 0 \land y \neq y' ) \\
+	\end{align*}
+	If we fix $x : R$ and put $y,y' : Y_x$ we have, writing $\eta : Y_x \to (x \neq 0) \star Y_x$
+	\[
+	(y = y') + py \neq 0 \land y \neq y'  \simeq \eta y = \eta y'
+	\]
+	by the proof of \ref{lemma:FiberCollapsAS}.
+\end{proof}

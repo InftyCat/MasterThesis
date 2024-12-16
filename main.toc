@@ -1,72 +1,72 @@
 \boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {1}Atlas}{3}{section.1}%
+\contentsline {section}{\numberline {1}HoTT}{2}{section.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2}HoTT}{4}{section.2}%
+\contentsline {subsection}{\numberline {1.1}Subtypes}{2}{subsection.1.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.1}Subtypes}{4}{subsection.2.1}%
+\contentsline {section}{\numberline {2}Introduction to SAG}{2}{section.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3}Introduction to SAG}{4}{section.3}%
+\contentsline {section}{\numberline {3}Topology}{3}{section.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4}Topology}{4}{section.4}%
+\contentsline {section}{\numberline {4}Preparation}{5}{section.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5}Preparation}{7}{section.5}%
+\contentsline {section}{\numberline {5}(Lex) Modalities}{7}{section.5}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6}(Lex) Modalities}{9}{section.6}%
+\contentsline {section}{\numberline {6}Atlas}{8}{section.6}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {7}Local Choice}{10}{section.7}%
+\contentsline {section}{\numberline {7}Local Choice}{9}{section.7}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {8}Covering stacks}{12}{section.8}%
+\contentsline {section}{\numberline {8}Covering stacks}{11}{section.8}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {8.1}Needing finitely many steps}{12}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.1}Needing finitely many steps}{11}{subsection.8.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {8.2}Stability}{14}{subsection.8.2}%
+\contentsline {subsection}{\numberline {8.2}Stability}{13}{subsection.8.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {8.3}About the covering stacks in a subuniverse}{14}{subsection.8.3}%
+\contentsline {subsection}{\numberline {8.3}About the covering stacks in a subuniverse}{13}{subsection.8.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {8.4}Truncatedness}{16}{subsection.8.4}%
+\contentsline {subsection}{\numberline {8.4}Truncatedness}{15}{subsection.8.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {8.5}Descent}{17}{subsection.8.5}%
+\contentsline {subsection}{\numberline {8.5}Descent}{16}{subsection.8.5}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {9}Saturated Topologies}{18}{section.9}%
+\contentsline {section}{\numberline {9}Saturated Topologies}{17}{section.9}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {10}Geometric propositions}{20}{section.10}%
+\contentsline {section}{\numberline {10}Geometric propositions}{19}{section.10}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {11}Algebraic Space}{21}{section.11}%
+\contentsline {section}{\numberline {11}Algebraic Spaces}{20}{section.11}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {11.1}Equivalence relations vs Surjections}{21}{subsection.11.1}%
+\contentsline {subsection}{\numberline {11.1}Equivalence relations vs Surjections}{20}{subsection.11.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {12}Algebraic spaces}{23}{section.12}%
+\contentsline {subsection}{\numberline {11.2}Schemes are algebraic Spaces for the Zariski Topology}{22}{subsection.11.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {12.1}Schemes are algebraic Spaces for the Zariski Topology}{23}{subsection.12.1}%
+\contentsline {subsection}{\numberline {11.3}Examples}{23}{subsection.11.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {12.2}Examples}{24}{subsection.12.2}%
+\contentsline {subsection}{\numberline {11.4}Non locally-seperated Examples}{25}{subsection.11.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {12.3}Non locally-seperated Examples}{26}{subsection.12.3}%
+\contentsline {subsection}{\numberline {11.5}Group quotients}{26}{subsection.11.5}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {12.4}Group quotients}{27}{subsection.12.4}%
+\contentsline {subsection}{\numberline {11.6}Obsolete}{28}{subsection.11.6}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {12.5}Obsolete}{29}{subsection.12.5}%
+\contentsline {subsection}{\numberline {11.7}Locally seperated examples}{32}{subsection.11.7}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {12.6}Locally seperated examples}{33}{subsection.12.6}%
+\contentsline {subsection}{\numberline {11.8}FiberCollaps away from the origin}{33}{subsection.11.8}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {12.7}FiberCollaps away from the origin}{34}{subsection.12.7}%
+\contentsline {section}{\numberline {12}Schemes do not have descent}{35}{section.12}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {12.8}Schemes do not have descent}{34}{subsection.12.8}%
+\contentsline {subsection}{\numberline {12.1}Line with two origins}{35}{subsection.12.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {12.9}Gluing in an affine on the line}{35}{subsection.12.9}%
+\contentsline {subsection}{\numberline {12.2}Twisted line with double origin}{36}{subsection.12.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {13}Deloopings and Truncations}{38}{section.13}%
+\contentsline {subsection}{\numberline {12.3}The type of schemes is not modal}{37}{subsection.12.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {14}Local properties}{41}{section.14}%
+\contentsline {section}{\numberline {13}Deloopings and Truncations}{39}{section.13}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {14.1}Local properties of stacks}{43}{subsection.14.1}%
+\contentsline {section}{\numberline {14}Local properties}{42}{section.14}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {14.2}Seperatedness}{43}{subsection.14.2}%
+\contentsline {subsection}{\numberline {14.1}Local properties of stacks}{44}{subsection.14.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {14.3}Formally \' etale TODO}{43}{subsection.14.3}%
+\contentsline {subsection}{\numberline {14.2}Seperatedness}{44}{subsection.14.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {14.4}Weakly-flat stacks}{45}{subsection.14.4}%
+\contentsline {subsection}{\numberline {14.3}Weakly-flat stacks}{45}{subsection.14.3}%
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {15}Omega-stability and gerbes}{45}{section.15}%
 \defcounter {refsection}{0}\relax 
@@ -92,6 +92,12 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {19}Questions // TODO}{65}{section.19}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {20}Not clear where to put that}{65}{section.20}%
+\contentsline {section}{\numberline {20}Unnecessary}{65}{section.20}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {20.1}Remarks about weakly flat affines}{66}{subsection.20.1}%
+\contentsline {subsection}{\numberline {20.1}Gluing in an affine on the line}{65}{subsection.20.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {20.2}Topology}{67}{subsection.20.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {20.3}Remarks about weakly flat affines}{67}{subsection.20.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {21}Not clear where to put that}{68}{section.21}%

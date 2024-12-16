@@ -115,6 +115,77 @@
       \verb www.felix-cherubini.de/sheaves.pdf
       \endverb
     \endentry
+    \entry{Modalities}{article}{}
+      \name{author}{3}{}{%
+        {{hash=b1bb80d57e903f657e4b411a28823e28}{%
+           family={Rijke},
+           familyi={R\bibinitperiod},
+           given={Egbert},
+           giveni={E\bibinitperiod}}}%
+        {{hash=a49cc4742950659ae680e1c40f2295a9}{%
+           family={Shulman},
+           familyi={S\bibinitperiod},
+           given={Michael},
+           giveni={M\bibinitperiod}}}%
+        {{hash=fb17eb7a080e0246fc98e395e0a4ec5b}{%
+           family={Spitters},
+           familyi={S\bibinitperiod},
+           given={Bas},
+           giveni={B\bibinitperiod}}}%
+      }
+      \strng{namehash}{41523e54d57743a358e719fc73fb3692}
+      \strng{fullhash}{41523e54d57743a358e719fc73fb3692}
+      \strng{bibnamehash}{41523e54d57743a358e719fc73fb3692}
+      \strng{authorbibnamehash}{41523e54d57743a358e719fc73fb3692}
+      \strng{authornamehash}{41523e54d57743a358e719fc73fb3692}
+      \strng{authorfullhash}{41523e54d57743a358e719fc73fb3692}
+      \field{sortinit}{R}
+      \field{sortinithash}{b9c68a358aea118dfa887b6e902414a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eid}{2}
+      \field{issn}{1860-5974}
+      \field{journaltitle}{Logical Methods in Computer Science}
+      \field{month}{1}
+      \field{title}{Modalities in homotopy type theory}
+      \field{volume}{Volume 16, Issue 1}
+      \field{year}{2020}
+      \verb{doi}
+      \verb 10.23638/LMCS-16(1:2)2020
+      \endverb
+      \verb{urlraw}
+      \verb https://lmcs.episciences.org/3826
+      \endverb
+      \verb{url}
+      \verb https://lmcs.episciences.org/3826
+      \endverb
+      \keyw{Mathematics - Category Theory,Computer Science - Logic in Computer Science,Mathematics - Logic,F.3.1,F.4.1,F.3.1,F.4.1}
+    \endentry
+    \entry{geomstacks}{article}{}
+      \name{author}{1}{}{%
+        {{hash=9a234e87425b7ed710494613f7af52c6}{%
+           family={{Tim Lichtnau}},
+           familyi={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{9a234e87425b7ed710494613f7af52c6}
+      \strng{fullhash}{9a234e87425b7ed710494613f7af52c6}
+      \strng{bibnamehash}{9a234e87425b7ed710494613f7af52c6}
+      \strng{authorbibnamehash}{9a234e87425b7ed710494613f7af52c6}
+      \strng{authornamehash}{9a234e87425b7ed710494613f7af52c6}
+      \strng{authorfullhash}{9a234e87425b7ed710494613f7af52c6}
+      \field{sortinit}{T}
+      \field{sortinithash}{51f9faf24c60c62ca764a77f78cf5666}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Higher Geometric Stacks in SAG}
+      \field{year}{2024}
+      \verb{urlraw}
+      \verb https://raw.githubusercontent.com/timlichtnau/MasterThesis/Main/main.pdf
+      \endverb
+      \verb{url}
+      \verb https://raw.githubusercontent.com/timlichtnau/MasterThesis/Main/main.pdf
+      \endverb
+    \endentry
   \enddatalist
 \endrefsection
 \endinput
